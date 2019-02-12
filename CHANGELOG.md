@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.25.0"></a>
+# [2.25.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.24.0...v2.25.0) (2019-02-12)
+
+
+### Features
+
+* **l10n:** Update english gb short and fix typo ([df6e4c6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/df6e4c6))
+
+
+
 <a name="2.24.0"></a>
 # [2.24.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.23.0...v2.24.0) (2019-02-05)
 
