@@ -2,16 +2,18 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/simple-trade/SimpleTrade";
 import { fairTradeArray } from "~/scripts/trade";
 import { agesGoods } from "~/lib/foe-data/goods";
-import { localVue, store } from "../localVue";
+import { getView } from "../localVue";
 
-const factory = () =>
-  shallowMount(Component, {
+const factory = () => {
+  const { localVue, store } = getView();
+  return shallowMount(Component, {
     propsData: {
       tradeArray: fairTradeArray
     },
     localVue,
     store
   });
+};
 
 const dataCheckResult = [
   {
