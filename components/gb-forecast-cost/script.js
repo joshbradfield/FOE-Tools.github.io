@@ -185,7 +185,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-forecast-cost/"),
+        path: this.$i18nPath("gb-forecast-cost/"),
         query: this.$store.state.urlQuery
       };
     },

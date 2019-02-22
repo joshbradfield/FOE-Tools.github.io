@@ -209,7 +209,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-statistics/"),
+        path: this.$i18nPath("gb-statistics/"),
         query: this.$store.state.urlQuery
       };
     }

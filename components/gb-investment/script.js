@@ -166,7 +166,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-investment/" + this.gb.key + "/"),
+        path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbi")
       };
     }
@@ -336,7 +336,7 @@ export default {
   },
   methods: {
     goTo(val) {
-      window.location.href = this.$i18n.path(`gb-investment/${val}/`);
+      window.location.href = this.$i18nPath(`gb-investment/${val}/`);
     },
     cookieValid(key) {
       return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));

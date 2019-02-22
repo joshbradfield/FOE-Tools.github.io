@@ -96,7 +96,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-investment/" + this.gb.key + "/"),
+        path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbii")
       };
     }
@@ -222,7 +222,7 @@ export default {
   },
   methods: {
     goTo(val) {
-      window.location.href = this.$i18n.path(`gb-investment/${val}/`);
+      window.location.href = this.$i18nPath(`gb-investment/${val}/`);
     },
     haveError(key) {
       return this.$data.errors[key] ? "is-danger" : "";

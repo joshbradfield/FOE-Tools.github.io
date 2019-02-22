@@ -102,7 +102,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("secure-position/"),
+        path: this.$i18nPath("secure-position/"),
         query: this.$store.getters.getUrlQuery(this.$props.ns)
       };
     }

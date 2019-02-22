@@ -2,7 +2,7 @@
   header
     nav.navbar.has-shadow
       div.navbar-brand
-        a.navbar-item(:href="$i18n.path('/')")
+        a.navbar-item(:href="$i18nPath('/')")
           img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
         div.navbar-burger.burger(v-bind:class="{'is-active': burgerMenuVisible}" data-target="mainNavbar" @click="toggleMenu")
           span
@@ -37,7 +37,7 @@
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}
         |
         |
-        nuxt-link(:to="$i18n.path('about#cookies')" exact) {{$t(i18nPrefix + 'cookie.link')}}
+        nuxt-link(:to="$i18nPath('about#cookies')" exact) {{$t(i18nPrefix + 'cookie.link')}}
         | .
 
   section.hero.is-dark-blue
@@ -73,7 +73,7 @@
           nav.breadcrumb.has-dot-separator.is-centered.is-marginless(aria-label="breadcrumbs")
             ul
               li(v-for="footerLink in footerLinks" v-bind:class="{ 'is-active': $store.state.currentLocation === footerLink.key }")
-                nuxt-link(v-bind:to="$i18n.path(footerLink.link)" exact) {{$t('footer_menu.' + footerLink.key)}}
+                nuxt-link(v-bind:to="$i18nPath(footerLink.link)" exact) {{$t('footer_menu.' + footerLink.key)}}
           p
             small(v-html="$t('components.site_layout.footer.license_html')")
           p {{$t('components.site_layout.footer.version', {version: siteVersion})}}

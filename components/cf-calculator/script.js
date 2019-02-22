@@ -170,7 +170,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("cf-calculator/"),
+        path: this.$i18nPath("cf-calculator/"),
         query: this.$store.state.urlQuery
       };
     }
