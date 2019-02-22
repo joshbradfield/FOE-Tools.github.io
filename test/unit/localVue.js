@@ -83,6 +83,8 @@ config.mocks["$cookies"] = {
     switch (key) {
       case "locale":
         return i18next.language;
+      case "yourArcBonus":
+        return 90.6;
     }
     return null;
   }),

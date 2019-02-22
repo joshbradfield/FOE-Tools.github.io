@@ -183,9 +183,7 @@ export default {
         return;
       }
       this.$data.change = true;
-      if (val === "") {
-        this.$data.otherParticipation = 0;
-      } else if (
+      if (
         Utils.handlerForm(
           this,
           "otherParticipation",
@@ -315,8 +313,9 @@ export default {
       }
 
       if (
-        ((this.$data["levelCost"] === this.$data["currentDeposits"]) === this.$data["yourParticipation"]) ===
-          this.$data["otherParticipation"] &&
+        this.$data["levelCost"] === this.$data["currentDeposits"] &&
+        this.$data["levelCost"] === this.$data["yourParticipation"] &&
+        this.$data["levelCost"] === this.$data["otherParticipation"] &&
         this.$data["levelCost"] === 0
       ) {
         return true;
