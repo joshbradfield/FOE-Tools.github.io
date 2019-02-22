@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.26.0"></a>
+# [2.26.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.25.0...v2.26.0) (2019-02-21)
+
+
+### Features
+
+* **contributors:** Add contributor ([16b073e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/16b073e))
+* **l10n:** add Hungarian language ([c2dfc03](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c2dfc03))
+
+
+
 <a name="2.25.0"></a>
 # [2.25.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.24.0...v2.25.0) (2019-02-12)
 

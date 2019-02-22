@@ -14,6 +14,7 @@ import "numeral/locales/fr";
 import "numeral/locales/de";
 import "numeral/locales/ru";
 import "numeral/locales/nl-nl";
+import "numeral/locales/hu";
 
 // Constant used
 export const defaultLocale = "en";
