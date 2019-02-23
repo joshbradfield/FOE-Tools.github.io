@@ -458,7 +458,7 @@ export default {
       obj.datasets = result.datasets;
     },
     switchVisibility(index) {
-      if (Utils.inRange(index, 0, this.$data.hidden.length)) {
+      if (Utils.inRange(index, 0, this.$data.hidden.length - 1)) {
         Vue.set(this.$data.hidden, index, !this.$data.hidden[index]);
       }
     },

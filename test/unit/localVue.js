@@ -5,7 +5,7 @@ import Vuex from "vuex";
 import * as storeStructure from "~/store/index";
 import VueClipboards from "vue-clipboards";
 import VueI18Next from "@panter/vue-i18next";
-import { i18next, defaultLocale, supportedLocales } from "~/scripts/i18n";
+import { i18next, defaultLocale, supportedLocales, initializeI18next } from "~/scripts/i18n";
 import VueNumeral from "~/plugins/numeral";
 import Buefy from "buefy";
 
@@ -30,6 +30,7 @@ export function getView() {
   // i18next //
   /////////////
 
+  initializeI18next();
   localVue.use(VueI18Next);
 
   const i18n = new VueI18Next(i18next);
@@ -37,7 +38,7 @@ export function getView() {
   localVue.use({
     install(Vue) {
       Vue.prototype.i18n = i18n;
-      Vue.prototype.$t = key => i18next.t(key);
+      Vue.prototype.$t = (...args) => i18n.i18next.t(...args);
       Vue.prototype.defaultLocale = defaultLocale;
       store.state.supportedLocales = supportedLocales;
 
