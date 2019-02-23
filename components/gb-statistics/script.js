@@ -19,8 +19,6 @@ export default {
     const defaultFromGraph = 1;
     const defaultToGraph = 80;
 
-    console.log("before const obj");
-
     const obj = {
       i18nPrefix,
       graphType: {
@@ -173,19 +171,13 @@ export default {
       }
     };
 
-    console.log("after create object data");
-
     for (const gb in gbsData) {
       if (gbsData[gb].levels.length === obj.maxLevelGraph) {
         obj.maxAgeCost = agesCost[gbsData[gb].age];
       }
     }
 
-    console.log("before check query");
-
     Object.assign(obj, this.checkQuery(obj));
-
-    console.log("after check query");
 
     this.$store.commit("ADD_URL_QUERY", {
       key: queryKey.statSelector,
