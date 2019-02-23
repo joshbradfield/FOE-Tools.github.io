@@ -30,4 +30,13 @@ describe("GbListSelect", () => {
     expect(wrapper.emitted().change).toBeTruthy();
     expect(wrapper.emitted().change[0]).toEqual([newGb]);
   });
+
+  test('Change "gbList" invalid value', () => {
+    const wrapper = factory();
+    const newGb = "foo";
+    expect(wrapper.vm.gbList).toBe(defaultGb);
+    wrapper.vm.gbList = newGb;
+    expect(wrapper.vm.gbList).toBe(newGb);
+    expect(wrapper.emitted().change).toBeFalsy();
+  });
 });
