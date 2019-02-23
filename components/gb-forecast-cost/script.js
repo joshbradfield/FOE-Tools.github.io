@@ -59,7 +59,7 @@ export default {
         responsive: true,
         title: {
           display: true,
-          text: this.$i18n.i18next.t(i18nPrefix + "graph.title", {
+          text: this.$t(i18nPrefix + "graph.title", {
             gb: "foe_data.gb." + gbsData.Observatory.key
           })
         },
@@ -73,7 +73,7 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: this.$i18n.i18next.t(i18nPrefix + "graph.x_axes_label")
+                labelString: this.$t(i18nPrefix + "graph.x_axes_label")
               },
               ticks: {
                 suggestedMin: defaultFrom,
@@ -86,7 +86,7 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: this.$i18n.i18next.t(i18nPrefix + "graph.y_axes_label")
+                labelString: this.$t(i18nPrefix + "graph.y_axes_label")
               }
             }
           ]
@@ -469,15 +469,15 @@ export default {
 
       this.$data.datasets = datasets;
       this.$data.labels = labels;
-      this.$data.options.title.text = this.$i18n.i18next.t(i18nPrefix + "graph.title", {
+      this.$data.options.title.text = this.$t(i18nPrefix + "graph.title", {
         gb: "foe_data.gb." + this.$data.gb.key
       });
-      this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$i18n.i18next.t(
+      this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$t(
         i18nPrefix + "graph.x_axes_label"
       );
       this.$data.options.scales.xAxes[0].ticks.suggestedMin = this.$data.from;
       this.$data.options.scales.xAxes[0].ticks.suggestedMax = this.$data.to;
-      this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$i18n.i18next.t(
+      this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$t(
         i18nPrefix + "graph.y_axes_label"
       );
     },

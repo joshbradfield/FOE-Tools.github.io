@@ -24,6 +24,7 @@ export default ({ app, store, route }) => {
   app.defaultLocale = defaultLocale;
   store.supportedLocales = supportedLocales;
 
+  Vue.prototype.$t = i18next.t;
   Vue.prototype.$i18nPath = link => {
     if (app.i18n.i18next.language === app.defaultLocale) {
       return `${link.charAt(0) === "/" ? "" : "/"}${link}`;

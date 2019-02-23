@@ -48,64 +48,64 @@ export default {
         {
           ...this.$store.state.routes.home,
           type: Utils.MenuRecordType.PAGE,
-          name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.home.key}`),
+          name: this.$t(`main_menu.${this.$store.state.routes.home.key}`),
           children: []
         },
         {
           type: Utils.MenuRecordType.MENU_ENTRY,
-          name: this.$i18n.i18next.t("utils.content.tools"),
+          name: this.$t("utils.content.tools"),
           key: null,
           link: null,
           children: [
             {
               ...this.$store.state.routes.gb_investment,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.gb_investment.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.gb_investment.key}`),
               children: []
             },
             {
               ...this.$store.state.routes.secure_position,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.secure_position.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.secure_position.key}`),
               children: []
             },
             {
               ...this.$store.state.routes.cf_calculator,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.cf_calculator.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.cf_calculator.key}`),
               children: []
             },
             {
               ...this.$store.state.routes.trade,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.trade.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.trade.key}`),
               children: []
             },
             {
               ...this.$store.state.routes.campaign_cost,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.campaign_cost.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.campaign_cost.key}`),
               children: []
             }
           ]
         },
         {
           type: Utils.MenuRecordType.MENU_ENTRY,
-          name: this.$i18n.i18next.t("utils.content.statistics"),
+          name: this.$t("utils.content.statistics"),
           link: null,
           key: null,
           children: [
             {
               ...this.$store.state.routes.gb_statistics,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.gb_statistics.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.gb_statistics.key}`),
               link: this.$store.state.routes.gb_statistics.link,
               children: []
             },
             {
               ...this.$store.state.routes.gb_forecast_cost,
               type: Utils.MenuRecordType.PAGE,
-              name: this.$i18n.i18next.t(`main_menu.${this.$store.state.routes.gb_forecast_cost.key}`),
+              name: this.$t(`main_menu.${this.$store.state.routes.gb_forecast_cost.key}`),
               children: []
             }
           ]

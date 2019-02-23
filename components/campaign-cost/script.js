@@ -59,9 +59,9 @@ export default {
       const ordered = {};
       Object.keys(campaignCost[currentAge])
         .sort((a, b) => {
-          return this.$i18n.i18next.t("foe_data.province." + a) > this.$i18n.i18next.t("foe_data.province." + b)
+          return this.$t("foe_data.province." + a) > this.$t("foe_data.province." + b)
             ? 1
-            : this.$i18n.i18next.t("foe_data.province." + b) > this.$i18n.i18next.t("foe_data.province." + a)
+            : this.$t("foe_data.province." + b) > this.$t("foe_data.province." + a)
               ? -1
               : 0;
         })
