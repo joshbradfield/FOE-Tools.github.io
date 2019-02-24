@@ -23,6 +23,7 @@ module.exports = {
     "**/*.{js,vue}",
     "!**/components/graph-canvas/**",
     "!**/coverage/**",
+    "!**/layouts/*.vue",
     "!**/node_modules/**",
     "!**/middleware/**",
     "!**/pages/**",
@@ -31,7 +32,7 @@ module.exports = {
     "!**/scripts/errors.js",
     "!**/*.config.js",
     "!**/components/**/script.js",
-    "!**/layouts/**/script.js"
+    "!**/layouts/**/script.js",
   ],
   coverageReporters: ["html", "text", "text-summary"]
 };

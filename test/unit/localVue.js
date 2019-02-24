@@ -38,6 +38,7 @@ export function getView() {
   localVue.use({
     install(Vue) {
       Vue.prototype.i18n = i18n;
+      Vue.prototype.$i18nExists = (...args) => i18n.i18next.exists(...args);
       Vue.prototype.$t = (...args) => i18n.i18next.t(...args);
       Vue.prototype.defaultLocale = defaultLocale;
       store.state.supportedLocales = supportedLocales;

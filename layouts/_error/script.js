@@ -6,7 +6,7 @@ function sCode(error) {
 
 export default {
   props: ["error"],
-  head() {
+  head /* istanbul ignore next */: function() {
     return {
       title: this.$t(i18nPrefix + sCode(this.error) + ".title")
     };
@@ -26,8 +26,8 @@ export default {
       const statusCode = sCode(this.error);
 
       if (
-        this.$i18n.i18next.exists(i18nPrefix + statusCode.toString()) &&
-        this.$i18n.i18next.exists(i18nPrefix + statusCode.toString() + ".message")
+        this.$i18nExists(i18nPrefix + statusCode.toString()) &&
+        this.$i18nExists(i18nPrefix + statusCode.toString() + ".message")
       ) {
         return this.$t(i18nPrefix + statusCode.toString() + ".message");
       } else {

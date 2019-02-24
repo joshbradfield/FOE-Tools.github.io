@@ -2,7 +2,7 @@ import Vue from "vue";
 import languageSelector from "~/components/language-selector/LanguageSelector";
 import packageConfig from "~/package.json";
 import Utils from "~/scripts/utils";
-import * as moment from "moment";
+import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
 
 momentDurationFormatSetup(moment);
@@ -10,7 +10,7 @@ const i18nPrefix = "components.site_layout.";
 const creationDate = moment("2017-12-20");
 
 export default {
-  head() {
+  head /* istanbul ignore next */: function() {
     return {
       link: [
         {
@@ -142,7 +142,7 @@ export default {
   },
   methods: {
     confirmInfoCookie() {
-      this.$data.cookieUnread = false;
+      this.$data.cookieDisclaimerUndisplayed = false;
       this.$cookies.set("cookieDisclaimerDisplayed", true, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
