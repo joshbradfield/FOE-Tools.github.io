@@ -68,6 +68,12 @@ export function getView() {
 
   localVue.use(Buefy, { defaultIconPack: "fas", materialDesignIcons: false });
 
+  ////////////////
+  // Clear mock //
+  ////////////////
+
+  config.mocks.$cookies.set.mockClear();
+
   return {
     localVue,
     store,
