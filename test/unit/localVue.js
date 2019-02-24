@@ -43,15 +43,15 @@ export function getView() {
       store.state.supportedLocales = supportedLocales;
 
       Vue.prototype.$i18nPath = link => {
-        if (i18n.language === defaultLocale) {
+        if (i18n.i18next.language === defaultLocale) {
           return `${link.charAt(0) === "/" ? "" : "/"}${link}`;
         }
 
         if (link === "/") {
-          return `/${i18n.language}/`;
+          return `/${i18n.i18next.language}/`;
         }
 
-        return `/${i18n.language}/${link}`;
+        return `/${i18n.i18next.language}/${link}`;
       };
     }
   });
@@ -87,9 +87,18 @@ config.mocks["$cookies"] = {
       case "yourArcBonus":
         return 90.6;
     }
-    return null;
+    return undefined;
   }),
   set: jest.fn()
 };
 
 config.stubs["NuxtLink"] = RouterLinkStub;
+
+global.window = Object.create(window);
+const url = "https://test.foe-tools.github.io";
+Object.defineProperty(window, "location", {
+  value: {
+    href: url
+  },
+  writable: true
+});

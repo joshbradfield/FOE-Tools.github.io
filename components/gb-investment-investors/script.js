@@ -91,9 +91,6 @@ export default {
     isPermalink() {
       return this.$store.state.isPermalink;
     },
-    lang() {
-      return this.$store.state.locale;
-    },
     permaLink() {
       return {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
@@ -286,14 +283,11 @@ export default {
       const result = [];
 
       for (let i = 0; i < this.$props.gb.levels.length; i++) {
+        const investorPercentage = Array.apply(null, Array(5)).map(() => this.$data.yourArcBonus);
+        const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
-          gbProcess.Submit(
-            i + 1,
-            Array.apply(null, Array(5)).map(() => this.$data.yourArcBonus),
-            this.$props.gb.levels,
-            Array(5).map(() => 0)
-          )
+          gbProcess.Submit(i + 1, investorPercentage, this.$props.gb.levels, defaultParticipation)
         );
 
         let currentDeposits = 0;
