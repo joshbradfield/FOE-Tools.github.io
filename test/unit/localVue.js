@@ -92,10 +92,16 @@ config.mocks["$cookies"] = {
   set: jest.fn()
 };
 
+const url = "https://test.foe-tools.github.io";
+config.mocks["$nuxt"] = {
+  $route: {
+    path: url
+  }
+};
+
 config.stubs["NuxtLink"] = RouterLinkStub;
 
 global.window = Object.create(window);
-const url = "https://test.foe-tools.github.io";
 Object.defineProperty(window, "location", {
   value: {
     href: url

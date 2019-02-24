@@ -74,8 +74,7 @@ export default {
         investorParticipation_4: false
       },
       promotion: [],
-      childChange: false,
-      query: this.GET_URL_QUERY
+      childChange: false
     };
 
     for (let i = 0; i < 5; i++) {
@@ -172,9 +171,6 @@ export default {
     }
   },
   watch: {
-    GET_URL_QUERY(val) {
-      this.$data.permalink.query = val;
-    },
     level(val, oldVal) {
       if (
         Utils.handlerForm(
@@ -235,15 +231,17 @@ export default {
           value: val,
           ns: "gbi"
         });
+
+        for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
+          this.$store.commit("UPDATE_URL_QUERY", {
+            key: queryKey.investorPercentageCustom + (index + 1),
+            value: val,
+            ns: "gbi"
+          });
+          this.$data.investorPercentageCustom[index] = val;
+        }
+
         this.calculate();
-      }
-      for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
-        this.$store.commit("UPDATE_URL_QUERY", {
-          key: queryKey.investorPercentageCustom + (index + 1),
-          value: val,
-          ns: "gbi"
-        });
-        this.$data.investorPercentageCustom[index] = val;
       }
     },
     investorPercentageCustom(val) {
@@ -351,7 +349,8 @@ export default {
         );
         this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
-        this.$data.errors["investorParticipation_" + e.index] = true;
+        // TODO: processing error
+        console.error("error during calculation: ", e);
       }
     },
     updatePromotionMessage() {
@@ -396,6 +395,7 @@ export default {
     successCopy(index) {
       this.promotion[index].active = true;
       let self = this;
+      /* istanbul ignore next */
       setTimeout(function() {
         self.promotion[index].active = false;
       }, 3000);
@@ -429,7 +429,7 @@ export default {
       let investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
       let investorParticipation = Array.apply(null, Array(5)).map(() => 0);
       let placeFree = Array.apply(null, Array(5)).map(() => {
-        return { free: true };
+        return { state: true };
       });
       let isPermalink = false;
 
@@ -516,9 +516,9 @@ export default {
         result.shortName = !!parseInt(this.$route.query[queryKey.shortName]);
       }
 
-      if (this.$route.query[queryKey.showLeve]) {
+      if (this.$route.query[queryKey.showLevel]) {
         isPermalink = true;
-        result.showLeve = !!parseInt(this.$route.query[queryKey.showLeve]);
+        result.showLevel = !!parseInt(this.$route.query[queryKey.showLevel]);
       }
 
       if (isPermalink) {
