@@ -1,15 +1,11 @@
+import Vue from "vue";
+
 import Utils from "~/scripts/utils";
 import { gbsData } from "~/lib/foe-data/gbs";
 import gbProcess from "~/scripts/foe-gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
-
-import Vue from "vue";
-import * as moment from "moment";
-import momentDurationFormatSetup from "moment-duration-format";
 import YesNo from "~/components/yes-no/YesNo";
-
-momentDurationFormatSetup(moment);
 
 const i18nPrefix = "components.gb_forecast_cost.";
 const urlPrefix = "gbfc_";
@@ -25,7 +21,7 @@ const queryKey = {
   from: urlPrefix + "f",
   to: urlPrefix + "t",
   investorPercentageGlobal: urlPrefix + "ipg",
-  investorPercentageCustom: urlPrefix + "ipc_",
+  investorPercentageCustom: urlPrefix + "p",
   cp: urlPrefix + "cp",
   fpBy24h: urlPrefix + "fp",
   alreadyInvested: urlPrefix + "ai"
@@ -40,6 +36,8 @@ const inputComparator = {
   alreadyInvested: { comparator: [">=", 0] }
 };
 
+const defaultGb = JSON.parse(JSON.stringify(gbsData[Object.keys(gbsData)[0]]));
+
 export default {
   name: "GbForecastCost",
   props: {
@@ -49,7 +47,7 @@ export default {
     }
   },
   data() {
-    moment.locale(this.$store.state.locale);
+    this.$moment.locale(this.$store.state.locale);
 
     const data = {
       i18nPrefix: i18nPrefix,
@@ -60,7 +58,7 @@ export default {
         title: {
           display: true,
           text: this.$t(i18nPrefix + "graph.title", {
-            gb: "foe_data.gb." + gbsData.Observatory.key
+            gb: "foe_data.gb." + defaultGb.key
           })
         },
         tooltips: {
@@ -92,18 +90,12 @@ export default {
           ]
         }
       },
-      gb: gbsData.Observatory,
-      maxLevel: gbsData.Observatory.levels.length,
+      gb: defaultGb,
+      maxLevel: defaultGb.levels.length,
       from: defaultFrom,
       to: defaultTo,
       investorPercentageGlobal: defaultArcPercentage,
-      investorPercentageCustom: [
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage
-      ],
+      investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
       customPercentage: false,
       fpBy24h: 0,
       alreadyInvested: 0,
@@ -123,8 +115,8 @@ export default {
       previsionDefault: gbProcess.SubmitRange(
         defaultFrom,
         defaultTo,
-        [defaultArcPercentage, defaultArcPercentage, defaultArcPercentage, defaultArcPercentage, defaultArcPercentage],
-        gbsData.Observatory.levels
+        Array.from(new Array(5), () => defaultArcPercentage),
+        defaultGb.levels
       )
     };
 
@@ -180,9 +172,6 @@ export default {
     lang() {
       return this.$store.state.locale;
     },
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
     permaLink() {
       return {
         path: this.$i18nPath("gb-forecast-cost/"),
@@ -207,10 +196,10 @@ export default {
   },
   watch: {
     lang() {
-      moment.locale(this.$store.state.locale);
+      this.$moment.locale(this.$store.state.locale);
       if (this.$data.fpBy24h > 0) {
         let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
-        this.$data.estimatedTime = Utils.getFormatedDuration(moment.duration(duration, "days"), this.$i18n.i18next);
+        this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18next);
       }
 
       this.updatePrevisionGraph();
@@ -278,14 +267,16 @@ export default {
           key: queryKey.investorPercentageGlobal,
           value: val
         });
+
+        for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
+          this.$store.commit("UPDATE_URL_QUERY", {
+            key: queryKey.investorPercentageCustom + (index + 1),
+            value: val
+          });
+          this.$data.investorPercentageCustom[index] = val;
+        }
+
         this.calculate();
-      }
-      for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
-        this.$store.commit("UPDATE_URL_QUERY", {
-          key: queryKey.investorPercentageCustom + (index + 1),
-          value: val
-        });
-        this.$data.investorPercentageCustom[index] = val;
       }
     },
     investorPercentageCustom(val) {
@@ -343,8 +334,8 @@ export default {
           (this.$data.previsionResult.global.totalPreparations - this.$data.alreadyInvested) / val
         );
         this.$data.estimatedTime = Utils.getFormatedDuration(
-          moment.duration(this.$data.duration, "days"),
-          this.$i18n.i18next
+          this.$moment.duration(this.$data.duration, "days"),
+          this.$i18next
         );
       } else {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -367,8 +358,8 @@ export default {
           (this.$data.previsionResult.global.totalPreparations - this.$data.alreadyInvested) / this.$data.fpBy24h
         );
         this.$data.estimatedTime = Utils.getFormatedDuration(
-          moment.duration(this.$data.duration, "days"),
-          this.$i18n.i18next
+          this.$moment.duration(this.$data.duration, "days"),
+          this.$i18next
         );
       }
     }
@@ -387,9 +378,9 @@ export default {
       return false;
     },
     changeGb(key) {
-      this.$data.gb = gbsData[key];
+      this.$data.gb = JSON.parse(JSON.stringify(gbsData[key]));
       this.$data.maxLevel = this.$data.gb.levels.length;
-      this.$data.from = this.$data.from > this.$data.maxLevel ? 0 : this.$data.from;
+      this.$data.from = this.$data.from > this.$data.maxLevel ? defaultFrom : this.$data.from;
       this.$data.to = this.$data.to > this.$data.maxLevel ? this.$data.maxLevel : this.$data.to;
       this.calculate();
     },
@@ -498,7 +489,7 @@ export default {
 
       if (this.$data.fpBy24h > 0) {
         let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
-        this.$data.estimatedTime = Utils.getFormatedDuration(moment.duration(duration, "days"), this.$i18n.i18next);
+        this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18next);
       }
       this.updatePrevisionGraph();
     },
@@ -515,7 +506,7 @@ export default {
 
       if (this.$route.query[queryKey.gb] && this.$route.query[queryKey.gb] in gbsData) {
         change = Utils.FormCheck.VALID;
-        result.gb = gbsData[this.$route.query[queryKey.gb]];
+        result.gb = JSON.parse(JSON.stringify(gbsData[this.$route.query[queryKey.gb]]));
       }
 
       for (let key in inputComparator) {
@@ -539,7 +530,7 @@ export default {
       if (
         this.$route.query[queryKey.from] &&
         !isNaN(this.$route.query[queryKey.from]) &&
-        parseFloat(this.$route.query[queryKey.from]) >= 1
+        parseInt(this.$route.query[queryKey.from]) >= 1
       ) {
         fromToChange++;
         from = parseInt(this.$route.query[queryKey.from]);
@@ -548,10 +539,10 @@ export default {
       if (
         this.$route.query[queryKey.to] &&
         !isNaN(this.$route.query[queryKey.to]) &&
-        parseFloat(this.$route.query[queryKey.to]) >= 1
+        parseInt(this.$route.query[queryKey.to]) >= 1
       ) {
         fromToChange++;
-        from = parseInt(this.$route.query[queryKey.to]);
+        to = parseInt(this.$route.query[queryKey.to]);
       }
 
       if (fromToChange > 0 && from <= to) {
@@ -598,7 +589,6 @@ export default {
   },
   mounted() {
     this.calculate();
-    this.updatePrevisionGraph();
   },
   components: {
     gbListSelect,

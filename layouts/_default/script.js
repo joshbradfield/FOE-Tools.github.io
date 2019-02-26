@@ -2,12 +2,8 @@ import Vue from "vue";
 import languageSelector from "~/components/language-selector/LanguageSelector";
 import packageConfig from "~/package.json";
 import Utils from "~/scripts/utils";
-import moment from "moment";
-import momentDurationFormatSetup from "moment-duration-format";
 
-momentDurationFormatSetup(moment);
 const i18nPrefix = "components.site_layout.";
-const creationDate = moment("2017-12-20");
 
 export default {
   head /* istanbul ignore next */: function() {
@@ -119,6 +115,9 @@ export default {
     };
   },
   computed: {
+    creationDate() {
+      return this.$moment("2017-12-20");
+    },
     isPermalink() {
       return this.$store.state.isPermalink;
     },
@@ -126,10 +125,10 @@ export default {
       return this.$store.state.locale;
     },
     isNewYear() {
-      return moment().format("MMDD") === creationDate.format("MMDD");
+      return this.$moment().format("MMDD") === this.creationDate.format("MMDD");
     },
     nbYears() {
-      return moment().year() - creationDate.year();
+      return this.$moment().year() - this.creationDate.year();
     }
   },
   watch: {

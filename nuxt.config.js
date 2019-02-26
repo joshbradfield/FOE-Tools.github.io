@@ -262,7 +262,12 @@ module.exports = {
       return { x: 0, y: 0 };
     }
   },
-  plugins: [{ src: "~/plugins/i18next.js" }, { src: "~/plugins/clipboard.js" }, { src: "~/plugins/numeral-plugin.js" }],
+  plugins: [
+    { src: "~/plugins/i18next.js" },
+    { src: "~/plugins/clipboard.js" },
+    { src: "~/plugins/numeral-plugin.js" },
+    { src: "~/plugins/moment.js" }
+  ],
   generate: {
     fallback: true,
     routes: function() {

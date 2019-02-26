@@ -9,6 +9,10 @@ import { i18next, defaultLocale, supportedLocales, initializeI18next } from "~/s
 import VueNumeral from "~/plugins/numeral";
 import Buefy from "buefy";
 
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
+momentDurationFormatSetup(moment);
+
 export function getView() {
   // create an extended `Vue` constructor
   const localVue = createLocalVue();
@@ -26,6 +30,16 @@ export function getView() {
 
   localVue.use(VueClipboards);
 
+  ///////////////
+  // Clipboard //
+  ///////////////
+
+  localVue.use({
+    install(Vue) {
+      Vue.prototype.$moment = moment;
+    }
+  });
+
   /////////////
   // i18next //
   /////////////
@@ -38,6 +52,7 @@ export function getView() {
   localVue.use({
     install(Vue) {
       Vue.prototype.i18n = i18n;
+      Vue.prototype.$i18next = i18next;
       Vue.prototype.$i18nExists = (...args) => i18n.i18next.exists(...args);
       Vue.prototype.$t = (...args) => i18n.i18next.t(...args);
       Vue.prototype.defaultLocale = defaultLocale;
