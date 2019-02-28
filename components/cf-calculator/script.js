@@ -31,7 +31,7 @@ const inputComparator = {
 
 export default {
   name: "CfCalculator",
-  head() {
+  head /* istanbul ignore next */: function() {
     this.$store.commit("SET_HERO", {
       title: "routes.cf_calculator.hero.title",
       subtitle: "routes.cf_calculator.hero.subtitle"
@@ -118,7 +118,8 @@ export default {
     });
 
     return {
-      i18nPrefix: i18nPrefix,
+      ...data,
+      i18nPrefix,
       questData: questData,
       oneQuest: [
         questData.ages.BronzeAge.key,
@@ -126,18 +127,8 @@ export default {
         questData.ages.EarlyMiddleAges.key,
         questData.ages.HighMiddleAges.key
       ],
-      yourAge: data.yourAge,
       checkSecondQuest: false,
-      yourCfBoost: data.yourCfBoost,
-      coins: data.coins,
-      supplies: data.supplies,
-      goods: data.goods,
-      fpBy24h: data.fpBy24h,
-      otherRq: data.otherRq,
-      secondRq: data.secondRq,
-      suppliesGathered: data.suppliesGathered,
       infinityGenerator: false,
-      cumulativeQuest: data.cumulativeQuest,
       result: {
         bp: 0,
         medals: 0,
@@ -209,20 +200,21 @@ export default {
       }
     },
     secondRq(val) {
+      const value = !!val;
       if (!this.isPermalink) {
-        this.$cookies.set("secondRq", val, {
+        this.$cookies.set("secondRq", value, {
           path: this.$nuxt.$route.path,
           expires: Utils.getDefaultCookieExpireTime()
         });
       }
-      this.$data.suppliesGathered = val ? this.$data.suppliesGathered : 0;
+      this.$data.suppliesGathered = value ? this.$data.suppliesGathered : 0;
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.secondRq,
-        value: val ? 1 : 0
+        value: value ? 1 : 0
       });
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.suppliesGathered,
-        value: val ? this.$data.suppliesGathered : 0
+        value: value ? this.$data.suppliesGathered : 0
       });
       this.calculate();
     },
@@ -478,7 +470,7 @@ export default {
         second_quest_Completed += supplies_return_by_gather;
       } while (
         (!this.$data.infinityGenerator && (coin_return > 0 || supply_return > 0)) ||
-        this.$data.cumulativeQuest > this.$data.result.coinSupplyReturn.length
+        (this.$data.infinityGenerator && this.$data.cumulativeQuest > this.$data.result.coinSupplyReturn.length)
       );
 
       if (this.$data.infinityGenerator && this.$data.cumulativeQuest === 0) {
