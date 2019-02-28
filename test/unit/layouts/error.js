@@ -36,8 +36,7 @@ describe("Error", () => {
 
   test("Initialize with unknown error", () => {
     const wrapper = factory({
-      error: {
-      }
+      error: {}
     });
     expect(wrapper.isVueInstance()).toBeTruthy();
   });

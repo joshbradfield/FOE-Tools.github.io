@@ -123,14 +123,10 @@ export default {
         : this.$data.otherParticipation;
     },
     yourArcBonusClean() {
-      return !this.$data.yourArcBonus || this.$data.yourArcBonus.length === 0
-        ? 0
-        : this.$data.yourArcBonus;
+      return !this.$data.yourArcBonus || this.$data.yourArcBonus.length === 0 ? 0 : this.$data.yourArcBonus;
     },
     fpTargetRewardClean() {
-      return !this.$data.fpTargetReward || this.$data.fpTargetReward.length === 0
-        ? 0
-        : this.$data.fpTargetReward;
+      return !this.$data.fpTargetReward || this.$data.fpTargetReward.length === 0 ? 0 : this.$data.fpTargetReward;
     }
   },
   watch: {
