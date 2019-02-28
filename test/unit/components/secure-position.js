@@ -383,4 +383,18 @@ describe("SecurePosition", () => {
     expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.fpTargetReward).toBe(5);
   });
+
+  test('Change values but with "yourParticipation" null and "otherParticipation" empty', () => {
+    const wrapper = factory();
+    wrapper.vm.levelCost = 812;
+    wrapper.vm.currentDeposits = 633;
+    wrapper.vm.yourParticipation = null;
+    wrapper.vm.otherParticipation = "";
+    wrapper.vm.yourArcBonus = 90;
+    wrapper.vm.fpTargetReward = 65;
+
+    expect(wrapper.vm.fp).toBe(90);
+    expect(wrapper.vm.roi).toBe(34);
+    expect(wrapper.vm.checkFormValid()).toBe(true);
+  });
 });

@@ -96,6 +96,9 @@ export default {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbii")
       };
+    },
+    yourArcBonusClean() {
+      return !this.$data.yourArcBonus || this.$data.yourArcBonus.length === 0 ? 0 : this.$data.yourArcBonus;
     }
   },
   watch: {
@@ -137,7 +140,7 @@ export default {
       }
     },
     yourArcBonus(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
 
@@ -145,7 +148,7 @@ export default {
         Utils.handlerForm(
           this,
           "yourArcBonus",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           INPUT_COMPARATOR.yourArcBonus.comparator,
           !this.isPermalink,
@@ -283,7 +286,7 @@ export default {
       const result = [];
 
       for (let i = 0; i < this.$props.gb.levels.length; i++) {
-        const investorPercentage = Array.apply(null, Array(5)).map(() => this.$data.yourArcBonus);
+        const investorPercentage = Array.apply(null, Array(5)).map(() => this.yourArcBonusClean);
         const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
@@ -313,7 +316,7 @@ export default {
               currentDeposits,
               0,
               0,
-              this.$data.yourArcBonus,
+              this.yourArcBonusClean,
               currentLevel.reward[j]
             )
           );

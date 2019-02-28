@@ -2,6 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/gb-investment/GbInvestment";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
+import Errors from "../../../scripts/errors";
 
 const defaultGb = gbsData.Observatory;
 
@@ -381,7 +382,14 @@ describe("GbInvestment", () => {
   test('Call "calculate" with invalid data', () => {
     const wrapper = factory();
     wrapper.vm.level = -1;
-    wrapper.vm.calculate();
+    expect(() => wrapper.vm.calculate()).toThrow(
+      Errors.NotInBoundsError(
+        -1,
+        1,
+        gbsData.Observatory.levels.length,
+        'for parameter "currentLevel" of Submit(currentLevel, investorPercentage, gb, defaultParticipation)'
+      )
+    );
     expect(wrapper.emitted().updateLevelData.length).toBe(1);
   });
 

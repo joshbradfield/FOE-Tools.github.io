@@ -192,6 +192,9 @@ export default {
       } else {
         return 0;
       }
+    },
+    investorPercentageGlobalClean() {
+      return !this.$data.fpTargetReward || this.$data.fpTargetReward.length === 0 ? 0 : this.$data.fpTargetReward;
     }
   },
   watch: {
@@ -247,7 +250,7 @@ export default {
       }
     },
     investorPercentageGlobal(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
 
@@ -255,7 +258,7 @@ export default {
         Utils.handlerForm(
           this,
           "investorPercentageGlobal",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           [">=", 0],
           false,
@@ -317,10 +320,10 @@ export default {
         value: val ? 1 : 0
       });
       for (let i = 0; i < 5; i++) {
-        this.$data.investorPercentageCustom[i] = this.$data.investorPercentageGlobal;
+        this.$data.investorPercentageCustom[i] = this.investorPercentageGlobalClean;
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.investorPercentageCustom + (i + 1),
-          value: this.$data.investorPercentageGlobal
+          value: this.investorPercentageGlobalClean
         });
       }
     },
@@ -463,14 +466,10 @@ export default {
       this.$data.options.title.text = this.$t(i18nPrefix + "graph.title", {
         gb: "foe_data.gb." + this.$data.gb.key
       });
-      this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$t(
-        i18nPrefix + "graph.x_axes_label"
-      );
+      this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.x_axes_label");
       this.$data.options.scales.xAxes[0].ticks.suggestedMin = this.$data.from;
       this.$data.options.scales.xAxes[0].ticks.suggestedMax = this.$data.to;
-      this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$t(
-        i18nPrefix + "graph.y_axes_label"
-      );
+      this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.y_axes_label");
     },
     calculate() {
       this.$data.previsionDefault = gbProcess.SubmitRange(

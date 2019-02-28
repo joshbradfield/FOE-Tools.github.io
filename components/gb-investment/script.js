@@ -350,7 +350,7 @@ export default {
         this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
         // TODO: processing error
-        console.error("error during calculation: ", e);
+        throw e;
       }
     },
     updatePromotionMessage() {
