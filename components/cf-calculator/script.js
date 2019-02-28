@@ -413,6 +413,7 @@ export default {
       let min_between_coin_supplies;
       let final_nb_quest;
       let second_quest_Completed = nb_quest;
+      let lastCumulativeNbq = 0;
 
       do {
         if (first_lap) {
@@ -435,12 +436,22 @@ export default {
               (1 + cf_boost);
         } else {
           coin_return =
-            Math.floor(final_nb_quest * (1 / 14)) * age.reward.large_coins * (1 + cf_boost) +
-            Math.floor(final_nb_quest * (2 / 14)) * age.reward.small_coins * (1 + cf_boost);
+            Math.floor(lastCumulativeNbq * (1 / 14)) * age.reward.large_coins * (1 + cf_boost) +
+            Math.floor(lastCumulativeNbq * (2 / 14)) * age.reward.small_coins * (1 + cf_boost) +
+            Math.max(
+              0,
+              this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].coin -
+                lastCumulativeNbq * age.cost.coins
+            );
 
           supply_return =
-            Math.floor(final_nb_quest * (1 / 14)) * age.reward.large_supplies * (1 + cf_boost) +
-            Math.floor(final_nb_quest * (2 / 14)) * age.reward.small_supplies * (1 + cf_boost);
+            Math.floor(lastCumulativeNbq * (1 / 14)) * age.reward.large_supplies * (1 + cf_boost) +
+            Math.floor(lastCumulativeNbq * (2 / 14)) * age.reward.small_supplies * (1 + cf_boost) +
+            Math.max(
+              0,
+              this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].supply -
+                lastCumulativeNbq * age.cost.supplies
+            );
         }
 
         coin_return_by_cost = Math.floor(coin_return / age.cost.coins);
@@ -448,6 +459,7 @@ export default {
         supplies_return_by_gather = Math.floor(supply_return / age.cost.gather);
         min_between_coin_supplies =
           coin_return_by_cost < supply_coin_return_by_cost ? coin_return_by_cost : supply_coin_return_by_cost;
+        lastCumulativeNbq = min_between_coin_supplies;
         final_nb_quest = this.$data.secondRq
           ? supplies_return_by_gather + min_between_coin_supplies
           : min_between_coin_supplies;
@@ -469,7 +481,7 @@ export default {
         }
         second_quest_Completed += supplies_return_by_gather;
       } while (
-        (!this.$data.infinityGenerator && (coin_return > 0 || supply_return > 0)) ||
+        (!this.$data.infinityGenerator && (coin_return > age.cost.coins || supply_return > age.cost.supply)) ||
         (this.$data.infinityGenerator && this.$data.cumulativeQuest > this.$data.result.coinSupplyReturn.length)
       );
 
