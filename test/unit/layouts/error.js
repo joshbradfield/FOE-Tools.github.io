@@ -18,7 +18,7 @@ const factory = (props = {}) => {
   });
 };
 
-describe("Default", () => {
+describe("Error", () => {
   test("Is a Vue instance", () => {
     const wrapper = factory();
     expect(wrapper.isVueInstance()).toBeTruthy();

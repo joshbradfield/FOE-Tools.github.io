@@ -37,7 +37,7 @@ const defaultResult = {
   level: 10
 };
 
-describe("GbInvestmentInvestors", () => {
+describe("GbInvestment", () => {
   test("Is a Vue instance", () => {
     const wrapper = factory();
     expect(wrapper.isVueInstance()).toBeTruthy();

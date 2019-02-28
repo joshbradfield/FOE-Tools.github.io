@@ -56,7 +56,7 @@ const variableToTests = [
   }
 ];
 
-describe("CampaignCost", () => {
+describe("CfCalculator", () => {
   test("Is a Vue instance", () => {
     const wrapper = factory();
     expect(wrapper.isVueInstance()).toBeTruthy();
