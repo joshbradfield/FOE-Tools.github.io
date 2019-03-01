@@ -168,15 +168,26 @@ export default {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbi")
       };
+    },
+    levelNormalized() {
+      return Utils.normalizeNumberValue(this.$data.level, 1);
+    },
+    ownerInvestmentNormalized() {
+      return !this.$data.ownerInvestment || this.$data.ownerInvestment.length === 0 ? 0 : this.$data.ownerInvestment;
     }
   },
   watch: {
     level(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.level = true;
+        return;
+      }
+
       if (
         Utils.handlerForm(
           this,
           "level",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 1 : val,
           oldVal,
           [1, this.$data.maxLevel],
           !this.isPermalink,
@@ -194,11 +205,16 @@ export default {
       }
     },
     ownerInvestment(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.ownerInvestment = true;
+        return;
+      }
+
       if (
         Utils.handlerForm(
           this,
           "ownerInvestment",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           [0, this.$data.result.cost],
           !this.isPermalink,
@@ -214,11 +230,18 @@ export default {
       }
     },
     investorPercentageGlobal(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.investorPercentageGlobal = true;
+        return;
+      }
+
+      const value = !val || val.length === 0 ? 0 : val;
+
       if (
         Utils.handlerForm(
           this,
           "investorPercentageGlobal",
-          val.length === 0 ? 0 : val,
+          value,
           oldVal,
           [">=", 0],
           !this.isPermalink,
@@ -235,10 +258,10 @@ export default {
         for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.investorPercentageCustom + (index + 1),
-            value: val,
+            value: Utils.normalizeNumberValue(val),
             ns: "gbi"
           });
-          this.$data.investorPercentageCustom[index] = val;
+          this.$data.investorPercentageCustom[index] = value;
         }
 
         this.calculate();
@@ -342,10 +365,10 @@ export default {
     calculate() {
       try {
         this.$data.result = gbProcess.Submit(
-          this.$data.level,
-          this.$data.investorPercentageCustom,
+          this.levelNormalized,
+          Utils.normalizeNumberArray(this.$data.investorPercentageCustom),
           this.$props.gb.levels,
-          this.$data.investorParticipation
+          Utils.normalizeNumberArray(this.$data.investorParticipation)
         );
         this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
@@ -530,11 +553,14 @@ export default {
 
       return result;
     },
-    changeInvestorParticipation(currentIndex, value) {
+    changeInvestorParticipation: function(currentIndex, value) {
       if (this.$data.investorParticipation[currentIndex] === value) {
         // nothing to do
         return;
       }
+
+      const fixedValue = !value || value.length === 0 ? 0 : value;
+      const normalizedArray = Utils.normalizeNumberArray(this.$data.investorParticipation);
 
       let lastValue = this.$data.result.cost;
       if (currentIndex > 0) {
@@ -548,8 +574,8 @@ export default {
         Utils.handlerForm(
           this,
           "investorParticipation_" + currentIndex,
-          value.length === 0 ? 0 : value,
-          this.$data.investorParticipation[currentIndex],
+          fixedValue,
+          normalizedArray[currentIndex],
           [0, lastValue],
           !this.isPermalink,
           this.$nuxt.$route.path,
@@ -564,13 +590,13 @@ export default {
         });
         this.$data.investorParticipation[currentIndex] = value;
 
-        const newCumulativeResult = this.$data.result.investment[currentIndex - 1].cumulativeInvestment + value;
+        const newCumulativeResult = this.$data.result.investment[currentIndex - 1].cumulativeInvestment + fixedValue;
         let acc = 0;
-        for (let i = currentIndex + 1; i < this.$data.investorParticipation.length; i++) {
-          if (this.$data.investorParticipation[i] >= value || acc + newCumulativeResult >= this.$data.result.cost) {
+        for (let i = currentIndex + 1; i < normalizedArray.length; i++) {
+          if (normalizedArray[i] >= fixedValue || acc + newCumulativeResult >= this.$data.result.cost) {
             this.$data.investorParticipation[i] = 0;
           }
-          acc += this.$data.investorParticipation[i];
+          acc += normalizedArray[i];
         }
         this.calculate();
       } else {

@@ -105,28 +105,6 @@ export default {
         path: this.$i18nPath("secure-position/"),
         query: this.$store.getters.getUrlQuery(this.$props.ns)
       };
-    },
-    levelCostClean() {
-      return !this.$data.levelCost || this.$data.levelCost.length === 0 ? 0 : this.$data.levelCost;
-    },
-    currentDepositsClean() {
-      return !this.$data.currentDeposits || this.$data.currentDeposits.length === 0 ? 0 : this.$data.currentDeposits;
-    },
-    yourParticipationClean() {
-      return !this.$data.yourParticipation || this.$data.yourParticipation.length === 0
-        ? 0
-        : this.$data.yourParticipation;
-    },
-    otherParticipationClean() {
-      return !this.$data.otherParticipation || this.$data.otherParticipation.length === 0
-        ? 0
-        : this.$data.otherParticipation;
-    },
-    yourArcBonusClean() {
-      return !this.$data.yourArcBonus || this.$data.yourArcBonus.length === 0 ? 0 : this.$data.yourArcBonus;
-    },
-    fpTargetRewardClean() {
-      return !this.$data.fpTargetReward || this.$data.fpTargetReward.length === 0 ? 0 : this.$data.fpTargetReward;
     }
   },
   watch: {
@@ -298,12 +276,12 @@ export default {
     calculate() {
       if (this.$data.change && this.checkFormValid()) {
         const result = gbProcess.ComputeSecurePlace(
-          this.$data["levelCost"],
-          this.$data["currentDeposits"],
-          this["yourParticipationClean"],
-          this["otherParticipationClean"],
-          this.$data["yourArcBonus"],
-          this.$data["fpTargetReward"]
+          Utils.normalizeNumberValue(this.$data.levelCost),
+          Utils.normalizeNumberValue(this.$data.currentDeposits),
+          Utils.normalizeNumberValue(this.$data.yourParticipation),
+          Utils.normalizeNumberValue(this.$data.otherParticipation),
+          Utils.normalizeNumberValue(this.$data.yourArcBonus),
+          Utils.normalizeNumberValue(this.$data.fpTargetReward)
         );
 
         this.$data.fp = result.fp;
@@ -320,49 +298,51 @@ export default {
       this.$data.errors["otherParticipation"] = false;
 
       if (
-        !(typeof this["levelCostClean"] === "number") ||
-        !(typeof this["currentDepositsClean"] === "number") ||
-        !(typeof this["yourParticipationClean"] === "number") ||
-        !(typeof this["otherParticipationClean"] === "number") ||
-        !(typeof this["yourArcBonusClean"] === "number") ||
-        !(typeof this["fpTargetRewardClean"] === "number")
-      ) {
-        return false;
-      }
-
-      if (
-        this["levelCostClean"] === this["currentDepositsClean"] &&
-        this["levelCostClean"] === this["yourParticipationClean"] &&
-        this["levelCostClean"] === this["otherParticipationClean"] &&
-        this["levelCostClean"] === 0
+        Utils.normalizeNumberValue(this.$data.levelCost) === Utils.normalizeNumberValue(this.$data.currentDeposits) &&
+        Utils.normalizeNumberValue(this.$data.levelCost) === Utils.normalizeNumberValue(this.$data.yourParticipation) &&
+        Utils.normalizeNumberValue(this.$data.levelCost) ===
+          Utils.normalizeNumberValue(this.$data.otherParticipation) &&
+        Utils.normalizeNumberValue(this.$data.levelCost) === 0
       ) {
         return true;
       }
 
-      if (!(this["levelCostClean"] > 0)) {
+      if (!(Utils.normalizeNumberValue(this.$data.levelCost) > 0)) {
         this.$data.formValid = false;
         this.$data.errors["levelCost"] = true;
       }
 
-      if (!(this["currentDepositsClean"] < this["levelCostClean"])) {
+      if (
+        !(Utils.normalizeNumberValue(this.$data.currentDeposits) < Utils.normalizeNumberValue(this.$data.levelCost))
+      ) {
         this.$data.formValid = false;
         this.$data.errors["levelCost"] = true;
         this.$data.errors["currentDeposits"] = true;
       }
 
-      if (!(this["yourParticipationClean"] < this["levelCostClean"])) {
+      if (
+        !(Utils.normalizeNumberValue(this.$data.yourParticipation) < Utils.normalizeNumberValue(this.$data.levelCost))
+      ) {
         this.$data.formValid = false;
         this.$data.errors["yourParticipation"] = true;
         this.$data.errors["levelCost"] = true;
       }
 
-      if (!(this["otherParticipationClean"] < this["levelCostClean"])) {
+      if (
+        !(Utils.normalizeNumberValue(this.$data.otherParticipation) < Utils.normalizeNumberValue(this.$data.levelCost))
+      ) {
         this.$data.formValid = false;
         this.$data.errors["otherParticipation"] = true;
         this.$data.errors["levelCost"] = true;
       }
 
-      if (!(this["yourParticipationClean"] + this["otherParticipationClean"] <= this["currentDepositsClean"])) {
+      if (
+        !(
+          Utils.normalizeNumberValue(this.$data.yourParticipation) +
+            Utils.normalizeNumberValue(this.$data.otherParticipation) <=
+          Utils.normalizeNumberValue(this.$data.currentDeposits)
+        )
+      ) {
         this.$data.formValid = false;
         this.$data.errors["yourParticipation"] = true;
         this.$data.errors["otherParticipation"] = true;

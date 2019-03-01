@@ -347,5 +347,36 @@ export default {
       }
       return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale);
     }
+  },
+
+  /**
+   * Normalize a value that should be a number. If it is not a number, it be replaced by a default value.
+   * @param value Value to check
+   * @param {number} defaultValue Default value to use if #value are not a valid number
+   * @returns {number} Return a number "normalized"
+   */
+  normalizeNumberValue(value, defaultValue = 0) {
+    if (typeof defaultValue !== "number") {
+      throw Errors.InvalidTypeError("number", typeof defaultValue);
+    }
+    return !value || value.length === 0 || typeof value !== "number" ? defaultValue : value;
+  },
+
+  /**
+   * Normalize an array that should contains number. if its values are not a number, it be replaced bad values
+   * by a default array.
+   * @param {array} array Array to check
+   * @param {number} defaultValue Default array to use if #array are not a valid number
+   * @returns {array} Return a number "normalized"
+   */
+  normalizeNumberArray(array, defaultValue = 0) {
+    if (!(array instanceof Array)) {
+      throw Errors.InvalidTypeError("Array", typeof array);
+    }
+    if (typeof defaultValue !== "number") {
+      throw Errors.InvalidTypeError("number", typeof defaultValue);
+    }
+
+    return array.map(k => this.normalizeNumberValue(k, defaultValue));
   }
 };

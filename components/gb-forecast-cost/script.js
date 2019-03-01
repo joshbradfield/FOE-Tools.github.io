@@ -162,7 +162,7 @@ export default {
   computed: {
     fromInput: {
       get() {
-        return this.$data.from - 1;
+        return this.normalizedFrom() - 1;
       },
       set(val) {
         this.checkFrom(val + 1);
@@ -179,8 +179,8 @@ export default {
       };
     },
     maxCurrentLevel() {
-      return Utils.inRange(this.$data.from, 1, this.$data.gb.levels.length)
-        ? this.$data.gb.levels[this.$data.from].cost
+      return Utils.inRange(this.normalizedFrom(), 1, this.$data.gb.levels.length)
+        ? this.$data.gb.levels[this.normalizedFrom()].cost
         : oldMaxLevel;
     },
     duration() {
@@ -192,9 +192,6 @@ export default {
       } else {
         return 0;
       }
-    },
-    investorPercentageGlobalClean() {
-      return !this.$data.fpTargetReward || this.$data.fpTargetReward.length === 0 ? 0 : this.$data.fpTargetReward;
     }
   },
   watch: {
@@ -214,8 +211,13 @@ export default {
       });
     },
     from(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.from = true;
+        return;
+      }
+
       if (
-        Utils.handlerForm(this, "from", val.length === 0 ? 1 : val, oldVal, [1, this.$data.to]) ===
+        Utils.handlerForm(this, "from", !val || val.length === 0 ? 1 : val, oldVal, [1, this.normalizedTo()]) ===
         Utils.FormCheck.VALID
       ) {
         oldMaxLevel = val;
@@ -227,9 +229,16 @@ export default {
       }
     },
     to(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.to = true;
+        return;
+      }
+
       if (
-        Utils.handlerForm(this, "to", val.length === 0 ? 0 : val, oldVal, [this.$data.from, this.$data.maxLevel]) ===
-        Utils.FormCheck.VALID
+        Utils.handlerForm(this, "to", !val || val.length === 0 ? 0 : val, oldVal, [
+          this.normalizedFrom(),
+          this.$data.maxLevel
+        ]) === Utils.FormCheck.VALID
       ) {
         if (this.$data.errors.from) {
           if (this.checkFrom(oldFromInput)) {
@@ -320,10 +329,10 @@ export default {
         value: val ? 1 : 0
       });
       for (let i = 0; i < 5; i++) {
-        this.$data.investorPercentageCustom[i] = this.investorPercentageGlobalClean;
+        this.$data.investorPercentageCustom[i] = Utils.normalizeNumberValue(this.$data.investorPercentageGlobal);
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.investorPercentageCustom + (i + 1),
-          value: this.investorPercentageGlobalClean
+          value: Utils.normalizeNumberValue(this.$data.investorPercentageGlobal)
         });
       }
     },
@@ -368,12 +377,20 @@ export default {
     }
   },
   methods: {
+    normalizedFrom() {
+      return Utils.normalizeNumberValue(this.$data.from, 1);
+    },
+    normalizedTo() {
+      return Utils.normalizeNumberValue(this.$data.to, 1);
+    },
     checkFrom(val) {
       if (val.length === 0) {
         Vue.set(this.$data.errors, "from", true);
         return false;
       }
-      if (Utils.handlerForm(this, "from", val, this.$data.from, [1, this.$data.to]) === Utils.FormCheck.VALID) {
+      if (
+        Utils.handlerForm(this, "from", val, this.normalizedFrom(), [1, this.normalizedTo()]) === Utils.FormCheck.VALID
+      ) {
         Vue.set(this.$data.errors, "from", false);
         Vue.set(this.$data, "from", val);
         return true;
@@ -383,13 +400,16 @@ export default {
     changeGb(key) {
       this.$data.gb = JSON.parse(JSON.stringify(gbsData[key]));
       this.$data.maxLevel = this.$data.gb.levels.length;
-      this.$data.from = this.$data.from > this.$data.maxLevel ? defaultFrom : this.$data.from;
-      this.$data.to = this.$data.to > this.$data.maxLevel ? this.$data.maxLevel : this.$data.to;
+      this.$data.from = this.normalizedFrom() > this.$data.maxLevel ? defaultFrom : this.normalizedFrom();
+      this.$data.to = this.normalizedTo() > this.$data.maxLevel ? this.$data.maxLevel : this.normalizedTo();
       this.calculate();
     },
     updatePrevisionGraph() {
       const datasets = [];
-      const labels = Array.from(new Array(this.$data.to - this.$data.from + 1), (x, i) => i + this.$data.from);
+      const labels = Array.from(
+        new Array(this.normalizedTo() - this.normalizedFrom() + 1),
+        (x, i) => i + this.normalizedFrom()
+      );
 
       const chartColors = {
         red: "rgb(255, 99, 132)",
@@ -467,22 +487,22 @@ export default {
         gb: "foe_data.gb." + this.$data.gb.key
       });
       this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.x_axes_label");
-      this.$data.options.scales.xAxes[0].ticks.suggestedMin = this.$data.from;
-      this.$data.options.scales.xAxes[0].ticks.suggestedMax = this.$data.to;
+      this.$data.options.scales.xAxes[0].ticks.suggestedMin = this.normalizedFrom();
+      this.$data.options.scales.xAxes[0].ticks.suggestedMax = this.normalizedTo();
       this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.y_axes_label");
     },
     calculate() {
       this.$data.previsionDefault = gbProcess.SubmitRange(
-        this.$data.from,
-        this.$data.to,
+        this.normalizedFrom(),
+        this.normalizedTo(),
         [0, 0, 0, 0, 0],
         this.$data.gb.levels
       );
 
       this.$data.previsionResult = gbProcess.SubmitRange(
-        this.$data.from,
-        this.$data.to,
-        this.$data.investorPercentageCustom,
+        this.normalizedFrom(),
+        this.normalizedTo(),
+        this.$data.investorPercentageCustom.map(k => (!k || k.length === 0 || typeof k !== "number" ? 0 : k)),
         this.$data.gb.levels
       );
 

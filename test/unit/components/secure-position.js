@@ -284,7 +284,7 @@ describe("SecurePosition", () => {
     wrapper.vm.yourArcBonus = 90;
     wrapper.vm.fpTargetReward = invalidValueType;
 
-    expect(wrapper.vm.checkFormValid()).toBe(false);
+    expect(wrapper.vm.checkFormValid()).toBe(true);
   });
 
   test('Call "checkFormValid" with initial value', () => {

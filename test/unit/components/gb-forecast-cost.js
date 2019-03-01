@@ -104,10 +104,22 @@ describe("GbForecastCost", () => {
 
   test('Change "from" invalid value', () => {
     const wrapper = factory();
+    const value = -1
     expect(wrapper.vm.from).toBe(1);
     expect(wrapper.vm.errors.from).toBeFalsy();
-    wrapper.vm.from = -1;
-    expect(wrapper.vm.from).toBe(-1);
+    wrapper.vm.from = value;
+    expect(wrapper.vm.from).toBe(value);
+    expect(wrapper.vm.errors.from).toBeTruthy();
+    expect(wrapper.vm.$store.state.urlQuery["gbfc_f"]).toBe(1);
+  });
+
+  test('Change "from" invalid type', () => {
+    const wrapper = factory();
+    const value = "foo";
+    expect(wrapper.vm.from).toBe(1);
+    expect(wrapper.vm.errors.from).toBeFalsy();
+    wrapper.vm.from = value;
+    expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeTruthy();
     expect(wrapper.vm.$store.state.urlQuery["gbfc_f"]).toBe(1);
   });
@@ -124,10 +136,22 @@ describe("GbForecastCost", () => {
 
   test('Change "to" invalid value', () => {
     const wrapper = factory();
+    const value = -1;
     expect(wrapper.vm.to).toBe(10);
     expect(wrapper.vm.errors.to).toBeFalsy();
-    wrapper.vm.to = -1;
-    expect(wrapper.vm.to).toBe(-1);
+    wrapper.vm.to = value;
+    expect(wrapper.vm.to).toBe(value);
+    expect(wrapper.vm.errors.to).toBeTruthy();
+    expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(10);
+  });
+
+  test('Change "to" invalid type', () => {
+    const wrapper = factory();
+    const value = "foo";
+    expect(wrapper.vm.to).toBe(10);
+    expect(wrapper.vm.errors.to).toBeFalsy();
+    wrapper.vm.to = value;
+    expect(wrapper.vm.to).toBe(value);
     expect(wrapper.vm.errors.to).toBeTruthy();
     expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(10);
   });

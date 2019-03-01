@@ -328,8 +328,13 @@ export default {
       this.updateGraphData();
     },
     from(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.from = true;
+        return;
+      }
+
       if (
-        Utils.handlerForm(this, "from", val.length === 0 ? 0 : val, oldVal, [1, this.$data.to]) ===
+        Utils.handlerForm(this, "from", !val || val.length === 0 ? 0 : val, oldVal, [1, this.normalizedTo()]) ===
         Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -340,18 +345,23 @@ export default {
       }
     },
     to(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.to = true;
+        return;
+      }
+
+      const value = !val || val.length === 0 ? 0 : val;
+
       if (
-        Utils.handlerForm(this, "to", val.length === 0 ? 0 : val, oldVal, [
-          this.$data.from,
-          this.$data.maxLevelGraph
-        ]) === Utils.FormCheck.VALID
+        Utils.handlerForm(this, "to", value, oldVal, [this.normalizedFrom(), this.$data.maxLevelGraph]) ===
+        Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.to,
           value: val
         });
         if (this.$data.errors.from) {
-          if (val >= this.$data.errors.from) {
+          if (value >= this.$data.errors.from) {
             this.$data.errors.from = false;
             this.updateGraphData();
           }
@@ -368,13 +378,19 @@ export default {
     }
   },
   methods: {
+    normalizedFrom() {
+      return Utils.normalizeNumberValue(this.$data.from, 1);
+    },
+    normalizedTo() {
+      return Utils.normalizeNumberValue(this.$data.to, 1);
+    },
     updateData(
       statSelector,
       graphType,
       ageConfig,
       maxAgeCost,
-      from = this.$data.from,
-      to = this.$data.to,
+      from = this.normalizedFrom(),
+      to = this.normalizedTo(),
       hidden = this.$data.hidden
     ) {
       const data = {};

@@ -2,7 +2,7 @@ const { Enum } = require("enumify");
 const PriorityQueue = require("js-priority-queue");
 const ages = require("~/lib/foe-data/ages");
 const goods = require("~/lib/foe-data/goods");
-const Errors = require("./errors");
+const Errors = require("~/scripts/errors");
 
 class TradeArray extends Enum {}
 TradeArray.initEnum(["SIMPLE", "FAIR"]);
@@ -221,7 +221,7 @@ function checkValidNumberInputParameter(paramName, funcName, value) {
 }
 
 /**
- * Chceck if the value are a valid age name. Throw an error if the value are not valid.
+ * Check if the value are a valid age name. Throw an error if the value are not valid.
  *
  * @param paramName {string} Name of the parameter
  * @param funcName {string} Name of the function

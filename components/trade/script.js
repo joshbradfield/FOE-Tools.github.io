@@ -59,7 +59,12 @@ export default {
       }
     },
     splitValue(val) {
-      if (Utils.inRange(val, 1, MAX_SPLIT)) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.splitValue = true;
+        return;
+      }
+
+      if (Utils.inRange(!val || val.length === 0 ? 0 : val, 1, MAX_SPLIT)) {
         this.$data.errors.splitValue = false;
         this.compute();
       } else {
@@ -67,8 +72,15 @@ export default {
       }
     },
     value(val) {
-      if (val >= 0) {
-        if (val <= 1000) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.value = true;
+        return;
+      }
+
+      const value = !val || val.length === 0 ? 0 : val;
+
+      if (value >= 0) {
+        if (value <= 1000) {
           this.$data.errors.value = false;
           this.$data.warnings.value = false;
         } else {
@@ -87,7 +99,7 @@ export default {
     },
 
     compute() {
-      if (this.$data.value === 0) {
+      if (Utils.normalizeNumberValue(this.$data.value) === 0 || Utils.normalizeNumberValue(this.$data.splitValue) === 0) {
         Vue.set(this.$data, "result", []);
       } else {
         Vue.set(
@@ -97,8 +109,8 @@ export default {
             this.$props.tradeInput.type,
             this.$data.iHave,
             this.$data.iWant,
-            this.$data.value,
-            this.$data.splitValue
+            Utils.normalizeNumberValue(this.$data.value),
+            Utils.normalizeNumberValue(this.$data.splitValue)
           )
         );
       }

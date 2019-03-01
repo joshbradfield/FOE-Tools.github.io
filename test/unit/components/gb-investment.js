@@ -174,6 +174,18 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(10);
   });
 
+  test('Change "level" invalid type', () => {
+    const wrapper = factory();
+    const newValue = "foo";
+    expect(wrapper.vm.level).toBe(10);
+    wrapper.vm.level = newValue;
+    expect(wrapper.vm.level).toBe(newValue);
+    expect(wrapper.vm.errors.level).toBeTruthy();
+    expect(wrapper.vm.ownerInvestment).toBe(0);
+    expect(wrapper.vm.investorParticipation).toEqual([0, 0, 0, 0, 0]);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(10);
+  });
+
   test('Change "ownerInvestment" value', () => {
     const wrapper = factory();
     const newValue = 15;
@@ -186,6 +198,15 @@ describe("GbInvestment", () => {
   test('Change "ownerInvestment" invalid value', () => {
     const wrapper = factory();
     const newValue = -1;
+    expect(wrapper.vm.ownerInvestment).toBe(0);
+    wrapper.vm.ownerInvestment = newValue;
+    expect(wrapper.vm.ownerInvestment).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_oi"]).toBe(0);
+  });
+
+  test('Change "ownerInvestment" invalid type', () => {
+    const wrapper = factory();
+    const newValue = "foo";
     expect(wrapper.vm.ownerInvestment).toBe(0);
     wrapper.vm.ownerInvestment = newValue;
     expect(wrapper.vm.ownerInvestment).toBe(newValue);
@@ -209,6 +230,20 @@ describe("GbInvestment", () => {
   test('Change "investorPercentageGlobal" invalid value', () => {
     const wrapper = factory();
     const newValue = -1;
+    expect(wrapper.vm.investorPercentageGlobal).toBe(90);
+    wrapper.vm.investorPercentageGlobal = newValue;
+    expect(wrapper.vm.investorPercentageGlobal).toBe(newValue);
+    expect(wrapper.vm.ownerInvestment).toBe(0);
+    for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
+      expect(wrapper.vm.investorPercentageCustom[i]).toBe(90);
+      expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(90);
+    }
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ipg"]).toBe(90);
+  });
+
+  test('Change "investorPercentageGlobal" invalid type', () => {
+    const wrapper = factory();
+    const newValue = "foo";
     expect(wrapper.vm.investorPercentageGlobal).toBe(90);
     wrapper.vm.investorPercentageGlobal = newValue;
     expect(wrapper.vm.investorPercentageGlobal).toBe(newValue);

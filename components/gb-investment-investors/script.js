@@ -96,9 +96,6 @@ export default {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbii")
       };
-    },
-    yourArcBonusClean() {
-      return !this.$data.yourArcBonus || this.$data.yourArcBonus.length === 0 ? 0 : this.$data.yourArcBonus;
     }
   },
   watch: {
@@ -286,7 +283,7 @@ export default {
       const result = [];
 
       for (let i = 0; i < this.$props.gb.levels.length; i++) {
-        const investorPercentage = Array.apply(null, Array(5)).map(() => this.yourArcBonusClean);
+        const investorPercentage = Array.apply(null, Array(5)).map(() => Utils.normalizeNumberValue(this.$data.yourArcBonus));
         const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
@@ -316,7 +313,7 @@ export default {
               currentDeposits,
               0,
               0,
-              this.yourArcBonusClean,
+              Utils.normalizeNumberValue(this.$data.yourArcBonus),
               currentLevel.reward[j]
             )
           );
