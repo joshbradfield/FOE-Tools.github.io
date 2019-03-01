@@ -381,10 +381,13 @@ export default {
         this.getPromotionMessage(),
         this.getPromotionMessage(false),
         this.getPromotionMessage(true, true),
-        this.getPromotionMessage(false, true)
+        this.getPromotionMessage(false, true),
+
+        this.getPromotionMessage(true, false, true),
+        this.getPromotionMessage(true, true, true)
       ];
     },
-    getPromotionMessage(titleFirst = true, reverse = false) {
+    getPromotionMessage(titleFirst = true, reverse = false, onlyPlaceIndex = false) {
       let result = this.$data.prefix.length > 0 ? `${this.$data.prefix} ` : "";
       result += titleFirst
         ? this.$t(`foe_data.gb${this.$data.shortName ? "_short" : ""}.${this.$props.gb.key}`) +
@@ -396,13 +399,17 @@ export default {
       for (const place of array) {
         i -= reverse ? 1 : 0;
         if (place.participation > 0 && this.$data.placeFree[i].state) {
-          result += titleFirst
-            ? ` ${this.$t(i18nPrefix + "promotion.promo." + i, {
-                investment: place.participation
-              })}`
-            : `${this.$t(i18nPrefix + "promotion.promo." + i, {
-                investment: place.participation
-              })} `;
+          if (onlyPlaceIndex) {
+            result += titleFirst ? ` ${i + 1}` : `${i + 1} `;
+          } else {
+            result += titleFirst
+              ? ` ${this.$t(i18nPrefix + "promotion.promo." + i, {
+                  investment: place.participation
+                })}`
+              : `${this.$t(i18nPrefix + "promotion.promo." + i, {
+                  investment: place.participation
+                })} `;
+          }
         }
         i += reverse ? 0 : 1;
       }
