@@ -1,16 +1,18 @@
 import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/trade/Trade";
 import { TradeArrayType, fairTradeArray } from "~/scripts/trade";
-import { localVue, store } from "../localVue";
+import { getView } from "../localVue";
 
-const factory = () =>
-  shallowMount(Component, {
+const factory = () => {
+  const { localVue, store } = getView();
+  return shallowMount(Component, {
     propsData: {
       tradeInput: { age: true, value: fairTradeArray, type: TradeArrayType.FAIR }
     },
     localVue,
     store
   });
+};
 
 const dataCheckResult = [
   {
@@ -127,20 +129,44 @@ describe("Trade", () => {
 
   test('Change "Split" with invalid value', () => {
     const wrapper = factory();
+    const value = 0;
     expect(wrapper.vm.splitValue).toBe(1000);
     expect(wrapper.vm.errors.splitValue).toBeFalsy();
-    wrapper.vm.splitValue = 0;
-    expect(wrapper.vm.splitValue).toBe(0);
+    wrapper.vm.splitValue = value;
+    expect(wrapper.vm.splitValue).toBe(value);
     expect(wrapper.vm.errors.splitValue).toBeTruthy();
   });
 
-  test('Change "Value" with invalid', () => {
+  test('Change "Split" with invalid type', () => {
     const wrapper = factory();
+    const value = "foo";
+    expect(wrapper.vm.splitValue).toBe(1000);
+    expect(wrapper.vm.errors.splitValue).toBeFalsy();
+    wrapper.vm.splitValue = value;
+    expect(wrapper.vm.splitValue).toBe(value);
+    expect(wrapper.vm.errors.splitValue).toBeTruthy();
+  });
+
+  test('Change "Value" with invalid value', () => {
+    const wrapper = factory();
+    const value = -1;
     expect(wrapper.vm.value).toBe(0);
     expect(wrapper.vm.errors.value).toBeFalsy();
     expect(wrapper.vm.warnings.value).toBeFalsy();
-    wrapper.vm.value = -1;
-    expect(wrapper.vm.value).toBe(-1);
+    wrapper.vm.value = value;
+    expect(wrapper.vm.value).toBe(value);
+    expect(wrapper.vm.errors.value).toBeTruthy();
+    expect(wrapper.vm.warnings.value).toBeFalsy();
+  });
+
+  test('Change "Value" with invalid type', () => {
+    const wrapper = factory();
+    const value = "foo";
+    expect(wrapper.vm.value).toBe(0);
+    expect(wrapper.vm.errors.value).toBeFalsy();
+    expect(wrapper.vm.warnings.value).toBeFalsy();
+    wrapper.vm.value = value;
+    expect(wrapper.vm.value).toBe(value);
     expect(wrapper.vm.errors.value).toBeTruthy();
     expect(wrapper.vm.warnings.value).toBeFalsy();
   });

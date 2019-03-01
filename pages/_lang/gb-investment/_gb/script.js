@@ -1,6 +1,6 @@
 import { gbs } from "~/lib/foe-data/gbs";
 import gbInvestment from "~/components/gb-investment/GbInvestment";
-import gbInvestmentInvestors from "~/components/gb-investment-inverstors/GbInvestmentInverstors";
+import gbInvestmentInvestors from "~/components/gb-investment-investors/GbInvestmentInvestors";
 import securePosition from "~/components/secure-position/SecurePosition";
 import Utils from "~/scripts/utils";
 

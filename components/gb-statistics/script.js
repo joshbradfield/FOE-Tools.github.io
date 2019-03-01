@@ -23,24 +23,24 @@ export default {
       i18nPrefix,
       graphType: {
         cost_level: {
-          title: this.$i18n.i18next.t(i18nPrefix + "graph.title_1"),
-          xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level"),
-          yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level_cost")
+          title: this.$t(i18nPrefix + "graph.title_1"),
+          xAxesLabel: this.$t("utils.graph.gb_level"),
+          yAxesLabel: this.$t("utils.graph.gb_level_cost")
         },
         reward_level: {
-          title: this.$i18n.i18next.t(i18nPrefix + "graph.title_2"),
-          xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level"),
-          yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_reward_1st_place")
+          title: this.$t(i18nPrefix + "graph.title_2"),
+          xAxesLabel: this.$t("utils.graph.gb_level"),
+          yAxesLabel: this.$t("utils.graph.gb_reward_1st_place")
         },
         reward_cost: {
-          title: this.$i18n.i18next.t(i18nPrefix + "graph.title_3"),
-          xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_reward_1st_place"),
-          yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level_cost")
+          title: this.$t(i18nPrefix + "graph.title_3"),
+          xAxesLabel: this.$t("utils.graph.gb_reward_1st_place"),
+          yAxesLabel: this.$t("utils.graph.gb_level_cost")
         },
         cost_reward: {
-          title: this.$i18n.i18next.t(i18nPrefix + "graph.title_4"),
-          xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level_cost"),
-          yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_reward_1st_place")
+          title: this.$t(i18nPrefix + "graph.title_4"),
+          xAxesLabel: this.$t("utils.graph.gb_level_cost"),
+          yAxesLabel: this.$t("utils.graph.gb_reward_1st_place")
         }
       },
       hidden: Array.from(new Array(Object.keys(agesCost).length), (_, x) => x !== 0),
@@ -85,75 +85,75 @@ export default {
       },
       ageConfig: {
         Oracle: {
-          name: this.$i18n.i18next.t("foe_data.age.Oracle"),
+          name: this.$t("foe_data.age.Oracle"),
           color: "rgb(102,34,17)"
         },
         NoAge: {
-          name: this.$i18n.i18next.t("foe_data.age.NoAge"),
+          name: this.$t("foe_data.age.NoAge"),
           color: "rgb(102,34,17)"
         },
         BronzeAge: {
-          name: this.$i18n.i18next.t("foe_data.age.BronzeAge"),
+          name: this.$t("foe_data.age.BronzeAge"),
           color: "rgb(183,141,19)"
         },
         IronAge: {
-          name: this.$i18n.i18next.t("foe_data.age.IronAge"),
+          name: this.$t("foe_data.age.IronAge"),
           color: "rgb(152,68,32)"
         },
         EarlyMiddleAges: {
-          name: this.$i18n.i18next.t("foe_data.age.EarlyMiddleAges"),
+          name: this.$t("foe_data.age.EarlyMiddleAges"),
           color: "rgb(78,129,68)"
         },
         HighMiddleAges: {
-          name: this.$i18n.i18next.t("foe_data.age.HighMiddleAges"),
+          name: this.$t("foe_data.age.HighMiddleAges"),
           color: "rgb(47,142,142)"
         },
         LateMiddleAges: {
-          name: this.$i18n.i18next.t("foe_data.age.LateMiddleAges"),
+          name: this.$t("foe_data.age.LateMiddleAges"),
           color: "rgb(127,66,133)"
         },
         ColonialAge: {
-          name: this.$i18n.i18next.t("foe_data.age.ColonialAge"),
+          name: this.$t("foe_data.age.ColonialAge"),
           color: "rgb(206,100,4)"
         },
         IndustrialAge: {
-          name: this.$i18n.i18next.t("foe_data.age.IndustrialAge"),
+          name: this.$t("foe_data.age.IndustrialAge"),
           color: "rgb(167,41,38)"
         },
         ProgressiveEra: {
-          name: this.$i18n.i18next.t("foe_data.age.ProgressiveEra"),
+          name: this.$t("foe_data.age.ProgressiveEra"),
           color: "rgb(182,137,91)"
         },
         ModernEra: {
-          name: this.$i18n.i18next.t("foe_data.age.ModernEra"),
+          name: this.$t("foe_data.age.ModernEra"),
           color: "rgb(70,93,136)"
         },
         PostmodernEra: {
-          name: this.$i18n.i18next.t("foe_data.age.PostmodernEra"),
+          name: this.$t("foe_data.age.PostmodernEra"),
           color: "rgb(141,146,146)"
         },
         ContemporaryEra: {
-          name: this.$i18n.i18next.t("foe_data.age.ContemporaryEra"),
+          name: this.$t("foe_data.age.ContemporaryEra"),
           color: "rgb(141,199,63)"
         },
         Tomorrow: {
-          name: this.$i18n.i18next.t("foe_data.age.Tomorrow"),
+          name: this.$t("foe_data.age.Tomorrow"),
           color: "rgb(123,137,137)"
         },
         TheFuture: {
-          name: this.$i18n.i18next.t("foe_data.age.TheFuture"),
+          name: this.$t("foe_data.age.TheFuture"),
           color: "rgb(34,90,75)"
         },
         ArcticFuture: {
-          name: this.$i18n.i18next.t("foe_data.age.ArcticFuture"),
+          name: this.$t("foe_data.age.ArcticFuture"),
           color: "rgb(67,66,66)"
         },
         OceanicFuture: {
-          name: this.$i18n.i18next.t("foe_data.age.OceanicFuture"),
+          name: this.$t("foe_data.age.OceanicFuture"),
           color: "rgb(127,255,212)"
         },
         VirtualFuture: {
-          name: this.$i18n.i18next.t("foe_data.age.VirtualFuture"),
+          name: this.$t("foe_data.age.VirtualFuture"),
           color: "rgb(85,271,39)"
         }
       },
@@ -209,13 +209,16 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-statistics/"),
+        path: this.$i18nPath("gb-statistics/"),
         query: this.$store.state.urlQuery
       };
     }
   },
   watch: {
     statSelector(val) {
+      if (Object.keys(this.$data.graphType).indexOf(val) < 0) {
+        return;
+      }
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.statSelector,
         value: val
@@ -226,97 +229,97 @@ export default {
       Object.assign(this.$data, {
         graphType: {
           cost_level: {
-            title: this.$i18n.i18next.t(i18nPrefix + "graph.title_1"),
-            xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level"),
-            yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level_cost")
+            title: this.$t(i18nPrefix + "graph.title_1"),
+            xAxesLabel: this.$t("utils.graph.gb_level"),
+            yAxesLabel: this.$t("utils.graph.gb_level_cost")
           },
           reward_level: {
-            title: this.$i18n.i18next.t(i18nPrefix + "graph.title_2"),
-            xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level"),
-            yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_reward_1st_place")
+            title: this.$t(i18nPrefix + "graph.title_2"),
+            xAxesLabel: this.$t("utils.graph.gb_level"),
+            yAxesLabel: this.$t("utils.graph.gb_reward_1st_place")
           },
           reward_cost: {
-            title: this.$i18n.i18next.t(i18nPrefix + "graph.title_3"),
-            xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_reward_1st_place"),
-            yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level_cost")
+            title: this.$t(i18nPrefix + "graph.title_3"),
+            xAxesLabel: this.$t("utils.graph.gb_reward_1st_place"),
+            yAxesLabel: this.$t("utils.graph.gb_level_cost")
           },
           cost_reward: {
-            title: this.$i18n.i18next.t(i18nPrefix + "graph.title_4"),
-            xAxesLabel: this.$i18n.i18next.t("utils.graph.gb_level_cost"),
-            yAxesLabel: this.$i18n.i18next.t("utils.graph.gb_reward_1st_place")
+            title: this.$t(i18nPrefix + "graph.title_4"),
+            xAxesLabel: this.$t("utils.graph.gb_level_cost"),
+            yAxesLabel: this.$t("utils.graph.gb_reward_1st_place")
           }
         },
         ageConfig: {
           Oracle: {
-            name: this.$i18n.i18next.t("foe_data.age.Oracle"),
+            name: this.$t("foe_data.age.Oracle"),
             color: "rgb(102,34,17)"
           },
           NoAge: {
-            name: this.$i18n.i18next.t("foe_data.age.NoAge"),
+            name: this.$t("foe_data.age.NoAge"),
             color: "rgb(102,34,17)"
           },
           BronzeAge: {
-            name: this.$i18n.i18next.t("foe_data.age.BronzeAge"),
+            name: this.$t("foe_data.age.BronzeAge"),
             color: "rgb(183,141,19)"
           },
           IronAge: {
-            name: this.$i18n.i18next.t("foe_data.age.IronAge"),
+            name: this.$t("foe_data.age.IronAge"),
             color: "rgb(152,68,32)"
           },
           EarlyMiddleAges: {
-            name: this.$i18n.i18next.t("foe_data.age.EarlyMiddleAges"),
+            name: this.$t("foe_data.age.EarlyMiddleAges"),
             color: "rgb(78,129,68)"
           },
           HighMiddleAges: {
-            name: this.$i18n.i18next.t("foe_data.age.HighMiddleAges"),
+            name: this.$t("foe_data.age.HighMiddleAges"),
             color: "rgb(47,142,142)"
           },
           LateMiddleAges: {
-            name: this.$i18n.i18next.t("foe_data.age.LateMiddleAges"),
+            name: this.$t("foe_data.age.LateMiddleAges"),
             color: "rgb(127,66,133)"
           },
           ColonialAge: {
-            name: this.$i18n.i18next.t("foe_data.age.ColonialAge"),
+            name: this.$t("foe_data.age.ColonialAge"),
             color: "rgb(206,100,4)"
           },
           IndustrialAge: {
-            name: this.$i18n.i18next.t("foe_data.age.IndustrialAge"),
+            name: this.$t("foe_data.age.IndustrialAge"),
             color: "rgb(167,41,38)"
           },
           ProgressiveEra: {
-            name: this.$i18n.i18next.t("foe_data.age.ProgressiveEra"),
+            name: this.$t("foe_data.age.ProgressiveEra"),
             color: "rgb(182,137,91)"
           },
           ModernEra: {
-            name: this.$i18n.i18next.t("foe_data.age.ModernEra"),
+            name: this.$t("foe_data.age.ModernEra"),
             color: "rgb(70,93,136)"
           },
           PostmodernEra: {
-            name: this.$i18n.i18next.t("foe_data.age.PostmodernEra"),
+            name: this.$t("foe_data.age.PostmodernEra"),
             color: "rgb(141,146,146)"
           },
           ContemporaryEra: {
-            name: this.$i18n.i18next.t("foe_data.age.ContemporaryEra"),
+            name: this.$t("foe_data.age.ContemporaryEra"),
             color: "rgb(141,199,63)"
           },
           Tomorrow: {
-            name: this.$i18n.i18next.t("foe_data.age.Tomorrow"),
+            name: this.$t("foe_data.age.Tomorrow"),
             color: "rgb(123,137,137)"
           },
           TheFuture: {
-            name: this.$i18n.i18next.t("foe_data.age.TheFuture"),
+            name: this.$t("foe_data.age.TheFuture"),
             color: "rgb(34,90,75)"
           },
           ArcticFuture: {
-            name: this.$i18n.i18next.t("foe_data.age.ArcticFuture"),
+            name: this.$t("foe_data.age.ArcticFuture"),
             color: "rgb(67,66,66)"
           },
           OceanicFuture: {
-            name: this.$i18n.i18next.t("foe_data.age.OceanicFuture"),
+            name: this.$t("foe_data.age.OceanicFuture"),
             color: "rgb(127,255,212)"
           },
           VirtualFuture: {
-            name: this.$i18n.i18next.t("foe_data.age.VirtualFuture"),
+            name: this.$t("foe_data.age.VirtualFuture"),
             color: "rgb(85,271,39)"
           }
         }
@@ -325,8 +328,13 @@ export default {
       this.updateGraphData();
     },
     from(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.from = true;
+        return;
+      }
+
       if (
-        Utils.handlerForm(this, "from", val.length === 0 ? 0 : val, oldVal, [1, this.$data.to]) ===
+        Utils.handlerForm(this, "from", !val || val.length === 0 ? 0 : val, oldVal, [1, this.normalizedTo()]) ===
         Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -337,18 +345,23 @@ export default {
       }
     },
     to(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.to = true;
+        return;
+      }
+
+      const value = !val || val.length === 0 ? 0 : val;
+
       if (
-        Utils.handlerForm(this, "to", val.length === 0 ? 0 : val, oldVal, [
-          this.$data.from,
-          this.$data.maxLevelGraph
-        ]) === Utils.FormCheck.VALID
+        Utils.handlerForm(this, "to", value, oldVal, [this.normalizedFrom(), this.$data.maxLevelGraph]) ===
+        Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.to,
           value: val
         });
         if (this.$data.errors.from) {
-          if (val >= this.$data.errors.from) {
+          if (value >= this.$data.errors.from) {
             this.$data.errors.from = false;
             this.updateGraphData();
           }
@@ -365,13 +378,19 @@ export default {
     }
   },
   methods: {
+    normalizedFrom() {
+      return Utils.normalizeNumberValue(this.$data.from, 1);
+    },
+    normalizedTo() {
+      return Utils.normalizeNumberValue(this.$data.to, 1);
+    },
     updateData(
       statSelector,
       graphType,
       ageConfig,
       maxAgeCost,
-      from = this.$data.from,
-      to = this.$data.to,
+      from = this.normalizedFrom(),
+      to = this.normalizedTo(),
       hidden = this.$data.hidden
     ) {
       const data = {};
@@ -455,7 +474,7 @@ export default {
       obj.datasets = result.datasets;
     },
     switchVisibility(index) {
-      if (Utils.inRange(index, 0, this.$data.hidden.length)) {
+      if (Utils.inRange(index, 0, this.$data.hidden.length - 1)) {
         Vue.set(this.$data.hidden, index, !this.$data.hidden[index]);
       }
     },

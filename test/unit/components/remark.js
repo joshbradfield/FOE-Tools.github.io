@@ -1,15 +1,17 @@
 import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/remark/Remark";
-import { localVue, store } from "../localVue";
+import { getView } from "../localVue";
 
-const factory = (md = undefined) =>
-  shallowMount(Component, {
+const factory = (md = undefined) => {
+  const { localVue, store } = getView();
+  return shallowMount(Component, {
     propsData: {
       markdown: md ? md : ""
     },
     localVue,
     store
   });
+};
 
 describe("Remark", () => {
   test("Is a Vue instance", () => {

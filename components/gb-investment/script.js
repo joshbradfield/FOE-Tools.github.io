@@ -74,8 +74,7 @@ export default {
         investorParticipation_4: false
       },
       promotion: [],
-      childChange: false,
-      query: this.GET_URL_QUERY
+      childChange: false
     };
 
     for (let i = 0; i < 5; i++) {
@@ -166,21 +165,29 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-investment/" + this.gb.key + "/"),
+        path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbi")
       };
+    },
+    levelNormalized() {
+      return Utils.normalizeNumberValue(this.$data.level, 1);
+    },
+    ownerInvestmentNormalized() {
+      return !this.$data.ownerInvestment || this.$data.ownerInvestment.length === 0 ? 0 : this.$data.ownerInvestment;
     }
   },
   watch: {
-    GET_URL_QUERY(val) {
-      this.$data.permalink.query = val;
-    },
     level(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.level = true;
+        return;
+      }
+
       if (
         Utils.handlerForm(
           this,
           "level",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 1 : val,
           oldVal,
           [1, this.$data.maxLevel],
           !this.isPermalink,
@@ -198,11 +205,16 @@ export default {
       }
     },
     ownerInvestment(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.ownerInvestment = true;
+        return;
+      }
+
       if (
         Utils.handlerForm(
           this,
           "ownerInvestment",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           [0, this.$data.result.cost],
           !this.isPermalink,
@@ -218,11 +230,18 @@ export default {
       }
     },
     investorPercentageGlobal(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.investorPercentageGlobal = true;
+        return;
+      }
+
+      const value = !val || val.length === 0 ? 0 : val;
+
       if (
         Utils.handlerForm(
           this,
           "investorPercentageGlobal",
-          val.length === 0 ? 0 : val,
+          value,
           oldVal,
           [">=", 0],
           !this.isPermalink,
@@ -235,15 +254,17 @@ export default {
           value: val,
           ns: "gbi"
         });
+
+        for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
+          this.$store.commit("UPDATE_URL_QUERY", {
+            key: queryKey.investorPercentageCustom + (index + 1),
+            value: Utils.normalizeNumberValue(val),
+            ns: "gbi"
+          });
+          this.$data.investorPercentageCustom[index] = value;
+        }
+
         this.calculate();
-      }
-      for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
-        this.$store.commit("UPDATE_URL_QUERY", {
-          key: queryKey.investorPercentageCustom + (index + 1),
-          value: val,
-          ns: "gbi"
-        });
-        this.$data.investorPercentageCustom[index] = val;
       }
     },
     investorPercentageCustom(val) {
@@ -336,7 +357,7 @@ export default {
   },
   methods: {
     goTo(val) {
-      window.location.href = this.$i18n.path(`gb-investment/${val}/`);
+      window.location.href = this.$i18nPath(`gb-investment/${val}/`);
     },
     cookieValid(key) {
       return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
@@ -344,14 +365,15 @@ export default {
     calculate() {
       try {
         this.$data.result = gbProcess.Submit(
-          this.$data.level,
-          this.$data.investorPercentageCustom,
+          this.levelNormalized,
+          Utils.normalizeNumberArray(this.$data.investorPercentageCustom),
           this.$props.gb.levels,
-          this.$data.investorParticipation
+          Utils.normalizeNumberArray(this.$data.investorParticipation)
         );
         this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
-        this.$data.errors["investorParticipation_" + e.index] = true;
+        // TODO: processing error
+        throw e;
       }
     },
     updatePromotionMessage() {
@@ -396,6 +418,7 @@ export default {
     successCopy(index) {
       this.promotion[index].active = true;
       let self = this;
+      /* istanbul ignore next */
       setTimeout(function() {
         self.promotion[index].active = false;
       }, 3000);
@@ -429,7 +452,7 @@ export default {
       let investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
       let investorParticipation = Array.apply(null, Array(5)).map(() => 0);
       let placeFree = Array.apply(null, Array(5)).map(() => {
-        return { free: true };
+        return { state: true };
       });
       let isPermalink = false;
 
@@ -516,9 +539,9 @@ export default {
         result.shortName = !!parseInt(this.$route.query[queryKey.shortName]);
       }
 
-      if (this.$route.query[queryKey.showLeve]) {
+      if (this.$route.query[queryKey.showLevel]) {
         isPermalink = true;
-        result.showLeve = !!parseInt(this.$route.query[queryKey.showLeve]);
+        result.showLevel = !!parseInt(this.$route.query[queryKey.showLevel]);
       }
 
       if (isPermalink) {
@@ -530,11 +553,14 @@ export default {
 
       return result;
     },
-    changeInvestorParticipation(currentIndex, value) {
+    changeInvestorParticipation: function(currentIndex, value) {
       if (this.$data.investorParticipation[currentIndex] === value) {
         // nothing to do
         return;
       }
+
+      const fixedValue = !value || value.length === 0 ? 0 : value;
+      const normalizedArray = Utils.normalizeNumberArray(this.$data.investorParticipation);
 
       let lastValue = this.$data.result.cost;
       if (currentIndex > 0) {
@@ -548,8 +574,8 @@ export default {
         Utils.handlerForm(
           this,
           "investorParticipation_" + currentIndex,
-          value.length === 0 ? 0 : value,
-          this.$data.investorParticipation[currentIndex],
+          fixedValue,
+          normalizedArray[currentIndex],
           [0, lastValue],
           !this.isPermalink,
           this.$nuxt.$route.path,
@@ -564,13 +590,13 @@ export default {
         });
         this.$data.investorParticipation[currentIndex] = value;
 
-        const newCumulativeResult = this.$data.result.investment[currentIndex - 1].cumulativeInvestment + value;
+        const newCumulativeResult = this.$data.result.investment[currentIndex - 1].cumulativeInvestment + fixedValue;
         let acc = 0;
-        for (let i = currentIndex + 1; i < this.$data.investorParticipation.length; i++) {
-          if (this.$data.investorParticipation[i] >= value || acc + newCumulativeResult >= this.$data.result.cost) {
+        for (let i = currentIndex + 1; i < normalizedArray.length; i++) {
+          if (normalizedArray[i] >= fixedValue || acc + newCumulativeResult >= this.$data.result.cost) {
             this.$data.investorParticipation[i] = 0;
           }
-          acc += this.$data.investorParticipation[i];
+          acc += normalizedArray[i];
         }
         this.calculate();
       } else {

@@ -91,12 +91,9 @@ export default {
     isPermalink() {
       return this.$store.state.isPermalink;
     },
-    lang() {
-      return this.$store.state.locale;
-    },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-investment/" + this.gb.key + "/"),
+        path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbii")
       };
     }
@@ -140,7 +137,7 @@ export default {
       }
     },
     yourArcBonus(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
 
@@ -148,7 +145,7 @@ export default {
         Utils.handlerForm(
           this,
           "yourArcBonus",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           INPUT_COMPARATOR.yourArcBonus.comparator,
           !this.isPermalink,
@@ -222,7 +219,7 @@ export default {
   },
   methods: {
     goTo(val) {
-      window.location.href = this.$i18n.path(`gb-investment/${val}/`);
+      window.location.href = this.$i18nPath(`gb-investment/${val}/`);
     },
     haveError(key) {
       return this.$data.errors[key] ? "is-danger" : "";
@@ -286,14 +283,11 @@ export default {
       const result = [];
 
       for (let i = 0; i < this.$props.gb.levels.length; i++) {
+        const investorPercentage = Array.apply(null, Array(5)).map(() => Utils.normalizeNumberValue(this.$data.yourArcBonus));
+        const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
-          gbProcess.Submit(
-            i + 1,
-            Array.apply(null, Array(5)).map(() => this.$data.yourArcBonus),
-            this.$props.gb.levels,
-            Array(5).map(() => 0)
-          )
+          gbProcess.Submit(i + 1, investorPercentage, this.$props.gb.levels, defaultParticipation)
         );
 
         let currentDeposits = 0;
@@ -319,7 +313,7 @@ export default {
               currentDeposits,
               0,
               0,
-              this.$data.yourArcBonus,
+              Utils.normalizeNumberValue(this.$data.yourArcBonus),
               currentLevel.reward[j]
             )
           );

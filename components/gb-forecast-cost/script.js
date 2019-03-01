@@ -1,15 +1,11 @@
+import Vue from "vue";
+
 import Utils from "~/scripts/utils";
 import { gbsData } from "~/lib/foe-data/gbs";
 import gbProcess from "~/scripts/foe-gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
-
-import Vue from "vue";
-import * as moment from "moment";
-import momentDurationFormatSetup from "moment-duration-format";
 import YesNo from "~/components/yes-no/YesNo";
-
-momentDurationFormatSetup(moment);
 
 const i18nPrefix = "components.gb_forecast_cost.";
 const urlPrefix = "gbfc_";
@@ -25,7 +21,7 @@ const queryKey = {
   from: urlPrefix + "f",
   to: urlPrefix + "t",
   investorPercentageGlobal: urlPrefix + "ipg",
-  investorPercentageCustom: urlPrefix + "ipc_",
+  investorPercentageCustom: urlPrefix + "p",
   cp: urlPrefix + "cp",
   fpBy24h: urlPrefix + "fp",
   alreadyInvested: urlPrefix + "ai"
@@ -40,6 +36,8 @@ const inputComparator = {
   alreadyInvested: { comparator: [">=", 0] }
 };
 
+const defaultGb = JSON.parse(JSON.stringify(gbsData[Object.keys(gbsData)[0]]));
+
 export default {
   name: "GbForecastCost",
   props: {
@@ -49,7 +47,7 @@ export default {
     }
   },
   data() {
-    moment.locale(this.$store.state.locale);
+    this.$moment.locale(this.$store.state.locale);
 
     const data = {
       i18nPrefix: i18nPrefix,
@@ -59,8 +57,8 @@ export default {
         responsive: true,
         title: {
           display: true,
-          text: this.$i18n.i18next.t(i18nPrefix + "graph.title", {
-            gb: "foe_data.gb." + gbsData.Observatory.key
+          text: this.$t(i18nPrefix + "graph.title", {
+            gb: "foe_data.gb." + defaultGb.key
           })
         },
         tooltips: {
@@ -73,7 +71,7 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: this.$i18n.i18next.t(i18nPrefix + "graph.x_axes_label")
+                labelString: this.$t(i18nPrefix + "graph.x_axes_label")
               },
               ticks: {
                 suggestedMin: defaultFrom,
@@ -86,24 +84,18 @@ export default {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: this.$i18n.i18next.t(i18nPrefix + "graph.y_axes_label")
+                labelString: this.$t(i18nPrefix + "graph.y_axes_label")
               }
             }
           ]
         }
       },
-      gb: gbsData.Observatory,
-      maxLevel: gbsData.Observatory.levels.length,
+      gb: defaultGb,
+      maxLevel: defaultGb.levels.length,
       from: defaultFrom,
       to: defaultTo,
       investorPercentageGlobal: defaultArcPercentage,
-      investorPercentageCustom: [
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage
-      ],
+      investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
       customPercentage: false,
       fpBy24h: 0,
       alreadyInvested: 0,
@@ -123,8 +115,8 @@ export default {
       previsionDefault: gbProcess.SubmitRange(
         defaultFrom,
         defaultTo,
-        [defaultArcPercentage, defaultArcPercentage, defaultArcPercentage, defaultArcPercentage, defaultArcPercentage],
-        gbsData.Observatory.levels
+        Array.from(new Array(5), () => defaultArcPercentage),
+        defaultGb.levels
       )
     };
 
@@ -170,7 +162,7 @@ export default {
   computed: {
     fromInput: {
       get() {
-        return this.$data.from - 1;
+        return this.normalizedFrom() - 1;
       },
       set(val) {
         this.checkFrom(val + 1);
@@ -180,18 +172,15 @@ export default {
     lang() {
       return this.$store.state.locale;
     },
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
     permaLink() {
       return {
-        path: this.$i18n.path("gb-forecast-cost/"),
+        path: this.$i18nPath("gb-forecast-cost/"),
         query: this.$store.state.urlQuery
       };
     },
     maxCurrentLevel() {
-      return Utils.inRange(this.$data.from, 1, this.$data.gb.levels.length)
-        ? this.$data.gb.levels[this.$data.from].cost
+      return Utils.inRange(this.normalizedFrom(), 1, this.$data.gb.levels.length)
+        ? this.$data.gb.levels[this.normalizedFrom()].cost
         : oldMaxLevel;
     },
     duration() {
@@ -207,10 +196,10 @@ export default {
   },
   watch: {
     lang() {
-      moment.locale(this.$store.state.locale);
+      this.$moment.locale(this.$store.state.locale);
       if (this.$data.fpBy24h > 0) {
         let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
-        this.$data.estimatedTime = Utils.getFormatedDuration(moment.duration(duration, "days"), this.$i18n.i18next);
+        this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18next);
       }
 
       this.updatePrevisionGraph();
@@ -222,8 +211,13 @@ export default {
       });
     },
     from(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.from = true;
+        return;
+      }
+
       if (
-        Utils.handlerForm(this, "from", val.length === 0 ? 1 : val, oldVal, [1, this.$data.to]) ===
+        Utils.handlerForm(this, "from", !val || val.length === 0 ? 1 : val, oldVal, [1, this.normalizedTo()]) ===
         Utils.FormCheck.VALID
       ) {
         oldMaxLevel = val;
@@ -235,9 +229,16 @@ export default {
       }
     },
     to(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.to = true;
+        return;
+      }
+
       if (
-        Utils.handlerForm(this, "to", val.length === 0 ? 0 : val, oldVal, [this.$data.from, this.$data.maxLevel]) ===
-        Utils.FormCheck.VALID
+        Utils.handlerForm(this, "to", !val || val.length === 0 ? 0 : val, oldVal, [
+          this.normalizedFrom(),
+          this.$data.maxLevel
+        ]) === Utils.FormCheck.VALID
       ) {
         if (this.$data.errors.from) {
           if (this.checkFrom(oldFromInput)) {
@@ -258,7 +259,7 @@ export default {
       }
     },
     investorPercentageGlobal(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
 
@@ -266,7 +267,7 @@ export default {
         Utils.handlerForm(
           this,
           "investorPercentageGlobal",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           [">=", 0],
           false,
@@ -278,14 +279,16 @@ export default {
           key: queryKey.investorPercentageGlobal,
           value: val
         });
+
+        for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
+          this.$store.commit("UPDATE_URL_QUERY", {
+            key: queryKey.investorPercentageCustom + (index + 1),
+            value: val
+          });
+          this.$data.investorPercentageCustom[index] = val;
+        }
+
         this.calculate();
-      }
-      for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
-        this.$store.commit("UPDATE_URL_QUERY", {
-          key: queryKey.investorPercentageCustom + (index + 1),
-          value: val
-        });
-        this.$data.investorPercentageCustom[index] = val;
       }
     },
     investorPercentageCustom(val) {
@@ -326,10 +329,10 @@ export default {
         value: val ? 1 : 0
       });
       for (let i = 0; i < 5; i++) {
-        this.$data.investorPercentageCustom[i] = this.$data.investorPercentageGlobal;
+        this.$data.investorPercentageCustom[i] = Utils.normalizeNumberValue(this.$data.investorPercentageGlobal);
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.investorPercentageCustom + (i + 1),
-          value: this.$data.investorPercentageGlobal
+          value: Utils.normalizeNumberValue(this.$data.investorPercentageGlobal)
         });
       }
     },
@@ -343,8 +346,8 @@ export default {
           (this.$data.previsionResult.global.totalPreparations - this.$data.alreadyInvested) / val
         );
         this.$data.estimatedTime = Utils.getFormatedDuration(
-          moment.duration(this.$data.duration, "days"),
-          this.$i18n.i18next
+          this.$moment.duration(this.$data.duration, "days"),
+          this.$i18next
         );
       } else {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -367,19 +370,27 @@ export default {
           (this.$data.previsionResult.global.totalPreparations - this.$data.alreadyInvested) / this.$data.fpBy24h
         );
         this.$data.estimatedTime = Utils.getFormatedDuration(
-          moment.duration(this.$data.duration, "days"),
-          this.$i18n.i18next
+          this.$moment.duration(this.$data.duration, "days"),
+          this.$i18next
         );
       }
     }
   },
   methods: {
+    normalizedFrom() {
+      return Utils.normalizeNumberValue(this.$data.from, 1);
+    },
+    normalizedTo() {
+      return Utils.normalizeNumberValue(this.$data.to, 1);
+    },
     checkFrom(val) {
       if (val.length === 0) {
         Vue.set(this.$data.errors, "from", true);
         return false;
       }
-      if (Utils.handlerForm(this, "from", val, this.$data.from, [1, this.$data.to]) === Utils.FormCheck.VALID) {
+      if (
+        Utils.handlerForm(this, "from", val, this.normalizedFrom(), [1, this.normalizedTo()]) === Utils.FormCheck.VALID
+      ) {
         Vue.set(this.$data.errors, "from", false);
         Vue.set(this.$data, "from", val);
         return true;
@@ -387,15 +398,18 @@ export default {
       return false;
     },
     changeGb(key) {
-      this.$data.gb = gbsData[key];
+      this.$data.gb = JSON.parse(JSON.stringify(gbsData[key]));
       this.$data.maxLevel = this.$data.gb.levels.length;
-      this.$data.from = this.$data.from > this.$data.maxLevel ? 0 : this.$data.from;
-      this.$data.to = this.$data.to > this.$data.maxLevel ? this.$data.maxLevel : this.$data.to;
+      this.$data.from = this.normalizedFrom() > this.$data.maxLevel ? defaultFrom : this.normalizedFrom();
+      this.$data.to = this.normalizedTo() > this.$data.maxLevel ? this.$data.maxLevel : this.normalizedTo();
       this.calculate();
     },
     updatePrevisionGraph() {
       const datasets = [];
-      const labels = Array.from(new Array(this.$data.to - this.$data.from + 1), (x, i) => i + this.$data.from);
+      const labels = Array.from(
+        new Array(this.normalizedTo() - this.normalizedFrom() + 1),
+        (x, i) => i + this.normalizedFrom()
+      );
 
       const chartColors = {
         red: "rgb(255, 99, 132)",
@@ -469,36 +483,32 @@ export default {
 
       this.$data.datasets = datasets;
       this.$data.labels = labels;
-      this.$data.options.title.text = this.$i18n.i18next.t(i18nPrefix + "graph.title", {
+      this.$data.options.title.text = this.$t(i18nPrefix + "graph.title", {
         gb: "foe_data.gb." + this.$data.gb.key
       });
-      this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$i18n.i18next.t(
-        i18nPrefix + "graph.x_axes_label"
-      );
-      this.$data.options.scales.xAxes[0].ticks.suggestedMin = this.$data.from;
-      this.$data.options.scales.xAxes[0].ticks.suggestedMax = this.$data.to;
-      this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$i18n.i18next.t(
-        i18nPrefix + "graph.y_axes_label"
-      );
+      this.$data.options.scales.xAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.x_axes_label");
+      this.$data.options.scales.xAxes[0].ticks.suggestedMin = this.normalizedFrom();
+      this.$data.options.scales.xAxes[0].ticks.suggestedMax = this.normalizedTo();
+      this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.y_axes_label");
     },
     calculate() {
       this.$data.previsionDefault = gbProcess.SubmitRange(
-        this.$data.from,
-        this.$data.to,
+        this.normalizedFrom(),
+        this.normalizedTo(),
         [0, 0, 0, 0, 0],
         this.$data.gb.levels
       );
 
       this.$data.previsionResult = gbProcess.SubmitRange(
-        this.$data.from,
-        this.$data.to,
-        this.$data.investorPercentageCustom,
+        this.normalizedFrom(),
+        this.normalizedTo(),
+        this.$data.investorPercentageCustom.map(k => (!k || k.length === 0 || typeof k !== "number" ? 0 : k)),
         this.$data.gb.levels
       );
 
       if (this.$data.fpBy24h > 0) {
         let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
-        this.$data.estimatedTime = Utils.getFormatedDuration(moment.duration(duration, "days"), this.$i18n.i18next);
+        this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18next);
       }
       this.updatePrevisionGraph();
     },
@@ -515,7 +525,7 @@ export default {
 
       if (this.$route.query[queryKey.gb] && this.$route.query[queryKey.gb] in gbsData) {
         change = Utils.FormCheck.VALID;
-        result.gb = gbsData[this.$route.query[queryKey.gb]];
+        result.gb = JSON.parse(JSON.stringify(gbsData[this.$route.query[queryKey.gb]]));
       }
 
       for (let key in inputComparator) {
@@ -539,7 +549,7 @@ export default {
       if (
         this.$route.query[queryKey.from] &&
         !isNaN(this.$route.query[queryKey.from]) &&
-        parseFloat(this.$route.query[queryKey.from]) >= 1
+        parseInt(this.$route.query[queryKey.from]) >= 1
       ) {
         fromToChange++;
         from = parseInt(this.$route.query[queryKey.from]);
@@ -548,10 +558,10 @@ export default {
       if (
         this.$route.query[queryKey.to] &&
         !isNaN(this.$route.query[queryKey.to]) &&
-        parseFloat(this.$route.query[queryKey.to]) >= 1
+        parseInt(this.$route.query[queryKey.to]) >= 1
       ) {
         fromToChange++;
-        from = parseInt(this.$route.query[queryKey.to]);
+        to = parseInt(this.$route.query[queryKey.to]);
       }
 
       if (fromToChange > 0 && from <= to) {
@@ -598,7 +608,6 @@ export default {
   },
   mounted() {
     this.calculate();
-    this.updatePrevisionGraph();
   },
   components: {
     gbListSelect,

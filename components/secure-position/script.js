@@ -102,7 +102,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("secure-position/"),
+        path: this.$i18nPath("secure-position/"),
         query: this.$store.getters.getUrlQuery(this.$props.ns)
       };
     }
@@ -113,7 +113,7 @@ export default {
       this.$data.levelCost = val.cost;
     },
     levelCost(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
       this.$data.change = true;
@@ -121,7 +121,7 @@ export default {
         Utils.handlerForm(
           this,
           "levelCost",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.levelCost.comparator
         ) === Utils.FormCheck.VALID
@@ -135,7 +135,7 @@ export default {
       }
     },
     currentDeposits(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
       this.$data.change = true;
@@ -143,7 +143,7 @@ export default {
         Utils.handlerForm(
           this,
           "currentDeposits",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.currentDeposits.comparator
         ) === Utils.FormCheck.VALID
@@ -157,7 +157,7 @@ export default {
       }
     },
     yourParticipation(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
       this.$data.change = true;
@@ -165,7 +165,7 @@ export default {
         Utils.handlerForm(
           this,
           "yourParticipation",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.yourParticipation.comparator
         ) === Utils.FormCheck.VALID
@@ -179,17 +179,15 @@ export default {
       }
     },
     otherParticipation(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
       this.$data.change = true;
-      if (val === "") {
-        this.$data.otherParticipation = 0;
-      } else if (
+      if (
         Utils.handlerForm(
           this,
           "otherParticipation",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.otherParticipation.comparator
         ) === Utils.FormCheck.VALID
@@ -203,7 +201,7 @@ export default {
       }
     },
     yourArcBonus(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
       this.$data.change = true;
@@ -211,7 +209,7 @@ export default {
         Utils.handlerForm(
           this,
           "yourArcBonus",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
@@ -228,12 +226,13 @@ export default {
       }
     },
     fpTargetReward(val, oldVal) {
-      if (typeof val !== "number") {
+      if (val && typeof val !== "number" && val.length > 0) {
         return;
       }
+      const value = !val || val.length === 0 ? 0 : val;
       this.$data.change = true;
       if (this.haveInputLevelCost()) {
-        if (this.$props.levelData.investment.map(k => k.reward).indexOf(val) >= 0) {
+        if (this.$props.levelData.investment.map(k => k.reward).indexOf(value) >= 0) {
           this.$data.errors.fpTargetReward = false;
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.fpTargetReward,
@@ -246,13 +245,8 @@ export default {
         }
       }
       if (
-        Utils.handlerForm(
-          this,
-          "fpTargetReward",
-          val.length === 0 ? 0 : val,
-          oldVal,
-          inputComparator.fpTargetReward.comparator
-        ) === Utils.FormCheck.VALID
+        Utils.handlerForm(this, "fpTargetReward", value, oldVal, inputComparator.fpTargetReward.comparator) ===
+        Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.fpTargetReward,
@@ -282,12 +276,12 @@ export default {
     calculate() {
       if (this.$data.change && this.checkFormValid()) {
         const result = gbProcess.ComputeSecurePlace(
-          this.$data["levelCost"],
-          this.$data["currentDeposits"],
-          this.$data["yourParticipation"],
-          this.$data["otherParticipation"],
-          this.$data["yourArcBonus"],
-          this.$data["fpTargetReward"]
+          Utils.normalizeNumberValue(this.$data.levelCost),
+          Utils.normalizeNumberValue(this.$data.currentDeposits),
+          Utils.normalizeNumberValue(this.$data.yourParticipation),
+          Utils.normalizeNumberValue(this.$data.otherParticipation),
+          Utils.normalizeNumberValue(this.$data.yourArcBonus),
+          Utils.normalizeNumberValue(this.$data.fpTargetReward)
         );
 
         this.$data.fp = result.fp;
@@ -304,48 +298,51 @@ export default {
       this.$data.errors["otherParticipation"] = false;
 
       if (
-        !(typeof this.$data["levelCost"] === "number") ||
-        !(typeof this.$data["currentDeposits"] === "number") ||
-        !(typeof this.$data["yourParticipation"] === "number") ||
-        !(typeof this.$data["otherParticipation"] === "number") ||
-        !(typeof this.$data["yourArcBonus"] === "number") ||
-        !(typeof this.$data["fpTargetReward"] === "number")
-      ) {
-        return false;
-      }
-
-      if (
-        ((this.$data["levelCost"] === this.$data["currentDeposits"]) === this.$data["yourParticipation"]) ===
-          this.$data["otherParticipation"] &&
-        this.$data["levelCost"] === 0
+        Utils.normalizeNumberValue(this.$data.levelCost) === Utils.normalizeNumberValue(this.$data.currentDeposits) &&
+        Utils.normalizeNumberValue(this.$data.levelCost) === Utils.normalizeNumberValue(this.$data.yourParticipation) &&
+        Utils.normalizeNumberValue(this.$data.levelCost) ===
+          Utils.normalizeNumberValue(this.$data.otherParticipation) &&
+        Utils.normalizeNumberValue(this.$data.levelCost) === 0
       ) {
         return true;
       }
 
-      if (!(this.$data["levelCost"] > 0)) {
+      if (!(Utils.normalizeNumberValue(this.$data.levelCost) > 0)) {
         this.$data.formValid = false;
         this.$data.errors["levelCost"] = true;
       }
 
-      if (!(this.$data["currentDeposits"] < this.$data["levelCost"])) {
+      if (
+        !(Utils.normalizeNumberValue(this.$data.currentDeposits) < Utils.normalizeNumberValue(this.$data.levelCost))
+      ) {
         this.$data.formValid = false;
         this.$data.errors["levelCost"] = true;
         this.$data.errors["currentDeposits"] = true;
       }
 
-      if (!(this.$data["yourParticipation"] < this.$data["levelCost"])) {
+      if (
+        !(Utils.normalizeNumberValue(this.$data.yourParticipation) < Utils.normalizeNumberValue(this.$data.levelCost))
+      ) {
         this.$data.formValid = false;
         this.$data.errors["yourParticipation"] = true;
         this.$data.errors["levelCost"] = true;
       }
 
-      if (!(this.$data["otherParticipation"] < this.$data["levelCost"])) {
+      if (
+        !(Utils.normalizeNumberValue(this.$data.otherParticipation) < Utils.normalizeNumberValue(this.$data.levelCost))
+      ) {
         this.$data.formValid = false;
         this.$data.errors["otherParticipation"] = true;
         this.$data.errors["levelCost"] = true;
       }
 
-      if (!(this.$data["yourParticipation"] + this.$data["otherParticipation"] <= this.$data["currentDeposits"])) {
+      if (
+        !(
+          Utils.normalizeNumberValue(this.$data.yourParticipation) +
+            Utils.normalizeNumberValue(this.$data.otherParticipation) <=
+          Utils.normalizeNumberValue(this.$data.currentDeposits)
+        )
+      ) {
         this.$data.formValid = false;
         this.$data.errors["yourParticipation"] = true;
         this.$data.errors["otherParticipation"] = true;

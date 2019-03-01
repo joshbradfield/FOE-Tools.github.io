@@ -170,5 +170,38 @@ export default {
       message: `The value at index ${index} should not be greater than the previous place participation`,
       index: index
     };
+  },
+
+  /**
+   * Error throw when the key already exists in urlQuery in store.
+   * @param key Key that already exists
+   */
+  keyAlreadyExistsInUrlQueryException(key) {
+    return {
+      name: "keyAlreadyExistsInUrlQueryException",
+      message: `"${key}" already defined in state.urlQuery`
+    };
+  },
+
+  /**
+   * Error throw when the key already exists in urlQuery or in urlQueryNamespace in store.
+   * @param key Key that already exists
+   */
+  keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(key) {
+    return {
+      name: "keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException",
+      message: `"${key}" already defined in state.urlQuery or state.urlQueryNamespace`
+    };
+  },
+
+  /**
+   * Error throw when a namespace are not found in urlQueryNamespace in store.
+   * @param namespace Namespace that is not found
+   */
+  namespaceNotFoundException(namespace) {
+    return {
+      name: "namespaceNotFoundException",
+      message: `"${namespace}" not found in state.urlQueryNamespace`
+    };
   }
 };

@@ -1,10 +1,11 @@
 import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/yes-no/YesNo";
-import { localVue, store } from "../localVue";
+import { getView } from "../localVue";
 
 let value = true;
-const factory = () =>
-  shallowMount(Component, {
+const factory = () => {
+  const { localVue, store } = getView();
+  return shallowMount(Component, {
     propsData: {
       label: "Hello World",
       value: value
@@ -12,6 +13,7 @@ const factory = () =>
     localVue,
     store
   });
+};
 
 describe("YesNo", () => {
   test("Is a Vue instance", () => {

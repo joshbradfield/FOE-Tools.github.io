@@ -18,7 +18,7 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'gb_investment.form.level', { level: level, fromLevel: level - 1, max: maxLevel })" label-for="giLevel" v-bind:type="haveError('level')")
+      b-field(v-bind:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, max: maxLevel })" label-for="giLevel" v-bind:type="haveError('level')")
         b-input#giLevel(type="number" min="1" v-bind:max="maxLevel" v-model.number="level" name="level" autocomplete="off" v-bind:autofocus="canPermalink")
     div.column.is-half
       b-field(v-bind:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" v-bind:type="haveError('investorPercentageGlobal')")
@@ -47,10 +47,10 @@ div.content
           td.has-text-right {{$formatNumber(i + 1)}}
           td.has-text-right {{$formatNumber(place.reward)}}
           td.has-text-right
-            p(v-if="(place.preparation > 0) && (ownerInvestment > 0)") {{$formatNumber(place.preparation)}} (
-              template(v-if="place.preparation - ownerInvestment > 0")
+            p(v-if="(place.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(place.preparation)}} (
+              template(v-if="place.preparation - ownerInvestmentNormalized > 0")
                 b-tooltip(type="is-dark" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
-                  span.has-text-danger {{$formatNumber(place.preparation - ownerInvestment)}}
+                  span.has-text-danger {{$formatNumber(place.preparation - ownerInvestmentNormalized)}}
               template(v-else)
                 span.has-text-success {{$t('utils.Secured')}}
               | )

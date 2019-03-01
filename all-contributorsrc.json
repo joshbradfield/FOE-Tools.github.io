@@ -379,6 +379,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "dontwannaname (EN)",
+      "name": "dontwannaname (EN)",
+      "avatar_url": "https://forum.us.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.us.forgeofempires.com/index.php?members/dontwannaname.37581/",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }

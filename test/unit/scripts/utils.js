@@ -483,4 +483,70 @@ describe("Utils", () => {
       expect(() => Utils.roundTo(1 / 3, "a")).toThrow(Errors.InvalidTypeError("number", "string"));
     });
   });
+
+  describe("normalizeNumberValue", () => {
+    test("Valid value", () => {
+      const result = Utils.normalizeNumberValue(42);
+      expect(result).toStrictEqual(42);
+    });
+
+    test("Valid value with non number", () => {
+      const result = Utils.normalizeNumberValue("foo");
+      expect(result).toStrictEqual(0);
+    });
+
+    test("Valid value with empty char", () => {
+      const result = Utils.normalizeNumberValue("");
+      expect(result).toStrictEqual(0);
+    });
+
+    test("Valid value with null", () => {
+      const result = Utils.normalizeNumberValue(null);
+      expect(result).toStrictEqual(0);
+    });
+
+    test("Valid value with null and custom default value", () => {
+      const result = Utils.normalizeNumberValue(null, 42);
+      expect(result).toStrictEqual(42);
+    });
+
+    test("Throw invalid type error when default value is not a number", () => {
+      expect(() => Utils.normalizeNumberValue("foo", {})).toThrow(Errors.InvalidTypeError("number", "object"));
+    });
+  });
+
+  describe("normalizeNumberArray", () => {
+    test("Valid value", () => {
+      const result = Utils.normalizeNumberArray([42, 42]);
+      expect(result).toStrictEqual([42, 42]);
+    });
+
+    test("Valid value with non number", () => {
+      const result = Utils.normalizeNumberArray([42, "foo"]);
+      expect(result).toStrictEqual([42, 0]);
+    });
+
+    test("Valid value with empty char", () => {
+      const result = Utils.normalizeNumberArray([42, ""]);
+      expect(result).toStrictEqual([42, 0]);
+    });
+
+    test("Valid value with null", () => {
+      const result = Utils.normalizeNumberArray([42, null]);
+      expect(result).toStrictEqual([42, 0]);
+    });
+
+    test("Valid value with null and custom default value", () => {
+      const result = Utils.normalizeNumberArray([42, null], 42);
+      expect(result).toStrictEqual([42, 42]);
+    });
+
+    test("Throw invalid type error when value is not an array", () => {
+      expect(() => Utils.normalizeNumberArray("foo")).toThrow(Errors.InvalidTypeError("Array", "string"));
+    });
+
+    test("Throw invalid type error when default value is not a number", () => {
+      expect(() => Utils.normalizeNumberArray([42, null], {})).toThrow(Errors.InvalidTypeError("number", "object"));
+    });
+  });
 });

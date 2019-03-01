@@ -1,4 +1,5 @@
 import { defaultLocale } from "~/scripts/i18n";
+import Errors from "~/scripts/errors";
 
 import Vue from "vue";
 
@@ -103,7 +104,7 @@ export const mutations = {
   ADD_URL_QUERY: ({ urlQuery, urlQueryNamespace }, obj) => {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
       if (obj.key in urlQuery || (obj.ns in urlQueryNamespace && obj.key in urlQueryNamespace[obj.ns])) {
-        throw new Error(`"${obj.key}" already defined in state.urlQuery or state.urlQueryNamespace`);
+        throw Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(obj.key);
       }
       if (!(obj.ns in urlQueryNamespace)) {
         Vue.set(urlQueryNamespace, obj.ns, {});
@@ -111,7 +112,7 @@ export const mutations = {
       Vue.set(urlQueryNamespace[obj.ns], obj.key, obj.value);
     } else {
       if (obj.key in urlQuery) {
-        throw new Error(`"${obj.key}" already defined in state.urlQuery`);
+        throw Errors.keyAlreadyExistsInUrlQueryException(obj.key);
       }
       Vue.set(urlQuery, obj.key, obj.value);
     }
@@ -125,7 +126,7 @@ export const mutations = {
   UPDATE_URL_QUERY: ({ urlQuery, urlQueryNamespace }, obj) => {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
       if (!(obj.ns in urlQueryNamespace)) {
-        throw new Error(`"${urlQuery.ns}" not found in state.urlQueryNamespace`);
+        throw Errors.namespaceNotFoundException(obj.ns);
       }
       const { ns, key, value } = obj;
       Vue.set(urlQueryNamespace[ns], key, value);

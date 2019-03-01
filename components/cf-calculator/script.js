@@ -31,7 +31,7 @@ const inputComparator = {
 
 export default {
   name: "CfCalculator",
-  head() {
+  head /* istanbul ignore next */: function() {
     this.$store.commit("SET_HERO", {
       title: "routes.cf_calculator.hero.title",
       subtitle: "routes.cf_calculator.hero.subtitle"
@@ -118,7 +118,8 @@ export default {
     });
 
     return {
-      i18nPrefix: i18nPrefix,
+      ...data,
+      i18nPrefix,
       questData: questData,
       oneQuest: [
         questData.ages.BronzeAge.key,
@@ -126,18 +127,8 @@ export default {
         questData.ages.EarlyMiddleAges.key,
         questData.ages.HighMiddleAges.key
       ],
-      yourAge: data.yourAge,
       checkSecondQuest: false,
-      yourCfBoost: data.yourCfBoost,
-      coins: data.coins,
-      supplies: data.supplies,
-      goods: data.goods,
-      fpBy24h: data.fpBy24h,
-      otherRq: data.otherRq,
-      secondRq: data.secondRq,
-      suppliesGathered: data.suppliesGathered,
       infinityGenerator: false,
-      cumulativeQuest: data.cumulativeQuest,
       result: {
         bp: 0,
         medals: 0,
@@ -170,7 +161,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18n.path("cf-calculator/"),
+        path: this.$i18nPath("cf-calculator/"),
         query: this.$store.state.urlQuery
       };
     }
@@ -209,20 +200,21 @@ export default {
       }
     },
     secondRq(val) {
+      const value = !!val;
       if (!this.isPermalink) {
-        this.$cookies.set("secondRq", val, {
+        this.$cookies.set("secondRq", value, {
           path: this.$nuxt.$route.path,
           expires: Utils.getDefaultCookieExpireTime()
         });
       }
-      this.$data.suppliesGathered = val ? this.$data.suppliesGathered : 0;
+      this.$data.suppliesGathered = value ? Utils.normalizeNumberValue(this.$data.suppliesGathered) : 0;
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.secondRq,
-        value: val ? 1 : 0
+        value: value ? 1 : 0
       });
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.suppliesGathered,
-        value: val ? this.$data.suppliesGathered : 0
+        value: value ? Utils.normalizeNumberValue(this.$data.suppliesGathered) : 0
       });
       this.calculate();
     },
@@ -231,7 +223,7 @@ export default {
         Utils.handlerForm(
           this,
           "yourCfBoost",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.yourCfBoost.comparator,
           !this.isPermalink,
@@ -252,7 +244,7 @@ export default {
         Utils.handlerForm(
           this,
           "coins",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.coins.comparator,
           !this.isPermalink,
@@ -271,7 +263,7 @@ export default {
         Utils.handlerForm(
           this,
           "supplies",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.supplies.comparator,
           !this.isPermalink,
@@ -290,7 +282,7 @@ export default {
         Utils.handlerForm(
           this,
           "goods",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.goods.comparator,
           !this.isPermalink,
@@ -309,7 +301,7 @@ export default {
         Utils.handlerForm(
           this,
           "fpBy24h",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.fpBy24h.comparator,
           !this.isPermalink,
@@ -328,7 +320,7 @@ export default {
         Utils.handlerForm(
           this,
           "otherRq",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.otherRq.comparator,
           !this.isPermalink,
@@ -347,7 +339,7 @@ export default {
         Utils.handlerForm(
           this,
           "suppliesGathered",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.suppliesGathered.comparator,
           !this.isPermalink,
@@ -366,7 +358,7 @@ export default {
         Utils.handlerForm(
           this,
           "cumulativeQuest",
-          val.length === 0 ? 0 : val,
+          !val || val.length === 0 ? 0 : val,
           oldVal,
           inputComparator.cumulativeQuest.comparator,
           !this.isPermalink,
@@ -391,10 +383,10 @@ export default {
      * Based on: https://docs.google.com/spreadsheets/d/13-mBxR4eumRXWPi6Ayq2D9OGZ9C55eMEb6xyHnLl_-g/edit#gid=2009380732
      */
     calculate() {
-      let cf_boost = this.$data.yourCfBoost / 100;
+      let cf_boost = Utils.normalizeNumberValue(this.$data.yourCfBoost) / 100;
       let age = this.$data.questData.ages[this.$data.yourAge];
-      let coins_relation = Math.floor(this.$data.coins / age.cost.coins);
-      let supplies_relation = Math.floor(this.$data.supplies / age.cost.supplies);
+      let coins_relation = Math.floor(Utils.normalizeNumberValue(this.$data.coins) / age.cost.coins);
+      let supplies_relation = Math.floor(Utils.normalizeNumberValue(this.$data.supplies) / age.cost.supplies);
 
       this.$data.result.dailyUbq = coins_relation < supplies_relation ? coins_relation : supplies_relation;
       this.$data.result.bonusUbq = 0;
@@ -402,14 +394,14 @@ export default {
 
       let nb_quest =
         Math.floor(
-          (Math.floor((this.$data.result.dailyUbq + this.$data.otherRq) * (2 / 14)) *
+          (Math.floor((this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq)) * (2 / 14)) *
             age.reward.small_coins *
             (1 + cf_boost) +
-            Math.floor((this.$data.result.dailyUbq + this.$data.otherRq) * (1 / 14)) *
+            Math.floor((this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq)) * (1 / 14)) *
               age.reward.large_coins *
               (1 + cf_boost)) /
             age.cost.gather
-        ) + Math.floor(this.$data.suppliesGathered / age.cost.gather);
+        ) + Math.floor(Utils.normalizeNumberValue(this.$data.suppliesGathered) / age.cost.gather);
 
       let plus_quest = this.$data.secondRq ? nb_quest : 0;
       let first_lap = true;
@@ -421,34 +413,53 @@ export default {
       let min_between_coin_supplies;
       let final_nb_quest;
       let second_quest_Completed = nb_quest;
+      let lastCumulativeNbq = 0;
 
       do {
         if (first_lap) {
           first_lap = false;
 
           coin_return =
-            Math.floor((this.$data.result.dailyUbq + this.$data.otherRq + plus_quest) * (2 / 14)) *
+            Math.floor(
+              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (2 / 14)
+            ) *
               age.reward.small_coins *
               (1 + cf_boost) +
-            Math.floor((this.$data.result.dailyUbq + this.$data.otherRq + plus_quest) * (1 / 14)) *
+            Math.floor(
+              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (1 / 14)
+            ) *
               age.reward.large_coins *
               (1 + cf_boost);
 
           supply_return =
-            Math.floor((this.$data.result.dailyUbq + this.$data.otherRq + plus_quest) * (2 / 14)) *
+            Math.floor(
+              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (2 / 14)
+            ) *
               age.reward.small_supplies *
               (1 + cf_boost) +
-            Math.floor((this.$data.result.dailyUbq + this.$data.otherRq + plus_quest) * (1 / 14)) *
+            Math.floor(
+              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (1 / 14)
+            ) *
               age.reward.large_supplies *
               (1 + cf_boost);
         } else {
           coin_return =
-            Math.floor(final_nb_quest * (1 / 14)) * age.reward.large_coins * (1 + cf_boost) +
-            Math.floor(final_nb_quest * (2 / 14)) * age.reward.small_coins * (1 + cf_boost);
+            Math.floor(lastCumulativeNbq * (1 / 14)) * age.reward.large_coins * (1 + cf_boost) +
+            Math.floor(lastCumulativeNbq * (2 / 14)) * age.reward.small_coins * (1 + cf_boost) +
+            Math.max(
+              0,
+              this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].coin -
+                lastCumulativeNbq * age.cost.coins
+            );
 
           supply_return =
-            Math.floor(final_nb_quest * (1 / 14)) * age.reward.large_supplies * (1 + cf_boost) +
-            Math.floor(final_nb_quest * (2 / 14)) * age.reward.small_supplies * (1 + cf_boost);
+            Math.floor(lastCumulativeNbq * (1 / 14)) * age.reward.large_supplies * (1 + cf_boost) +
+            Math.floor(lastCumulativeNbq * (2 / 14)) * age.reward.small_supplies * (1 + cf_boost) +
+            Math.max(
+              0,
+              this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].supply -
+                lastCumulativeNbq * age.cost.supplies
+            );
         }
 
         coin_return_by_cost = Math.floor(coin_return / age.cost.coins);
@@ -456,6 +467,7 @@ export default {
         supplies_return_by_gather = Math.floor(supply_return / age.cost.gather);
         min_between_coin_supplies =
           coin_return_by_cost < supply_coin_return_by_cost ? coin_return_by_cost : supply_coin_return_by_cost;
+        lastCumulativeNbq = min_between_coin_supplies;
         final_nb_quest = this.$data.secondRq
           ? supplies_return_by_gather + min_between_coin_supplies
           : min_between_coin_supplies;
@@ -477,11 +489,12 @@ export default {
         }
         second_quest_Completed += supplies_return_by_gather;
       } while (
-        (!this.$data.infinityGenerator && (coin_return > 0 || supply_return > 0)) ||
-        this.$data.cumulativeQuest > this.$data.result.coinSupplyReturn.length
+        (!this.$data.infinityGenerator && (coin_return > age.cost.coins || supply_return > age.cost.supply)) ||
+        (this.$data.infinityGenerator &&
+          Utils.normalizeNumberValue(this.$data.cumulativeQuest) > this.$data.result.coinSupplyReturn.length)
       );
 
-      if (this.$data.infinityGenerator && this.$data.cumulativeQuest === 0) {
+      if (this.$data.infinityGenerator && Utils.normalizeNumberValue(this.$data.cumulativeQuest) === 0) {
         this.$data.cumulativeQuest = this.$data.result.coinSupplyReturn.length + 1;
       } else if (!this.$data.infinityGenerator) {
         this.$data.cumulativeQuest = 0;
@@ -491,7 +504,7 @@ export default {
       this.$data.result.totalRqCompleted =
         this.$data.result.dailyUbq +
         this.$data.result.bonusUbq +
-        this.$data.otherRq +
+        Utils.normalizeNumberValue(this.$data.otherRq) +
         this.$data.result.secondRqCompleted;
 
       this.$data.result.bp = Math.floor(this.$data.result.totalRqCompleted * (1 / 14) * age.reward.blueprint);
@@ -501,8 +514,8 @@ export default {
         Math.floor(this.$data.result.totalRqCompleted * (5 / 14)) * Math.round(age.reward.goods * (1 + cf_boost));
       this.$data.result.fp = Math.floor(this.$data.result.totalRqCompleted * (1 / 14)) * age.reward.fp;
 
-      this.$data.result.totalGoods = this.$data.result.goods + this.$data.goods;
-      this.$data.result.totalFp = this.$data.result.fp + this.$data.fpBy24h;
+      this.$data.result.totalGoods = this.$data.result.goods + Utils.normalizeNumberValue(this.$data.goods);
+      this.$data.result.totalFp = this.$data.result.fp + Utils.normalizeNumberValue(this.$data.fpBy24h);
     },
     checkQuery() {
       let result = {};

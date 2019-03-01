@@ -11,96 +11,96 @@ div
         b-select#current-age(v-model="currentAge" name="current-age" expanded)
           option(v-for="age in ages" :value="age.key" :key="age.key" v-bind:selected="currentAge == age.key" v-bind:id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
 
-    div.column.is-half
+    div.column.is-half(v-if="!errors.currentAge && !errors.province")
       b-field(v-bind:label="$t(i18nPrefix + 'choose_province')" label-for="provinceContainer")
         b-select#provinceContainer(v-model="province" expanded)
           option(v-if="campaignCost !== null" v-for="value of sortProvinceArray(campaignCost, currentAge)" :key="value.key" v-bind:selected="province.key === value.key" v-bind:value="value") {{$t('foe_data.province.' + value.key)}}
 
   div.table-wrapper
-      table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="(result !== null) && !errors.currentAge && !errors.province")
-        thead
-          tr
-            th(v-bind:colspan="result.nbColumns + 2")
-              p {{$t('foe_data.province.' + province.key)}}
-          tr
-            th(rowspan=2)
-              p {{$t('utils.Rewards')}}
-            th(rowspan=2)
-              p {{$t('utils.Conquered')}}
-            th(v-for="(value, age) in result.good" colspan=5)
-              p {{$t('foe_data.age.' + age)}}
-            th(v-for="value in result.specialGoodsColumnsData")
-              p {{value.displayName}}
-          tr
-            th(v-for="value in result.goodsColumnsData")
-              figure.image-inherit.image.is-24x24
-                img(v-bind:src="'/img/foe/goods/' + value.key + '.png'" v-bind:alt="value.displayName" v-bind:title="value.displayName")
-            th(v-for="value in result.specialGoodsColumnsData")
-              figure.image-inherit.image.is-24x24
-                img(v-bind:src="'/img/foe/special_goods/' + value.key + '.png'" v-bind:alt="value.displayName" v-bind:title="value.displayName")
+    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="(result !== null) && !errors.currentAge && !errors.province")
+      thead
+        tr
+          th(v-bind:colspan="result.nbColumns + 2")
+            p {{$t('foe_data.province.' + province.key)}}
+        tr
+          th(rowspan=2)
+            p {{$t('utils.Rewards')}}
+          th(rowspan=2)
+            p {{$t('utils.Conquered')}}
+          th(v-for="(value, age) in result.good" colspan=5)
+            p {{$t('foe_data.age.' + age)}}
+          th(v-for="value in result.specialGoodsColumnsData")
+            p {{value.displayName}}
+        tr
+          th(v-for="value in result.goodsColumnsData")
+            figure.image-inherit.image.is-24x24
+              img(v-bind:src="'/img/foe/goods/' + value.key + '.png'" v-bind:alt="value.displayName" v-bind:title="value.displayName")
+          th(v-for="value in result.specialGoodsColumnsData")
+            figure.image-inherit.image.is-24x24
+              img(v-bind:src="'/img/foe/special_goods/' + value.key + '.png'" v-bind:alt="value.displayName" v-bind:title="value.displayName")
 
-        tbody
-          tr(v-for="(sector, index) in province.sectors")
-            td
-              div.media(v-for="reward in sector.reward")
+      tbody
+        tr(v-for="(sector, index) in province.sectors")
+          td
+            div.media(v-for="reward in sector.reward")
+              div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
+                figure.image-inherit.image.is-24x24(style="margin-left: .5em !important; margin-right: 1em !important;")
+                  img(v-bind:src="'/img/foe/bonus/' + reward.type + '.png'" v-bind:alt="$t('foe_data.bonus.' + reward.type + '.name')" v-bind:title="$t('foe_data.bonus.' + reward.type + '.name')")
+              div.media-content
+                p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
+                p(v-else) {{$formatNumber(reward.value)}}
+          td
+            b-switch(v-bind:value="sectorConquired[index]" type="is-info" v-on:input="switchConquired(index, $event)") {{sectorConquired[index] ? $t('utils.Yes') : $t('utils.No')}}
+
+          td(v-for="value in result.goodsColumnsData")
+            template(v-if="Object.keys(sector).indexOf('cost') >= 0")
+              div(v-for="good in sector.cost")
+                p(v-if="good.key === value.key")
+                  s(v-if="sectorConquired[index]") {{$formatNumber(good.value)}}
+                  span(v-else) {{$formatNumber(good.value)}}
+            div(v-else)
+              p ?
+
+          td(v-for="value in result.specialGoodsColumnsData")
+            template(v-if="Object.keys(sector).indexOf('cost') >= 0")
+              div(v-for="good in sector.cost")
+                p(v-if="good.key === value.key")
+                  s(v-if="sectorConquired[index]") {{$formatNumber(good.value)}}
+                  span(v-else) {{$formatNumber(good.value)}}
+            div(v-else)
+              p ?
+      tfoot
+        tr
+          th
+            template(v-for="reward in province.reward")
+              div.media(v-if="reward.type !== 'good'")
                 div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
-                  figure.image-inherit.image.is-24x24(style="margin-left: .5em !important; margin-right: 1em !important;")
-                    img(v-bind:src="'/img/foe/bonus/' + reward.type + '.png'" v-bind:alt="$t('foe_data.bonus.' + reward.type + '.name')" v-bind:title="$t('foe_data.bonus.' + reward.type + '.name')")
-                div.media-content
+                  figure.image-inherit.image(style="margin-left: .5em !important; margin-right: 1em !important;" :class="reward.type !== 'pvp_tower' ? 'is-24x24' : 'is-30xauto'")
+                    img(v-if="reward.type !== 'pvp_tower'" v-bind:src="'/img/foe/bonus/' + reward.type + '.png'" v-bind:alt="$t('foe_data.bonus.' + reward.type + '.name')" v-bind:title="$t('foe_data.bonus.' + reward.type + '.name')")
+                    img(v-else v-bind:src="'/img/foe/bonus/' + currentAge + '_tower.png'" v-bind:alt="$t('foe_data.bonus.' + reward.type + '.name')" v-bind:title="$t('foe_data.bonus.' + reward.type + '.name')")
+                div.media-content(:style="{ overflow: ((reward.type === 'good_bonus') && reward.age ? 'unset' : 'hidden') }")
                   p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
-                  p(v-else) {{$formatNumber(reward.value)}}
-            td
-              b-switch(v-bind:value="sectorConquired[index]" type="is-info" v-on:input="switchConquired(index, $event)") {{sectorConquired[index] ? $t('utils.Yes') : $t('utils.No')}}
-
-            td(v-for="value in result.goodsColumnsData")
-              template(v-if="Object.keys(sector).indexOf('cost') >= 0")
-                div(v-for="good in sector.cost")
-                  p(v-if="good.key === value.key")
-                    s(v-if="sectorConquired[index]") {{$formatNumber(good.value)}}
-                    span(v-else) {{$formatNumber(good.value)}}
-              div(v-else)
-                p ?
-
-            td(v-for="value in result.specialGoodsColumnsData")
-              template(v-if="Object.keys(sector).indexOf('cost') >= 0")
-                div(v-for="good in sector.cost")
-                  p(v-if="good.key === value.key")
-                    s(v-if="sectorConquired[index]") {{$formatNumber(good.value)}}
-                    span(v-else) {{$formatNumber(good.value)}}
-              div(v-else)
-                p ?
-        tfoot
-          tr
-            th
-              template(v-for="reward in province.reward")
-                div.media(v-if="reward.type !== 'good'")
+                    template(v-if="reward.age")
+                      | &nbsp;
+                      b-tooltip(type="is-dark" :label="$t('foe_data.age.' + reward.age)" dashed)
+                        span {{$t('foe_data.age_short.' + reward.age)}}
+                  p(v-else-if="reward.value && reward.value > 0") {{$formatNumber(reward.value)}}
+              template(v-else)
+                div.media(v-for="good in agesGoods[currentAge].goods" :key="good.key")
                   div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
-                    figure.image-inherit.image(style="margin-left: .5em !important; margin-right: 1em !important;" :class="reward.type !== 'pvp_tower' ? 'is-24x24' : 'is-30xauto'")
-                      img(v-if="reward.type !== 'pvp_tower'" v-bind:src="'/img/foe/bonus/' + reward.type + '.png'" v-bind:alt="$t('foe_data.bonus.' + reward.type + '.name')" v-bind:title="$t('foe_data.bonus.' + reward.type + '.name')")
-                      img(v-else v-bind:src="'/img/foe/bonus/' + currentAge + '_tower.png'" v-bind:alt="$t('foe_data.bonus.' + reward.type + '.name')" v-bind:title="$t('foe_data.bonus.' + reward.type + '.name')")
-                  div.media-content(:style="{ overflow: ((reward.type === 'good_bonus') && reward.age ? 'unset' : 'hidden') }")
-                    p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
-                      template(v-if="reward.age")
-                        | &nbsp;
-                        b-tooltip(type="is-dark" :label="$t('foe_data.age.' + reward.age)" dashed)
-                          span {{$t('foe_data.age_short.' + reward.age)}}
-                    p(v-else-if="reward.value && reward.value > 0") {{$formatNumber(reward.value)}}
-                template(v-else)
-                  div.media(v-for="good in agesGoods[currentAge].goods" :key="good.key")
-                    div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
-                      figure.image-inherit.image.is-24x24(style="margin-left: .5em !important; margin-right: 1em !important;")
-                        img(v-bind:src="'/img/foe/goods/' + good.key + '.png'" v-bind:alt="$t('foe_data.goods.' + good.key)" v-bind:title="$t('foe_data.goods.' + good.key)")
-                    div.media-content
-                      p {{$formatNumber(reward.value)}}
+                    figure.image-inherit.image.is-24x24(style="margin-left: .5em !important; margin-right: 1em !important;")
+                      img(v-bind:src="'/img/foe/goods/' + good.key + '.png'" v-bind:alt="$t('foe_data.goods.' + good.key)" v-bind:title="$t('foe_data.goods.' + good.key)")
+                  div.media-content
+                    p {{$formatNumber(reward.value)}}
 
-            th
-                p {{$t('utils.Total')}}
+          th
+            p {{$t('utils.Total')}}
 
-            th(v-for="value in result.goodsColumnsData")
-              div(v-for="(valueAge) in result.good")
-                div(v-for="(good, goodName) in valueAge")
-                  p(v-if="goodName === value.key") {{$formatNumber(good)}}
+          th(v-for="value in result.goodsColumnsData")
+            div(v-for="(valueAge) in result.good")
+              div(v-for="(good, goodName) in valueAge")
+                p(v-if="goodName === value.key") {{$formatNumber(good)}}
 
-            th(v-for="value in result.specialGoodsColumnsData")
-              div(v-for="(specialGood, key) in result.specialGoods")
-                p(v-if="key === value.key") {{$formatNumber(specialGood)}}
+          th(v-for="value in result.specialGoodsColumnsData")
+            div(v-for="(specialGood, key) in result.specialGoods")
+              p(v-if="key === value.key") {{$formatNumber(specialGood)}}

@@ -111,26 +111,24 @@ export default {
             this.$props.tradeArray[currentAge][age],
             this.$props.tradeArray[age][currentAge]
           );
-          if (result instanceof Array) {
-            if (result[1].from === 0) {
-              result = this.$t("components.trade.split_message.common", {
-                count: this.$formatNumber(result[0].count),
-                valueFrom: this.$formatNumber(result[0].from),
-                ageFrom: this.$t("foe_data.age_short." + currentAge),
-                valueTo: this.$formatNumber(result[0].to),
-                ageTo: this.$t("foe_data.age_short." + age)
-              });
-            } else {
-              result = this.$t("components.trade.split_message.multi", {
-                count: this.$formatNumber(result[0].count),
-                valueFrom: this.$formatNumber(result[0].from),
-                ageFrom: this.$t("foe_data.age_short." + currentAge),
-                valueTo: this.$formatNumber(result[0].to),
-                ageTo: this.$t("foe_data.age_short." + age),
-                valueFromSingle: this.$formatNumber(result[1].from),
-                valueToSingle: this.$formatNumber(result[1].to)
-              });
-            }
+          if (result[1].from === 0) {
+            result = this.$t("components.trade.split_message.common", {
+              count: this.$formatNumber(result[0].count),
+              valueFrom: this.$formatNumber(result[0].from),
+              ageFrom: this.$t("foe_data.age_short." + currentAge),
+              valueTo: this.$formatNumber(result[0].to),
+              ageTo: this.$t("foe_data.age_short." + age)
+            });
+          } else {
+            result = this.$t("components.trade.split_message.multi", {
+              count: this.$formatNumber(result[0].count),
+              valueFrom: this.$formatNumber(result[0].from),
+              ageFrom: this.$t("foe_data.age_short." + currentAge),
+              valueTo: this.$formatNumber(result[0].to),
+              ageTo: this.$t("foe_data.age_short." + age),
+              valueFromSingle: this.$formatNumber(result[1].from),
+              valueToSingle: this.$formatNumber(result[1].to)
+            });
           }
         }
 

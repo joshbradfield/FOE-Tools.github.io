@@ -26,25 +26,29 @@ export const numeralSpecialLocales = {
   nl: "nl-nl"
 };
 
-i18next.init({
-  lng: defaultLocale,
-  debug: false,
-  whitelist: languageList,
-  ns: ["common", "translation"],
-  fallbackLng: languageList,
-  fallbackNS: ["common"],
-  resources,
-  interpolation: {
-    format: function(value, format, lng) {
-      if (format === "number") {
-        if (numeralSpecialLocales[lng]) {
-          numeral.locale(numeralSpecialLocales[lng]);
-        } else {
-          numeral.locale(lng);
+export function initializeI18next() {
+  i18next.init({
+    lng: defaultLocale,
+    debug: false,
+    whitelist: languageList,
+    ns: ["common", "translation"],
+    fallbackLng: languageList,
+    fallbackNS: ["common"],
+    resources,
+    interpolation: {
+      format: function(value, format, lng) {
+        if (format === "number") {
+          if (numeralSpecialLocales[lng]) {
+            numeral.locale(numeralSpecialLocales[lng]);
+          } else {
+            numeral.locale(lng);
+          }
+          return numeral(value).format("0,0");
         }
-        return numeral(value).format("0,0");
+        return value;
       }
-      return value;
     }
-  }
-});
+  });
+}
+
+initializeI18next();

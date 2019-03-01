@@ -6,7 +6,7 @@ import { bonus } from "~/lib/foe-data/bonus";
 
 const i18nPrefix = "components.campaign_cost.";
 
-const ages = allAges;
+const ages = JSON.parse(JSON.stringify(allAges));
 delete ages.NoAge;
 
 export default {
@@ -59,9 +59,9 @@ export default {
       const ordered = {};
       Object.keys(campaignCost[currentAge])
         .sort((a, b) => {
-          return this.$i18n.i18next.t("foe_data.province." + a) > this.$i18n.i18next.t("foe_data.province." + b)
+          return this.$t("foe_data.province." + a) > this.$t("foe_data.province." + b)
             ? 1
-            : this.$i18n.i18next.t("foe_data.province." + b) > this.$i18n.i18next.t("foe_data.province." + a)
+            : this.$t("foe_data.province." + b) > this.$t("foe_data.province." + a)
               ? -1
               : 0;
         })
@@ -72,11 +72,14 @@ export default {
     },
 
     switchConquired(index, value) {
-      this.$data.sectorConquired[index] = value;
+      this.$data.sectorConquired[index] = !!value;
       this.compute();
     },
 
     compute() {
+      if (this.$data.errors.currentAge || this.$data.errors.province) {
+        return;
+      }
       this.$data.haveUnknownCosts = false;
 
       let good = {};
@@ -86,6 +89,7 @@ export default {
       let index = 0;
       let ages = {};
       for (const sector of this.$data.province.sectors) {
+        /* istanbul ignore if */
         if (Object.keys(sector).indexOf("cost") < 0) {
           this.$data.haveUnknownCosts = true;
           continue;

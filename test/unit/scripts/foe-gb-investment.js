@@ -2,7 +2,7 @@ import gbs from "../../../lib/foe-data/gbs";
 import GbProcess from "../../../scripts/foe-gb-investment";
 import Errors from "../../../scripts/errors";
 
-describe("Trade", () => {
+describe("FoeGbInvestment", () => {
   describe("Submit", () => {
     const funcName = "Submit(currentLevel, investorPercentage, gb, defaultParticipation)";
 
