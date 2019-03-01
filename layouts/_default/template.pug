@@ -1,4 +1,4 @@
-#app
+#app.dark-theme
   header
     nav.navbar.has-shadow
       div.navbar-brand
@@ -23,6 +23,20 @@
                   hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
 
         div.navbar-end
+          div.navbar-item
+            div.buttons.has-addons
+              b-tooltip(type="is-dark" v-bind:label="$t('components.site_layout.day_night.Day')" position="is-bottom")
+                span.button(:class="{ 'is-info' : dayNightMode === 'day' }" @click="dayNightMode = 'day'" ref="button-day")
+                  span.icon(style="margin: auto;")
+                    i.fas.fa-sun
+              b-tooltip(type="is-dark" v-bind:label="$t('components.site_layout.day_night.Night')" position="is-bottom")
+                span.button(:class="{ 'is-info' : dayNightMode === 'night' }" @click="dayNightMode = 'night'" ref="button-night")
+                  span.icon(style="margin: auto;")
+                    i.fas.fa-moon
+              b-tooltip(type="is-dark" v-bind:label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
+                span.button(:class="{ 'is-info' : dayNightMode === 'auto' }" @click="dayNightMode = 'auto'" ref="button-auto")
+                  span.icon(style="margin: auto;")
+                    i.fas.fa-cog
           div.navbar-item
             language-selector
           div.navbar-item

@@ -1,6 +1,29 @@
-@import "~bulma";
+@import "~bulma/sass/utilities/_all";
 
-// overrides
+body.light-theme {
+  $body-background-color: #F0F2F4 !important;
+  background-color: $body-background-color;
+}
+
+body.dark-theme {
+  @import "~bulmaswatch/cyborg/bulmaswatch";
+  background-color: #353b48 !important;
+
+  footer {
+    background-color: #2f3640;
+    small, p {
+      color: $white;
+    }
+  }
+}
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+table.trade .image {
+  display: inline-block !important;
+  margin: 0 0.5rem 0 0.5rem !important;
+}
 
 .media-content {
   overflow: hidden;
@@ -27,9 +50,6 @@ main {
 }
 
 // custom
-body {
-  background-color: #F0F2F4 !important;
-}
 
 .fixed {
   position: fixed;
@@ -52,11 +72,11 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
 }
 
 .is-dark-blue .title {
-  color: #ecf0f1;
+  color: $white-bis !important;
 }
 
 .is-dark-blue .subtitle {
-  color: #bdc3c7;
+  color: $white-ter !important;
 }
 
 .margin-top-one-em {

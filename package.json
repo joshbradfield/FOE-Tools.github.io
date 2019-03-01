@@ -92,6 +92,7 @@
     "all-contributors-cli": "^6.1.1",
     "buefy": "^0.7.0",
     "bulma": "^0.7.2",
+    "bulmaswatch": "^0.7.2",
     "chart.js": "^2.7.2",
     "cookie-universal-nuxt": "^2.0.5",
     "enumify": "^1.0.4",

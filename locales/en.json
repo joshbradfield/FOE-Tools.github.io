@@ -240,6 +240,13 @@
         "footer": {
           "license_html": "Source code under $t(common:links.mit) license",
           "version": "Version {{version}}"
+        },
+        "day_night": {
+          "Day": "Day",
+          "Night": "Night",
+          "Auto": "Automatic $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)",
+          "start_day": "Start of the day",
+          "start_night": "Start of the night"
         }
       },
       "trade": {
@@ -1070,6 +1077,9 @@
       "Conquered": "Conquered",
       "Total": "Total",
       "Secured": "Secured",
+      "Reset": "Reset",
+      "Confirm": "Confirm",
+      "Close": "Close",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

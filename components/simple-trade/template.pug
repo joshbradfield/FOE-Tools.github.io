@@ -11,7 +11,7 @@ div
         b-input(v-bind:id="splitValueId" type="number" min="0" v-bind:max="maxSplitValue" v-model.number="splitValue" name="splitValue" autocomplete="off")
 
   div.table-wrapper
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth
+    table.table.is-bordered.is-striped.is-narrow.is-fullwidth.trade
       thead
         tr
           th {{$t(i18nPrefix + 'table.thead.th1')}}
@@ -23,7 +23,7 @@ div
       tbody
         tr(v-for="(value, key) in agesGoods" :key="key")
           td {{$t("foe_data.age." + key)}}
-          td
+          td.has-text-centered
             figure.image-inherit.image.is-24x24(v-for="good in value.goods")
               img(v-bind:src="'/img/foe/goods/' + good.key + '.png'" v-bind:alt="$t('foe_data.goods.' + good.key)" v-bind:title="$t('foe_data.goods.' + good.key)")
           td

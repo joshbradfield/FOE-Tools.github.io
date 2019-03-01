@@ -2,6 +2,7 @@ import Vue from "vue";
 import languageSelector from "~/components/language-selector/LanguageSelector";
 import packageConfig from "~/package.json";
 import Utils from "~/scripts/utils";
+import DayNight from "./components/dialogDayNight/DialogDayNight";
 
 const i18nPrefix = "components.site_layout.";
 
@@ -18,6 +19,9 @@ export default {
       ],
       htmlAttrs: {
         lang: this.lang
+      },
+      bodyAttrs: {
+        class: this.darkTheme ? "dark-theme" : "light-theme"
       }
     };
   },
@@ -25,6 +29,9 @@ export default {
     return {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
+      darkTheme:
+        this.$cookies.get("dayNightMode") === undefined ? false : this.$cookies.get("dayNightMode") === "night",
+      dayNightMode: this.$cookies.get("dayNightMode") === undefined ? "day" : this.$cookies.get("dayNightMode"),
       burgerMenuVisible: false,
       cookieDisclaimerUndisplayed:
         this.$cookies.get("cookieDisclaimerDisplayed") === undefined
@@ -111,7 +118,22 @@ export default {
         this.$store.state.routes.about,
         this.$store.state.routes.contributors,
         this.$store.state.routes.changelog
-      ]
+      ],
+      dayNightWatchdog: (() => {
+        let timeout;
+        return {
+          start() {
+            if (!timeout) {
+              timeout = setInterval(this.updateDayNightMode, 60000);
+            }
+          },
+
+          stop() {
+            clearInterval(timeout);
+            timeout = undefined;
+          }
+        };
+      })()
     };
   },
   computed: {
@@ -137,6 +159,26 @@ export default {
     },
     "$route.path"() {
       Vue.set(this.$data, "burgerMenuVisible", false);
+    },
+    dayNightMode(val) {
+      switch (val) {
+        case "day":
+          this.darkTheme = false;
+          this.dayNightWatchdog.stop.call(this);
+          this.updateDayNightCookie("day");
+          break;
+        case "night":
+          this.darkTheme = true;
+          this.dayNightWatchdog.stop.call(this);
+          this.updateDayNightCookie("night");
+          break;
+        case "auto":
+          this.dayNightWatchdog.start.call(this);
+          this.updateDayNightCookie("auto");
+          this.updateDayNightMode();
+          this.showDayNightDialog();
+          break;
+      }
     }
   },
   methods: {
@@ -152,10 +194,46 @@ export default {
     },
     isActive(key) {
       return this.$store.state.currentLocation === key;
+    },
+    showDayNightDialog() {
+      let self = this;
+      this.$modal.open({
+        parent: this,
+        component: DayNight,
+        hasModalCard: true,
+        events: {
+          dayStartChange: () => {
+            self.updateDayNightMode();
+          },
+          nightStartChange: () => {
+            self.updateDayNightMode();
+          }
+        }
+      });
+    },
+    updateDayNightMode() {
+      if (this.dayNightMode !== "auto") {
+        this.dayNightWatchdog.stop.call(this);
+      }
+      const current = this.$moment().format("HH:mm");
+      const dayStart = this.$moment(this.$cookies.get("dayStart"), "HH:mm").format("HH:mm");
+      const nightStart = this.$moment(this.$cookies.get("nightStart"), "HH:mm").format("HH:mm");
+      const isDay = current >= dayStart && current < nightStart;
+      this.darkTheme = !isDay;
+    },
+    updateDayNightCookie(value) {
+      this.$cookies.set("dayNightMode", value, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
     }
   },
   mounted() {
     this.$formatNumberLocale(this.lang);
+    if (this.dayNightMode === "auto") {
+      this.dayNightWatchdog.start.call(this);
+      this.updateDayNightMode();
+    }
   },
   components: {
     languageSelector
