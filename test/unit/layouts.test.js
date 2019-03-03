@@ -1,9 +1,5 @@
-describe("Layouts", () => {
-  const normalizedPath = require("path").join(__dirname, "layouts");
+import { doTestOf } from "./utils";
 
-  require("fs")
-    .readdirSync(normalizedPath)
-    .forEach(function(file) {
-      require("./layouts/" + file);
-    });
+describe("Layouts", () => {
+  doTestOf("layouts");
 });

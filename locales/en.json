@@ -75,11 +75,14 @@
             "p2_html": "<strong>Note</strong>: If the update is not done automatically, first set the GB level and the overall investment value and click on \"$t(components.gb_investment.gb_investment.form.submit_global)\". If you want to adjust the values of each place, adjust to your convenience and click on \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
           "form": {
-            "level": "Level {{fromLevel, number}} → {{level, number}} (between 1 and {{max, number}})",
+            "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "% of global investors bonus (arc bonus)",
             "submit_global": "Global calculation",
             "submit_custom": "Custom calculation",
-            "owner_investment": "Number of FPs currently put by the owner"
+            "owner_investment": "Number of FPs currently put by the owner",
+            "add_investors": "Add investor (put FP value, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "tooltip_add_investors": "Click on \"$t(utils.Add)\" button or press \"Enter\" key to add investor",
+            "investors_list": "List of added investors"
           },
           "table": {
             "title": "$t({{gb_key}}) level {{fromLevel, number}} → {{level, number}}",
@@ -89,16 +92,23 @@
               "th3": "FP to put by the owner to secure the place",
               "th4": "Rewards with rate",
               "th5": "% of investors bonus (arc bonus)",
-              "th6": "Place free"
+              "th6": "Place free",
+              "fp_already_putin": "Number of FP already in"
             },
             "tbody": {
-              "tooltip_owner_investment": "FPs remaining to be put by the owner to secure the place"
+              "tooltip_owner_investment": "FPs remaining to be put by the owner to secure the place",
+              "tooltip_expected_investment": "Expected investment",
+              "button_show_extra_investor": "Show extra investor",
+              "button_show_extra_investor_plural": "Show extra investors",
+              "button_hide_extra_investor": "Hide extra investor",
+              "button_hide_extra_investor_plural": "Hide extra investors"
             },
             "tfoot": {
               "total_preparation": "Total investment of the owner",
               "level_cost": "Level cost"
             }
           },
+          "display_gb_name": "Display GB name ?",
           "use_short_name": "Use short name ?",
           "show_level": "Show level ?"
         },
@@ -308,7 +318,10 @@
               "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
               "showPx": "Indicate whether to show the place in the promotion message",
               "takingPlaceInConsideration": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\", indicates whether the other places must be taken into account in the calculation",
-              "targetLevel": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\", indicates from what level to display the information in the table"
+              "targetLevel": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\", indicates from what level to display the information in the table",
+              "displayGbName": "Indicate whether to show the GB name in the promotion message",
+              "investorParticipation": "Contient une liste de tous les investisseurs ajoutés",
+              "haveReadTipAboutAddInvestor": "Indicates if you have read the information message regarding the tip to use add contributors input"
             },
             "secure-position": {
               "currentDeposits": "$t(components.secure_position.block_place.current_deposits)"
@@ -1052,6 +1065,8 @@
       },
       "choose_age": "Choose an Age",
       "permalink": "Permalink",
+      "Add": "Add",
+      "Remove": "Remove",
       "Yes": "Yes",
       "No": "No",
       "Ok": "Ok",
@@ -1070,6 +1085,7 @@
       "Conquered": "Conquered",
       "Total": "Total",
       "Secured": "Secured",
+      "between_range": "between {{min, number}} and {{max, number}}",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

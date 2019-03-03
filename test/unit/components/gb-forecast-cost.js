@@ -104,7 +104,7 @@ describe("GbForecastCost", () => {
 
   test('Change "from" invalid value', () => {
     const wrapper = factory();
-    const value = -1
+    const value = -1;
     expect(wrapper.vm.from).toBe(1);
     expect(wrapper.vm.errors.from).toBeFalsy();
     wrapper.vm.from = value;
