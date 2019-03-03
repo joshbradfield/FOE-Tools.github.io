@@ -378,5 +378,52 @@ export default {
     }
 
     return array.map(k => this.normalizeNumberValue(k, defaultValue));
+  },
+
+  /* istanbul ignore next */
+  /**
+   * Copied from: https://gist.github.com/eloone/11342252#file-binaryinsert-js
+   * @param value {number} Value to insert
+   * @param array {array} Array where insert value
+   * @param startVal {number} Index where we start
+   * @param endVal {number} Index where we end
+   */
+  binaryInsert: /* istanbul ignore next */ function(value, array, startVal, endVal) {
+    let length = array.length;
+    let start = typeof startVal !== "undefined" ? startVal : 0;
+    let end = typeof endVal !== "undefined" ? endVal : length - 1; //!! endVal could be 0 don't use || syntax
+    let m = start + Math.floor((end - start) / 2);
+
+    if (length === 0) {
+      array.push(value);
+      return;
+    }
+
+    if (value > array[end]) {
+      array.splice(end + 1, 0, value);
+      return;
+    }
+
+    if (value < array[start]) {
+      //!!
+      array.splice(start, 0, value);
+      return;
+    }
+
+    if (start >= end) {
+      return;
+    }
+
+    if (value < array[m]) {
+      this.binaryInsert(value, array, start, m - 1);
+      return;
+    }
+
+    if (value > array[m]) {
+      this.binaryInsert(value, array, m + 1, end);
+      return;
+    }
+
+    //we don't insert duplicates
   }
 };

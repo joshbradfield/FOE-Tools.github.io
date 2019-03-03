@@ -39,6 +39,9 @@ export default {
         { name: "showPx", path: "/gb-investment/:gb", key: "gb-investment" },
         { name: "takingPlaceInConsideration", path: "/gb-investment/:gb", key: "gb-investment" },
         { name: "targetLevel", path: "/gb-investment/:gb", key: "gb-investment" },
+        { name: "displayGbName", path: "/gb-investment/:gb", key: "gb-investment" },
+        { name: "investorParticipation", path: "/gb-investment/:gb", key: "gb-investment" },
+        { name: "haveReadTipAboutAddInvestor", path: "/gb-investment/:gb", key: "gb-investment" },
 
         { name: "currentDeposits", path: "/gb-investment/:gb, /secure-position", key: "secure-position" }
       ]

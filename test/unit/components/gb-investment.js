@@ -28,14 +28,43 @@ const defaultInvestorPercentageCustom = [90, 90, 90, 90, 90];
 const defaultResult = {
   cost: 650,
   investment: [
-    { reward: 65, participation: 124, preparation: 402, cumulativeInvestment: 526 },
-    { reward: 35, participation: 67, preparation: 402, cumulativeInvestment: 593 },
-    { reward: 10, participation: 19, preparation: 421, cumulativeInvestment: 631 },
-    { reward: 5, participation: 10, preparation: 421, cumulativeInvestment: 641 },
-    { reward: 0, participation: 0, preparation: 430, cumulativeInvestment: 650 }
+    {
+      cumulativeInvestment: 526,
+      expectedParticipation: 124,
+      isInvestorParticipation: false,
+      participation: 124,
+      preparation: 402,
+      reward: 65
+    },
+    {
+      cumulativeInvestment: 593,
+      expectedParticipation: 67,
+      isInvestorParticipation: false,
+      participation: 67,
+      preparation: 402,
+      reward: 35
+    },
+    {
+      cumulativeInvestment: 631,
+      expectedParticipation: 19,
+      isInvestorParticipation: false,
+      participation: 19,
+      preparation: 421,
+      reward: 10
+    },
+    {
+      cumulativeInvestment: 641,
+      expectedParticipation: 10,
+      isInvestorParticipation: false,
+      participation: 10,
+      preparation: 421,
+      reward: 5
+    },
+    { expectedParticipation: 0, isInvestorParticipation: false, preparation: 430, reward: 0 }
   ],
-  totalPreparations: 430,
-  level: 10
+  level: 10,
+  otherInvestment: [],
+  totalPreparations: 430
 };
 
 describe("GbInvestment", () => {
@@ -56,17 +85,14 @@ describe("GbInvestment", () => {
           gbi_px: "foo",
           gbi_sx: "bar",
           gbi_sn: "1",
+          gbi_dgbn: "0",
           gbi_sl: "1",
           gbi_p1: investorPercentageCustom[0],
           gbi_p2: investorPercentageCustom[1],
           gbi_p3: investorPercentageCustom[2],
           gbi_p4: investorPercentageCustom[3],
           gbi_p5: investorPercentageCustom[4],
-          gbi_ip1: investorParticipation[0],
-          gbi_ip2: investorParticipation[1],
-          gbi_ip3: investorParticipation[2],
-          gbi_ip4: investorParticipation[3],
-          gbi_ip5: investorParticipation[4],
+          gbi_ip: JSON.stringify(investorParticipation),
           gbi_pFree1: "0",
           gbi_pFree2: "0",
           gbi_pFree3: "1",
@@ -81,6 +107,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.investorPercentageGlobal).toBe(90);
     expect(wrapper.vm.prefix).toBe("foo");
     expect(wrapper.vm.suffix).toBe("bar");
+    expect(wrapper.vm.displayGbName).toBe(false);
     expect(wrapper.vm.shortName).toBe(true);
     expect(wrapper.vm.showLevel).toBe(true);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
@@ -114,6 +141,8 @@ describe("GbInvestment", () => {
               return "bar";
             case "shortName":
               return true;
+            case "displayGbName":
+              return false;
             case "showLevel":
               return true;
             case "investorPercentageCustom_0":
@@ -126,16 +155,8 @@ describe("GbInvestment", () => {
               return 85;
             case "investorPercentageCustom_4":
               return 80;
-            case "investorParticipation_0":
-              return 10;
-            case "investorParticipation_1":
-              return 8;
-            case "investorParticipation_2":
-              return 6;
-            case "investorParticipation_3":
-              return 4;
-            case "investorParticipation_4":
-              return 2;
+            case "investorParticipation":
+              return investorParticipation;
           }
         }
       }
@@ -146,6 +167,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.investorPercentageGlobal).toBe(90);
     expect(wrapper.vm.prefix).toBe("foo");
     expect(wrapper.vm.suffix).toBe("bar");
+    expect(wrapper.vm.displayGbName).toBe(false);
     expect(wrapper.vm.shortName).toBe(true);
     expect(wrapper.vm.showLevel).toBe(true);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
@@ -159,7 +181,7 @@ describe("GbInvestment", () => {
     wrapper.vm.level = newValue;
     expect(wrapper.vm.level).toBe(newValue);
     expect(wrapper.vm.ownerInvestment).toBe(0);
-    expect(wrapper.vm.investorParticipation).toEqual([0, 0, 0, 0, 0]);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(newValue);
   });
 
@@ -170,7 +192,7 @@ describe("GbInvestment", () => {
     wrapper.vm.level = newValue;
     expect(wrapper.vm.level).toBe(newValue);
     expect(wrapper.vm.ownerInvestment).toBe(0);
-    expect(wrapper.vm.investorParticipation).toEqual([0, 0, 0, 0, 0]);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(10);
   });
 
@@ -182,7 +204,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.level).toBe(newValue);
     expect(wrapper.vm.errors.level).toBeTruthy();
     expect(wrapper.vm.ownerInvestment).toBe(0);
-    expect(wrapper.vm.investorParticipation).toEqual([0, 0, 0, 0, 0]);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(10);
   });
 
@@ -211,6 +233,33 @@ describe("GbInvestment", () => {
     wrapper.vm.ownerInvestment = newValue;
     expect(wrapper.vm.ownerInvestment).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_oi"]).toBe(0);
+  });
+
+  test('Change "addInvestors" value', () => {
+    const wrapper = factory();
+    const newValue = 15;
+    expect(wrapper.vm.addInvestors).toBe(1);
+    wrapper.vm.addInvestors = newValue;
+    expect(wrapper.vm.addInvestors).toBe(newValue);
+    expect(wrapper.vm.errors.addInvestors).toBe(false);
+  });
+
+  test('Change "addInvestors" invalid value', () => {
+    const wrapper = factory();
+    const newValue = -1;
+    expect(wrapper.vm.addInvestors).toBe(1);
+    wrapper.vm.addInvestors = newValue;
+    expect(wrapper.vm.addInvestors).toBe(newValue);
+    expect(wrapper.vm.errors.addInvestors).toBe(true);
+  });
+
+  test('Change "addInvestors" invalid type', () => {
+    const wrapper = factory();
+    const newValue = "foo";
+    expect(wrapper.vm.addInvestors).toBe(1);
+    wrapper.vm.addInvestors = newValue;
+    expect(wrapper.vm.addInvestors).toBe(newValue);
+    expect(wrapper.vm.errors.addInvestors).toBe(true);
   });
 
   test('Change "investorPercentageGlobal" value', () => {
@@ -277,6 +326,23 @@ describe("GbInvestment", () => {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(newValue[i]);
       expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(90);
     }
+  });
+
+  test('Change "displayGbName" value', () => {
+    const wrapper = factory();
+    const newValue = false;
+    expect(wrapper.vm.displayGbName).toBe(true);
+    wrapper.vm.displayGbName = newValue;
+    expect(wrapper.vm.displayGbName).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_dgbn"]).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "displayGbName",
+      false,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
   });
 
   test('Change "prefix" value', () => {
@@ -365,7 +431,9 @@ describe("GbInvestment", () => {
       { message: "Observatory P1(209) P2(105) P3(38) P4(10)", active: false },
       { message: "P1(209) P2(105) P3(38) P4(10) Observatory", active: false },
       { message: "Observatory P4(10) P3(38) P2(105) P1(209)", active: false },
-      { message: "P4(10) P3(38) P2(105) P1(209) Observatory", active: false }
+      { message: "P4(10) P3(38) P2(105) P1(209) Observatory", active: false },
+      { message: "Observatory 1 2 3 4", active: false },
+      { message: "Observatory 4 3 2 1", active: false }
     ];
     expect(wrapper.vm.result).toEqual(defaultResult);
     wrapper.vm.result = newValue;
@@ -388,7 +456,9 @@ describe("GbInvestment", () => {
       { message: "Observatoire P1(124) P2(67) P3(19) P4(10)", active: false },
       { message: "P1(124) P2(67) P3(19) P4(10) Observatoire", active: false },
       { message: "Observatoire P4(10) P3(19) P2(67) P1(124)", active: false },
-      { message: "P4(10) P3(19) P2(67) P1(124) Observatoire", active: false }
+      { message: "P4(10) P3(19) P2(67) P1(124) Observatoire", active: false },
+      { message: "Observatoire 1 2 3 4", active: false },
+      { message: "Observatoire 4 3 2 1", active: false }
     ];
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
@@ -422,7 +492,8 @@ describe("GbInvestment", () => {
         -1,
         1,
         gbsData.Observatory.levels.length,
-        'for parameter "currentLevel" of Submit(currentLevel, investorPercentage, gb, defaultParticipation)'
+        'for parameter "currentLevel" of ' +
+          "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation)"
       )
     );
     expect(wrapper.emitted().updateLevelData.length).toBe(1);
@@ -448,7 +519,9 @@ describe("GbInvestment", () => {
       { message: "Observatory P2(67) P3(19) P4(10)", active: false },
       { message: "P2(67) P3(19) P4(10) Observatory", active: false },
       { message: "Observatory P4(10) P3(19) P2(67)", active: false },
-      { message: "P4(10) P3(19) P2(67) Observatory", active: false }
+      { message: "P4(10) P3(19) P2(67) Observatory", active: false },
+      { message: "Observatory 2 3 4", active: false },
+      { message: "Observatory 4 3 2", active: false }
     ];
     wrapper.vm.calculate();
     wrapper.vm.changePlaceFree(index, value);
@@ -457,46 +530,61 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_pFree${index + 1}`]).toBe(value ? 1 : 0);
   });
 
-  test('Call "changeInvestorParticipation" with same value', () => {
+  test('Call "addInvestor"', () => {
     const wrapper = factory();
-    const index = 0;
-    const value = 0;
-    expect(wrapper.vm.investorParticipation[index]).toBe(value);
-    wrapper.vm.calculate();
-    wrapper.vm.changeInvestorParticipation(index, value);
-    expect(wrapper.vm.investorParticipation[index]).toBe(value);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([1]);
   });
 
-  test('Call "changeInvestorParticipation" with new value', () => {
+  test('Call "addInvestor" with big value', () => {
     const wrapper = factory();
-    const index = 3;
-    const value = 1;
-    wrapper.vm.calculate();
-    wrapper.vm.changeInvestorParticipation(index, value);
-    expect(wrapper.vm.investorParticipation[index]).toBe(value);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([326]);
+    expect(wrapper.vm.addInvestors).toBe(324);
   });
 
-  test('Call "changeInvestorParticipation" with multi update value', () => {
+  test('Call "addInvestor" with invalid value', () => {
     const wrapper = factory();
-    const index = 3;
-    const value = 1;
-    wrapper.vm.calculate();
-
-    wrapper.vm.changeInvestorParticipation(index + 1, value + 1);
-    expect(wrapper.vm.investorParticipation[index + 1]).toBe(value + 1);
-
-    wrapper.vm.changeInvestorParticipation(index, value);
-    expect(wrapper.vm.investorParticipation[index]).toBe(value);
-    expect(wrapper.vm.investorParticipation[index + 1]).toBe(0);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestors = -1;
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([]);
   });
 
-  test('Call "changeInvestorParticipation" with invalid value', () => {
+  test('Call "addInvestor" with invalid type', () => {
     const wrapper = factory();
-    const index = 4;
-    const value = -1;
-    wrapper.vm.calculate();
-    wrapper.vm.changeInvestorParticipation(index, value);
-    expect(wrapper.vm.investorParticipation[index]).toBe(0);
-    expect(wrapper.vm.errors[`investorParticipation_${index}`]).toBe(true);
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestors = "foo";
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+  });
+
+  test('Call "removeInvestor"', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
+    wrapper.vm.addInvestor();
+    wrapper.vm.addInvestors = 5;
+    wrapper.vm.addInvestor();
+    wrapper.vm.addInvestors = 1;
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([326, 5, 1]);
+    wrapper.vm.removeInvestor(1);
+    expect(wrapper.vm.investorParticipation).toEqual([326, 1]);
+  });
+
+  test('Call "removeInvestor" with invalid index', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
+    wrapper.vm.addInvestor();
+    wrapper.vm.addInvestors = 5;
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([326, 5]);
+    wrapper.vm.removeInvestor(-1);
+    expect(wrapper.vm.investorParticipation).toEqual([326, 5]);
   });
 });

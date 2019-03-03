@@ -112,7 +112,7 @@ export default {
         investorPercentageCustom_4: false
       },
       previsionResult: null,
-      previsionDefault: gbProcess.SubmitRange(
+      previsionDefault: gbProcess.ComputeLevelInvestmentRange(
         defaultFrom,
         defaultTo,
         Array.from(new Array(5), () => defaultArcPercentage),
@@ -492,14 +492,14 @@ export default {
       this.$data.options.scales.yAxes[0].scaleLabel.labelString = this.$t(i18nPrefix + "graph.y_axes_label");
     },
     calculate() {
-      this.$data.previsionDefault = gbProcess.SubmitRange(
+      this.$data.previsionDefault = gbProcess.ComputeLevelInvestmentRange(
         this.normalizedFrom(),
         this.normalizedTo(),
         [0, 0, 0, 0, 0],
         this.$data.gb.levels
       );
 
-      this.$data.previsionResult = gbProcess.SubmitRange(
+      this.$data.previsionResult = gbProcess.ComputeLevelInvestmentRange(
         this.normalizedFrom(),
         this.normalizedTo(),
         this.$data.investorPercentageCustom.map(k => (!k || k.length === 0 || typeof k !== "number" ? 0 : k)),

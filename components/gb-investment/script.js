@@ -19,6 +19,7 @@ const queryKey = {
   placeFree: urlPrefix + "pFree",
   prefix: urlPrefix + "px",
   suffix: urlPrefix + "sx",
+  displayGbName: urlPrefix + "dgbn",
   shortName: urlPrefix + "sn",
   showLevel: urlPrefix + "sl"
 };
@@ -44,17 +45,14 @@ export default {
       investorPercentageGlobal: this.cookieValid("investorPercentageGlobal")
         ? parseFloat(this.$cookies.get("investorPercentageGlobal"))
         : defaultArcPercentage,
-      investorPercentageCustom: [
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage,
-        defaultArcPercentage
-      ],
-      investorParticipation: [0, 0, 0, 0, 0],
+      investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
+      investorParticipation: [],
+      addInvestors: 1,
+      showExtraInvestors: false,
       placeFree: [{ state: true }, { state: true }, { state: true }, { state: true }, { state: true }],
       prefix: this.$cookies.get("gbPrefix") ? this.$cookies.get("gbPrefix") : "",
       suffix: this.$cookies.get("gbSuffix") ? this.$cookies.get("gbSuffix") : "",
+      displayGbName: this.cookieValid("displayGbName") ? !!this.$cookies.get("displayGbName") : true,
       shortName: this.cookieValid("shortName") ? !!this.$cookies.get("shortName") : false,
       showLevel: this.cookieValid("showLevel") ? !!this.$cookies.get("showLevel") : false,
       result: null,
@@ -67,11 +65,7 @@ export default {
         investorPercentageCustom_2: false,
         investorPercentageCustom_3: false,
         investorPercentageCustom_4: false,
-        investorParticipation_0: false,
-        investorParticipation_1: false,
-        investorParticipation_2: false,
-        investorParticipation_3: false,
-        investorParticipation_4: false
+        addInvestors: false
       },
       promotion: [],
       childChange: false
@@ -83,10 +77,8 @@ export default {
       }
     }
 
-    for (let i = 0; i < 5; i++) {
-      if (this.cookieValid("investorParticipation_" + i)) {
-        data.investorParticipation[i] = parseFloat(this.$cookies.get("investorParticipation_" + i));
-      }
+    if (this.$cookies.get("investorParticipation") && this.$cookies.get("investorParticipation") instanceof Array) {
+      data.investorParticipation = this.$cookies.get("investorParticipation");
     }
 
     Object.assign(data, this.checkQuery(data.level, data.maxLevel));
@@ -108,19 +100,16 @@ export default {
       value: data.investorPercentageGlobal,
       ns: "gbi"
     });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.investorParticipation,
+      value: JSON.stringify(data.investorParticipation),
+      ns: "gbi"
+    });
 
     for (let index = 0; index < data.investorPercentageCustom.length; index++) {
       this.$store.commit("ADD_URL_QUERY", {
         key: queryKey.investorPercentageCustom + (index + 1),
         value: data.investorPercentageCustom[index],
-        ns: "gbi"
-      });
-    }
-
-    for (let index = 0; index < data.investorParticipation.length; index++) {
-      this.$store.commit("ADD_URL_QUERY", {
-        key: queryKey.investorParticipation + (index + 1),
-        value: data.investorParticipation[index],
         ns: "gbi"
       });
     }
@@ -149,6 +138,11 @@ export default {
       ns: "gbi"
     });
     this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.displayGbName,
+      value: data.displayGbName ? 1 : 0,
+      ns: "gbi"
+    });
+    this.$store.commit("ADD_URL_QUERY", {
       key: queryKey.showLevel,
       value: data.showLevel ? 1 : 0,
       ns: "gbi"
@@ -168,6 +162,12 @@ export default {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
         query: this.$store.getters.getUrlQuery("gbi")
       };
+    },
+    maxInvestment() {
+      return this.$data.result.cost - this.investorParticipationNormalized.reduce((i, j) => i + j, 0);
+    },
+    investorParticipationNormalized() {
+      return Utils.normalizeNumberArray(this.$data.investorParticipation);
     },
     levelNormalized() {
       return Utils.normalizeNumberValue(this.$data.level, 1);
@@ -200,7 +200,9 @@ export default {
           ns: "gbi"
         });
         this.$data.ownerInvestment = 0;
-        this.$data.investorParticipation = [0, 0, 0, 0, 0];
+        this.$data.showExtraInvestors = false;
+        this.$data.investorParticipation = [];
+        this.$data.result = {};
         this.calculate();
       }
     },
@@ -227,6 +229,23 @@ export default {
           ns: "gbi"
         });
         this.calculate();
+      }
+    },
+    addInvestors(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.addInvestors = true;
+        return;
+      }
+
+      if (
+        Utils.handlerForm(this, "addInvestors", !val || val.length === 0 ? 0 : val, oldVal, [1, this.maxInvestment]) ===
+        Utils.FormCheck.VALID
+      ) {
+        this.$store.commit("UPDATE_URL_QUERY", {
+          key: queryKey.addInvestors,
+          value: val,
+          ns: "gbi"
+        });
       }
     },
     investorPercentageGlobal(val, oldVal) {
@@ -296,6 +315,18 @@ export default {
         this.calculate();
       }
     },
+    investorParticipation(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.investorParticipation,
+        value: JSON.stringify(val),
+        ns: "gbi"
+      });
+      this.$cookies.set("investorParticipation", val, {
+        path: this.$nuxt.$route.path,
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.calculate();
+    },
     prefix(val) {
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.prefix,
@@ -315,6 +346,18 @@ export default {
         ns: "gbi"
       });
       this.$cookies.set("gbSuffix", val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.updatePromotionMessage();
+    },
+    displayGbName(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.displayGbName,
+        value: val ? 1 : 0,
+        ns: "gbi"
+      });
+      this.$cookies.set("displayGbName", val, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
@@ -364,7 +407,7 @@ export default {
     },
     calculate() {
       try {
-        this.$data.result = gbProcess.Submit(
+        this.$data.result = gbProcess.ComputeLevelInvestment(
           this.levelNormalized,
           Utils.normalizeNumberArray(this.$data.investorPercentageCustom),
           this.$props.gb.levels,
@@ -372,7 +415,7 @@ export default {
         );
         this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
-        // TODO: processing error
+        // TODO: error processing
         throw e;
       }
     },
@@ -388,11 +431,20 @@ export default {
       ];
     },
     getPromotionMessage(titleFirst = true, reverse = false, onlyPlaceIndex = false) {
-      let result = this.$data.prefix.length > 0 ? `${this.$data.prefix} ` : "";
-      result += titleFirst
-        ? this.$t(`foe_data.gb${this.$data.shortName ? "_short" : ""}.${this.$props.gb.key}`) +
-          `${this.$data.showLevel ? " " + (this.$data.level - 1) + " → " + this.$data.level : ""}`
-        : "";
+      let result = this.$data.prefix.length > 0 ? this.$data.prefix : "";
+      const addGbAndLevel = () => {
+        result = result
+          .concat(
+            this.$data.displayGbName
+              ? " " + this.$t(`foe_data.gb${this.$data.shortName ? "_short" : ""}.${this.$props.gb.key}`)
+              : ""
+          )
+          .concat(this.$data.showLevel ? " " + (this.$data.level - 1) + " → " + this.$data.level : "");
+      };
+      if (titleFirst) {
+        addGbAndLevel();
+      }
+
       let array = reverse ? this.$data.result.investment.reduce((a, b) => [b, ...a], []) : this.$data.result.investment;
 
       let i = reverse ? 5 : 0;
@@ -400,27 +452,22 @@ export default {
         i -= reverse ? 1 : 0;
         if (place.participation > 0 && this.$data.placeFree[i].state) {
           if (onlyPlaceIndex) {
-            result += titleFirst ? ` ${i + 1}` : `${i + 1} `;
+            result += ` ${i + 1}`;
           } else {
-            result += titleFirst
-              ? ` ${this.$t(i18nPrefix + "promotion.promo." + i, {
-                  investment: place.participation
-                })}`
-              : `${this.$t(i18nPrefix + "promotion.promo." + i, {
-                  investment: place.participation
-                })} `;
+            result += ` ${this.$t(i18nPrefix + "promotion.promo." + i, {
+              investment: place.participation
+            })}`;
           }
         }
         i += reverse ? 0 : 1;
       }
 
-      result += titleFirst
-        ? ""
-        : this.$t(`foe_data.gb${this.$data.shortName ? "_short" : ""}.${this.$props.gb.key}`) +
-          `${this.$data.showLevel ? " " + (this.$data.level - 1) + " → " + this.$data.level : ""}`;
-      result += this.$data.suffix.length > 0 ? ` ${this.$data.suffix}` : "";
+      if (!titleFirst) {
+        addGbAndLevel();
+      }
+      result += " " + this.$data.suffix;
 
-      return { message: result, active: false };
+      return { message: result.trim(), active: false };
     },
     successCopy(index) {
       this.promotion[index].active = true;
@@ -439,12 +486,7 @@ export default {
         ns: "gbi"
       });
 
-      this.$data.promotion = [
-        this.getPromotionMessage(),
-        this.getPromotionMessage(false),
-        this.getPromotionMessage(true, true),
-        this.getPromotionMessage(false, true)
-      ];
+      this.updatePromotionMessage();
     },
 
     /**
@@ -457,7 +499,7 @@ export default {
     checkQuery(level, maxLevel) {
       let result = { level };
       let investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
-      let investorParticipation = Array.apply(null, Array(5)).map(() => 0);
+      let investorParticipation = [];
       let placeFree = Array.apply(null, Array(5)).map(() => {
         return { state: true };
       });
@@ -509,13 +551,12 @@ export default {
           investorPercentageCustom[i] = parseFloat(this.$route.query[queryKey.investorPercentageCustom + (i + 1)]);
         }
 
-        if (
-          this.$route.query[queryKey.investorParticipation + (i + 1)] &&
-          !isNaN(this.$route.query[queryKey.investorParticipation + (i + 1)]) &&
-          parseFloat(this.$route.query[queryKey.investorParticipation + (i + 1)]) >= 0
-        ) {
-          isPermalink = true;
-          investorParticipation[i] = parseFloat(this.$route.query[queryKey.investorParticipation + (i + 1)]);
+        if (this.$route.query[queryKey.investorParticipation]) {
+          const parsedParticipation = JSON.parse(this.$route.query[queryKey.investorParticipation]);
+          if (parsedParticipation instanceof Array) {
+            isPermalink = true;
+            investorParticipation = parsedParticipation;
+          }
         }
       }
 
@@ -541,6 +582,11 @@ export default {
         result.suffix = this.$route.query[queryKey.suffix];
       }
 
+      if (this.$route.query[queryKey.displayGbName]) {
+        isPermalink = true;
+        result.displayGbName = !!parseInt(this.$route.query[queryKey.displayGbName]);
+      }
+
       if (this.$route.query[queryKey.shortName]) {
         isPermalink = true;
         result.shortName = !!parseInt(this.$route.query[queryKey.shortName]);
@@ -560,58 +606,53 @@ export default {
 
       return result;
     },
-    changeInvestorParticipation: function(currentIndex, value) {
-      if (this.$data.investorParticipation[currentIndex] === value) {
-        // nothing to do
+    addInvestor() {
+      const val = this.$data.addInvestors;
+      if (val && typeof val !== "number" && val.length > 0) {
+        this.$data.errors.addInvestors = true;
         return;
       }
 
-      const fixedValue = !value || value.length === 0 ? 0 : value;
-      const normalizedArray = Utils.normalizeNumberArray(this.$data.investorParticipation);
-
-      let lastValue = this.$data.result.cost;
-      if (currentIndex > 0) {
-        lastValue = Math.min(
-          this.$data.result.investment[currentIndex - 1].participation,
-          this.$data.result.cost - this.$data.result.investment[currentIndex - 1].cumulativeInvestment
-        );
-      }
-
       if (
-        Utils.handlerForm(
-          this,
-          "investorParticipation_" + currentIndex,
-          fixedValue,
-          normalizedArray[currentIndex],
-          [0, lastValue],
-          !this.isPermalink,
-          this.$nuxt.$route.path,
-          "int"
-        ) === Utils.FormCheck.VALID
+        Utils.handlerForm(this, "addInvestors", !val || val.length === 0 ? 0 : val, 0, [1, this.maxInvestment]) ===
+        Utils.FormCheck.VALID
       ) {
-        this.$data.errors["investorParticipation_" + currentIndex] = false;
-        this.$store.commit("UPDATE_URL_QUERY", {
-          key: queryKey.investorParticipation + (currentIndex + 1),
-          value: value,
-          ns: "gbi"
-        });
-        this.$data.investorParticipation[currentIndex] = value;
+        this.$data.investorParticipation.push(val);
+        // Not efficient, but small array
+        /* istanbul ignore next */
+        this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b - a);
 
-        const newCumulativeResult = this.$data.result.investment[currentIndex - 1].cumulativeInvestment + fixedValue;
-        let acc = 0;
-        for (let i = currentIndex + 1; i < normalizedArray.length; i++) {
-          if (normalizedArray[i] >= fixedValue || acc + newCumulativeResult >= this.$data.result.cost) {
-            this.$data.investorParticipation[i] = 0;
-          }
-          acc += normalizedArray[i];
+        if (this.$data.addInvestors > this.maxInvestment) {
+          this.$data.addInvestors = this.maxInvestment;
         }
+
         this.calculate();
-      } else {
-        this.$data.errors["investorParticipation_" + currentIndex] = true;
       }
     },
-    getInvestorParticipation(index) {
-      return this.$data.investorParticipation[index];
+    removeInvestor(index) {
+      if (!Utils.inRange(index, 0, this.$data.investorParticipation.length - 1)) {
+        return;
+      }
+
+      this.$data.investorParticipation.splice(index, 1);
+      this.calculate();
+    },
+    haveReadTipAboutAddInvestor: /* istanbul ignore next */ function() {
+      if (!this.$cookies.get("haveReadTipAboutAddInvestor")) {
+        let self = this;
+        this.$snackbar.open({
+          message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
+          position: "is-top",
+          actionText: this.$t("utils.Ok"),
+          indefinite: true,
+          onAction: () => {
+            self.$cookies.set("haveReadTipAboutAddInvestor", true, {
+              path: "/",
+              expires: Utils.getDefaultCookieExpireTime()
+            });
+          }
+        });
+      }
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";

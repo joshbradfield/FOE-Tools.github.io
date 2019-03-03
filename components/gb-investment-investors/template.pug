@@ -30,7 +30,7 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(v-bind:label="$t('components.gb_investment.gb_investment.form.level', { level: targetLevel, fromLevel: (targetLevel - 1), max: maxLevel })" label-for="giiLevel" v-bind:type="haveError('targetLevel')")
+      b-field(v-bind:label="$t('components.gb_investment.gb_investment.form.level', { level: targetLevel, fromLevel: (targetLevel - 1), min: 1, max: maxLevel })" label-for="giiLevel" v-bind:type="haveError('targetLevel')")
         b-input#giiLevel(type="number" min="1" v-bind:max="maxLevel" v-model.number="targetLevel" name="targetLevel" autocomplete="off" v-bind:autofocus="canPermalink")
     div.column.is-half
       b-field(v-bind:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" v-bind:type="haveError('yourArcBonus')")

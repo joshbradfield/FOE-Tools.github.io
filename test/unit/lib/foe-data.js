@@ -1,9 +1,5 @@
-describe("FOE Data", () => {
-  const normalizedPath = require("path").join(__dirname, "foe-data");
+import { doTestOf } from "../utils";
 
-  require("fs")
-    .readdirSync(normalizedPath)
-    .forEach(function(file) {
-      require("./foe-data/" + file);
-    });
+describe("FOE Data", () => {
+  doTestOf("foe-data", __dirname);
 });

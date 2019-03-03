@@ -1,9 +1,5 @@
-describe("Lib", () => {
-  const normalizedPath = require("path").join(__dirname, "lib");
+import { doTestOf } from "./utils";
 
-  require("fs")
-    .readdirSync(normalizedPath)
-    .forEach(function(file) {
-      require("./lib/" + file);
-    });
+describe("Lib", () => {
+  doTestOf("lib");
 });
