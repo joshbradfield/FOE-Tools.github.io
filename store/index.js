@@ -42,19 +42,24 @@ export const state = () => ({
   hero,
 
   /**
-   * Array that contains URL query (for perma-link)
+   * Array that contains URL query (for permalink)
    */
   urlQuery: {},
 
   /**
-   * Namespace for URL Query (to have differenet url query in a single page)
+   * Namespace for URL Query (to have different url query in a single page)
    */
   urlQueryNamespace: {},
 
   /**
    * Check if current location is permalink. True if permalink, False otherwise
    */
-  isPermalink: false
+  isPermalink: false,
+
+  /**
+   * True for dark theme, false for light theme
+   */
+  darkTheme: false
 });
 
 export const mutations = {
@@ -99,7 +104,7 @@ export const mutations = {
   /**
    * Add a query parameter into urlQuery
    * @param state Reference of state
-   * @param obj {object} Contains an elemenet 'key' and 'value'
+   * @param obj {object} Contains an element 'key' and 'value'
    */
   ADD_URL_QUERY: ({ urlQuery, urlQueryNamespace }, obj) => {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
@@ -121,7 +126,7 @@ export const mutations = {
   /**
    * Update a query parameter
    * @param state Reference of state
-   * @param obj {object} Contains an elemenet 'key' and 'value'
+   * @param obj {object} Contains an element 'key' and 'value'
    */
   UPDATE_URL_QUERY: ({ urlQuery, urlQueryNamespace }, obj) => {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
@@ -143,6 +148,15 @@ export const mutations = {
    */
   IS_PERMALINK: (state, value) => {
     Vue.set(state, "isPermalink", value);
+  },
+
+  /**
+   * Mutator of darkTheme
+   * @param state Reference of state
+   * @param value New value
+   */
+  IS_DARK_THEME: (state, value) => {
+    Vue.set(state, "darkTheme", value);
   }
 };
 

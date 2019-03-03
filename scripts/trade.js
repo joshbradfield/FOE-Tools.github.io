@@ -1,8 +1,8 @@
-const { Enum } = require("enumify");
-const PriorityQueue = require("js-priority-queue");
-const ages = require("~/lib/foe-data/ages");
-const goods = require("~/lib/foe-data/goods");
-const Errors = require("~/scripts/errors");
+import { Enum } from "enumify";
+import PriorityQueue from "js-priority-queue";
+import ages from "~/lib/foe-data/ages";
+import goods from "~/lib/foe-data/goods";
+import Errors from "~/scripts/errors";
 
 class TradeArray extends Enum {}
 TradeArray.initEnum(["SIMPLE", "FAIR"]);

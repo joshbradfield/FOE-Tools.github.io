@@ -25,15 +25,15 @@
         div.navbar-end
           div.navbar-item
             div.buttons.has-addons
-              b-tooltip(type="is-dark" v-bind:label="$t('components.site_layout.day_night.Day')" position="is-bottom")
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Day')" position="is-bottom")
                 span.button(:class="{ 'is-info' : dayNightMode === 'day' }" @click="dayNightMode = 'day'" ref="button-day")
                   span.icon(style="margin: auto;")
                     i.fas.fa-sun
-              b-tooltip(type="is-dark" v-bind:label="$t('components.site_layout.day_night.Night')" position="is-bottom")
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Night')" position="is-bottom")
                 span.button(:class="{ 'is-info' : dayNightMode === 'night' }" @click="dayNightMode = 'night'" ref="button-night")
                   span.icon(style="margin: auto;")
                     i.fas.fa-moon
-              b-tooltip(type="is-dark" v-bind:label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
                 span.button(:class="{ 'is-info' : dayNightMode === 'auto' }" @click="dayNightMode = 'auto'" ref="button-auto")
                   span.icon(style="margin: auto;")
                     i.fas.fa-cog
@@ -47,7 +47,7 @@
                 span GitHub
 
   section.fixed(v-show="cookieDisclaimerUndisplayed")
-    b-notification.is-radiusless.is-marginless.has-text-centered(type="is-dark" closable v-on:close="confirmInfoCookie" v-bind:active="cookieDisclaimerUndisplayed")
+    b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" closable v-on:close="confirmInfoCookie" v-bind:active="cookieDisclaimerUndisplayed")
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}
         |
         |

@@ -1,12 +1,29 @@
 @import "~bulma/sass/utilities/_all";
 
 body.light-theme {
+  .icon {
+    svg {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+  @import "~bulma";
+  @import "~buefy/src/scss/buefy";
   $body-background-color: #F0F2F4 !important;
   background-color: $body-background-color;
 }
 
 body.dark-theme {
-  @import "~bulmaswatch/cyborg/bulmaswatch";
+  @import "./style/theme/dark/variables";
+  .icon {
+    svg {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+  @import "~bulma";
+  @import "~buefy/src/scss/buefy";
+  @import "./style/theme/dark/overrides";
   background-color: #353b48 !important;
 
   footer {
@@ -17,8 +34,10 @@ body.dark-theme {
   }
 }
 
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
+table .image {
+  display: inline-block !important;
+  margin: 0 !important;
+}
 
 table.trade .image {
   display: inline-block !important;
@@ -89,6 +108,10 @@ section.hero.is-dark-blue .subtitle a:hover {
 
 .content li + li {
   margin-top: 0;
+}
+
+.tabs li + li {
+  margin-top: 0px !important;
 }
 
 .image-inherit {

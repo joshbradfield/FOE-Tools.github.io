@@ -6,14 +6,12 @@ export default {
   data() {
     let dS, nS;
     const regexTime = /([0-9]{2}):([0-9]{2})/;
-    console.log("cookieDayStart: ", cookieDayStart);
-    console.log("cookieNightStart: ", cookieNightStart);
     const cookieDayStart = this.$cookies.get("dayStart");
     const cookieNightStart = this.$cookies.get("nightStart");
     dS = new Date();
     if (cookieDayStart && regexTime.test(cookieDayStart)) {
       const match = regexTime.exec(cookieDayStart);
-      dS.setUTCHours(match[1]);
+      dS.setUTCHours(parseInt(match[1]) - 1);
       dS.setUTCMinutes(match[2]);
     } else {
       dS.setUTCHours(7);
@@ -27,7 +25,7 @@ export default {
     nS = new Date();
     if (cookieNightStart && regexTime.test(cookieNightStart)) {
       const match = regexTime.exec(cookieNightStart);
-      nS.setUTCHours(match[1]);
+      nS.setUTCHours(parseInt(match[1]) - 1);
       nS.setUTCMinutes(match[2]);
     } else {
       nS.setUTCHours(18);

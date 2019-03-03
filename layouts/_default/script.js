@@ -179,6 +179,11 @@ export default {
           this.showDayNightDialog();
           break;
       }
+    },
+    darkTheme(val) {
+      console.log("value updated: ", val);
+
+      this.$store.commit("IS_DARK_THEME", !!val);
     }
   },
   methods: {

@@ -119,7 +119,7 @@ div.content
             p {{$formatNumber(line.investment[0].reward) + " (" + $formatNumber(line.investment[0].participation) + ")"}}
           td(v-show="showP1")
             p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[0].participation) + " ("}}
-              b-tooltip(type="is-dark" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[0].preparation)}}
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[0].preparation)}}
               | )
             p(v-else) {{$formatNumber(line.investment[0].fp)}}
           td(v-show="showP1")
@@ -140,7 +140,7 @@ div.content
             p {{$formatNumber(line.investment[1].reward) + " (" + $formatNumber(line.investment[1].participation) + ")"}}
           td(v-show="showP2")
             p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[1].participation) + " ("}}
-              b-tooltip(type="is-dark" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[1].preparation)}}
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[1].preparation)}}
               | )
             p(v-else) {{$formatNumber(line.investment[1].fp)}}
           td(v-show="showP2")
@@ -161,7 +161,7 @@ div.content
             p {{$formatNumber(line.investment[2].reward) + " (" + $formatNumber(line.investment[2].participation) + ")"}}
           td(v-show="showP3")
             p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[2].participation) + " ("}}
-              b-tooltip(type="is-dark" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[2].preparation)}}
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[2].preparation)}}
               | )
             p(v-else) {{$formatNumber(line.investment[2].fp)}}
           td(v-show="showP3")
@@ -182,7 +182,7 @@ div.content
             p {{$formatNumber(line.investment[3].reward) + " (" + $formatNumber(line.investment[3].participation) + ")"}}
           td(v-show="showP4")
             p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[3].participation) + " ("}}
-              b-tooltip(type="is-dark" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[3].preparation)}}
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[3].preparation)}}
               | )
             p(v-else) {{$formatNumber(line.investment[3].fp)}}
           td(v-show="showP4")
@@ -203,7 +203,7 @@ div.content
             p {{$formatNumber(line.investment[4].reward) + " (" + $formatNumber(line.investment[4].participation) + ")"}}
           td(v-show="showP5")
             p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[4].participation) + " ("}}
-              b-tooltip(type="is-dark" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[4].preparation)}}
+              b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[4].preparation)}}
               | )
             p(v-else) {{$formatNumber(line.investment[4].fp)}}
           td(v-show="showP5")
