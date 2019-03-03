@@ -79,11 +79,14 @@
             "p2_html": "<strong>Note</strong> : Si la mise à jour ne se fait pas automatiquement, dans un premier temps, définissez le niveau du GM et la valeur d'investissement globale et cliquez sur « $t(components.gb_investment.gb_investment.form.submit_global) ». Si vous souhaitez ajuster les valeurs de chaque place, ajuster à votre convenance et cliquez sur « $t(components.gb_investment.gb_investment.form.submit_custom) »."
           },
           "form": {
-            "level": "Niveau {{fromLevel, number}} → {{level, number}} (entre 1 et {{max, number}})",
+            "level": "Niveau {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "% de bonus (grosses arches) global des investisseurs",
             "submit_global": "Calcul global",
             "submit_custom": "Calcul personnalisé",
-            "owner_investment": "Nombre de PFs actuellement mis par le propriétaire"
+            "owner_investment": "Nombre de PFs actuellement mis par le propriétaire",
+            "add_investors": "Ajouter un investisseur (mettre la valeur en PF, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "tooltip_add_investors": "Cliquez sur le bouton \"$t(utils.Add)\" ou appuyez sur la touche \"Entrée\" pour ajouter un investisseur",
+            "investors_list": "Liste des investisseurs ajoutés"
           },
           "table": {
             "title": "$t({{gb_key}}) niveau {{fromLevel, number}} → {{level, number}}",
@@ -93,16 +96,23 @@
               "th3": "PF à mettre par le propriétaire pour sécuriser la place",
               "th4": "Récompenses avec taux",
               "th5": "% de bonus (grosses arches) des investisseurs",
-              "th6": "Place libre"
+              "th6": "Place libre",
+              "fp_already_putin": "Nombre de PF déjà mis"
             },
             "tbody": {
-              "tooltip_owner_investment": "PFs restant à mettre par le propriétaire pour sécuriser la place"
+              "tooltip_owner_investment": "PFs restant à mettre par le propriétaire pour sécuriser la place",
+              "tooltip_expected_investment": "Investissement attendu",
+              "button_show_extra_investor": "Montrer l'investisseur supplémentaire",
+              "button_show_extra_investor_plural": "Montrer les investisseurs supplémentaires",
+              "button_hide_extra_investor": "Cacher l'investisseur supplémentaire",
+              "button_hide_extra_investor_plural": "Cacher les investisseurs supplémentaires"
             },
             "tfoot": {
               "total_preparation": "Investissement total du propriétaire",
               "level_cost": "Coût du niveau"
             }
           },
+          "display_gb_name": "Afficher le nom du GM ?",
           "use_short_name": "Utiliser un nom court ?",
           "show_level": "Afficher le niveau ?"
         },
@@ -319,7 +329,10 @@
               "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
               "showPx": "Indique s'il faut afficher ou non la place dans le message de promotion",
               "takingPlaceInConsideration": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique si les autres places doivent être prises en considération dans le calcul",
-              "targetLevel": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique à partir de quel niveau il faut afficher les informations dans le tableau"
+              "targetLevel": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique à partir de quel niveau il faut afficher les informations dans le tableau",
+              "displayGbName": "Indique s'il faut afficher ou non le nom du GM dans le message de promotion",
+              "investorParticipation": "Contiens la liste de tous les investisseurs ajouté",
+              "haveReadTipAboutAddInvestor": "Indique si vous avez lu le message d'information concernant l'astuce pour utiliser le champ d'ajout de contributeurs"
             },
             "secure-position": {
               "currentDeposits": "$t(components.secure_position.block_place.current_deposits)"
@@ -1063,6 +1076,8 @@
       },
       "choose_age": "Choisissez un Âge",
       "permalink": "Lien permanent",
+      "Add": "Ajouter",
+      "Remove": "Supprimer",
       "Yes": "Oui",
       "No": "Non",
       "Ok": "Ok",
@@ -1077,10 +1092,11 @@
       "Name": "Nom",
       "Description": "Description",
       "Rewards": "Récompenses",
-      "Cost": "Cost",
+      "Cost": "Coût",
       "Conquered": "Conquis",
       "Total": "Total",
       "Secured": "Sécurisé",
+      "between_range": "entre {{min, number}} et {{max, number}}",
       "Reset": "Réinitialiser",
       "Confirm": "Confirmer",
       "Close": "Fermer",

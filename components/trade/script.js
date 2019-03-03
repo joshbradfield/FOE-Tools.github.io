@@ -99,7 +99,10 @@ export default {
     },
 
     compute() {
-      if (Utils.normalizeNumberValue(this.$data.value) === 0 || Utils.normalizeNumberValue(this.$data.splitValue) === 0) {
+      if (
+        Utils.normalizeNumberValue(this.$data.value) === 0 ||
+        Utils.normalizeNumberValue(this.$data.splitValue) === 0
+      ) {
         Vue.set(this.$data, "result", []);
       } else {
         Vue.set(

@@ -159,20 +159,6 @@ export default {
   },
 
   /**
-   * Error throw when the value of the participation for the current place is greater than the previous place.
-   * @param index Index of the place
-   *
-   * @see {foe-gb-investment#getValues}
-   */
-  InvalidParticipationException(index) {
-    return {
-      name: "InvalidParticipationException",
-      message: `The value at index ${index} should not be greater than the previous place participation`,
-      index: index
-    };
-  },
-
-  /**
    * Error throw when the key already exists in urlQuery in store.
    * @param key Key that already exists
    */

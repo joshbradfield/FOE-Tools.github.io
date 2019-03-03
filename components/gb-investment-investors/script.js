@@ -283,11 +283,13 @@ export default {
       const result = [];
 
       for (let i = 0; i < this.$props.gb.levels.length; i++) {
-        const investorPercentage = Array.apply(null, Array(5)).map(() => Utils.normalizeNumberValue(this.$data.yourArcBonus));
+        const investorPercentage = Array.apply(null, Array(5)).map(() =>
+          Utils.normalizeNumberValue(this.$data.yourArcBonus)
+        );
         const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
-          gbProcess.Submit(i + 1, investorPercentage, this.$props.gb.levels, defaultParticipation)
+          gbProcess.ComputeLevelInvestment(i + 1, investorPercentage, this.$props.gb.levels, defaultParticipation)
         );
 
         let currentDeposits = 0;
