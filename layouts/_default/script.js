@@ -163,7 +163,6 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", false);
     },
     dayNightMode: /* istanbul ignore next */ function(val) {
-      console.log("val: ", val);
       switch (val) {
         case "day":
           this.dayNightWatchdog.stop.call(this);
