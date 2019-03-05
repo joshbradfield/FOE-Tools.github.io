@@ -59,7 +59,7 @@ export const state = () => ({
   /**
    * True for dark theme, false for light theme
    */
-  darkTheme: false
+  isDarkTheme: false
 });
 
 export const mutations = {
@@ -156,7 +156,7 @@ export const mutations = {
    * @param value New value
    */
   IS_DARK_THEME: (state, value) => {
-    Vue.set(state, "darkTheme", value);
+    Vue.set(state, "isDarkTheme", value);
   }
 };
 

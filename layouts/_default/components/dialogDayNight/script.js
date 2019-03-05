@@ -1,7 +1,10 @@
 import Utils from "~/scripts/utils";
 
 const i18nPrefix = "components.site_layout.day_night";
-
+const dayStartHour = 7;
+const dayStartMinutes = 0;
+const nightStartHour = 18;
+const nightStartMinutes = 30;
 export default {
   data() {
     let dS, nS;
@@ -14,8 +17,8 @@ export default {
       dS.setUTCHours(parseInt(match[1]) - 1);
       dS.setUTCMinutes(match[2]);
     } else {
-      dS.setUTCHours(7);
-      dS.setUTCMinutes(0);
+      dS.setUTCHours(dayStartHour);
+      dS.setUTCMinutes(dayStartMinutes);
       this.$cookies.set("dayStart", this.$moment(dS).format("HH:mm"), {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
@@ -28,8 +31,8 @@ export default {
       nS.setUTCHours(parseInt(match[1]) - 1);
       nS.setUTCMinutes(match[2]);
     } else {
-      nS.setUTCHours(18);
-      nS.setUTCMinutes(30);
+      nS.setUTCHours(nightStartHour);
+      nS.setUTCMinutes(nightStartMinutes);
       this.$cookies.set("nightStart", this.$moment(nS).format("HH:mm"), {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
@@ -43,13 +46,13 @@ export default {
     };
   },
   computed: {
-    defaultDayStart() {
+    defaultDayStart: /* istanbul ignore next */ function() {
       return this.$moment()
         .hour(8)
         .minute(0)
         .toDate();
     },
-    defaultNightStart() {
+    defaultNightStart: /* istanbul ignore next */ function() {
       return this.$moment()
         .hour(19)
         .minute(30)

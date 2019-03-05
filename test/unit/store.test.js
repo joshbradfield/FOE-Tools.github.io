@@ -87,4 +87,11 @@ describe("Store", () => {
       Errors.namespaceNotFoundException("baz")
     );
   });
+
+  test('Call "IS_DARK_THEME"', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.$store.state.isDarkTheme).toEqual(false);
+    wrapper.vm.$store.commit("IS_DARK_THEME", true);
+    expect(wrapper.vm.$store.state.isDarkTheme).toEqual(true);
+  });
 });

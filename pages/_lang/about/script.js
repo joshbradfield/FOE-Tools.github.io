@@ -20,6 +20,10 @@ export default {
         { name: "showLevel", path: "/", key: "root" },
         { name: "yourArcBonus", path: "/", key: "root" },
         { name: "yourCfBoost", path: "/", key: "root" },
+        { name: "haveReadTipAboutAddInvestor", path: "/", key: "root" },
+        { name: "dayNightMode", path: "/", key: "root" },
+        { name: "dayStart", path: "/", key: "root" },
+        { name: "nightStart", path: "/", key: "root" },
 
         { name: "coins", path: "/cf-calculator", key: "cf-calculator" },
         { name: "fpBy24h", path: "/cf-calculator", key: "cf-calculator" },
@@ -41,7 +45,6 @@ export default {
         { name: "targetLevel", path: "/gb-investment/:gb", key: "gb-investment" },
         { name: "displayGbName", path: "/gb-investment/:gb", key: "gb-investment" },
         { name: "investorParticipation", path: "/gb-investment/:gb", key: "gb-investment" },
-        { name: "haveReadTipAboutAddInvestor", path: "/gb-investment/:gb", key: "gb-investment" },
 
         { name: "currentDeposits", path: "/gb-investment/:gb, /secure-position", key: "secure-position" }
       ]

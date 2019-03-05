@@ -105,9 +105,10 @@ function securePlace(levelCost, currentDeposits, yourParticipation, otherPartici
  * @param investorPercentage {Array} percentage of investors (Arc)
  * @param defaultParticipation {Array} Default participation used if reward of the place is equal to 0.
  * If null, all default place participation are set to 0.
+ * @param ownerPreparation {number} Current preparation of the owner
  * @return {object}
  */
-function levelInvestment(gb, currentLevel, investorPercentage, defaultParticipation = []) {
+function levelInvestment(gb, currentLevel, investorPercentage, defaultParticipation = [], ownerPreparation = 0) {
   const result = {};
   result.cost = gb[currentLevel - 1].cost;
   result.investment = [];
@@ -119,7 +120,7 @@ function levelInvestment(gb, currentLevel, investorPercentage, defaultParticipat
   let levelCostReached = false;
   let cumulativeParticipation = 0;
   let maxPreparation = 0;
-  let cumulativeInvestment = 0;
+  let cumulativeInvestment = ownerPreparation;
 
   for (let i = 0; i < gb[currentLevel - 1].reward.length && !levelCostReached; i++) {
     const investment = {
@@ -303,7 +304,7 @@ export default {
    * By default, all default place participation are set to 0.
    * @return {object}
    */
-  ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation = []) {
+  ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation = [], ownerPreparation = 0) {
     const funcName = "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation)";
 
     checkGbData("gb", funcName, gb);
@@ -322,6 +323,6 @@ export default {
       );
     }
 
-    return levelInvestment(gb, currentLevel, investorPercentage, defaultParticipation.sort((a, b) => b - a));
+    return levelInvestment(gb, currentLevel, investorPercentage, defaultParticipation.sort((a, b) => b - a), ownerPreparation);
   }
 };

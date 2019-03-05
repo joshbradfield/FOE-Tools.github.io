@@ -69,7 +69,7 @@ div.content
           td.has-text-right
             p(v-if="(place.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(place.preparation)}} (
               template(v-if="place.preparation - ownerInvestmentNormalized > 0")
-                b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
                   span.has-text-danger {{$formatNumber(place.preparation - ownerInvestmentNormalized)}}
               template(v-else)
                 span.has-text-success {{$t('utils.Secured')}}
@@ -84,7 +84,7 @@ div.content
             template(v-else)
               p 0
                 template(v-if="place.participation > 0") &nbsp;(
-                  b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
+                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
                   | )
           // Custom arc bonus
           td
@@ -104,7 +104,7 @@ div.content
             td.has-text-right
               p(v-if="(place.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(place.preparation)}} (
                 template(v-if="place.preparation - ownerInvestmentNormalized > 0")
-                  b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
+                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
                     span.has-text-danger {{$formatNumber(place.preparation - ownerInvestmentNormalized)}}
                 template(v-else)
                   span.has-text-success {{$t('utils.Secured')}}
@@ -119,7 +119,7 @@ div.content
               template(v-else)
                 p 0
                   template(v-if="place.participation > 0") &nbsp;(
-                    b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
+                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
                     | )
             // Custom arc bonus
             td
@@ -172,8 +172,8 @@ div.content
     b-field(v-for="(value, i) in promotion" :key="i")
       b-input(type="text" :value="value.message" readonly expanded)
       p.control
-        b-tooltip(:type="$store.state.darkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('utils.Copyed')" :active="value.active" always)
-          button.button(v-clipboard="value.message" @success="successCopy(i)" v-bind:title="$t('utils.Copy')" style="color: #24292e; background-color: #eff3f6; background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);")
+        b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('utils.Copyed')" :active="value.active" always)
+          button.button.copy(v-clipboard="value.message" @success="successCopy(i)" v-bind:title="$t('utils.Copy')")
             span.icon
               i.far.fa-copy
             | &nbsp;&nbsp;{{$t('utils.Copy')}}

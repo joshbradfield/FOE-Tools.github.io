@@ -308,7 +308,11 @@
               "shortName": "Paramètre global pour « $t(routes.gb_investment_gb_chooser.hero.title) » indiquant s'il faut afficher le nom court des GM pour le message de promotion",
               "showLevel": "Paramètre global pour « $t(routes.gb_investment_gb_chooser.hero.title) » indiquant s'il faut afficher le niveau des GM pour le message de promotion",
               "yourArcBonus": "Paramètre global contenant le bonus de votre Arche",
-              "yourCfBoost": "Paramètre global contenant le bonus de votre Château Frontenac"
+              "yourCfBoost": "Paramètre global contenant le bonus de votre Château Frontenac",
+              "haveReadTipAboutAddInvestor": "Indique si vous avez lu le message d'information concernant l'astuce pour utiliser le champ d'ajout de contributeurs",
+              "dayNightMode": "Indique quel mode Jour/Nuit vous utiliser",
+              "dayStart": "Heure de début du jour (utilisé en mode \"$t(components.site_layout.day_night.Auto)\")",
+              "nightStart": "Heure de début de la nuit (utilisé en mode \"$t(components.site_layout.day_night.Auto)\")"
             },
             "cf-calculator": {
               "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
@@ -331,8 +335,7 @@
               "takingPlaceInConsideration": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique si les autres places doivent être prises en considération dans le calcul",
               "targetLevel": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique à partir de quel niveau il faut afficher les informations dans le tableau",
               "displayGbName": "Indique s'il faut afficher ou non le nom du GM dans le message de promotion",
-              "investorParticipation": "Contiens la liste de tous les investisseurs ajouté",
-              "haveReadTipAboutAddInvestor": "Indique si vous avez lu le message d'information concernant l'astuce pour utiliser le champ d'ajout de contributeurs"
+              "investorParticipation": "Contiens la liste de tous les investisseurs ajouté"
             },
             "secure-position": {
               "currentDeposits": "$t(components.secure_position.block_place.current_deposits)"

@@ -11,6 +11,11 @@ body.light-theme {
   @import "~buefy/src/scss/buefy";
   $body-background-color: #F0F2F4 !important;
   background-color: $body-background-color;
+
+  .copy {
+    color: #24292e;
+    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+  }
 }
 
 body.dark-theme {
@@ -31,6 +36,26 @@ body.dark-theme {
     small, p {
       color: $white;
     }
+  }
+  .copy {
+    color: #D7DCE1;
+    //background-image: linear-gradient(-180deg, #2E2F30 0%, #23272A 90%);
+    //background-image: linear-gradient(-180deg, #48494A 0%, #3D4144 90%);
+    //background-image: linear-gradient(-180deg, lighten(#48494A, 5) 0%, lighten(#3D4144, 5) 90%);
+    background-image: linear-gradient(-180deg, #616263 0%, #565A5D 90%);
+  }
+
+  .copy:hover {
+    background-image: linear-gradient(-180deg, #48494A 0%, #3D4144 90%);
+  }
+
+  .is-dark-light {
+    border-color: #888888 !important;
+  }
+
+  .is-outlined:hover, .is-outlined:hover {
+    background-color: $grey-darker !important;
+    color: white !important;
   }
 }
 

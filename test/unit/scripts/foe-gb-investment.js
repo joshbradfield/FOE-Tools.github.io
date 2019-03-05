@@ -149,6 +149,19 @@ describe("FoeGbInvestment", () => {
         )
       );
     });
+
+    test("Valid value with owner that secure place and snipe on P1", () => {
+      const extraInvestors = [549];
+      const result = GbProcess.ComputeLevelInvestment(
+        24,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.TheFuture,
+        extraInvestors,
+        273
+      );
+
+      expect(result).toMatchSnapshot();
+    });
   });
 
   describe("ComputeLevelInvestmentRange", () => {

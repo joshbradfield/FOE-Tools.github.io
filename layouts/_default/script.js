@@ -21,16 +21,18 @@ export default {
         lang: this.lang
       },
       bodyAttrs: {
-        class: this.darkTheme ? "dark-theme" : "light-theme"
+        class: this.$store.state.isDarkTheme ? "dark-theme" : "light-theme"
       }
     };
   },
   data() {
+    this.$store.commit(
+      "IS_DARK_THEME",
+      this.$cookies.get("dayNightMode") === undefined ? false : this.$cookies.get("dayNightMode") === "night"
+    );
     return {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
-      darkTheme:
-        this.$cookies.get("dayNightMode") === undefined ? false : this.$cookies.get("dayNightMode") === "night",
       dayNightMode: this.$cookies.get("dayNightMode") === undefined ? "day" : this.$cookies.get("dayNightMode"),
       burgerMenuVisible: false,
       cookieDisclaimerUndisplayed:
@@ -122,13 +124,12 @@ export default {
       dayNightWatchdog: (() => {
         let timeout;
         return {
-          start() {
+          start: /* istanbul ignore next */ function() {
             if (!timeout) {
               timeout = setInterval(this.updateDayNightMode, 60000);
             }
           },
-
-          stop() {
+          stop: /* istanbul ignore next */ function() {
             clearInterval(timeout);
             timeout = undefined;
           }
@@ -160,30 +161,20 @@ export default {
     "$route.path"() {
       Vue.set(this.$data, "burgerMenuVisible", false);
     },
-    dayNightMode(val) {
+    dayNightMode: /* istanbul ignore next */ function(val) {
       switch (val) {
         case "day":
-          this.darkTheme = false;
-          this.dayNightWatchdog.stop.call(this);
-          this.updateDayNightCookie("day");
+          this.updateDayNightCookie(val);
           break;
         case "night":
-          this.darkTheme = true;
-          this.dayNightWatchdog.stop.call(this);
-          this.updateDayNightCookie("night");
+          this.updateDayNightCookie(val);
           break;
         case "auto":
-          this.dayNightWatchdog.start.call(this);
-          this.updateDayNightCookie("auto");
+          this.updateDayNightCookie(val);
           this.updateDayNightMode();
           this.showDayNightDialog();
           break;
       }
-    },
-    darkTheme(val) {
-      console.log("value updated: ", val);
-
-      this.$store.commit("IS_DARK_THEME", !!val);
     }
   },
   methods: {
@@ -200,7 +191,7 @@ export default {
     isActive(key) {
       return this.$store.state.currentLocation === key;
     },
-    showDayNightDialog() {
+    showDayNightDialog: /* istanbul ignore next */ function() {
       let self = this;
       this.$modal.open({
         parent: this,
@@ -216,7 +207,7 @@ export default {
         }
       });
     },
-    updateDayNightMode() {
+    updateDayNightMode: /* istanbul ignore next */ function() {
       if (this.dayNightMode !== "auto") {
         this.dayNightWatchdog.stop.call(this);
       }
@@ -224,9 +215,10 @@ export default {
       const dayStart = this.$moment(this.$cookies.get("dayStart"), "HH:mm").format("HH:mm");
       const nightStart = this.$moment(this.$cookies.get("nightStart"), "HH:mm").format("HH:mm");
       const isDay = current >= dayStart && current < nightStart;
-      this.darkTheme = !isDay;
+      this.$store.commit("IS_DARK_THEME", !isDay);
     },
     updateDayNightCookie(value) {
+      this.$store.commit("IS_DARK_THEME", value === "night");
       this.$cookies.set("dayNightMode", value, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()

@@ -262,6 +262,57 @@ Object {
 }
 `;
 
+exports[`Scripts FoeGbInvestment ComputeLevelInvestment Valid value with owner that secure place and snipe on P1 1`] = `
+Object {
+  "cost": 1371,
+  "investment": Array [
+    Object {
+      "cumulativeInvestment": 822,
+      "expectedParticipation": 608,
+      "isInvestorParticipation": true,
+      "participation": 549,
+      "preparation": 273,
+      "reward": 320,
+    },
+    Object {
+      "cumulativeInvestment": 1126,
+      "expectedParticipation": 304,
+      "isInvestorParticipation": false,
+      "participation": 304,
+      "preparation": 273,
+      "reward": 160,
+    },
+    Object {
+      "cumulativeInvestment": 1266,
+      "expectedParticipation": 105,
+      "isInvestorParticipation": false,
+      "participation": 105,
+      "preparation": 308,
+      "reward": 55,
+    },
+    Object {
+      "cumulativeInvestment": 1342,
+      "expectedParticipation": 29,
+      "isInvestorParticipation": false,
+      "participation": 29,
+      "preparation": 355,
+      "reward": 15,
+    },
+    Object {
+      "cumulativeInvestment": 1361,
+      "expectedParticipation": 10,
+      "isInvestorParticipation": false,
+      "participation": 10,
+      "preparation": 364,
+      "reward": 5,
+    },
+  ],
+  "level": 24,
+  "otherInvestment": Array [],
+  "totalPreparations": 374,
+}
+`;
+
 exports[`Scripts FoeGbInvestment ComputeLevelInvestmentRange Valid value 1`] = `
 Object {
   "global": Object {

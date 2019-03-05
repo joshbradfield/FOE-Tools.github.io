@@ -72,8 +72,12 @@ $navbar-dropdown-arrow: $white;
 
 $tabs-boxed-link-active-background-color: $body-background-color;
 
-$input-background-color: rgb(117, 117, 117);
+$input-background-color: $background;
+$input-disabled-background-color: rgb(117, 117, 117);
+
+
 $input-color: white;
+$input-hover-color: $grey-light;
 $input-border-color: $grey-darker;
 
 $input-arrow: white;

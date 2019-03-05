@@ -411,7 +411,8 @@ export default {
           this.levelNormalized,
           Utils.normalizeNumberArray(this.$data.investorPercentageCustom),
           this.$props.gb.levels,
-          Utils.normalizeNumberArray(this.$data.investorParticipation)
+          Utils.normalizeNumberArray(this.$data.investorParticipation),
+          Utils.normalizeNumberValue(this.$data.ownerInvestment)
         );
         this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
