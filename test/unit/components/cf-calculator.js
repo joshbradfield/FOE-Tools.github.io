@@ -269,4 +269,16 @@ describe("CfCalculator", () => {
     expect(wrapper.vm.cumulativeQuest).toBe(value);
     expect(wrapper.vm.$store.state.urlQuery["cfc_cq"]).toBe(3);
   });
+
+  test('Call "calculate" with infinite generator and cumulativeQuest set to 0', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.cumulativeQuest).toBe(0);
+    wrapper.vm.yourCfBoost = 1950;
+    wrapper.vm.coins = 1000000;
+    wrapper.vm.supplies = 1000000;
+    wrapper.vm.cumulativeQuest = 0;
+    wrapper.vm.calculate();
+    expect(wrapper.vm.cumulativeQuest).toBe(3);
+    expect(wrapper.vm.$store.state.urlQuery["cfc_cq"]).toBe(3);
+  });
 });

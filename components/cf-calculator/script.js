@@ -1,4 +1,5 @@
 import questData from "~/lib/foe-data/rq-quests";
+import cfCalculatorProcess from "~/lib/foe-compute-process/cf-calculator";
 import Utils from "~/scripts/utils";
 import YesNo from "~/components/yes-no/YesNo";
 
@@ -383,139 +384,22 @@ export default {
      * Based on: https://docs.google.com/spreadsheets/d/13-mBxR4eumRXWPi6Ayq2D9OGZ9C55eMEb6xyHnLl_-g/edit#gid=2009380732
      */
     calculate() {
-      let cf_boost = Utils.normalizeNumberValue(this.$data.yourCfBoost) / 100;
-      let age = this.$data.questData.ages[this.$data.yourAge];
-      let coins_relation = Math.floor(Utils.normalizeNumberValue(this.$data.coins) / age.cost.coins);
-      let supplies_relation = Math.floor(Utils.normalizeNumberValue(this.$data.supplies) / age.cost.supplies);
-
-      this.$data.result.dailyUbq = coins_relation < supplies_relation ? coins_relation : supplies_relation;
-      this.$data.result.bonusUbq = 0;
-      this.$data.result.coinSupplyReturn = [];
-
-      let nb_quest =
-        Math.floor(
-          (Math.floor((this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq)) * (2 / 14)) *
-            age.reward.small_coins *
-            (1 + cf_boost) +
-            Math.floor((this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq)) * (1 / 14)) *
-              age.reward.large_coins *
-              (1 + cf_boost)) /
-            age.cost.gather
-        ) + Math.floor(Utils.normalizeNumberValue(this.$data.suppliesGathered) / age.cost.gather);
-
-      let plus_quest = this.$data.secondRq ? nb_quest : 0;
-      let first_lap = true;
-      let coin_return;
-      let supply_return;
-      let coin_return_by_cost;
-      let supply_coin_return_by_cost;
-      let supplies_return_by_gather;
-      let min_between_coin_supplies;
-      let final_nb_quest;
-      let second_quest_Completed = nb_quest;
-      let lastCumulativeNbq = 0;
-
-      do {
-        if (first_lap) {
-          first_lap = false;
-
-          coin_return =
-            Math.floor(
-              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (2 / 14)
-            ) *
-              age.reward.small_coins *
-              (1 + cf_boost) +
-            Math.floor(
-              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (1 / 14)
-            ) *
-              age.reward.large_coins *
-              (1 + cf_boost);
-
-          supply_return =
-            Math.floor(
-              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (2 / 14)
-            ) *
-              age.reward.small_supplies *
-              (1 + cf_boost) +
-            Math.floor(
-              (this.$data.result.dailyUbq + Utils.normalizeNumberValue(this.$data.otherRq) + plus_quest) * (1 / 14)
-            ) *
-              age.reward.large_supplies *
-              (1 + cf_boost);
-        } else {
-          coin_return =
-            Math.floor(lastCumulativeNbq * (1 / 14)) * age.reward.large_coins * (1 + cf_boost) +
-            Math.floor(lastCumulativeNbq * (2 / 14)) * age.reward.small_coins * (1 + cf_boost) +
-            Math.max(
-              0,
-              this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].coin -
-                lastCumulativeNbq * age.cost.coins
-            );
-
-          supply_return =
-            Math.floor(lastCumulativeNbq * (1 / 14)) * age.reward.large_supplies * (1 + cf_boost) +
-            Math.floor(lastCumulativeNbq * (2 / 14)) * age.reward.small_supplies * (1 + cf_boost) +
-            Math.max(
-              0,
-              this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].supply -
-                lastCumulativeNbq * age.cost.supplies
-            );
-        }
-
-        coin_return_by_cost = Math.floor(coin_return / age.cost.coins);
-        supply_coin_return_by_cost = Math.floor(supply_return / age.cost.supplies);
-        supplies_return_by_gather = Math.floor(supply_return / age.cost.gather);
-        min_between_coin_supplies =
-          coin_return_by_cost < supply_coin_return_by_cost ? coin_return_by_cost : supply_coin_return_by_cost;
-        lastCumulativeNbq = min_between_coin_supplies;
-        final_nb_quest = this.$data.secondRq
-          ? supplies_return_by_gather + min_between_coin_supplies
-          : min_between_coin_supplies;
-
-        this.$data.result.bonusUbq += final_nb_quest;
-
-        if (coin_return > 0 || supply_return > 0) {
-          if (
-            !this.$data.infinityGenerator &&
-            this.$data.result.coinSupplyReturn.length > 0 &&
-            this.$data.result.coinSupplyReturn[this.$data.result.coinSupplyReturn.length - 1].coin <= coin_return
-          ) {
-            this.$data.infinityGenerator = true;
-          }
-          this.$data.result.coinSupplyReturn.push({
-            coin: coin_return,
-            supply: supply_return
-          });
-        }
-        second_quest_Completed += supplies_return_by_gather;
-      } while (
-        (!this.$data.infinityGenerator && (coin_return > age.cost.coins || supply_return > age.cost.supply)) ||
-        (this.$data.infinityGenerator &&
-          Utils.normalizeNumberValue(this.$data.cumulativeQuest) > this.$data.result.coinSupplyReturn.length)
+      this.$data.result = cfCalculatorProcess.compute(
+        this.$data.questData.ages[this.$data.yourAge],
+        Utils.normalizeNumberValue(this.$data.yourCfBoost),
+        Utils.normalizeNumberValue(this.$data.coins),
+        Utils.normalizeNumberValue(this.$data.supplies),
+        Utils.normalizeNumberValue(this.$data.goods),
+        Utils.normalizeNumberValue(this.$data.fpBy24h),
+        !!this.$data.secondRq,
+        Utils.normalizeNumberValue(this.$data.suppliesGathered),
+        Utils.normalizeNumberValue(this.$data.otherRq),
+        Utils.normalizeNumberValue(this.$data.cumulativeQuest)
       );
-
-      if (this.$data.infinityGenerator && Utils.normalizeNumberValue(this.$data.cumulativeQuest) === 0) {
-        this.$data.cumulativeQuest = this.$data.result.coinSupplyReturn.length + 1;
-      } else if (!this.$data.infinityGenerator) {
-        this.$data.cumulativeQuest = 0;
+      this.$data.infinityGenerator = this.$data.result.infinityGenerator;
+      if (this.$data.infinityGenerator && this.$data.cumulativeQuest === 0) {
+        this.$data.cumulativeQuest = this.$data.result.defaultCumulativeQuest;
       }
-
-      this.$data.result.secondRqCompleted = this.$data.secondRq ? second_quest_Completed : 0;
-      this.$data.result.totalRqCompleted =
-        this.$data.result.dailyUbq +
-        this.$data.result.bonusUbq +
-        Utils.normalizeNumberValue(this.$data.otherRq) +
-        this.$data.result.secondRqCompleted;
-
-      this.$data.result.bp = Math.floor(this.$data.result.totalRqCompleted * (1 / 14) * age.reward.blueprint);
-      this.$data.result.medals =
-        Math.floor(this.$data.result.totalRqCompleted * (1 / 14)) * Math.round(age.reward.medals * (1 + cf_boost));
-      this.$data.result.goods =
-        Math.floor(this.$data.result.totalRqCompleted * (5 / 14)) * Math.round(age.reward.goods * (1 + cf_boost));
-      this.$data.result.fp = Math.floor(this.$data.result.totalRqCompleted * (1 / 14)) * age.reward.fp;
-
-      this.$data.result.totalGoods = this.$data.result.goods + Utils.normalizeNumberValue(this.$data.goods);
-      this.$data.result.totalFp = this.$data.result.fp + Utils.normalizeNumberValue(this.$data.fpBy24h);
     },
     checkQuery() {
       let result = {};

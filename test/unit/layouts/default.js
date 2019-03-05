@@ -1,7 +1,6 @@
 import { config, shallowMount } from "@vue/test-utils";
 import Component from "../../../layouts/_default/Default";
 import { getView } from "../localVue";
-import moment from "moment";
 
 const factory = (mocks = {}) => {
   const { localVue, store } = getView();
