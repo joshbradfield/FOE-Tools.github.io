@@ -5,7 +5,8 @@ import Utils from "~/scripts/utils";
 import DayNight from "./components/dialogDayNight/DialogDayNight";
 
 const i18nPrefix = "components.site_layout.";
-
+// const dayNightWatchdogTimeout = 60000;
+const dayNightWatchdogTimeout = 600;
 export default {
   head /* istanbul ignore next */: function() {
     return {
@@ -126,7 +127,7 @@ export default {
         return {
           start: /* istanbul ignore next */ function() {
             if (!timeout) {
-              timeout = setInterval(this.updateDayNightMode, 60000);
+              timeout = setInterval(this.updateDayNightMode, dayNightWatchdogTimeout);
             }
           },
           stop: /* istanbul ignore next */ function() {
@@ -162,11 +163,14 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", false);
     },
     dayNightMode: /* istanbul ignore next */ function(val) {
+      console.log("val: ", val);
       switch (val) {
         case "day":
+          this.dayNightWatchdog.stop.call(this);
           this.updateDayNightCookie(val);
           break;
         case "night":
+          this.dayNightWatchdog.stop.call(this);
           this.updateDayNightCookie(val);
           break;
         case "auto":
@@ -210,6 +214,8 @@ export default {
     updateDayNightMode: /* istanbul ignore next */ function() {
       if (this.dayNightMode !== "auto") {
         this.dayNightWatchdog.stop.call(this);
+      } else {
+        this.dayNightWatchdog.start.call(this);
       }
       const current = this.$moment().format("HH:mm");
       const dayStart = this.$moment(this.$cookies.get("dayStart"), "HH:mm").format("HH:mm");
