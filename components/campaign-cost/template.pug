@@ -82,7 +82,7 @@ div
                   p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
                     template(v-if="reward.age")
                       | &nbsp;
-                      b-tooltip(type="is-dark" :label="$t('foe_data.age.' + reward.age)" dashed)
+                      b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('foe_data.age.' + reward.age)" dashed)
                         span {{$t('foe_data.age_short.' + reward.age)}}
                   p(v-else-if="reward.value && reward.value > 0") {{$formatNumber(reward.value)}}
               template(v-else)

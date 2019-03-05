@@ -1,4 +1,4 @@
-#app
+#app.dark-theme
   header
     nav.navbar.has-shadow
       div.navbar-brand
@@ -25,6 +25,22 @@
         div.navbar-end
           div.navbar-item
             language-selector
+
+          div.navbar-item
+            div.field.has-addons
+              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Day')" position="is-bottom")
+                span.button(:class="{ 'is-info' : dayNightMode === 'day' }" @click="dayNightMode = 'day'" ref="button-day")
+                  p.icon(style="margin: auto;")
+                    i.fas.fa-sun
+              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Night')" position="is-bottom")
+                span.button(:class="{ 'is-info' : dayNightMode === 'night' }" @click="dayNightMode = 'night'" ref="button-night")
+                  p.icon(style="margin: auto;")
+                    i.fas.fa-moon
+              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
+                span.button(:class="{ 'is-info' : dayNightMode === 'auto' }" @click="dayNightMode = 'auto'" ref="button-auto")
+                  p.icon(style="margin: auto;")
+                    i.fas.fa-cog
+
           div.navbar-item
             div.field.is-grouped
               a.button(href="https://github.com/FOE-Tools/FOE-Tools.github.io" target="_blank")
@@ -33,7 +49,7 @@
                 span GitHub
 
   section.fixed(v-show="cookieDisclaimerUndisplayed")
-    b-notification.is-radiusless.is-marginless.has-text-centered(type="is-dark" closable v-on:close="confirmInfoCookie" v-bind:active="cookieDisclaimerUndisplayed")
+    b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" closable v-on:close="confirmInfoCookie" v-bind:active="cookieDisclaimerUndisplayed")
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}
         |
         |

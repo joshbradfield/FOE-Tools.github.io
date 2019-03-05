@@ -250,6 +250,13 @@
         "footer": {
           "license_html": "Source code under $t(common:links.mit) license",
           "version": "Version {{version}}"
+        },
+        "day_night": {
+          "Day": "Day",
+          "Night": "Night",
+          "Auto": "Automatic $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)",
+          "start_day": "Start of the day",
+          "start_night": "Start of the night"
         }
       },
       "trade": {
@@ -297,7 +304,11 @@
               "shortName": "Global parameter for \"$t(routes.gb_investment_gb_chooser.hero.title)\" that indicates whether to display the GB short name for the promotion message",
               "showLevel": "Global parameter for \"$t(routes.gb_investment_gb_chooser.hero.title)\" that indicates whether to display the GB level for the promotion message",
               "yourArcBonus": "Global setting containing the bonus of your Arc",
-              "yourCfBoost": "Global setting containing the bonus of your Château Frontenac"
+              "yourCfBoost": "Global setting containing the bonus of your Château Frontenac",
+              "haveReadTipAboutAddInvestor": "Indicates if you have read the information message regarding the tip to use add contributors input",
+              "dayNightMode": "Indicates which Day/Night mode you are using",
+              "dayStart": "Time used for the start of the day (used in \"$t(components.site_layout.day_night.Auto)\")",
+              "nightStart": "Time used for the start of the night (used in \"$t(components.site_layout.day_night.Auto)\")"
             },
             "cf-calculator": {
               "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
@@ -320,8 +331,7 @@
               "takingPlaceInConsideration": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\", indicates whether the other places must be taken into account in the calculation",
               "targetLevel": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\", indicates from what level to display the information in the table",
               "displayGbName": "Indicate whether to show the GB name in the promotion message",
-              "investorParticipation": "Contient une liste de tous les investisseurs ajoutés",
-              "haveReadTipAboutAddInvestor": "Indicates if you have read the information message regarding the tip to use add contributors input"
+              "investorParticipation": "Contient une liste de tous les investisseurs ajoutés"
             },
             "secure-position": {
               "currentDeposits": "$t(components.secure_position.block_place.current_deposits)"
@@ -1085,7 +1095,13 @@
       "Conquered": "Conquered",
       "Total": "Total",
       "Secured": "Secured",
+      "Reset": "Reset",
+      "Confirm": "Confirm",
+      "Close": "Close",
       "between_range": "between {{min, number}} and {{max, number}}",
+      "Reset": "Reset",
+      "Confirm": "Confirm",
+      "Close": "Close",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

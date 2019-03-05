@@ -1,6 +1,7 @@
-import { shallowMount } from "@vue/test-utils";
+import { config, shallowMount } from "@vue/test-utils";
 import Component from "../../../layouts/_default/Default";
 import { getView } from "../localVue";
+import moment from "moment";
 
 const factory = (mocks = {}) => {
   const { localVue, store } = getView();
@@ -23,19 +24,22 @@ describe("Default", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
-  test("Initialize with cookie disclaimer accepted", () => {
+  test("Initialize with cookie disclaimer accepted and Day/Night auto", () => {
     const wrapper = factory({
       $cookies: {
         get: jest.fn().mockImplementation(key => {
           switch (key) {
             case "cookieDisclaimerDisplayed":
               return true;
+            case "dayNightMode":
+              return "auto";
           }
           return undefined;
         })
       }
     });
     expect(wrapper.vm.cookieDisclaimerUndisplayed).toBe(false);
+    expect(wrapper.vm.dayNightMode).toBe("auto");
   });
 
   test('Change "lang" value', async () => {
@@ -69,5 +73,15 @@ describe("Default", () => {
     expect(wrapper.vm.burgerMenuVisible).toBe(false);
     wrapper.vm.toggleMenu();
     expect(wrapper.vm.burgerMenuVisible).toBe(true);
+  });
+
+  test('Call "updateDayNightCookie"', () => {
+    const wrapper = factory();
+    wrapper.vm.updateDayNightCookie("auto");
+    expect(config.mocks.$cookies.set.mock.calls.length).toBe(1);
+    expect(config.mocks.$cookies.set.mock.calls[0][0]).toEqual("dayNightMode");
+    expect(config.mocks.$cookies.set.mock.calls[0][1]).toEqual("auto");
+    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toEqual("/");
+    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
   });
 });

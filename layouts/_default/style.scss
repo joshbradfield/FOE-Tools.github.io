@@ -1,6 +1,73 @@
-@import "~bulma";
+@import "~bulma/sass/utilities/_all";
 
-// overrides
+body.light-theme {
+  .icon {
+    svg {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+  @import "~bulma";
+  @import "~buefy/src/scss/buefy";
+  $body-background-color: #F0F2F4 !important;
+  background-color: $body-background-color;
+
+  .copy {
+    color: #24292e;
+    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+  }
+}
+
+body.dark-theme {
+  @import "./style/theme/dark/variables";
+  .icon {
+    svg {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+  @import "~bulma";
+  @import "~buefy/src/scss/buefy";
+  @import "./style/theme/dark/overrides";
+  background-color: #353b48 !important;
+
+  footer {
+    background-color: #2f3640;
+    small, p {
+      color: $white;
+    }
+  }
+  .copy {
+    color: #D7DCE1;
+    //background-image: linear-gradient(-180deg, #2E2F30 0%, #23272A 90%);
+    //background-image: linear-gradient(-180deg, #48494A 0%, #3D4144 90%);
+    //background-image: linear-gradient(-180deg, lighten(#48494A, 5) 0%, lighten(#3D4144, 5) 90%);
+    background-image: linear-gradient(-180deg, #616263 0%, #565A5D 90%);
+  }
+
+  .copy:hover {
+    background-image: linear-gradient(-180deg, #48494A 0%, #3D4144 90%);
+  }
+
+  .is-dark-light {
+    border-color: #888888 !important;
+  }
+
+  .is-outlined:hover, .is-outlined:hover {
+    background-color: $grey-darker !important;
+    color: white !important;
+  }
+}
+
+table .image {
+  display: inline-block !important;
+  margin: 0 !important;
+}
+
+table.trade .image {
+  display: inline-block !important;
+  margin: 0 0.5rem 0 0.5rem !important;
+}
 
 .media-content {
   overflow: hidden;
@@ -27,9 +94,6 @@ main {
 }
 
 // custom
-body {
-  background-color: #F0F2F4 !important;
-}
 
 .fixed {
   position: fixed;
@@ -52,11 +116,11 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
 }
 
 .is-dark-blue .title {
-  color: #ecf0f1;
+  color: $white-bis !important;
 }
 
 .is-dark-blue .subtitle {
-  color: #bdc3c7;
+  color: $white-ter !important;
 }
 
 .margin-top-one-em {
@@ -69,6 +133,10 @@ section.hero.is-dark-blue .subtitle a:hover {
 
 .content li + li {
   margin-top: 0;
+}
+
+.tabs li + li {
+  margin-top: 0px !important;
 }
 
 .image-inherit {

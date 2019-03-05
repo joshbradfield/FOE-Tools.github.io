@@ -106,8 +106,8 @@ export default {
 
         if (this.$data.split) {
           result = splitGoods(
-            this.$data.values[currentAge],
-            this.$data.splitValue,
+            Utils.normalizeNumberValue(this.$data.values[currentAge]),
+            Utils.normalizeNumberValue(this.$data.splitValue, 1000),
             this.$props.tradeArray[currentAge][age],
             this.$props.tradeArray[age][currentAge]
           );
