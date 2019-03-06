@@ -1150,6 +1150,9 @@
         "forge_point": "forge point",
         "medals": "medals",
         "military_units": "military units"
+      },
+      "pages": {
+        "gb_investment": "gb leveler, gbleveler"
       }
     }
   }

@@ -75,6 +75,8 @@ const modifyHtml = (page, locale) => {
   node.content = text;
   window.document.querySelector("head").appendChild(node);
 
+  const customKeyWords = `seo.pages.${pageKey[0] === "gb_investment_gb_chooser" ? "gb_investment" : pageKey[0]}`;
+
   // Set keywords
   text = [
     "wiki",
@@ -128,6 +130,7 @@ const modifyHtml = (page, locale) => {
     i18next.t("foe_data.age.ArcticFuture", { lng: locale }),
     i18next.t("foe_data.age.OceanicFuture", { lng: locale })
   ].join(", ");
+  text += i18next.exists(customKeyWords, { lng: locale }) ? ", " + i18next.t(customKeyWords, { lng: locale }) : "";
 
   node = window.document.createElement("meta");
   node.name = "keywords";
