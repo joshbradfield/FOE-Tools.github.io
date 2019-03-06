@@ -7,8 +7,8 @@ div
       yes-no(v-model="showRatio" :label="$t(i18nPrefix + 'show_ratio')")
 
     div.column.is-half
-      b-field(v-show="split" v-bind:label="$t('components.trade.split_value', { count: maxSplitValue })" v-bind:label-for="splitValueId" v-bind:type="haveError('splitValue')")
-        b-input(v-bind:id="splitValueId" type="number" min="0" v-bind:max="maxSplitValue" v-model.number="splitValue" name="splitValue" autocomplete="off")
+      b-field(v-show="split" :label="$t('components.trade.split_value', { count: maxSplitValue })" :label-for="splitValueId" :type="haveError('splitValue')")
+        b-input(:id="splitValueId" type="number" min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue" autocomplete="off")
 
   div.table-wrapper
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth.trade
@@ -25,10 +25,10 @@ div
           td {{$t("foe_data.age." + key)}}
           td.has-text-centered
             figure.image-inherit.image.is-24x24(v-for="good in value.goods")
-              img(v-bind:src="'/img/foe/goods/' + good.key + '.png'" v-bind:alt="$t('foe_data.goods.' + good.key)" v-bind:title="$t('foe_data.goods.' + good.key)")
+              img(:src="'/img/foe/goods/' + good.key + '.png'" :alt="$t('foe_data.goods.' + good.key)" :title="$t('foe_data.goods.' + good.key)")
           td
-            b-field(v-bind:type="haveError(key)")
-              b-input(type="number" min="0" v-model.number="values[key]" v-bind:name="key + '_value'" autocomplete="off" @input="$event > 0 ? getBestRates(key) : resetFormIfAllZero(key)")
+            b-field(:type="haveError(key)")
+              b-input(type="number" min="0" v-model.number="values[key]" :name="key + '_value'" autocomplete="off" @input="$event > 0 ? getBestRates(key) : resetFormIfAllZero(key)")
           td
             p(v-if="$data.results[key].show") {{$data.results[key].value}}
           td(v-show="showRatio")

@@ -2,7 +2,7 @@ import Vue from "vue";
 
 import Utils from "~/scripts/utils";
 import { gbsData } from "~/lib/foe-data/gbs";
-import gbProcess from "~/scripts/foe-gb-investment";
+import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
 import YesNo from "~/components/yes-no/YesNo";

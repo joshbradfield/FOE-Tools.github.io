@@ -1,4 +1,4 @@
-import { config, shallowMount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import Component from "../../../layouts/_default/components/dialogDayNight/DialogDayNight";
 import { getView } from "../localVue";
 import moment from "moment";

@@ -2,11 +2,11 @@ div.field
   label.label {{label}}
   div.control
     div.buttons.has-addons
-      span.button.button-yes(v-bind:class="{ 'is-success is-selected' : newValue, 'is-dark-light is-outlined': !newValue && this.$store.state.isDarkTheme }" v-on:click="newValue = true" ref="button-yes")
+      span.button.button-yes(:class="{ 'is-success is-selected' : newValue, 'is-dark-light is-outlined': !newValue && this.$store.state.isDarkTheme }" @click="newValue = true" ref="button-yes")
         span.icon
           i.fas.fa-check
         span {{$t('utils.Yes')}}
-      span.button.button-no(v-bind:class="{ 'is-danger is-selected' : !newValue, 'is-dark-light is-outlined': newValue && this.$store.state.isDarkTheme  }" v-on:click="newValue = false" ref="button-no")
+      span.button.button-no(:class="{ 'is-danger is-selected' : !newValue, 'is-dark-light is-outlined': newValue && this.$store.state.isDarkTheme  }" @click="newValue = false" ref="button-no")
         span.icon
           i.fas.fa-times
         span {{$t('utils.No')}}

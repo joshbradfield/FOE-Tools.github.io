@@ -4,10 +4,10 @@ div.content
       div.field
         h3.title.is-3 {{$t('foe_data.gb.' + gb.key)}}
       div.field
-        gb-list-select(v-bind:current="gb.key" v-on:change="goTo($event)")
+        gb-list-select(:current="gb.key" @change="goTo($event)")
     div.column.is-half(v-show="canPermalink")
       div.field
-        nuxt-link#permalink.level-right(v-bind:to="permaLink" exact)
+        nuxt-link#permalink.level-right(:to="permaLink" exact)
           span.icon
             i.fas.fa-link
           | &nbsp;{{$t('utils.permalink')}}
@@ -30,15 +30,15 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(v-bind:label="$t('components.gb_investment.gb_investment.form.level', { level: targetLevel, fromLevel: (targetLevel - 1), min: 1, max: maxLevel })" label-for="giiLevel" v-bind:type="haveError('targetLevel')")
-        b-input#giiLevel(type="number" min="1" v-bind:max="maxLevel" v-model.number="targetLevel" name="targetLevel" autocomplete="off" v-bind:autofocus="canPermalink")
+      b-field(:label="$t('components.gb_investment.gb_investment.form.level', { level: targetLevel, fromLevel: (targetLevel - 1), min: 1, max: maxLevel })" label-for="giiLevel" :type="haveError('targetLevel')")
+        b-input#giiLevel(type="number" min="1" :max="maxLevel" v-model.number="targetLevel" name="targetLevel" autocomplete="off" :autofocus="canPermalink")
     div.column.is-half
-      b-field(v-bind:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" v-bind:type="haveError('yourArcBonus')")
+      b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" :type="haveError('yourArcBonus')")
         b-input#giiYourArcBonus(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off")
 
   div.columns
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'takingPlaceInConsideration.label')" v-bind:type="haveError('takingPlaceInConsideration')")
+      b-field(:label="$t(i18nPrefix + 'takingPlaceInConsideration.label')" :type="haveError('takingPlaceInConsideration')")
       b-field
         div.control
           span.button.button-no(:class="{ 'is-danger is-selected' : takingPlaceInConsideration === 0, 'is-dark-light is-outlined': takingPlaceInConsideration !== 0 && this.$store.state.isDarkTheme  }" @click="takingPlaceInConsideration = 0" ref="button-no")
@@ -51,7 +51,7 @@ div.content
             span {{$t(i18nPrefix + "takingPlaceInConsideration.form.optimal")}}
 
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
+      b-field(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
       div.block
           b-switch(v-model="showP1" type="is-info") 1
           b-switch(v-model="showP2" type="is-info") 2

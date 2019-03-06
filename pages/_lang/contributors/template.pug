@@ -7,16 +7,16 @@ div.content
             div.media.contributor-media
               div.media-left
                 figure.image.is-48xauto(style="margin-left: 0em; margin-right: 0em;")
-                  a(v-if="user.profile" v-bind:href="user.profile" target="_blank")
-                    img.contributor-avatar(v-bind:src="user.avatar_url" v-bind:alt="user.login + ' avatar'")
+                  a(v-if="user.profile" :href="user.profile" target="_blank")
+                    img.contributor-avatar(:src="user.avatar_url" :alt="user.login + ' avatar'")
                   template(v-else)
-                    img.contributor-avatar(v-bind:src="user.avatar_url" v-bind:alt="user.login + ' avatar'")
+                    img.contributor-avatar(:src="user.avatar_url" :alt="user.login + ' avatar'")
               div.media-content
                 p.title.is-4
-                  a(v-if="user.profile" v-bind:href="user.profile" target="_blank") {{user.name}}
+                  a(v-if="user.profile" :href="user.profile" target="_blank") {{user.name}}
                   template(v-else) {{user.name}}
             div.content.contributor-icons
-              b-tooltip(v-for="contribution in user.contributions" :key="contribution" v-bind:label="$t('contributions.' + contribution)" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
+              b-tooltip(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
                 span {{allContributorsrc.types[contribution].symbol}}
 
 

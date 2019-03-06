@@ -3,23 +3,23 @@ div
 
   div.columns
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'label.i_have')" v-bind:label-for="iHaveId")
-        b-select(v-bind:id="iHaveId" v-model="iHave" expanded)
-          option(v-for="(value, key) in tradeInput.value" :key="key" v-bind:value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
+      b-field(:label="$t(i18nPrefix + 'label.i_have')" :label-for="iHaveId")
+        b-select(:id="iHaveId" v-model="iHave" expanded)
+          option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'split_value', { count: maxSplitValue })" v-bind:label-for="splitValueId" v-bind:type="haveError('splitValue')")
-        b-input(v-bind:id="splitValueId" type="number" min="0" v-bind:max="maxSplitValue" v-model.number="splitValue" name="splitValue" autocomplete="off")
+      b-field(:label="$t(i18nPrefix + 'split_value', { count: maxSplitValue })" :label-for="splitValueId" :type="haveError('splitValue')")
+        b-input(:id="splitValueId" type="number" min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue" autocomplete="off")
 
   div.columns
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'label.i_want')" v-bind:label-for="iWantId")
-        b-select(v-bind:id="iWantId" v-model="iWant" expanded)
-          option(v-for="(value, key) in tradeInput.value" :key="key" v-bind:value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
+      b-field(:label="$t(i18nPrefix + 'label.i_want')" :label-for="iWantId")
+        b-select(:id="iWantId" v-model="iWant" expanded)
+          option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
     div.column.is-half
-      b-field(v-bind:label="$t(i18nPrefix + 'label.amount')" v-bind:type="haveError('value')" v-bind:label-for="valueId")
-        b-input(v-bind:id="valueId" type="number" min="0" v-model.number="value" v-bind:name="valueId" autocomplete="off")
+      b-field(:label="$t(i18nPrefix + 'label.amount')" :type="haveError('value')" :label-for="valueId")
+        b-input(:id="valueId" type="number" min="0" v-model.number="value" :name="valueId" autocomplete="off")
 
   p(v-if="result.length > 0") {{$t(i18nPrefix + 'message.result', { from: $formatNumber(result[0].amount), to: $formatNumber(value), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + iHave), ageTo: $t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + iWant), count: splitValue })}}
 

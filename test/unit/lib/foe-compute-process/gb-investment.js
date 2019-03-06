@@ -1,6 +1,6 @@
-import gbs from "../../../lib/foe-data/gbs";
-import GbProcess from "../../../scripts/foe-gb-investment";
-import Errors from "../../../scripts/errors";
+import gbs from "../../../../lib/foe-data/gbs";
+import GbProcess from "../../../../lib/foe-compute-process/gb-investment";
+import Errors from "../../../../scripts/errors";
 
 describe("FoeGbInvestment", () => {
   describe("ComputeLevelInvestment", () => {

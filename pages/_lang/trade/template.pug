@@ -1,12 +1,12 @@
 b-tabs(v-model="tab" type="is-toggle" expanded)
-  b-tab-item(v-bind:label="$t(i18nPrefix + 'tab.trade_2_1.title')")
+  b-tab-item(:label="$t(i18nPrefix + 'tab.trade_2_1.title')")
     h3.title.is-3 {{$t(i18nPrefix + 'tab.trade_2_1.title')}}
     p {{$t(i18nPrefix + 'tab.trade_2_1.message')}}
-    trade(v-bind:trade-input="{ age: true, value: simpleTradeArray, type: TradeArrayType.SIMPLE }")
-    simple-trade(v-bind:trade-array="simpleTradeArray")
+    trade(:trade-input="{ age: true, value: simpleTradeArray, type: TradeArrayType.SIMPLE }")
+    simple-trade(:trade-array="simpleTradeArray")
 
-  b-tab-item(v-bind:label="$t(i18nPrefix + 'tab.fair_trade.title')")
+  b-tab-item(:label="$t(i18nPrefix + 'tab.fair_trade.title')")
     h3.title.is-3 {{$t(i18nPrefix + 'tab.fair_trade.title')}}
     p {{$t(i18nPrefix + 'tab.fair_trade.message')}}
-    trade(v-bind:trade-input="{ age: true, value: fairTradeArray, type: TradeArrayType.FAIR }")
-    simple-trade(v-bind:trade-array="fairTradeArray")
+    trade(:trade-input="{ age: true, value: fairTradeArray, type: TradeArrayType.FAIR }")
+    simple-trade(:trade-array="fairTradeArray")

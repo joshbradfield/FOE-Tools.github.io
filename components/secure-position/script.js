@@ -1,5 +1,5 @@
 import Utils from "~/scripts/utils";
-import gbProcess from "~/scripts/foe-gb-investment";
+import gbProcess from "~/lib/foe-compute-process/gb-investment";
 
 const i18nPrefix = "components.secure_position.";
 const urlPrefix = "sp_";
