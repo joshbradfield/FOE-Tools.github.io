@@ -4,12 +4,12 @@
       div.navbar-brand
         a.navbar-item(:href="$i18nPath('/')")
           img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
-        div.navbar-burger.burger(v-bind:class="{'is-active': burgerMenuVisible}" data-target="mainNavbar" @click="toggleMenu")
+        div.navbar-burger.burger(:class="{'is-active': burgerMenuVisible}" data-target="mainNavbar" @click="toggleMenu")
           span
           span
           span
 
-      div#mainNavbar.navbar-menu(v-bind:class="{'is-active': burgerMenuVisible}")
+      div#mainNavbar.navbar-menu(:class="{'is-active': burgerMenuVisible}")
         div.navbar-start
           template(v-for="value in mainMenu")
             template(v-if="value.children.length === 0")
@@ -28,15 +28,15 @@
 
           div.navbar-item
             div.field.has-addons
-              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Day')" position="is-bottom")
+              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.day_night.Day')" position="is-bottom")
                 span.button(:class="{ 'is-info' : dayNightMode === 'day' }" @click="dayNightMode = 'day'" ref="button-day")
                   p.icon(style="margin: auto;")
                     i.fas.fa-sun
-              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Night')" position="is-bottom")
+              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.day_night.Night')" position="is-bottom")
                 span.button(:class="{ 'is-info' : dayNightMode === 'night' }" @click="dayNightMode = 'night'" ref="button-night")
                   p.icon(style="margin: auto;")
                     i.fas.fa-moon
-              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" v-bind:label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
+              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
                 span.button(:class="{ 'is-info' : dayNightMode === 'auto' }" @click="dayNightMode = 'auto'" ref="button-auto")
                   p.icon(style="margin: auto;")
                     i.fas.fa-cog
@@ -49,7 +49,7 @@
                 span GitHub
 
   section.fixed(v-show="cookieDisclaimerUndisplayed")
-    b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" closable v-on:close="confirmInfoCookie" v-bind:active="cookieDisclaimerUndisplayed")
+    b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" closable @close="confirmInfoCookie" :active="cookieDisclaimerUndisplayed")
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}
         |
         |
@@ -79,7 +79,7 @@
                 div.content.article-body
                   div.columns(v-show="isPermalink")
                     div.column
-                      b-message(v-bind:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
+                      b-message(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
                   nuxt
 
   footer.footer.has-text-centered
@@ -88,8 +88,8 @@
         div.column.is-8-desktop.is-offset-2-desktop
           nav.breadcrumb.has-dot-separator.is-centered.is-marginless(aria-label="breadcrumbs")
             ul
-              li(v-for="footerLink in footerLinks" v-bind:class="{ 'is-active': $store.state.currentLocation === footerLink.key }")
-                nuxt-link(v-bind:to="$i18nPath(footerLink.link)" exact) {{$t('footer_menu.' + footerLink.key)}}
+              li(v-for="footerLink in footerLinks" :class="{ 'is-active': $store.state.currentLocation === footerLink.key }")
+                nuxt-link(:to="$i18nPath(footerLink.link)" exact) {{$t('footer_menu.' + footerLink.key)}}
           p
             small(v-html="$t('components.site_layout.footer.license_html')")
           p {{$t('components.site_layout.footer.version', {version: siteVersion})}}

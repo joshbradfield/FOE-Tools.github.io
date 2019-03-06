@@ -4,4 +4,4 @@ b-dropdown
     span.icon
       i.fas.fa-chevron-down
 
-  b-dropdown-item(v-for="lang in $store.supportedLocales" :key="lang" data-lang="lang" v-on:click="currentLang = lang" v-bind:class="[lang === currentLang ? 'is-active' : '']") {{$t("language_selector." + lang)}}
+  b-dropdown-item(v-for="lang in $store.supportedLocales" :key="lang" data-lang="lang" @click="currentLang = lang" :class="[lang === currentLang ? 'is-active' : '']") {{$t("language_selector." + lang)}}

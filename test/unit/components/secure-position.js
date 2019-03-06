@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/secure-position/SecurePosition";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
-import gbProcess from "~/scripts/foe-gb-investment";
+import gbProcess from "~/lib/foe-compute-process/gb-investment";
 
 const factory = (propsData = {}, mocks = {}) => {
   const { localVue, store } = getView();

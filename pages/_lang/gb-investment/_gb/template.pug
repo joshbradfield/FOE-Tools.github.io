@@ -1,7 +1,7 @@
 div
   b-tabs(v-model="gbi_tab" type="is-toggle" expanded)
-    b-tab-item(v-bind:label="$t(i18nPrefix + 'tab.owner_view.title')")
-      gb-investment(v-bind:gb="gb" :canPermalink="true" v-on:updateLevelData="levelData = $event")
-      secure-position(v-show="levelData !== null" v-bind:levelData="levelData" ns="gbi")
-    b-tab-item(v-bind:label="$t(i18nPrefix + 'tab.investors_view.title')")
-      gb-investment-investors(v-bind:gb="gb" :canPermalink="true")
+    b-tab-item(:label="$t(i18nPrefix + 'tab.owner_view.title')")
+      gb-investment(:gb="gb" :canPermalink="true" @updateLevelData="levelData = $event")
+      secure-position(v-show="levelData !== null" :levelData="levelData" ns="gbi")
+    b-tab-item(:label="$t(i18nPrefix + 'tab.investors_view.title')")
+      gb-investment-investors(:gb="gb" :canPermalink="true")
