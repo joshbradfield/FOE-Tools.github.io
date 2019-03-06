@@ -196,6 +196,11 @@
       },
       "permalink": "Permalink",
       "Information": "Information"
+    },
+    "seo": {
+      "pages": {
+        "gb_investment": "Rechner, foe arche rechner"
+      }
     }
   }
 }
