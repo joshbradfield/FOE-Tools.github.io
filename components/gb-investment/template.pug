@@ -45,8 +45,8 @@ div.content
         div.control(v-for="(value,index) in investorParticipation")
           b-tag(:type="isNaN(value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{value}}
 
-  div.table-wrapper
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="result !== null")
+  div.table-wrapper(v-if="result !== null")
+    table.table.is-bordered.is-striped.is-narrow.is-fullwidth.is-hidden-mobile
       thead
         tr
           th.has-text-centered(colspan=7)
@@ -147,6 +147,62 @@ div.content
           th(colspan=6) {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
           td
             p.level-right {{$formatNumber(result.cost)}}
+
+    b-table.is-hidden-tablet.is-half-desktop.is-hidden-widescreen(:mobile-cards="true" :data="result.investment.concat(showExtraInvestors ? result.otherInvestment : [])")
+      template(slot-scope="props")
+        b-table-column(field="place" :label="$t(i18nPrefix + 'gb_investment.table.thead.th1')" :numeric="true")
+          p {{ $formatNumber(props.index + 1) }}
+        b-table-column(field="default_reward" :label="$t($data.i18nPrefix + 'gb_investment.table.thead.th2')" :numeric="true")
+          p {{ $formatNumber(props.row.reward) }}
+        b-table-column(field="preparation" :label="$t($data.i18nPrefix + 'gb_investment.table.thead.th3')" :numeric="true")
+          p {{ $formatNumber(props.row.preparation) }}
+        b-table-column(field="participation" :label="$t($data.i18nPrefix + 'gb_investment.table.thead.th4')" :numeric="true")
+          p {{ $formatNumber(props.row.expectedParticipation) }}
+        b-table-column(field="custom_ip" :label="$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')" :numeric="true")
+          template(v-if="props.row.isInvestorParticipation")
+            p {{$formatNumber(props.row.participation)}}
+          template(v-else)
+            p 0
+              template(v-if="props.row.participation > 0") &nbsp;(
+                b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(props.row.participation)}}
+                | )
+        b-table-column(v-if="props.index < result.investment.length" field="custom_ip" :label="$t($data.i18nPrefix + 'gb_investment.table.thead.th5')" :numeric="true")
+          b-field(v-bind:type="haveError('investorPercentageCustom_' + props.index)")
+            b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[props.index]" v-bind:name="'investorPercentageCustom_' + props.index" autocomplete="off")
+        b-table-column(v-if="props.index < result.investment.length" field="place_free" :label="$t($data.i18nPrefix + 'gb_investment.table.thead.th6')")
+          b-switch(v-bind:value="placeFree[props.index].state" type="is-info" v-on:input="changePlaceFree(props.index, $event)") {{placeFree[props.index].state ? $t('utils.Yes') : $t('utils.No')}}
+
+      template(slot="footer" v-if="result")
+        th(colspan=3).has-text-centered
+          p.control.has-text-centered
+            button.button.is-info(v-if="!showExtraInvestors" @click="showExtraInvestors = true")
+              span.icon
+                i.fas.fa-eye
+              | &nbsp;&nbsp; {{$t(i18nPrefix + 'gb_investment.table.tbody.button_show_extra_investor', { count: result.otherInvestment.length })}}
+
+            button.button.is-info(v-else @click="showExtraInvestors = false")
+              span.icon
+                i.fas.fa-eye-slash
+              | &nbsp;&nbsp; {{$t(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', { count: result.otherInvestment.length })}}
+        th {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
+        td
+          p.level-right {{$formatNumber(result.totalPreparations)}}
+        th {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
+        td
+          p.level-right {{$formatNumber(result.cost)}}
+
+    //table.table.is-mobile(v-if="result !== null")
+    //  thead
+    //    tr
+    //      th toto
+    //      td auie
+    //    tr
+    //      th toto
+    //      td auie
+    //    tr
+    //      th toto
+    //      td auie
+
 
   h4.title.is-4.margin-top-one-em(v-if="result !== null") {{$t($data.i18nPrefix + 'promotion.title')}}
 

@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lib FOE Compute Process Compute Valid Value 1`] = `
+Object {
+  "bonusUbq": 45,
+  "bp": 8,
+  "coinSupplyReturn": Array [
+    Object {
+      "coin": 62500,
+      "supply": 62500,
+    },
+    Object {
+      "coin": 25500,
+      "supply": 25500,
+    },
+    Object {
+      "coin": 4000,
+      "supply": 4000,
+    },
+  ],
+  "dailyUbq": 30,
+  "defaultCumulativeQuest": 0,
+  "fp": 40,
+  "goods": 533,
+  "infinityGenerator": false,
+  "medals": 200,
+  "secondRqCompleted": 0,
+  "totalFp": 40,
+  "totalGoods": 533,
+  "totalRqCompleted": 115,
+}
+`;
+
+exports[`Lib FOE Compute Process Compute Valid Value with infinite generator with 0 cumulative quests 1`] = `
+Object {
+  "bonusUbq": 56,
+  "bp": 6,
+  "coinSupplyReturn": Array [
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+  ],
+  "dailyUbq": 30,
+  "defaultCumulativeQuest": 3,
+  "fp": 30,
+  "goods": 840,
+  "infinityGenerator": true,
+  "medals": 336,
+  "secondRqCompleted": 0,
+  "totalFp": 30,
+  "totalGoods": 840,
+  "totalRqCompleted": 86,
+}
+`;
+
+exports[`Lib FOE Compute Process Compute Valid Value with infinite generator with 14 cumulative quests 1`] = `
+Object {
+  "bonusUbq": 392,
+  "bp": 30,
+  "coinSupplyReturn": Array [
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+    Object {
+      "coin": 56000,
+      "supply": 56000,
+    },
+  ],
+  "dailyUbq": 30,
+  "defaultCumulativeQuest": 0,
+  "fp": 150,
+  "goods": 4200,
+  "infinityGenerator": true,
+  "medals": 1680,
+  "secondRqCompleted": 0,
+  "totalFp": 150,
+  "totalGoods": 4200,
+  "totalRqCompleted": 422,
+}
+`;
+
+exports[`Lib FOE Compute Process Compute Valid Value with second RQ and  1`] = `
+Object {
+  "bonusUbq": 2954,
+  "bp": 360,
+  "coinSupplyReturn": Array [
+    Object {
+      "coin": 50384600,
+      "supply": 54533920,
+    },
+    Object {
+      "coin": 34158300,
+      "supply": 49492900,
+    },
+    Object {
+      "coin": 23503200,
+      "supply": 46454380,
+    },
+    Object {
+      "coin": 15854200.000000002,
+      "supply": 44018320,
+    },
+    Object {
+      "coin": 10643000.000000002,
+      "supply": 42315820,
+    },
+    Object {
+      "coin": 6972600.000000002,
+      "supply": 40987740,
+    },
+    Object {
+      "coin": 4590500.000000002,
+      "supply": 40128560,
+    },
+    Object {
+      "coin": 2811000.000000002,
+      "supply": 39338900,
+    },
+    Object {
+      "coin": 1758400.0000000019,
+      "supply": 38894380,
+    },
+    Object {
+      "coin": 917100.0000000019,
+      "supply": 38409620,
+    },
+    Object {
+      "coin": 221500.00000000186,
+      "supply": 37874240,
+    },
+    Object {
+      "coin": 41500.00000000186,
+      "supply": 37724240,
+    },
+  ],
+  "dailyUbq": 666,
+  "defaultCumulativeQuest": 0,
+  "fp": 1800,
+  "goods": 91851,
+  "infinityGenerator": false,
+  "medals": 1011960,
+  "secondRqCompleted": 1381,
+  "totalFp": 2042,
+  "totalGoods": 91974,
+  "totalRqCompleted": 5043,
+}
+`;
