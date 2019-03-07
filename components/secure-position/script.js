@@ -109,8 +109,10 @@ export default {
   },
   watch: {
     levelData(val) {
-      this.$data.change = true;
-      this.$data.levelCost = val.cost;
+      if (val) {
+        this.$data.change = true;
+        this.$data.levelCost = val.cost;
+      }
     },
     levelCost(val, oldVal) {
       if (val && typeof val !== "number" && val.length > 0) {

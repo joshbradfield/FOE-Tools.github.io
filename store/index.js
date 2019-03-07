@@ -90,15 +90,22 @@ export const mutations = {
   },
 
   /**
+   * Restore global state of page
+   * @param state Reference of state
+   */
+  RESET_LOCATION(state) {
+    Vue.set(state, "urlQuery", {});
+    Vue.set(state, "urlQueryNamespace", {});
+    Vue.set(state, "isPermalink", false);
+  },
+
+  /**
    * Mutator of currentLocation
    * @param state Reference of state
    * @param value New value
    */
   SET_CURRENT_LOCATION(state, value) {
     Vue.set(state, "currentLocation", value);
-    Vue.set(state, "urlQuery", {});
-    Vue.set(state, "urlQueryNamespace", {});
-    Vue.set(state, "isPermalink", false);
   },
 
   /**
@@ -131,6 +138,10 @@ export const mutations = {
   UPDATE_URL_QUERY: ({ urlQuery, urlQueryNamespace }, obj) => {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
       if (!(obj.ns in urlQueryNamespace)) {
+        /* FIXME: Nuxt bug
+         * This bug can occuer due to a Nuxt bug. Indeed, components can be rendered twice…
+         * See: https://github.com/nuxt/nuxt.js/issues/4757
+         */
         throw Errors.namespaceNotFoundException(obj.ns);
       }
       const { ns, key, value } = obj;

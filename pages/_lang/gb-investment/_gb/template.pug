@@ -1,7 +1,6 @@
 div
   b-tabs(v-model="gbi_tab" type="is-toggle" expanded)
     b-tab-item(:label="$t(i18nPrefix + 'tab.owner_view.title')")
-      gb-investment(:gb="gb" :canPermalink="true" @updateLevelData="levelData = $event")
-      secure-position(v-show="levelData !== null" :levelData="levelData" ns="gbi")
+      gb-investment(:gb="gb" :canPermalink="true")
     b-tab-item(:label="$t(i18nPrefix + 'tab.investors_view.title')")
       gb-investment-investors(:gb="gb" :canPermalink="true")

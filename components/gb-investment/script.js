@@ -2,6 +2,7 @@ import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import yesNo from "~/components/yes-no/YesNo";
+import securePosition from "~/components/secure-position/SecurePosition";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -400,7 +401,7 @@ export default {
   },
   methods: {
     goTo(val) {
-      window.location.href = this.$i18nPath(`gb-investment/${val}/`);
+      this.$router.push(`/gb-investment/${val}/`);
     },
     cookieValid(key) {
       return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
@@ -414,7 +415,6 @@ export default {
           Utils.normalizeNumberArray(this.$data.investorParticipation),
           Utils.normalizeNumberValue(this.$data.ownerInvestment)
         );
-        this.$emit("updateLevelData", this.$data.result);
       } catch (e) {
         // TODO: error processing
         throw e;
@@ -663,6 +663,7 @@ export default {
     this.calculate();
   },
   components: {
+    securePosition,
     gbListSelect,
     yesNo
   }

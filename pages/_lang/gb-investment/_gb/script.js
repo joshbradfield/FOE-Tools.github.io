@@ -1,4 +1,4 @@
-import { gbs } from "~/lib/foe-data/gbs";
+import { gbsData } from "~/lib/foe-data/gbs";
 import gbInvestment from "~/components/gb-investment/GbInvestment";
 import gbInvestmentInvestors from "~/components/gb-investment-investors/GbInvestmentInvestors";
 import securePosition from "~/components/secure-position/SecurePosition";
@@ -15,7 +15,7 @@ const queryKey = {
 export default {
   validate({ params }) {
     // Check if `params.gb` is an existing Great Building
-    return params.gb in gbs;
+    return params.gb in gbsData;
   },
   head() {
     this.$store.commit("SET_HERO", {
@@ -31,11 +31,6 @@ export default {
       })
     };
   },
-  asyncData({ params, payload }) {
-    if (payload) return { gb: payload };
-    const data = require(`~/lib/foe-data/gbs-data/${params.gb}`);
-    return { gb: data };
-  },
   data() {
     this.$store.commit("SET_CURRENT_LOCATION", "gb_investment");
 
@@ -49,6 +44,7 @@ export default {
 
     const data = {
       i18nPrefix: i18nPrefix,
+      gb: gbsData[this.$nuxt._route.params.gb],
       levelData: null,
       gbi_tab: tab,
       errors: {

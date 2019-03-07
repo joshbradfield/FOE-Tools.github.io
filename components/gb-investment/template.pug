@@ -27,7 +27,7 @@ div.content
   div.columns(v-if="result !== null")
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
-        b-input#giOwnerInvestment(type="number" min="0" :max="result.cost" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
+        input.input#giOwnerInvestment(type="number" min=0 :max="result.cost" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors" :type="haveError('addInvestors')")
         b-field(grouped)
@@ -220,3 +220,6 @@ div.content
             span.icon
               i.far.fa-copy
             | &nbsp;&nbsp;{{$t('utils.Copy')}}
+
+  div(v-if="result" style="margin-top: 2rem;")
+    secure-position(:levelData="result" ns="gbi")
