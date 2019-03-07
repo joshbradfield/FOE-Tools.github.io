@@ -219,7 +219,7 @@ export default {
   },
   methods: {
     goTo(val) {
-      window.location.href = this.$i18nPath(`gb-investment/${val}/`);
+      this.$router.push(`/gb-investment/${val}/`);
     },
     haveError(key) {
       return this.$data.errors[key] ? "is-danger" : "";

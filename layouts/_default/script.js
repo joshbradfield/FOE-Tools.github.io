@@ -161,6 +161,7 @@ export default {
     },
     "$route.path"() {
       Vue.set(this.$data, "burgerMenuVisible", false);
+      this.$store.commit("RESET_LOCATION");
     },
     dayNightMode: /* istanbul ignore next */ function(val) {
       switch (val) {

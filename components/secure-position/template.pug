@@ -52,7 +52,7 @@ div.content
 
   div.margin-top-one-em(v-show="(fp > 0) && (yourArcBonus >= 0) && (fpTargetReward > 0)")
     article.message(:class="{'is-success': roi > 0, 'is-danger': roi < 0}")
-      div.message-body.has-text-dark
+      div.message-body
         p(v-if="roi > 0")
           span.icon.is-medium.has-text-success(style="vertical-align: middle;")
             i.fas.fa-arrow-up
@@ -61,7 +61,7 @@ div.content
           span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
             i.fas.fa-arrow-down
           | {{$t(i18nPrefix + 'block_place.result.roi.loss', {count: Math.abs(roi)})}}
-        p(v-else)
+        p(v-else :class="$store.state.isDarkTheme ? 'has-text-light' : 'has-text-dark'")
           span.icon.is-medium(style="vertical-align: middle;")
             i.fas.fa-exchange-alt
           | {{$t(i18nPrefix + 'block_place.result.roi.neutral')}}
