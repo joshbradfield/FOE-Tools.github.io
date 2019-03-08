@@ -1099,9 +1099,6 @@
       "Confirm": "Confirm",
       "Close": "Close",
       "between_range": "between {{min, number}} and {{max, number}}",
-      "Reset": "Reset",
-      "Confirm": "Confirm",
-      "Close": "Close",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",
