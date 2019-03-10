@@ -1,4 +1,5 @@
 module.exports = {
+  testRegex:"/test/unit/.*.test.js$",
   moduleFileExtensions: [
     "js",
     "json",

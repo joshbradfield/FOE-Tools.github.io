@@ -19,8 +19,8 @@
     "contributors:generate": "all-contributors --config all-contributorsrc.json generate",
     "test:lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test:e2e": "testcafe firefox test/e2e/ --app \"cross-env PORT=8080 npm run dev\" --app-init-delay 35000",
-    "test:unit": "jest --clearCache && jest --coverage=false --testRegex ^.*.test.js$ test/unit/",
-    "test:unit:coverage": "jest --clearCache && jest --coverage=true --testRegex ^.*.test.js$ test/unit/",
+    "test:unit": "jest --clearCache && jest --coverage=false",
+    "test:unit:coverage": "jest --clearCache && jest --coverage=true",
     "test:unit:watch": "jest --clearCache && jest --coverage=false --testRegex ^.*.test.js$ test/unit/ --watch",
     "test": "npm run test:unit && npm run test:e2e",
     "update-foe-data": "node .scripts/update-gb-data.js"
@@ -45,12 +45,17 @@
   "bugs": {
     "url": "https://github.com/FOE-Tools/FOE-Tools.github.io/issues"
   },
+  "greenkeeper": {
+    "ignore": [
+      "babel-jest"
+    ]
+  },
   "homepage": "https://foe-tools.github.io/",
   "devDependencies": {
     "@nuxtjs/sitemap": "^0.2.0",
     "@vue/test-utils": "^1.0.0-beta.25",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.3.1",
+    "babel-jest": "^23.6.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
