@@ -7,6 +7,9 @@ defaults: &defaults
   environment:
     NODE_ENV: test
     NODE_OPTIONS: --max_old_space_size=4096
+  branches:
+    ignore:
+      - master
 
 release_branches: &release_branches
   branches:
@@ -21,7 +24,7 @@ release: &release
         at: ~/project
     - run:
         name: Build project
-        command: yarn run build:prod
+        command: yarn run generate:gh
     - run: 
         name: Configure git
         command: |
