@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.27.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.26.0...v2.27.0) (2019-03-10)
+
+
+### Bug Fixes
+
+* **cf-calculator:** Fix infinite loop ([55b7129](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/55b7129)), closes [#144](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/144)
+* :bug: fix form field when value are null/empty but should be interpreted like 0 ([5646d66](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5646d66))
+* Fix CF Calculator calculation ([da2dd8a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/da2dd8a)), closes [#116](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/116)
+* Fix crash when input value is empty ([7b9bef8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7b9bef8)), closes [#131](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/131)
+
+
+### Features
+
+* **gb-investment:** add spot/snipe info ([71a1cb0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/71a1cb0))
+* improve l10n SEO ([85becee](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/85becee)), closes [#150](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/150)
+* provide a share button system for social media ([2d4a5bb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2d4a5bb)), closes [#148](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/148)
+* **gb-investment:** :children_crossing: improve display of table on mobile ([46d6dbb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/46d6dbb)), closes [#145](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/145)
+* add dark theme ([239ddfc](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/239ddfc)), closes [#126](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/126)
+* **contributors:** Add contributor ([810ad03](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/810ad03))
+* **gb-investment:** take in consideration extra investors ([2819053](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2819053)), closes [#105](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/105)
+* **gb-investment:** take in consideration extra investors ([73445b3](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/73445b3)), closes [#105](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/105)
+* add dark theme ([ca7dfd1](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ca7dfd1)), closes [#126](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/126)
+* **foe-data:** :package: Add levels of several ages ([b2d970c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b2d970c))
+* **gb-investment:** add short promotion message with only place index ([c2589c6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c2589c6))
+
+
+
 <a name="2.26.0"></a>
 # [2.26.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.25.0...v2.26.0) (2019-02-21)
 
