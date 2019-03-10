@@ -3,6 +3,13 @@ import { JSDOM } from "jsdom";
 import { i18next, defaultLocale, supportedLocales } from "./scripts/i18n";
 import { gbs } from "./lib/foe-data/gbs";
 
+const extraSeoByPages = {
+  gb_investment: {
+    en: "gb leveler, gbleveler",
+    de: "Rechner, foe arche rechner"
+  }
+};
+
 /**
  * Return locale based on route
  * @param route {string} Route where get locale
@@ -75,7 +82,7 @@ const modifyHtml = (page, locale) => {
   node.content = text;
   window.document.querySelector("head").appendChild(node);
 
-  const customKeyWords = `seo.pages.${pageKey[0] === "gb_investment_gb_chooser" ? "gb_investment" : pageKey[0]}`;
+  const customKeyWords = pageKey[0] === "gb_investment_gb_chooser" ? "gb_investment" : pageKey[0];
 
   // Set keywords
   text = [
@@ -130,7 +137,10 @@ const modifyHtml = (page, locale) => {
     i18next.t("foe_data.age.ArcticFuture", { lng: locale }),
     i18next.t("foe_data.age.OceanicFuture", { lng: locale })
   ].join(", ");
-  text += i18next.exists(customKeyWords, { lng: locale }) ? ", " + i18next.t(customKeyWords, { lng: locale }) : "";
+  text +=
+    customKeyWords in extraSeoByPages && locale in extraSeoByPages[customKeyWords]
+      ? ", " + extraSeoByPages[customKeyWords][locale]
+      : "";
 
   node = window.document.createElement("meta");
   node.name = "keywords";
