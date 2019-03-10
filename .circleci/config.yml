@@ -112,11 +112,15 @@ workflows:
   # Manually release on release branches
   commit:
     jobs:
-      - setup
-      - lint:       { requires: [setup] }
+      - setup:
           filters:
               <<: *ignore_master
-      - test-unit:  { requires: [lint] }
+      - lint:
+          requires: [setup]
+          filters:
+              <<: *ignore_master
+      - test-unit:
+          requires: [lint]
           filters:
               <<: *ignore_master
       - release-commit:
