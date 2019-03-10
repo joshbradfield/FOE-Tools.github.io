@@ -7,9 +7,6 @@ defaults: &defaults
   environment:
     NODE_ENV: test
     NODE_OPTIONS: --max_old_space_size=4096
-  branches:
-    ignore:
-      - master
 
 release_branches: &release_branches
   branches:
@@ -118,3 +115,7 @@ workflows:
           requires: [lint, test-unit]
           filters:
             <<: *release_branches
+
+  branches:
+    ignore:
+      - master
