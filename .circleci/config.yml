@@ -86,7 +86,7 @@ jobs:
           at: ~/project
       - run:
           name: Unit Tests
-          command: yarn test:unit:coverage && yarn coverage
+          command: yarn test:unit:coverage --coverageReporters lcov && yarn coverage
 
   # --------------------------------------------------------------------------
   # Phase 4: Release (production branch only)
