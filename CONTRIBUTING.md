@@ -8,7 +8,7 @@ For commit message, follow [this convention](https://conventionalcommits.org/).
 
 
 
-**PR are accepted on `dev` branch**. Master branch it is only for website GitHub static page (so, production).
+**PR are accepted on `develop` branch**. Master branch only contains compiled sources (from production branch) to host the website on GitHub static page.
 
 
 
@@ -44,5 +44,3 @@ Exemple:
 Next, in `script/i18n.js` import the language and add it in **supportedLocales** and **resources**.
 
 *Note: the code of language respect [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) standard.*
-
-The commit message should be something like `feat(lang): added polish language` for adding language and `feat(lang): updated polish language` for updating language

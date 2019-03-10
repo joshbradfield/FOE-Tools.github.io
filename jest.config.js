@@ -1,4 +1,5 @@
 module.exports = {
+  testRegex: "/test/unit/.*.test.js$",
   moduleFileExtensions: [
     "js",
     "json",
@@ -23,7 +24,9 @@ module.exports = {
     "**/*.{js,vue}",
     "!**/components/graph-canvas/**",
     "!**/coverage/**",
+    "!**/dist/**",
     "!**/layouts/*.vue",
+    "!**/layouts/_default/components/**",
     "!**/node_modules/**",
     "!**/middleware/**",
     "!**/pages/**",

@@ -79,10 +79,11 @@
             "investor_percentage": "% of global investors bonus (arc bonus)",
             "submit_global": "Global calculation",
             "submit_custom": "Custom calculation",
-            "owner_investment": "Number of FPs currently put by the owner",
+            "owner_investment": "Number of FPs currently put by the owner (max {{max}})",
             "add_investors": "Add investor (put FP value, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "tooltip_add_investors": "Click on \"$t(utils.Add)\" button or press \"Enter\" key to add investor",
-            "investors_list": "List of added investors"
+            "investors_list": "List of added investors",
+            "show_snipe": "Show Spot/Snipe"
           },
           "table": {
             "title": "$t({{gb_key}}) level {{fromLevel, number}} → {{level, number}}",
@@ -93,7 +94,8 @@
               "th4": "Rewards with rate",
               "th5": "% of investors bonus (arc bonus)",
               "th6": "Place free",
-              "fp_already_putin": "Number of FP already in"
+              "fp_already_putin": "Number of FP already in",
+              "spot_snipe": "Spot/Snipe"
             },
             "tbody": {
               "tooltip_owner_investment": "FPs remaining to be put by the owner to secure the place",
@@ -101,7 +103,11 @@
               "button_show_extra_investor": "Show extra investor",
               "button_show_extra_investor_plural": "Show extra investors",
               "button_hide_extra_investor": "Hide extra investor",
-              "button_hide_extra_investor_plural": "Hide extra investors"
+              "button_hide_extra_investor_plural": "Hide extra investors",
+              "profit": "This player will make a profit",
+              "loss": "This player will lose FP",
+              "loss_plural": "This player will lose FPs",
+              "neutral": "This player will neither make profit nor lose FPs"
             },
             "tfoot": {
               "total_preparation": "Total investment of the owner",
@@ -308,7 +314,8 @@
               "haveReadTipAboutAddInvestor": "Indicates if you have read the information message regarding the tip to use add contributors input",
               "dayNightMode": "Indicates which Day/Night mode you are using",
               "dayStart": "Time used for the start of the day (used in \"$t(components.site_layout.day_night.Auto)\")",
-              "nightStart": "Time used for the start of the night (used in \"$t(components.site_layout.day_night.Auto)\")"
+              "nightStart": "Time used for the start of the night (used in \"$t(components.site_layout.day_night.Auto)\")",
+              "showSnipe": "Show or hide Spot/Snipe (used in \"$t(routes.gb_investment_gb_chooser.hero.title)\")"
             },
             "cf-calculator": {
               "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
@@ -1099,9 +1106,6 @@
       "Confirm": "Confirm",
       "Close": "Close",
       "between_range": "between {{min, number}} and {{max, number}}",
-      "Reset": "Reset",
-      "Confirm": "Confirm",
-      "Close": "Close",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",
@@ -1150,9 +1154,6 @@
         "forge_point": "forge point",
         "medals": "medals",
         "military_units": "military units"
-      },
-      "pages": {
-        "gb_investment": "gb leveler, gbleveler"
       }
     }
   }

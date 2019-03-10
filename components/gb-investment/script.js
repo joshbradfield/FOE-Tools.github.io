@@ -22,7 +22,13 @@ const queryKey = {
   suffix: urlPrefix + "sx",
   displayGbName: urlPrefix + "dgbn",
   shortName: urlPrefix + "sn",
-  showLevel: urlPrefix + "sl"
+  showLevel: urlPrefix + "sl",
+  showSnipe: urlPrefix + "ss",
+  yourArcBonus: urlPrefix + "yab"
+};
+
+const inputComparator = {
+  yourArcBonus: { comparator: [">=", 0], type: "float" }
 };
 
 export default {
@@ -50,12 +56,14 @@ export default {
       investorParticipation: [],
       addInvestors: 1,
       showExtraInvestors: false,
+      showSnipe: this.cookieValid("showSnipe") ? !!this.$cookies.get("showSnipe") : false,
       placeFree: [{ state: true }, { state: true }, { state: true }, { state: true }, { state: true }],
       prefix: this.$cookies.get("gbPrefix") ? this.$cookies.get("gbPrefix") : "",
       suffix: this.$cookies.get("gbSuffix") ? this.$cookies.get("gbSuffix") : "",
       displayGbName: this.cookieValid("displayGbName") ? !!this.$cookies.get("displayGbName") : true,
       shortName: this.cookieValid("shortName") ? !!this.$cookies.get("shortName") : false,
       showLevel: this.cookieValid("showLevel") ? !!this.$cookies.get("showLevel") : false,
+      yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : parseFloat(this.$cookies.get("yourArcBonus")),
       result: null,
       errors: {
         level: false,
@@ -66,7 +74,8 @@ export default {
         investorPercentageCustom_2: false,
         investorPercentageCustom_3: false,
         investorPercentageCustom_4: false,
-        addInvestors: false
+        addInvestors: false,
+        yourArcBonus: false
       },
       promotion: [],
       childChange: false
@@ -148,6 +157,16 @@ export default {
       value: data.showLevel ? 1 : 0,
       ns: "gbi"
     });
+    this.$store.commit("UPDATE_URL_QUERY", {
+      key: queryKey.showSnipe,
+      value: data.showSnipe ? 1 : 0,
+      ns: "gbi"
+    });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.yourArcBonus,
+      value: data.yourArcBonus,
+      ns: "gbi"
+    });
 
     return data;
   },
@@ -165,7 +184,10 @@ export default {
       };
     },
     maxInvestment() {
-      return this.$data.result.cost - this.investorParticipationNormalized.reduce((i, j) => i + j, 0);
+      return this.$data.result.cost - this.investorParticipationNormalizedSum - this.ownerInvestmentNormalized;
+    },
+    investorParticipationNormalizedSum() {
+      return this.investorParticipationNormalized.reduce((i, j) => i + j, 0);
     },
     investorParticipationNormalized() {
       return Utils.normalizeNumberArray(this.$data.investorParticipation);
@@ -175,6 +197,12 @@ export default {
     },
     ownerInvestmentNormalized() {
       return !this.$data.ownerInvestment || this.$data.ownerInvestment.length === 0 ? 0 : this.$data.ownerInvestment;
+    },
+    nbColumns() {
+      return 7 + (this.$data.showSnipe ? 1 : 0);
+    },
+    getCustomArcBonus() {
+      return Utils.normalizeNumberValue(this.$data.yourArcBonus);
     }
   },
   watch: {
@@ -388,6 +416,42 @@ export default {
       });
       this.updatePromotionMessage();
     },
+    showSnipe(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.showSnipe,
+        value: val ? 1 : 0,
+        ns: "gbi"
+      });
+      this.$cookies.set("showSnipe", val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+    },
+    yourArcBonus(val, oldVal) {
+      if (val && typeof val !== "number" && val.length > 0) {
+        return;
+      }
+      this.$data.change = true;
+      if (
+        Utils.handlerForm(
+          this,
+          "yourArcBonus",
+          !val || val.length === 0 ? 0 : val,
+          oldVal,
+          inputComparator.yourArcBonus.comparator,
+          !this.isPermalink,
+          "/",
+          "float"
+        ) === Utils.FormCheck.VALID
+      ) {
+        this.$store.commit("UPDATE_URL_QUERY", {
+          key: queryKey.yourArcBonus,
+          value: val,
+          ns: "gbi"
+        });
+        this.calculate();
+      }
+    },
     result(val) {
       if (val !== null) {
         this.updatePromotionMessage();
@@ -413,7 +477,8 @@ export default {
           Utils.normalizeNumberArray(this.$data.investorPercentageCustom),
           this.$props.gb.levels,
           Utils.normalizeNumberArray(this.$data.investorParticipation),
-          Utils.normalizeNumberValue(this.$data.ownerInvestment)
+          Utils.normalizeNumberValue(this.$data.ownerInvestment),
+          Utils.normalizeNumberValue(this.$data.yourArcBonus)
         );
       } catch (e) {
         // TODO: error processing
@@ -596,6 +661,22 @@ export default {
       if (this.$route.query[queryKey.showLevel]) {
         isPermalink = true;
         result.showLevel = !!parseInt(this.$route.query[queryKey.showLevel]);
+      }
+
+      if (this.$route.query[queryKey.showSnipe]) {
+        isPermalink = true;
+        result.showSnipe = !!parseInt(this.$route.query[queryKey.showSnipe]);
+      }
+
+      const tmp = Utils.checkFormNumeric(
+        this.$route.query[queryKey.yourArcBonus],
+        -1,
+        inputComparator.yourArcBonus.comparator,
+        inputComparator.yourArcBonus.type
+      );
+      if (tmp.state === Utils.FormCheck.VALID) {
+        isPermalink = true;
+        result.yourArcBonus = tmp.value;
       }
 
       if (isPermalink) {

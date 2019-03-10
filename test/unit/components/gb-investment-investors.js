@@ -177,8 +177,16 @@ describe("GbInvestmentInvestors", () => {
   }
 
   test('Call "goTo"', () => {
-    const wrapper = factory();
+    const wrapper = factory(
+      {},
+      {
+        $router: {
+          push: jest.fn()
+        }
+      }
+    );
     wrapper.vm.goTo("foo");
-    expect(window.location.href).toBe("/gb-investment/foo/");
+    expect(wrapper.vm.$router.push.mock.calls.length).toBe(1);
+    expect(wrapper.vm.$router.push.mock.calls[0][0]).toEqual("/gb-investment/foo/");
   });
 });

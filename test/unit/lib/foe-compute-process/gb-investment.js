@@ -4,10 +4,121 @@ import Errors from "../../../../scripts/errors";
 
 describe("FoeGbInvestment", () => {
   describe("ComputeLevelInvestment", () => {
-    const funcName = "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation)";
+    const funcName =
+      "ComputeLevelInvestment(levelCost, currentDeposits, yourParticipation, otherParticipation, " +
+      "yourArcBonus, fpTargetReward)";
 
     test("Valid value", () => {
       const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, []);
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with extra investors (2 snip for P1 and P2)", () => {
+      const extraInvestors = [1069, 537];
+      const result = GbProcess.ComputeLevelInvestment(42, [90, 90, 90, 90, 90], gbs.agesCost.TheFuture, extraInvestors);
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with extra investors", () => {
+      const extraInvestors = [1, 75, 1];
+      const result = GbProcess.ComputeLevelInvestment(
+        56,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.PostmodernEra,
+        extraInvestors
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with investor that secure place", () => {
+      const extraInvestors = [500];
+      const result = GbProcess.ComputeLevelInvestment(
+        18,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.PostmodernEra,
+        extraInvestors
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with investor that secure place with P1 780 instead of 181 and P3 10 instead of 29", () => {
+      const extraInvestors = [780, 10];
+      const result = GbProcess.ComputeLevelInvestment(
+        10,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.PostmodernEra,
+        extraInvestors
+      );
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with owner that secure place and snipe on P1", () => {
+      const extraInvestors = [549];
+      const result = GbProcess.ComputeLevelInvestment(
+        24,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.TheFuture,
+        extraInvestors,
+        273
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with many investors", () => {
+      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const extraInvestors = [deepCopy[0].cost - 7, 2, 1, 1, 1, 1, 1];
+      const result = GbProcess.ComputeLevelInvestment(
+        1,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.TheFuture,
+        extraInvestors,
+        0
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with Cap 9 -> 10, extra investors", () => {
+      const extraInvestors = [170, 95, 70, 2, 1, 1, 1];
+      const result = GbProcess.ComputeLevelInvestment(
+        10,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.PostmodernEra,
+        extraInvestors,
+        0
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with Cap 26 -> 27, owner start to secure", () => {
+      const extraInvestors = [];
+      const result = GbProcess.ComputeLevelInvestment(
+        27,
+        [90, 90, 90, 90, 90],
+        gbs.agesCost.PostmodernEra,
+        extraInvestors,
+        77
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with Arc 36 -> 37, with one investor", () => {
+      const extraInvestors = [972];
+      const result = GbProcess.ComputeLevelInvestment(
+        37,
+        [80, 80, 80, 80, 80],
+        gbs.agesCost.TheFuture,
+        extraInvestors,
+        0,
+        90
+      );
 
       expect(result).toMatchSnapshot();
     });
@@ -94,49 +205,6 @@ describe("FoeGbInvestment", () => {
       );
     });
 
-    test("Valid value with extra investors (2 snip for P1 and P2)", () => {
-      const extraInvestors = [1069, 537];
-      const result = GbProcess.ComputeLevelInvestment(42, [90, 90, 90, 90, 90], gbs.agesCost.TheFuture, extraInvestors);
-
-      expect(result).toMatchSnapshot();
-    });
-
-    test("Valid value with extra investors", () => {
-      const extraInvestors = [1, 75, 1];
-      const result = GbProcess.ComputeLevelInvestment(
-        56,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
-        extraInvestors
-      );
-
-      expect(result).toMatchSnapshot();
-    });
-
-    test("Valid value with investor that secure place", () => {
-      const extraInvestors = [500];
-      const result = GbProcess.ComputeLevelInvestment(
-        18,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
-        extraInvestors
-      );
-
-      expect(result).toMatchSnapshot();
-    });
-
-    test("Valid value with investor that secure place with P1 780 instead of 181 and P3 10 instead of 29", () => {
-      const extraInvestors = [780, 10];
-      const result = GbProcess.ComputeLevelInvestment(
-        10,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
-        extraInvestors
-      );
-
-      expect(result).toMatchSnapshot();
-    });
-
     test("Throw error when sum of investment > level cost", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [deepCopy[9].cost, 1, 1])).toThrow(
@@ -144,23 +212,21 @@ describe("FoeGbInvestment", () => {
           Errors.AvailableBoundTypes[">"],
           deepCopy[9].cost + 2,
           deepCopy[9].cost,
-          'for the sum of values of parameter "defaultParticipation" of ' +
-            "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation)"
+          'for the sum of values of parameter "defaultParticipation" of ' + funcName
         )
       );
     });
 
-    test("Valid value with owner that secure place and snipe on P1", () => {
-      const extraInvestors = [549];
-      const result = GbProcess.ComputeLevelInvestment(
-        24,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.TheFuture,
-        extraInvestors,
-        273
+    test("Throw error when participationSum + ownerPreparation > level cost", () => {
+      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [deepCopy[9].cost], 2)).toThrow(
+        Errors.BoundExceededError(
+          Errors.AvailableBoundTypes[">"],
+          "participationSum + ownerPreparation",
+          deepCopy[9].cost,
+          'for parameters "participationSum" and "ownerPreparation" of ' + funcName
+        )
       );
-
-      expect(result).toMatchSnapshot();
     });
   });
 
