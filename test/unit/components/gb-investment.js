@@ -34,7 +34,9 @@ const defaultResult = {
       isInvestorParticipation: false,
       participation: 124,
       preparation: 402,
-      reward: 65
+      reward: 65,
+      roi: 0,
+      snipe: { fp: 325, roi: -201 }
     },
     {
       cumulativeInvestment: 593,
@@ -42,7 +44,9 @@ const defaultResult = {
       isInvestorParticipation: false,
       participation: 67,
       preparation: 402,
-      reward: 35
+      reward: 35,
+      roi: 0,
+      snipe: { fp: 325, roi: -258 }
     },
     {
       cumulativeInvestment: 631,
@@ -50,7 +54,9 @@ const defaultResult = {
       isInvestorParticipation: false,
       participation: 19,
       preparation: 421,
-      reward: 10
+      reward: 10,
+      roi: 0,
+      snipe: { fp: 325, roi: -306 }
     },
     {
       cumulativeInvestment: 641,
@@ -58,9 +64,18 @@ const defaultResult = {
       isInvestorParticipation: false,
       participation: 10,
       preparation: 421,
-      reward: 5
+      reward: 5,
+      roi: 0,
+      snipe: { fp: 325, roi: -315 }
     },
-    { expectedParticipation: 0, isInvestorParticipation: false, preparation: 430, reward: 0 }
+    {
+      expectedParticipation: 0,
+      isInvestorParticipation: false,
+      preparation: 430,
+      reward: 0,
+      roi: 0,
+      snipe: { fp: 0, roi: 0 }
+    }
   ],
   level: 10,
   otherInvestment: [],
@@ -97,7 +112,9 @@ describe("GbInvestment", () => {
           gbi_pFree2: "0",
           gbi_pFree3: "1",
           gbi_pFree4: "1",
-          gbi_pFree5: "1"
+          gbi_pFree5: "1",
+          gbi_ss: "1",
+          gbi_yab: "90"
         }
       }
     });
@@ -110,6 +127,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.displayGbName).toBe(false);
     expect(wrapper.vm.shortName).toBe(true);
     expect(wrapper.vm.showLevel).toBe(true);
+    expect(wrapper.vm.showSnipe).toBe(true);
+    expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
     expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
     expect(wrapper.vm.placeFree).toEqual([
@@ -157,6 +176,10 @@ describe("GbInvestment", () => {
               return 80;
             case "investorParticipation":
               return investorParticipation;
+            case "showSnipe":
+              return true;
+            case "yourArcBonus":
+              return 90;
           }
         }
       }
@@ -170,6 +193,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.displayGbName).toBe(false);
     expect(wrapper.vm.shortName).toBe(true);
     expect(wrapper.vm.showLevel).toBe(true);
+    expect(wrapper.vm.showSnipe).toBe(true);
+    expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
     expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
   });
@@ -328,6 +353,34 @@ describe("GbInvestment", () => {
     }
   });
 
+  test('Change "yourArcBonus" value', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.yourArcBonus).toBe(90.6);
+    expect(wrapper.vm.errors.yourArcBonus).toBeFalsy();
+    wrapper.vm.yourArcBonus = 123;
+    expect(wrapper.vm.yourArcBonus).toBe(123);
+    expect(wrapper.vm.errors.yourArcBonus).toBeFalsy();
+  });
+
+  test('Change "yourArcBonus" invalid value', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.yourArcBonus).toBe(90.6);
+    expect(wrapper.vm.errors.yourArcBonus).toBeFalsy();
+    wrapper.vm.yourArcBonus = -1;
+    expect(wrapper.vm.yourArcBonus).toBe(-1);
+    expect(wrapper.vm.errors.yourArcBonus).toBeTruthy();
+  });
+
+  test('Change "yourArcBonus" invalid type', () => {
+    const wrapper = factory();
+    const invalidValueType = "foo";
+    expect(wrapper.vm.yourArcBonus).toBe(90.6);
+    expect(wrapper.vm.errors.yourArcBonus).toBeFalsy();
+    wrapper.vm.yourArcBonus = invalidValueType;
+    expect(wrapper.vm.yourArcBonus).toBe(invalidValueType);
+    expect(wrapper.vm.errors.yourArcBonus).toBeFalsy();
+  });
+
   test('Change "displayGbName" value', () => {
     const wrapper = factory();
     const newValue = false;
@@ -413,27 +466,88 @@ describe("GbInvestment", () => {
     ]);
   });
 
+  test('Change "showSnipe" value', () => {
+    const wrapper = factory();
+    const newValue = true;
+    expect(wrapper.vm.showSnipe).toBe(false);
+    wrapper.vm.showSnipe = newValue;
+    expect(wrapper.vm.showSnipe).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ss"]).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "showSnipe",
+      true,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
+  });
+
   test('Change "result" value', () => {
     const wrapper = factory();
     const newValue = {
-      cost: 736,
+      cost: 650,
       investment: [
-        { reward: 110, participation: 209, preparation: 318, cumulativeInvestment: 527 },
-        { reward: 55, participation: 105, preparation: 318, cumulativeInvestment: 632 },
-        { reward: 20, participation: 38, preparation: 346, cumulativeInvestment: 698 },
-        { reward: 5, participation: 10, preparation: 364, cumulativeInvestment: 726 },
-        { reward: 0, participation: 0, preparation: 374, cumulativeInvestment: 736 }
+        {
+          cumulativeInvestment: 526,
+          expectedParticipation: 124,
+          isInvestorParticipation: false,
+          participation: 124,
+          preparation: 402,
+          reward: 65,
+          roi: 0,
+          snipe: { fp: 325, roi: -201 }
+        },
+        {
+          cumulativeInvestment: 593,
+          expectedParticipation: 67,
+          isInvestorParticipation: false,
+          participation: 67,
+          preparation: 402,
+          reward: 35,
+          roi: 0,
+          snipe: { fp: 325, roi: -258 }
+        },
+        {
+          cumulativeInvestment: 631,
+          expectedParticipation: 19,
+          isInvestorParticipation: false,
+          participation: 19,
+          preparation: 421,
+          reward: 10,
+          roi: 0,
+          snipe: { fp: 325, roi: -306 }
+        },
+        {
+          cumulativeInvestment: 641,
+          expectedParticipation: 10,
+          isInvestorParticipation: false,
+          participation: 10,
+          preparation: 421,
+          reward: 5,
+          roi: 0,
+          snipe: { fp: 325, roi: -315 }
+        },
+        {
+          expectedParticipation: 0,
+          isInvestorParticipation: false,
+          preparation: 430,
+          reward: 0,
+          roi: 0,
+          snipe: { fp: 0, roi: 0 }
+        }
       ],
-      totalPreparations: 374,
-      level: 15
+      level: 10,
+      otherInvestment: [],
+      totalPreparations: 430
     };
     const promotionMessages = [
-      { message: "Observatory P1(209) P2(105) P3(38) P4(10)", active: false },
-      { message: "P1(209) P2(105) P3(38) P4(10) Observatory", active: false },
-      { message: "Observatory P4(10) P3(38) P2(105) P1(209)", active: false },
-      { message: "P4(10) P3(38) P2(105) P1(209) Observatory", active: false },
-      { message: "Observatory 1 2 3 4", active: false },
-      { message: "Observatory 4 3 2 1", active: false }
+      { active: false, message: "Observatory P1(124) P2(67) P3(19) P4(10)" },
+      { active: false, message: "P1(124) P2(67) P3(19) P4(10) Observatory" },
+      { active: false, message: "Observatory P4(10) P3(19) P2(67) P1(124)" },
+      { active: false, message: "P4(10) P3(19) P2(67) P1(124) Observatory" },
+      { active: false, message: "Observatory 1 2 3 4" },
+      { active: false, message: "Observatory 4 3 2 1" }
     ];
     expect(wrapper.vm.result).toEqual(defaultResult);
     wrapper.vm.result = newValue;
@@ -479,9 +593,17 @@ describe("GbInvestment", () => {
   });
 
   test('Call "goTo"', () => {
-    const wrapper = factory();
+    const wrapper = factory(
+      {},
+      {
+        $router: {
+          push: jest.fn()
+        }
+      }
+    );
     wrapper.vm.goTo("foo");
-    expect(window.location.href).toBe("/gb-investment/foo/");
+    expect(wrapper.vm.$router.push.mock.calls.length).toBe(1);
+    expect(wrapper.vm.$router.push.mock.calls[0][0]).toEqual("/gb-investment/foo/");
   });
 
   test('Call "calculate" with invalid data', () => {
@@ -493,10 +615,10 @@ describe("GbInvestment", () => {
         1,
         gbsData.Observatory.levels.length,
         'for parameter "currentLevel" of ' +
-          "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation)"
+          "ComputeLevelInvestment(levelCost, currentDeposits, yourParticipation, otherParticipation, " +
+          "yourArcBonus, fpTargetReward)"
       )
     );
-    expect(wrapper.emitted().updateLevelData.length).toBe(1);
   });
 
   test('Call "successCopy" with invalid data', () => {

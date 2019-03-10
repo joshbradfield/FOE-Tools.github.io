@@ -233,6 +233,23 @@ describe("SecurePosition", () => {
     expect(wrapper.vm.$props.levelData).toBe(gbData);
   });
 
+  test('Change "customYourArcBonus" value', () => {
+    const wrapper = factory();
+    expect(wrapper.vm.$props.customYourArcBonus).toBe(false);
+    wrapper.setProps({ customYourArcBonus: 90 });
+    expect(wrapper.vm.$props.customYourArcBonus).toBe(90);
+  });
+
+  test('Change "yourArcBonus" value with "customYourArcBonus" set', () => {
+    const wrapper = factory({ customYourArcBonus: 90 });
+    expect(wrapper.vm.$props.customYourArcBonus).toBe(90);
+    wrapper.setProps({ customYourArcBonus: 90 });
+    const newValue = 42;
+    wrapper.vm.yourArcBonus = newValue;
+    expect(wrapper.emitted().customYourArcBonus).toBeTruthy();
+    expect(wrapper.emitted().customYourArcBonus[0]).toEqual([newValue]);
+  });
+
   test('Initialize with custom "levelData"', () => {
     const wrapper = factory({ levelData: gbData });
     expect(wrapper.vm.$props.levelData).toBe(gbData);

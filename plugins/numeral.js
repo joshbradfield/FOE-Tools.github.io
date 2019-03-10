@@ -7,9 +7,9 @@ const VueNumeral = {
      * This function format a number for a specific locale
      * @param value {number} value to format
      * @param lng {string} (Optional) Code of the locale
-     * @return {string} Return formated string
+     * @return {string} Return formatted string
      */
-    Vue.prototype.$formatNumber = (value, lng) => {
+    Vue.prototype.$formatNumber = (value, lng = undefined) => {
       if (lng) {
         if (numeralSpecialLocales[lng]) {
           numeral.locale(numeralSpecialLocales[lng]);

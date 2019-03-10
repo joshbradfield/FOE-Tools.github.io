@@ -36,6 +36,14 @@ export default {
     ns: {
       type: String,
       default: ""
+    },
+    customYourArcBonus: {
+      type: Number | Boolean,
+      default: false
+    },
+    canCustomYourArcBonus: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -46,7 +54,12 @@ export default {
       otherParticipation: 0,
       levelCost: this.haveInputLevelCost() ? this.$props.levelData.cost : 0,
       currentDeposits: 0,
-      yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : this.$cookies.get("yourArcBonus"),
+      yourArcBonus:
+        this.$props.customYourArcBonus !== false
+          ? this.$props.customYourArcBonus
+          : this.$cookies.get("yourArcBonus") === undefined
+            ? 0
+            : this.$cookies.get("yourArcBonus"),
       fpTargetReward: 0,
       roi: 0,
       formValid: false,
@@ -112,6 +125,12 @@ export default {
       if (val) {
         this.$data.change = true;
         this.$data.levelCost = val.cost;
+      }
+    },
+    customYourArcBonus(val) {
+      if (val) {
+        this.$data.change = true;
+        this.yourArcBonus = val;
       }
     },
     levelCost(val, oldVal) {
@@ -219,6 +238,9 @@ export default {
           "float"
         ) === Utils.FormCheck.VALID
       ) {
+        if (this.$props.customYourArcBonus) {
+          this.$emit("customYourArcBonus", val);
+        }
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.yourArcBonus,
           value: val,

@@ -34,7 +34,7 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'block_place.your_arc_bonus')" label-for="spYourArcBonus" :type="haveError('yourArcBonus')")
-        b-input(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" id="spYourArcBonus" autocomplete="off")
+        b-input(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" id="spYourArcBonus" autocomplete="off" :disabled="$props.canCustomYourArcBonus")
     div.column.is-half
       b-field(v-if="haveInputLevelCost()" :label="$t(i18nPrefix + 'block_place.target_reward')" label-for="fpTargetReward" :type="haveError('fpTargetReward')")
         b-select#fpTargetReward(v-model="fpTargetReward" name="fp-target-reward" expanded)
