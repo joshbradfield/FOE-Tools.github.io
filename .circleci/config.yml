@@ -28,8 +28,8 @@ release: &release
           git config user.name $GITHUB_NAME
           git config user.email $GITHUB_EMAIL
     - add_ssh_keys:
-    - fingerprints:
-      - "42:b6:1a:60:65:91:8a:eb:e9:6e:1d:91:1d:cc:66:d1"
+      - fingerprints:
+        - "42:b6:1a:60:65:91:8a:eb:e9:6e:1d:91:1d:cc:66:d1"
     # This will build the static site and push into master branch
     - run:
         name: release
