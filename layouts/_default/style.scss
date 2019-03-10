@@ -16,6 +16,12 @@ body.light-theme {
     color: #24292e;
     background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
   }
+
+  .table.has-mobile-cards, .table.has-table-cards {
+    tr {
+      background-color: $light !important;
+    }
+  }
 }
 
 body.dark-theme {
@@ -55,7 +61,7 @@ body.dark-theme {
     color: white !important;
   }
 
-  .table.has-mobile-cards {
+  .table.has-mobile-cards, .table.has-table-cards {
     background-color: rgb(69, 69, 69) !important;
     tr {
       background-color: #363636 !important;
@@ -131,7 +137,7 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
 }
 
 .margin-top-one-em {
-  margin-top: 1em;
+  margin-top: 1em !important;
 }
 
 section.hero.is-dark-blue .subtitle a:hover {
@@ -209,5 +215,31 @@ $map: (
   .#{$key}-header {
     border-bottom: $border-bottom-width solid $color;
     padding-bottom: $padding-bottom;
+  }
+}
+
+table.table.has-table-cards {
+  tbody, tfoot {
+    tr {
+      display: block;
+      th, td {
+        display: flex;
+        justify-content: space-between;
+        text-align: left !important;
+      }
+      th:before, td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        padding-right: 0.5em;
+      }
+    }
+    tr:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  tfoot {
+    th, td {
+      flex-direction: row-reverse;
+    }
   }
 }
