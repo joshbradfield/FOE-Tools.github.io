@@ -13,6 +13,10 @@ release_branches: &release_branches
     only:
       - production
 
+ignore_master: &ignore_master
+  ignore:
+    - master
+
 release: &release
   <<: *defaults
   steps:
@@ -110,12 +114,13 @@ workflows:
     jobs:
       - setup
       - lint:       { requires: [setup] }
+          filters:
+              <<: *ignore_master
       - test-unit:  { requires: [lint] }
+          filters:
+              <<: *ignore_master
       - release-commit:
           requires: [lint, test-unit]
           filters:
             <<: *release_branches
-
-  filters:
-    ignore:
-      - master
+            <<: *ignore_master
