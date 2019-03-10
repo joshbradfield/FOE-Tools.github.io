@@ -19,6 +19,9 @@ release: &release
     - checkout
     - attach_workspace:
         at: ~/project
+    - run:
+        name: Build project
+        command: yarn run build:prod
     - run: 
         name: Configure git
         command: |
@@ -30,7 +33,7 @@ release: &release
     # This will build the static site and push into master branch
     - run:
         name: release
-        command: npm run deploy
+        command: yarn run deploy
         environment:
           NODE_ENV: production
 
