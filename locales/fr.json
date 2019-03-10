@@ -83,10 +83,11 @@
             "investor_percentage": "% de bonus (grosses arches) global des investisseurs",
             "submit_global": "Calcul global",
             "submit_custom": "Calcul personnalisé",
-            "owner_investment": "Nombre de PFs actuellement mis par le propriétaire",
+            "owner_investment": "Nombre de PFs actuellement mis par le propriétaire (max {{max}})",
             "add_investors": "Ajouter un investisseur (mettre la valeur en PF, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "tooltip_add_investors": "Cliquez sur le bouton \"$t(utils.Add)\" ou appuyez sur la touche \"Entrée\" pour ajouter un investisseur",
-            "investors_list": "Liste des investisseurs ajoutés"
+            "investors_list": "Liste des investisseurs ajoutés",
+            "show_snipe": "Afficher Spot/Snipe"
           },
           "table": {
             "title": "$t({{gb_key}}) niveau {{fromLevel, number}} → {{level, number}}",
@@ -97,7 +98,8 @@
               "th4": "Récompenses avec taux",
               "th5": "% de bonus (grosses arches) des investisseurs",
               "th6": "Place libre",
-              "fp_already_putin": "Nombre de PF déjà mis"
+              "fp_already_putin": "Nombre de PF déjà mis",
+              "spot_snipe": "Spot/Snipe"
             },
             "tbody": {
               "tooltip_owner_investment": "PFs restant à mettre par le propriétaire pour sécuriser la place",
@@ -105,7 +107,11 @@
               "button_show_extra_investor": "Montrer l'investisseur supplémentaire",
               "button_show_extra_investor_plural": "Montrer les investisseurs supplémentaires",
               "button_hide_extra_investor": "Cacher l'investisseur supplémentaire",
-              "button_hide_extra_investor_plural": "Cacher les investisseurs supplémentaires"
+              "button_hide_extra_investor_plural": "Cacher les investisseurs supplémentaires",
+              "profit": "Ce joueur fera un profit",
+              "loss": "Ce joueur perdra un PF",
+              "loss_plural": "Ce joueur perdra des PFs",
+              "neutral": "Ce joueur ne fera ni profit ni perte de PF"
             },
             "tfoot": {
               "total_preparation": "Investissement total du propriétaire",
@@ -312,7 +318,8 @@
               "haveReadTipAboutAddInvestor": "Indique si vous avez lu le message d'information concernant l'astuce pour utiliser le champ d'ajout de contributeurs",
               "dayNightMode": "Indique quel mode Jour/Nuit vous utiliser",
               "dayStart": "Heure de début du jour (utilisé en mode \"$t(components.site_layout.day_night.Auto)\")",
-              "nightStart": "Heure de début de la nuit (utilisé en mode \"$t(components.site_layout.day_night.Auto)\")"
+              "nightStart": "Heure de début de la nuit (utilisé en mode \"$t(components.site_layout.day_night.Auto)\")",
+              "showSnipe": "Indique s'il faut afficher ou non le Spot/Snipe (utilisé dans \"$t(routes.gb_investment_gb_chooser.hero.title)\")"
             },
             "cf-calculator": {
               "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",

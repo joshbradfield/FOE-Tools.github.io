@@ -24,6 +24,7 @@ export default {
         { name: "dayNightMode", path: "/", key: "root" },
         { name: "dayStart", path: "/", key: "root" },
         { name: "nightStart", path: "/", key: "root" },
+        { name: "showSnipe", path: "/", key: "root" },
 
         { name: "coins", path: "/cf-calculator", key: "cf-calculator" },
         { name: "fpBy24h", path: "/cf-calculator", key: "cf-calculator" },
