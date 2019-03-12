@@ -713,9 +713,7 @@ export default {
         /* istanbul ignore next */
         this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b - a);
 
-        if (this.$data.addInvestors > this.maxInvestment) {
-          this.$data.addInvestors = this.maxInvestment;
-        }
+        this.$data.addInvestors = 1;
 
         this.calculate();
       }

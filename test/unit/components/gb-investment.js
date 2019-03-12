@@ -671,7 +671,7 @@ describe("GbInvestment", () => {
     wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
     wrapper.vm.addInvestor();
     expect(wrapper.vm.investorParticipation).toEqual([326]);
-    expect(wrapper.vm.addInvestors).toBe(324);
+    expect(wrapper.vm.addInvestors).toBe(1);
   });
 
   test('Call "addInvestor" with invalid value', () => {
