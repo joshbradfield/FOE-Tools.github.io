@@ -116,7 +116,13 @@ export const mutations = {
   ADD_URL_QUERY: ({ urlQuery, urlQueryNamespace }, obj) => {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
       if (obj.key in urlQuery || (obj.ns in urlQueryNamespace && obj.key in urlQueryNamespace[obj.ns])) {
-        throw Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(obj.key);
+        /* FIXME: Nuxt bug
+         * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
+         * See: https://github.com/nuxt/nuxt.js/issues/4757
+         */
+        // throw Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(obj.key);
+        console.error(Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(obj.key));
+        return;
       }
       if (!(obj.ns in urlQueryNamespace)) {
         Vue.set(urlQueryNamespace, obj.ns, {});
@@ -124,7 +130,13 @@ export const mutations = {
       Vue.set(urlQueryNamespace[obj.ns], obj.key, obj.value);
     } else {
       if (obj.key in urlQuery) {
-        throw Errors.keyAlreadyExistsInUrlQueryException(obj.key);
+        /* FIXME: Nuxt bug
+         * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
+         * See: https://github.com/nuxt/nuxt.js/issues/4757
+         */
+        // throw Errors.keyAlreadyExistsInUrlQueryException(obj.key);
+        console.error(Errors.keyAlreadyExistsInUrlQueryException(obj.key));
+        return;
       }
       Vue.set(urlQuery, obj.key, obj.value);
     }
@@ -139,10 +151,12 @@ export const mutations = {
     if ("ns" in obj && obj.ns && obj.ns.length > 0) {
       if (!(obj.ns in urlQueryNamespace)) {
         /* FIXME: Nuxt bug
-         * This bug can occuer due to a Nuxt bug. Indeed, components can be rendered twice…
+         * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        throw Errors.namespaceNotFoundException(obj.ns);
+        // throw Errors.namespaceNotFoundException(obj.ns);
+        console.error(Errors.namespaceNotFoundException(obj.ns));
+        return;
       }
       const { ns, key, value } = obj;
       Vue.set(urlQueryNamespace[ns], key, value);
