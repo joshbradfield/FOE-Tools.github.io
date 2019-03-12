@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.28.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.27.0...v2.28.0) (2019-03-12)
+
+
+### Bug Fixes
+
+* cookie not found when switch page ([84cb1ef](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/84cb1ef))
+* fix crash on tool startup ([1d3b0bf](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1d3b0bf)), closes [#165](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/165)
+* fix style of table on smartphone for some browser ([fc46302](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fc46302)), closes [#169](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/169)
+* make all cookies global ([2b2322e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2b2322e))
+* **style:** add dark background for optgroup ([5ad2ef8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5ad2ef8))
+
+
+### Features
+
+* **foe-data:** :package: Add levels of several ages ([0a00179](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0a00179))
+* **style:** Improve responsive and display of table ([b53e543](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b53e543)), closes [#162](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/162)
+
+
+
 # [2.27.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.26.0...v2.27.0) (2019-03-10)
 
 
