@@ -12,7 +12,10 @@ const factory = (mocks = {}) => {
     store: store,
     mocks: {
       $route: {
-        query: {}
+        query: {},
+        params: {
+          gb: "root"
+        }
       },
       ...mocks
     }

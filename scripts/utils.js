@@ -251,11 +251,11 @@ export default {
    * @param currentValue {number} The current value
    * @param comparator {Array} Array that contains two elements. The first is a string that corresponding to an operator
    * @param saveCookie {boolean} Key used to save value in a cookie if valid
-   * @param cookiePath {string} Path of the cookie
+   * @param cookieKey {string} Key used to store the cookie
    * @param type {string} Type of the result value (must be 'int' or 'float')
    * @return {FormCheck} Return the state of the data ("VALID", "INVALID", "NO_CHANGE")
    */
-  handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, cookiePath = "", type = "int") {
+  handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, cookieKey = "", type = "int") {
     if (
       !ctx ||
       ctx === null ||
@@ -271,20 +271,24 @@ export default {
       throw Errors.FieldNullError("ctx", "handlerForm");
     }
 
-    if (typeof cookiePath !== "string") {
+    if (saveCookie && (!cookieKey || cookieKey.length === 0)) {
+      throw Errors.FieldNullError("cookieKey", "handlerForm");
+    }
+
+    if (typeof cookieKey !== "string") {
       throw Errors.InvalidTypeError(
         "string",
-        typeof cookiePath,
-        'for parameter "cookiePath" of handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, ' +
-          'cookiePath = "", type = "int")'
+        typeof cookieKey,
+        'for parameter "cookieKey" of handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, ' +
+          'cookieKey = "", type = "int")'
       );
     }
 
     let result = this.checkFormNumeric(value, currentValue, comparator, type);
     ctx.$data.errors[key] = result.state === FormCheck.INVALID;
     if (saveCookie && result.state === FormCheck.VALID) {
-      ctx.$cookies.set(key, result.value, {
-        path: cookiePath,
+      ctx.$cookies.set(cookieKey, result.value, {
+        path: "/",
         expires: this.getDefaultCookieExpireTime()
       });
     }

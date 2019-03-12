@@ -356,7 +356,7 @@ describe("Utils", () => {
     });
 
     test("Valid value and save in cookie", () => {
-      const result = Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true);
+      const result = Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true, "myKey");
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
@@ -366,25 +366,25 @@ describe("Utils", () => {
           key: "myKey",
           param: {
             expires: cookies[0].param.expires, // We don't care
-            path: ""
+            path: "/"
           },
           value: 5
         }
       ]);
     });
 
-    test("Valid value and save in cookie with path '/foo'", () => {
-      const result = Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true, "/foo");
+    test("Valid value and save in cookie with key 'foo'", () => {
+      const result = Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true, "foo");
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
       expect(ctx.$cookies.set.mock.calls.length).toBe(1);
       expect(cookies).toEqual([
         {
-          key: "myKey",
+          key: "foo",
           param: {
             expires: cookies[0].param.expires, // We don't care
-            path: "/foo"
+            path: "/"
           },
           value: 5
         }
@@ -392,17 +392,17 @@ describe("Utils", () => {
     });
 
     test("Valid value with float value and save in cookie with path '/foo'", () => {
-      const result = Utils.handlerForm(ctx, "myKey", 5.3, 4, [">", 3], true, "/foo", "float");
+      const result = Utils.handlerForm(ctx, "myKey", 5.3, 4, [">", 3], true, "foo", "float");
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
       expect(ctx.$cookies.set.mock.calls.length).toBe(1);
       expect(cookies).toEqual([
         {
-          key: "myKey",
+          key: "foo",
           param: {
             expires: cookies[0].param.expires, // We don't care
-            path: "/foo"
+            path: "/"
           },
           value: 5.3
         }
@@ -421,14 +421,20 @@ describe("Utils", () => {
       );
     });
 
-    test("Throw invalid type error when cookiePath is not a string", () => {
+    test("Throw invalid type error when cookieKey is not a string", () => {
       expect(() => Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true, 2)).toThrow(
         Errors.InvalidTypeError(
           "string",
           "number",
-          'for parameter "cookiePath" of handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, ' +
-            'cookiePath = "", type = "int")'
+          'for parameter "cookieKey" of handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, ' +
+            'cookieKey = "", type = "int")'
         )
+      );
+    });
+
+    test("Throw field null error when cookieKey is not a valid string", () => {
+      expect(() => Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true, "")).toThrow(
+        Errors.FieldNullError("cookieKey", "handlerForm")
       );
     });
   });

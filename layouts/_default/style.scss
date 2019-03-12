@@ -70,6 +70,14 @@ body.dark-theme {
   .table input {
     background-color: $grey-dark !important;
   }
+
+  .notification button.delete {
+    background-color: $grey-dark;
+  }
+
+  .snackbar {
+    color: $light-invert !important;
+  }
 }
 
 table .image {

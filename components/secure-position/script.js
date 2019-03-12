@@ -234,7 +234,7 @@ export default {
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
-          "/",
+          "yourArcBonus",
           "float"
         ) === Utils.FormCheck.VALID
       ) {
