@@ -48,7 +48,7 @@ export default {
   },
   data() {
     const data = {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       fp: 0,
       yourParticipation: 0,
       otherParticipation: 0,

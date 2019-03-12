@@ -14,9 +14,7 @@ export default {
   data() {
     this.$store.commit("SET_CURRENT_LOCATION", "secure_position");
 
-    return {
-      i18nPrefix: i18nPrefix
-    };
+    return {};
   },
   components: {
     securePosition

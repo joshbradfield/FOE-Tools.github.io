@@ -11,7 +11,7 @@ export default {
     this.$store.commit("RESTORE_HERO");
 
     return {
-      url: "https://raw.githubusercontent.com/FOE-Tools/FOE-Tools.github.io/dev/CHANGELOG.md",
+      url: "https://raw.githubusercontent.com/FOE-Tools/FOE-Tools.github.io/production/CHANGELOG.md",
       markdown: ""
     };
   },
