@@ -34,7 +34,9 @@ export default {
   data() {
     this.$store.commit("SET_CURRENT_LOCATION", "gb_investment");
 
-    let tab = this.cookieValid(urlPrefix + "tab") ? parseInt(this.$cookies.get(urlPrefix + "tab")) : 0;
+    let tab = this.cookieValid(this.$route.params.gb + "_tab")
+      ? parseInt(this.$cookies.get(this.$route.params.gb + "_tab"))
+      : 0;
     tab = Utils.inRange(tab, 0, MAX_TAB) ? tab : 0;
 
     this.$store.commit("ADD_URL_QUERY", {
@@ -59,8 +61,15 @@ export default {
   watch: {
     gbi_tab(val, oldVal) {
       if (
-        Utils.handlerForm(this, "gbi_tab", val.length === 0 ? 0 : val, oldVal, [0, MAX_TAB], !this.isPermalink, "/") ===
-        Utils.FormCheck.VALID
+        Utils.handlerForm(
+          this,
+          "gbi_tab",
+          val.length === 0 ? 0 : val,
+          oldVal,
+          [0, MAX_TAB],
+          !this.isPermalink,
+          this.$route.params.gb + "_tab"
+        ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.tab,

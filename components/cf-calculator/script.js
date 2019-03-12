@@ -228,7 +228,7 @@ export default {
           oldVal,
           inputComparator.yourCfBoost.comparator,
           !this.isPermalink,
-          "/"
+          "yourCfBoost"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -249,7 +249,7 @@ export default {
           oldVal,
           inputComparator.coins.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "coins"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -268,7 +268,7 @@ export default {
           oldVal,
           inputComparator.supplies.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "supplies"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -287,7 +287,7 @@ export default {
           oldVal,
           inputComparator.goods.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "goods"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -306,7 +306,7 @@ export default {
           oldVal,
           inputComparator.fpBy24h.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "fpBy24h"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -325,7 +325,7 @@ export default {
           oldVal,
           inputComparator.otherRq.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "otherRq"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -344,7 +344,7 @@ export default {
           oldVal,
           inputComparator.suppliesGathered.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "suppliesGathered"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -363,7 +363,7 @@ export default {
           oldVal,
           inputComparator.cumulativeQuest.comparator,
           !this.isPermalink,
-          this.$nuxt.$route.path
+          "cumulativeQuest"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {

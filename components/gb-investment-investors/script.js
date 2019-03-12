@@ -39,19 +39,31 @@ export default {
   data() {
     const data = {
       i18nPrefix,
-      targetLevel: this.cookieValid("targetLevel") ? parseInt(this.$cookies.get("targetLevel")) : 1,
+      targetLevel: this.cookieValid(`${this.$route.params.gb}_targetLevel`)
+        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_targetLevel`))
+        : 1,
       yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : this.$cookies.get("yourArcBonus"),
       result: null,
       maxLevel: this.$props.gb.levels.length,
       maxConsideration: MAX_TAKING_PLACE_IN_CONSIDERATION + 1,
-      takingPlaceInConsideration: this.cookieValid("takingPlaceInConsideration")
-        ? parseInt(this.$cookies.get("takingPlaceInConsideration"))
+      takingPlaceInConsideration: this.cookieValid(`${this.$route.params.gb}_takingPlaceInConsideration`)
+        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_takingPlaceInConsideration`))
         : 0,
-      showP1: this.cookieValid("showP1") ? !!this.$cookies.get("showP1") : true,
-      showP2: this.cookieValid("showP2") ? !!this.$cookies.get("showP2") : false,
-      showP3: this.cookieValid("showP3") ? !!this.$cookies.get("showP3") : false,
-      showP4: this.cookieValid("showP4") ? !!this.$cookies.get("showP4") : false,
-      showP5: this.cookieValid("showP5") ? !!this.$cookies.get("showP5") : false,
+      showP1: this.cookieValid(`${this.$route.params.gb}_showP1`)
+        ? !!this.$cookies.get(`${this.$route.params.gb}_showP1`)
+        : true,
+      showP2: this.cookieValid(`${this.$route.params.gb}_showP2`)
+        ? !!this.$cookies.get(`${this.$route.params.gb}_showP2`)
+        : false,
+      showP3: this.cookieValid(`${this.$route.params.gb}_showP3`)
+        ? !!this.$cookies.get(`${this.$route.params.gb}_showP3`)
+        : false,
+      showP4: this.cookieValid(`${this.$route.params.gb}_showP4`)
+        ? !!this.$cookies.get(`${this.$route.params.gb}_showP4`)
+        : false,
+      showP5: this.cookieValid(`${this.$route.params.gb}_showP5`)
+        ? !!this.$cookies.get(`${this.$route.params.gb}_showP5`)
+        : false,
       errors: {
         targetLevel: false,
         yourArcBonus: false,
@@ -107,7 +119,8 @@ export default {
           val.length === 0 ? 0 : val,
           oldVal,
           [1, this.$data.maxLevel],
-          !this.isPermalink
+          !this.isPermalink,
+          this.$route.params.gb + "_targetLevel"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -125,7 +138,8 @@ export default {
           val.length === 0 ? 0 : val,
           oldVal,
           INPUT_COMPARATOR.takingPlaceInConsideration.comparator,
-          !this.isPermalink
+          !this.isPermalink,
+          this.$route.params.gb + "_takingPlaceInConsideration"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -149,7 +163,7 @@ export default {
           oldVal,
           INPUT_COMPARATOR.yourArcBonus.comparator,
           !this.isPermalink,
-          "/",
+          "yourArcBonus",
           INPUT_COMPARATOR.yourArcBonus.type
         ) === Utils.FormCheck.VALID
       ) {
@@ -161,14 +175,15 @@ export default {
         this.compute();
       }
     },
+    // TODO: Need refactor…
     showP1(val) {
       this.$store.commit("UPDATE_URL_QUERY", {
         key: QUERY_KEY.showP1,
         value: val ? 1 : 0,
         ns: "gbii"
       });
-      this.$cookies.set("showP1", val, {
-        path: "",
+      this.$cookies.set(`${this.$route.params.gb}_showP1`, val, {
+        path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
     },
@@ -178,8 +193,8 @@ export default {
         value: val ? 1 : 0,
         ns: "gbii"
       });
-      this.$cookies.set("showP2", val, {
-        path: "",
+      this.$cookies.set(`${this.$route.params.gb}_showP2`, val, {
+        path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
     },
@@ -189,8 +204,8 @@ export default {
         value: val ? 1 : 0,
         ns: "gbii"
       });
-      this.$cookies.set("showP3", val, {
-        path: "",
+      this.$cookies.set(`${this.$route.params.gb}_showP3`, val, {
+        path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
     },
@@ -200,8 +215,8 @@ export default {
         value: val ? 1 : 0,
         ns: "gbii"
       });
-      this.$cookies.set("showP4", val, {
-        path: "",
+      this.$cookies.set(`${this.$route.params.gb}_showP4`, val, {
+        path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
     },
@@ -211,8 +226,8 @@ export default {
         value: val ? 1 : 0,
         ns: "gbii"
       });
-      this.$cookies.set("showP5", val, {
-        path: "",
+      this.$cookies.set(`${this.$route.params.gb}_showP5`, val, {
+        path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
     }

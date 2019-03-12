@@ -46,11 +46,15 @@ export default {
   data() {
     const data = {
       i18nPrefix,
-      level: this.cookieValid("level") ? parseInt(this.$cookies.get("level")) : 10,
+      level: this.cookieValid(`${this.$route.params.gb}_level`)
+        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_level`))
+        : 10,
       maxLevel: this.$props.gb.levels.length,
-      ownerInvestment: this.cookieValid("ownerInvestment") ? parseInt(this.$cookies.get("ownerInvestment")) : 0,
-      investorPercentageGlobal: this.cookieValid("investorPercentageGlobal")
-        ? parseFloat(this.$cookies.get("investorPercentageGlobal"))
+      ownerInvestment: this.cookieValid(`${this.$route.params.gb}_ownerInvestment`)
+        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_ownerInvestment`))
+        : 0,
+      investorPercentageGlobal: this.cookieValid(`${this.$route.params.gb}_investorPercentageGlobal`)
+        ? parseFloat(this.$cookies.get(`${this.$route.params.gb}_investorPercentageGlobal`))
         : defaultArcPercentage,
       investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
       investorParticipation: [],
@@ -82,13 +86,18 @@ export default {
     };
 
     for (let i = 0; i < 5; i++) {
-      if (this.cookieValid("investorPercentageCustom_" + i)) {
-        data.investorPercentageCustom[i] = parseFloat(this.$cookies.get("investorPercentageCustom_" + i));
+      if (this.cookieValid(`${this.$route.params.gb}_investorPercentageCustom_${i}`)) {
+        data.investorPercentageCustom[i] = parseFloat(
+          this.$cookies.get(`${this.$route.params.gb}_investorPercentageCustom_${i}`)
+        );
       }
     }
 
-    if (this.$cookies.get("investorParticipation") && this.$cookies.get("investorParticipation") instanceof Array) {
-      data.investorParticipation = this.$cookies.get("investorParticipation");
+    if (
+      this.$cookies.get(`${this.$route.params.gb}_investorParticipation`) &&
+      this.$cookies.get(`${this.$route.params.gb}_investorParticipation`) instanceof Array
+    ) {
+      data.investorParticipation = this.$cookies.get(`${this.$route.params.gb}_investorParticipation`);
     }
 
     Object.assign(data, this.checkQuery(data.level, data.maxLevel));
@@ -220,7 +229,7 @@ export default {
           oldVal,
           [1, this.$data.maxLevel],
           !this.isPermalink,
-          this.$nuxt.$route.path
+          this.$route.params.gb + "_level"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -249,7 +258,7 @@ export default {
           oldVal,
           [0, this.$data.result.cost],
           !this.isPermalink,
-          this.$nuxt.$route.path
+          this.$route.params.gb + "_ownerInvestment"
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -293,7 +302,7 @@ export default {
           oldVal,
           [">=", 0],
           !this.isPermalink,
-          this.$nuxt.$route.path,
+          this.$route.params.gb + "_investorPercentageGlobal",
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -326,7 +335,7 @@ export default {
           oldInvestorPercentageCustom[index],
           [">=", 0],
           !this.isPermalink,
-          this.$nuxt.$route.path,
+          this.$nuxt.$route.params.gb + "_investorPercentageCustom_" + index,
           "float"
         );
         if (tmp === Utils.FormCheck.INVALID) {
@@ -350,8 +359,8 @@ export default {
         value: JSON.stringify(val),
         ns: "gbi"
       });
-      this.$cookies.set("investorParticipation", val, {
-        path: this.$nuxt.$route.path,
+      this.$cookies.set(`${this.$route.params.gb}_investorParticipation`, val, {
+        path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
       this.calculate();
@@ -440,7 +449,7 @@ export default {
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
-          "/",
+          "yourArcBonus",
           "float"
         ) === Utils.FormCheck.VALID
       ) {

@@ -271,7 +271,7 @@ export default {
           oldVal,
           [">=", 0],
           false,
-          "",
+          this.$route.params.gb + "_investorPercentageGlobal",
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -305,7 +305,7 @@ export default {
             oldInvestorPercentageCustom[index],
             [">=", 0],
             false,
-            "",
+            this.$route.params.gb + "_investorPercentageCustom_" + index,
             "float"
           ) === Utils.FormCheck.INVALID
         ) {

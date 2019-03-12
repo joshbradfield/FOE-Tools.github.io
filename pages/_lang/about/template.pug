@@ -16,13 +16,11 @@ div.content
       thead
         tr
           th {{$t('utils.Name')}}
-          th {{$t('utils.Path')}}
           th {{$t('utils.Description')}}
       tbody
         tr(v-for="cookie in cookiesData" :key="cookie.name")
           td {{cookie.name}}
-          td {{cookie.path}}
-          td {{$t(i18nPrefix + 'cookie.info.' + cookie.key + '.' + cookie.name)}}
+          td {{$t(i18nPrefix + 'cookie.info.' + cookie.name)}}
 
   h4.title.is-4 {{$t($data.i18nPrefix + 'dev_info.title')}}
 
