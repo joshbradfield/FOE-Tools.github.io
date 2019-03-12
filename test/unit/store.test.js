@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import Component from "../../layouts/_default/Default";
 import { getView } from "./localVue";
-import Errors from "../../scripts/errors";
+// import Errors from "../../scripts/errors";
 
 const factory = (mocks = {}) => {
   const { localVue, store } = getView();
