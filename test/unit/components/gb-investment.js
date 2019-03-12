@@ -17,7 +17,10 @@ const factory = (propsData = {}, mocks = {}) => {
     store: store,
     mocks: {
       $route: {
-        query: {}
+        query: {},
+        params: {
+          gb: "root"
+        }
       },
       ...mocks
     }
@@ -115,6 +118,9 @@ describe("GbInvestment", () => {
           gbi_pFree5: "1",
           gbi_ss: "1",
           gbi_yab: "90"
+        },
+        params: {
+          gb: "root"
         }
       }
     });
@@ -148,11 +154,11 @@ describe("GbInvestment", () => {
       $cookies: {
         get: key => {
           switch (key) {
-            case "level":
+            case "root_level":
               return 20;
-            case "ownerInvestment":
+            case "root_ownerInvestment":
               return 21;
-            case "investorPercentageGlobal":
+            case "root_investorPercentageGlobal":
               return 90;
             case "gbPrefix":
               return "foo";
@@ -164,17 +170,17 @@ describe("GbInvestment", () => {
               return false;
             case "showLevel":
               return true;
-            case "investorPercentageCustom_0":
+            case "root_investorPercentageCustom_0":
               return 92;
-            case "investorPercentageCustom_1":
+            case "root_investorPercentageCustom_1":
               return 91;
-            case "investorPercentageCustom_2":
+            case "root_investorPercentageCustom_2":
               return 90;
-            case "investorPercentageCustom_3":
+            case "root_investorPercentageCustom_3":
               return 85;
-            case "investorPercentageCustom_4":
+            case "root_investorPercentageCustom_4":
               return 80;
-            case "investorParticipation":
+            case "root_investorParticipation":
               return investorParticipation;
             case "showSnipe":
               return true;

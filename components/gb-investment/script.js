@@ -335,7 +335,7 @@ export default {
           oldInvestorPercentageCustom[index],
           [">=", 0],
           !this.isPermalink,
-          this.$nuxt.$route.params.gb + "_investorPercentageCustom_" + index,
+          this.$route.params.gb + "_investorPercentageCustom_" + index,
           "float"
         );
         if (tmp === Utils.FormCheck.INVALID) {

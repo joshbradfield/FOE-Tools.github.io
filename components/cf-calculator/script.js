@@ -173,7 +173,7 @@ export default {
         this.errors.yourAge = false;
         if (!this.isPermalink) {
           this.$cookies.set("yourAge", val, {
-            path: this.$nuxt.$route.path,
+            path: "/",
             expires: Utils.getDefaultCookieExpireTime()
           });
         }
@@ -189,7 +189,7 @@ export default {
           });
           if (!this.isPermalink) {
             this.$cookies.set("secondRq", false, {
-              path: this.$nuxt.$route.path,
+              path: "/",
               expires: Utils.getDefaultCookieExpireTime()
             });
           }
@@ -204,7 +204,7 @@ export default {
       const value = !!val;
       if (!this.isPermalink) {
         this.$cookies.set("secondRq", value, {
-          path: this.$nuxt.$route.path,
+          path: "/",
           expires: Utils.getDefaultCookieExpireTime()
         });
       }

@@ -16,7 +16,10 @@ const factory = (propsData = {}, mocks = {}) => {
     store: store,
     mocks: {
       $route: {
-        query: {}
+        query: {},
+        params: {
+          gb: "root"
+        }
       },
       ...mocks
     }
@@ -32,6 +35,7 @@ describe("GbInvestmentInvestors", () => {
   });
 
   test("Initialize with URL query", () => {
+    console.log("Initialize with URL query");
     const showPlaceValues = [true, true, false, false, false];
     const wrapper = factory(defaultGb, {
       $route: {
@@ -44,6 +48,9 @@ describe("GbInvestmentInvestors", () => {
           gbi_sp3: 0,
           gbi_sp4: 0,
           gbi_sp5: 0
+        },
+        params: {
+          gb: "root"
         }
       }
     });
@@ -63,21 +70,21 @@ describe("GbInvestmentInvestors", () => {
       $cookies: {
         get: key => {
           switch (key) {
-            case "targetLevel":
+            case "root_targetLevel":
               return 10;
             case "yourArcBonus":
               return undefined;
-            case "takingPlaceInConsideration":
+            case "root_takingPlaceInConsideration":
               return 1;
-            case "showP1":
+            case "root_showP1":
               return true;
-            case "showP2":
+            case "root_showP2":
               return true;
-            case "showP3":
+            case "root_showP3":
               return false;
-            case "showP4":
+            case "root_showP4":
               return false;
-            case "showP5":
+            case "root_showP5":
               return false;
           }
         }

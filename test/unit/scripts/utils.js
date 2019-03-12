@@ -431,6 +431,12 @@ describe("Utils", () => {
         )
       );
     });
+
+    test("Throw field null error when cookieKey is not a valid string", () => {
+      expect(() => Utils.handlerForm(ctx, "myKey", 5, 4, [">", 3], true, "")).toThrow(
+        Errors.FieldNullError("cookieKey", "handlerForm")
+      );
+    });
   });
 
   // For coverage
