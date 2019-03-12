@@ -191,68 +191,81 @@ div.content
   //////////////////////////
 
   div.is-hidden-desktop.is-hidden-widescreen(v-if="result !== null")
-    // Header
-    p.title.is-4.has-text-centered {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: 'foe_data.gb.' + gb.key, level: result.level, fromLevel: (result.level - 1)})}}
-    div.has-text-centered(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
-      progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
-      p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}}
-
     div.table-wrapper
       table.table.has-table-cards
+        thead
+          tr
+            th.has-text-centered(:colspan=2)
+              p {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: 'foe_data.gb.' + gb.key, level: result.level, fromLevel: (result.level - 1)})}}
+          tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
+            th.has-text-centered(:colspan=2)
+              progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
+              p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}}
         // Table content
         tbody
-          tr(v-for="(props, index) in result.investment.concat(showExtraInvestors ? result.otherInvestment : [])")
+          template(v-for="(props, index) in result.investment.concat(showExtraInvestors ? result.otherInvestment : [])")
             // Place
-            td.has-text-right(field="place" :data-label="$t(i18nPrefix + 'gb_investment.table.thead.th1')" :numeric="true")
-              p {{ $formatNumber(index + 1) }}
+            tr
+              th {{ $t(i18nPrefix + 'gb_investment.table.thead.th1') }}
+              td.has-text-right {{ $formatNumber(index + 1) }}
             // Default reward
-            td(v-if="index < result.investment.length" field="default_reward" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.th2')" :numeric="true")
-              p {{ $formatNumber(props.reward) }}
+            tr(v-if="index < result.investment.length")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th2') }}
+              td.has-text-right {{ $formatNumber(props.reward) }}
             // Owner preparation
-            td(v-if="index < result.investment.length" field="preparation" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.th3')" :numeric="true")
-              p {{ $formatNumber(props.preparation) }}
+            tr(v-if="index < result.investment.length")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th3') }}
+              td.has-text-right {{ $formatNumber(props.preparation) }}
             // Reward with arc bonus
-            td(v-if="index < result.investment.length" field="participation" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.th4')" :numeric="true")
-              p {{ $formatNumber(props.expectedParticipation) }}
+            tr(v-if="index < result.investment.length")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
+              td.has-text-right {{ $formatNumber(props.expectedParticipation) }}
             // Current participation
-            td(field="custom_ip" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')" :numeric="true")
-              template(v-if="props.isInvestorParticipation")
+            tr(:class="index >= result.investment.length ? 'last-in-card' : ''")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
+              td(v-if="props.isInvestorParticipation")
                 p {{$formatNumber(props.participation)}}
-              template(v-else)
+              td(v-else)
                 p 0
                   template(v-if="props.participation > 0") &nbsp;(
                     b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(props.participation)}}
                     | )
             // Spot / Snipe
-            td(v-if="showSnipe && index < result.investment.length" field="custom_ip" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')" :numeric="true")
-              template(v-if="props.snipe.fp === -1")
-                span.icon.is-small(style="vertical-align: middle;")
-                  i.fas.fa-lock
-
-              p.snipe.fp(v-else-if="props.snipe.fp > 0") {{$formatNumber(props.snipe.fp)}} (
-                template(v-if="props.snipe.roi > 0")
-                  span.icon.is-small.has-text-success(style="vertical-align: middle;")
-                    i.fas.fa-arrow-up
-                    | &nbsp;
-                  b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
-
-                template(v-else-if="props.snipe.roi < 0")
-                  span.icon.is-small.has-text-danger(style="vertical-align: middle;")
-                    i.fas.fa-arrow-down
-                    | &nbsp;
-                  b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
-
-                b-tooltip(v-else position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
+            tr(v-if="showSnipe && index < result.investment.length")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe') }}
+              td
+                template(v-if="props.snipe.fp === -1")
                   span.icon.is-small(style="vertical-align: middle;")
-                    i.fas.fa-exchange-alt
-                | )
+                    i.fas.fa-lock
+
+                p.snipe.fp(v-else-if="props.snipe.fp > 0") {{$formatNumber(props.snipe.fp)}} (
+                  template(v-if="props.snipe.roi > 0")
+                    span.icon.is-small.has-text-success(style="vertical-align: middle;")
+                      i.fas.fa-arrow-up
+                      | &nbsp;
+                    b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
+
+                  template(v-else-if="props.snipe.roi < 0")
+                    span.icon.is-small.has-text-danger(style="vertical-align: middle;")
+                      i.fas.fa-arrow-down
+                      | &nbsp;
+                    b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
+
+                  b-tooltip(v-else position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
+                    span.icon.is-small(style="vertical-align: middle;")
+                      i.fas.fa-exchange-alt
+                  | )
             // Custom arc bonus
-            td(v-if="index < result.investment.length" field="custom_ip" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.th5')" :numeric="true")
-              b-field(:type="haveError('investorPercentageCustom_' + index)")
-                b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[index]" :name="'investorPercentageCustom_' + index" autocomplete="off")
+            tr(v-if="index < result.investment.length")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th5') }}
+              td
+                b-field(:type="haveError('investorPercentageCustom_' + index)")
+                  b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[index]" :name="'investorPercentageCustom_' + index" autocomplete="off")
             // Place free
-            td(v-if="index < result.investment.length" field="place_free" :data-label="$t($data.i18nPrefix + 'gb_investment.table.thead.th6')")
-              b-switch(:value="placeFree[index].state" type="is-info" @input="changePlaceFree(index, $event)") {{placeFree[index].state ? $t('utils.Yes') : $t('utils.No')}}
+            tr.last-in-card(v-if="index < result.investment.length")
+              th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th6') }}
+              td
+                b-switch(:value="placeFree[index].state" type="is-info" @input="changePlaceFree(index, $event)") {{placeFree[index].state ? $t('utils.Yes') : $t('utils.No')}}
 
         tfoot
           tr
@@ -267,9 +280,11 @@ div.content
                   span.icon
                     i.fas.fa-eye-slash
                   | &nbsp;&nbsp; {{$t(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', { count: result.otherInvestment.length })}}
+          tr
             th {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
             td
               p.level-right {{$formatNumber(result.totalPreparations)}}
+          tr
             th {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
             td
               p.level-right {{$formatNumber(result.cost)}}

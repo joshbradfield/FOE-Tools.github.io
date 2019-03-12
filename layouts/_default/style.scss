@@ -229,25 +229,22 @@ $map: (
 table.table.has-table-cards {
   tbody, tfoot {
     tr {
-      display: block;
-      th, td {
-        display: flex;
-        justify-content: space-between;
+      display: table;
+      width: 100%;
+      th {
         text-align: left !important;
       }
-      th:before, td:before {
-        content: attr(data-label);
-        font-weight: 600;
-        padding-right: 0.5em;
+      td {
+        text-align: right !important;
       }
     }
-    tr:not(:last-child) {
+    tr.last-in-card:not(:last-child) {
       margin-bottom: 1rem;
     }
   }
   tfoot {
     th, td {
-      flex-direction: row-reverse;
+      //flex-direction: row-reverse;
     }
   }
 }
