@@ -68,6 +68,7 @@ export default {
       shortName: this.cookieValid("shortName") ? !!this.$cookies.get("shortName") : false,
       showLevel: this.cookieValid("showLevel") ? !!this.$cookies.get("showLevel") : false,
       yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : parseFloat(this.$cookies.get("yourArcBonus")),
+      displayTableCard: this.$cookies.get("displayTableCard") ? !!this.$cookies.get("displayTableCard") : false,
       result: null,
       errors: {
         level: false,
@@ -208,7 +209,7 @@ export default {
       return !this.$data.ownerInvestment || this.$data.ownerInvestment.length === 0 ? 0 : this.$data.ownerInvestment;
     },
     nbColumns() {
-      return 7 + (this.$data.showSnipe ? 1 : 0);
+      return 6 + (this.$data.showSnipe ? 1 : 0) + (this.investorParticipationNormalizedSum ? 1 : 0);
     },
     getCustomArcBonus() {
       return Utils.normalizeNumberValue(this.$data.yourArcBonus);
@@ -460,6 +461,12 @@ export default {
         });
         this.calculate();
       }
+    },
+    displayTableCard(val) {
+      this.$cookies.set("displayTableCard", !!val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
     },
     result(val) {
       if (val !== null) {
