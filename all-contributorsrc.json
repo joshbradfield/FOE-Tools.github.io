@@ -415,6 +415,34 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "vvval",
+      "name": "Valentin V",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11367763?v=4",
+      "profile": "http://spiralscout.com",
+      "contributions": [
+        "bug",
+        "ideas"
+      ]
+    },
+    {
+      "login": "soodvarun",
+      "name": "Varun Sood",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1323253?v=4",
+      "profile": "https://github.com/soodvarun",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "jimmcclintock",
+      "name": "Jim McClintock",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16402515?v=4",
+      "profile": "https://github.com/jimmcclintock",
+      "contributions": [
+        "ideas"
+      ]
     }
   ]
 }
