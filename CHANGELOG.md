@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.29.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.28.0...v2.29.0) (2019-03-13)
+
+
+### Features
+
+* **contributors:** update page ([b6b0b9a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b6b0b9a))
+* **gb-investment:** give the choice to use table view or card view for table data ([68d9876](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/68d9876))
+* **gb-investment:** show current investment column only when investors ([82733d5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/82733d5))
+
+
+
 # [2.28.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.27.0...v2.28.0) (2019-03-12)
 
 
