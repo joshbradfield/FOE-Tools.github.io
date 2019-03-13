@@ -70,7 +70,7 @@ div.content
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th3')}}
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th4')}}
-          th {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
+          th(v-if="investorParticipationNormalizedSum") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
           th(v-show="showSnipe") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
           th(width="100px") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
@@ -94,7 +94,7 @@ div.content
           td.has-text-right
             p {{$formatNumber(place.expectedParticipation)}}
           // Current participation
-          td.has-text-right(width="150px")
+          td.has-text-right(v-if="investorParticipationNormalizedSum" width="150px")
             template(v-if="place.isInvestorParticipation")
               p {{$formatNumber(place.participation)}} (
                 template(v-if="place.roi > 0")
@@ -223,7 +223,7 @@ div.content
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
               td.has-text-right {{ $formatNumber(props.expectedParticipation) }}
             // Current participation
-            tr(:class="index >= result.investment.length ? 'last-in-card' : ''")
+            tr(v-if="investorParticipationNormalizedSum" :class="index >= result.investment.length ? 'last-in-card' : ''")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
               td(v-if="props.isInvestorParticipation")
                 p {{$formatNumber(props.participation)}}

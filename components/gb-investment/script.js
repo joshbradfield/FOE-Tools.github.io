@@ -209,7 +209,7 @@ export default {
       return !this.$data.ownerInvestment || this.$data.ownerInvestment.length === 0 ? 0 : this.$data.ownerInvestment;
     },
     nbColumns() {
-      return 7 + (this.$data.showSnipe ? 1 : 0);
+      return 6 + (this.$data.showSnipe ? 1 : 0) + (this.investorParticipationNormalizedSum ? 1 : 0);
     },
     getCustomArcBonus() {
       return Utils.normalizeNumberValue(this.$data.yourArcBonus);
