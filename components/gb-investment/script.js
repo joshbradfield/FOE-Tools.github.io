@@ -68,6 +68,7 @@ export default {
       shortName: this.cookieValid("shortName") ? !!this.$cookies.get("shortName") : false,
       showLevel: this.cookieValid("showLevel") ? !!this.$cookies.get("showLevel") : false,
       yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : parseFloat(this.$cookies.get("yourArcBonus")),
+      displayTableCard: this.$cookies.get("displayTableCard") ? !!this.$cookies.get("displayTableCard") : false,
       result: null,
       errors: {
         level: false,
@@ -460,6 +461,12 @@ export default {
         });
         this.calculate();
       }
+    },
+    displayTableCard(val) {
+      this.$cookies.set("displayTableCard", !!val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
     },
     result(val) {
       if (val !== null) {

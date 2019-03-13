@@ -28,6 +28,8 @@ div.content
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
         input.input#giOwnerInvestment(type="number" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
+    div.column.is-half
+      yes-no(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
 
   div.columns
     div.column.is-half
@@ -54,7 +56,7 @@ div.content
           b-tag(:type="isNaN(value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{value}}
 
   div.table-wrapper(v-if="result !== null")
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth.is-hidden-touch
+    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(:class="displayTableCard ? 'is-hidden-touch' : ''")
       thead
         tr
           th.has-text-centered(:colspan="nbColumns")
@@ -190,7 +192,7 @@ div.content
   // Mobile table version //
   //////////////////////////
 
-  div.is-hidden-desktop.is-hidden-widescreen(v-if="result !== null")
+  div.is-hidden-desktop.is-hidden-widescreen(v-if="result !== null && displayTableCard")
     div.table-wrapper
       table.table.has-table-cards
         thead

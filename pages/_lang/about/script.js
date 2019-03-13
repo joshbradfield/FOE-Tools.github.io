@@ -43,7 +43,8 @@ export default {
         { name: "takingPlaceInConsideration" },
         { name: "targetLevel" },
         { name: "displayGbName" },
-        { name: "investorParticipation" }
+        { name: "investorParticipation" },
+        { name: "displayTableCard" }
       ]
     };
   }
