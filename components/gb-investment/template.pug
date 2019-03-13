@@ -28,7 +28,7 @@ div.content
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
         input.input#giOwnerInvestment(type="number" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
-    div.column.is-half
+    div.column.is-half.is-hidden-desktop.is-hidden-widescreen
       yes-no(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
 
   div.columns
