@@ -186,6 +186,8 @@ describe("GbInvestment", () => {
               return true;
             case "yourArcBonus":
               return 90;
+            case "displayTableCard":
+              return true;
           }
         }
       }
@@ -481,6 +483,22 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ss"]).toBe(newValue ? 1 : 0);
     expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
       "showSnipe",
+      true,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
+  });
+
+  test('Change "displayTableCard" value', () => {
+    const wrapper = factory();
+    const newValue = true;
+    expect(wrapper.vm.displayTableCard).toBe(false);
+    wrapper.vm.displayTableCard = newValue;
+    expect(wrapper.vm.displayTableCard).toBe(newValue);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "displayTableCard",
       true,
       {
         path: "/",
