@@ -236,7 +236,7 @@
             "th1": "Âge",
             "th2": "Marchandise",
             "th3": "$t(components.trade.label.i_want)",
-            "th4": "Réslutat",
+            "th4": "Résultat",
             "split": "Division",
             "ratio": "Ratio"
           }
