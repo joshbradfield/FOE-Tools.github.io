@@ -194,7 +194,9 @@ export default {
       };
     },
     maxInvestment() {
-      return this.$data.result.cost - this.investorParticipationNormalizedSum - this.ownerInvestmentNormalized;
+      return !this.$data.result || !this.$data.result.cost
+        ? 0
+        : this.$data.result.cost - this.investorParticipationNormalizedSum - this.ownerInvestmentNormalized;
     },
     investorParticipationNormalizedSum() {
       return this.investorParticipationNormalized.reduce((i, j) => i + j, 0);
@@ -206,7 +208,7 @@ export default {
       return Utils.normalizeNumberValue(this.$data.level, 1);
     },
     ownerInvestmentNormalized() {
-      return !this.$data.ownerInvestment || this.$data.ownerInvestment.length === 0 ? 0 : this.$data.ownerInvestment;
+      return Utils.normalizeNumberValue(this.$data.ownerInvestment);
     },
     nbColumns() {
       return 6 + (this.$data.showSnipe ? 1 : 0) + (this.investorParticipationNormalizedSum ? 1 : 0);
@@ -250,14 +252,13 @@ export default {
         this.$data.errors.ownerInvestment = true;
         return;
       }
-
       if (
         Utils.handlerForm(
           this,
           "ownerInvestment",
           !val || val.length === 0 ? 0 : val,
           oldVal,
-          [0, this.$data.result.cost],
+          [0, this.result.cost - this.investorParticipationNormalizedSum],
           !this.isPermalink,
           this.$route.params.gb + "_ownerInvestment"
         ) === Utils.FormCheck.VALID
@@ -487,6 +488,10 @@ export default {
       return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
     },
     calculate() {
+      if (this.maxInvestment < 0) {
+        // to prevent BoundExceededError
+        return;
+      }
       try {
         this.$data.result = gbProcess.ComputeLevelInvestment(
           this.levelNormalized,
