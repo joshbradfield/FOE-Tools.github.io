@@ -733,4 +733,19 @@ describe("GbInvestment", () => {
     wrapper.vm.removeInvestor(-1);
     expect(wrapper.vm.investorParticipation).toEqual([326, 5]);
   });
+
+  test('Call "calculate" with maxInvestment < 0', () => {
+    const wrapper = factory({ gb: gbsData.Himeji_Castle });
+    expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.ownerInvestment = 500;
+    wrapper.vm.addInvestors = 10;
+    wrapper.vm.addInvestor();
+    wrapper.vm.addInvestors = 100;
+    wrapper.vm.addInvestor();
+    wrapper.vm.addInvestors = 500;
+    wrapper.vm.addInvestor();
+    wrapper.vm.ownerInvestment = 1000;
+    wrapper.vm.calculate();
+    expect(wrapper.vm.result).toMatchSnapshot();
+  });
 });

@@ -27,7 +27,7 @@ div.content
   div.columns(v-if="result !== null")
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
-        input.input#giOwnerInvestment(type="number" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
+        b-input#giOwnerInvestment(type="number" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
     div.column.is-half.is-hidden-desktop.is-hidden-widescreen
       yes-no(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
 
@@ -36,16 +36,16 @@ div.content
       yes-no(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
     div.column.is-half(v-show="showSnipe")
       b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
-        input.input#giYourArcBonus(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off")
+        b-input#giYourArcBonus(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off")
 
   // Investor participation
   div.columns(v-if="result !== null")
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors" :type="haveError('addInvestors')")
-        b-field(grouped)
+      b-field(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors")
+        b-field(grouped :type="haveError('addInvestors')")
           b-input#giAddInvestors(type="number" min="1" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" autocomplete="off" expanded :disabled="maxInvestment <= 0" @click.native="haveReadTipAboutAddInvestor")
           p.control
-            button.button.is-info(:title="$t('utils.Add')" @click="addInvestor")
+            button.button.is-info(:title="$t('utils.Add')" @click="addInvestor" :disabled="maxInvestment <= 0")
               span.icon
                 i.fas.fa-plus
               | &nbsp;&nbsp;{{$t('utils.Add')}}
