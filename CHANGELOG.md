@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.29.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.29.0...v2.29.1) (2019-03-14)
+
+
+### Bug Fixes
+
+* **gb-investment:** fix error when user put invalid ownerInvestment value ([98889b8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/98889b8)), closes [#179](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/179)
+
+
+
 # [2.29.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.28.0...v2.29.0) (2019-03-13)
 
 
