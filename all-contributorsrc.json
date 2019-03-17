@@ -332,7 +332,8 @@
       "contributions": [
         "tutorial",
         "video",
-        "talk"
+        "talk",
+        "translation"
       ]
     },
     {
@@ -413,7 +414,8 @@
       "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
       "profile": "",
       "contributions": [
-        "ideas"
+        "ideas",
+        "bug"
       ]
     },
     {
@@ -460,6 +462,15 @@
       "profile": "http://www.ZockerBüchse.de",
       "contributions": [
         "bug"
+      ]
+    },
+    {
+      "login": "Paweł Daroń",
+      "name": "Paweł Daroń",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "",
+      "contributions": [
+        "translation"
       ]
     }
   ]
