@@ -5,11 +5,11 @@ Object {
   "cost": 1210,
   "investment": Array [
     Object {
-      "cumulativeInvestment": 710,
+      "cumulativeInvestment": 1110,
       "expectedParticipation": 238,
       "isInvestorParticipation": true,
       "participation": 500,
-      "preparation": 210,
+      "preparation": 500,
       "reward": 125,
       "roi": -262,
       "snipe": Object {
@@ -22,7 +22,7 @@ Object {
       "expectedParticipation": 124,
       "isInvestorParticipation": true,
       "participation": 100,
-      "preparation": 510,
+      "preparation": 500,
       "reward": 65,
       "roi": 24,
       "snipe": Object {
@@ -31,35 +31,35 @@ Object {
       },
     },
     Object {
-      "cumulativeInvestment": 1172,
+      "cumulativeInvestment": 1200,
       "expectedParticipation": 38,
-      "isInvestorParticipation": false,
-      "participation": 38,
-      "preparation": 534,
+      "isInvestorParticipation": true,
+      "participation": 10,
+      "preparation": 590,
       "reward": 20,
-      "roi": 0,
+      "roi": 28,
       "snipe": Object {
         "fp": 55,
         "roi": -17,
       },
     },
     Object {
-      "cumulativeInvestment": 1200,
+      "cumulativeInvestment": 1210,
       "expectedParticipation": 10,
-      "isInvestorParticipation": true,
+      "isInvestorParticipation": false,
       "participation": 10,
-      "preparation": 552,
+      "preparation": 590,
       "reward": 5,
       "roi": 0,
       "snipe": Object {
-        "fp": 55,
-        "roi": -45,
+        "fp": 50,
+        "roi": -40,
       },
     },
     Object {
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
-      "preparation": 562,
+      "preparation": 590,
       "reward": 0,
       "roi": 0,
       "snipe": Object {
@@ -70,6 +70,6 @@ Object {
   ],
   "level": 10,
   "otherInvestment": Array [],
-  "totalPreparations": 562,
+  "totalPreparations": 590,
 }
 `;
