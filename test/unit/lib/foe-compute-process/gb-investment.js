@@ -9,6 +9,12 @@ describe("FoeGbInvestment", () => {
       "yourArcBonus, fpTargetReward)";
 
     test("Valid value", () => {
+      const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge);
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with empty investor array", () => {
       const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, []);
 
       expect(result).toMatchSnapshot();
@@ -117,6 +123,20 @@ describe("FoeGbInvestment", () => {
         gbs.agesCost.TheFuture,
         extraInvestors,
         0,
+        90
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
+    test("Valid value with Château Frontenac level 85 → 86, with two investor at 100 PFs", () => {
+      const extraInvestors = [100, 100];
+      const result = GbProcess.ComputeLevelInvestment(
+        86,
+        [80, 80, 80, 80, 80],
+        gbs.agesCost.ProgressiveEra,
+        extraInvestors,
+        600,
         90
       );
 
@@ -279,6 +299,12 @@ describe("FoeGbInvestment", () => {
       const result = GbProcess.ComputeSecurePlace(1720, 860, 10, 50, 90, 245);
 
       expect(result).toEqual({ fp: 460, roi: 6 });
+    });
+
+    test("Valid value with no reward", () => {
+      const result = GbProcess.ComputeSecurePlace(1720, 860, 10, 50, 90, 0);
+
+      expect(result).toEqual({ fp: 460, roi: -460 });
     });
 
     test("Valid value with unreachable place", () => {
