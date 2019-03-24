@@ -44,7 +44,10 @@ export default {
         { name: "targetLevel" },
         { name: "displayGbName" },
         { name: "investorParticipation" },
-        { name: "displayTableCard" }
+        { name: "displayTableCard" },
+        { name: "from" },
+        { name: "to" },
+        { name: "showPlace" }
       ]
     };
   }

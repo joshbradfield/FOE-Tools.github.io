@@ -555,4 +555,30 @@ describe("Utils", () => {
       expect(() => Utils.normalizeNumberArray([42, null], {})).toThrow(Errors.InvalidTypeError("number", "object"));
     });
   });
+
+  describe("normalizeBooleanArray", () => {
+    test("Valid value", () => {
+      const result = Utils.normalizeBooleanArray([true, false]);
+      expect(result).toStrictEqual([true, false]);
+    });
+
+    test("Valid value with non boolean", () => {
+      const result = Utils.normalizeBooleanArray([true, "foo"]);
+      expect(result).toStrictEqual([true, true]);
+    });
+
+    test("Valid value with empty char", () => {
+      const result = Utils.normalizeBooleanArray([true, ""]);
+      expect(result).toStrictEqual([true, false]);
+    });
+
+    test("Valid value with null", () => {
+      const result = Utils.normalizeBooleanArray([true, null]);
+      expect(result).toStrictEqual([true, false]);
+    });
+
+    test("Throw invalid type error when value is not an array", () => {
+      expect(() => Utils.normalizeBooleanArray("foo")).toThrow(Errors.InvalidTypeError("Array", "string"));
+    });
+  });
 });

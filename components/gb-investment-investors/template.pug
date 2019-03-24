@@ -30,11 +30,37 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(:label="$t('components.gb_investment.gb_investment.form.level', { level: targetLevel, fromLevel: (targetLevel - 1), min: 1, max: maxLevel })" label-for="giiLevel" :type="haveError('targetLevel')")
-        b-input#giiLevel(type="number" min="1" :max="maxLevel" v-model.number="targetLevel" name="targetLevel" autocomplete="off" :autofocus="canPermalink")
+      b-field(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
+        b-input#previsionFrom(type="number" min="0" :max="to - 1" v-model.number="fromInput" name="previsionFrom" autocomplete="off")
+    div.column.is-half
+      b-field(:label="$t('utils.To', { max: maxLevel })" label-for="previsionTo" :type="haveError('to')")
+        b-input#previsionTo(type="number" :min="from" :max="maxLevel" v-model.number="to" name="previsionTo" autocomplete="off")
+
+  div.columns
     div.column.is-half
       b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" :type="haveError('yourArcBonus')")
         b-input#giiYourArcBonus(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off")
+
+  div.columns(v-show="takingPlaceInConsideration === 2")
+    div.column.is-half
+      yes-no(v-model="customPercentage" :label="$t('components.gb_forecast_cost.custom_percentage')")
+
+    div.column.is-half(v-show="!customPercentage")
+      b-field(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
+        b-input#previsionInvestorPercentageGlobal(type="number" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off")
+
+  div.table-wrapper(v-show="takingPlaceInConsideration === 2 && customPercentage")
+    table.table.is-bordered.is-striped.is-narrow.is-fullwidth
+      thead
+        tr
+          th {{$t('components.gb_investment.gb_investment.table.thead.th1')}}
+          th {{$t('components.gb_investment.gb_investment.table.thead.th5')}}
+      tbody
+        tr(v-for="i in 5")
+          td.has-text-right {{i}}
+          td
+            b-field(:type="haveError('investorPercentageCustom_' + i)")
+              b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i" autocomplete="off")
 
   div.columns
     div.column.is-half
@@ -53,11 +79,8 @@ div.content
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
       div.block
-          b-switch(v-model="showP1" type="is-info") 1
-          b-switch(v-model="showP2" type="is-info") 2
-          b-switch(v-model="showP3" type="is-info") 3
-          b-switch(v-model="showP4" type="is-info") 4
-          b-switch(v-model="showP5" type="is-info") 5
+        template(v-for="(value, index) in showPlace")
+          b-switch(v-model="showPlace[index]" type="is-info") {{ index + 1 }}
 
   div.table-wrapper(style="overflow-y:auto;")
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="result !== null")
@@ -67,161 +90,61 @@ div.content
             p {{$t("utils.graph.gb_level")}}
           th(rowspan=2)
             p {{$t("components.gb_investment.gb_investment.table.tfoot.level_cost")}}
-          th(colspan=3 v-show="showP1")
-            p {{$t(i18nPrefix + "table.thead.th_place", { count: 1 })}}
-          th(colspan=3 v-show="showP2")
-            p {{$t(i18nPrefix + "table.thead.th_place", { count: 2 })}}
-          th(colspan=3 v-show="showP3")
-            p {{$t(i18nPrefix + "table.thead.th_place", { count: 3 })}}
-          th(colspan=3 v-show="showP4")
-            p {{$t(i18nPrefix + "table.thead.th_place", { count: 4 })}}
-          th(colspan=3 v-show="showP5")
-            p {{$t(i18nPrefix + "table.thead.th_place", { count: 5 })}}
+          template(v-for="(value, index) in showPlace")
+            th(colspan=3 v-show="showPlace[index]")
+              p {{$t(i18nPrefix + "table.thead.th_place", { count: index + 1 })}}
         tr
-          // Place 1
-          th(v-show="showP1")
-            p {{$t("utils.Rewards")}}
-          th(v-show="showP1")
-            p {{$t("utils.Cost")}}
-          th(v-show="showP1")
-            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
-          // Place 2
-          th(v-show="showP2")
-            p {{$t("utils.Rewards")}}
-          th(v-show="showP2")
-            p {{$t("utils.Cost")}}
-          th(v-show="showP2")
-            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
-          // Place 3
-          th(v-show="showP3")
-            p {{$t("utils.Rewards")}}
-          th(v-show="showP3")
-            p {{$t("utils.Cost")}}
-          th(v-show="showP3")
-            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
-          // Place 4
-          th(v-show="showP4")
-            p {{$t("utils.Rewards")}}
-          th(v-show="showP4")
-            p {{$t("utils.Cost")}}
-          th(v-show="showP4")
-            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
-          // Place 5
-          th(v-show="showP5")
-            p {{$t("utils.Rewards")}}
-          th(v-show="showP5")
-            p {{$t("utils.Cost")}}
-          th(v-show="showP5")
-            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
+          template(v-for="(value, index) in showPlace")
+            th(v-show="showPlace[index]")
+              p {{$t("utils.Rewards")}}
+            th(v-show="showPlace[index]")
+              p {{$t("utils.Cost")}}
+            th(v-show="showPlace[index]")
+              p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
 
       tbody
-        tr(v-for="(line, index) in result.slice(targetLevel - 1)")
-          td
-            p {{$formatNumber(index + targetLevel)}}
-          td
+        tr(v-for="(line, index) in result.slice(from - 1, to)")
+          td.has-text-right
+            p {{$formatNumber(index + from - 1)}} → {{$formatNumber(index + from)}}
+          td.has-text-right
             p {{$formatNumber(line.cost)}}
 
           // Place 1
-          td(v-show="showP1")
-            p {{$formatNumber(line.investment[0].reward) + " (" + $formatNumber(line.investment[0].participation) + ")"}}
-          td(v-show="showP1")
-            p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[0].participation) + " ("}}
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[0].preparation)}}
-              | )
-            p(v-else) {{$formatNumber(line.investment[0].fp)}}
-          td(v-show="showP1")
-            p(v-if="line.investment[0].roi > 0")
-              span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                i.fas.fa-arrow-up
-              | {{$formatNumber(Math.abs(line.investment[0].roi))}}
-            p(v-else-if="line.investment[0].roi < 0")
-              span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                i.fas.fa-arrow-down
-              | {{$formatNumber(Math.abs(line.investment[0].roi))}}
-            p(v-else)
-              span.icon.is-medium(style="vertical-align: middle;")
-                i.fas.fa-exchange-alt
+          template(v-for="(value, index) in showPlace")
+            td.has-text-right(v-show="showPlace[index]")
+              p {{$formatNumber(line.investment[index].reward) + " (" + $formatNumber(line.investment[index].participation) + ")"}}
+            td.has-text-right(v-show="showPlace[index]")
+              p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[index].participation) + " ("}}
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[0].preparation)}}
+                | )
+              p(v-else) {{$formatNumber(line.investment[index].fp)}}
+            td.has-text-right(v-show="showPlace[index]")
+              p(v-if="line.investment[index].roi > 0")
+                span.icon.is-medium.has-text-success(style="vertical-align: middle;")
+                  i.fas.fa-arrow-up
+                | {{$formatNumber(Math.abs(line.investment[index].roi))}}
+              p(v-else-if="line.investment[index].roi < 0")
+                span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
+                  i.fas.fa-arrow-down
+                | {{$formatNumber(Math.abs(line.investment[index].roi))}}
+              p(v-else)
+                span.icon.is-medium(style="vertical-align: middle;")
+                  i.fas.fa-exchange-alt
 
-          // Place 2
-          td(v-show="showP2")
-            p {{$formatNumber(line.investment[1].reward) + " (" + $formatNumber(line.investment[1].participation) + ")"}}
-          td(v-show="showP2")
-            p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[1].participation) + " ("}}
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[1].preparation)}}
-              | )
-            p(v-else) {{$formatNumber(line.investment[1].fp)}}
-          td(v-show="showP2")
-            p(v-if="line.investment[1].roi > 0")
-              span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                i.fas.fa-arrow-up
-              | {{$formatNumber(Math.abs(line.investment[1].roi))}}
-            p(v-else-if="line.investment[1].roi < 0")
-              span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                i.fas.fa-arrow-down
-              | {{$formatNumber(Math.abs(line.investment[1].roi))}}
-            p(v-else)
-              span.icon.is-medium(style="vertical-align: middle;")
-                i.fas.fa-exchange-alt
-
-          // Place 3
-          td(v-show="showP3")
-            p {{$formatNumber(line.investment[2].reward) + " (" + $formatNumber(line.investment[2].participation) + ")"}}
-          td(v-show="showP3")
-            p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[2].participation) + " ("}}
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[2].preparation)}}
-              | )
-            p(v-else) {{$formatNumber(line.investment[2].fp)}}
-          td(v-show="showP3")
-            p(v-if="line.investment[2].roi > 0")
-              span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                i.fas.fa-arrow-up
-              | {{$formatNumber(Math.abs(line.investment[2].roi))}}
-            p(v-else-if="line.investment[2].roi < 0")
-              span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                i.fas.fa-arrow-down
-              | {{$formatNumber(Math.abs(line.investment[2].roi))}}
-            p(v-else)
-              span.icon.is-medium(style="vertical-align: middle;")
-                i.fas.fa-exchange-alt
-
-          // Place 4
-          td(v-show="showP4")
-            p {{$formatNumber(line.investment[3].reward) + " (" + $formatNumber(line.investment[3].participation) + ")"}}
-          td(v-show="showP4")
-            p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[3].participation) + " ("}}
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[3].preparation)}}
-              | )
-            p(v-else) {{$formatNumber(line.investment[3].fp)}}
-          td(v-show="showP4")
-            p(v-if="line.investment[3].roi > 0")
-              span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                i.fas.fa-arrow-up
-              | {{$formatNumber(Math.abs(line.investment[3].roi))}}
-            p(v-else-if="line.investment[3].roi < 0")
-              span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                i.fas.fa-arrow-down
-              | {{$formatNumber(Math.abs(line.investment[3].roi))}}
-            p(v-else)
-              span.icon.is-medium(style="vertical-align: middle;")
-                i.fas.fa-exchange-alt
-
-          // Place 5
-          td(v-show="showP5")
-            p {{$formatNumber(line.investment[4].reward) + " (" + $formatNumber(line.investment[4].participation) + ")"}}
-          td(v-show="showP5")
-            p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[4].participation) + " ("}}
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[4].preparation)}}
-              | )
-            p(v-else) {{$formatNumber(line.investment[4].fp)}}
-          td(v-show="showP5")
-            p(v-if="line.investment[4].roi > 0")
-              span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                i.fas.fa-arrow-up
-              | {{$formatNumber(Math.abs(line.investment[4].roi))}}
-            p(v-else-if="line.investment[4].roi < 0")
-              span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                i.fas.fa-arrow-down
-              | {{$formatNumber(Math.abs(line.investment[4].roi))}}
-            p(v-else)
-              span.icon.is-medium(style="vertical-align: middle;")
-                i.fas.fa-exchange-alt
+      tfoot
+        tr
+          th(colspan=2)
+            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
+          template(v-for="(value, index) in showPlace")
+            td.has-text-right(v-show="showPlace[index]" colspan=3)
+              p(v-if="result.globalProfitLoss[index] > 0")
+                span.icon.is-medium.has-text-success(style="vertical-align: middle;")
+                  i.fas.fa-arrow-up
+                | {{ $formatNumber(Math.abs(result.globalProfitLoss[index])) }}
+              p(v-else-if="result.globalProfitLoss[index] < 0")
+                span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
+                  i.fas.fa-arrow-down
+                | {{ $formatNumber(Math.abs(result.globalProfitLoss[index])) }}
+              p(v-else)
+                span.icon.is-medium(style="vertical-align: middle;")
+                  i.fas.fa-exchange-alt

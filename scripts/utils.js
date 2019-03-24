@@ -368,7 +368,7 @@ export default {
 
   /**
    * Normalize an array that should contains number. if its values are not a number, it be replaced bad values
-   * by a default array.
+   * by #defaultValue.
    * @param {array} array Array to check
    * @param {number} defaultValue Default array to use if #array are not a valid number
    * @returns {array} Return a number "normalized"
@@ -382,6 +382,20 @@ export default {
     }
 
     return array.map(k => this.normalizeNumberValue(k, defaultValue));
+  },
+
+  /**
+   * Normalize an array that should contains boolean. if its values are not a boolean, it be replaced bad values
+   * by #defaultValue.
+   * @param {array} array Array to check
+   * @returns {array} Return a number "normalized"
+   */
+  normalizeBooleanArray(array) {
+    if (!(array instanceof Array)) {
+      throw Errors.InvalidTypeError("Array", typeof array);
+    }
+
+    return array.map(k => !!k);
   },
 
   /* istanbul ignore next */
