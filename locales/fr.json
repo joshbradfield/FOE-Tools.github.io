@@ -336,10 +336,13 @@
             "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
             "showPx": "Indique s'il faut afficher ou non la place dans le message de promotion",
             "takingPlaceInConsideration": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique si les autres places doivent être prises en considération dans le calcul",
-            "targetLevel": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique à partir de quel niveau il faut afficher les informations dans le tableau",
+            "targetLevel": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) », indique à partir de quel niveau il faut afficher les informations dans le tableau",
             "displayGbName": "Indique s'il faut afficher ou non le nom du GM dans le message de promotion",
             "investorParticipation": "Contiens la liste de tous les investisseurs ajouté",
-            "displayTableCard": "Indique s'il faut afficher le tableau dans \"$t(routes.gb_investment_gb_chooser.hero.title)\" en mode simple (tableau) ou en mode carte sur petit écran"
+            "displayTableCard": "Indique s'il faut afficher le tableau dans « $t(routes.gb_investment_gb_chooser.hero.title) » en mode simple (tableau) ou en mode carte sur petit écran",
+            "from": "Niveau où commencer le tableau (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
+            "to": "Niveau où terminer le tableau (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
+            "showPlace": "Un tableau qui indique pour chaque place si elle doit être affichée ou non (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)"
           }
         },
         "dev_info": {
