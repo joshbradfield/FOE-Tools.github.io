@@ -48,12 +48,24 @@ const getPageKey = path => {
  */
 const modifyHtml = (page, locale) => {
   const { window } = new JSDOM(page.html).window;
+  const currentURL = hostname + page.route;
   let pageKey = getPageKey(page.route);
   let text;
   let node;
+  let tmp;
+  let title;
+  let description;
+  let image;
+  let index = 0;
 
   // Set locale (lang attribute of html tag)
   window.document.querySelector("html").lang = locale;
+
+  // Open Graph image
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "og:image");
+  node.setAttribute("name", "og:image");
+  node.setAttribute("hid", "og:image");
 
   // Set the title
   if (pageKey[0] === "gb_investment") {
@@ -61,10 +73,49 @@ const modifyHtml = (page, locale) => {
       lng: locale,
       gb_key: "foe_data.gb." + pageKey[1]
     });
+    image = `${hostname}/img/foe/gb/${pageKey[1]}.png`;
+    node.content = image;
   } else {
     text = i18next.t(`routes.${pageKey[0]}.title`, { lng: locale });
+    node.content = `${hostname}/img/icons/logo_large.png`;
   }
+  title = text;
   window.document.querySelector("title").innerHTML = text;
+  window.document.querySelector("head").appendChild(node);
+
+  // Open Graph title
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "og:title");
+  node.setAttribute("name", "og:title");
+  node.setAttribute("hid", "og:title");
+  node.content = text;
+  window.document.querySelector("head").appendChild(node);
+  // Open Graph type
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "og:type");
+  node.setAttribute("name", "og:type");
+  node.setAttribute("hid", "og:type");
+  node.content = "website";
+  window.document.querySelector("head").appendChild(node);
+  // Open Graph url
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "og:url");
+  node.setAttribute("name", "og:url");
+  node.setAttribute("hid", "og:url");
+  node.content = currentURL;
+  window.document.querySelector("head").appendChild(node);
+  // Open Graph locale
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "og:locale");
+  node.setAttribute("name", "og:locale");
+  node.setAttribute("hid", "og:locale");
+  node.content = locale;
+  window.document.querySelector("head").appendChild(node);
+  // Twitter card
+  node = window.document.createElement("meta");
+  node.name = "twitter:card";
+  node.content = "app";
+  window.document.querySelector("head").appendChild(node);
 
   // Set meta description
   text = i18next.t(
@@ -74,11 +125,20 @@ const modifyHtml = (page, locale) => {
     ],
     { lng: locale }
   );
+  description = text;
   node = window.document.createElement("p");
   node.innerHTML = text;
   text = node.textContent;
   node = window.document.createElement("meta");
   node.name = "description";
+  node.content = text;
+  window.document.querySelector("head").appendChild(node);
+
+  // Open Graph description
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "og:description");
+  node.setAttribute("name", "og:description");
+  node.setAttribute("hid", "og:description");
   node.content = text;
   window.document.querySelector("head").appendChild(node);
 
@@ -147,35 +207,117 @@ const modifyHtml = (page, locale) => {
   node.content = text;
   window.document.querySelector("head").appendChild(node);
 
+  node = window.document.createElement("link");
+  node.rel = "canonical";
+  node.href = currentURL;
+  window.document.querySelector("head").appendChild(node);
+
   // Set alternatives lang
   for (let supportedLocale of supportedLocales) {
     if (supportedLocale === locale) {
       continue;
     }
-    node = window.document.createElement("link");
-    node.rel = "alternate";
-    node.hreflang = supportedLocale;
     if (locale === defaultLocale) {
-      node.href = `/${supportedLocale}${page.route}`;
+      tmp = `/${supportedLocale}${page.route}`;
     } else {
       if (supportedLocale === defaultLocale) {
         if (page.route === `/${locale}/`) {
-          node.href = "/";
+          tmp = "/";
         } else {
-          node.href = page.route.substr(locale.length + 1);
+          tmp = page.route.substr(locale.length + 1);
         }
       } else {
         if (page.route === `/${locale}/`) {
-          node.href = `/${supportedLocale}/`;
+          tmp = `/${supportedLocale}/`;
         } else {
-          node.href = `/${supportedLocale}${page.route.substr(locale.length + 1)}`;
+          tmp = `/${supportedLocale}${page.route.substr(locale.length + 1)}`;
         }
       }
     }
+    node = window.document.createElement("link");
+    node.rel = "alternate";
+    node.hreflang = supportedLocale;
+    node.href = tmp;
+    window.document.querySelector("head").appendChild(node);
+    // Open Graph locale:alternate
+    node = window.document.createElement("meta");
+    node.setAttribute("property", "og:locale:alternate");
+    node.setAttribute("name", "og:locale:alternate");
+    node.setAttribute("hid", "og:locale:alternate");
+    node.content = supportedLocale;
     window.document.querySelector("head").appendChild(node);
   }
 
-  return window.document.querySelector("html").outerHTML;
+  // JSON-LD
+  tmp = undefined;
+  switch (pageKey[0]) {
+    case "gb_investment":
+      tmp = {
+        "@type": "WebApplication",
+        name: title,
+        description,
+        image,
+        applicationCategory: "Game",
+        availableLanguage: {
+          "@type": "Language",
+          name: supportedLocales
+        }
+      };
+      break;
+    case "gb_investment_gb_chooser":
+      tmp = {
+        "@type": "ItemList",
+        itemListElement: []
+      };
+      index = 0;
+      for (let gbKey in gbs) {
+        tmp.itemListElement.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@type": "WebApplication",
+            name: i18next.t("routes.gb_investment.title", {
+              lng: locale,
+              gb_key: "foe_data.gb." + gbKey
+            }),
+            description,
+            image: `${hostname}/img/foe/gb/${gbKey}.png`,
+            applicationCategory: "Game",
+            availableLanguage: {
+              "@type": "Language",
+              name: supportedLocales
+            }
+          }
+        });
+        index++;
+      }
+      break;
+    case "secure_position":
+    case "campaign_cost":
+    case "cf_calculator":
+    case "gb_forecast_cost":
+    case "gb_statistics":
+    case "trade":
+      tmp = {
+        "@type": "WebApplication",
+        name: title,
+        description,
+        applicationCategory: "Game",
+        availableLanguage: {
+          "@type": "Language",
+          name: supportedLocales
+        }
+      };
+      break;
+  }
+  if (tmp && typeof tmp === "object") {
+    node = window.document.createElement("script");
+    node.setAttribute("type", "application/ld+json");
+    node.innerHTML = JSON.stringify(tmp);
+    window.document.querySelector("head").appendChild(node);
+  }
+
+  return "<!DOCTYPE html>\n" + window.document.querySelector("html").outerHTML;
 };
 
 function generateSitemapRoutes(baseURL, locales, routes) {
@@ -231,15 +373,6 @@ const routerBase =
 
 const hostname = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://foe-tools.github.io" : "";
 
-const sitemap =
-  process.env.DEPLOY_ENV === "GH_PAGES"
-    ? {
-        sitemap: {
-          hostname: "https://foe-tools.github.io"
-        }
-      }
-    : {};
-
 const defaultRoutes = [
   { route: "/", dynamic: [] },
   { route: "/about", dynamic: [] },
@@ -259,6 +392,18 @@ const defaultRoutes = [
   { route: "/trade", dynamic: [] },
   { route: "/campaign-cost", dynamic: [] }
 ];
+
+const sitemap =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        sitemap: {
+          path: "/sitemap.xml",
+          hostname,
+          generate: true,
+          routes: generateSitemapRoutes(hostname, supportedLocales, defaultRoutes)
+        }
+      }
+    : {};
 
 module.exports = {
   ...routerBase,
@@ -317,8 +462,33 @@ module.exports = {
       page.html = modifyHtml(page, getLocale(page.route));
     });
   },
-  sitemap: {
-    generate: true,
-    routes: generateSitemapRoutes(hostname, supportedLocales, defaultRoutes)
+
+  head: {
+    title: "FOE-Tools",
+    meta: [
+      { charset: "utf-8" },
+      {
+        hid: "google-site-verification",
+        name: "google-site-verification",
+        content: "Hw0veaLyPnzkFUmcgHozLpLMGX17y65E_fp5-o2UmbU"
+      },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "og:site_name", name: "og:site_name", content: "FOE-Tools" },
+      { name: "msapplication-TileColor", content: "#2b5797" },
+      { name: "theme-color", content: "#fdf8f0" }
+    ],
+    script: [
+      {
+        defer: true,
+        src: "https://use.fontawesome.com/releases/v5.0.10/js/all.js",
+        integrity: "sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+",
+        crossorigin: "anonymous"
+      },
+      {
+        defer: true,
+        type: "text/javascript",
+        src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c802f960d12380b"
+      }
+    ]
   }
 };
