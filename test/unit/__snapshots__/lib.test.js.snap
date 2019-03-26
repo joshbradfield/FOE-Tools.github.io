@@ -33,28 +33,19 @@ Object {
 
 exports[`Lib FOE Compute Process Compute Valid Value with infinite generator with 0 cumulative quests 1`] = `
 Object {
-  "bonusUbq": 56,
-  "bp": 6,
-  "coinSupplyReturn": Array [
-    Object {
-      "coin": 56000,
-      "supply": 56000,
-    },
-    Object {
-      "coin": 56000,
-      "supply": 56000,
-    },
-  ],
+  "bonusUbq": 0,
+  "bp": 0,
+  "coinSupplyReturn": Array [],
   "dailyUbq": 30,
-  "defaultCumulativeQuest": 3,
-  "fp": 30,
-  "goods": 840,
+  "defaultCumulativeQuest": 0,
+  "fp": 0,
+  "goods": 0,
   "infinityGenerator": true,
-  "medals": 336,
+  "medals": 0,
   "secondRqCompleted": 0,
-  "totalFp": 30,
-  "totalGoods": 840,
-  "totalRqCompleted": 86,
+  "totalFp": 0,
+  "totalGoods": 0,
+  "totalRqCompleted": 0,
 }
 `;
 
