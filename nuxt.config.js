@@ -313,7 +313,7 @@ const modifyHtml = (page, locale) => {
   if (tmp && typeof tmp === "object") {
     node = window.document.createElement("script");
     node.setAttribute("type", "application/ld+json");
-    node.innerHTML = JSON.stringify(tmp);
+    node.innerHTML = JSON.stringify({ "@context": "https://schema.org", ...tmp });
     window.document.querySelector("head").appendChild(node);
   }
 
