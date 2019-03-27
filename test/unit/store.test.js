@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import Component from "../../layouts/_default/Default";
 import { getView } from "./localVue";
-// import Errors from "../../scripts/errors";
+// import * as Errors from "../../scripts/errors";
 
 const factory = (mocks = {}) => {
   const { localVue, store } = getView();
@@ -73,7 +73,7 @@ describe("Store", () => {
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     // expect(() => wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" })).toThrow(
-    //   Errors.keyAlreadyExistsInUrlQueryException("foo")
+    //   new Errors.keyAlreadyExistsInUrlQueryException({ key: "foo" })
     // );
   });
 
@@ -86,7 +86,7 @@ describe("Store", () => {
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar", ns: "baz" });
     // expect(() => wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar", ns: "baz" })).toThrow(
-    //   Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException("foo")
+    //   new Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: "foo" })
     // );
   });
 
@@ -99,7 +99,7 @@ describe("Store", () => {
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     wrapper.vm.$store.commit("UPDATE_URL_QUERY", { key: "foo", value: "bar", ns: "baz" });
     // expect(() => wrapper.vm.$store.commit("UPDATE_URL_QUERY", { key: "foo", value: "bar", ns: "baz" })).toThrow(
-    //   Errors.namespaceNotFoundException("baz")
+    //   new Errors.namespaceNotFoundException({ key: "baz" })
     // );
   });
 

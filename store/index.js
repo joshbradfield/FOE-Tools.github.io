@@ -1,5 +1,5 @@
 import { defaultLocale } from "~/scripts/i18n";
-import Errors from "~/scripts/errors";
+import * as Errors from "~/scripts/errors";
 
 import Vue from "vue";
 
@@ -120,8 +120,8 @@ export const mutations = {
          * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        // throw Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(obj.key);
-        console.error(Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException(obj.key));
+        // throw new Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key });
+        console.error(new Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key }));
         return;
       }
       if (!(obj.ns in urlQueryNamespace)) {
@@ -134,8 +134,8 @@ export const mutations = {
          * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        // throw Errors.keyAlreadyExistsInUrlQueryException(obj.key);
-        console.error(Errors.keyAlreadyExistsInUrlQueryException(obj.key));
+        // throw new Errors.keyAlreadyExistsInUrlQueryException({ key: obj.key });
+        console.error(new Errors.keyAlreadyExistsInUrlQueryException({ key: obj.key }));
         return;
       }
       Vue.set(urlQuery, obj.key, obj.value);
@@ -154,8 +154,8 @@ export const mutations = {
          * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        // throw Errors.namespaceNotFoundException(obj.ns);
-        console.error(Errors.namespaceNotFoundException(obj.ns));
+        // throw new Errors.namespaceNotFoundException({ key: obj.ns });
+        console.error(new Errors.namespaceNotFoundException({ key: obj.ns }));
         return;
       }
       const { ns, key, value } = obj;

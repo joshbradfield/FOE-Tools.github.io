@@ -1,6 +1,6 @@
 import ages from "../../../lib/foe-data/ages";
 import * as Trade from "../../../scripts/trade";
-import Errors from "../../../scripts/errors";
+import * as Errors from "../../../scripts/errors";
 
 describe("Trade", () => {
   describe("splitGoods", () => {
@@ -89,11 +89,11 @@ describe("Trade", () => {
               errorValue.value.ratioToFrom
             )
           ).toThrow(
-            Errors.InvalidTypeError(
-              "number",
-              errorValue.valueType,
-              `for parameter "${errorValue.paramName}" of ${funcName}`
-            )
+            new Errors.InvalidTypeError({
+              expected: "number",
+              actual: errorValue.valueType,
+              additionalMessage: `for parameter "${errorValue.paramName}" of ${funcName}`
+            })
           );
         } else {
           expect(() =>
@@ -104,12 +104,12 @@ describe("Trade", () => {
               errorValue.value.ratioToFrom
             )
           ).toThrow(
-            Errors.BoundExceededError(
-              Errors.AvailableBoundTypes["<="],
-              errorValue.value[errorValue.paramName],
-              0,
-              `for parameter "${errorValue.paramName}" of ${funcName}`
-            )
+            new Errors.BoundExceededError({
+              type: Errors.AvailableBoundTypes["<="],
+              value: errorValue.value[errorValue.paramName],
+              boundValue: 0,
+              additionalMessage: `for parameter "${errorValue.paramName}" of ${funcName}`
+            })
           );
         }
       });
@@ -245,23 +245,32 @@ describe("Trade", () => {
 
     test("Throw error when invalid type for tradeInput", () => {
       expect(() => Trade.getBestOffersSplitted("a", ages.BronzeAge.key, ages.IronAge.key, 100, 1000)).toThrow(
-        Errors.InvalidTypeError(
-          "TradeArray",
-          "string",
-          `for parameter "tradeInput" of getBestOffersSplitted(tradeInput, iHave, iWant, amount, splitValue)`
-        )
+        new Errors.InvalidTypeError({
+          expected: "TradeArray",
+          actual: "string",
+          additionalMessage:
+            'for parameter "tradeInput" of getBestOffersSplitted(tradeInput, iHave, iWant, amount, splitValue)'
+        })
       );
     });
 
     test("Throw error when invalid type for iHave", () => {
       expect(() => Trade.getBestOffersSplitted(Trade.TradeArrayType.FAIR, "a", ages.IronAge.key, 100, 1000)).toThrow(
-        Errors.InvalidTypeError(validAges, "a", `for parameter "iHave" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: validAges,
+          actual: "a",
+          additionalMessage: `for parameter "iHave" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for iWant", () => {
       expect(() => Trade.getBestOffersSplitted(Trade.TradeArrayType.FAIR, ages.BronzeAge.key, "a", 100, 1000)).toThrow(
-        Errors.InvalidTypeError(validAges, "a", `for parameter "iWant" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: validAges,
+          actual: "a",
+          additionalMessage: `for parameter "iWant" of ${funcName}`
+        })
       );
     });
 
@@ -277,11 +286,11 @@ describe("Trade", () => {
               errorValue.value.splitValue
             )
           ).toThrow(
-            Errors.InvalidTypeError(
-              "number",
-              errorValue.valueType,
-              `for parameter "${errorValue.paramName}" of ${funcName}`
-            )
+            new Errors.InvalidTypeError({
+              expected: "number",
+              actual: errorValue.valueType,
+              additionalMessage: `for parameter "${errorValue.paramName}" of ${funcName}`
+            })
           );
         } else {
           expect(() =>
@@ -293,12 +302,12 @@ describe("Trade", () => {
               errorValue.value.splitValue
             )
           ).toThrow(
-            Errors.BoundExceededError(
-              Errors.AvailableBoundTypes["<="],
-              errorValue.value[errorValue.paramName],
-              0,
-              `for parameter "${errorValue.paramName}" of ${funcName}`
-            )
+            new Errors.BoundExceededError({
+              type: Errors.AvailableBoundTypes["<="],
+              value: errorValue.value[errorValue.paramName],
+              boundValue: 0,
+              additionalMessage: `for parameter "${errorValue.paramName}" of ${funcName}`
+            })
           );
         }
       });
