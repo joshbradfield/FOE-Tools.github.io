@@ -1,6 +1,6 @@
 import gbs from "../../../../lib/foe-data/gbs";
 import GbProcess from "../../../../lib/foe-compute-process/gb-investment";
-import Errors from "../../../../scripts/errors";
+import * as Errors from "../../../../scripts/errors";
 
 describe("FoeGbInvestment", () => {
   describe("ComputeLevelInvestment", () => {
@@ -145,35 +145,55 @@ describe("FoeGbInvestment", () => {
 
     test("Throw error when invalid type for currentLevel", () => {
       expect(() => GbProcess.ComputeLevelInvestment("a", [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, [])).toThrow(
-        Errors.InvalidTypeError("number", {
-          value: "string",
-          lowerBound: "number",
-          upperBound: "number"
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: {
+            value: "string",
+            lowerBound: "number",
+            upperBound: "number"
+          }
         })
       );
     });
 
     test("Throw error when invalid value for currentLevel", () => {
       expect(() => GbProcess.ComputeLevelInvestment(0, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, [])).toThrow(
-        Errors.NotInBoundsError(0, 1, gbs.agesCost.BronzeAge.length, `for parameter "currentLevel" of ${funcName}`)
+        new Errors.NotInBoundsError({
+          value: 0,
+          lowerBound: 1,
+          upperBound: gbs.agesCost.BronzeAge.length,
+          additionalMessage: `for parameter "currentLevel" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for investorPercentage", () => {
       expect(() => GbProcess.ComputeLevelInvestment(10, "a", gbs.agesCost.BronzeAge, [])).toThrow(
-        Errors.InvalidTypeError("Array", "string", `for parameter "investorPercentage" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: "string",
+          additionalMessage: `for parameter "investorPercentage" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for gb", () => {
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], "a", [])).toThrow(
-        Errors.InvalidTypeError("Array", "string", `for parameter "gb" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: "string",
+          additionalMessage: `for parameter "gb" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for defaultParticipation", () => {
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, "a")).toThrow(
-        Errors.InvalidTypeError("Array", "string", `for parameter "defaultParticipation" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: "string",
+          additionalMessage: `for parameter "defaultParticipation" of ${funcName}`
+        })
       );
     });
 
@@ -181,7 +201,11 @@ describe("FoeGbInvestment", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       delete deepCopy[3].cost;
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
-        Errors.KeyNotFoundError("cost", "gb[3]", `in "checkGbData" called by ${funcName}`)
+        new Errors.KeyNotFoundError({
+          expected: "cost",
+          actual: "gb[3]",
+          additionalMessage: `in "checkGbData" called by ${funcName}`
+        })
       );
     });
 
@@ -189,7 +213,11 @@ describe("FoeGbInvestment", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       delete deepCopy[3].reward;
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
-        Errors.KeyNotFoundError("reward", "gb[3]", `in "checkGbData" called by ${funcName}`)
+        new Errors.KeyNotFoundError({
+          expected: "reward",
+          actual: "gb[3]",
+          additionalMessage: `in "checkGbData" called by ${funcName}`
+        })
       );
     });
 
@@ -197,7 +225,11 @@ describe("FoeGbInvestment", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       deepCopy[3].cost = "a";
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "gb[3].cost" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "gb[3].cost" of ${funcName}`
+        })
       );
     });
 
@@ -205,7 +237,12 @@ describe("FoeGbInvestment", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       deepCopy[3].cost = -1;
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
-        Errors.BoundExceededError(Errors.AvailableBoundTypes["<"], -1, 0, `for parameter "gb[3].cost" of ${funcName}`)
+        new Errors.BoundExceededError({
+          type: Errors.AvailableBoundTypes["<"],
+          value: -1,
+          boundValue: 0,
+          additionalMessage: `for parameter "gb[3].cost" of ${funcName}`
+        })
       );
     });
 
@@ -213,7 +250,11 @@ describe("FoeGbInvestment", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       deepCopy[3].reward = "a";
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
-        Errors.InvalidTypeError("Array", "string", `for parameter "gb[3].reward" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: "string",
+          additionalMessage: `for parameter "gb[3].reward" of ${funcName}`
+        })
       );
     });
 
@@ -221,31 +262,35 @@ describe("FoeGbInvestment", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       deepCopy[3].reward[1] = "a";
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "gb[3].reward[1]" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "gb[3].reward[1]" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when sum of investment > level cost", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [deepCopy[9].cost, 1, 1])).toThrow(
-        Errors.BoundExceededError(
-          Errors.AvailableBoundTypes[">"],
-          deepCopy[9].cost + 2,
-          deepCopy[9].cost,
-          'for the sum of values of parameter "defaultParticipation" of ' + funcName
-        )
+        new Errors.BoundExceededError({
+          type: Errors.AvailableBoundTypes[">"],
+          value: deepCopy[9].cost + 2,
+          boundValue: deepCopy[9].cost,
+          additionalMessage: 'for the sum of values of parameter "defaultParticipation" of ' + funcName
+        })
       );
     });
 
     test("Throw error when participationSum + ownerPreparation > level cost", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [deepCopy[9].cost], 2)).toThrow(
-        Errors.BoundExceededError(
-          Errors.AvailableBoundTypes[">"],
-          "participationSum + ownerPreparation",
-          deepCopy[9].cost,
-          'for parameters "participationSum" and "ownerPreparation" of ' + funcName
-        )
+        new Errors.BoundExceededError({
+          type: Errors.AvailableBoundTypes[">"],
+          value: "participationSum + ownerPreparation",
+          boundValue: deepCopy[9].cost,
+          additionalMessage: 'for parameters "participationSum" and "ownerPreparation" of ' + funcName
+        })
       );
     });
   });
@@ -267,25 +312,43 @@ describe("FoeGbInvestment", () => {
 
     test("Throw error when invalid value for from", () => {
       expect(() => GbProcess.ComputeLevelInvestmentRange(0, 10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge)).toThrow(
-        Errors.NotInBoundsError(0, 1, gbs.agesCost.BronzeAge.length, `for parameter "from" of ${funcName}`)
+        new Errors.NotInBoundsError({
+          value: 0,
+          lowerBound: 1,
+          upperBound: gbs.agesCost.BronzeAge.length,
+          additionalMessage: `for parameter "from" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid value for to", () => {
       expect(() => GbProcess.ComputeLevelInvestmentRange(1, 0, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge)).toThrow(
-        Errors.NotInBoundsError(0, 1, gbs.agesCost.BronzeAge.length, `for parameter "to" of ${funcName}`)
+        new Errors.NotInBoundsError({
+          value: 0,
+          lowerBound: 1,
+          upperBound: gbs.agesCost.BronzeAge.length,
+          additionalMessage: `for parameter "to" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for gb", () => {
       expect(() => GbProcess.ComputeLevelInvestmentRange(1, 10, [0, 0, 0, 0, 0], "a")).toThrow(
-        Errors.InvalidTypeError("Array", "string", `for parameter "gb" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: "string",
+          additionalMessage: `for parameter "gb" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for investorPercentage", () => {
       expect(() => GbProcess.ComputeLevelInvestmentRange(1, 10, "a", gbs.agesCost.BronzeAge)).toThrow(
-        Errors.InvalidTypeError("Array", "string", `for parameter "investorPercentage" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: "string",
+          additionalMessage: `for parameter "investorPercentage" of ${funcName}`
+        })
       );
     });
   });
@@ -315,37 +378,61 @@ describe("FoeGbInvestment", () => {
 
     test("Throw error when invalid type for levelCost", () => {
       expect(() => GbProcess.ComputeSecurePlace("a", 860, 10, 50, 90, 245)).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "levelCost" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "levelCost" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for currentDeposits", () => {
       expect(() => GbProcess.ComputeSecurePlace(1720, "a", 10, 50, 90, 245)).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "currentDeposits" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "currentDeposits" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for yourParticipation", () => {
       expect(() => GbProcess.ComputeSecurePlace(1720, 860, "a", 50, 90, 245)).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "yourParticipation" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "yourParticipation" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for otherParticipation", () => {
       expect(() => GbProcess.ComputeSecurePlace(1720, 860, 10, "a", 90, 245)).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "otherParticipation" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "otherParticipation" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for yourArcBonus", () => {
       expect(() => GbProcess.ComputeSecurePlace(1720, 860, 10, 50, "a", 245)).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "yourArcBonus" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "yourArcBonus" of ${funcName}`
+        })
       );
     });
 
     test("Throw error when invalid type for fpTargetReward", () => {
       expect(() => GbProcess.ComputeSecurePlace(1720, 860, 10, 50, 90, "a")).toThrow(
-        Errors.InvalidTypeError("number", "string", `for parameter "fpTargetReward" of ${funcName}`)
+        new Errors.InvalidTypeError({
+          expected: "number",
+          actual: "string",
+          additionalMessage: `for parameter "fpTargetReward" of ${funcName}`
+        })
       );
     });
   });

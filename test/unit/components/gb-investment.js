@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/gb-investment/GbInvestment";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
-import Errors from "../../../scripts/errors";
+import * as Errors from "../../../scripts/errors";
 
 const defaultGb = gbsData.Observatory;
 
@@ -634,14 +634,15 @@ describe("GbInvestment", () => {
     const wrapper = factory();
     wrapper.vm.level = -1;
     expect(() => wrapper.vm.calculate()).toThrow(
-      Errors.NotInBoundsError(
-        -1,
-        1,
-        gbsData.Observatory.levels.length,
-        'for parameter "currentLevel" of ' +
+      new Errors.NotInBoundsError({
+        value: -1,
+        lowerBound: 1,
+        upperBound: gbsData.Observatory.levels.length,
+        additionalMessage:
+          'for parameter "currentLevel" of ' +
           "ComputeLevelInvestment(levelCost, currentDeposits, yourParticipation, otherParticipation, " +
           "yourArcBonus, fpTargetReward)"
-      )
+      })
     );
   });
 

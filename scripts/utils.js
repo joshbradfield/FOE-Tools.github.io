@@ -1,6 +1,6 @@
 import moment from "moment";
 import { Enum } from "enumify";
-import Errors from "./errors";
+import * as Errors from "./errors";
 
 class FormCheck extends Enum {}
 FormCheck.initEnum(["VALID", "INVALID", "NO_CHANGE"]);
@@ -34,11 +34,11 @@ export default {
    */
   getFormatedDuration(duration, i18next) {
     if (!duration || Object.keys(duration).length === 0 || !i18next || !i18next.t) {
-      throw Errors.NullOrEmptyArgError;
+      throw new Errors.NullOrEmptyArgError();
     }
 
     if (!moment.isDuration(duration)) {
-      throw Errors.InvalidTypeError("Duration", duration.constructor.name);
+      throw new Errors.InvalidTypeError({ expected: "Duration", actual: duration.constructor.name });
     }
 
     let match = this.regex_duration.exec(
@@ -85,10 +85,13 @@ export default {
    */
   inRange(value, lowerBound, upperBound) {
     if (typeof value !== "number" || typeof lowerBound !== "number" || typeof upperBound !== "number") {
-      throw Errors.InvalidTypeError("number", {
-        value: typeof value,
-        lowerBound: typeof lowerBound,
-        upperBound: typeof upperBound
+      throw new Errors.InvalidTypeError({
+        expected: "number",
+        actual: {
+          value: typeof value,
+          lowerBound: typeof lowerBound,
+          upperBound: typeof upperBound
+        }
       });
     }
 
@@ -117,29 +120,30 @@ export default {
     let valid = false;
 
     if (!(comparator instanceof Array)) {
-      throw Errors.InvalidTypeError(
-        "Array",
-        typeof comparator,
-        'for parameter "comparator" of checkFormNumeric(value, currentValue, comparator, type = "int")'
-      );
+      throw new Errors.InvalidTypeError({
+        expected: "Array",
+        actual: typeof comparator,
+        additionalMessage:
+          'for parameter "comparator" of checkFormNumeric(value, currentValue, comparator, type = "int" })'
+      });
     } else if (comparator.length !== 2) {
-      throw Errors.InvalidComparatorSize;
+      throw new Errors.InvalidComparatorSize();
     }
 
     if (typeof comparator[0] === "string") {
       if (["<", "<=", ">", ">=", "==", "==="].indexOf(comparator[0]) < 0) {
-        throw Errors.InvalidComparatorError(true, comparator[0]);
+        throw new Errors.InvalidComparatorError({ firstParam: true, value: comparator[0] });
       }
     } else if (typeof comparator[0] !== "number") {
-      throw Errors.InvalidComparatorError(true, typeof comparator[0]);
+      throw new Errors.InvalidComparatorError({ firstParam: true, value: typeof comparator[0] });
     }
 
     if (typeof comparator[1] !== "number") {
-      throw Errors.InvalidComparatorError(false, typeof comparator[1]);
+      throw new Errors.InvalidComparatorError({ firstParam: false, value: typeof comparator[1] });
     }
 
     if (["int", "float"].indexOf(type) < 0) {
-      throw Errors.InvalidTypeError(["int", "float"], type);
+      throw new Errors.InvalidTypeError({ expected: ["int", "float"], actual: type });
     }
 
     if (!isNaN(value) && !isNaN(currentValue)) {
@@ -202,19 +206,19 @@ export default {
    */
   splitArray(arrayList, chunk, sameSize = false) {
     if (!(arrayList instanceof Array)) {
-      throw Errors.InvalidTypeError(
-        "Array",
-        typeof arrayList,
-        'for parameter "arrayList" of splitArray(arrayList, chunk, sameSize = false)'
-      );
+      throw new Errors.InvalidTypeError({
+        expected: "Array",
+        actual: typeof arrayList,
+        additionalMessage: 'for parameter "arrayList" of splitArray(arrayList, chunk, sameSize = false })'
+      });
     }
 
     if (typeof chunk !== "number") {
-      throw Errors.InvalidTypeError(
-        "number",
-        typeof chunk,
-        'for parameter "chunk" of splitArray(arrayList, chunk, sameSize = false)'
-      );
+      throw new Errors.InvalidTypeError({
+        expected: "number",
+        actual: typeof chunk,
+        additionalMessage: 'for parameter "chunk" of splitArray(arrayList, chunk, sameSize = false })'
+      });
     }
 
     let result = [];
@@ -268,20 +272,21 @@ export default {
       !ctx.$cookies.set ||
       ctx.$data.$cookies === null
     ) {
-      throw Errors.FieldNullError("ctx", "handlerForm");
+      throw new Errors.FieldNullError({ firstParam: "ctx", value: "handlerForm" });
     }
 
     if (saveCookie && (!cookieKey || cookieKey.length === 0)) {
-      throw Errors.FieldNullError("cookieKey", "handlerForm");
+      throw new Errors.FieldNullError({ firstParam: "cookieKey", value: "handlerForm" });
     }
 
     if (typeof cookieKey !== "string") {
-      throw Errors.InvalidTypeError(
-        "string",
-        typeof cookieKey,
-        'for parameter "cookieKey" of handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, ' +
-          'cookieKey = "", type = "int")'
-      );
+      throw new Errors.InvalidTypeError({
+        expected: "string",
+        actual: typeof cookieKey,
+        additionalMessage:
+          'for parameter "cookieKey" of handlerForm(ctx, key, value, currentValue, comparator, saveCookie = false, ' +
+          'cookieKey = "", type = "int" })'
+      });
     }
 
     let result = this.checkFormNumeric(value, currentValue, comparator, type);
@@ -304,11 +309,16 @@ export default {
   shadeRGBColor(color, percent) {
     const regexColor = /rgb\s*\(\s*[0-9]+,\s*[0-9]+,\s*[0-9]+\s*\)/;
     if (!regexColor.test(color)) {
-      throw Errors.InvalidRegexMatchError(color, regexColor.toString());
+      throw new Errors.InvalidRegexMatchError({ value: color, regex: regexColor.toString() });
     }
 
     if (!this.inRange(percent, -1.0, 1.0)) {
-      throw Errors.NotInBoundsError(percent, -1.0, 1.0, 'for parameter "percent" of shadeRGBColor(color, percent)');
+      throw new Errors.NotInBoundsError({
+        value: percent,
+        lowerBound: -1.0,
+        upperBound: 1.0,
+        additionalMessage: 'for parameter "percent" of shadeRGBColor(color, percent)'
+      });
     }
 
     const f = color.split(",");
@@ -329,16 +339,16 @@ export default {
    */
   roundTo(num, scale) {
     if (["number", "string"].indexOf(typeof num) < 0) {
-      throw Errors.InvalidTypeError(["number", "string"], typeof num);
+      throw new Errors.InvalidTypeError({ expected: ["number", "string"], actual: typeof num });
     }
 
     if (typeof scale !== "number") {
-      throw Errors.InvalidTypeError("number", typeof scale);
+      throw new Errors.InvalidTypeError({ expected: "number", actual: typeof scale });
     }
 
     const inputNumRegex = /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?/;
     if (!inputNumRegex.test(num)) {
-      throw Errors.InvalidRegexMatchError(num, inputNumRegex.toString());
+      throw new Errors.InvalidRegexMatchError({ value: num, regex: inputNumRegex.toString() });
     }
 
     if (!("" + num).includes("e")) {
@@ -361,7 +371,7 @@ export default {
    */
   normalizeNumberValue(value, defaultValue = 0) {
     if (typeof defaultValue !== "number") {
-      throw Errors.InvalidTypeError("number", typeof defaultValue);
+      throw new Errors.InvalidTypeError({ expected: "number", actual: typeof defaultValue });
     }
     return !value || value.length === 0 || typeof value !== "number" ? defaultValue : value;
   },
@@ -375,10 +385,10 @@ export default {
    */
   normalizeNumberArray(array, defaultValue = 0) {
     if (!(array instanceof Array)) {
-      throw Errors.InvalidTypeError("Array", typeof array);
+      throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof array });
     }
     if (typeof defaultValue !== "number") {
-      throw Errors.InvalidTypeError("number", typeof defaultValue);
+      throw new Errors.InvalidTypeError({ expected: "number", actual: typeof defaultValue });
     }
 
     return array.map(k => this.normalizeNumberValue(k, defaultValue));
@@ -392,7 +402,7 @@ export default {
    */
   normalizeBooleanArray(array) {
     if (!(array instanceof Array)) {
-      throw Errors.InvalidTypeError("Array", typeof array);
+      throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof array });
     }
 
     return array.map(k => !!k);

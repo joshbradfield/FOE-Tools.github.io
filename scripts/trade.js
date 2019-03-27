@@ -2,7 +2,7 @@ import { Enum } from "enumify";
 import PriorityQueue from "js-priority-queue";
 import ages from "~/lib/foe-data/ages";
 import goods from "~/lib/foe-data/goods";
-import Errors from "~/scripts/errors";
+import * as Errors from "~/scripts/errors";
 
 class TradeArray extends Enum {}
 TradeArray.initEnum(["SIMPLE", "FAIR"]);
@@ -209,14 +209,18 @@ function getBestOffers(tradeInput, iHave, iWant, amount) {
  */
 function checkValidNumberInputParameter(paramName, funcName, value) {
   if (typeof value !== "number") {
-    throw Errors.InvalidTypeError("number", typeof value, `for parameter "${paramName}" of ${funcName}`);
+    throw new Errors.InvalidTypeError({
+      expected: "number",
+      actual: typeof value,
+      additionalMessage: `for parameter "${paramName}" of ${funcName}`
+    });
   } else if (value <= 0) {
-    throw Errors.BoundExceededError(
-      Errors.AvailableBoundTypes["<="],
-      value,
-      0,
-      `for parameter "${paramName}" of ${funcName}`
-    );
+    throw new Errors.BoundExceededError({
+      type: Errors.AvailableBoundTypes["<="],
+      value: value,
+      boundValue: 0,
+      additionalMessage: `for parameter "${paramName}" of ${funcName}`
+    });
   }
 }
 
@@ -230,7 +234,11 @@ function checkValidNumberInputParameter(paramName, funcName, value) {
 function checkAge(paramName, funcName, value) {
   const validAges = Object.keys(ages).slice(1);
   if (validAges.indexOf(value) < 0) {
-    throw Errors.InvalidTypeError(validAges, value, `for parameter "${paramName}" of ${funcName}`);
+    throw new Errors.InvalidTypeError({
+      expected: validAges,
+      actual: value,
+      additionalMessage: `for parameter "${paramName}" of ${funcName}`
+    });
   }
 }
 
@@ -291,7 +299,11 @@ export function splitGoods(toValue, splitValue, ratioFromTo, ratioToFrom) {
 export function getBestOffersSplitted(tradeInput, iHave, iWant, amount, splitValue) {
   const funcName = "getBestOffersSplitted(tradeInput, iHave, iWant, amount, splitValue)";
   if (!(tradeInput instanceof TradeArray)) {
-    throw Errors.InvalidTypeError("TradeArray", typeof tradeInput, `for parameter "tradeInput" of ${funcName}`);
+    throw new Errors.InvalidTypeError({
+      expected: "TradeArray",
+      actual: typeof tradeInput,
+      additionalMessage: `for parameter "tradeInput" of ${funcName}`
+    });
   }
 
   checkAge("iHave", funcName, iHave);
