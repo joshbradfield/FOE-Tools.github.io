@@ -472,6 +472,24 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Cycloth",
+      "name": "Cycloth",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/48488704?v=4",
+      "profile": "https://github.com/Cycloth",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "CRS.love",
+      "name": "CRS.love",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }
