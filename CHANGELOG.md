@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.31.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.30.0...v2.31.0) (2019-03-30)
+
+
+### Bug Fixes
+
+* **cf-calculator:** bad estimation of infinite generator ([a39b9aa](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a39b9aa)), closes [#184](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/184)
+
+
+### Features
+
+* **foe-data:** Add new sectors of Virtual Future campaign ([068aed7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/068aed7))
+* **gb-investment-investors:** add profit/loss forecast ([3ce8365](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3ce8365)), closes [#183](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/183) [#183](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/183)
+* **i18n:** provide an l10n platform to help translate the site ([aa17dbe](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/aa17dbe)), closes [#146](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/146) [#96](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/96)
+* **seo:** add Open Graph and JSON-LD ([2c5e67e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2c5e67e)), closes [#186](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/186)
+
+
+
 # [2.30.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.29.1...v2.30.0) (2019-03-17)
 
 
