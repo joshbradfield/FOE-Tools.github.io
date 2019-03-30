@@ -8,7 +8,8 @@
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
       "trade": "$t(routes.trade.hero.title)",
-      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
     },
     "footer_menu": {
       "about": "À propos",
@@ -335,7 +336,7 @@
             "level": "Niveau du GM",
             "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
             "showPx": "Indique s'il faut afficher ou non la place dans le message de promotion",
-            "takingPlaceInConsideration": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) », indique si les autres places doivent être prises en considération dans le calcul",
+            "takingPlaceInConsideration": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) », indique si les autres places doivent être prises en considération dans le calcul",
             "targetLevel": "Dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) », indique à partir de quel niveau il faut afficher les informations dans le tableau",
             "displayGbName": "Indique s'il faut afficher ou non le nom du GM dans le message de promotion",
             "investorParticipation": "Contiens la liste de tous les investisseurs ajouté",
@@ -438,6 +439,16 @@
             "message": "Ce type de commerce prend en compte le coût de fabrication d'une ressource (pièce d'or et marchandise) pour déterminer les taux entre les ressources."
           }
         }
+      },
+      "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Aider à traduire le site",
+          "subtitle": "Rejoindre l'équipe de traduction"
+        },
+        "p1": "Votre langue n'est pas disponible, la traduction est incomplète ou comporte des erreurs ? N'hésitez pas à rejoindre l'équipe de traduction du site.",
+        "how_to_join_the_team": "Comment rejoindre l'équipe ?",
+        "p2_html": "$t(common:site_title) est traduit par les utilisateurs. Nous utilisons la plateforme $t(common:links.lingohub) pour faciliter le processus de traduction. Pour rejoindre l'équipe envoyer un mail (en anglais) à $t(common:links.contact_foe_tools) en précisant la ou les langues dans lesquels vous pouvez traduire  pour que nous puissions vous envoyer une invitation."
       },
       "error": {
         "404": {

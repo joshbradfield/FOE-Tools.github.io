@@ -4,4 +4,9 @@ b-dropdown
     span.icon
       i.fas.fa-chevron-down
 
-  b-dropdown-item(v-for="lang in $store.supportedLocales" :key="lang" data-lang="lang" @click="currentLang = lang" :class="[lang === currentLang ? 'is-active' : '']") {{$t("language_selector." + (lang === "en" ? "en" : "common"), { lang })}}
+  b-dropdown-item(v-for="lang in supportedLocales" :key="lang.key" data-lang="lang" @click="currentLang = lang.key" :class="[lang.key === currentLang ? 'is-active' : '']") {{ lang.displayName }}
+  hr.navbar-divider
+  b-dropdown-item(@click="$router.push($i18nPath('help-to-translate-the-site'))")
+    span.icon.is-icon-2rem(style="vertical-align: middle;")
+      i.fas.fa-language
+    span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}

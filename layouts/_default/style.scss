@@ -1,7 +1,16 @@
 @import "~bulma/sass/utilities/_all";
 
+.is-icon-2rem svg {
+  height: 2rem !important;
+  width: 2rem !important;
+}
+
+html.light-theme {
+  background-color: $white-bis;
+}
+
 body.light-theme {
-  .icon {
+  .icon:not(.is-icon-2rem) {
     svg {
       width: 1rem !important;
       height: 1rem !important;
@@ -22,11 +31,18 @@ body.light-theme {
       background-color: $light !important;
     }
   }
+
+  .custom-link-style.is-active, .custom-link-style.nuxt-link-active {
+    color: $grey-dark;
+  }
 }
 
+html.dark-theme {
+  background-color: $dark;
+}
 body.dark-theme {
   @import "./style/theme/dark/variables";
-  .icon {
+  .icon:not(.is-icon-2rem) {
     svg {
       width: 1rem !important;
       height: 1rem !important;
@@ -77,6 +93,10 @@ body.dark-theme {
 
   .snackbar {
     color: $light-invert !important;
+  }
+
+  .custom-link-style.is-active, .custom-link-style.nuxt-link-active {
+    color: $grey-light;
   }
 }
 
@@ -240,11 +260,6 @@ table.table.has-table-cards {
     }
     tr.last-in-card:not(:last-child) {
       margin-bottom: 1rem;
-    }
-  }
-  tfoot {
-    th, td {
-      //flex-direction: row-reverse;
     }
   }
 }

@@ -19,7 +19,8 @@
       "mit": "<a href=\"http://opensource.org/licenses/mit-license.php\">MIT</a>",
       "framework": "<a href=\"https://nuxtjs.org/\">Nuxt</a>",
       "style": "<a href=\"https://bulma.io/\">Bulma</a>",
-      "contact_foe_tools": "<a href=\"mailto:foe-tools@protonmail.com?subject=FOE-Tools\">foe-tools@protonmail.com</a>"
+      "contact_foe_tools": "<a href=\"mailto:foe-tools@protonmail.com?subject=FOE-Tools\">foe-tools@protonmail.com</a>",
+      "lingohub": "<a href=\"https://lingohub.com/\">LingoHub</a>"
     },
     "tools": {
       "gb_investment": {

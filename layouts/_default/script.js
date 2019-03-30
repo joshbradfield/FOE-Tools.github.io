@@ -19,7 +19,8 @@ export default {
         }
       ],
       htmlAttrs: {
-        lang: this.lang
+        lang: this.lang,
+        class: this.$store.state.isDarkTheme ? "dark-theme" : "light-theme"
       },
       bodyAttrs: {
         class: this.$store.state.isDarkTheme ? "dark-theme" : "light-theme"

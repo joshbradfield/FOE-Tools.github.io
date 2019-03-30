@@ -24,6 +24,11 @@
 
         div.navbar-end
           div.navbar-item
+            nuxt-link.custom-link-style(:class="{'is-active': isActive($store.state.routes.help_to_translate_the_site.key)}" :to="$i18nPath($store.state.routes.help_to_translate_the_site.link)" exact)
+              span.icon.is-icon-2rem(style="vertical-align: middle;")
+                i.fas.fa-language
+              span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}
+          div.navbar-item
             language-selector
 
           div.navbar-item

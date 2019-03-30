@@ -7,7 +7,8 @@
       "cf_calculator": "$t(routes.cf_calculator.hero.title)",
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
-      "trade": "$t(routes.trade.hero.title)"
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
     },
     "footer_menu": {
       "about": "About",
@@ -332,7 +333,7 @@
             "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
             "showPx": "Indicate whether to show the place in the promotion message",
             "takingPlaceInConsideration": "In tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\", indicates whether the other places must be taken into account in the calculation",
-            "targetLevel": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\", indicates from what level to display the information in the table",
+            "targetLevel": "In the tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\", indicates from what level to display the information in the table",
             "displayGbName": "Indicate whether to show the GB name in the promotion message",
             "investorParticipation": "Contains a list of all added investors",
             "displayTableCard": "Indicate whether to show the table in \"$t(routes.gb_investment_gb_chooser.hero.title)\" in simple mode (table) or in card view on small screen",
@@ -434,6 +435,16 @@
             "message": "This type of trade takes into account the cost of manufacturing a good (coins and resources) to determine the rates between the goods."
           }
         }
+      },
+      "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Help to translate the site",
+          "subtitle": "Join the translation team"
+        },
+        "p1": "Your language is not available, the translation is incomplete or contains errors? Feel free to join the site's translation team.",
+        "how_to_join_the_team": "How to join the team ?",
+        "p2_html": "$t(common:site_title) is translated by users. We use the $t(common:links.lingohub) platform to facilitate the translation process. To join the team send an email (in English) to $t(common:links.contact_foe_tools) specifying the language(s) into which you can translate so that we can send you an invitation."
       },
       "error": {
         "404": {
