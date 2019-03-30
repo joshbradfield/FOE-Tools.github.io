@@ -3,8 +3,18 @@ import Utils from "~/scripts/utils";
 export default {
   name: "LanguageSelector",
   data() {
+    let supportedLocales = [];
+    for (const key of this.$store.state.supportedLocales) {
+      supportedLocales.push({
+        key,
+        displayName: this.$t("language_selector." + (key === "en" ? "en" : "common"), { lang: key })
+      });
+    }
+    supportedLocales.sort((a, b) => (a.displayName > b.displayName ? 1 : b.displayName > a.displayName ? -1 : 0));
+
     return {
-      currentLang: this.$cookies.get("locale")
+      currentLang: this.$cookies.get("locale"),
+      supportedLocales
     };
   },
   watch: {

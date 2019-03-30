@@ -23,7 +23,8 @@ export const state = () => ({
     gb_statistics: { key: "gb_statistics", link: "gb-statistics" },
     gb_forecast_cost: { key: "gb_forecast_cost", link: "gb-forecast-cost" },
     trade: { key: "trade", link: "trade" },
-    campaign_cost: { key: "campaign_cost", link: "campaign-cost" }
+    campaign_cost: { key: "campaign_cost", link: "campaign-cost" },
+    help_to_translate_the_site: { key: "help_to_translate_the_site", link: "help-to-translate-the-site" }
   },
 
   /**

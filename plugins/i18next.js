@@ -22,7 +22,7 @@ export default ({ app, store, route }) => {
   // This way we can use it in middleware and pages asyncData/fetch
   app.i18n = new VueI18Next(i18next);
   app.defaultLocale = defaultLocale;
-  store.supportedLocales = supportedLocales;
+  store.state.supportedLocales = supportedLocales;
 
   Vue.prototype.$t = i18next.t;
   Vue.prototype.$i18next = i18next;
