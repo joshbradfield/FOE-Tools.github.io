@@ -103,6 +103,7 @@
     "codecov": "^3.2.0",
     "cookie-universal-nuxt": "^2.0.5",
     "enumify": "^1.0.4",
+    "facebook-locales": "^1.0.594",
     "i18next": "^15.0.1",
     "js-priority-queue": "^0.1.5",
     "jsdom": "^14.0.0",
