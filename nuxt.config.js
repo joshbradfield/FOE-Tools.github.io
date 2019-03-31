@@ -2,6 +2,7 @@ import { JSDOM } from "jsdom";
 
 import { i18next, defaultLocale, supportedLocales } from "./scripts/i18n";
 import { gbs } from "./lib/foe-data/gbs";
+import { bestFacebookLocaleFor } from "facebook-locales";
 
 const extraSeoByPages = {
   gb_investment: {
@@ -90,6 +91,13 @@ const modifyHtml = (page, locale) => {
   node.setAttribute("hid", "og:title");
   node.content = text;
   window.document.querySelector("head").appendChild(node);
+  // Open Graph fb:app_id
+  node = window.document.createElement("meta");
+  node.setAttribute("property", "fb:app_id");
+  node.setAttribute("name", "fb:app_id");
+  node.setAttribute("hid", "fb:app_id");
+  node.content = "2078456229119430";
+  window.document.querySelector("head").appendChild(node);
   // Open Graph type
   node = window.document.createElement("meta");
   node.setAttribute("property", "og:type");
@@ -109,7 +117,7 @@ const modifyHtml = (page, locale) => {
   node.setAttribute("property", "og:locale");
   node.setAttribute("name", "og:locale");
   node.setAttribute("hid", "og:locale");
-  node.content = locale;
+  node.content = locale === "en" ? "en_US" : bestFacebookLocaleFor(`${locale}_${locale.toUpperCase()}`);
   window.document.querySelector("head").appendChild(node);
   // Twitter card
   node = window.document.createElement("meta");
@@ -244,7 +252,8 @@ const modifyHtml = (page, locale) => {
     node.setAttribute("property", "og:locale:alternate");
     node.setAttribute("name", "og:locale:alternate");
     node.setAttribute("hid", "og:locale:alternate");
-    node.content = supportedLocale;
+    node.content =
+      supportedLocale === "en" ? "en_US" : bestFacebookLocaleFor(`${supportedLocale}_${supportedLocale.toUpperCase()}`);
     window.document.querySelector("head").appendChild(node);
   }
 
@@ -257,8 +266,10 @@ const modifyHtml = (page, locale) => {
         name: title,
         description,
         image,
+        url: currentURL,
         applicationCategory: "Game",
-        availableLanguage: {
+        operatingSystem: "Any",
+        inLanguage: {
           "@type": "Language",
           name: supportedLocales
         }
@@ -282,8 +293,10 @@ const modifyHtml = (page, locale) => {
             }),
             description,
             image: `${hostname}/img/foe/gb/${gbKey}.png`,
+            url: `${currentURL}/${gbKey}`,
             applicationCategory: "Game",
-            availableLanguage: {
+            operatingSystem: "Any",
+            inLanguage: {
               "@type": "Language",
               name: supportedLocales
             }
@@ -302,8 +315,10 @@ const modifyHtml = (page, locale) => {
         "@type": "WebApplication",
         name: title,
         description,
+        url: currentURL,
         applicationCategory: "Game",
-        availableLanguage: {
+        operatingSystem: "Any",
+        inLanguage: {
           "@type": "Language",
           name: supportedLocales
         }
