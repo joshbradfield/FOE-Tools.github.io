@@ -477,7 +477,10 @@ export default {
     compute() {
       const result = [];
       for (let i = 0; i < this.$props.gb.levels.length; i++) {
-        const investorPercentage = Utils.normalizeNumberArray(this.$data.investorPercentageCustom);
+        const investorPercentage =
+          this.$data.takingPlaceInConsideration === 2
+            ? Utils.normalizeNumberArray(this.$data.investorPercentageCustom)
+            : Array.apply(null, Array(5)).map(() => this.$data.yourArcBonus);
         const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
@@ -501,6 +504,9 @@ export default {
           }
 
           if (this.$data.takingPlaceInConsideration === 2) {
+            currentLevel.investment[j].realParticipation = Math.round(
+              currentLevel.investment[j].reward * (1 + this.$data.yourArcBonus / 100)
+            );
             currentLevel.investment[j].roi =
               Math.round(currentLevel.investment[j].reward * (1 + this.$data.yourArcBonus / 100)) -
               currentLevel.investment[j].expectedParticipation;

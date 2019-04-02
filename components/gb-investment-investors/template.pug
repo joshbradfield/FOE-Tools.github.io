@@ -109,10 +109,14 @@ div.content
           td.has-text-right
             p {{$formatNumber(line.cost)}}
 
-          // Place 1
           template(v-for="(value, index) in showPlace")
             td.has-text-right(v-show="showPlace[index]")
-              p {{$formatNumber(line.investment[index].reward) + " (" + $formatNumber(line.investment[index].participation) + ")"}}
+              p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[index].reward) + " ("}}
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.expected_participation')" dashed) {{$formatNumber(line.investment[index].participation)}}
+                | &nbsp;|&nbsp;
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.real_participation')" dashed) {{$formatNumber(line.investment[index].realParticipation)}}
+                | )
+              p(v-else) {{$formatNumber(line.investment[index].reward) + " (" + $formatNumber(line.investment[index].participation) + ")" }}
             td.has-text-right(v-show="showPlace[index]")
               p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[index].participation) + " ("}}
                 b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[0].preparation)}}
