@@ -22,7 +22,7 @@
     "test:unit": "jest --clearCache && jest --coverage=false",
     "test:unit:coverage": "jest --clearCache && jest --coverage=true",
     "test:unit:watch": "jest --clearCache && jest --coverage=false --testRegex ^.*.test.js$ test/unit/ --watch",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "npm run test:unit",
     "update-foe-data": "node .scripts/update-gb-data.js"
   },
   "repository": {
