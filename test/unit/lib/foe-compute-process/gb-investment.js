@@ -62,6 +62,22 @@ describe("FoeGbInvestment", () => {
       expect(result).toMatchSnapshot();
     });
 
+    test(
+      "Valid value for PostmodernEra 20 -> 21 with owner preparation (276) and investors: P1 447, " +
+        "P2 228 and P4 63 instead of 19",
+      () => {
+        const extraInvestors = [447, 228, 63];
+        const result = GbProcess.ComputeLevelInvestment(
+          21,
+          [90, 90, 90, 90, 90],
+          gbs.agesCost.PostmodernEra,
+          extraInvestors,
+          276
+        );
+        expect(result).toMatchSnapshot();
+      }
+    );
+
     test("Valid value with owner that secure place and snipe on P1", () => {
       const extraInvestors = [549];
       const result = GbProcess.ComputeLevelInvestment(
