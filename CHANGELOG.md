@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.32.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.32.0...v2.32.1) (2019-04-05)
+
+
+### Bug Fixes
+
+* **cf-calculator:** fix infinite loop ([71738fe](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/71738fe)), closes [#200](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/200)
+* **gb-investment:** fix bad preparation value when set FP already in by the owner ([bb028f9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/bb028f9)), closes [#197](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/197)
+* **gb-investment-investors:** show right reward according to owner and investor Arc bonus ([77d7db8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/77d7db8))
+
+
+
 # [2.32.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.30.0...v2.32.0) (2019-03-31)
 
 
