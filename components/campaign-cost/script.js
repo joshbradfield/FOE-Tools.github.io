@@ -62,8 +62,8 @@ export default {
           return this.$t("foe_data.province." + a) > this.$t("foe_data.province." + b)
             ? 1
             : this.$t("foe_data.province." + b) > this.$t("foe_data.province." + a)
-              ? -1
-              : 0;
+            ? -1
+            : 0;
         })
         .forEach(function(key) {
           ordered[key] = campaignCost[currentAge][key];
