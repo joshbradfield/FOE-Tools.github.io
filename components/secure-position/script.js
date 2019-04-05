@@ -58,8 +58,8 @@ export default {
         this.$props.customYourArcBonus !== false
           ? this.$props.customYourArcBonus
           : this.$cookies.get("yourArcBonus") === undefined
-            ? 0
-            : this.$cookies.get("yourArcBonus"),
+          ? 0
+          : this.$cookies.get("yourArcBonus"),
       fpTargetReward: 0,
       roi: 0,
       formValid: false,
