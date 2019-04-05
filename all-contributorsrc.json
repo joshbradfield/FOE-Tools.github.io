@@ -490,6 +490,24 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "roberttrone",
+      "name": "Robert Trone",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/30301600?v=4",
+      "profile": "https://github.com/roberttrone",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Ray the Lion Heart I (US)",
+      "name": "Ray the Lion Heart I (US)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.us.forgeofempires.com/index.php?members/ray-the-lion-heart-i.38720/",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }
