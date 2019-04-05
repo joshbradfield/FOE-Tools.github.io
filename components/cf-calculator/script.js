@@ -385,7 +385,7 @@ export default {
      */
     calculate() {
       this.$data.result = cfCalculatorProcess.compute(
-        this.$data.questData.ages[this.$data.yourAge],
+        JSON.parse(JSON.stringify(this.$data.questData.ages[this.$data.yourAge])),
         Utils.normalizeNumberValue(this.$data.yourCfBoost),
         Utils.normalizeNumberValue(this.$data.coins),
         Utils.normalizeNumberValue(this.$data.supplies),
