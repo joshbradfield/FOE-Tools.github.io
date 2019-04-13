@@ -45,11 +45,6 @@
   "bugs": {
     "url": "https://github.com/FOE-Tools/FOE-Tools.github.io/issues"
   },
-  "greenkeeper": {
-    "ignore": [
-      "babel-jest"
-    ]
-  },
   "homepage": "https://foe-tools.github.io/",
   "devDependencies": {
     "@nuxtjs/sitemap": "^0.2.2",
