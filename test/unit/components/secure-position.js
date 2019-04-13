@@ -19,7 +19,7 @@ const factory = (propsData = {}, mocks = {}) => {
   });
 };
 
-const gbData = gbProcess.ComputeLevelInvestment(10, [90, 90, 90, 90, 90], gbsData.Alcatraz.levels, [0, 0, 0, 0, 0]);
+const gbData = gbProcess.ComputeLevelInvestment(10, [90, 90, 90, 90, 90], gbsData.Alcatraz.levels);
 const invalidValueType = "foo";
 /*
  * props: levelData, canPermalink, ns

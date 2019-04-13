@@ -3,6 +3,7 @@ import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import yesNo from "~/components/yes-no/YesNo";
 import securePosition from "~/components/secure-position/SecurePosition";
+import * as Errors from "../../scripts/errors";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -99,6 +100,15 @@ export default {
       this.$cookies.get(`${this.$route.params.gb}_investorParticipation`) instanceof Array
     ) {
       data.investorParticipation = this.$cookies.get(`${this.$route.params.gb}_investorParticipation`);
+      // this "if" is to update previous storage method to prevent app crash
+      if (typeof data.investorParticipation[0] === "number") {
+        console.log("old mode");
+        let tmp = [];
+        for (const value of data.investorParticipation) {
+          tmp.push({ value, isPotentialSniper: true });
+        }
+        data.investorParticipation = tmp;
+      }
     }
 
     Object.assign(data, this.checkQuery(data.level, data.maxLevel));
@@ -199,10 +209,19 @@ export default {
         : this.$data.result.cost - this.investorParticipationNormalizedSum - this.ownerInvestmentNormalized;
     },
     investorParticipationNormalizedSum() {
-      return this.investorParticipationNormalized.reduce((i, j) => i + j, 0);
+      return this.investorParticipationNormalized.reduce((i, j) => i + j.value, 0);
     },
     investorParticipationNormalized() {
-      return Utils.normalizeNumberArray(this.$data.investorParticipation);
+      /* istanbul ignore next */
+      if (!(this.$data.investorParticipation instanceof Array)) {
+        throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof this.$data.investorParticipation });
+      }
+
+      return this.$data.investorParticipation.map(k => {
+        k.value = Utils.normalizeNumberValue(k.value, 0);
+        k.isPotentialSniper = !!k.isPotentialSniper;
+        return k;
+      });
     },
     levelNormalized() {
       return Utils.normalizeNumberValue(this.$data.level, 1);
@@ -211,7 +230,7 @@ export default {
       return Utils.normalizeNumberValue(this.$data.ownerInvestment);
     },
     nbColumns() {
-      return 6 + (this.$data.showSnipe ? 1 : 0) + (this.investorParticipationNormalizedSum ? 1 : 0);
+      return 6 + (this.$data.showSnipe ? 1 : 0) + (this.investorParticipationNormalizedSum ? 2 : 0);
     },
     getCustomArcBonus() {
       return Utils.normalizeNumberValue(this.$data.yourArcBonus);
@@ -497,7 +516,7 @@ export default {
           this.levelNormalized,
           Utils.normalizeNumberArray(this.$data.investorPercentageCustom),
           this.$props.gb.levels,
-          Utils.normalizeNumberArray(this.$data.investorParticipation),
+          this.investorParticipationNormalized,
           Utils.normalizeNumberValue(this.$data.ownerInvestment),
           Utils.normalizeNumberValue(this.$data.yourArcBonus)
         );
@@ -574,6 +593,21 @@ export default {
       });
 
       this.updatePromotionMessage();
+    },
+    changeIsPotentialSniper(i, value) {
+      this.$data.investorParticipation[i].isPotentialSniper = !!value;
+
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.investorParticipation,
+        value: JSON.stringify(this.$data.investorParticipation),
+        ns: "gbi"
+      });
+      this.$cookies.set(`${this.$route.params.gb}_investorParticipation`, this.$data.investorParticipation, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+
+      this.calculate();
     },
 
     /**
@@ -720,10 +754,10 @@ export default {
         Utils.handlerForm(this, "addInvestors", !val || val.length === 0 ? 0 : val, 0, [1, this.maxInvestment]) ===
         Utils.FormCheck.VALID
       ) {
-        this.$data.investorParticipation.push(val);
+        this.$data.investorParticipation.push({ value: val, isPotentialSniper: true });
         // Not efficient, but small array
         /* istanbul ignore next */
-        this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b - a);
+        this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b.value - a.value);
 
         this.$data.addInvestors = 1;
 

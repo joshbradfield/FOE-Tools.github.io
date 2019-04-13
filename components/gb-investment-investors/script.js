@@ -481,10 +481,9 @@ export default {
           this.$data.takingPlaceInConsideration === 2
             ? Utils.normalizeNumberArray(this.$data.investorPercentageCustom)
             : Array.apply(null, Array(5)).map(() => this.$data.yourArcBonus);
-        const defaultParticipation = Array.apply(null, Array(5)).map(() => 0);
         const currentLevel = Object.assign(
           JSON.parse(JSON.stringify(this.$props.gb.levels[i])),
-          gbProcess.ComputeLevelInvestment(i + 1, investorPercentage, this.$props.gb.levels, defaultParticipation)
+          gbProcess.ComputeLevelInvestment(i + 1, investorPercentage, this.$props.gb.levels)
         );
 
         let currentDeposits = 0;

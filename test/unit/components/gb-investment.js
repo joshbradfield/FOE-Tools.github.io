@@ -39,7 +39,8 @@ const defaultResult = {
       preparation: 402,
       reward: 65,
       roi: 0,
-      snipe: { fp: 325, roi: -201 }
+      snipe: { fp: 325, roi: -201 },
+      defaultParticipationIndex: -1
     },
     {
       cumulativeInvestment: 593,
@@ -49,7 +50,8 @@ const defaultResult = {
       preparation: 402,
       reward: 35,
       roi: 0,
-      snipe: { fp: 325, roi: -258 }
+      snipe: { fp: 325, roi: -258 },
+      defaultParticipationIndex: -1
     },
     {
       cumulativeInvestment: 631,
@@ -59,7 +61,8 @@ const defaultResult = {
       preparation: 421,
       reward: 10,
       roi: 0,
-      snipe: { fp: 325, roi: -306 }
+      snipe: { fp: 325, roi: -306 },
+      defaultParticipationIndex: -1
     },
     {
       cumulativeInvestment: 641,
@@ -69,7 +72,8 @@ const defaultResult = {
       preparation: 421,
       reward: 5,
       roi: 0,
-      snipe: { fp: 325, roi: -315 }
+      snipe: { fp: 325, roi: -315 },
+      defaultParticipationIndex: -1
     },
     {
       expectedParticipation: 0,
@@ -77,7 +81,8 @@ const defaultResult = {
       preparation: 430,
       reward: 0,
       roi: 0,
-      snipe: { fp: 0, roi: 0 }
+      snipe: { fp: 0, roi: 0 },
+      defaultParticipationIndex: -1
     }
   ],
   level: 10,
@@ -93,7 +98,13 @@ describe("GbInvestment", () => {
 
   test("Initialize with URL query", () => {
     const investorPercentageCustom = [92, 91, 90, 85, 80];
-    const investorParticipation = [10, 8, 6, 4, 2];
+    const investorParticipation = [
+      { value: 10, isPotentialSniper: false },
+      { value: 8, isPotentialSniper: false },
+      { value: 6, isPotentialSniper: false },
+      { value: 4, isPotentialSniper: false },
+      { value: 2, isPotentialSniper: false }
+    ];
     const wrapper = factory(defaultGb, {
       $route: {
         query: {
@@ -148,7 +159,13 @@ describe("GbInvestment", () => {
 
   test("Initialize with cookies", () => {
     const investorPercentageCustom = [92, 91, 90, 85, 80];
-    const investorParticipation = [10, 8, 6, 4, 2];
+    const investorParticipation = [
+      { value: 10, isPotentialSniper: false },
+      { value: 8, isPotentialSniper: false },
+      { value: 6, isPotentialSniper: false },
+      { value: 4, isPotentialSniper: false },
+      { value: 2, isPotentialSniper: false }
+    ];
 
     const wrapper = factory(defaultGb, {
       $cookies: {
@@ -520,7 +537,8 @@ describe("GbInvestment", () => {
           preparation: 402,
           reward: 65,
           roi: 0,
-          snipe: { fp: 325, roi: -201 }
+          snipe: { fp: 325, roi: -201 },
+          defaultParticipationIndex: -1
         },
         {
           cumulativeInvestment: 593,
@@ -530,7 +548,8 @@ describe("GbInvestment", () => {
           preparation: 402,
           reward: 35,
           roi: 0,
-          snipe: { fp: 325, roi: -258 }
+          snipe: { fp: 325, roi: -258 },
+          defaultParticipationIndex: -1
         },
         {
           cumulativeInvestment: 631,
@@ -540,7 +559,8 @@ describe("GbInvestment", () => {
           preparation: 421,
           reward: 10,
           roi: 0,
-          snipe: { fp: 325, roi: -306 }
+          snipe: { fp: 325, roi: -306 },
+          defaultParticipationIndex: -1
         },
         {
           cumulativeInvestment: 641,
@@ -550,7 +570,8 @@ describe("GbInvestment", () => {
           preparation: 421,
           reward: 5,
           roi: 0,
-          snipe: { fp: 325, roi: -315 }
+          snipe: { fp: 325, roi: -315 },
+          defaultParticipationIndex: -1
         },
         {
           expectedParticipation: 0,
@@ -558,25 +579,17 @@ describe("GbInvestment", () => {
           preparation: 430,
           reward: 0,
           roi: 0,
-          snipe: { fp: 0, roi: 0 }
+          snipe: { fp: 0, roi: 0 },
+          defaultParticipationIndex: -1
         }
       ],
       level: 10,
       otherInvestment: [],
       totalPreparations: 430
     };
-    const promotionMessages = [
-      { active: false, message: "Observatory P1(124) P2(67) P3(19) P4(10)" },
-      { active: false, message: "P1(124) P2(67) P3(19) P4(10) Observatory" },
-      { active: false, message: "Observatory P4(10) P3(19) P2(67) P1(124)" },
-      { active: false, message: "P4(10) P3(19) P2(67) P1(124) Observatory" },
-      { active: false, message: "Observatory 1 2 3 4" },
-      { active: false, message: "Observatory 4 3 2 1" }
-    ];
     expect(wrapper.vm.result).toEqual(defaultResult);
     wrapper.vm.result = newValue;
-    expect(wrapper.vm.result).toEqual(newValue);
-    expect(wrapper.vm.promotion).toEqual(promotionMessages);
+    expect({ result: wrapper.vm.result, promotion: wrapper.vm.promotion }).toMatchSnapshot();
   });
 
   test('Change "result" value with null value', () => {
@@ -590,19 +603,11 @@ describe("GbInvestment", () => {
 
   test('Change "lang" value', async () => {
     const wrapper = factory();
-    const promotionMessages = [
-      { message: "Observatoire P1(124) P2(67) P3(19) P4(10)", active: false },
-      { message: "P1(124) P2(67) P3(19) P4(10) Observatoire", active: false },
-      { message: "Observatoire P4(10) P3(19) P2(67) P1(124)", active: false },
-      { message: "P4(10) P3(19) P2(67) P1(124) Observatoire", active: false },
-      { message: "Observatoire 1 2 3 4", active: false },
-      { message: "Observatoire 4 3 2 1", active: false }
-    ];
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
     wrapper.vm.$store.state.locale = "fr";
 
-    expect(wrapper.vm.promotion).toEqual(promotionMessages);
+    expect(wrapper.vm.promotion).toMatchSnapshot();
   });
 
   test('Change "lang" value with null result', async () => {
@@ -662,18 +667,10 @@ describe("GbInvestment", () => {
     const wrapper = factory();
     const index = 0;
     const value = false;
-    const promotion = [
-      { message: "Observatory P2(67) P3(19) P4(10)", active: false },
-      { message: "P2(67) P3(19) P4(10) Observatory", active: false },
-      { message: "Observatory P4(10) P3(19) P2(67)", active: false },
-      { message: "P4(10) P3(19) P2(67) Observatory", active: false },
-      { message: "Observatory 2 3 4", active: false },
-      { message: "Observatory 4 3 2", active: false }
-    ];
     wrapper.vm.calculate();
     wrapper.vm.changePlaceFree(index, value);
     expect(wrapper.vm.placeFree[index].state).toBe(value);
-    expect(wrapper.vm.promotion).toEqual(promotion);
+    expect(wrapper.vm.promotion).toMatchSnapshot();
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_pFree${index + 1}`]).toBe(value ? 1 : 0);
   });
 
@@ -681,7 +678,7 @@ describe("GbInvestment", () => {
     const wrapper = factory();
     expect(wrapper.vm.investorParticipation).toEqual([]);
     wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toEqual([1]);
+    expect(wrapper.vm.investorParticipation).toMatchSnapshot();
   });
 
   test('Call "addInvestor" with big value', () => {
@@ -689,7 +686,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.investorParticipation).toEqual([]);
     wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
     wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toEqual([326]);
+    expect(wrapper.vm.investorParticipation).toMatchSnapshot();
     expect(wrapper.vm.addInvestors).toBe(1);
   });
 
@@ -718,9 +715,16 @@ describe("GbInvestment", () => {
     wrapper.vm.addInvestor();
     wrapper.vm.addInvestors = 1;
     wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toEqual([326, 5, 1]);
+    expect(wrapper.vm.investorParticipation).toEqual([
+      { value: 326, isPotentialSniper: true },
+      { value: 5, isPotentialSniper: true },
+      { value: 1, isPotentialSniper: true }
+    ]);
     wrapper.vm.removeInvestor(1);
-    expect(wrapper.vm.investorParticipation).toEqual([326, 1]);
+    expect(wrapper.vm.investorParticipation).toEqual([
+      { value: 326, isPotentialSniper: true },
+      { value: 1, isPotentialSniper: true }
+    ]);
   });
 
   test('Call "removeInvestor" with invalid index', () => {
@@ -730,9 +734,9 @@ describe("GbInvestment", () => {
     wrapper.vm.addInvestor();
     wrapper.vm.addInvestors = 5;
     wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toEqual([326, 5]);
+    expect(wrapper.vm.investorParticipation).toMatchSnapshot();
     wrapper.vm.removeInvestor(-1);
-    expect(wrapper.vm.investorParticipation).toEqual([326, 5]);
+    expect(wrapper.vm.investorParticipation).toMatchSnapshot();
   });
 
   test('Call "calculate" with maxInvestment < 0', () => {
@@ -748,5 +752,39 @@ describe("GbInvestment", () => {
     wrapper.vm.ownerInvestment = 1000;
     wrapper.vm.calculate();
     expect(wrapper.vm.result).toMatchSnapshot();
+  });
+
+  test("Initialize with old 'investorParticipation' format in cookie", () => {
+    const investorParticipation = [
+      { value: 10, isPotentialSniper: true },
+      { value: 8, isPotentialSniper: true },
+      { value: 6, isPotentialSniper: true },
+      { value: 4, isPotentialSniper: true },
+      { value: 2, isPotentialSniper: true }
+    ];
+
+    const wrapper = factory(defaultGb, {
+      $cookies: {
+        get: key => {
+          switch (key) {
+            case "root_investorParticipation":
+              return [10, 8, 6, 4, 2];
+            case "yourArcBonus":
+              return 90;
+          }
+        }
+      }
+    });
+    expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
+  });
+
+  test("Call 'changeIsPotentialSniper'", () => {
+    const wrapper = factory();
+    const index = 0;
+    const value = false;
+    wrapper.vm.addInvestor();
+    expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: true }]);
+    wrapper.vm.changeIsPotentialSniper(index, value);
+    expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: false }]);
   });
 });
