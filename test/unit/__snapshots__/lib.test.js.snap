@@ -197,6 +197,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 455,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 55,
       "isInvestorParticipation": false,
       "participation": 55,
@@ -210,6 +211,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 485,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 30,
       "isInvestorParticipation": false,
       "participation": 30,
@@ -223,6 +225,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 500,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -236,6 +239,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 505,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 5,
       "isInvestorParticipation": false,
       "participation": 5,
@@ -248,6 +252,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
       "preparation": 410,
@@ -271,6 +276,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 1014,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 447,
       "isInvestorParticipation": true,
       "participation": 447,
@@ -284,6 +290,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1014,
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 228,
       "isInvestorParticipation": true,
       "participation": 228,
@@ -297,6 +304,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1090,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 76,
       "isInvestorParticipation": false,
       "participation": 76,
@@ -310,6 +318,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1092,
+      "defaultParticipationIndex": 2,
       "expectedParticipation": 19,
       "isInvestorParticipation": true,
       "participation": 63,
@@ -322,6 +331,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
       "preparation": 341,
@@ -345,6 +355,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 972,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 972,
       "isInvestorParticipation": true,
       "participation": 972,
@@ -358,6 +369,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1458,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 486,
       "isInvestorParticipation": false,
       "participation": 486,
@@ -371,6 +383,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1728,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 162,
       "isInvestorParticipation": false,
       "participation": 162,
@@ -384,6 +397,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1845,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 45,
       "isInvestorParticipation": false,
       "participation": 45,
@@ -397,6 +411,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1881,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 9,
       "isInvestorParticipation": false,
       "participation": 9,
@@ -421,6 +436,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 869,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 181,
       "isInvestorParticipation": false,
       "participation": 181,
@@ -434,6 +450,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 869,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 95,
       "isInvestorParticipation": true,
       "participation": 170,
@@ -447,6 +464,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 869,
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 29,
       "isInvestorParticipation": true,
       "participation": 95,
@@ -460,6 +478,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 869,
+      "defaultParticipationIndex": 2,
       "expectedParticipation": 10,
       "isInvestorParticipation": true,
       "participation": 70,
@@ -473,6 +492,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 880,
+      "defaultParticipationIndex": 3,
       "expectedParticipation": 0,
       "isInvestorParticipation": true,
       "participation": 2,
@@ -531,6 +551,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 732,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 608,
       "isInvestorParticipation": false,
       "participation": 608,
@@ -544,6 +565,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1036,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 304,
       "isInvestorParticipation": false,
       "participation": 304,
@@ -557,6 +579,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1235,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 105,
       "isInvestorParticipation": false,
       "participation": 105,
@@ -570,6 +593,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1311,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 29,
       "isInvestorParticipation": false,
       "participation": 29,
@@ -583,6 +607,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1330,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -607,6 +632,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 3407,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 2115,
       "isInvestorParticipation": false,
       "participation": 2115,
@@ -620,6 +646,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 4469,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 1062,
       "isInvestorParticipation": false,
       "participation": 1062,
@@ -633,6 +660,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 5171,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 351,
       "isInvestorParticipation": false,
       "participation": 351,
@@ -646,6 +674,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 5322,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 90,
       "isInvestorParticipation": true,
       "participation": 100,
@@ -659,6 +688,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 5322,
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 18,
       "isInvestorParticipation": true,
       "participation": 100,
@@ -683,6 +713,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 455,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 55,
       "isInvestorParticipation": false,
       "participation": 55,
@@ -696,6 +727,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 485,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 30,
       "isInvestorParticipation": false,
       "participation": 30,
@@ -709,6 +741,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 500,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -722,6 +755,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 505,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 5,
       "isInvestorParticipation": false,
       "participation": 5,
@@ -734,6 +768,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
       "preparation": 410,
@@ -757,6 +792,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 1606,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 1197,
       "isInvestorParticipation": true,
       "participation": 1069,
@@ -770,6 +806,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1606,
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 599,
       "isInvestorParticipation": true,
       "participation": 537,
@@ -783,6 +820,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1938,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 200,
       "isInvestorParticipation": false,
       "participation": 200,
@@ -796,6 +834,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 2090,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 48,
       "isInvestorParticipation": false,
       "participation": 48,
@@ -809,6 +848,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 2128,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -833,6 +873,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 1550,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 1473,
       "isInvestorParticipation": false,
       "participation": 1473,
@@ -846,6 +887,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 2291,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 741,
       "isInvestorParticipation": false,
       "participation": 741,
@@ -859,6 +901,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 2538,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 247,
       "isInvestorParticipation": false,
       "participation": 247,
@@ -872,6 +915,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 2667,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 67,
       "isInvestorParticipation": true,
       "participation": 75,
@@ -885,6 +929,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 2732,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -932,6 +977,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 573,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 371,
       "isInvestorParticipation": true,
       "participation": 500,
@@ -945,6 +991,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 883,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 190,
       "isInvestorParticipation": false,
       "participation": 190,
@@ -958,6 +1005,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1006,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 67,
       "isInvestorParticipation": false,
       "participation": 67,
@@ -971,6 +1019,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1054,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 19,
       "isInvestorParticipation": false,
       "participation": 19,
@@ -983,6 +1032,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
       "preparation": 297,
@@ -1006,6 +1056,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 790,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 181,
       "isInvestorParticipation": true,
       "participation": 780,
@@ -1019,6 +1070,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 880,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 95,
       "isInvestorParticipation": false,
       "participation": 90,
@@ -1031,6 +1083,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 29,
       "isInvestorParticipation": true,
       "participation": 10,
@@ -1043,6 +1096,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "preparation": 0,
@@ -1054,6 +1108,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
       "preparation": 0,
@@ -1077,6 +1132,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 42,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 19,
       "isInvestorParticipation": true,
       "participation": 33,
@@ -1090,6 +1146,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 65,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -1103,6 +1160,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 72,
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 0,
       "isInvestorParticipation": true,
       "participation": 2,
@@ -1115,6 +1173,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": 2,
       "expectedParticipation": 0,
       "isInvestorParticipation": true,
       "participation": 1,
@@ -1127,6 +1186,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": 3,
       "expectedParticipation": 0,
       "isInvestorParticipation": true,
       "participation": 1,
@@ -1185,6 +1245,7 @@ Object {
   "investment": Array [
     Object {
       "cumulativeInvestment": 822,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 608,
       "isInvestorParticipation": true,
       "participation": 549,
@@ -1198,6 +1259,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1126,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 304,
       "isInvestorParticipation": false,
       "participation": 304,
@@ -1211,6 +1273,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1266,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 105,
       "isInvestorParticipation": false,
       "participation": 105,
@@ -1224,6 +1287,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1342,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 29,
       "isInvestorParticipation": false,
       "participation": 29,
@@ -1237,6 +1301,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1361,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 10,
       "isInvestorParticipation": false,
       "participation": 10,
@@ -1267,6 +1332,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 35,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1280,6 +1346,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 40,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1292,6 +1359,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 30,
@@ -1303,6 +1371,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 30,
@@ -1314,6 +1383,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 30,
@@ -1334,6 +1404,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 50,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 10,
           "isInvestorParticipation": false,
           "participation": 10,
@@ -1347,6 +1418,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 55,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1359,6 +1431,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 45,
@@ -1370,6 +1443,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 45,
@@ -1381,6 +1455,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 45,
@@ -1401,6 +1476,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 90,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 10,
           "isInvestorParticipation": false,
           "participation": 10,
@@ -1414,6 +1490,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 95,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1426,6 +1503,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 85,
@@ -1437,6 +1515,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 85,
@@ -1448,6 +1527,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 85,
@@ -1468,6 +1548,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 135,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 15,
           "isInvestorParticipation": false,
           "participation": 15,
@@ -1481,6 +1562,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 145,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 10,
           "isInvestorParticipation": false,
           "participation": 10,
@@ -1494,6 +1576,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 150,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1506,6 +1589,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 120,
@@ -1517,6 +1601,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 120,
@@ -1537,6 +1622,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 185,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 25,
           "isInvestorParticipation": false,
           "participation": 25,
@@ -1550,6 +1636,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 200,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 15,
           "isInvestorParticipation": false,
           "participation": 15,
@@ -1563,6 +1650,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 205,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1575,6 +1663,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 165,
@@ -1586,6 +1675,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 165,
@@ -1606,6 +1696,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 240,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 30,
           "isInvestorParticipation": false,
           "participation": 30,
@@ -1619,6 +1710,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 255,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 15,
           "isInvestorParticipation": false,
           "participation": 15,
@@ -1632,6 +1724,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 265,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1644,6 +1737,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 220,
@@ -1655,6 +1749,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 220,
@@ -1675,6 +1770,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 295,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 35,
           "isInvestorParticipation": false,
           "participation": 35,
@@ -1688,6 +1784,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 315,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 20,
           "isInvestorParticipation": false,
           "participation": 20,
@@ -1701,6 +1798,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 325,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1713,6 +1811,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 270,
@@ -1724,6 +1823,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 270,
@@ -1744,6 +1844,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 340,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 40,
           "isInvestorParticipation": false,
           "participation": 40,
@@ -1757,6 +1858,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 360,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 20,
           "isInvestorParticipation": false,
           "participation": 20,
@@ -1770,6 +1872,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 375,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1782,6 +1885,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 315,
@@ -1793,6 +1897,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 315,
@@ -1813,6 +1918,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 405,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 45,
           "isInvestorParticipation": false,
           "participation": 45,
@@ -1826,6 +1932,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 430,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 25,
           "isInvestorParticipation": false,
           "participation": 25,
@@ -1839,6 +1946,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 440,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 10,
           "isInvestorParticipation": false,
           "participation": 10,
@@ -1852,6 +1960,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 445,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1864,6 +1973,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 365,
@@ -1884,6 +1994,7 @@ Object {
       "investment": Array [
         Object {
           "cumulativeInvestment": 455,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 55,
           "isInvestorParticipation": false,
           "participation": 55,
@@ -1897,6 +2008,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 485,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 30,
           "isInvestorParticipation": false,
           "participation": 30,
@@ -1910,6 +2022,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 500,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 10,
           "isInvestorParticipation": false,
           "participation": 10,
@@ -1923,6 +2036,7 @@ Object {
         },
         Object {
           "cumulativeInvestment": 505,
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 5,
           "isInvestorParticipation": false,
           "participation": 5,
@@ -1935,6 +2049,7 @@ Object {
           },
         },
         Object {
+          "defaultParticipationIndex": -1,
           "expectedParticipation": 0,
           "isInvestorParticipation": false,
           "preparation": 410,

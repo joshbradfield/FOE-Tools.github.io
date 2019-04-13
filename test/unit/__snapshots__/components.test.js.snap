@@ -1,11 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components GbInvestment Call "addInvestor" 1`] = `
+Array [
+  Object {
+    "isPotentialSniper": true,
+    "value": 1,
+  },
+]
+`;
+
+exports[`Components GbInvestment Call "addInvestor" with big value 1`] = `
+Array [
+  Object {
+    "isPotentialSniper": true,
+    "value": 326,
+  },
+]
+`;
+
 exports[`Components GbInvestment Call "calculate" with maxInvestment < 0 1`] = `
 Object {
   "cost": 1210,
   "investment": Array [
     Object {
       "cumulativeInvestment": 1110,
+      "defaultParticipationIndex": 0,
       "expectedParticipation": 238,
       "isInvestorParticipation": true,
       "participation": 500,
@@ -18,11 +37,12 @@ Object {
       },
     },
     Object {
-      "cumulativeInvestment": 1110,
+      "cumulativeInvestment": 1120,
+      "defaultParticipationIndex": 1,
       "expectedParticipation": 124,
       "isInvestorParticipation": true,
       "participation": 100,
-      "preparation": 500,
+      "preparation": 510,
       "reward": 65,
       "roi": 24,
       "snipe": Object {
@@ -31,11 +51,12 @@ Object {
       },
     },
     Object {
-      "cumulativeInvestment": 1172,
+      "cumulativeInvestment": 1182,
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 38,
       "isInvestorParticipation": false,
       "participation": 38,
-      "preparation": 524,
+      "preparation": 534,
       "reward": 20,
       "roi": 0,
       "snipe": Object {
@@ -45,6 +66,7 @@ Object {
     },
     Object {
       "cumulativeInvestment": 1200,
+      "defaultParticipationIndex": 2,
       "expectedParticipation": 10,
       "isInvestorParticipation": true,
       "participation": 10,
@@ -57,6 +79,7 @@ Object {
       },
     },
     Object {
+      "defaultParticipationIndex": -1,
       "expectedParticipation": 0,
       "isInvestorParticipation": false,
       "preparation": 562,
@@ -71,5 +94,196 @@ Object {
   "level": 10,
   "otherInvestment": Array [],
   "totalPreparations": 562,
+}
+`;
+
+exports[`Components GbInvestment Call "changePlaceFree" with invalid data 1`] = `
+Array [
+  Object {
+    "active": false,
+    "message": "Observatory P2(67) P3(19) P4(10)",
+  },
+  Object {
+    "active": false,
+    "message": "P2(67) P3(19) P4(10) Observatory",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory P4(10) P3(19) P2(67)",
+  },
+  Object {
+    "active": false,
+    "message": "P4(10) P3(19) P2(67) Observatory",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 2 3 4",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 4 3 2",
+  },
+]
+`;
+
+exports[`Components GbInvestment Call "removeInvestor" with invalid index 1`] = `
+Array [
+  Object {
+    "isPotentialSniper": true,
+    "value": 326,
+  },
+  Object {
+    "isPotentialSniper": true,
+    "value": 5,
+  },
+]
+`;
+
+exports[`Components GbInvestment Call "removeInvestor" with invalid index 2`] = `
+Array [
+  Object {
+    "isPotentialSniper": true,
+    "value": 326,
+  },
+  Object {
+    "isPotentialSniper": true,
+    "value": 5,
+  },
+]
+`;
+
+exports[`Components GbInvestment Change "lang" value 1`] = `
+Array [
+  Object {
+    "active": false,
+    "message": "Observatoire P1(124) P2(67) P3(19) P4(10)",
+  },
+  Object {
+    "active": false,
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatoire",
+  },
+  Object {
+    "active": false,
+    "message": "Observatoire P4(10) P3(19) P2(67) P1(124)",
+  },
+  Object {
+    "active": false,
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatoire",
+  },
+  Object {
+    "active": false,
+    "message": "Observatoire 1 2 3 4",
+  },
+  Object {
+    "active": false,
+    "message": "Observatoire 4 3 2 1",
+  },
+]
+`;
+
+exports[`Components GbInvestment Change "result" value 1`] = `
+Object {
+  "promotion": Array [
+    Object {
+      "active": false,
+      "message": "Observatory P1(124) P2(67) P3(19) P4(10)",
+    },
+    Object {
+      "active": false,
+      "message": "P1(124) P2(67) P3(19) P4(10) Observatory",
+    },
+    Object {
+      "active": false,
+      "message": "Observatory P4(10) P3(19) P2(67) P1(124)",
+    },
+    Object {
+      "active": false,
+      "message": "P4(10) P3(19) P2(67) P1(124) Observatory",
+    },
+    Object {
+      "active": false,
+      "message": "Observatory 1 2 3 4",
+    },
+    Object {
+      "active": false,
+      "message": "Observatory 4 3 2 1",
+    },
+  ],
+  "result": Object {
+    "cost": 650,
+    "investment": Array [
+      Object {
+        "cumulativeInvestment": 526,
+        "defaultParticipationIndex": -1,
+        "expectedParticipation": 124,
+        "isInvestorParticipation": false,
+        "participation": 124,
+        "preparation": 402,
+        "reward": 65,
+        "roi": 0,
+        "snipe": Object {
+          "fp": 325,
+          "roi": -201,
+        },
+      },
+      Object {
+        "cumulativeInvestment": 593,
+        "defaultParticipationIndex": -1,
+        "expectedParticipation": 67,
+        "isInvestorParticipation": false,
+        "participation": 67,
+        "preparation": 402,
+        "reward": 35,
+        "roi": 0,
+        "snipe": Object {
+          "fp": 325,
+          "roi": -258,
+        },
+      },
+      Object {
+        "cumulativeInvestment": 631,
+        "defaultParticipationIndex": -1,
+        "expectedParticipation": 19,
+        "isInvestorParticipation": false,
+        "participation": 19,
+        "preparation": 421,
+        "reward": 10,
+        "roi": 0,
+        "snipe": Object {
+          "fp": 325,
+          "roi": -306,
+        },
+      },
+      Object {
+        "cumulativeInvestment": 641,
+        "defaultParticipationIndex": -1,
+        "expectedParticipation": 10,
+        "isInvestorParticipation": false,
+        "participation": 10,
+        "preparation": 421,
+        "reward": 5,
+        "roi": 0,
+        "snipe": Object {
+          "fp": 325,
+          "roi": -315,
+        },
+      },
+      Object {
+        "defaultParticipationIndex": -1,
+        "expectedParticipation": 0,
+        "isInvestorParticipation": false,
+        "preparation": 430,
+        "reward": 0,
+        "roi": 0,
+        "snipe": Object {
+          "fp": 0,
+          "roi": 0,
+        },
+      },
+    ],
+    "level": 10,
+    "otherInvestment": Array [],
+    "totalPreparations": 430,
+  },
 }
 `;

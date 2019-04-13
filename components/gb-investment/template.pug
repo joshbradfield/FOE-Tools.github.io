@@ -52,8 +52,8 @@ div.content
     div.column.is-half(v-if="investorParticipation.length > 0")
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.investors_list')")
       b-field(grouped group-multiline)
-        div.control(v-for="(value,index) in investorParticipation")
-          b-tag(:type="isNaN(value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{value}}
+        div.control(v-for="(investor,index) in investorParticipation")
+          b-tag(:type="isNaN(investor.value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
 
   div.table-wrapper(v-if="result !== null")
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth(:class="displayTableCard ? 'is-hidden-touch' : ''")
@@ -73,6 +73,7 @@ div.content
           th(v-if="investorParticipationNormalizedSum") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
           th(v-show="showSnipe") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
+          th(v-show="investorParticipationNormalizedSum") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
           th(width="100px") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
       tbody
         tr(v-for="(place, i) in result.investment")
@@ -145,6 +146,10 @@ div.content
           td
             b-field(:type="haveError('investorPercentageCustom_' + i)")
               b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[i]" :name="'investorPercentageCustom_' + i" autocomplete="off")
+          // Potential sniper switch
+          td(v-show="investorParticipation.length > 0")
+            template(v-if="place.defaultParticipationIndex >= 0")
+              b-switch(:value="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)") {{investorParticipation[place.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
           // Place free
           td
             b-switch(:value="placeFree[i].state" type="is-info" @input="changePlaceFree(i, $event)") {{placeFree[i].state ? $t('utils.Yes') : $t('utils.No')}}
@@ -263,6 +268,12 @@ div.content
               td
                 b-field(:type="haveError('investorPercentageCustom_' + index)")
                   b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[index]" :name="'investorPercentageCustom_' + index" autocomplete="off")
+            // Potential sniper switch
+            tr(v-show="investorParticipation.length > 0")
+              template(v-if="props.defaultParticipationIndex >= 0")
+                th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
+                td
+                  b-switch(:value="investorParticipation[props.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(props.defaultParticipationIndex, $event)") {{investorParticipation[props.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
             // Place free
             tr.last-in-card(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th6') }}

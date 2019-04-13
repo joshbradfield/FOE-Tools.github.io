@@ -99,7 +99,8 @@
               "fp_already_putin": "Number of FP already in",
               "spot_snipe": "Spot/Snipe",
               "expected_participation": "FP obtained with the % bonus expected by the owner",
-              "real_participation": "FP obtained with the % bonus % of your Arc"
+              "real_participation": "FP obtained with the % bonus % of your Arc",
+              "is_sniper": "Is a potential sniper ?"
             },
             "tbody": {
               "tooltip_owner_investment": "FPs remaining to be put by the owner to secure the place",

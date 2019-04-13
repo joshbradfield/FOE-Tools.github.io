@@ -21,14 +21,18 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with extra investors (2 snip for P1 and P2)", () => {
-      const extraInvestors = [1069, 537];
+      const extraInvestors = [{ value: 1069, isPotentialSniper: false }, { value: 537, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(42, [90, 90, 90, 90, 90], gbs.agesCost.TheFuture, extraInvestors);
 
       expect(result).toMatchSnapshot();
     });
 
     test("Valid value with extra investors", () => {
-      const extraInvestors = [1, 75, 1];
+      const extraInvestors = [
+        { value: 1, isPotentialSniper: false },
+        { value: 75, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false }
+      ];
       const result = GbProcess.ComputeLevelInvestment(
         56,
         [90, 90, 90, 90, 90],
@@ -40,7 +44,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with investor that secure place", () => {
-      const extraInvestors = [500];
+      const extraInvestors = [{ value: 500, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(
         18,
         [90, 90, 90, 90, 90],
@@ -52,7 +56,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with investor that secure place with P1 780 instead of 181 and P3 10 instead of 29", () => {
-      const extraInvestors = [780, 10];
+      const extraInvestors = [{ value: 780, isPotentialSniper: false }, { value: 10, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(
         10,
         [90, 90, 90, 90, 90],
@@ -66,7 +70,11 @@ describe("FoeGbInvestment", () => {
       "Valid value for PostmodernEra 20 -> 21 with owner preparation (276) and investors: P1 447, " +
         "P2 228 and P4 63 instead of 19",
       () => {
-        const extraInvestors = [447, 228, 63];
+        const extraInvestors = [
+          { value: 447, isPotentialSniper: false },
+          { value: 228, isPotentialSniper: false },
+          { value: 63, isPotentialSniper: false }
+        ];
         const result = GbProcess.ComputeLevelInvestment(
           21,
           [90, 90, 90, 90, 90],
@@ -79,7 +87,7 @@ describe("FoeGbInvestment", () => {
     );
 
     test("Valid value with owner that secure place and snipe on P1", () => {
-      const extraInvestors = [549];
+      const extraInvestors = [{ value: 549, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(
         24,
         [90, 90, 90, 90, 90],
@@ -93,7 +101,15 @@ describe("FoeGbInvestment", () => {
 
     test("Valid value with many investors", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
-      const extraInvestors = [deepCopy[0].cost - 7, 2, 1, 1, 1, 1, 1];
+      const extraInvestors = [
+        { value: deepCopy[0].cost - 7, isPotentialSniper: false },
+        { value: 2, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false }
+      ];
       const result = GbProcess.ComputeLevelInvestment(
         1,
         [90, 90, 90, 90, 90],
@@ -106,7 +122,15 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with Cap 9 -> 10, extra investors", () => {
-      const extraInvestors = [170, 95, 70, 2, 1, 1, 1];
+      const extraInvestors = [
+        { value: 170, isPotentialSniper: false },
+        { value: 95, isPotentialSniper: false },
+        { value: 70, isPotentialSniper: false },
+        { value: 2, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false },
+        { value: 1, isPotentialSniper: false }
+      ];
       const result = GbProcess.ComputeLevelInvestment(
         10,
         [90, 90, 90, 90, 90],
@@ -132,7 +156,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with Arc 36 -> 37, with one investor", () => {
-      const extraInvestors = [972];
+      const extraInvestors = [{ value: 972, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(
         37,
         [80, 80, 80, 80, 80],
@@ -146,7 +170,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with Château Frontenac level 85 → 86, with two investor at 100 PFs", () => {
-      const extraInvestors = [100, 100];
+      const extraInvestors = [{ value: 100, isPotentialSniper: false }, { value: 100, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(
         86,
         [80, 80, 80, 80, 80],
@@ -288,7 +312,13 @@ describe("FoeGbInvestment", () => {
 
     test("Throw error when sum of investment > level cost", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
-      expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [deepCopy[9].cost, 1, 1])).toThrow(
+      expect(() =>
+        GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [
+          { value: deepCopy[9].cost, isPotentialSniper: false },
+          { value: 1, isPotentialSniper: false },
+          { value: 1, isPotentialSniper: false }
+        ])
+      ).toThrow(
         new Errors.BoundExceededError({
           type: Errors.AvailableBoundTypes[">"],
           value: deepCopy[9].cost + 2,
@@ -300,7 +330,15 @@ describe("FoeGbInvestment", () => {
 
     test("Throw error when participationSum + ownerPreparation > level cost", () => {
       const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
-      expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [deepCopy[9].cost], 2)).toThrow(
+      expect(() =>
+        GbProcess.ComputeLevelInvestment(
+          10,
+          [0, 0, 0, 0, 0],
+          deepCopy,
+          [{ value: deepCopy[9].cost, isPotentialSniper: false }],
+          2
+        )
+      ).toThrow(
         new Errors.BoundExceededError({
           type: Errors.AvailableBoundTypes[">"],
           value: "participationSum + ownerPreparation",
