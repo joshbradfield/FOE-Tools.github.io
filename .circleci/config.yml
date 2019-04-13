@@ -56,21 +56,6 @@ jobs:
       - restore_cache:
           key: lock-{{ checksum "yarn.lock" }}
 
-      # Install dependencies
-      - run:
-          name: Install greenkeeper-lockfile
-          command: 'sudo yarn global add greenkeeper-lockfile@1'
-
-      # Update lockfile
-      - run:
-          name: greenkeeper-lockfile-update
-          command: 'greenkeeper-lockfile-update'
-
-      # Upload lockfile
-      - run:
-          name: greenkeeper-lockfile-upload
-          command: 'greenkeeper-lockfile-upload'
-
       # Save cache
       - save_cache:
           key: lock-{{ checksum "yarn.lock" }}
