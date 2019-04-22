@@ -412,9 +412,7 @@ const sitemap =
   process.env.DEPLOY_ENV === "GH_PAGES"
     ? {
         sitemap: {
-          path: "/sitemap.xml",
           hostname,
-          generate: true,
           routes: generateSitemapRoutes(hostname, supportedLocales, defaultRoutes)
         }
       }
