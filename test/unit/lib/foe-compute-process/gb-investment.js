@@ -1,4 +1,4 @@
-import gbs from "../../../../lib/foe-data/gbs";
+import { agesCost, gbsData } from "../../../../lib/foe-data/gbs";
 import GbProcess from "../../../../lib/foe-compute-process/gb-investment";
 import * as Errors from "../../../../scripts/errors";
 
@@ -9,20 +9,20 @@ describe("FoeGbInvestment", () => {
       "yourArcBonus, fpTargetReward)";
 
     test("Valid value", () => {
-      const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge);
+      const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], agesCost.BronzeAge);
 
       expect(result).toMatchSnapshot();
     });
 
     test("Valid value with empty investor array", () => {
-      const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, []);
+      const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], agesCost.BronzeAge, []);
 
       expect(result).toMatchSnapshot();
     });
 
     test("Valid value with extra investors (2 snip for P1 and P2)", () => {
       const extraInvestors = [{ value: 1069, isPotentialSniper: false }, { value: 537, isPotentialSniper: false }];
-      const result = GbProcess.ComputeLevelInvestment(42, [90, 90, 90, 90, 90], gbs.agesCost.TheFuture, extraInvestors);
+      const result = GbProcess.ComputeLevelInvestment(42, [90, 90, 90, 90, 90], agesCost.TheFuture, extraInvestors);
 
       expect(result).toMatchSnapshot();
     });
@@ -33,36 +33,21 @@ describe("FoeGbInvestment", () => {
         { value: 75, isPotentialSniper: false },
         { value: 1, isPotentialSniper: false }
       ];
-      const result = GbProcess.ComputeLevelInvestment(
-        56,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
-        extraInvestors
-      );
+      const result = GbProcess.ComputeLevelInvestment(56, [90, 90, 90, 90, 90], agesCost.PostmodernEra, extraInvestors);
 
       expect(result).toMatchSnapshot();
     });
 
     test("Valid value with investor that secure place", () => {
       const extraInvestors = [{ value: 500, isPotentialSniper: false }];
-      const result = GbProcess.ComputeLevelInvestment(
-        18,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
-        extraInvestors
-      );
+      const result = GbProcess.ComputeLevelInvestment(18, [90, 90, 90, 90, 90], agesCost.PostmodernEra, extraInvestors);
 
       expect(result).toMatchSnapshot();
     });
 
     test("Valid value with investor that secure place with P1 780 instead of 181 and P3 10 instead of 29", () => {
       const extraInvestors = [{ value: 780, isPotentialSniper: false }, { value: 10, isPotentialSniper: false }];
-      const result = GbProcess.ComputeLevelInvestment(
-        10,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
-        extraInvestors
-      );
+      const result = GbProcess.ComputeLevelInvestment(10, [90, 90, 90, 90, 90], agesCost.PostmodernEra, extraInvestors);
       expect(result).toMatchSnapshot();
     });
 
@@ -78,7 +63,7 @@ describe("FoeGbInvestment", () => {
         const result = GbProcess.ComputeLevelInvestment(
           21,
           [90, 90, 90, 90, 90],
-          gbs.agesCost.PostmodernEra,
+          agesCost.PostmodernEra,
           extraInvestors,
           276
         );
@@ -91,7 +76,7 @@ describe("FoeGbInvestment", () => {
       const result = GbProcess.ComputeLevelInvestment(
         24,
         [90, 90, 90, 90, 90],
-        gbs.agesCost.TheFuture,
+        agesCost.TheFuture,
         extraInvestors,
         273
       );
@@ -100,7 +85,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with many investors", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       const extraInvestors = [
         { value: deepCopy[0].cost - 7, isPotentialSniper: false },
         { value: 2, isPotentialSniper: false },
@@ -110,13 +95,7 @@ describe("FoeGbInvestment", () => {
         { value: 1, isPotentialSniper: false },
         { value: 1, isPotentialSniper: false }
       ];
-      const result = GbProcess.ComputeLevelInvestment(
-        1,
-        [90, 90, 90, 90, 90],
-        gbs.agesCost.TheFuture,
-        extraInvestors,
-        0
-      );
+      const result = GbProcess.ComputeLevelInvestment(1, [90, 90, 90, 90, 90], agesCost.TheFuture, extraInvestors, 0);
 
       expect(result).toMatchSnapshot();
     });
@@ -134,7 +113,7 @@ describe("FoeGbInvestment", () => {
       const result = GbProcess.ComputeLevelInvestment(
         10,
         [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
+        agesCost.PostmodernEra,
         extraInvestors,
         0
       );
@@ -147,7 +126,7 @@ describe("FoeGbInvestment", () => {
       const result = GbProcess.ComputeLevelInvestment(
         27,
         [90, 90, 90, 90, 90],
-        gbs.agesCost.PostmodernEra,
+        agesCost.PostmodernEra,
         extraInvestors,
         77
       );
@@ -160,7 +139,7 @@ describe("FoeGbInvestment", () => {
       const result = GbProcess.ComputeLevelInvestment(
         37,
         [80, 80, 80, 80, 80],
-        gbs.agesCost.TheFuture,
+        agesCost.TheFuture,
         extraInvestors,
         0,
         90
@@ -174,7 +153,7 @@ describe("FoeGbInvestment", () => {
       const result = GbProcess.ComputeLevelInvestment(
         86,
         [80, 80, 80, 80, 80],
-        gbs.agesCost.ProgressiveEra,
+        agesCost.ProgressiveEra,
         extraInvestors,
         600,
         90
@@ -183,8 +162,30 @@ describe("FoeGbInvestment", () => {
       expect(result).toMatchSnapshot();
     });
 
+    test(
+      "Valid value with Cap level 32 → 33, with four investors, 1st at 779 PFs, 2nd at 390 PFs, " +
+        "4th at 57 PFs, 6th at 1 PF",
+      () => {
+        const extraInvestors = [
+          { value: 779, isPotentialSniper: false },
+          { value: 390, isPotentialSniper: false },
+          { value: 57, isPotentialSniper: true },
+          { value: 1, isPotentialSniper: true }
+        ];
+        const result = GbProcess.ComputeLevelInvestment(
+          33,
+          [90, 90, 90, 90, 90],
+          gbsData.Cape_Canaveral.levels,
+          extraInvestors,
+          103
+        );
+
+        expect(result).toMatchSnapshot();
+      }
+    );
+
     test("Throw error when invalid type for currentLevel", () => {
-      expect(() => GbProcess.ComputeLevelInvestment("a", [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, [])).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestment("a", [0, 0, 0, 0, 0], agesCost.BronzeAge, [])).toThrow(
         new Errors.InvalidTypeError({
           expected: "number",
           actual: {
@@ -197,18 +198,18 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid value for currentLevel", () => {
-      expect(() => GbProcess.ComputeLevelInvestment(0, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, [])).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestment(0, [0, 0, 0, 0, 0], agesCost.BronzeAge, [])).toThrow(
         new Errors.NotInBoundsError({
           value: 0,
           lowerBound: 1,
-          upperBound: gbs.agesCost.BronzeAge.length,
+          upperBound: agesCost.BronzeAge.length,
           additionalMessage: `for parameter "currentLevel" of ${funcName}`
         })
       );
     });
 
     test("Throw error when invalid type for investorPercentage", () => {
-      expect(() => GbProcess.ComputeLevelInvestment(10, "a", gbs.agesCost.BronzeAge, [])).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestment(10, "a", agesCost.BronzeAge, [])).toThrow(
         new Errors.InvalidTypeError({
           expected: "Array",
           actual: "string",
@@ -228,7 +229,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid type for defaultParticipation", () => {
-      expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge, "a")).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], agesCost.BronzeAge, "a")).toThrow(
         new Errors.InvalidTypeError({
           expected: "Array",
           actual: "string",
@@ -238,7 +239,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when key gb[3].cost are not found", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       delete deepCopy[3].cost;
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
         new Errors.KeyNotFoundError({
@@ -250,7 +251,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when key gb[3].reward are not found", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       delete deepCopy[3].reward;
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
         new Errors.KeyNotFoundError({
@@ -262,7 +263,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid type for gb[3]", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       deepCopy[3].cost = "a";
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
         new Errors.InvalidTypeError({
@@ -274,7 +275,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid value for gb[3]", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       deepCopy[3].cost = -1;
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
         new Errors.BoundExceededError({
@@ -287,7 +288,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid type for gb[3].reward", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       deepCopy[3].reward = "a";
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
         new Errors.InvalidTypeError({
@@ -299,7 +300,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid type for gb[3].reward[1]", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       deepCopy[3].reward[1] = "a";
       expect(() => GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [])).toThrow(
         new Errors.InvalidTypeError({
@@ -311,7 +312,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when sum of investment > level cost", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       expect(() =>
         GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], deepCopy, [
           { value: deepCopy[9].cost, isPotentialSniper: false },
@@ -329,7 +330,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when participationSum + ownerPreparation > level cost", () => {
-      const deepCopy = JSON.parse(JSON.stringify(gbs.agesCost.BronzeAge));
+      const deepCopy = JSON.parse(JSON.stringify(agesCost.BronzeAge));
       expect(() =>
         GbProcess.ComputeLevelInvestment(
           10,
@@ -353,34 +354,34 @@ describe("FoeGbInvestment", () => {
     const funcName = "ComputeLevelInvestmentRange(from, to, investorPercentage, gb)";
 
     test("Valid value", () => {
-      const result = GbProcess.ComputeLevelInvestmentRange(1, 10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge);
+      const result = GbProcess.ComputeLevelInvestmentRange(1, 10, [0, 0, 0, 0, 0], agesCost.BronzeAge);
 
       expect(result).toMatchSnapshot();
     });
 
     test("Valid value with from > to", () => {
-      const result = GbProcess.ComputeLevelInvestmentRange(10, 1, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge);
+      const result = GbProcess.ComputeLevelInvestmentRange(10, 1, [0, 0, 0, 0, 0], agesCost.BronzeAge);
 
       expect(result).toBeTruthy();
     });
 
     test("Throw error when invalid value for from", () => {
-      expect(() => GbProcess.ComputeLevelInvestmentRange(0, 10, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge)).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestmentRange(0, 10, [0, 0, 0, 0, 0], agesCost.BronzeAge)).toThrow(
         new Errors.NotInBoundsError({
           value: 0,
           lowerBound: 1,
-          upperBound: gbs.agesCost.BronzeAge.length,
+          upperBound: agesCost.BronzeAge.length,
           additionalMessage: `for parameter "from" of ${funcName}`
         })
       );
     });
 
     test("Throw error when invalid value for to", () => {
-      expect(() => GbProcess.ComputeLevelInvestmentRange(1, 0, [0, 0, 0, 0, 0], gbs.agesCost.BronzeAge)).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestmentRange(1, 0, [0, 0, 0, 0, 0], agesCost.BronzeAge)).toThrow(
         new Errors.NotInBoundsError({
           value: 0,
           lowerBound: 1,
-          upperBound: gbs.agesCost.BronzeAge.length,
+          upperBound: agesCost.BronzeAge.length,
           additionalMessage: `for parameter "to" of ${funcName}`
         })
       );
@@ -397,7 +398,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Throw error when invalid type for investorPercentage", () => {
-      expect(() => GbProcess.ComputeLevelInvestmentRange(1, 10, "a", gbs.agesCost.BronzeAge)).toThrow(
+      expect(() => GbProcess.ComputeLevelInvestmentRange(1, 10, "a", agesCost.BronzeAge)).toThrow(
         new Errors.InvalidTypeError({
           expected: "Array",
           actual: "string",

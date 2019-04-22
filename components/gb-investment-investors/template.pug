@@ -103,9 +103,9 @@ div.content
               p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
 
       tbody
-        tr(v-for="(line, index) in result.slice(from - 1, to)")
+        tr(v-for="(line, lineIndex) in result.slice(from - 1, to)")
           td.has-text-right
-            p {{$formatNumber(index + from - 1)}} → {{$formatNumber(index + from)}}
+            p {{$formatNumber(lineIndex + from - 1)}} → {{$formatNumber(lineIndex + from)}}
           td.has-text-right
             p {{$formatNumber(line.cost)}}
 
@@ -119,7 +119,7 @@ div.content
               p(v-else) {{$formatNumber(line.investment[index].reward) + " (" + $formatNumber(line.investment[index].participation) + ")" }}
             td.has-text-right(v-show="showPlace[index]")
               p(v-if="takingPlaceInConsideration === 2") {{$formatNumber(line.investment[index].participation) + " ("}}
-                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[0].preparation)}}
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$formatNumber(line.investment[index].preparation)}}
                 | )
               p(v-else) {{$formatNumber(line.investment[index].fp)}}
             td.has-text-right(v-show="showPlace[index]")

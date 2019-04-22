@@ -626,6 +626,99 @@ Object {
 }
 `;
 
+exports[`Lib FOE Compute Process FoeGbInvestment ComputeLevelInvestment Valid value with Cap level 32 → 33, with four investors, 1st at 779 PFs, 2nd at 390 PFs, 4th at 57 PFs, 6th at 1 PF 1`] = `
+Object {
+  "cost": 1553,
+  "investment": Array [
+    Object {
+      "cumulativeInvestment": 1330,
+      "defaultParticipationIndex": 0,
+      "expectedParticipation": 779,
+      "isInvestorParticipation": true,
+      "participation": 779,
+      "preparation": 103,
+      "reward": 410,
+      "roi": 0,
+      "snipe": Object {
+        "fp": -1,
+        "roi": 0,
+      },
+    },
+    Object {
+      "cumulativeInvestment": 1330,
+      "defaultParticipationIndex": 1,
+      "expectedParticipation": 390,
+      "isInvestorParticipation": true,
+      "participation": 390,
+      "preparation": 103,
+      "reward": 205,
+      "roi": 0,
+      "snipe": Object {
+        "fp": -1,
+        "roi": 0,
+      },
+    },
+    Object {
+      "cumulativeInvestment": 1477,
+      "defaultParticipationIndex": -1,
+      "expectedParticipation": 133,
+      "isInvestorParticipation": false,
+      "participation": 133,
+      "preparation": 117,
+      "reward": 70,
+      "roi": 0,
+      "snipe": Object {
+        "fp": 112,
+        "roi": -42,
+      },
+    },
+    Object {
+      "cumulativeInvestment": 1497,
+      "defaultParticipationIndex": 2,
+      "expectedParticipation": 38,
+      "isInvestorParticipation": true,
+      "participation": 57,
+      "preparation": 137,
+      "reward": 20,
+      "roi": -19,
+      "snipe": Object {
+        "fp": 140,
+        "roi": -120,
+      },
+    },
+    Object {
+      "cumulativeInvestment": 1544,
+      "defaultParticipationIndex": -1,
+      "expectedParticipation": 10,
+      "isInvestorParticipation": false,
+      "participation": 10,
+      "preparation": 174,
+      "reward": 5,
+      "roi": 0,
+      "snipe": Object {
+        "fp": 112,
+        "roi": -107,
+      },
+    },
+  ],
+  "level": 33,
+  "otherInvestment": Array [
+    Object {
+      "expectedParticipation": 0,
+      "isInvestorParticipation": true,
+      "participation": 1,
+      "preparation": 0,
+      "reward": 0,
+      "snipe": Object {
+        "fp": 0,
+        "roi": 0,
+      },
+    },
+  ],
+  "totalPreparations": 183,
+}
+`;
+
 exports[`Lib FOE Compute Process FoeGbInvestment ComputeLevelInvestment Valid value with Château Frontenac level 85 → 86, with two investor at 100 PFs 1`] = `
 Object {
   "cost": 5422,
