@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.34.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.33.0...v2.34.0) (2019-04-22)
+
+
+### Bug Fixes
+
+* **gb-investment:** fix the bad estimation of secure place ([23add24](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/23add24))
+* **gb-investment-investors:** show right preparation ([6d05a84](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6d05a84))
+
+
+### Features
+
+* **secure-position:** improve ui to better view ([5caa729](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5caa729))
+
+
+
 # [2.33.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.32.1...v2.33.0) (2019-04-14)
 
 
