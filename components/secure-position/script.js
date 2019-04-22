@@ -63,6 +63,13 @@ export default {
       fpTargetReward: 0,
       roi: 0,
       formValid: false,
+      variousRate: [
+        { rate: 90, displayRate: 1.9, result: null },
+        { rate: 85, displayRate: 1.85, result: null },
+        { rate: 80, displayRate: 1.8, result: null },
+        { rate: 75, displayRate: 1.75, result: null },
+        { rate: 70, displayRate: 1.7, result: null }
+      ],
       errors: {
         levelCost: false,
         currentDeposits: false,
@@ -310,6 +317,15 @@ export default {
 
         this.$data.fp = result.fp;
         this.$data.roi = result.roi;
+
+        for (let i = 0; i < this.$data.variousRate.length; i++) {
+          this.$data.variousRate[i].result = {
+            fp: Math.round(
+              this.$data.variousRate[i].displayRate * Utils.normalizeNumberValue(this.$data.fpTargetReward)
+            )
+          };
+          this.$data.variousRate[i].result.roi = this.$data.variousRate[i].result.fp - this.$data.fp;
+        }
       }
     },
 
