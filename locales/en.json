@@ -210,6 +210,7 @@
           "target_reward": "Targeted place",
           "place": "{{place}} ({{count, number}} FP)",
           "place_plural": "{{place}} ({{count, number}} FPs)",
+          "various_rate": "Various rates",
           "result": {
             "error": "One or more values are not valid.",
             "already_blocked": "Your place is blocked.",
@@ -220,14 +221,7 @@
             "still_to_put": "Number of FPs you still need to put in",
             "fp_to_secure_html": "You still have to put {{count}} FP.",
             "fp_to_secure_html_plural": "You still have to put {{count, number}} FPs.",
-            "cant_block": "You can not block the place.",
-            "roi": {
-              "profit": "Your gain will be {{count}} FP",
-              "profit_plural": "Your gain will be {{count, number}} FPs",
-              "loss": "Your loss will be {{count}} FP",
-              "loss_plural": "Your loss will be {{count, number}} FPs",
-              "neutral": "You will not have a return on investment"
-            }
+            "cant_block": "You can not block the place."
           },
           "unknown": "unknown"
         }

@@ -214,6 +214,7 @@
           "target_reward": "Place visée",
           "place": "{{place}} ({{count, number}} PF)",
           "place_plural": "{{place}} ({{count, number}} PFs)",
+          "various_rate": "Autres bonus",
           "result": {
             "error": "Une ou plusieurs valeurs ne sont pas valide.",
             "already_blocked": "Votre place est bloquée.",
@@ -221,14 +222,7 @@
             "default_plural": "Vous devez avoir mis au total {{count, number}} PFs pour bloquer la place.",
             "fp_to_secure_html": "Vous devez encore mettre {{count}} PF.",
             "fp_to_secure_html_plural": "Vous devez encore mettre {{count, number}} PFs.",
-            "cant_block": "Vous ne pouvez pas bloquer la place.",
-            "roi": {
-              "profit": "Vous allez gagner {{count}} PF",
-              "profit_plural": "Vous allez gagner {{count, number}} PFs",
-              "loss": "Vous allez perdre {{count}} PF",
-              "loss_plural": "Vous allez perdre {{count, number}} PFs",
-              "neutral": "Vous n'allez pas avoir de retour sur investissement"
-            }
+            "cant_block": "Vous ne pouvez pas bloquer la place."
           },
           "unknown": "inconnu"
         }
