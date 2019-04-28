@@ -155,6 +155,10 @@ export default {
         VirtualFuture: {
           name: this.$t("foe_data.age.VirtualFuture"),
           color: "rgb(85,271,39)"
+        },
+        SpaceAgeMars: {
+          name: this.$t("foe_data.age.SpaceAgeMars"),
+          color: "rgb(187,19,0)"
         }
       },
       statSelector: "cost_level",
@@ -321,6 +325,10 @@ export default {
           VirtualFuture: {
             name: this.$t("foe_data.age.VirtualFuture"),
             color: "rgb(85,271,39)"
+          },
+          SpaceAgeMars: {
+            name: this.$t("foe_data.age.SpaceAgeMars"),
+            color: "rgb(187,19,0)"
           }
         }
       });

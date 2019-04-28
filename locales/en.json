@@ -487,7 +487,8 @@
         "TheFuture": "The Future",
         "ArcticFuture": "Arctic Future",
         "OceanicFuture": "Oceanic Future",
-        "VirtualFuture": "Virtual Future"
+        "VirtualFuture": "Virtual Future",
+        "SpaceAgeMars": "Space Age: Mars"
       },
       "age_short": {
         "NoAge": "NA",
@@ -506,7 +507,8 @@
         "TheFuture": "TF",
         "ArcticFuture": "AF",
         "OceanicFuture": "OF",
-        "VirtualFuture": "VF"
+        "VirtualFuture": "VF",
+        "SpaceAgeMars": "SAM"
       },
       "gb": {
         "Observatory": "Observatory",
@@ -545,7 +547,8 @@
         "The_Kraken": "The Kraken",
         "The_Blue_Galaxy": "The Blue Galaxy",
         "Terracotta_Army": "Terracotta Army",
-        "Himeji_Castle": "Himeji Castle"
+        "Himeji_Castle": "Himeji Castle",
+        "The_Virgo_Project": "The Virgo Project"
       },
       "gb_short": {
         "Observatory": "Obs",
@@ -584,7 +587,8 @@
         "The_Kraken": "Kraken",
         "The_Blue_Galaxy": "BG",
         "Terracotta_Army": "TA",
-        "Himeji_Castle": "HC"
+        "Himeji_Castle": "HC",
+        "The_Virgo_Project": "TVP"
       },
       "goods": {
         "dye": "Dye",
