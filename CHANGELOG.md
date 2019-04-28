@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.35.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.34.0...v2.35.0) (2019-04-28)
+
+
+### Features
+
+* **foe-data:** :package: Add levels of several ages ([0c4527b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0c4527b))
+* add survey system ([b0395d9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b0395d9))
+
+
+
 # [2.34.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.33.0...v2.34.0) (2019-04-22)
 
 
