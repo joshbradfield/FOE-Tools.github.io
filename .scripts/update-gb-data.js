@@ -22,7 +22,8 @@ const ages = [
   "TheFuture",
   "ArcticFuture",
   "OceanicFuture",
-  "VirtualFuture"
+  "VirtualFuture",
+  "SpaceAgeMars"
 ];
 
 const promises = [];
