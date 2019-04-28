@@ -418,9 +418,20 @@ const sitemap =
       }
     : {};
 
+const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://ns382954.ip-5-196-72.eu" : "http://localhost:1337";
+
 module.exports = {
   ...routerBase,
   ...sitemap,
+
+  env: {
+    surveyURL: `${apiURL}/surveys`,
+    surveySubmitURL: `${apiURL}/surveyresponses`,
+    sitekey:
+      process.env.DEPLOY_ENV === "GH_PAGES"
+        ? "6Le0qqAUAAAAADcXlFuBa9hfCXfdUi53i85sWzSp"
+        : "6LdzDKAUAAAAAKVUJf-Po_iaYTdnOzjkvusHF6ie"
+  },
 
   loading: {
     color: "#3498db",
@@ -464,7 +475,7 @@ module.exports = {
     }
   },
 
-  modules: ["@nuxtjs/sitemap", "cookie-universal-nuxt", "nuxt-buefy"],
+  modules: ["@nuxtjs/sitemap", "cookie-universal-nuxt", "nuxt-buefy", "@nuxtjs/axios"],
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },
   mode: "spa",
   hooks(hook) {

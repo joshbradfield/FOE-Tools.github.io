@@ -75,6 +75,10 @@
         div.columns.is-centered(v-show="isNewYear")
           div.column.is-three-quarters
             b-notification.newYearNotification 🎉&nbsp;&nbsp;{{$t(i18nPrefix + 'new_year.message', { count: nbYears })}}&nbsp;&nbsp;🍰
+        div.columns.is-centered(v-show="hasSurvey")
+          div.column.is-three-quarters
+            b-notification(type="is-info" :closable="false")
+              nuxt-link(to="/survey") {{$t(i18nPrefix + 'survey.message')}}
         div.columns.is-centered
           div.column.is-11-desktop.is-three-quarters-fullhd.is-three-quarters-widescreen.is-full-tablet
             div(v-if="(['home', 'gb_investment', 'contributors'].indexOf($store.state.currentLocation) >= 0) && !$route.params.gb")

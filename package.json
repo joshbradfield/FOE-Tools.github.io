@@ -89,6 +89,7 @@
     "vue-jest": "^3.0.4"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
     "@panter/vue-i18next": "^0.15.0",
     "all-contributors-cli": "^6.3.1",
     "buefy": "^0.7.4",
@@ -111,6 +112,7 @@
     "remark-emoji": "^2.0.2",
     "remark-html": "^9.0.0",
     "vue-clipboards": "^1.2.4",
+    "vue-invisible-recaptcha": "^0.2.1",
     "vue-router": "^3.0.6"
   }
 }
