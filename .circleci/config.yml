@@ -54,18 +54,18 @@ jobs:
 
       # Restore cache
       - restore_cache:
-          key: lock-{{ checksum "yarn.lock" }}
+          key: lock-{{ checksum "package-lock.json" }}
 
       # Save cache
       - save_cache:
-          key: lock-{{ checksum "yarn.lock" }}
+          key: lock-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
 
       # Install dependencies
       - run:
           name: Install Dependencies
-          command: yarn --frozen-lockfile --non-interactive
+          command: npm ci
 
       # Persist workspace
       - persist_to_workspace:

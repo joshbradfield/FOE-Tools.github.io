@@ -28,6 +28,7 @@ export default {
     };
   },
   data() {
+    this.$store.dispatch("nuxtServerInit");
     this.$store.commit(
       "IS_DARK_THEME",
       this.$cookies.get("dayNightMode") === undefined ? false : this.$cookies.get("dayNightMode") === "night"
@@ -154,6 +155,11 @@ export default {
     },
     nbYears() {
       return this.$moment().year() - this.creationDate.year();
+    },
+    hasSurvey() {
+      return (
+        this.$store.state.currentLocation !== "survey" && this.$store.state.survey && this.$store.state.survey.length
+      );
     }
   },
   watch: {

@@ -102,7 +102,6 @@ export default {
       data.investorParticipation = this.$cookies.get(`${this.$route.params.gb}_investorParticipation`);
       // this "if" is to update previous storage method to prevent app crash
       if (typeof data.investorParticipation[0] === "number") {
-        console.log("old mode");
         let tmp = [];
         for (const value of data.investorParticipation) {
           tmp.push({ value, isPotentialSniper: true });

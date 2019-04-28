@@ -254,6 +254,9 @@
           "message": "$t(common:site_title) celebrates its {{count, number}} year",
           "message_plural": "$t(common:site_title) celebrates its {{count, number}} years"
         },
+        "survey": {
+          "message": "Help us improve $t(common:site_title) by completing this survey"
+        },
         "permalink_info": "You visit a permalink. Consequently, any changes made will not be saved in cookies.",
         "footer": {
           "license_html": "Source code under $t(common:links.mit) license",
@@ -339,7 +342,8 @@
             "displayTableCard": "Indicate whether to show the table in \"$t(routes.gb_investment_gb_chooser.hero.title)\" in simple mode (table) or in card view on small screen",
             "from": "Level where to start the array (used in tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "to": "Level where to end the array (used in tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
-            "showPlace": "An array that contains whether to show a place or not (used in tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\")"
+            "showPlace": "An array that contains whether to show a place or not (used in tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "survey": "A array that contains all the surveys you have already completed"
           }
         },
         "dev_info": {
@@ -445,6 +449,17 @@
         "p1": "Your language is not available, the translation is incomplete or contains errors? Feel free to join the site's translation team.",
         "how_to_join_the_team": "How to join the team ?",
         "p2_html": "$t(common:site_title) is translated by users. We use the $t(common:links.lingohub) platform to facilitate the translation process. To join the team send an email (in English) to $t(common:links.contact_foe_tools) specifying the language(s) into which you can translate so that we can send you an invitation."
+      },
+      "survey": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Survey",
+          "subtitle": "Help to improve $t(common:site_title) by completing this survey"
+        },
+        "required_field": "This field is required",
+        "survey_complete": "Thank you for your feedback !",
+        "error": "An error has occurred, check the form and try again",
+        "unknown_error":  "An unknown error has occurred, please contact the site administrator"
       },
       "error": {
         "404": {
@@ -1131,6 +1146,7 @@
       "Close": "Close",
       "Result": "Result",
       "between_range": "between {{min, number}} and {{max, number}}",
+      "Submit": "Submit",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

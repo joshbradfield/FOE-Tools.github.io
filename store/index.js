@@ -24,7 +24,8 @@ export const state = () => ({
     gb_forecast_cost: { key: "gb_forecast_cost", link: "gb-forecast-cost" },
     trade: { key: "trade", link: "trade" },
     campaign_cost: { key: "campaign_cost", link: "campaign-cost" },
-    help_to_translate_the_site: { key: "help_to_translate_the_site", link: "help-to-translate-the-site" }
+    help_to_translate_the_site: { key: "help_to_translate_the_site", link: "help-to-translate-the-site" },
+    survey: { key: "survey", link: "survey" }
   },
 
   /**
@@ -60,7 +61,12 @@ export const state = () => ({
   /**
    * True for dark theme, false for light theme
    */
-  isDarkTheme: false
+  isDarkTheme: false,
+
+  /**
+   * Contains survey
+   */
+  survey: []
 });
 
 export const mutations = {
@@ -183,6 +189,10 @@ export const mutations = {
    */
   IS_DARK_THEME: (state, value) => {
     Vue.set(state, "isDarkTheme", value);
+  },
+
+  SET_SURVEY: /* istanbul ignore next */ (state, data) => {
+    state.survey = data;
   }
 };
 
@@ -192,5 +202,22 @@ export const getters = {
       return state.urlQuery;
     }
     return Object.assign(JSON.parse(JSON.stringify(state.urlQuery)), state.urlQueryNamespace[ns]);
+  }
+};
+
+export const actions = {
+  nuxtServerInit: /* istanbul ignore next */ async function(elt) {
+    let urlParam = "";
+    if (
+      this.$cookies.get("survey") &&
+      this.$cookies.get("survey") instanceof Array &&
+      this.$cookies.get("survey").length
+    ) {
+      urlParam = "?_id_nin=" + this.$cookies.get("survey").join("&_id_nin=");
+    }
+    const { data } = await this.$axios.get(`${process.env.surveyURL}${urlParam}`);
+    if (data && data instanceof Array) {
+      elt.commit("SET_SURVEY", data);
+    }
   }
 };

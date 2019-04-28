@@ -47,7 +47,8 @@ export default {
         { name: "displayTableCard" },
         { name: "from" },
         { name: "to" },
-        { name: "showPlace" }
+        { name: "showPlace" },
+        { name: "survey" }
       ]
     };
   }

@@ -255,6 +255,9 @@
           "message": "$t(common:site_title) fête ses {{count, number}} an",
           "message_plural": "$t(common:site_title) fête ses {{count, number}} ans"
         },
+        "survey": {
+          "message": "Aidez-nous à améliorer $t(common:site_title) en répondant à ce sondage."
+        },
         "permalink_info": "Vous visitez un lien permanent. De ce fait, toutes modifications effectuées ne seront pas sauvegardées dans des cookies.",
         "footer": {
           "license_html": "Code source sous licence $t(common:links.mit)",
@@ -340,7 +343,8 @@
             "displayTableCard": "Indique s'il faut afficher le tableau dans « $t(routes.gb_investment_gb_chooser.hero.title) » en mode simple (tableau) ou en mode carte sur petit écran",
             "from": "Niveau où commencer le tableau (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
             "to": "Niveau où terminer le tableau (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
-            "showPlace": "Un tableau qui indique pour chaque place si elle doit être affichée ou non (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)"
+            "showPlace": "Un tableau qui indique pour chaque place si elle doit être affichée ou non (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
+            "survey": "Un tableau qui contient tous les sondages auquel vous avez déjà répondu"
           }
         },
         "dev_info": {
@@ -446,6 +450,17 @@
         "p1": "Votre langue n'est pas disponible, la traduction est incomplète ou comporte des erreurs ? N'hésitez pas à rejoindre l'équipe de traduction du site.",
         "how_to_join_the_team": "Comment rejoindre l'équipe ?",
         "p2_html": "$t(common:site_title) est traduit par les utilisateurs. Nous utilisons la plateforme $t(common:links.lingohub) pour faciliter le processus de traduction. Pour rejoindre l'équipe envoyer un mail (en anglais) à $t(common:links.contact_foe_tools) en précisant la ou les langues dans lesquels vous pouvez traduire  pour que nous puissions vous envoyer une invitation."
+      },
+      "survey": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Sondage",
+          "subtitle": "Aider à améliorer $t(common:site_title) en répondant à ce sondage"
+        },
+        "required_field": "Ce champ est obligatoire",
+        "survey_complete": "Merci pour vos réponses !",
+        "error": "Une erreur s'est produite, vérifiez le formulaire et réessayez",
+        "unknown_error":  "Une erreur inconnue c'est produit, veuillez contacter l'administrateur du site"
       },
       "error": {
         "404": {
@@ -1131,6 +1146,7 @@
       "Confirm": "Confirmer",
       "Close": "Fermer",
       "between_range": "entre {{min, number}} et {{max, number}}",
+      "Submit": "Envoyer",
       "moment": {
         "year": "{{count}} an",
         "year_plural": "{{count, number}} ans",

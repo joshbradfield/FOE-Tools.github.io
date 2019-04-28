@@ -1,0 +1,48 @@
+div#surveyContainer
+  b-loading(:is-full-page="false" :active.sync="loading")
+  form(ref="formSurvey")
+    section.margin-top-two-em(v-for="(question, index) of survey")
+      div(v-if="question.type === 'html'" v-html="getSurveyLocal(question.html)")
+
+      template(v-else-if="question.type === 'radiogroup' && checkCondition(question)")
+        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="errors[question.name] ? 'is-danger' : ''" :message="getErrorMessage(question)")
+        b-field(v-for="(elt, eltIndex) in question.choices" :key="question.name + '__' + elt.value")
+          b-radio(v-model="result[question.name]" :native-value="elt.value" :disabled="loading") {{getSurveyLocal(elt.text)}}
+
+      template(v-else-if="question.type === 'checkbox' && checkCondition(question)")
+        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        b-field(v-for="(elt, eltIndex) in question.choices" :key="question.name + '__' + elt.value")
+          b-checkbox(v-model="result[question.name]" :native-value="elt.value" :disabled="loading") {{getSurveyLocal(elt.text)}}
+
+      template(v-else-if="question.type === 'comment' && checkCondition(question)")
+        b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+          b-input(:id="question.name" type="textarea" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading" :maxlength="getConstraint(question, 'maxLength')")
+
+      template(v-else-if="question.type === 'dropdown' && checkCondition(question)")
+        b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+          b-select(:id="question.name" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading" expanded)
+            option(v-for="(elt, eltIndex) in question.choices" v-model="result[question.name]" :native-value="elt" :key="question.name + '__' + elt") {{elt}}
+
+      template(v-else-if="question.type === 'text' && checkCondition(question)")
+        b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+         b-input(:type="question.inputType ? question.inputType : 'text'" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading")
+
+      template(v-else-if="question.type === 'matrix' && checkCondition(question)")
+        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        div.table-wrapper
+          table.table.is-bordered.is-striped.is-narrow.is-fullwidth
+            thead
+              tr
+                th
+                th(v-for="(column, index) in question.columns" :key="question.name + '__' + column.value") {{getSurveyLocal(column.text)}}
+            tbody
+              tr(v-for="(row, index) in question.rows" :key="question.name + '__' + row.value")
+                td
+                  p {{getSurveyLocal(row.text)}}
+                td.has-text-centered(v-for="(column, index) in question.columns" :key="question.name + '__' + row.value + '__' + column.value")
+                  b-radio(v-model="result[question.name][row.value]" :native-value="column.value" :disabled="loading")
+
+    hr
+
+    div.has-text-centered
+      invisible-recaptcha(:sitekey="sitekey" :validate="prepare" :callback="callback" class="button is-info" type="button" id="submitSurvey" :disabled="loading") {{$t("utils.Submit")}}
