@@ -64,7 +64,7 @@ div.content
         tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
           th.has-text-centered(:colspan="nbColumns")
             progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
-            p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}}
+            p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}} ({{$formatNumber(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
         tr
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
           th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
