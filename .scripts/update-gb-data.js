@@ -92,7 +92,7 @@ function generateCommitMessage(value) {
     console.log("Nothing to do.");
     return;
   }
-  let commitMessage = `feat(foe-data): :package: Add levels of several ages
+  let commitMessage = `feat(foe-data): add levels of several ages
 
 Add GB levels (cost and reward) of:\n`;
 
