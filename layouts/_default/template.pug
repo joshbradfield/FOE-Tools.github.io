@@ -72,10 +72,10 @@
   main.container.is-fullheight
     section.section
       div.container
-        div.columns.is-centered(v-show="isNewYear")
+        div.columns.is-centered.is-margin-top-one-em-touch(v-show="isNewYear")
           div.column.is-three-quarters
             b-notification.newYearNotification 🎉&nbsp;&nbsp;{{$t(i18nPrefix + 'new_year.message', { count: nbYears })}}&nbsp;&nbsp;🍰
-        div.columns.is-centered(v-show="hasSurvey")
+        div.columns.is-centered.is-margin-top-one-em-touch(v-show="hasSurvey")
           div.column.is-three-quarters
             b-notification(type="is-info" :closable="false")
               nuxt-link(to="/survey") {{$t(i18nPrefix + 'survey.message')}}

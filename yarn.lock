@@ -1338,6 +1338,11 @@
     consola "^2.5.6"
     http-proxy-middleware "^0.19.1"
 
+"@nuxtjs/robots@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-2.1.0.tgz#9d78f9ef8bae52b3492479b731af29fed2c00405"
+  integrity sha512-kO/y+WQQeFs+RLTTJdAzHCVXCDjGnlP7x9EHCnQZ9MNwsDCdwCDaQqC3LIZQ7bBy8anqyve1Bbhu7NHUR0tuug==
+
 "@nuxtjs/sitemap@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/sitemap/-/sitemap-1.0.0.tgz#1e267236985279e1780b661a37d0f9dea9660eac"

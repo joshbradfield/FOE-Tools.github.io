@@ -60,13 +60,13 @@ div.content
 
     div.columns
       div.column.is-half
-        p {{$t(i18nPrefix + 'block_place.fp_to_complete_level', {count: getNumberOfRemainingPoints()})}}
+        p {{$t(i18nPrefix + 'block_place.fp_to_complete_level')}}
       div.column.is-half
         p
           b {{$formatNumber(getNumberOfRemainingPoints())}}
     div.columns
       div.column.is-half
-        p {{$t(i18nPrefix + 'block_place.result.fp_need_to_lock_plural', {count: getNumberOfRemainingPoints()})}}
+        p {{$t(i18nPrefix + 'block_place.result.fp_need_to_lock_plural')}}
       div.column.is-half
         template(v-if="fp > 0")
           p(v-if="fp <= yourParticipation")

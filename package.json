@@ -90,6 +90,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/robots": "^2.1.0",
     "@panter/vue-i18next": "^0.15.0",
     "all-contributors-cli": "^6.3.1",
     "buefy": "^0.7.5",

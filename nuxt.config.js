@@ -376,6 +376,20 @@ function generateSitemapRoutes(baseURL, locales, routes) {
   return result;
 }
 
+function generateRobotTxt(SitemapURL) {
+  const result = [{ UserAgent: "*" }];
+  let prefix;
+
+  for (let locale of supportedLocales) {
+    prefix = locale === defaultLocale ? "" : `/${locale}`;
+    result.push({ Disallow: `${prefix}/survey` });
+  }
+
+  result.push({ Sitemap: SitemapURL });
+
+  return result;
+}
+
 // only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
 const routerBase =
   process.env.DEPLOY_ENV === "GH_PAGES"
@@ -475,7 +489,8 @@ module.exports = {
     }
   },
 
-  modules: ["@nuxtjs/sitemap", "cookie-universal-nuxt", "nuxt-buefy", "@nuxtjs/axios"],
+  modules: ["@nuxtjs/sitemap", "@nuxtjs/robots", "cookie-universal-nuxt", "nuxt-buefy", "@nuxtjs/axios"],
+  robots: generateRobotTxt(`${hostname}/sitemap.xml`),
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },
   mode: "spa",
   hooks(hook) {

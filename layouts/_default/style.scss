@@ -172,6 +172,12 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
   margin-top: 2em !important;
 }
 
+@media screen and (max-width: $tablet - 1) {
+  .is-margin-top-one-em-touch {
+    margin-top: 1em !important;
+  }
+}
+
 section.hero.is-dark-blue .subtitle a:hover {
   color: $info;
 }
