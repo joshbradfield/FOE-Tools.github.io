@@ -220,6 +220,13 @@
             "fp_need_to_lock_plural": "FPs you need to place to lock your place:",
             "still_to_put": "Number of FPs you still need to put in",
             "fp_to_secure_html": "You still have to put {{count}} FP.",
+            "roi": {
+              "profit": "Your gain will be {{count}} FP",
+              "profit_plural": "Your gain will be {{count, number}} FPs",
+              "loss": "Your loss will be {{count}} FP",
+              "loss_plural": "Your loss will be {{count, number}} FPs",
+              "neutral": "You will not have a return on investment"
+            },
             "fp_to_secure_html_plural": "You still have to put {{count, number}} FPs.",
             "cant_block": "You can not block the place."
           },
@@ -459,7 +466,7 @@
         "required_field": "This field is required",
         "survey_complete": "Thank you for your feedback !",
         "error": "An error has occurred, check the form and try again",
-        "unknown_error":  "An unknown error has occurred, please contact the site administrator"
+        "unknown_error": "An unknown error has occurred, please contact the site administrator"
       },
       "error": {
         "404": {

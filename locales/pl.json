@@ -83,7 +83,7 @@
             "add_investors": "Dodaj inwestorów (wpisz ilość PR, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "tooltip_add_investors": "Naciśnij na \"$t(utils.Add)\" przycisk lub wciśnij  \"Enter\" by dodać wpłacającego",
             "investors_list": "Lista dodanych wpłacających",
-            "show_snipe": "Pokaż wymagane PRy do zajęcia miejsca",
+            "show_snipe": "Pokaż wymagane PR'y do zajęcia miejsca",
             "display_card": "Wyświetlić tabelę w widoku karty ? (dla małych ekranów)"
           },
           "table": {
@@ -120,7 +120,6 @@
           "show_level": "Pokazać poziom ?"
         },
         "promotion": {
-          "title": "Ogłoszenie miejsc ",
           "prefix_placeholder": "Tekst przed ogłoszeniem miejsc",
           "suffix_placeholder": "Tekst po ogłoszeniu miejsc"
         }
@@ -205,15 +204,15 @@
             "default": "Musisz łącznie mieć {{count}} PR by zablokować to miejsce.",
             "default_plural": "Musisz łącznie mieć {{count, number}} PR by zablokować to miejsce.",
             "fp_to_secure_html": "Wciąż musisz wrzucić {{count}} PR.",
-            "fp_to_secure_html_plural": "Wciąż musisz wrzucić {{count, number}} PR.",
-            "cant_block": "Nie możesz zablokować miejsca.",
             "roi": {
               "profit": "Zyskasz {{count}} PR",
               "profit_plural": "Zyskasz {{count, number}} PR",
               "loss": "Stracisz {{count}} PR",
               "loss_plural": "Stracisz {{count, number}} PR",
               "neutral": "Nie otrzymasz zwrotu z inwestycji"
-            }
+            },
+            "fp_to_secure_html_plural": "Wciąż musisz wrzucić {{count, number}} PR.",
+            "cant_block": "Nie możesz zablokować miejsca."
           },
           "unknown": "nieznany"
         }
@@ -288,7 +287,7 @@
           "title": "Ogólne informacje",
           "p1_html": "Forge of Empires, FOE, a wszystkie powiązane znaki towarowe i treści należą do InnoGames GmbH. <br/> $t(common:site_title) jest nieoficjalną stroną trzecią i nie jest powiązana z InnoGames.",
           "p2_html": "$t(common:site_title) został stworzony przez francuskiego gracza <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "Strona jest OpenSource, kod jest swobodnie dostępny na stronie GitHub. <br /> każdy z niezbędnymi umiejętnościami może uczestniczyć w ulepszaniu tej strony."
+          "p3_html": "Strona jest OpenSource, kod jest swobodnie dostępny na stronie GitHub. <br/> Każdy z niezbędnymi umiejętnościami może uczestniczyć w ulepszaniu tej strony."
         },
         "cookie": {
           "title": "Ciasteczka",
@@ -335,7 +334,7 @@
           "title": "Informacje o rozwoju",
           "p1": "Witryna jest prostą stroną statyczną hostowaną na GitHub.",
           "p2_html": "Rozwój odbywa się w Node.js z użyciem $t(common:links.framework). Styl został stworzony przy użyciu $t(common:links.style).",
-          "p3_html": "Pomysł na funkcjonalność? Problem ? Możesz utworzyć zgłoszenie na stronie GitHub lub wysłać do mnie maila (w języku Angielskim lub Francuskim) na $t(common:links.contact_foe_tools).",
+          "p3_html": "Pomysł na funkcjonalność? Problem? Możesz utworzyć zgłoszenie na stronie GitHub lub wysłać do mnie maila (w języku Angielskim lub Francuskim) na $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Informacja:</b> W sprawie problemów z GitHub, proszę napisać je w języku angielskim, aby ułatwić zrozumienie."
         }
       },
@@ -360,7 +359,7 @@
         "title": "$t(routes.contributors.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Współtwórcy",
-          "subtitle": "Ta strona próbuje wyświetlić listę wszystkich autorów"
+          "subtitle": "Na tej stronie widzimy wszystkich autorów"
         }
       },
       "gb_investment": {
@@ -524,12 +523,12 @@
         "St_Mark_s_Basilica": "BŚM",
         "Notre_Dame": "ND",
         "Saint_Basil_s_Cathedral": "KŚB",
-        "Castel_del_Monte": "CDM",
+        "Castel_del_Monte": "CdM",
         "Deal_Castle": "Deal",
         "Frauenkirche_of_Dresden": "DKM",
         "Capitol": "Kapitol",
         "Royal_Albert_Hall": "RAH",
-        "Chateau_Frontenac": "CF",
+        "Chateau_Frontenac": "CHF",
         "Alcatraz": "Alca",
         "Space_Needle": "SN",
         "Atomium": "Atom",

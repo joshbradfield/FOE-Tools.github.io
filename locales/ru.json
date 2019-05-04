@@ -27,7 +27,7 @@
           "second_rq": "Еще круговые квесты?",
           "supplies_gathered": "Ресурсов получено",
           "table_reward": {
-            "title": "Награды",
+            "title": "$t(utils.Rewards)",
             "thead": {
               "th1": "Чертежи",
               "th2": "Медали",
@@ -36,15 +36,12 @@
             }
           },
           "reward_message": {
-            "daily_ubq": "Ежедневные ПВР: {{count}}",
-            "bonus_ubq": "Бонус ПВР: {{count}}",
-            "second_rq_completed": "Вторых круговых квестов выполнено: {{count}}",
-            "total_goods": "Всего товаров: {{count}}",
-            "total_goods_plural": "Всего товаров : {{count, number}}",
-            "total_fp": "Всего СО: {{count}}",
-            "total_fp_plural": "Всего СО : {{count, number}}",
-            "total_rq_completed": "Всего круговых заданий выполнено: {{count}}",
-            "total_rq_completed_plural": "Всего круговых заданий выполнено : {{count, number}}"
+            "daily_ubq": "Ежедневные ПВР: {{count, number}}",
+            "bonus_ubq": "Бонус ПВР: {{count, number}}",
+            "second_rq_completed": "Вторых круговых квестов выполнено: {{count, number}}",
+            "total_goods": "Всего товаров: {{count, number}}",
+            "total_fp": "Всего СО: {{count, number}}",
+            "total_rq_completed": "Всего круговых заданий выполнено: {{count, number}}"
           },
           "table_return": {
             "thead": {
@@ -70,13 +67,13 @@
             "p2_html": "<strong>Замечание</strong>: Если таблица не обновилась автоматически, сначала укажите уровень ВС, потом значение бонуса Арки и нажмите \"$t(components.gb_investment.gb_investment.form.submit_global)\". Если вы хотите указать значения вкладов для всех мест вручную, заполните правую колонку таблицы и нажмите \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
           "form": {
-            "level": "Уровень ВС (от 1 до {{max}})",
+            "level": "Уровень {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "Бонус Арки, % (единый для всех мест)",
             "submit_global": "Рассчитать",
             "submit_custom": "Рассчитать индивидуально"
           },
           "table": {
-            "title": "$t({{gb_key}}) уровень {{level}}",
+            "title": "$t({{gb_key}}) уровень {{fromLevel, number}} → {{level, number}}",
             "thead": {
               "th1": "Места",
               "th2": "Стандартная награда",
@@ -94,14 +91,7 @@
         "promotion": {
           "title": "Шаблон сообщения с предложением вложиться арочникам",
           "prefix_placeholder": "текст до предложения",
-          "suffix_placeholder": "текст после предложения",
-          "promo": [
-            "P1({{investment}})",
-            "P2({{investment}})",
-            "P3({{investment}})",
-            "P4({{investment}})",
-            "P5({{investment}})"
-          ]
+          "suffix_placeholder": "текст после предложения"
         }
       },
       "gb_forecast_cost": {
@@ -156,15 +146,15 @@
             "default": "Вы должны вложить всего {{count}} СО, чтобы занять место.",
             "default_plural": "Вы должны вложить всего {{count, number}} СО, чтобы занять место.",
             "fp_to_secure_html": "Вам нужно добавить еще {{count}} СО.",
-            "fp_to_secure_html_plural": "Вам нужно вложить еще {{count, number}} СО.",
-            "cant_block": "Вы не можете занять это место.",
             "roi": {
               "profit": "Вы получите {{count}} СО",
               "profit_plural": "Вы получите {{count, number}} СО",
               "loss": "Вы потеряете {{count}} СО",
               "loss_plural": "Вы потеряете {{count, number}} СО",
               "neutral": "Вы не получите возврат с этого вложения"
-            }
+            },
+            "fp_to_secure_html_plural": "Вам нужно вложить еще {{count, number}} СО.",
+            "cant_block": "Вы не можете занять это место."
           },
           "unknown": "неизвестно"
         }
@@ -193,9 +183,9 @@
         "title": "О $t(common:site_title)",
         "general_info": {
           "title": "Основная информация",
-          "p1_html": "Forge of Empires, FOE и все связанные торговые марки принадлежат InnoGames GmbH. <br /> $t(common:site_title) не связан с Innogames и является сторонним неофициальным сайтом.",
+          "p1_html": "Forge of Empires, FOE и все связанные торговые марки принадлежат InnoGames GmbH. <br/> $t(common:site_title) не связан с Innogames и является сторонним неофициальным сайтом.",
           "p2_html": "$t(common:site_title) создан французским игроком <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "Сайт является открытым, исходный код доступен на GitHub. <br /> Все желающие могут принять участие в улучшении этого сайта."
+          "p3_html": "Сайт является открытым, исходный код доступен на GitHub. <br/> Все желающие могут принять участие в улучшении этого сайта."
         },
         "cookie": {
           "title": "Cookies",
