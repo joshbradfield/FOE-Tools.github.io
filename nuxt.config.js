@@ -427,7 +427,8 @@ const sitemap =
     ? {
         sitemap: {
           hostname,
-          routes: generateSitemapRoutes(hostname, supportedLocales, defaultRoutes)
+          routes: generateSitemapRoutes(hostname, supportedLocales, defaultRoutes),
+          exclude: ["/survey", "/**/survey"]
         }
       }
     : {};
