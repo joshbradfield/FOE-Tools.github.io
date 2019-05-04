@@ -8,7 +8,6 @@
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
       "trade": "$t(routes.trade.hero.title)",
-      "campaign_cost": "$t(routes.campaign_cost.hero.title)",
       "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
     },
     "footer_menu": {
@@ -50,11 +49,8 @@
             "bonus_ubq": "Bonus de la quête de Rinbin : {{count, number}}",
             "second_rq_completed": "Seconde quête accomplie : {{count, number}}",
             "total_goods": "Total de ressource : {{count, number}}",
-            "total_goods_plural": "Total de ressources : {{count, number}}",
             "total_fp": "Total de PF : {{count, number}}",
-            "total_fp_plural": "Total de PFs : {{count, number}}",
-            "total_rq_completed": "Total de quête récurrente accompli : {{count, number}}",
-            "total_rq_completed_plural": "Total de quêtes récurrentes accompli : {{count, number}}"
+            "total_rq_completed": "Total de quête récurrente accompli : {{count, number}}"
           },
           "table_return": {
             "thead": {
@@ -130,14 +126,7 @@
         "promotion": {
           "title": "Message de promotion",
           "prefix_placeholder": "texte avant le message de promotion",
-          "suffix_placeholder": "texte après le message de promotion",
-          "promo": [
-            "P1({{investment}})",
-            "P2({{investment}})",
-            "P3({{investment}})",
-            "P4({{investment}})",
-            "P5({{investment}})"
-          ]
+          "suffix_placeholder": "texte après le message de promotion"
         }
       },
       "gb_investment_investors": {
@@ -224,6 +213,13 @@
             "fp_need_to_lock_plural": "PFs que vous devez mettre pour bloquer la place :",
             "still_to_put": "Nombre de PF qu'il reste à mettre",
             "fp_to_secure_html": "Vous devez encore mettre {{count}} PF.",
+            "roi": {
+              "profit": "Vous allez gagner {{count}} PF",
+              "profit_plural": "Vous allez gagner {{count, number}} PFs",
+              "loss": "Vous allez perdre {{count}} PF",
+              "loss_plural": "Vous allez perdre {{count, number}} PFs",
+              "neutral": "Vous n'allez pas avoir de retour sur investissement"
+            },
             "fp_to_secure_html_plural": "Vous devez encore mettre {{count, number}} PFs.",
             "cant_block": "Vous ne pouvez pas bloquer la place."
           },
@@ -463,7 +459,7 @@
         "required_field": "Ce champ est obligatoire",
         "survey_complete": "Merci pour vos réponses !",
         "error": "Une erreur s'est produite, vérifiez le formulaire et réessayez",
-        "unknown_error":  "Une erreur inconnue c'est produit, veuillez contacter l'administrateur du site"
+        "unknown_error": "Une erreur inconnue c'est produit, veuillez contacter l'administrateur du site"
       },
       "error": {
         "404": {
@@ -1148,6 +1144,7 @@
       "Reset": "Réinitialiser",
       "Confirm": "Confirmer",
       "Close": "Fermer",
+      "Result": "Résultat",
       "between_range": "entre {{min, number}} et {{max, number}}",
       "Submit": "Envoyer",
       "moment": {

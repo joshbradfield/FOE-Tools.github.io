@@ -1,0 +1,604 @@
+{
+  "translation": {
+    "main_menu": {
+      "home": "Ana Sayfa",
+      "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
+      "secure_position": "$t(routes.secure_position.hero.title)",
+      "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+      "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
+    },
+    "footer_menu": {
+      "about": "Hakkımızda",
+      "contributors": "Katkıta Bulunanlar",
+      "changelog": "Değişiklikler"
+    },
+    "components": {
+      "campaign_cost": {
+        "title": "$t(routes.campaign_cost.hero.title)",
+        "choose_province": "Bölge seçin"
+      },
+      "cf_calculator": {
+        "block_cfc": {
+          "title": "$t(routes.cf_calculator.hero.title)",
+          "your_age": "Çağınız",
+          "fp_by_24h": "24 Saat FP üretimi",
+          "table_reward": {
+            "title": "$t(utils.Rewards)",
+            "thead": {
+              "th2": "Madalyalar",
+              "th3": "Ürünler",
+              "th4": "FP'ler"
+            }
+          },
+          "reward_message": {
+            "total_fp": "Toplam FP: {{count, number}}"
+          },
+          "table_return": {
+            "thead": {
+              "th_level": "Seviye"
+            }
+          }
+        }
+      },
+      "gb_investment": {
+        "gb_list_select": {
+          "label": "Devasa Binayı Değiştir"
+        },
+        "gb_investment": {
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
+          "description": {
+            "p1": "Seviye ve bonus yüzdesi için değerler girin. Tablodaki değerler otomatik olarak güncellenir."
+          },
+          "form": {
+            "investor_percentage": "FP atacak kişilerin Ark bonusu",
+            "submit_global": "Global hesaplama",
+            "submit_custom": "Özel hesaplama",
+            "owner_investment": "Bina sahibinin şu an atmış olduğu FP miktarı({{max}})",
+            "tooltip_add_investors": "FP atan kişi girmek için $t(utils.Add)'e basın veya Enter tuşuna basın",
+            "investors_list": "FP atanların olduğu liste",
+            "display_card": "Kart görünümde gösterilsin mi?(küçük ekranda)"
+          },
+          "table": {
+            "thead": {
+              "th1": "Sıralar",
+              "th2": "Bonussuz ödüller",
+              "th3": "Sırayı güvence altına almak için sahibi tarafından atılması gereken FP",
+              "th4": "Bonusla birlikte ödül",
+              "th5": "FP atacak kişilerin Ark bonusu",
+              "th6": "Sıra boş",
+              "fp_already_putin": "Şu an atılmış FP sayısı"
+            },
+            "tbody": {
+              "tooltip_expected_investment": "Beklenen FP",
+              "profit": "Bu oyuncu kar edecek",
+              "loss": "Bu oyuncu FP kaybedece",
+              "loss_plural": "Bu oyuncu FP kaybedecek",
+              "neutral": "Bu oyuncu ne kar eder ne de zarar"
+            },
+            "tfoot": {
+              "total_preparation": "Bina sahibinin attığı fp",
+              "level_cost": "Seviyenin maliyeti"
+            }
+          },
+          "display_gb_name": "DB'nın ismi gösterilsin mi?",
+          "use_short_name": "Takma ad kullan?",
+          "show_level": "Seviyeyi göster?"
+        }
+      },
+      "gb_investment_investors": {
+        "takingPlaceInConsideration": {
+          "form": {
+            "show_place": "Sırayı göster",
+            "no": "$t(utils.No)",
+            "normal": "Normal",
+            "optimal": "Uygun"
+          }
+        },
+        "table": {
+          "thead": {
+            "th_place": "Sıra {{count}}",
+            "th_profit_loss": "Kazanç / Kayıp"
+          }
+        }
+      },
+      "gb_forecast_cost": {
+        "custom_percentage": "Farklı bir Ark bonus oranı (her sıra için)",
+        "estimated_time": "Seviyeye ulaşmak için tahmini zaman",
+        "message": {
+          "single": "$t({{gb}}) binasının {{level}} seviyesini tamamlamak için bina sahibi {{preparation, number}} FP atmalıdır. Bu seviyenin toplam maliyeti: {{cost, number}} FP.",
+          "diff": "Atılan bonuslu FP'lerle, {{count}} FP kazanç sağlayacaksınız.",
+          "diff_plural": "Bonuslarla birlikte, {{count, number}} FP tasarruf edeceksiniz"
+        },
+        "prop_already_invested": "Bina sahibinin şu anki seviyede halihazırda attığı FP",
+        "graph": {
+          "x_axes_label": "$t(utils.graph.gb_level)",
+          "y_axes_label": "$t(utils.graph.gb_level_cost)"
+        }
+      },
+      "secure_position": {
+        "block_place": {
+          "title": "Onun sırasını kilitle",
+          "level_cost": "Seviyenin toplam maliyeti",
+          "your_arc_bonus": "Ark bonusunuz",
+          "result": {
+            "error": "Bir veya daha fazla değer geçersiz.",
+            "already_blocked": "Sıranız kilitlendi",
+            "default": "Sırayı kilitlemek için {{count}} FP'ye sahip olmalısınız.",
+            "default_plural": "Sırayı kilitlemek için {{count, number}} FP'ye sahip olmalısınız.",
+            "fp_need_to_lock": "Sırayı kilitlemek için için sahip olmanız gereken FP:",
+            "fp_to_secure_html": "Hala {{count}} FP atmanız gerekli.",
+            "fp_to_secure_html_plural": "Hala  {{count, number}} FP atmanız gerekli.",
+            "cant_block": "Bu sırayı kilitleyemezsin."
+          },
+          "unknown": "bilinmeyen"
+        }
+      },
+      "simple_trade": {
+        "title": "Tablo versiyonu",
+        "table": {
+          "thead": {
+            "th1": "Çağ",
+            "th2": "Ürünler",
+            "th3": "$t(components.trade.label.i_want)",
+            "th4": "Sonuç",
+            "ratio": "Oran"
+          }
+        },
+        "slpit": "Teklifleri böl?",
+        "show_ratio": "Oranı göster"
+      },
+      "site_layout": {
+        "hero": {
+          "title": "$t(common:site_title)",
+          "slogan_html": "$t(common:links.foe) tecrübenizi kolaylaştırmaya yaran birkaç araç."
+        },
+        "cookie": {
+          "link": "Daha fazla bilgi"
+        },
+        "footer": {
+          "version": "Sürüm {{version}}"
+        },
+        "day_night": {
+          "Day": "Gün",
+          "Night": "Gece",
+          "Auto": "Otomatik $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)",
+          "start_day": "Gündüz versiyonunu başlat",
+          "start_night": "Gece versiyonunu başlat"
+        }
+      },
+      "trade": {
+        "title": "Form versiyonu",
+        "label": {
+          "i_have": "Sahibim",
+          "i_want": "İstiyorum",
+          "amount": "Miktar"
+        },
+        "split_value": "Olabilecek en büyük teklif (max {{count}})",
+        "split_message": {
+          "msg": "{{valueTo}}{{ageTo}} için {{valueFrom}}{{ageFrom}}",
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) ve $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+        },
+        "message": {
+          "total": "(toplamda: {{amount}}{{key}})"
+        }
+      }
+    },
+    "routes": {
+      "home": {
+        "title": "$t(common:site_title)"
+      },
+      "about": {
+        "title": " $t(common:site_title) Hakkında",
+        "general_info": {
+          "title": "Genel bilgi",
+          "p1_html": "Forge of Empires, FOE ve tüm ilişkili markalar ve içerik InnoGames GmbH'ye aittir. <br/> $t(common:site_title) ise resmi olmayan, üçüncü kişilere ait ve InnoGame ile bağlantılı değildir.",
+          "p2_html": "$t(common:site_title) Fransız oyuncu <strong class=\"has-text-weight-semibold\">Yoratheon</strong> tarafından yaratıldı.",
+          "p3_html": "Bu site açık kaynak kodlu bir site olmakla birlikte GitHub üzerinden bedava olarak kullanılabilir.<br/> Bu sayede gerekli becerilere sahip herkes bu sitenin geliştirilmesinde katkıda bulunabilir."
+        },
+        "cookie": {
+          "title": "Çerezler",
+          "p1": "Bu site kullanımınızı rahatlatmak için çerezleri kullanır.",
+          "table_message": "Aşağıdaki tabloda bu sitede kullanılan tüm çerezler gösterilmektedir.",
+          "info": {
+            "locale": "Görüntüleme dili",
+            "yourArcBonus": "Global ayarlar Arc bonusunu kapsar",
+            "suppliesGathered": "$t(components.cf_calculator.block_cfc.supplies_gathered)",
+            "yourAge": "$t(components.cf_calculator.block_cfc.your_age)",
+            "investorPercentageCustom_x": "$t(components.gb_investment.gb_investment.table.thead.th5)",
+            "investorPercentageGlobal": "$t(components.gb_investment.gb_investment.form.investor_percentage)",
+            "level": "DB seviyesi",
+            "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)"
+          }
+        },
+        "dev_info": {
+          "title": "Geliştirme bilgisi"
+        }
+      },
+      "campaign_cost": {
+        "title": "$t(routes.campaign_cost.hero.title) | $t(common:site_title)",
+        "hero": {
+          "subtitle": "Bu araç, kıta haritasında bir sektörü veya bölgeyi müzakere ederek fethetmenin maliyetini hesaplar. "
+        }
+      },
+      "cf_calculator": {
+        "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)"
+      },
+      "changelog": {
+        "title": "Değişiklikler | $t(common:site_title)"
+      },
+      "contributors": {
+        "title": "$t(routes.contributors.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Katkıda bulunanlar"
+        }
+      },
+      "gb_investment": {
+        "hero": {
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title) - $t({{gb_key}})"
+        },
+        "tab": {
+          "owner_view": {
+            "title": "Bina sahibinin gözünden bakış"
+          },
+          "investors_view": {
+            "title": "Bina atacak kişinin gözünden bakış"
+          }
+        }
+      },
+      "gb_investment_gb_chooser": {
+        "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Devasa Binalara FP Yatırımı",
+          "subtitle": "Bu araç, bir oyuncunun Devasa Binasının ilk 5 sırasını korumak için atması gereken FP oranını Ark bonusuyla birlikte hesaplamasını mümkün kılar."
+        },
+        "choose_gb": {
+          "title": "Bir Devasa Bina Seç"
+        }
+      },
+      "gb_forecast_cost": {
+        "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
+        "hero": {
+          "subtitle": "Bu araç Ark bonusuyla veya Ark bonusu olmadan, herhangi bir Devasa Bina'nın belirleyeceğiniz iki seviye arasındaki maliyetini hesaplar."
+        }
+      },
+      "gb_statistics": {
+        "title": "$t(routes.gb_statistics.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Devasa Bina İstatistikleri",
+          "subtitle": "Bu araç, çağlara göre Devasa Binaların her seviyedeki maliyetini grafikler yardımıyla göstermeye yarar."
+        }
+      },
+      "secure_position": {
+        "title": "$t(routes.secure_position.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Sıra garantileme",
+          "subtitle": "Bu araç, bir oyuncunun herhangi bir Devasa Binada kilitleyeceği sıra için kaç FP atması gerektiğini hesaplar."
+        }
+      },
+      "trade": {
+        "title": "$t(routes.trade.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Ticaret",
+          "subtitle": "Bu araç, ürün alışverişi konusunda sizin takas tarzınıza göre yapabileceğiniz takas imkanlarını sunar."
+        },
+        "tab": {
+          "trade_2_1": {
+            "title": "2:1",
+            "message": "Basit ticaret, aynı çağdaki ürünlerde 1'de 1, bir çağ farklı olan ürünlerde 1'e 2."
+          },
+          "fair_trade": {
+            "title": "Adil Ticaret"
+          }
+        }
+      },
+      "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Bu sitenin çevrilmesinde yardımcı ol",
+          "subtitle": "Çeviri ekibine katıl"
+        },
+        "p1": "Kullandığınız dil henüz listemizde yok. Çeviri hatalı veya eksik mi? Çeviri ekibine aktarmaktan çekinmeyin.",
+        "how_to_join_the_team": "Çeviri ekibine nasıl katılırım?"
+      },
+      "error": {
+        "404": {
+          "title": "Sayfa bulunamadı | $t(common:site_title)",
+          "message": "Üzgünüz, aradığınız sayfa bulunamıyor."
+        }
+      }
+    },
+    "foe_data": {
+      "age": {
+        "Oracle": "$t(foe_data.age.NoAge) ($t(foe_data.gb.Oracle_of_Delphi))",
+        "NoAge": "Çağ Yok",
+        "BronzeAge": "Tunç Devri",
+        "IronAge": "Demir Devri",
+        "EarlyMiddleAges": "Erken Dönem Orta Çağ",
+        "HighMiddleAges": "Zirve Dönem Orta Çağ",
+        "LateMiddleAges": "Geç Dönem Orta Çağ",
+        "ColonialAge": "Sömürge Çağı",
+        "IndustrialAge": "Sanayi Çağı",
+        "ProgressiveEra": "İlerleme Çağı",
+        "ModernEra": "Modern Çağ",
+        "PostmodernEra": "Postmodern Çap",
+        "ContemporaryEra": "Yakın Çağ",
+        "Tomorrow": "Yakın Gelecek",
+        "TheFuture": "Gelecek",
+        "ArcticFuture": "Buzul Gelecek",
+        "OceanicFuture": "Okyanus Geleceği",
+        "VirtualFuture": "Sanal Gelecek"
+      },
+      "age_short": {
+        "NoAge": "Çağ Yok",
+        "BronzeAge": "Bronz Devri",
+        "IronAge": "Demir Devri"
+      },
+      "gb": {
+        "Observatory": "Gözlemevi",
+        "Temple_of_Relics": "Eserler Tapınağı",
+        "Oracle_of_Delphi": "Delphi Kahini",
+        "Tower_of_Babel": "Babil Kulesi ",
+        "Atomium": "Atomium",
+        "Cape_Canaveral": "Cape Canaveral",
+        "The_Habitat": "Habitat",
+        "Innovation_Tower": "Yenilik Kulesi",
+        "Dynamic_Tower": "Dinamik Kule",
+        "Voyager_V1": "Voyager V1",
+        "The_Arc": "Ark",
+        "Rain_Forest_Project": "Yağmur Ormanı Projesi",
+        "Atlantis_Museum": "Atlantis Müzesi",
+        "The_Kraken": "Kraken",
+        "The_Blue_Galaxy": "Mavi Galaksi",
+        "Terracotta_Army": "Terrakota Ordusu",
+        "Himeji_Castle": "Himeji Kalesi"
+      },
+      "gb_short": {
+        "Statue_of_Zeus": "Zeus",
+        "Colosseum": "Kollezyum",
+        "Atomium": "Atomium",
+        "Voyager_V1": "Voyager V1",
+        "The_Arc": "Ark",
+        "The_Kraken": "Kraken"
+      },
+      "goods": {
+        "lumber": "Kereste",
+        "marble": "Mermer",
+        "stone": "Taş",
+        "wine": "Şarap",
+        "cloth": "Giysi",
+        "ebony": "Abanoz",
+        "iron": "Demir",
+        "jewelry": "Mücevher",
+        "limestone": "Kireç Taşı",
+        "alabaster": "Kaymaktaşı",
+        "copper": "Bakır",
+        "gold": "Altın",
+        "granite": "Granit",
+        "honey": "Bal",
+        "brick": "Tuğla",
+        "dried_herbs": "Kurutulmuş Bitki",
+        "glass": "Cam",
+        "rope": "İp",
+        "salt": "Tuz",
+        "basalt": "Bazalt",
+        "brass": "Pirinç",
+        "gunpowder": "Barut",
+        "silk": "İpek",
+        "talc_powder": "Talk Pudrası",
+        "coffee": "Kahve",
+        "porcelain": "Porselen",
+        "paper": "Kağıt",
+        "tar": "Katran",
+        "wire": "Tel",
+        "coke": "Kök",
+        "fertilizer": "Gübre",
+        "rubber": "Kauçuk",
+        "textiles": "Dokuma",
+        "whale_oil": "Balina Yağı",
+        "asbestos": "Asbest",
+        "explosives": "Patlayıcı",
+        "gasoline": "Benzin",
+        "machine_parts": "Makine Parçası",
+        "tinplate": "Kalay Plaka",
+        "convenience_food": "Hazır Yemek",
+        "ferroconcrete": "Betonarme",
+        "flavorants": "Çeşnilendirici",
+        "luxury_materials": "Lüks Malzeme",
+        "packaging": "Paketleme",
+        "genome_data": "Genom Verileri",
+        "industrial_filters": "Endüstriyel Filtre",
+        "renewable_resources": "Yenilenebilir Kaynak",
+        "semiconductors": "Yarı İletken",
+        "steel": "Çelik",
+        "bionics_data": "Biyonik Verisi",
+        "electromagnets": "Elektromıknatıs",
+        "gas": "Gaz",
+        "plastics": "Plastik",
+        "robots": "Robot",
+        "nutrition_research": "Beslenme Araştırması",
+        "papercrete": "Kağıt Beton",
+        "preservatives": "Koruyucu Madde",
+        "smart_materials": "Akıllı Malzeme",
+        "translucent_concrete": "Şeffaf Beton",
+        "algae": "Alg",
+        "biogeochemical_data": "Biyokimyasal Veri",
+        "nanoparticles": "Nano Parça",
+        "purified_water": "Arıtılmış Su",
+        "superconductors": "Süper İletken",
+        "ai_data": "YZ verileri",
+        "bioplastics": "Biyoplastik",
+        "nanowire": "Nanotel",
+        "paper_batteries": "Kağıt pil",
+        "transester_gas": "Transesterifiye gazı",
+        "artificial_scales": "Yapay Pul",
+        "biolight": "Yaşayan Işık",
+        "corals": "Mercan",
+        "pearls": "İnci",
+        "plankton": "Plankton",
+        "cryptocash": "Gizemli",
+        "data_crystals": "Diğer Kristaller",
+        "golden_rice": "Altın Tepsi",
+        "nanites": "Nanotüp",
+        "tea_silk": "Çay İpeği"
+      },
+      "province": {
+        "Omoien": "Omoien",
+        "If_Then_Whatever": "Eğer, O zaman, Her neyse",
+        "Game_Over": "Oyun bitti"
+      },
+      "bonus": {
+        "coin": {
+          "name": "Para"
+        },
+        "supply": {
+          "name": "Üretim"
+        },
+        "good": {
+          "name": "Ürün"
+        },
+        "special_good": {
+          "name": "Bonuslu ürünler"
+        },
+        "good_bonus": {
+          "name": "Üretim bonusu"
+        },
+        "expansion": {
+          "name": "Genişleme"
+        },
+        "medal": {
+          "name": "Madalya"
+        },
+        "diamond": {
+          "name": "Elmas"
+        },
+        "military_boost": {
+          "name": "Savaş bonusu"
+        },
+        "fierce_resistance": {
+          "gb_description": "Orduyu savunan birimler için saldırı ve savunma bonusunu yükseltir ve her binaya ek olarak destek havuzu bonusunu arttırır."
+        },
+        "coin_boost": {
+          "name": "Para artışı",
+          "gb_description": "Her topladığınızda binanızın sonucunu 90 kata kadar yükseltir, verimlilik ve motivasyon katar."
+        },
+        "good_production": {
+          "gb_description": "Her 24 saatte bir, mevcut çağınızdan belli miktarda ürün üretir. Modern Çağ'dan itibaren işlenmemiş ürünlerdeki miktarı iki katına çıkarır."
+        },
+        "medal_production": {
+          "name": "Madalya üretimi",
+          "gb_description": "Her 24 saatte az miktarda madalya üretir."
+        },
+        "research": {
+          "name": "Araştırma",
+          "gb_description": "Her 24 saatte az miktarda FP üretir."
+        },
+        "coin_production": {
+          "name": "Para üretimi"
+        },
+        "population": {
+          "name": "Nüfus"
+        },
+        "happiness": {
+          "name": "Mutluluk"
+        },
+        "quest_reward_boost": {
+          "name": "Görev ödülü artışı"
+        },
+        "guild_goods": {
+          "name": "Lonca Ürünleri"
+        },
+        "support_pool_bonus": {
+          "gb_description": "Lonca destek havuzu bonusunu yükseltir, her binaya eklenir."
+        },
+        "first_strike": {
+          "name": "İlk atak"
+        },
+        "double_collection": {
+          "name": "Çift Toplama"
+        }
+      }
+    },
+    "utils": {
+      "content": {
+        "tools": "Araçlar",
+        "statistics": "İstatistikler"
+      },
+      "btn_calculate": "Hesapla",
+      "description": {
+        "p1": "Farklı değerleri girin. Sonuç otomatik olarak güncellenecektir."
+      },
+      "choose_age": "Bir çağ seçin",
+      "permalink": "Kalıcı link",
+      "Add": "Ekle",
+      "Remove": "Sil",
+      "Yes": "Evet",
+      "No": "Hayır",
+      "Ok": "Tamam",
+      "Copy": "Kopyala",
+      "Copyed": "Kopyalandı",
+      "Information": "Bilgi",
+      "From": "-den, -dan",
+      "To": "En yükseğe ({{max}})",
+      "Path": "Yol",
+      "Name": "İsim",
+      "Description": "Açıklama",
+      "Rewards": "Ödüller",
+      "Cost": "Maliyet",
+      "Conquered": "Fethetti",
+      "Total": "Toplam",
+      "Secured": "Güvenli",
+      "Reset": "Sıfırla",
+      "Confirm": "Onayla",
+      "Close": "Kapat",
+      "Result": "Sonuç",
+      "between_range": "{{min, number}} ve {{max, number}} arasında",
+      "moment": {
+        "year": "{{count}} yıl",
+        "year_plural": "{{count, number}} years",
+        "month": "{{count}} ay",
+        "month_plural": "{{count}} ay",
+        "day": "{{count}} gün",
+        "day_plural": "{{count}} gün"
+      },
+      "graph": {
+        "gb_level": "Seviye ",
+        "gb_level_cost": "Seviye maliyeti",
+        "gb_reward_1st_place": "1. Sıra için seviye ödülü"
+      }
+    },
+    "contributions": {
+      "bug": "Hata raporları",
+      "code": "Kod",
+      "design": "Tasarım",
+      "doc": "Dökümantasyon",
+      "eventOrganizing": "Etkinlik Organizasyonu",
+      "example": "Örnekler",
+      "financial": "Ekonomik",
+      "fundingFinding": "Fon Bulma",
+      "ideas": "Fikirler, Planlama ve Geri Bildirim",
+      "plugin": "Eklenti / yardımcı program kütüphaneleri",
+      "question": "Soruları Cevaplama",
+      "talk": "Konuşmalar",
+      "test": "Testler",
+      "tool": "Araçlar",
+      "translation": "Çeviri",
+      "tutorial": "Öğretici",
+      "video": "Videolar",
+      "data": "Veri ekleme veya güncelleme",
+      "creator": "Bu projenin yaratıcısı"
+    },
+    "seo": {
+      "keywords": {
+        "gb": "db",
+        "great_building": "devasa bina",
+        "fp": "fp",
+        "forge_point": "İlerleme puanı",
+        "medals": "madalyalar",
+        "military_units": "askeri birlikler"
+      }
+    }
+  }
+}

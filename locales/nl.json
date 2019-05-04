@@ -1,374 +1,367 @@
 {
-    "translation": {
-      "main_menu": {
-        "home": "Startpagina",
-        "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
-        "secure_position": "$t(routes.secure_position.hero.title)",
-        "cf_calculator": "$t(routes.cf_calculator.hero.title)",
-        "gb_statistics": "$t(routes.gb_statistics.hero.title)",
-        "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)"
-      },
-      "footer_menu": {
-        "about": "Over",
-        "contributors": "Bijdragers",
-        "changelog": "Wijzigingen"
-      },
-      "components": {
-        "cf_calculator": {
-          "block_cfc": {
-            "title": "$t(routes.cf_calculator.hero.title)",
-            "your_age": "Jouw tijdperk",
-            "your_cf_boost": "Jouw $t(foe_data.gb.Chateau_Frontenac) Boost",
-            "coins_to_use": "Munten voor de NVF Quest",
-            "supplies_to_use": "Voorraden voor de  NVF Quest",
-            "gb_plunder_goods": "GG & Plunder Goederen",
-            "fp_by_24h": "24 Uurs FP Productie",
-            "other_rq": "Andere dagelijks WQ's",
-            "second_rq": "Tweede WQ donor?",
-            "supplies_gathered": "Voorraden verzameld",
-            "table_reward": {
-              "title": "Beloningen",
-              "thead": {
-                "th1": "BP's",
-                "th2": "Medailles",
-                "th3": "Goederen",
-                "th4": "FP's"
-              }
-            },
-            "reward_message": {
-              "daily_ubq": "Dagelijkse NVF Quests: {{count, number}}",
-              "bonus_ubq": "Bonus NVF Quests: {{count, number}}",
-              "second_rq_completed": "2de WQ's afgerond: {{count, number}}",
-              "total_goods": "Totaal Goederen: {{count, number}}",
-              "total_fp": "Totaal FP's: {{count, number}}",
-              "total_rq_completed": "Totaal WQ's afgerond: {{count, number}}"
-            },
-            "table_return": {
-              "thead": {
-                "th_level": "Niveau",
-                "th_coin": "Munten terug",
-                "th_supply": "Voorraad terug"
-              }
-            },
-            "infinity_generator": {
-              "message": "Met de huidige bonus van $t(foe_data.gb.Chateau_Frontenac), zul je meer munten en voorraden verdienen, dan dat nodig is om de quest af te ronden. Kies a.u.b. een aantal \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" die je wilt uitvoeren.",
-              "label": "Aaneengesloten Quests"
+  "translation": {
+    "main_menu": {
+      "home": "Startpagina",
+      "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
+      "secure_position": "$t(routes.secure_position.hero.title)",
+      "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+      "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)"
+    },
+    "footer_menu": {
+      "about": "Over",
+      "contributors": "Bijdragers",
+      "changelog": "Wijzigingen"
+    },
+    "components": {
+      "cf_calculator": {
+        "block_cfc": {
+          "title": "$t(routes.cf_calculator.hero.title)",
+          "your_age": "Jouw tijdperk",
+          "your_cf_boost": "Jouw $t(foe_data.gb.Chateau_Frontenac) Boost",
+          "coins_to_use": "Munten voor de NVF Quest",
+          "supplies_to_use": "Voorraden voor de  NVF Quest",
+          "gb_plunder_goods": "GG & Plunder Goederen",
+          "fp_by_24h": "24 Uurs FP Productie",
+          "other_rq": "Andere dagelijks WQ's",
+          "second_rq": "Tweede WQ donor?",
+          "supplies_gathered": "Voorraden verzameld",
+          "table_reward": {
+            "title": "$t(utils.Rewards)",
+            "thead": {
+              "th1": "BP's",
+              "th2": "Medailles",
+              "th3": "Goederen",
+              "th4": "FP's"
             }
+          },
+          "reward_message": {
+            "daily_ubq": "Dagelijkse NVF Quests: {{count, number}}",
+            "bonus_ubq": "Bonus NVF Quests: {{count, number}}",
+            "second_rq_completed": "2de WQ's afgerond: {{count, number}}",
+            "total_goods": "Totaal Goederen: {{count, number}}",
+            "total_fp": "Totaal FP's: {{count, number}}",
+            "total_rq_completed": "Totaal WQ's afgerond: {{count, number}}"
+          },
+          "table_return": {
+            "thead": {
+              "th_level": "Niveau",
+              "th_coin": "Munten terug",
+              "th_supply": "Voorraad terug"
+            }
+          },
+          "infinity_generator": {
+            "message": "Met de huidige bonus van $t(foe_data.gb.Chateau_Frontenac), zul je meer munten en voorraden verdienen, dan dat nodig is om de quest af te ronden. Kies a.u.b. een aantal \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" die je wilt uitvoeren.",
+            "label": "Aaneengesloten Quests"
           }
+        }
+      },
+      "gb_investment": {
+        "gb_list_select": {
+          "label": "Kies Groot Gebouw"
         },
         "gb_investment": {
-          "gb_list_select": {
-            "label": "Kies Groot Gebouw"
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
+          "description": {
+            "p1": "Voer het niveau en het bonuspercentage in. De waardes in de tabel worden automatisch bijgewerkt.",
+            "p2_html": "<strong>Let Op</strong>: Als het bijwerken niet automatsch plaats vind, stel dan eerst het GG niveau en de te investeren hoeveelheid in en klik op \"$t(components.gb_investment.gb_investment.form.submit_global)\". Om inviduele waasrden voor elke plaats aan te passen, wijzig de gewenste warde en klik op \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
-          "gb_investment": {
-            "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
-            "description": {
-              "p1": "Voer het niveau en het bonuspercentage in. De waardes in de tabel worden automatisch bijgewerkt.",
-              "p2_html": "<strong>Let Op</strong>: Als het bijwerken niet automatsch plaats vind, stel dan eerst het GG niveau en de te investeren hoeveelheid in en klik op \"$t(components.gb_investment.gb_investment.form.submit_global)\". Om inviduele waasrden voor elke plaats aan te passen, wijzig de gewenste warde en klik op \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
+          "form": {
+            "level": "GG Niveau (tussen {{min}} en {{max}})",
+            "investor_percentage": "% Arc bonus",
+            "submit_global": "Globale Berekening",
+            "submit_custom": "Aangepaste Berekening"
+          },
+          "table": {
+            "title": "$t({{gb_key}}) niveau {{fromLevel, number}} → {{level, number}}",
+            "thead": {
+              "th1": "Posities",
+              "th2": "Standaard beloningen",
+              "th3": "FP's van de eigenaar om positie veilig te stellen",
+              "th4": "Beloning incl. Arc bonus",
+              "th5": "% Arc bonus",
+              "th6": "Positie vrij"
             },
-            "form": {
-              "level": "GG Niveau (tussen 1 en {{max}})",
-              "investor_percentage": "% Arc bonus",
-              "submit_global": "Globale Berekening",
-              "submit_custom": "Aangepaste Berekening"
-            },
-            "table": {
-              "title": "$t({{gb_key}}) niveau {{level}}",
-              "thead": {
-                "th1": "Posities",
-                "th2": "Standaard beloningen",
-                "th3": "FP's van de eigenaar om positie veilig te stellen",
-                "th4": "Beloning incl. Arc bonus",
-                "th5": "% Arc bonus",
-                "th6": "Positie vrij"
-              },
-              "tfoot": {
-                "total_preparation": "Totale investering door eigenaar",
-                "level_cost": "Kosten niveau"
-              }
-            }
-          },
-          "promotion": {
-            "title": "Promotie bericht",
-            "prefix_placeholder": "tekst voor het promotion promotie",
-            "suffix_placeholder": "tekst na het promotion promotie",
-            "promo": [
-              "P1({{investment}})",
-              "P2({{investment}})",
-              "P3({{investment}})",
-              "P4({{investment}})",
-              "P5({{investment}})"
-            ]
-          }
-        },
-        "gb_forecast_cost": {
-          "title": "Prognose",
-          "p1": "Bepaal het aantal FP's om van het ene naar het andere niveau te gaan, met of zonder de Arc bonus.",
-          "custom_percentage": "Aangepaste Arc bonus (voor elke positie)",
-          "estimated_time": "Schat tijd om het volgende niveau te halen",
-          "message": {
-            "single": "Om niveau {{level}} van \"$t({{gb}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van niveau: {{cost, number}} FP's.",
-            "multi": "Om niveau {{level}} van \"$t({{gb}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van de niveaus: {{cost, number}} FP's.",
-            "diff": "Inclusief bonus investeringen, bespaar je {{count}} FP",
-            "diff_plural": "Inclusief bonus investeringen, bespaar je {{count, number}} FP's",
-            "estimated_time": "Geschatte tijd om het niveau te halen: {{time}}"
-          },
-          "prop_already_invested": "Reeds door de eigenaar geïnvesteerde FP's voor het huidige niveau",
-          "graph": {
-            "title": "Prognose van de te investeren hoeveelheden voor \"$t({{gb}})\"",
-            "x_axes_label": "$t(utils.graph.gb_level)",
-            "y_axes_label": "$t(utils.graph.gb_level_cost)",
-            "label": {
-              "default": "Bruto kosten van het niveau",
-              "default_preparation": "Ivestering zonder bonus",
-              "custom_preparation": "Investering met bonus"
+            "tfoot": {
+              "total_preparation": "Totale investering door eigenaar",
+              "level_cost": "Kosten niveau"
             }
           }
         },
-        "gb_statistics": {
-          "title": "$t(routes.gb_statistics.hero.title)",
-          "p1": "De grafieken zijn op basis van het tijdperk, omdat de kosten / opbrengsten van de GG's voor ieder tijdperk het zelfde zijn, op een enkel uitzonderlijk geval na ($t(foe_data.gb.Oracle_of_Delphi)).",
-          "represent": "Represent:",
-          "graph": {
-            "title_1": "Evolutie van de kosten van de niveaus t.o.v. de niveaus",
-            "title_2": "Evolutie van de opbrengst van de eerste positie t.o.v. de niveaus",
-            "title_3": "Evolutie van de kosten van de niveaus t.o.v. de opbrangst van de eerste positie",
-            "title_4": "Evolutie van de opbrengst van de eerste positie t.o.v. de kosten van de niveaus"
-          }
-        },
-        "secure_position": {
-          "block_place": {
-            "title": "Positie veilig stellen",
-            "level_cost": "Kosten niveau",
-            "current_deposits": "Som van de actuele stortingen",
-            "your_participation": "Jouw actuele bijdrage",
-            "other_participation": "Bijdrage van de in te halen speler",
-            "fp_to_complete_level": "FP over om het niveau af te ronden: {{count}}",
-            "fp_to_complete_level_plural": "Hoeveelheid FP's over om het niveau af te ronden: {{count, number}}",
-            "your_arc_bonus": "Jouw Arc bonus",
-            "fp_target_reward": "FP's van de beoogde positie",
-            "result": {
-              "error": "Één of meer waarden zijn niet geldig.",
-              "already_blocked": "Je positie is veilig.",
-              "default": "Je moet totaal {{count}} FP hebben gestort om de positie veilig te stellen.",
-              "default_plural": "Je moet totaal {{count, number}} FP's hebben gestort om de positie veilig te stellen.",
-              "fp_to_secure_html": "Je moet nog {{count}} FP storten.",
-              "fp_to_secure_html_plural": "Je moet nog {{count, number}} FP's storten.",
-              "cant_block": "Je kunt de positie niet veilig stellen.",
-              "roi": {
-                "profit": "Je zult {{count}} FP winnen",
-                "profit_plural": "Je zult {{count, number}} FP's winnen",
-                "loss": "Je verliest {{count}} FP",
-                "loss_plural": "Je verliest {{count, number}} FP's",
-                "neutral": "Je zult geen winst op je investering ontvangen"
-              }
-            },
-            "unknown": "onbekend"
-          }
-        },
-        "site_layout": {
-          "hero": {
-            "title": "$t(common:site_title)",
-            "slogan_html": "Een set tools om het leven op $t(common:links.foe) te versimpelen."
-          },
-          "cookie": {
-            "message": "Als je doorgaat met het gebruik van $t(common:site_title), stem je in met het gebruik van cookies.",
-            "link": "Meer informatie"
-          },
-          "permalink_info": "Je bezoekt een permalink. Daardoor zullen de wijzigingen niet worden opgeslagen in een cookie.",
-          "footer": {
-            "license_html": "Broncode onder $t(common:links.mit) licentie",
-            "version": "Versie {{version}}"
-          }
+        "promotion": {
+          "title": "Promotie bericht",
+          "prefix_placeholder": "tekst voor het promotion promotie",
+          "suffix_placeholder": "tekst na het promotion promotie"
         }
       },
-      "routes": {
-        "home": {
-          "title": "$t(common:site_title)"
+      "gb_forecast_cost": {
+        "title": "Prognose",
+        "p1": "Bepaal het aantal FP's om van het ene naar het andere niveau te gaan, met of zonder de Arc bonus.",
+        "custom_percentage": "Aangepaste Arc bonus (voor elke positie)",
+        "estimated_time": "Schat tijd om het volgende niveau te halen",
+        "message": {
+          "single": "Om niveau {{level}} van \"$t({{gb}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van niveau: {{cost, number}} FP's.",
+          "multi": "Om niveau {{level}} van \"$t({{gb}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van de niveaus: {{cost, number}} FP's.",
+          "diff": "Inclusief bonus investeringen, bespaar je {{count}} FP",
+          "diff_plural": "Inclusief bonus investeringen, bespaar je {{count, number}} FP's",
+          "estimated_time": "Geschatte tijd om het niveau te halen: {{time}}"
         },
-        "about": {
-          "title": "Over $t(common:site_title)",
-          "general_info": {
-            "title": "Algemene informatie",
-            "p1_html": "Forge of Empires, FOE, en alle andere gerelateerde handelsmerken en content zijn eigendom van InnoGames GmbH. <br /> $t(common:site_title) is een onofficiele site van een derde partij en heeft geen binding met InnoGames.",
-            "p2_html": "$t(common:site_title) was gecreeerd door de Franse speler <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-            "p3_html": "De site is OpenSource en de broncode is vrij verkrijgbaar op GitHub. <br /> Dus, iedereen met de benodigde kennis kan meehelpen deze site te verbeteren."
-          },
-          "cookie": {
-            "title": "Cookies",
-            "p1": "Om het gebruiksgemak te verhogen, gebruikt deze site cookies."
-          },
-          "dev_info": {
-            "title": "Ontwikkel informatie",
-            "p1": "De site is een simpele statische website welke op GitHub wordt gehost.",
-            "p2_html": "De ontwikkeling vind plaats m.b.v. Node.js en maakt gebruik van $t(common:links.framework). De stijl is m.b.v. $t(common:links.style) gemaakt.",
-            "p3_html": "Een idee voor een functionaliteit? Een probleem ? Wees zo vrij om een issue op GitHub aan te maken of mij een email (in het Engels of Frans) te sturen op $t(common:links.contact_foe_tools).",
-            "message_info_github_issue": "<b>NB:</b> Aangaande issues op GitHub, schrijf deze in de Engelse taal om er zeker van te zijn dat nagenoeg iedereen het kan begrijpen."
-          }
-        },
-        "cf_calculator": {
-          "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
-          "hero": {
-            "title": "Château Frontenac Calculator",
-            "subtitle": "En tool welke help om de goederen en FP productie te voorspellen, welke voortvloeien uit wederkerende quests en de nietverjaardagsfeest quests (Rinbin)."
-          }
-        },
-        "changelog": {
-          "title": "Changelog | $t(common:site_title)"
-        },
-        "contributors": {
-          "title": "$t(routes.contributors.hero.title) | $t(common:site_title)",
-          "hero": {
-            "title": "Bijdragers",
-            "subtitle": "Deze pagina doet een poging om alle bijdragers te vermelden"
-          }
-        },
-        "gb_investment": {
-          "title": "$t(routes.gb_investment.hero.title, { 'gb_key': '{{gb_key}}' }) | $t(common:site_title)",
-          "hero": {
-            "title": "$t(routes.gb_investment_gb_chooser.hero.title) - $t({{gb_key}})"
-          }
-        },
-        "gb_investment_gb_chooser": {
-          "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
-          "hero": {
-            "title": "GG Investering",
-            "subtitle": "Met deze tool kan een spelen berekenen hoeveel FP's er in een GG moeten worden geïnvesteerd om de eerste 5 posities veilig te stellen volgens een bepaald tarief (Arc bonus)."
-          },
-          "choose_gb": {
-            "title": "Kies een Groot Gebouw"
-          }
-        },
-        "gb_forecast_cost": {
-          "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
-          "hero": {
-            "title": "GG kosten prognose",
-            "subtitle": "Met behulp van deze tool wordt het inzichtelijk hoeveel FP's er nodig zijn om van het ene naar het andere level te gaan, met of zonder de Arc bonus."
-          }
-        },
-        "gb_statistics": {
-          "title": "$t(routes.gb_statistics.hero.title) | $t(common:site_title)",
-          "hero": {
-            "title": "GG Statistieken",
-            "subtitle": "Met deze tool wordt de evolutie van de kosten van een GG t.o.v. een tijdperk gevisualiseerd."
-          }
-        },
-        "secure_position": {
-          "title": "$t(routes.secure_position.hero.title) | $t(common:site_title)",
-          "hero": {
-            "title": "Positie veiligstellen",
-            "subtitle": "Met deze tool is te berekenen hoeveel FP's een speler moet investeren om zijn/haar positie veilig te stellen."
-          }
-        },
-        "error": {
-          "404": {
-            "title": "Pagina niet gevonden | $t(common:site_title)",
-            "message": "Sorry, de gezochte pagina bestaat niet of niet meer"
-          }
-        }
-      },
-      "foe_data": {
-        "age": {
-          "Oracle": "$t(foe_data.age.NoAge) ($t(foe_data.gb.Oracle_of_Delphi))",
-          "NoAge": "Geen Tijdperk",
-          "BronzeAge": "Bronstijd",
-          "IronAge": "IJzertijd",
-          "EarlyMiddleAges": "Vroege Middeleeuwen",
-          "HighMiddleAges": "Hoge Middeleeuwen",
-          "LateMiddleAges": "Late Middeleeuwen",
-          "ColonialAge": "Koloniale Tijdperk",
-          "IndustrialAge": "Industriële Tijdperk",
-          "ProgressiveEra": "Progressieve Tijdperk",
-          "ModernEra": "Moderne Tijdperk",
-          "PostmodernEra": "Postmoderne Tijdperk",
-          "ContemporaryEra": "Hedendaagse Tijdperk",
-          "Tomorrow": "Morgen",
-          "TheFuture": "Toekomst",
-          "ArcticFuture": "Arctische Toekomst",
-          "OceanicFuture": "Oceanische Toekomst"
-        },
-        "gb": {
-          "Observatory": "Sterrenwacht",
-          "Temple_of_Relics": "Reliekentempel",
-          "Oracle_of_Delphi": "Orakel van Delphi",
-          "Tower_of_Babel": "Toren van Babel",
-          "Statue_of_Zeus": "Standbeeld van Zeus",
-          "Colosseum": "Colosseum",
-          "Lighthouse_of_Alexandria": "Pharos van Alexandrië",
-          "Hagia_Sophia": "Hagia Sophia",
-          "Cathedral_of_Aachen": "Dom van Aken",
-          "St_Mark_s_Basilica": "St. Mark's Basilica",
-          "Notre_Dame": "Notre Dame",
-          "Saint_Basil_s_Cathedral": "Baseliek van San Marco",
-          "Castel_del_Monte": "Castel del Monte",
-          "Deal_Castle": "Deal Castle",
-          "Frauenkirche_of_Dresden": "Frauenkirche van Dresden",
-          "Capitol": "Capitool",
-          "Royal_Albert_Hall": "Royal Albert Hall",
-          "Chateau_Frontenac": "Château Frontenac",
-          "Alcatraz": "Alcatraz",
-          "Space_Needle": "Space Needle",
-          "Atomium": "Atomium",
-          "Cape_Canaveral": "Cape Canaveral",
-          "The_Habitat": "Habitat",
-          "Lotus_Temple": "Lotus Tempel",
-          "Innovation_Tower": "Innovation Tower",
-          "Dynamic_Tower": "Dynamic Tower",
-          "Voyager_V1": "Voyager V1",
-          "The_Arc": "Arc",
-          "Rain_Forest_Project": "Regenwoudproject",
-          "Gaea_Statue": "Gaia-standbeeld",
-          "Arctic_Orangery": "Arctische Oranjerie",
-          "Seed_Vault": "Zadenkluis",
-          "Atlantis_Museum": "Atlantis-Museum",
-          "The_Kraken": "De Kraken",
-          "The_Blue_Galaxy": "De Blauwe Melkweg"
-        }
-      },
-      "utils": {
-        "content": {
-          "tools": "Tools",
-          "statistics": "Statistieken"
-        },
-        "btn_calculate": "Berekenen",
-        "description": {
-          "p1": "Voer andere waarden in. Het resultaat wordt automatisch bijgewerkt.",
-          "p2_html": "<strong>NB</strong>: Als het resultaat niet automatisch wordt bijgewerkt, klik op \"$t(utils.btn_calculate)\"."
-        },
-        "permalink": "Permalink",
-        "Yes": "Ja",
-        "No": "Nee",
-        "Ok": "Oké",
-        "Copy": "Kopiëren",
-        "Copyed": "Gekopieerd !",
-        "Information": "Informatie",
-        "From": "Van",
-        "To": "Tot (max {{max}})",
-        "Prefix": "Voorvoegsel",
-        "Suffix": "Achtervoegsel",
-        "moment": {
-          "year": "{{count}} jaar",
-          "year_plural": "{{count, number}} jaren",
-          "month": "{{count}} maand",
-          "month_plural": "{{count}} maanden",
-          "day": "{{count}} dag",
-          "day_plural": "{{count}} dagen"
-        },
+        "prop_already_invested": "Reeds door de eigenaar geïnvesteerde FP's voor het huidige niveau",
         "graph": {
-          "gb_level": "Nieveau",
-          "gb_level_cost": "Kosten niveau",
-          "gb_reward_1st_place": "Opbrengst niveau (1e positie)"
+          "title": "Prognose van de te investeren hoeveelheden voor \"$t({{gb}})\"",
+          "x_axes_label": "$t(utils.graph.gb_level)",
+          "y_axes_label": "$t(utils.graph.gb_level_cost)",
+          "label": {
+            "default": "Bruto kosten van het niveau",
+            "default_preparation": "Ivestering zonder bonus",
+            "custom_preparation": "Investering met bonus"
+          }
         }
       },
-      "seo": {
-        "keywords": {
-          "gb": "gg",
-          "great_building": "groots gebouw",
-          "fp": "fp",
-          "forge_point": "forge punt",
-          "medals": "medailles",
-          "military_units": "militaire eenheden"
+      "gb_statistics": {
+        "title": "$t(routes.gb_statistics.hero.title)",
+        "p1": "De grafieken zijn op basis van het tijdperk, omdat de kosten / opbrengsten van de GG's voor ieder tijdperk het zelfde zijn, op een enkel uitzonderlijk geval na ($t(foe_data.gb.Oracle_of_Delphi)).",
+        "represent": "Represent:",
+        "graph": {
+          "title_1": "Evolutie van de kosten van de niveaus t.o.v. de niveaus",
+          "title_2": "Evolutie van de opbrengst van de eerste positie t.o.v. de niveaus",
+          "title_3": "Evolutie van de kosten van de niveaus t.o.v. de opbrangst van de eerste positie",
+          "title_4": "Evolutie van de opbrengst van de eerste positie t.o.v. de kosten van de niveaus"
         }
+      },
+      "secure_position": {
+        "block_place": {
+          "title": "Positie veilig stellen",
+          "level_cost": "Kosten niveau",
+          "current_deposits": "Som van de actuele stortingen",
+          "your_participation": "Jouw actuele bijdrage",
+          "other_participation": "Bijdrage van de in te halen speler",
+          "fp_to_complete_level": "FP over om het niveau af te ronden: {{count}}",
+          "fp_to_complete_level_plural": "Hoeveelheid FP's over om het niveau af te ronden: {{count, number}}",
+          "your_arc_bonus": "Jouw Arc bonus",
+          "fp_target_reward": "FP's van de beoogde positie",
+          "result": {
+            "error": "Één of meer waarden zijn niet geldig.",
+            "already_blocked": "Je positie is veilig.",
+            "default": "Je moet totaal {{count}} FP hebben gestort om de positie veilig te stellen.",
+            "default_plural": "Je moet totaal {{count, number}} FP's hebben gestort om de positie veilig te stellen.",
+            "fp_to_secure_html": "Je moet nog {{count}} FP storten.",
+            "roi": {
+              "profit": "Je zult {{count}} FP winnen",
+              "profit_plural": "Je zult {{count, number}} FP's winnen",
+              "loss": "Je verliest {{count}} FP",
+              "loss_plural": "Je verliest {{count, number}} FP's",
+              "neutral": "Je zult geen winst op je investering ontvangen"
+            },
+            "fp_to_secure_html_plural": "Je moet nog {{count, number}} FP's storten.",
+            "cant_block": "Je kunt de positie niet veilig stellen."
+          },
+          "unknown": "onbekend"
+        }
+      },
+      "site_layout": {
+        "hero": {
+          "title": "$t(common:site_title)",
+          "slogan_html": "Een set tools om het leven op $t(common:links.foe) te versimpelen."
+        },
+        "cookie": {
+          "message": "Als je doorgaat met het gebruik van $t(common:site_title), stem je in met het gebruik van cookies.",
+          "link": "Meer informatie"
+        },
+        "permalink_info": "Je bezoekt een permalink. Daardoor zullen de wijzigingen niet worden opgeslagen in een cookie.",
+        "footer": {
+          "license_html": "Broncode onder $t(common:links.mit) licentie",
+          "version": "Versie {{version}}"
+        }
+      }
+    },
+    "routes": {
+      "home": {
+        "title": "$t(common:site_title)"
+      },
+      "about": {
+        "title": "Over $t(common:site_title)",
+        "general_info": {
+          "title": "Algemene informatie",
+          "p1_html": "Forge of Empires, FOE, en alle andere gerelateerde handelsmerken en content zijn eigendom van InnoGames GmbH. <br/> $t(common:site_title) is een onofficiele site van een derde partij en heeft geen binding met InnoGames.",
+          "p2_html": "$t(common:site_title) was gecreeerd door de Franse speler <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
+          "p3_html": "De site is OpenSource en de broncode is vrij verkrijgbaar op GitHub. <br/> Dus, iedereen met de benodigde kennis kan meehelpen deze site te verbeteren."
+        },
+        "cookie": {
+          "title": "Cookies",
+          "p1": "Om het gebruiksgemak te verhogen, gebruikt deze site cookies."
+        },
+        "dev_info": {
+          "title": "Ontwikkel informatie",
+          "p1": "De site is een simpele statische website welke op GitHub wordt gehost.",
+          "p2_html": "De ontwikkeling vind plaats m.b.v. Node.js en maakt gebruik van $t(common:links.framework). De stijl is m.b.v. $t(common:links.style) gemaakt.",
+          "p3_html": "Een idee voor een functionaliteit? Een probleem ? Wees zo vrij om een issue op GitHub aan te maken of mij een email (in het Engels of Frans) te sturen op $t(common:links.contact_foe_tools).",
+          "message_info_github_issue": "<b>NB:</b> Aangaande issues op GitHub, schrijf deze in de Engelse taal om er zeker van te zijn dat nagenoeg iedereen het kan begrijpen."
+        }
+      },
+      "cf_calculator": {
+        "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Château Frontenac Calculator",
+          "subtitle": "En tool welke help om de goederen en FP productie te voorspellen, welke voortvloeien uit wederkerende quests en de nietverjaardagsfeest quests (Rinbin)."
+        }
+      },
+      "changelog": {
+        "title": "Changelog | $t(common:site_title)"
+      },
+      "contributors": {
+        "title": "$t(routes.contributors.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Bijdragers",
+          "subtitle": "Deze pagina doet een poging om alle bijdragers te vermelden"
+        }
+      },
+      "gb_investment": {
+        "title": "$t(routes.gb_investment.hero.title, { 'gb_key': '{{gb_key}}' }) | $t(common:site_title)",
+        "hero": {
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title) - $t({{gb_key}})"
+        }
+      },
+      "gb_investment_gb_chooser": {
+        "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "GG Investering",
+          "subtitle": "Met deze tool kan een spelen berekenen hoeveel FP's er in een GG moeten worden geïnvesteerd om de eerste 5 posities veilig te stellen volgens een bepaald tarief (Arc bonus)."
+        },
+        "choose_gb": {
+          "title": "Kies een Groot Gebouw"
+        }
+      },
+      "gb_forecast_cost": {
+        "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "GG kosten prognose",
+          "subtitle": "Met behulp van deze tool wordt het inzichtelijk hoeveel FP's er nodig zijn om van het ene naar het andere level te gaan, met of zonder de Arc bonus."
+        }
+      },
+      "gb_statistics": {
+        "title": "$t(routes.gb_statistics.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "GG Statistieken",
+          "subtitle": "Met deze tool wordt de evolutie van de kosten van een GG t.o.v. een tijdperk gevisualiseerd."
+        }
+      },
+      "secure_position": {
+        "title": "$t(routes.secure_position.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Positie veiligstellen",
+          "subtitle": "Met deze tool is te berekenen hoeveel FP's een speler moet investeren om zijn/haar positie veilig te stellen."
+        }
+      },
+      "error": {
+        "404": {
+          "title": "Pagina niet gevonden | $t(common:site_title)",
+          "message": "Sorry, de gezochte pagina bestaat niet of niet meer"
+        }
+      }
+    },
+    "foe_data": {
+      "age": {
+        "Oracle": "$t(foe_data.age.NoAge) ($t(foe_data.gb.Oracle_of_Delphi))",
+        "NoAge": "Geen Tijdperk",
+        "BronzeAge": "Bronstijd",
+        "IronAge": "IJzertijd",
+        "EarlyMiddleAges": "Vroege Middeleeuwen",
+        "HighMiddleAges": "Hoge Middeleeuwen",
+        "LateMiddleAges": "Late Middeleeuwen",
+        "ColonialAge": "Koloniale Tijdperk",
+        "IndustrialAge": "Industriële Tijdperk",
+        "ProgressiveEra": "Progressieve Tijdperk",
+        "ModernEra": "Moderne Tijdperk",
+        "PostmodernEra": "Postmoderne Tijdperk",
+        "ContemporaryEra": "Hedendaagse Tijdperk",
+        "Tomorrow": "Morgen",
+        "TheFuture": "Toekomst",
+        "ArcticFuture": "Arctische Toekomst",
+        "OceanicFuture": "Oceanische Toekomst"
+      },
+      "gb": {
+        "Observatory": "Sterrenwacht",
+        "Temple_of_Relics": "Reliekentempel",
+        "Oracle_of_Delphi": "Orakel van Delphi",
+        "Tower_of_Babel": "Toren van Babel",
+        "Statue_of_Zeus": "Standbeeld van Zeus",
+        "Colosseum": "Colosseum",
+        "Lighthouse_of_Alexandria": "Pharos van Alexandrië",
+        "Hagia_Sophia": "Hagia Sophia",
+        "Cathedral_of_Aachen": "Dom van Aken",
+        "St_Mark_s_Basilica": "St. Mark's Basilica",
+        "Notre_Dame": "Notre Dame",
+        "Saint_Basil_s_Cathedral": "Baseliek van San Marco",
+        "Castel_del_Monte": "Castel del Monte",
+        "Deal_Castle": "Deal Castle",
+        "Frauenkirche_of_Dresden": "Frauenkirche van Dresden",
+        "Capitol": "Capitool",
+        "Royal_Albert_Hall": "Royal Albert Hall",
+        "Chateau_Frontenac": "Château Frontenac",
+        "Alcatraz": "Alcatraz",
+        "Space_Needle": "Space Needle",
+        "Atomium": "Atomium",
+        "Cape_Canaveral": "Cape Canaveral",
+        "The_Habitat": "Habitat",
+        "Lotus_Temple": "Lotus Tempel",
+        "Innovation_Tower": "Innovation Tower",
+        "Dynamic_Tower": "Dynamic Tower",
+        "Voyager_V1": "Voyager V1",
+        "The_Arc": "Arc",
+        "Rain_Forest_Project": "Regenwoudproject",
+        "Gaea_Statue": "Gaia-standbeeld",
+        "Arctic_Orangery": "Arctische Oranjerie",
+        "Seed_Vault": "Zadenkluis",
+        "Atlantis_Museum": "Atlantis-Museum",
+        "The_Kraken": "De Kraken",
+        "The_Blue_Galaxy": "De Blauwe Melkweg"
+      }
+    },
+    "utils": {
+      "content": {
+        "tools": "Tools",
+        "statistics": "Statistieken"
+      },
+      "btn_calculate": "Berekenen",
+      "description": {
+        "p1": "Voer andere waarden in. Het resultaat wordt automatisch bijgewerkt.",
+        "p2_html": "<strong>NB</strong>: Als het resultaat niet automatisch wordt bijgewerkt, klik op \"$t(utils.btn_calculate)\"."
+      },
+      "permalink": "Permalink",
+      "Yes": "Ja",
+      "No": "Nee",
+      "Ok": "Oké",
+      "Copy": "Kopiëren",
+      "Copyed": "Gekopieerd !",
+      "Information": "Informatie",
+      "From": "Van",
+      "To": "Tot (max {{max}})",
+      "Prefix": "Voorvoegsel",
+      "Suffix": "Achtervoegsel",
+      "moment": {
+        "year": "{{count}} jaar",
+        "year_plural": "{{count, number}} jaren",
+        "month": "{{count}} maand",
+        "month_plural": "{{count}} maanden",
+        "day": "{{count}} dag",
+        "day_plural": "{{count}} dagen"
+      },
+      "graph": {
+        "gb_level": "Nieveau",
+        "gb_level_cost": "Kosten niveau",
+        "gb_reward_1st_place": "Opbrengst niveau (1e positie)"
+      }
+    },
+    "seo": {
+      "keywords": {
+        "gb": "gg",
+        "great_building": "groots gebouw",
+        "fp": "fp",
+        "forge_point": "forge punt",
+        "medals": "medailles",
+        "military_units": "militaire eenheden"
       }
     }
   }
+}
