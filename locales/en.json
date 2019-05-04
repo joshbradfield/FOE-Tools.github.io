@@ -555,7 +555,8 @@
         "The_Blue_Galaxy": "The Blue Galaxy",
         "Terracotta_Army": "Terracotta Army",
         "Himeji_Castle": "Himeji Castle",
-        "The_Virgo_Project": "The Virgo Project"
+        "The_Virgo_Project": "The Virgo Project",
+        "Star_Gazer": "Star Gazer"
       },
       "gb_short": {
         "Observatory": "Obs",
@@ -595,7 +596,8 @@
         "The_Blue_Galaxy": "BG",
         "Terracotta_Army": "TA",
         "Himeji_Castle": "HC",
-        "The_Virgo_Project": "TVP"
+        "The_Virgo_Project": "TVP",
+        "Star_Gazer": "SG"
       },
       "goods": {
         "dye": "Dye",
