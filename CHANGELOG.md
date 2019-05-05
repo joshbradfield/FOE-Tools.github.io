@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.37.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.36.0...v2.37.0) (2019-05-05)
+
+
+### Bug Fixes
+
+* **gb-investment:** fix bad estimation of owner preparation when many investors ([2a01921](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2a01921))
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([5c9a820](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5c9a820))
+* **foe-data:** add Star Gazer ([89197af](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/89197af))
+* **l10n:** update translation ([e7176fe](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e7176fe))
+
+
+
 # [2.36.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.35.0...v2.36.0) (2019-04-30)
 
 
