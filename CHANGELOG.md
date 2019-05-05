@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.37.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.37.0...v2.37.1) (2019-05-05)
+
+
+### Bug Fixes
+
+* **l10n:** add missing translation in main menu for campaign cost ([e04ae0a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e04ae0a))
+
+
+
 # [2.37.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.36.0...v2.37.0) (2019-05-05)
 
 
