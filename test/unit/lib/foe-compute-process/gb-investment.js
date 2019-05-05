@@ -184,6 +184,28 @@ describe("FoeGbInvestment", () => {
       }
     );
 
+    test("Valid value with Temple of Relics level 19 → 20, with 9 investors", () => {
+      const result = GbProcess.ComputeLevelInvestment(
+        20,
+        [90, 90, 90, 90, 90],
+        gbsData.Temple_of_Relics.levels,
+        [
+          { value: 21, isPotentialSniper: true },
+          { value: 20, isPotentialSniper: true },
+          { value: 14, isPotentialSniper: true },
+          { value: 10, isPotentialSniper: true },
+          { value: 10, isPotentialSniper: true },
+          { value: 10, isPotentialSniper: true },
+          { value: 10, isPotentialSniper: true },
+          { value: 8, isPotentialSniper: true },
+          { value: 5, isPotentialSniper: true }
+        ],
+        0
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
     test("Throw error when invalid type for currentLevel", () => {
       expect(() => GbProcess.ComputeLevelInvestment("a", [0, 0, 0, 0, 0], agesCost.BronzeAge, [])).toThrow(
         new Errors.InvalidTypeError({
