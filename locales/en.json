@@ -8,7 +8,8 @@
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
       "trade": "$t(routes.trade.hero.title)",
-      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
     },
     "footer_menu": {
       "about": "About",
