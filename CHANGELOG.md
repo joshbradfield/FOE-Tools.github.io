@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## [2.38.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.38.0...v2.38.1) (2019-05-12)
 
 
+* style: manage style of numeric input when switch to dark theme
 
 # [2.38.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.37.1...v2.38.0) (2019-05-12)
 
