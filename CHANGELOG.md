@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.38.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.37.1...v2.38.0) (2019-05-12)
+
+
+### Bug Fixes
+
+* **l10n:** fix typo in french ([f8b881a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f8b881a))
+
+
+### Features
+
+* add auto-complete for gb list select ([44b16d0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/44b16d0))
+* **foe-data:** add levels of several ages ([b74d04a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b74d04a))
+* **gb-investment:** add +/- button for number input ([d8a2c80](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d8a2c80))
+* **gb-investment:** change default value for "addInvestor" field to `null` ([d12e3e9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d12e3e9))
+* **secure-position:** add +/- button for number input ([685973c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/685973c))
+* **secure-position:** add reset button ([35aaf1f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/35aaf1f))
+* add contact page ([61747bb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/61747bb))
+
+
+
 ## [2.37.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.37.0...v2.37.1) (2019-05-05)
 
 
