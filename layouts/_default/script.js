@@ -121,6 +121,7 @@ export default {
       ],
       footerLinks: [
         this.$store.state.routes.about,
+        this.$store.state.routes.contact,
         this.$store.state.routes.contributors,
         this.$store.state.routes.changelog
       ],

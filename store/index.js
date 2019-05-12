@@ -25,7 +25,8 @@ export const state = () => ({
     trade: { key: "trade", link: "trade" },
     campaign_cost: { key: "campaign_cost", link: "campaign-cost" },
     help_to_translate_the_site: { key: "help_to_translate_the_site", link: "help-to-translate-the-site" },
-    survey: { key: "survey", link: "survey" }
+    survey: { key: "survey", link: "survey" },
+    contact: { key: "contact", link: "contact" }
   },
 
   /**

@@ -185,7 +185,7 @@
           "title": "Algemene informatie",
           "p1_html": "Forge of Empires, FOE, en alle andere gerelateerde handelsmerken en content zijn eigendom van InnoGames GmbH. <br/> $t(common:site_title) is een onofficiele site van een derde partij en heeft geen binding met InnoGames.",
           "p2_html": "$t(common:site_title) was gecreeerd door de Franse speler <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "De site is OpenSource en de broncode is vrij verkrijgbaar op GitHub. <br/> Dus, iedereen met de benodigde kennis kan meehelpen deze site te verbeteren."
+          "p3_html": "De site is OpenSource en de broncode is vrij verkrijgbaar op $t(common:links.github). <br/> Dus, iedereen met de benodigde kennis kan meehelpen deze site te verbeteren."
         },
         "cookie": {
           "title": "Cookies",
@@ -195,7 +195,7 @@
           "title": "Ontwikkel informatie",
           "p1": "De site is een simpele statische website welke op GitHub wordt gehost.",
           "p2_html": "De ontwikkeling vind plaats m.b.v. Node.js en maakt gebruik van $t(common:links.framework). De stijl is m.b.v. $t(common:links.style) gemaakt.",
-          "p3_html": "Een idee voor een functionaliteit? Een probleem ? Wees zo vrij om een issue op GitHub aan te maken of mij een email (in het Engels of Frans) te sturen op $t(common:links.contact_foe_tools).",
+          "p3_html": "Een idee voor een functionaliteit? Een probleem ? Wees zo vrij om een issue op $t(common:links.github) aan te maken of mij een email (in het Engels of Frans) te sturen op $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>NB:</b> Aangaande issues op GitHub, schrijf deze in de Engelse taal om er zeker van te zijn dat nagenoeg iedereen het kan begrijpen."
         }
       },

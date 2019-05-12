@@ -196,7 +196,7 @@
           "title": "Genel bilgi",
           "p1_html": "Forge of Empires, FOE ve tüm ilişkili markalar ve içerik InnoGames GmbH'ye aittir. <br/> $t(common:site_title) ise resmi olmayan, üçüncü kişilere ait ve InnoGame ile bağlantılı değildir.",
           "p2_html": "$t(common:site_title) Fransız oyuncu <strong class=\"has-text-weight-semibold\">Yoratheon</strong> tarafından yaratıldı.",
-          "p3_html": "Bu site açık kaynak kodlu bir site olmakla birlikte GitHub üzerinden bedava olarak kullanılabilir.<br/> Bu sayede gerekli becerilere sahip herkes bu sitenin geliştirilmesinde katkıda bulunabilir."
+          "p3_html": "Bu site açık kaynak kodlu bir site olmakla birlikte $t(common:links.github) üzerinden bedava olarak kullanılabilir.<br/> Bu sayede gerekli becerilere sahip herkes bu sitenin geliştirilmesinde katkıda bulunabilir."
         },
         "cookie": {
           "title": "Çerezler",

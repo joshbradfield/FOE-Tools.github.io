@@ -14,34 +14,36 @@ div.content
     div.column
       div.field
         p {{$t('utils.description.p1')}}
+        p
+          button.button.is-danger(@click.prevent="resetValues") {{$t('utils.Reset_values')}}
 
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'block_place.level_cost')" label-for="splevelCost" :type="haveError('levelCost')")
     div.column.is-half
-      b-input(type="number" min="0" v-model.number="levelCost" name="level-cost" id="splevelCost" autocomplete="off" :disabled="haveInputLevelCost()" :autofocus="canPermalink")
+      b-numberinput(controls-position="compact" type="is-dark" expanded min="0" v-model.number="levelCost" name="level-cost" id="splevelCost" autocomplete="off" :disabled="haveInputLevelCost()" :autofocus="canPermalink")
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'block_place.current_deposits')" label-for="spCurrentDeposits" :type="haveError('currentDeposits')")
     div.column.is-half
-      b-input(type="number" min="0" v-model.number="currentDeposits" name="current-deposits" id="spCurrentDeposits" autocomplete="off")
+      b-numberinput(controls-position="compact" type="is-dark" expanded min="0" v-model.number="currentDeposits" name="current-deposits" id="spCurrentDeposits" autocomplete="off")
 
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'block_place.your_participation')" label-for="spYourParticipation" :type="haveError('yourParticipation')")
     div.column.is-half
-      b-input(type="number" min="0" v-model.number="yourParticipation" name="your-participation" id="spYourParticipation" autocomplete="off")
+      b-numberinput(controls-position="compact" type="is-dark" expanded min="0" v-model.number="yourParticipation" name="your-participation" id="spYourParticipation" autocomplete="off")
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'block_place.other_participation')" label-for="spOtherParticipation" :type="haveError('otherParticipation')")
     div.column.is-half
-      b-input(type="number" min="0" v-model.number="otherParticipation" name="other-participation" id="spOtherParticipation" autocomplete="off")
+      b-numberinput(controls-position="compact" type="is-dark" expanded min="0" v-model.number="otherParticipation" name="other-participation" id="spOtherParticipation" autocomplete="off")
 
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'block_place.your_arc_bonus')" label-for="spYourArcBonus" :type="haveError('yourArcBonus')")
     div.column.is-half
-      b-input(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" id="spYourArcBonus" autocomplete="off" :disabled="$props.canCustomYourArcBonus")
+      b-numberinput(controls-position="compact" type="is-dark" expanded min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" id="spYourArcBonus" autocomplete="off" :disabled="$props.canCustomYourArcBonus")
   div.columns
     template(v-if="haveInputLevelCost()")
       div.column.is-half
@@ -53,7 +55,7 @@ div.content
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'block_place.fp_target_reward')" label-for="spFpTargetReward" :type="haveError('fpTargetReward')")
       div.column.is-half
-        b-input(type="number" min="0" v-model.number="fpTargetReward" step="5" name="fp-target-reward" id="spFpTargetReward" autocomplete="off")
+        b-numberinput(controls-position="compact" type="is-dark" expanded min="0" v-model.number="fpTargetReward" step="5" name="fp-target-reward" id="spFpTargetReward" autocomplete="off")
 
   template(v-if="levelCost && getNumberOfRemainingPoints()")
     h4.title.is-4 {{$t('utils.Result')}}

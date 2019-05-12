@@ -21,22 +21,22 @@ describe("GbListSelect", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
-  test('Change "gbList" value', () => {
+  test('Change "selected" value', () => {
     const wrapper = factory();
     const newGb = "Statue_of_Zeus";
-    expect(wrapper.vm.gbList).toBe(defaultGb);
-    wrapper.vm.gbList = newGb;
-    expect(wrapper.vm.gbList).toBe(newGb);
+    expect(wrapper.vm.selected).toBe(defaultGb);
+    wrapper.vm.selected = newGb;
+    expect(wrapper.vm.selected).toBe(newGb);
     expect(wrapper.emitted().change).toBeTruthy();
     expect(wrapper.emitted().change[0]).toEqual([newGb]);
   });
 
-  test('Change "gbList" invalid value', () => {
+  test('Change "selected" invalid value', () => {
     const wrapper = factory();
     const newGb = "foo";
-    expect(wrapper.vm.gbList).toBe(defaultGb);
-    wrapper.vm.gbList = newGb;
-    expect(wrapper.vm.gbList).toBe(newGb);
+    expect(wrapper.vm.selected).toBe(defaultGb);
+    wrapper.vm.selected = newGb;
+    expect(wrapper.vm.selected).toBe(newGb);
     expect(wrapper.emitted().change).toBeFalsy();
   });
 });

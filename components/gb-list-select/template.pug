@@ -1,4 +1,10 @@
 b-field(:label="$t(i18nPrefix + 'label')" :label-for="id")
-  b-select(v-model="gbList" :id="id" :name="id" expanded)
-    optgroup(v-for="(age, i) in foeGBList" :label="$t('foe_data.age.' + age.key)")
-      option(v-for="gb in age.gbs" :value="gb") {{$t('foe_data.gb.' + gb)}}
+  b-autocomplete(
+    v-model="name"
+    :id="id"
+    :open-on-focus="true"
+    :data="filteredDataObj"
+    field="text"
+    @select="option => selected = option.value"
+    @focus.prevent="onFocus($event)"
+    expanded)

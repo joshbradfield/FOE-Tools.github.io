@@ -14,7 +14,8 @@
     "footer_menu": {
       "about": "About",
       "contributors": "Contributors",
-      "changelog": "Changelog"
+      "changelog": "Changelog",
+      "contact": "Contact"
     },
     "components": {
       "campaign_cost": {
@@ -307,7 +308,7 @@
           "title": "General information",
           "p1_html": "Forge of Empires, FOE, and all related trademarks and content belong to InnoGames GmbH. <br /> $t(common:site_title) is an unofficial third party site and is not affiliated with InnoGames.",
           "p2_html": "$t(common:site_title) was created by the French player <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "The site is OpenSource, the code is freely available on GitHub. <br /> Thus, everyone with the necessary skills can participate in the improvement of this site."
+          "p3_html": "The site is OpenSource, the code is freely available on $t(common:links.github). <br /> Thus, everyone with the necessary skills can participate in the improvement of this site."
         },
         "cookie": {
           "title": "Cookies",
@@ -358,7 +359,7 @@
           "title": "Development information",
           "p1": "The site is a simple static site hosted on GitHub.",
           "p2_html": "The development is done in Node.js using $t(common:links.framework). The style is made using $t(common:links.style).",
-          "p3_html": "An idea of functionality? A problem ? Feel free to create an issue on GitHub or send me an email (in English or in French) at $t(common:links.contact_foe_tools).",
+          "p3_html": "An idea of functionality ? A problem ? Feel free to create an issue on $t(common:links.github) or send me an email (in English or in French) at $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Note:</b> Regarding issues on GitHub, please make sure to write them in English to facilitate understanding for the greatest number."
         }
       },
@@ -468,6 +469,16 @@
         "survey_complete": "Thank you for your feedback !",
         "error": "An error has occurred, check the form and try again",
         "unknown_error": "An unknown error has occurred, please contact the site administrator"
+      },
+      "contact": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Contact",
+          "subtitle": "Contact the maintainer of $t(common:site_title)"
+        },
+        "message_contact_html": "An idea of functionality ? A problem ? Feel free to send me an email (in English or in French) at $t(common:links.contact_foe_tools).",
+        "message_translate": "Did you know that you can also help translate the site ? Follow the following link for more information: ",
+        "message_other_info_html": "If you are developers, you can also create an issue (and contribute to the development of the site) on $t(common:links.github)."
       },
       "error": {
         "404": {
@@ -1161,6 +1172,7 @@
       "Result": "Result",
       "between_range": "between {{min, number}} and {{max, number}}",
       "Submit": "Submit",
+      "Reset_values": "Reset values",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

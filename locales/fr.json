@@ -13,7 +13,8 @@
     "footer_menu": {
       "about": "À propos",
       "contributors": "Contributeurs",
-      "changelog": "Changelog"
+      "changelog": "Changelog",
+      "contact": "Contact"
     },
     "components": {
       "campaign_cost": {
@@ -299,7 +300,7 @@
           "title": "Informations générales",
           "p1_html": "Forge of Empires, FOE, et toutes les marques et contenus associés appartiennent à InnoGames GmbH.<br />$t(common:site_title) est un site tierce non officiel et n'est pas affilié à InnoGames.",
           "p2_html": "$t(common:site_title) a été créé par le joueur français <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "Le site est OpenSource, le code est disponible librement et gratuitement sur GitHub.<br />Ainsi, tout le monde ayant les compétences nécessaires peut participer à l'amélioration de ce site."
+          "p3_html": "Le site est OpenSource, le code est disponible librement et gratuitement sur $t(common:links.github).<br />Ainsi, tout le monde ayant les compétences nécessaires peut participer à l'amélioration de ce site."
         },
         "cookie": {
           "title": "Cookies",
@@ -350,7 +351,7 @@
           "title": "Informations développement",
           "p1": "Le site est un simple site static hébergé sur GitHub.",
           "p2_html": "Le développement se fait en Node.js à l'aide de $t(common:links.framework). Le style est réalisé à l'aide de $t(common:links.style).",
-          "p3_html": "Une idée de fonctionnalité ? Un problème ? N'hésitez pas à créer une issue sur GitHub ou à m'envoyer un mail à $t(common:links.contact_foe_tools).",
+          "p3_html": "Une idée de fonctionnalité ? Un problème ? N'hésitez pas à créer une issue sur $t(common:links.github) ou à m'envoyer un mail à $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Note :</b> Concernant les issues sur GitHub, veuillez veiller à les rédiger en anglais pour faciliter la compréhension pour le plus grand nombre."
         }
       },
@@ -461,6 +462,16 @@
         "error": "Une erreur s'est produite, vérifiez le formulaire et réessayez",
         "unknown_error": "Une erreur inconnue c'est produit, veuillez contacter l'administrateur du site"
       },
+      "contact": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Contact",
+          "subtitle": "Contacter le mainteneur de $t(common:site_title)"
+        },
+        "message_contact_html": "Une idée de fonctionnalité ? Un problème ? N'hésitez pas m'envoyer un mail à $t(common:links.contact_foe_tools).",
+        "message_translate": "Savez vous que vous pouvez aussi aider à traduire le site ? suivez le lien suivant pour plus d'information : ",
+        "message_other_info_html": "Si vous êtes développeurs, vous pouvez aussi créer une issue (et contribuer au développement du site) sur $t(common:links.github)."
+      },
       "error": {
         "404": {
           "title": "Page non trouvée | $t(common:site_title)",
@@ -517,7 +528,7 @@
         "Colosseum": "Colisée",
         "Lighthouse_of_Alexandria": "Phare d'Alexandrie",
         "Hagia_Sophia": "Hagia Sophia",
-        "Cathedral_of_Aachen": "Cathédrale d'Aix la Chapelle",
+        "Cathedral_of_Aachen": "Cathédrale d'Aix-la-Chapelle",
         "St_Mark_s_Basilica": "Basilique Saint-Marc",
         "Notre_Dame": "Notre-Dame",
         "Saint_Basil_s_Cathedral": "Cathédrale Saint-Basile",
@@ -536,14 +547,14 @@
         "Innovation_Tower": "Tour de l'innovation",
         "Dynamic_Tower": "Dynamic Tower",
         "Voyager_V1": "Voyager V1",
-        "The_Arc": "L'Arche",
+        "The_Arc": "L'arche",
         "Rain_Forest_Project": "Forêt tropicale",
         "Gaea_Statue": "Statue de Gaïa",
         "Arctic_Orangery": "Orangerie arctique",
         "Seed_Vault": "Chambre forte des graines",
         "Atlantis_Museum": "Musée de l'Atlantide",
         "The_Kraken": "Le Kraken",
-        "The_Blue_Galaxy": "La Galaxie Bleue",
+        "The_Blue_Galaxy": "La galaxie bleue",
         "Terracotta_Army": "Armée de terre cuite",
         "Himeji_Castle": "Château d'Himeji"
       },
@@ -1147,6 +1158,7 @@
       "Result": "Résultat",
       "between_range": "entre {{min, number}} et {{max, number}}",
       "Submit": "Envoyer",
+      "Reset_values": "Réinitialiser les valeurs",
       "moment": {
         "year": "{{count}} an",
         "year_plural": "{{count, number}} ans",

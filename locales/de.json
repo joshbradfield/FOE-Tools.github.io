@@ -299,7 +299,7 @@
           "title": "Allgemeine Informationen",
           "p1_html": "Forge of Empires, FOE, und alle damit verbundenen Marken und Inhalte gehören InnoGames GmbH. <br/> $t(common:site_title) ist eine inoffizielle Drittanbieter-Website und ist in keiner Art mit InnoGames affiliiert.",
           "p2_html": "$t(common:site_title) wurde erstellt durch den französischen Spieler <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "Die Seite ist Open Source und der Programmcode ist frei verfügbar auf GitHub. <br/> Damit kann jeder mit entsprechenden Fähigkeiten an der Verbesserung dieser Seite teilnehmen."
+          "p3_html": "Die Seite ist Open Source und der Programmcode ist frei verfügbar auf $t(common:links.github). <br/> Damit kann jeder mit entsprechenden Fähigkeiten an der Verbesserung dieser Seite teilnehmen."
         },
         "cookie": {
           "title": "Cookies",
@@ -348,7 +348,7 @@
           "title": "Entwicklungsinformation",
           "p1": "Diese Seite ist eine einfache statische Seite gehostet auf GitHub.",
           "p2_html": "Die Entwicklung basiert auf Node.js und verwendet $t(common:links.framework). Der Stil wurde mittels $t(common:links.style) erstellt.",
-          "p3_html": "Hast du Ideen zur Verbesserung der Funktionalität? Ein Problem? Erstelle einfach ein Issue auf Github oder sende mir eine E-Mail (in Englisch oder Französisch) an $t(common:links.contact_foe_tools).",
+          "p3_html": "Hast du Ideen zur Verbesserung der Funktionalität? Ein Problem? Erstelle einfach ein Issue auf $t(common:links.github) oder sende mir eine E-Mail (in Englisch oder Französisch) an $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Hinweis:</b> Bezüglich Issues auf GitHub: Bitte schreibe diese auf Englisch, um ein weitestmögliches Verständnis zu erreichen."
         }
       },
