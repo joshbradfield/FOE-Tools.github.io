@@ -19,41 +19,43 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
-        b-input#giLevel(type="number" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink")
+        b-numberinput#giLevel(controls-position="compact" type="is-dark" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-        b-input#giInvestorPercentageGlobal(type="number" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off")
+        b-numberinput#giInvestorPercentageGlobal(controls-position="compact" type="is-dark" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
 
   div.columns(v-if="result !== null")
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
-        b-input#giOwnerInvestment(type="number" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off")
-    div.column.is-half.is-hidden-desktop.is-hidden-widescreen
-      yes-no(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
+        b-numberinput#giOwnerInvestment(controls-position="compact" type="is-dark" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
+    div.column.is-half
+      b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
+        b-numberinput#giYourArcBonus(controls-position="compact" type="is-dark" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
 
   div.columns
-    div.column.is-half
-      yes-no(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
-    div.column.is-half(v-show="showSnipe")
-      b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
-        b-input#giYourArcBonus(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off")
-
-  // Investor participation
-  div.columns(v-if="result !== null")
+    // Investor participation
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors")
-        b-field(grouped :type="haveError('addInvestors')")
+        b-field(:type="haveError('addInvestors')")
           b-input#giAddInvestors(type="number" min="1" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" autocomplete="off" expanded :disabled="maxInvestment <= 0" @click.native="haveReadTipAboutAddInvestor")
           p.control
             button.button.is-info(:title="$t('utils.Add')" @click="addInvestor" :disabled="maxInvestment <= 0")
               span.icon
                 i.fas.fa-plus
               | &nbsp;&nbsp;{{$t('utils.Add')}}
-    div.column.is-half(v-if="investorParticipation.length > 0")
+    div.column.is-half
+      yes-no(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
+
+  div.columns(v-if="result !== null")
+    div.column(v-if="investorParticipation.length > 0")
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.investors_list')")
       b-field(grouped group-multiline)
         div.control(v-for="(investor,index) in investorParticipation")
           b-tag(:type="isNaN(investor.value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
+
+  div.columns.is-hidden-desktop.is-hidden-widescreen
+      div.column.is-half
+        yes-no(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
 
   div.table-wrapper(v-if="result !== null")
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth(:class="displayTableCard ? 'is-hidden-touch' : ''")
@@ -207,7 +209,7 @@ div.content
           tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
             th.has-text-centered(:colspan=2)
               progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
-              p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}}
+              p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}} ({{$formatNumber(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
         // Table content
         tbody
           template(v-for="(props, index) in result.investment.concat(showExtraInvestors ? result.otherInvestment : [])")
