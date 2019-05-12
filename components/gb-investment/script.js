@@ -59,7 +59,7 @@ export default {
         : defaultArcPercentage,
       investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
       investorParticipation: [],
-      addInvestors: 1,
+      addInvestors: null,
       showExtraInvestors: false,
       showSnipe: this.cookieValid("showSnipe") ? !!this.$cookies.get("showSnipe") : false,
       placeFree: [{ state: true }, { state: true }, { state: true }, { state: true }, { state: true }],
@@ -290,6 +290,9 @@ export default {
       }
     },
     addInvestors(val, oldVal) {
+      if (val === null) {
+        return;
+      }
       if (val && typeof val !== "number" && val.length > 0) {
         this.$data.errors.addInvestors = true;
         return;
@@ -758,7 +761,7 @@ export default {
         /* istanbul ignore next */
         this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b.value - a.value);
 
-        this.$data.addInvestors = 1;
+        this.$data.addInvestors = null;
 
         this.calculate();
       }
