@@ -1172,6 +1172,7 @@
       "Result": "Result",
       "between_range": "between {{min, number}} and {{max, number}}",
       "Submit": "Submit",
+      "Reset_values": "Reset values",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

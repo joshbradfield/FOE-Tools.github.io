@@ -14,6 +14,8 @@ div.content
     div.column
       div.field
         p {{$t('utils.description.p1')}}
+        p
+          button.button.is-danger(@click.prevent="resetValues") {{$t('utils.Reset_values')}}
 
   div.columns
     div.column.is-half

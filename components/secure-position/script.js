@@ -424,6 +424,21 @@ export default {
       }
 
       return result;
+    },
+
+    resetValues() {
+      this.$data.fp = 0;
+      this.$data.yourParticipation = 0;
+      this.$data.otherParticipation = 0;
+      this.$data.levelCost = this.haveInputLevelCost() ? this.$props.levelData.cost : 0;
+      this.$data.currentDeposits = 0;
+      this.$data.yourArcBonus =
+        this.$props.customYourArcBonus !== false
+          ? this.$props.customYourArcBonus
+          : this.$cookies.get("yourArcBonus") === undefined
+          ? 0
+          : this.$cookies.get("yourArcBonus");
+      this.$data.fpTargetReward = 0;
     }
   },
   mounted() {

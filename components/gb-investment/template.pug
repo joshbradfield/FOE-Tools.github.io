@@ -335,4 +335,4 @@ div.content
             | &nbsp;&nbsp;{{$t('utils.Copy')}}
 
   div(v-if="result" style="margin-top: 2rem;")
-    secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="showSnipe" @customYourArcBonus="yourArcBonus = $event")
+    secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="true" @customYourArcBonus="yourArcBonus = $event")
