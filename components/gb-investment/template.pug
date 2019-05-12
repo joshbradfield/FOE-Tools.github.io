@@ -19,18 +19,18 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
-        b-numberinput#giLevel(controls-position="compact" type="is-dark" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
+        b-numberinput#giLevel(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-        b-numberinput#giInvestorPercentageGlobal(controls-position="compact" type="is-dark" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
+        b-numberinput#giInvestorPercentageGlobal(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
 
   div.columns(v-if="result !== null")
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
-        b-numberinput#giOwnerInvestment(controls-position="compact" type="is-dark" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
+        b-numberinput#giOwnerInvestment(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
     div.column.is-half
       b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
-        b-numberinput#giYourArcBonus(controls-position="compact" type="is-dark" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
+        b-numberinput#giYourArcBonus(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
 
   div.columns
     // Investor participation
