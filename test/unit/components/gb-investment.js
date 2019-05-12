@@ -288,7 +288,7 @@ describe("GbInvestment", () => {
   test('Change "addInvestors" value', () => {
     const wrapper = factory();
     const newValue = 15;
-    expect(wrapper.vm.addInvestors).toBe(1);
+    expect(wrapper.vm.addInvestors).toBe(null);
     wrapper.vm.addInvestors = newValue;
     expect(wrapper.vm.addInvestors).toBe(newValue);
     expect(wrapper.vm.errors.addInvestors).toBe(false);
@@ -297,7 +297,7 @@ describe("GbInvestment", () => {
   test('Change "addInvestors" invalid value', () => {
     const wrapper = factory();
     const newValue = -1;
-    expect(wrapper.vm.addInvestors).toBe(1);
+    expect(wrapper.vm.addInvestors).toBe(null);
     wrapper.vm.addInvestors = newValue;
     expect(wrapper.vm.addInvestors).toBe(newValue);
     expect(wrapper.vm.errors.addInvestors).toBe(true);
@@ -306,7 +306,7 @@ describe("GbInvestment", () => {
   test('Change "addInvestors" invalid type', () => {
     const wrapper = factory();
     const newValue = "foo";
-    expect(wrapper.vm.addInvestors).toBe(1);
+    expect(wrapper.vm.addInvestors).toBe(null);
     wrapper.vm.addInvestors = newValue;
     expect(wrapper.vm.addInvestors).toBe(newValue);
     expect(wrapper.vm.errors.addInvestors).toBe(true);
@@ -677,6 +677,7 @@ describe("GbInvestment", () => {
   test('Call "addInvestor"', () => {
     const wrapper = factory();
     expect(wrapper.vm.investorParticipation).toEqual([]);
+    wrapper.vm.addInvestors = 1;
     wrapper.vm.addInvestor();
     expect(wrapper.vm.investorParticipation).toMatchSnapshot();
   });
@@ -687,7 +688,7 @@ describe("GbInvestment", () => {
     wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
     wrapper.vm.addInvestor();
     expect(wrapper.vm.investorParticipation).toMatchSnapshot();
-    expect(wrapper.vm.addInvestors).toBe(1);
+    expect(wrapper.vm.addInvestors).toBe(null);
   });
 
   test('Call "addInvestor" with invalid value', () => {
@@ -782,6 +783,7 @@ describe("GbInvestment", () => {
     const wrapper = factory();
     const index = 0;
     const value = false;
+    wrapper.vm.addInvestors = 1;
     wrapper.vm.addInvestor();
     expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: true }]);
     wrapper.vm.changeIsPotentialSniper(index, value);

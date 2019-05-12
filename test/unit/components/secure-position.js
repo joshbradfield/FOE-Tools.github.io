@@ -414,4 +414,23 @@ describe("SecurePosition", () => {
     expect(wrapper.vm.roi).toBe(34);
     expect(wrapper.vm.checkFormValid()).toBe(true);
   });
+
+  test('call "resetValues"', () => {
+    const wrapper = factory();
+    wrapper.vm.levelCost = 812;
+    wrapper.vm.currentDeposits = 633;
+    wrapper.vm.yourParticipation = null;
+    wrapper.vm.otherParticipation = "";
+    wrapper.vm.yourArcBonus = 90;
+    wrapper.vm.fpTargetReward = 65;
+
+    wrapper.vm.resetValues();
+
+    expect(wrapper.vm.levelCost).toBe(0);
+    expect(wrapper.vm.currentDeposits).toBe(0);
+    expect(wrapper.vm.yourParticipation).toBe(0);
+    expect(wrapper.vm.otherParticipation).toBe(0);
+    expect(wrapper.vm.yourArcBonus).toBe(90.6);
+    expect(wrapper.vm.fpTargetReward).toBe(0);
+  });
 });
