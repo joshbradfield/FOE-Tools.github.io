@@ -22,7 +22,7 @@ export default {
       foeGBList: gbList,
       gbData,
       selected: this.$props.current,
-      name: this.$t("foe_data.gb." + this.$props.current),
+      name: "",
       tmpName: "",
       id: "gbList" + this._uid
     };
@@ -42,11 +42,20 @@ export default {
   watch: {
     selected(val) {
       if (val in gbs) {
+        this.$nextTick(() => {
+          this.$data.name = "";
+        });
+
         this.$emit("change", val);
       }
     }
   },
   methods: {
+    onSelect: /* istanbul ignore next */ function(option) {
+      if (option) {
+        this.selected = option.value;
+      }
+    },
     onFocus: /* istanbul ignore next */ function(evt) {
       evt.target.select();
     }

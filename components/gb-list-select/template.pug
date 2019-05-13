@@ -1,10 +1,11 @@
 b-field(:label="$t(i18nPrefix + 'label')" :label-for="id")
   b-autocomplete(
     v-model="name"
+    :placeholder="$t('foe_data.gb.' + selected)"
     :id="id"
     :open-on-focus="true"
     :data="filteredDataObj"
     field="text"
-    @select="option => selected = option.value"
+    @select="onSelect($event)"
     @focus.prevent="onFocus($event)"
     expanded)
