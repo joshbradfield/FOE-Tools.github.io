@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.38.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.38.1...v2.38.2) (2019-05-13)
+
+
+### Bug Fixes
+
+* **gb-list-select:** set the GB name in placeholder ([d39996d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d39996d))
+
+
+
 ## [2.38.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.38.0...v2.38.1) (2019-05-12)
 
 
