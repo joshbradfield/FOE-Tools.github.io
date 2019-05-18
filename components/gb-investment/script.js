@@ -45,6 +45,9 @@ export default {
     }
   },
   data() {
+    let investorPercentageGlobal = this.cookieValid(`${this.$route.params.gb}_investorPercentageGlobal`)
+      ? parseFloat(this.$cookies.get(`${this.$route.params.gb}_investorPercentageGlobal`))
+      : defaultArcPercentage;
     const data = {
       i18nPrefix,
       level: this.cookieValid(`${this.$route.params.gb}_level`)
@@ -54,10 +57,8 @@ export default {
       ownerInvestment: this.cookieValid(`${this.$route.params.gb}_ownerInvestment`)
         ? parseInt(this.$cookies.get(`${this.$route.params.gb}_ownerInvestment`))
         : 0,
-      investorPercentageGlobal: this.cookieValid(`${this.$route.params.gb}_investorPercentageGlobal`)
-        ? parseFloat(this.$cookies.get(`${this.$route.params.gb}_investorPercentageGlobal`))
-        : defaultArcPercentage,
-      investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
+      investorPercentageGlobal,
+      investorPercentageCustom: Array.from(new Array(5), () => investorPercentageGlobal),
       investorParticipation: [],
       addInvestors: null,
       showExtraInvestors: false,
