@@ -335,14 +335,16 @@ export default {
           ns: "gbi"
         });
 
+        let investorPercentageCustom = [];
         for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.investorPercentageCustom + (index + 1),
             value: Utils.normalizeNumberValue(val),
             ns: "gbi"
           });
-          this.$data.investorPercentageCustom[index] = value;
+          investorPercentageCustom.push(value);
         }
+        this.$data.investorPercentageCustom = investorPercentageCustom;
 
         this.calculate();
       }
