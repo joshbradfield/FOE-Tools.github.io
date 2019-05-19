@@ -35,6 +35,12 @@ body.light-theme {
   .custom-link-style.is-active, .custom-link-style.nuxt-link-active {
     color: $grey-dark;
   }
+
+  .autocomplete {
+    input::placeholder {
+      color: $grey;
+    }
+  }
 }
 
 html.dark-theme {

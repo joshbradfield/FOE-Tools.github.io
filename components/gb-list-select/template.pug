@@ -1,5 +1,6 @@
 b-field(:label="$t(i18nPrefix + 'label')" :label-for="id")
-  b-autocomplete(
+  b-autocomplete.autocomplete(
+    v-if="isGbSelectModeDatalist"
     v-model="name"
     :placeholder="$t('foe_data.gb.' + selected)"
     :id="id"
@@ -9,3 +10,7 @@ b-field(:label="$t(i18nPrefix + 'label')" :label-for="id")
     @select="onSelect($event)"
     @focus.prevent="onFocus($event)"
     expanded)
+
+  b-select(v-else v-model="selected" :id="id" :name="id" expanded)
+    optgroup(v-for="(age, i) in foeGBList" :label="$t('foe_data.age.' + age.key)")
+      option(v-for="gb in age.gbs" :value="gb") {{$t('foe_data.gb.' + gb)}}

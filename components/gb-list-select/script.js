@@ -28,7 +28,7 @@ export default {
     };
   },
   computed: {
-    filteredDataObj() {
+    filteredDataObj: /* istanbul ignore next */ function() {
       return this.gbData.filter(option => {
         return (
           option.text
@@ -37,6 +37,9 @@ export default {
             .indexOf(this.name.toLowerCase()) >= 0
         );
       });
+    },
+    isGbSelectModeDatalist() {
+      return this.$store.state.isGbSelectModeDatalist;
     }
   },
   watch: {
