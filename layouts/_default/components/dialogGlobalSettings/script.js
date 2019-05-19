@@ -5,7 +5,7 @@ import Utils from "~/scripts/utils";
 const i18nPrefix = "components.site_layout.global_config_dialog.";
 const defaultConfig = {
   fixedMainMenu: true,
-  gbSelectMode: "datalist", // datalist | select
+  gbSelectMode: "select", // datalist | select
   dayNightMode: "day" // day | night | auto
 };
 

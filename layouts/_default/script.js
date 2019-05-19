@@ -41,7 +41,7 @@ export default {
     );
     this.$store.commit(
       "IS_GB_SELECT_MODE_DATALIST",
-      this.$cookies.get("gbSelectMode") === undefined ? true : this.$cookies.get("gbSelectMode") === "datalist"
+      this.$cookies.get("gbSelectMode") === undefined ? false : this.$cookies.get("gbSelectMode") === "datalist"
     );
 
     return {
