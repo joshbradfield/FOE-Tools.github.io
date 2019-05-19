@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.39.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.38.2...v2.39.0) (2019-05-19)
+
+
+### Bug Fixes
+
+* fix bad custom values when page load ([7682013](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7682013))
+
+
+### Features
+
+* add a button to go to the top of the page ([6c5e2b4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6c5e2b4))
+* add possibility to use old select mode ([38a6905](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/38a6905))
+* allow to keep the main menu always visible and add global settings ([701ac17](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/701ac17))
+
+
+
 ## [2.38.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.38.1...v2.38.2) (2019-05-13)
 
 
