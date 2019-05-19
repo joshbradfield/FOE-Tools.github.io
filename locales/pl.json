@@ -251,11 +251,15 @@
           "version": "Wersja {{version}}"
         },
         "day_night": {
-          "Day": "Dzień",
-          "Night": "Noc",
-          "Auto": "Automatycznie $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)",
           "start_day": "Rozpoczęcie dnia",
           "start_night": "Rozpoczęcie nocy"
+        },
+        "global_config_dialog": {
+          "day_night_mode": {
+            "Day": "Dzień",
+            "Night": "Noc",
+            "Auto": "Automatycznie"
+          }
         }
       },
       "trade": {

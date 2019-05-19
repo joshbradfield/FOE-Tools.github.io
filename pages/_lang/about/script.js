@@ -48,7 +48,9 @@ export default {
         { name: "from" },
         { name: "to" },
         { name: "showPlace" },
-        { name: "survey" }
+        { name: "survey" },
+        { name: "fixedMainMenu" },
+        { name: "gbSelectMode" }
       ]
     };
   }

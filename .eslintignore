@@ -39,4 +39,5 @@ __snapshots__
 
 # Project
 dist
+modules
 *.marko.js

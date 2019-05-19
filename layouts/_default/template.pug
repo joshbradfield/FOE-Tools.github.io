@@ -1,6 +1,6 @@
 #app.dark-theme
   header
-    nav.navbar.has-shadow
+    nav.navbar.has-shadow(:class="{'is-fixed-top': $store.state.isFixedMainMenu}")
       div.navbar-brand
         a.navbar-item(:href="$i18nPath('/')")
           img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
@@ -13,13 +13,13 @@
         div.navbar-start
           template(v-for="value in mainMenu")
             template(v-if="value.children.length === 0")
-              nuxt-link.navbar-item(:class="{'is-active': isActive(value.key)}" :to="'/' + value.link" exact) {{value.name}}
+              nuxt-link.navbar-item(:class="{'is-active': isActive(value.key)}" :to="$i18nPath('/' + value.link)" exact) {{value.name}}
             div.navbar-item.has-dropdown.is-hoverable(v-else :key="value.slug")
-              nuxt-link.navbar-link(v-if="value.type.name === 'PAGE'" :class="{'is-active': isActive(value.key)}" :to="'/' + value.link" exact) {{value.name}}
+              nuxt-link.navbar-link(v-if="value.type.name === 'PAGE'" :class="{'is-active': isActive(value.key)}" :to="$i18nPath(value.link)" exact) {{value.name}}
               a.navbar-link(v-else-if="value.type.name === 'MENU_ENTRY'" href="#") {{value.name}}
               div.navbar-dropdown.is-boxed
                 template(v-for="child in value.children")
-                  nuxt-link.navbar-item(v-if="child.type.name === 'PAGE'" :class="{'is-active': isActive(child.key)}" :to="'/' + child.link" exact) {{child.name}}
+                  nuxt-link.navbar-item(v-if="child.type.name === 'PAGE'" :class="{'is-active': isActive(child.key)}" :to="$i18nPath(child.link)" exact) {{child.name}}
                   hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
 
         div.navbar-end
@@ -32,19 +32,15 @@
             language-selector
 
           div.navbar-item
-            div.field.has-addons
-              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.day_night.Day')" position="is-bottom")
-                span.button(:class="{ 'is-info' : dayNightMode === 'day' }" @click="dayNightMode = 'day'" ref="button-day")
-                  p.icon(style="margin: auto;")
-                    i.fas.fa-sun
-              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.day_night.Night')" position="is-bottom")
-                span.button(:class="{ 'is-info' : dayNightMode === 'night' }" @click="dayNightMode = 'night'" ref="button-night")
-                  p.icon(style="margin: auto;")
-                    i.fas.fa-moon
-              b-tooltip.control(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.day_night.Auto')" position="is-bottom")
-                span.button(:class="{ 'is-info' : dayNightMode === 'auto' }" @click="dayNightMode = 'auto'" ref="button-auto")
-                  p.icon(style="margin: auto;")
+            div.field
+              b-tooltip.control.is-hidden-touch(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
+                button.button(@click="showGlobalSettings" :class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
+                  p.icon
                     i.fas.fa-cog
+              button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
+                p.icon
+                  i.fas.fa-cog
+                p {{$t('components.site_layout.global_config')}}
 
           div.navbar-item
             div.field.is-grouped
@@ -90,6 +86,8 @@
                     div.column
                       b-message(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
                   nuxt
+
+    b-button.is-rounded.scroll-to-top(icon-pack="fas" icon-right="angle-double-up" :rounded="true" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" @click="backToTop")
 
   footer.footer.has-text-centered
     div.container

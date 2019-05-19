@@ -35,6 +35,12 @@ body.light-theme {
   .custom-link-style.is-active, .custom-link-style.nuxt-link-active {
     color: $grey-dark;
   }
+
+  .autocomplete {
+    input::placeholder {
+      color: $grey;
+    }
+  }
 }
 
 html.dark-theme {
@@ -96,6 +102,10 @@ body.dark-theme {
   }
 
   .custom-link-style.is-active, .custom-link-style.nuxt-link-active {
+    color: $grey-light;
+  }
+
+  .radio {
     color: $grey-light;
   }
 }
@@ -220,6 +230,13 @@ section.hero.is-dark-blue .subtitle a:hover {
 
 .contributor-media {
   height: 54px;
+}
+
+.scroll-to-top {
+  position: fixed !important;
+  z-index: 10;
+  right: 16px;
+  bottom: 16px;
 }
 
 /**
