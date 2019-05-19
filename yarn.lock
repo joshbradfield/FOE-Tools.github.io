@@ -4447,6 +4447,11 @@ cosmiconfig@^5.0.0:
     js-yaml "^3.9.0"
     parse-json "^4.0.0"
 
+country-flag-emoji@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/country-flag-emoji/-/country-flag-emoji-1.0.2.tgz#98b21a632d32f9156dc35ec7a914e2c89a462d66"
+  integrity sha512-zKbR/AGEFDlIN7fV39pykTbJge+kk91jFbahL+1GCKMNgUIWA4L9ftUQaH5VbCEm6W3t0KNCWbih+HV08hIvwA==
+
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"

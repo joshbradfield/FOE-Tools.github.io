@@ -99,6 +99,7 @@
     "chart.js": "^2.8.0",
     "codecov": "^3.4.0",
     "cookie-universal-nuxt": "^2.0.14",
+    "country-flag-emoji": "^1.0.2",
     "enumify": "^1.0.4",
     "facebook-locales": "^1.0.623",
     "i18next": "^15.1.0",
