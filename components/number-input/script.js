@@ -31,34 +31,34 @@ const FormElementMixin = {
       isValid: true,
       isFocused: false,
       newIconPack: this.iconPack || config.defaultIconPack
-    }
+    };
   },
   computed: {
     /**
      * Find parent Field, max 3 levels deep.
      */
     parentField() {
-      let parent = this.$parent
+      let parent = this.$parent;
       for (let i = 0; i < 3; i++) {
         if (parent && !parent.$data._isField) {
-          parent = parent.$parent
+          parent = parent.$parent;
         }
       }
-      return parent
+      return parent;
     },
 
     /**
      * Get the type prop from parent if it's a Field.
      */
     statusType() {
-      if (!this.parentField) return
-      if (!this.parentField.newType) return
-      if (typeof this.parentField.newType === 'string') {
-        return this.parentField.newType
+      if (!this.parentField) return;
+      if (!this.parentField.newType) return;
+      if (typeof this.parentField.newType === "string") {
+        return this.parentField.newType;
       } else {
         for (let key in this.parentField.newType) {
           if (this.parentField.newType[key]) {
-            return key
+            return key;
           }
         }
       }
@@ -68,9 +68,9 @@ const FormElementMixin = {
      * Get the message prop from parent if it's a Field.
      */
     statusMessage() {
-      if (!this.parentField) return
+      if (!this.parentField) return;
 
-      return this.parentField.newMessage
+      return this.parentField.newMessage;
     },
 
     /**
@@ -78,11 +78,12 @@ const FormElementMixin = {
      */
     iconSize() {
       switch (this.size) {
-        case 'is-small': return this.size
-        case 'is-medium': return
-        case 'is-large': return this.newIconPack === 'mdi'
-          ? 'is-medium'
-          : ''
+        case "is-small":
+          return this.size;
+        case "is-medium":
+          return;
+        case "is-large":
+          return this.newIconPack === "mdi" ? "is-medium" : "";
       }
     }
   },
@@ -91,23 +92,23 @@ const FormElementMixin = {
      * Focus method that work dynamically depending on the component.
      */
     focus() {
-      if (this.$data._elementRef === undefined) return
+      if (this.$data._elementRef === undefined) return;
 
       this.$nextTick(() => {
-        const el = this.$el.querySelector(this.$data._elementRef)
-        if (el) el.focus()
-      })
+        const el = this.$el.querySelector(this.$data._elementRef);
+        if (el) el.focus();
+      });
     },
 
     onBlur($event) {
-      this.isFocused = false
-      this.$emit('blur', $event)
-      this.checkHtml5Validity()
+      this.isFocused = false;
+      this.$emit("blur", $event);
+      this.checkHtml5Validity();
     },
 
     onFocus($event) {
-      this.isFocused = true
-      this.$emit('focus', $event)
+      this.isFocused = true;
+      this.$emit("focus", $event);
     },
 
     /**
@@ -116,36 +117,36 @@ const FormElementMixin = {
      * and error message to parent if it's a Field.
      */
     checkHtml5Validity() {
-      if (!this.useHtml5Validation) return
+      if (!this.useHtml5Validation) return;
 
-      if (this.$refs[this.$data._elementRef] === undefined) return
+      if (this.$refs[this.$data._elementRef] === undefined) return;
 
-      const el = this.$el.querySelector(this.$data._elementRef)
+      const el = this.$el.querySelector(this.$data._elementRef);
 
-      let type = null
-      let message = null
-      let isValid = true
+      let type = null;
+      let message = null;
+      let isValid = true;
       if (!el.checkValidity()) {
-        type = 'is-danger'
-        message = el.validationMessage
-        isValid = false
+        type = "is-danger";
+        message = el.validationMessage;
+        isValid = false;
       }
-      this.isValid = isValid
+      this.isValid = isValid;
 
       this.$nextTick(() => {
         if (this.parentField) {
           // Set type only if not defined
           if (!this.parentField.type) {
-            this.parentField.newType = type
+            this.parentField.newType = type;
           }
           // Set message only if not defined
           if (!this.parentField.message) {
-            this.parentField.newMessage = message
+            this.parentField.newMessage = message;
           }
         }
-      })
+      });
 
-      return this.isValid
+      return this.isValid;
     }
   }
 };
