@@ -1,4 +1,5 @@
 import Utils from "~/scripts/utils";
+import countryFlagEmoji from "country-flag-emoji";
 
 export default {
   name: "LanguageSelector",
@@ -14,7 +15,8 @@ export default {
 
     return {
       currentLang: this.$cookies.get("locale"),
-      supportedLocales
+      supportedLocales,
+      countryFlagEmoji
     };
   },
   watch: {

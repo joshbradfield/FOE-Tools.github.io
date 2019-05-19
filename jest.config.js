@@ -35,6 +35,7 @@ module.exports = {
     "!**/scripts/errors.js",
     "!**/*.config.js",
     "!**/components/**/script.js",
+    "!**/components/number-input/**",
     "!**/layouts/**/script.js"
   ],
   coverageReporters: ["html", "text", "text-summary"]

@@ -5,6 +5,7 @@ const dayStartHour = 7;
 const dayStartMinutes = 0;
 const nightStartHour = 18;
 const nightStartMinutes = 30;
+
 export default {
   data() {
     let dS, nS;

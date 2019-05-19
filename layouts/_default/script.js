@@ -3,6 +3,7 @@ import languageSelector from "~/components/language-selector/LanguageSelector";
 import packageConfig from "~/package.json";
 import Utils from "~/scripts/utils";
 import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettings";
+import { getUserLocale } from "get-user-locale";
 
 const i18nPrefix = "components.site_layout.";
 const dayNightWatchdogTimeout = 60000;
@@ -41,7 +42,7 @@ export default {
     );
     this.$store.commit(
       "IS_GB_SELECT_MODE_DATALIST",
-      this.$cookies.get("gbSelectMode") === undefined ? true : this.$cookies.get("gbSelectMode") === "datalist"
+      this.$cookies.get("gbSelectMode") === undefined ? false : this.$cookies.get("gbSelectMode") === "datalist"
     );
 
     return {
@@ -53,6 +54,9 @@ export default {
         this.$cookies.get("cookieDisclaimerDisplayed") === undefined
           ? true
           : this.$cookies.get("cookieDisclaimerDisplayed") !== true,
+      haveReadLocaleInfoAvailable:
+        this.$cookies.get("haveReadLocaleInfoAvailable") !== undefined &&
+        this.$cookies.get("haveReadLocaleInfoAvailable"),
       navbarLinks: {
         home: this.$store.state.routes.home,
         gb_investment: this.$store.state.routes.gb_investment,
@@ -149,7 +153,9 @@ export default {
             timeout = undefined;
           }
         };
-      })()
+      })(),
+      showSnackbarChangeLocale: false,
+      detectedLocale: ""
     };
   },
   computed: {
@@ -253,6 +259,22 @@ export default {
     },
     backToTop: /* istanbul ignore next */ function() {
       window.scroll({ top: 0 });
+    },
+    closeSnackbar: /* istanbul ignore next */ function() {
+      this.showSnackbarChangeLocale = false;
+      this.$cookies.set("haveReadLocaleInfoAvailable", true, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+    },
+    switchLocale: /* istanbul ignore next */ function() {
+      this.closeSnackbar();
+      this.$cookies.set("locale", this.detectedLocale, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.$store.commit("SET_LANG", this.detectedLocale);
+      window.location.reload();
     }
   },
   mounted() {
@@ -260,6 +282,17 @@ export default {
     if (this.dayNightMode === "auto") {
       this.dayNightWatchdog.start.call(this);
       this.updateDayNightMode();
+    }
+
+    const detectedLocale = getUserLocale().slice(0, 2);
+    /* istanbul ignore next */
+    if (
+      !this.haveReadLocaleInfoAvailable &&
+      this.lang !== detectedLocale &&
+      this.$store.state.supportedLocales.indexOf(detectedLocale) >= 0
+    ) {
+      this.showSnackbarChangeLocale = true;
+      this.detectedLocale = detectedLocale;
     }
   },
   components: {

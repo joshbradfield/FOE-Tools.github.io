@@ -290,7 +290,8 @@
             "Night": "Night",
             "Auto": "Automatic"
           }
-        }
+        },
+        "switch_locale": "$t(common:site_title) is available in your language"
       },
       "trade": {
         "title": "Form version",
@@ -367,7 +368,8 @@
             "showPlace": "An array that contains whether to show a place or not (used in tab \"$t(routes.gb_investment.tab.investors_view.title)\" of \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "survey": "A array that contains all the surveys you have already completed",
             "fixedMainMenu": "Indicates if the main menu is always visible or not",
-            "gbSelectMode": "Indicates which GB Select mode you are using"
+            "gbSelectMode": "Indicates which GB Select mode you are using",
+            "haveReadLocaleInfoAvailable": "Indicates if you have read the information about the fact that the site is available in your language"
           }
         },
         "dev_info": {
@@ -1188,6 +1190,7 @@
       "between_range": "between {{min, number}} and {{max, number}}",
       "Submit": "Submit",
       "Reset_values": "Reset values",
+      "Switch": "Switch",
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",
