@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.40.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.39.0...v2.40.0) (2019-05-19)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([fe2ea60](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fe2ea60))
+* +/- buttons are now not selectable with tab touch ([54a57c5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/54a57c5))
+* add country flag for languages ([a97c225](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a97c225))
+* add detection of locale and display message if locale is available ([4dd455d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4dd455d))
+* use old select for Switch Great Building ([f5bda3b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f5bda3b))
+
+
+
 # [2.39.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.38.2...v2.39.0) (2019-05-19)
 
 
