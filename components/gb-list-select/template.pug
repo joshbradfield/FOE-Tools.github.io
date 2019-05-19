@@ -1,4 +1,15 @@
-b-field(:label="$t(i18nPrefix + 'label')" :label-for="id")
+b-field(:label-for="id")
+  template(slot="label")
+    .media
+      span.media-content {{$t(i18nPrefix + 'label')}}
+      div.media-right
+        b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined)
+          span.icon
+            i.far.fa-question-circle
+        b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined position="is-left")
+          span.icon
+            i.far.fa-question-circle
+
   b-autocomplete.autocomplete(
     v-if="isGbSelectModeDatalist"
     v-model="name"

@@ -68,7 +68,8 @@
       },
       "gb_investment": {
         "gb_list_select": {
-          "label": "Changer de Grand Monument"
+          "label": "Changer de Grand Monument",
+          "info": "Vous pouvez changer le style du sélecteur (ancien sélecteur ou auto-complétion) dans les paramètres globaux"
         },
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",

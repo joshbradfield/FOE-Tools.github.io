@@ -69,7 +69,8 @@
       },
       "gb_investment": {
         "gb_list_select": {
-          "label": "Switch Great Building"
+          "label": "Switch Great Building",
+          "info": "You can change the style of the selector (legacy selector or auto-complete) in global settings"
         },
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",

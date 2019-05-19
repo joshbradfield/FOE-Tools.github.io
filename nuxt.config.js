@@ -490,7 +490,13 @@ module.exports = {
     }
   },
 
-  modules: ["@nuxtjs/sitemap", "@nuxtjs/robots", "cookie-universal-nuxt", "nuxt-buefy", "@nuxtjs/axios"],
+  modules: [
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
+    "cookie-universal-nuxt",
+    "@nuxtjs/axios",
+    { src: "~/modules/buefy/module.js" }
+  ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },
   mode: "spa",
