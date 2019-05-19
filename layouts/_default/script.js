@@ -2,11 +2,11 @@ import Vue from "vue";
 import languageSelector from "~/components/language-selector/LanguageSelector";
 import packageConfig from "~/package.json";
 import Utils from "~/scripts/utils";
-import DayNight from "./components/dialogDayNight/DialogDayNight";
+import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettings";
 
 const i18nPrefix = "components.site_layout.";
-// const dayNightWatchdogTimeout = 60000;
-const dayNightWatchdogTimeout = 600;
+const dayNightWatchdogTimeout = 60000;
+
 export default {
   head /* istanbul ignore next */: function() {
     return {
@@ -23,7 +23,9 @@ export default {
         class: this.$store.state.isDarkTheme ? "dark-theme" : "light-theme"
       },
       bodyAttrs: {
-        class: this.$store.state.isDarkTheme ? "dark-theme" : "light-theme"
+        class:
+          (this.$store.state.isFixedMainMenu ? "has-navbar-fixed-top " : "") +
+          (this.$store.state.isDarkTheme ? "dark-theme" : "light-theme")
       }
     };
   },
@@ -33,6 +35,15 @@ export default {
       "IS_DARK_THEME",
       this.$cookies.get("dayNightMode") === undefined ? false : this.$cookies.get("dayNightMode") === "night"
     );
+    this.$store.commit(
+      "IS_FIXED_MAIN_MENU",
+      this.$cookies.get("fixedMainMenu") === undefined ? true : this.$cookies.get("fixedMainMenu")
+    );
+    this.$store.commit(
+      "IS_GB_SELECT_MODE_DATALIST",
+      this.$cookies.get("gbSelectMode") === undefined ? true : this.$cookies.get("gbSelectMode") === "datalist"
+    );
+
     return {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
@@ -184,7 +195,6 @@ export default {
         case "auto":
           this.updateDayNightCookie(val);
           this.updateDayNightMode();
-          this.showDayNightDialog();
           break;
       }
     }
@@ -203,11 +213,11 @@ export default {
     isActive(key) {
       return this.$store.state.currentLocation === key;
     },
-    showDayNightDialog: /* istanbul ignore next */ function() {
+    showGlobalSettings: /* istanbul ignore next */ function() {
       let self = this;
       this.$modal.open({
         parent: this,
-        component: DayNight,
+        component: GlobalSettings,
         hasModalCard: true,
         events: {
           dayStartChange: () => {
@@ -215,6 +225,9 @@ export default {
           },
           nightStartChange: () => {
             self.updateDayNightMode();
+          },
+          dayNightChanged: val => {
+            this.$data.dayNightMode = val;
           }
         }
       });

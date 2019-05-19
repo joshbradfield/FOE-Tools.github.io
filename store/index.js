@@ -65,6 +65,16 @@ export const state = () => ({
   isDarkTheme: false,
 
   /**
+   * True for main menu always visible, false otherwise
+   */
+  isFixedMainMenu: false,
+
+  /**
+   * True for datalist (auto-complete) mode for the gb selector, false for select
+   */
+  isGbSelectModeDatalist: false,
+
+  /**
    * Contains survey
    */
   survey: []
@@ -190,6 +200,24 @@ export const mutations = {
    */
   IS_DARK_THEME: (state, value) => {
     Vue.set(state, "isDarkTheme", value);
+  },
+
+  /**
+   * Mutator of fixedMainMenu
+   * @param state Reference of state
+   * @param value New value
+   */
+  IS_FIXED_MAIN_MENU: (state, value) => {
+    Vue.set(state, "isFixedMainMenu", value);
+  },
+
+  /**
+   * Mutator of isGbSelectModeDatalist
+   * @param state Reference of state
+   * @param value New value
+   */
+  IS_GB_SELECT_MODE_DATALIST: (state, value) => {
+    Vue.set(state, "isGbSelectModeDatalist", value);
   },
 
   SET_SURVEY: /* istanbul ignore next */ (state, data) => {

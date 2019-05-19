@@ -264,29 +264,41 @@
           "version": "Version {{version}}"
         },
         "day_night": {
-          "Day": "Jour",
-          "Night": "Nuit",
-          "Auto": "$t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night) automatique",
           "start_day": "Début du jour",
           "start_night": "Début de la nuit"
-        }
-      },
-      "trade": {
-        "title": "Version formulaire",
-        "label": {
-          "i_have": "J'ai",
-          "i_want": "Je veux",
-          "amount": "Quantité"
         },
-        "split_value": "Taille maximale d'une offre (max {{count}})",
-        "split_message": {
-          "msg": "{{valueFrom}} {{ageFrom}} pour {{valueTo}} {{ageTo}}",
-          "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
-          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) et $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+        "global_config": "Paramètres globaux",
+        "global_config_dialog": {
+          "fixed_main_menu": "Menu principal toujours visible",
+          "select_gb_style": "Style du sélecteur de GM",
+          "select_gb_style_mode": {
+            "datalist": "Auto-complétion",
+            "select": "Simple selecteur (ancienne version)"
+          },
+          "day_night": "Theme",
+          "day_night_mode": {
+            "Day": "Jour",
+            "Night": "Nuit",
+            "Auto": "Automatique"
+          }
         },
-        "message": {
-          "result": "Pour {{to}} {{ageTo}}, il vous faut {{from}} {{ageFrom}} avec des offres de taille maximal {{count}} :",
-          "total": "(total: {{amount}} {{key}})"
+        "trade": {
+          "title": "Version formulaire",
+          "label": {
+            "i_have": "J'ai",
+            "i_want": "Je veux",
+            "amount": "Quantité"
+          },
+          "split_value": "Taille maximale d'une offre (max {{count}})",
+          "split_message": {
+            "msg": "{{valueFrom}} {{ageFrom}} pour {{valueTo}} {{ageTo}}",
+            "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
+            "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) et $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+          },
+          "message": {
+            "result": "Pour {{to}} {{ageTo}}, il vous faut {{from}} {{ageFrom}} avec des offres de taille maximal {{count}} :",
+            "total": "(total: {{amount}} {{key}})"
+          }
         }
       }
     },
@@ -344,7 +356,9 @@
             "from": "Niveau où commencer le tableau (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
             "to": "Niveau où terminer le tableau (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
             "showPlace": "Un tableau qui indique pour chaque place si elle doit être affichée ou non (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
-            "survey": "Un tableau qui contient tous les sondages auquel vous avez déjà répondu"
+            "survey": "Un tableau qui contient tous les sondages auquel vous avez déjà répondu",
+            "fixedMainMenu": "Indique si le menu principal est toujours visible ou non",
+            "gbSelectMode": "Indique le mode de sélection de GB que vous utilisez (auto-complétion ou selecteur simple)"
           }
         },
         "dev_info": {
