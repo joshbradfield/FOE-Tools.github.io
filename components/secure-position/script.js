@@ -1,5 +1,6 @@
 import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.secure_position.";
 const urlPrefix = "sp_";
@@ -443,5 +444,8 @@ export default {
   },
   mounted() {
     this.calculate();
+  },
+  components: {
+    numberinput
   }
 };

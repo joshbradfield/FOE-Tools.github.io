@@ -2,6 +2,7 @@ import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import yesNo from "~/components/yes-no/YesNo";
+import numberinput from "~/components/number-input/NumberInput";
 import securePosition from "~/components/secure-position/SecurePosition";
 import * as Errors from "../../scripts/errors";
 
@@ -804,6 +805,7 @@ export default {
   components: {
     securePosition,
     gbListSelect,
-    yesNo
+    yesNo,
+    numberinput
   }
 };
