@@ -49,6 +49,14 @@
                   i.fab.fa-github
                 span GitHub
 
+  .notices.is-top(v-if="showSnackbarChangeLocale")
+    .snackbar.is-warning.is-top(style='')
+      p.text {{$t('components.site_layout.switch_locale', { lng: detectedLocale })}}
+      .action.is-success(@click="closeSnackbar()")
+        button.button {{$t('utils.Ok', { lng: detectedLocale })}}
+      .action.is-info(@click="switchLocale()")
+        button.button {{$t('utils.Switch', { lng: detectedLocale })}}
+
   section.fixed(v-show="cookieDisclaimerUndisplayed")
     b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" closable @close="confirmInfoCookie" :active="cookieDisclaimerUndisplayed")
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}

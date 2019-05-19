@@ -283,6 +283,7 @@
             "Auto": "Automatique"
           }
         },
+        "switch_locale": "$t(common:site_title) est disponible dans votre langue",
         "trade": {
           "title": "Version formulaire",
           "label": {
@@ -359,7 +360,8 @@
             "showPlace": "Un tableau qui indique pour chaque place si elle doit être affichée ou non (utilisé dans l'onglet « $t(routes.gb_investment.tab.investors_view.title) » de « $t(routes.gb_investment_gb_chooser.hero.title) »)",
             "survey": "Un tableau qui contient tous les sondages auquel vous avez déjà répondu",
             "fixedMainMenu": "Indique si le menu principal est toujours visible ou non",
-            "gbSelectMode": "Indique le mode de sélection de GB que vous utilisez (auto-complétion ou selecteur simple)"
+            "gbSelectMode": "Indique le mode de sélection de GB que vous utilisez (auto-complétion ou selecteur simple)",
+            "haveReadLocaleInfoAvailable": "Indique si vous avez lu les informations sur le fait que le site est disponible dans votre langue."
           }
         },
         "dev_info": {
@@ -1174,6 +1176,7 @@
       "between_range": "entre {{min, number}} et {{max, number}}",
       "Submit": "Envoyer",
       "Reset_values": "Réinitialiser les valeurs",
+      "Switch": "Changer",
       "moment": {
         "year": "{{count}} an",
         "year_plural": "{{count, number}} ans",

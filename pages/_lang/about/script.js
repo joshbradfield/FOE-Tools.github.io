@@ -50,7 +50,8 @@ export default {
         { name: "showPlace" },
         { name: "survey" },
         { name: "fixedMainMenu" },
-        { name: "gbSelectMode" }
+        { name: "gbSelectMode" },
+        { name: "haveReadLocaleInfoAvailable" }
       ]
     };
   }
