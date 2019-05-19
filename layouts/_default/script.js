@@ -250,6 +250,9 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
+    },
+    backToTop: /* istanbul ignore next */ function() {
+      window.scroll({ top: 0 });
     }
   },
   mounted() {
