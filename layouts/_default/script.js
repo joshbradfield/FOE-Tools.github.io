@@ -260,14 +260,14 @@ export default {
     backToTop: /* istanbul ignore next */ function() {
       window.scroll({ top: 0 });
     },
-    closeSnackbar() {
+    closeSnackbar: /* istanbul ignore next */ function() {
       this.showSnackbarChangeLocale = false;
       this.$cookies.set("haveReadLocaleInfoAvailable", true, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
     },
-    switchLocale() {
+    switchLocale: /* istanbul ignore next */ function() {
       this.closeSnackbar();
       this.$cookies.set("locale", this.detectedLocale, {
         path: "/",
@@ -285,6 +285,7 @@ export default {
     }
 
     const detectedLocale = getUserLocale().slice(0, 2);
+    /* istanbul ignore next */
     if (
       !this.haveReadLocaleInfoAvailable &&
       this.lang !== detectedLocale &&

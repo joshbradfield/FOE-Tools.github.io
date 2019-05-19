@@ -95,7 +95,9 @@
                       b-message(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
                   nuxt
 
-    b-button.is-rounded.scroll-to-top(icon-pack="fas" icon-right="angle-double-up" :rounded="true" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" @click="backToTop")
+    span.button.scroll-to-top.is-rounded(:class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" @click="backToTop")
+      span.icon
+        i.fas.fa-angle-double-up
 
   footer.footer.has-text-centered
     div.container
