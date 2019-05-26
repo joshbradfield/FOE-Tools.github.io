@@ -1,4 +1,4 @@
-{
+[{
   "translation": {
     "main_menu": {
       "home": "Accueil",
@@ -8,7 +8,8 @@
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
       "trade": "$t(routes.trade.hero.title)",
-      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
     },
     "footer_menu": {
       "about": "À propos",
@@ -128,7 +129,8 @@
         "promotion": {
           "title": "Message de promotion",
           "prefix_placeholder": "texte avant le message de promotion",
-          "suffix_placeholder": "texte après le message de promotion"
+          "suffix_placeholder": "texte après le message de promotion",
+          "promo": ["P2({{investment}})", "P4({{investment}})"]
         }
       },
       "gb_investment_investors": {
@@ -265,8 +267,11 @@
           "version": "Version {{version}}"
         },
         "day_night": {
+          "Day": "Jour",
           "start_day": "Début du jour",
-          "start_night": "Début de la nuit"
+          "Night": "Nuit",
+          "start_night": "Début de la nuit",
+          "Auto": "$t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night) automatique"
         },
         "global_config": "Paramètres globaux",
         "global_config_dialog": {
@@ -283,24 +288,24 @@
             "Auto": "Automatique"
           }
         },
-        "switch_locale": "$t(common:site_title) est disponible dans votre langue",
-        "trade": {
-          "title": "Version formulaire",
-          "label": {
-            "i_have": "J'ai",
-            "i_want": "Je veux",
-            "amount": "Quantité"
-          },
-          "split_value": "Taille maximale d'une offre (max {{count}})",
-          "split_message": {
-            "msg": "{{valueFrom}} {{ageFrom}} pour {{valueTo}} {{ageTo}}",
-            "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
-            "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) et $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
-          },
-          "message": {
-            "result": "Pour {{to}} {{ageTo}}, il vous faut {{from}} {{ageFrom}} avec des offres de taille maximal {{count}} :",
-            "total": "(total: {{amount}} {{key}})"
-          }
+        "switch_locale": "$t(common:site_title) est disponible dans votre langue"
+      },
+      "trade": {
+        "title": "Version formulaire",
+        "label": {
+          "i_have": "J'ai",
+          "i_want": "Je veux",
+          "amount": "Quantité"
+        },
+        "split_value": "Taille maximale d'une offre (max {{count}})",
+        "split_message": {
+          "msg": "{{valueFrom}} {{ageFrom}} pour {{valueTo}} {{ageTo}}",
+          "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) et $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+        },
+        "message": {
+          "result": "Pour {{to}} {{ageTo}}, il vous faut {{from}} {{ageFrom}} avec des offres de taille maximal {{count}} :",
+          "total": "(total: {{amount}} {{key}})"
         }
       }
     },
@@ -314,7 +319,7 @@
           "title": "Informations générales",
           "p1_html": "Forge of Empires, FOE, et toutes les marques et contenus associés appartiennent à InnoGames GmbH.<br />$t(common:site_title) est un site tierce non officiel et n'est pas affilié à InnoGames.",
           "p2_html": "$t(common:site_title) a été créé par le joueur français <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "Le site est OpenSource, le code est disponible librement et gratuitement sur $t(common:links.github).<br />Ainsi, tout le monde ayant les compétences nécessaires peut participer à l'amélioration de ce site."
+          "p3_html": "Le site est OpenSource, le code est disponible librement et gratuitement sur $t(common:links.github).<br/>Ainsi, tout le monde ayant les compétences nécessaires peut participer à l'amélioration de ce site."
         },
         "cookie": {
           "title": "Cookies",
@@ -515,7 +520,8 @@
         "TheFuture": "Ère du Futur",
         "ArcticFuture": "Futur Arctique",
         "OceanicFuture": "Futur Océanique",
-        "VirtualFuture": "Futur Virtuel"
+        "VirtualFuture": "Futur Virtuel",
+        "SpaceAgeMars": "Ère Spatiale : Mars"
       },
       "age_short": {
         "NoAge": "SA",
@@ -534,7 +540,8 @@
         "TheFuture": "FUT",
         "ArcticFuture": "ARC",
         "OceanicFuture": "OCE",
-        "VirtualFuture": "VIR"
+        "VirtualFuture": "VIR",
+        "SpaceAgeMars": "Mars"
       },
       "gb": {
         "Observatory": "Observatoire",
@@ -573,7 +580,9 @@
         "The_Kraken": "Le Kraken",
         "The_Blue_Galaxy": "La galaxie bleue",
         "Terracotta_Army": "Armée de terre cuite",
-        "Himeji_Castle": "Château d'Himeji"
+        "Himeji_Castle": "Château d'Himeji",
+        "The_Virgo_Project": "Le Projet Virgo",
+        "Star_Gazer": "Star Gazer"
       },
       "gb_short": {
         "Observatory": "Obs",
@@ -612,7 +621,9 @@
         "The_Kraken": "Kraken",
         "The_Blue_Galaxy": "Galaxie",
         "Terracotta_Army": "ATC",
-        "Himeji_Castle": "Himeji"
+        "Himeji_Castle": "Himeji",
+        "The_Virgo_Project": "Virgo",
+        "Star_Gazer": "Gazer"
       },
       "goods": {
         "dye": "Teinture",
@@ -1228,4 +1239,4 @@
       }
     }
   }
-}
+}]

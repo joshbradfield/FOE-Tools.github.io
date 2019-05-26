@@ -1,4 +1,4 @@
-{
+[{
   "translation": {
     "main_menu": {
       "home": "Strona domowa",
@@ -12,7 +12,8 @@
     "footer_menu": {
       "about": "O nas",
       "contributors": "Twórcy",
-      "changelog": "Zmiany"
+      "changelog": "Zmiany",
+      "contact": "Kontakt"
     },
     "components": {
       "campaign_cost": {
@@ -96,7 +97,9 @@
               "th5": "% bonusu arki inwestującego ",
               "th6": "Miejsce wolne",
               "fp_already_putin": "Aktualna ilość PR",
-              "spot_snipe": "Ilość wymaganych PR do zajęcia miejsca"
+              "spot_snipe": "Ilość wymaganych PR do zajęcia miejsca",
+              "expected_participation": "Punkty Rozwoju uzyskane z bonusem przewidywanym przez właściciela",
+              "real_participation": "Punkty Rozwoju uzyskane z bonusem twojej Arki"
             },
             "tbody": {
               "tooltip_owner_investment": "Ilość PR'ów, którą musi jeszcze wrzucić właściciel aby zablokować miejsce",
@@ -120,6 +123,7 @@
           "show_level": "Pokazać poziom ?"
         },
         "promotion": {
+          "title": "Wiadomość ogłaszająca miejsca",
           "prefix_placeholder": "Tekst przed ogłoszeniem miejsc",
           "suffix_placeholder": "Tekst po ogłoszeniu miejsc"
         }
@@ -191,18 +195,22 @@
           "current_deposits": "Suma obecnych wpłat",
           "your_participation": "Twój obecny udział",
           "other_participation": "Udział gracza by wyprzedzić",
-          "fp_to_complete_level": "Liczba pozostałego punktu rozwoju by ukończyć poziom: {{count}}",
-          "fp_to_complete_level_plural": "Liczba pozostałych punktów rozwoju by ukończyć poziom: {{count, number}}",
+          "fp_to_complete_level": "Liczba pozostałego punktu rozwoju by ukończyć poziom:",
+          "fp_to_complete_level_plural": "Liczba pozostałych punktów rozwoju by ukończyć poziom:",
           "your_arc_bonus": "Twój bonus Arki",
           "fp_target_reward": "PR na docelowe miejsce",
           "target_reward": "Docelowe miejsce",
           "place": "{{place}} ({{count, number}} PR)",
           "place_plural": "{{place}} ({{count, number}} PR)",
+          "various_rate": "Różne stawki",
           "result": {
             "error": "Jedna lub więcej wartości jest błędna.",
             "already_blocked": "Twoje miejsce jest już zablokowane.",
             "default": "Musisz łącznie mieć {{count}} PR by zablokować to miejsce.",
             "default_plural": "Musisz łącznie mieć {{count, number}} PR by zablokować to miejsce.",
+            "fp_need_to_lock": "Punkt Rozwoju który musisz wpłacić aby zablokować miejsce:",
+            "fp_need_to_lock_plural": "Punkty Rozwoju które musisz wpłacić aby zablokować miejsce:",
+            "still_to_put": "Liczba Punktów Rozwoju które nadal musisz wpłacić",
             "fp_to_secure_html": "Wciąż musisz wrzucić {{count}} PR.",
             "roi": {
               "profit": "Zyskasz {{count}} PR",
@@ -245,22 +253,37 @@
           "message": "$t(common:site_title) świętuje swój {{count, number}} rok",
           "message_plural": "$t(common:site_title) świętuje swoje {{count, number}} lata"
         },
+        "survey": {
+          "message": "Pomóż nam ulepszyć $t(common:site_title) wypełniając ankietę"
+        },
         "permalink_info": "Odwiedzasz permalink. W związku z tym wszelkie wprowadzone zmiany nie zostaną zapisane w plikach cookie.",
         "footer": {
-          "license_html": "Kod źródłowy pod $t(common:links.mit) licencją",
+          "license_html": "Kod źródłowy pod licencją $t(common:links.mit)",
           "version": "Wersja {{version}}"
         },
         "day_night": {
+          "Day": "Dzień",
           "start_day": "Rozpoczęcie dnia",
-          "start_night": "Rozpoczęcie nocy"
+          "Night": "Noc",
+          "start_night": "Rozpoczęcie nocy",
+          "Auto": "Automatycznie $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)"
         },
+        "global_config": "Ustawienia globalne",
         "global_config_dialog": {
+          "fixed_main_menu": "Główne menu zawsze widoczne",
+          "select_gb_style": "Styl selektora Pereł Architektury",
+          "select_gb_style_mode": {
+            "datalist": "Auto-uzupełnianie",
+            "select": "Wybierz (starsze)"
+          },
+          "day_night": "Motyw",
           "day_night_mode": {
-            "Day": "Dzień",
-            "Night": "Noc",
-            "Auto": "Automatycznie"
+            "Day": "Dzienny",
+            "Night": "Nocny",
+            "Auto": "Automatyczny"
           }
-        }
+        },
+        "switch_locale": "$t(common:site_title) jest dostępne w twoim języku"
       },
       "trade": {
         "title": "Wersja formularza",
@@ -327,18 +350,25 @@
             "level": "Poziom perły",
             "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
             "showPx": "Wskaż, czy pokazać miejsce w ogłoszeniu miejsc",
-            "takingPlaceInConsideration": "Zakładka \"$t(routes.gb_investment.tab.investors_view.title)\", wskazuje, czy inne miejsca muszą zostać uwzględnione w obliczeniach",
-            "targetLevel": "Zakładka \"$t(routes.gb_investment.tab.investors_view.title)\", wskazuje, z jakiego poziomu wyświetlić informacje w tabeli",
+            "takingPlaceInConsideration": "Zakładka \"$t(routes.gb_investment.tab.investors_view.title)\" z \"$t(routes.gb_investment_gb_chooser.hero.title)\", wskazuje, czy inne miejsca muszą zostać uwzględnione w obliczeniach",
+            "targetLevel": "Zakładka \"$t(routes.gb_investment.tab.investors_view.title)\" z \"$t(routes.gb_investment_gb_chooser.hero.title)\", wskazuje, z jakiego poziomu wyświetlić informacje w tabeli",
             "displayGbName": "Wskaż, czy pokazać nazwę Perły Architektury w ogłoszeniu miejsc",
             "investorParticipation": "Zawiera listę wszystkich dodanych inwestorów",
-            "displayTableCard": "Indicate whether to show the table in \"$t(routes.gb_investment_gb_chooser.hero.title)\" in simple mode (table) or in card view on small screen"
+            "displayTableCard": "Indicate whether to show the table in \"$t(routes.gb_investment_gb_chooser.hero.title)\" in simple mode (table) or in card view on small screen",
+            "from": "Poziom, gdzie rozpocząć tabelę (używane w zakładce \"$t(routes.gb_investment.tab.investors_view.title)\" z \"$t(routes.gb_investment_gb_chooser.hero.title)\")\"",
+            "to": "Poziom, gdzie zakończyć tabelę (używane w zakładce \"$t(routes.gb_investment.tab.investors_view.title)\" z \"$t(routes.gb_investment_gb_chooser.hero.title)\")\"",
+            "showPlace": "Tabela, która zawiera informację czy pokazać miejsce, czy nie (używane w zakładce \"$t(routes.gb_investment.tab.investors_view.title)\" z \"$t(routes.gb_investment_gb_chooser.hero.title)\")\"",
+            "survey": "Szyk zawierający wszystkie ankiety które wypełniłeś od tej pory",
+            "fixedMainMenu": "Wskazuje czy główne menu jest zawsze widoczne, czy nie",
+            "gbSelectMode": "Wskazuje jakiego typu selektor Perły Architektury używasz",
+            "haveReadLocaleInfoAvailable": "Wskazuje, czy przeczytałeś informację o tym, że ta strona jest dostępna w twoim języku"
           }
         },
         "dev_info": {
           "title": "Informacje o rozwoju",
           "p1": "Witryna jest prostą stroną statyczną hostowaną na GitHub.",
           "p2_html": "Rozwój odbywa się w Node.js z użyciem $t(common:links.framework). Styl został stworzony przy użyciu $t(common:links.style).",
-          "p3_html": "Pomysł na funkcjonalność? Problem? Możesz utworzyć zgłoszenie na stronie $t(common:links.github) lub wysłać do mnie maila (w języku Angielskim lub Francuskim) na $t(common:links.contact_foe_tools).",
+          "p3_html": "Masz pomysł na udoskonalenie strony lub problem? Możesz utworzyć zgłoszenie na stronie $t(common:links.github) lub wysłać do mnie maila (w języku angielskim lub francuskim) na $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Informacja:</b> W sprawie problemów z GitHub, proszę napisać je w języku angielskim, aby ułatwić zrozumienie."
         }
       },
@@ -428,6 +458,34 @@
           }
         }
       },
+      "help_to_translate_the_site": {
+        "hero": {
+          "title": "Pomóż przetłumaczyć tę stronę",
+          "subtitle": "Dołącz do zespołu tłumaczy"
+        },
+        "p1": "Twój język jest niedostępny, tłumaczenie jest niekompletne lub zawiera błędy? Zgłoś się do zespołu tłumaczącego i pomóż w tłumaczeniu strony.",
+        "how_to_join_the_team": "Jak dołączyć do zespołu tłumaczącego?",
+        "p2_html": "$t(common:site_title) jest tłumaczone przez użytkowników. Używamy do tego platformy $t(common:links.lingohub), aby ułatwić tłumaczenie. Aby dołączyć do zespołu tłumaczącego stronę wyślij emaila (w języku angielskim) do $t(common:links.contact_foe_tools), określając język, w którym możesz przetłumaczyć stronę, abyśmy mogli wysłać Ci zaproszenie."
+      },
+      "survey": {
+        "hero": {
+          "title": "Ankieta",
+          "subtitle": "Pomóż w udoskonalaniu $t(common:site_title) wypełniając ankietę"
+        },
+        "required_field": "To pole jest wymagane",
+        "survey_complete": "Dziękujemy za twoją opinię!",
+        "error": "Wystąpił błąd, sprawdź formularz i spróbuj ponownie",
+        "unknown_error": "Wystąpił nieznany błąd. Skontaktuj się z administratorem strony"
+      },
+      "contact": {
+        "hero": {
+          "title": "Kontakt",
+          "subtitle": "Skontaktuj się z opiekunem $t(common:site_title)"
+        },
+        "message_contact_html": "Masz pomysł na udoskonalenie strony lub problem? Wyślij emaila (w języku angielskim lub francuskim) do $t(common:links.contact_foe_tools).",
+        "message_translate": "Czy wiesz, że możesz pomóc w tłumaczeniu strony? Kliknij poniższy link po więcej informacji:",
+        "message_other_info_html": "Jeśli jesteś programistą, też możesz wysłać zgłoszenie (i przyczynić się do rozwoju strony) na $t(common:links.github)."
+      },
       "error": {
         "404": {
           "title": "Strony nie znaleziono | $t(common:site_title)",
@@ -454,7 +512,8 @@
         "TheFuture": "Przyszłość",
         "ArcticFuture": "Arktyczna Przyszłość",
         "OceanicFuture": "Oceaniczna Przyszłość",
-        "VirtualFuture": "Wirtualna Przyszłość"
+        "VirtualFuture": "Wirtualna Przyszłość",
+        "SpaceAgeMars": "Epoka Kosmiczna: Mars"
       },
       "age_short": {
         "NoAge": "Brak Epoki",
@@ -473,7 +532,8 @@
         "TheFuture": "Przyszłość",
         "ArcticFuture": "Arktyczna ",
         "OceanicFuture": "Oceaniczna ",
-        "VirtualFuture": "Wirtualna "
+        "VirtualFuture": "Wirtualna ",
+        "SpaceAgeMars": "Mars"
       },
       "gb": {
         "Observatory": "Obserwatorium",
@@ -512,7 +572,9 @@
         "The_Kraken": "Kraken",
         "The_Blue_Galaxy": "Błękitna Galaktyka",
         "Terracotta_Army": "Terakotowa Armia",
-        "Himeji_Castle": "Zamek Himeji"
+        "Himeji_Castle": "Zamek Himeji",
+        "The_Virgo_Project": "Projekt Virgo",
+        "Star_Gazer": "Tropiciel Gwiazd"
       },
       "gb_short": {
         "Observatory": "Obs",
@@ -551,7 +613,9 @@
         "The_Kraken": "Kraken",
         "The_Blue_Galaxy": "BG",
         "Terracotta_Army": "TA",
-        "Himeji_Castle": "ZH"
+        "Himeji_Castle": "ZH",
+        "The_Virgo_Project": "PV",
+        "Star_Gazer": "TG"
       },
       "goods": {
         "dye": "Barwnik",
@@ -924,7 +988,8 @@
         "New_final_final_exe": "New_final_final.exe",
         "Bizarre_Plains": "Bizarre Plains",
         "Argus__Watch": "Argus' Watch",
-        "Berta_s_Byte_Sauce": "Berta's Byte-Sauce"
+        "Berta_s_Byte_Sauce": "Berta's Byte-Sauce",
+        "Game_Over": "Koniec gry"
       },
       "bonus": {
         "coin": {
@@ -1094,7 +1159,9 @@
       "Reset": "Resetuj",
       "Confirm": "Potwierdź",
       "Close": "Zamknij",
+      "Result": "Wynik",
       "between_range": "pomiędzy {{min, number}} i {{max, number}}",
+      "Reset_values": "Zresetuj wartości",
       "moment": {
         "year": "{{count}} rok",
         "year_plural": "{{count, number}} lat",
@@ -1146,4 +1213,4 @@
       }
     }
   }
-}
+}]

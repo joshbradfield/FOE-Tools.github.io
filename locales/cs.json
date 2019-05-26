@@ -1,3 +1,450 @@
-{
-  "translation": { }
-}
+[{
+  "translation": {
+    "main_menu": {
+      "home": "Domů",
+      "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
+      "secure_position": "$t(routes.secure_position.hero.title)",
+      "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+      "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
+    },
+    "footer_menu": {
+      "about": "O nás",
+      "contributors": "Spolupracovníci",
+      "changelog": "Changelog",
+      "contact": "Kontakt"
+    },
+    "components": {
+      "campaign_cost": {
+        "title": "$t(routes.campaign_cost.hero.title)",
+        "choose_province": "Vyberte provincii",
+        "message": {
+          "haveUnknownCosts": "Provincie obsahuje jeden nebo více sektorů"
+        }
+      },
+      "cf_calculator": {
+        "block_cfc": {
+          "title": "$t(routes.cf_calculator.hero.title)",
+          "your_age": "Tvůj věk",
+          "your_cf_boost": "Tvoje $t(foe_data.gb.Chateau_Frontenac) navýšení",
+          "coins_to_use": "Cena mincí za NV",
+          "supplies_to_use": "Cena zásob za NV",
+          "fp_by_24h": "24 hodinová produkce FB",
+          "other_rq": "Jiné denní ",
+          "supplies_gathered": "Zásoby vráceny",
+          "table_reward": {
+            "thead": {
+              "th2": "Medajle",
+              "th3": "Suroviny",
+              "th4": "FB"
+            }
+          },
+          "reward_message": {
+            "daily_ubq": "Denní NV: {{count, number}}",
+            "bonus_ubq": "Bonusové NV: {{count, number}}",
+            "total_goods": "Celkem surovin: {{count, number}}",
+            "total_fp": "Celkem FB: {{count, number}}"
+          },
+          "table_return": {
+            "thead": {
+              "th_level": "Level",
+              "th_coin": "Navrácené mince",
+              "th_supply": "Navrácené zásoby"
+            }
+          }
+        }
+      },
+      "gb_investment": {
+        "gb_list_select": {
+          "label": "Změnit Velkolepou Budovu"
+        },
+        "gb_investment": {
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
+          "form": {
+            "investor_percentage": "% Bonus z Arcu přispěvatelů",
+            "tooltip_add_investors": "Klikněte na \"$t(utils.Add)\" tlačítko nebo zmáčkněte klávesu \"Enter\" k přidání dalšího přispěvatele",
+            "investors_list": "Seznam přidaných přispěvatelů"
+          },
+          "table": {
+            "thead": {
+              "th1": "Místa",
+              "th2": "Základní odměna",
+              "th3": "Počet vlastních FB k zajištění místa pro",
+              "th4": "Zhodnocení",
+              "th5": "% Bonus z Arcu přispěvatelů",
+              "th6": "Volné místo",
+              "fp_already_putin": "Počet FB ",
+              "spot_snipe": "Zabrat místo",
+              "is_sniper": "Může někdo ukrást místo na VB?"
+            },
+            "tbody": {
+              "tooltip_expected_investment": "Očekávaná investice",
+              "button_show_extra_investor": "Ukázat extra investora",
+              "button_show_extra_investor_plural": "Ukázat extra investory",
+              "button_hide_extra_investor": "Schovat extra investora",
+              "button_hide_extra_investor_plural": "Schovat extra investory",
+              "profit": "Tento hráč vydělá",
+              "loss": "Tento hráč prodělá FB",
+              "loss_plural": "Tento hráč prodělá FB",
+              "neutral": "Tento hráč nevydělá a ani neprodělá žádné FB"
+            },
+            "tfoot": {
+              "total_preparation": "Celková investice vlastníka",
+              "level_cost": "Cena levelu"
+            }
+          },
+          "display_gb_name": "Zobrazit jméno VB?",
+          "use_short_name": "Použít přezdívku?",
+          "show_level": "Zobrazit level?"
+        },
+        "promotion": {
+          "title": "Promo zpráva",
+          "prefix_placeholder": "text před promo zprávou",
+          "suffix_placeholder": "text za promo zprávou",
+          "promo": ["H1({{investment}})", "H2({{investment}})", "H3({{investment}})", "H4({{investment}})", "H5({{investment}})"]
+        }
+      },
+      "gb_investment_investors": {
+        "takingPlaceInConsideration": {
+          "form": {
+            "show_place": "Zobrazit místo",
+            "normal": "Normální",
+            "optimal": "Optimální"
+          }
+        },
+        "table": {
+          "thead": {
+            "th_profit_loss": "Profit/Ztráta"
+          }
+        }
+      },
+      "gb_forecast_cost": {
+        "title": "Předpověď",
+        "estimated_time": "Přibližný čas na dosažení dalšího evelu",
+        "graph": {
+          "label": {
+            "default_preparation": "Náklady na přípravu bez bonusu",
+            "custom_preparation": "Náklady na přípravu s bonusem"
+          }
+        }
+      },
+      "secure_position": {
+        "block_place": {
+          "level_cost": "Cena levelu",
+          "your_arc_bonus": "Tvůj Arc bonus",
+          "various_rate": "Různé hodnoty",
+          "result": {
+            "error": "Jedna nebo více",
+            "fp_need_to_lock": "Počet FB na pojištění pozice:",
+            "fp_need_to_lock_plural": "Počet FB na pojištění pozice:",
+            "still_to_put": "Počet FB, které musíte vložit",
+            "fp_to_secure_html": "Ještě musíte vložit{{count}} FB.",
+            "roi": {
+              "profit": "Váš zisk bude {{count}} FB",
+              "profit_plural": "Váš zisk bude {{count, number}} FB",
+              "loss": "Vaše ztráta bude {{count}} FB",
+              "loss_plural": "Vaše ztráta bude {{count, number}} FB",
+              "neutral": "Na této investici nebudete mít žádný zisk"
+            }
+          },
+          "unknown": "neznámý"
+        }
+      },
+      "simple_trade": {
+        "table": {
+          "thead": {
+            "th1": "Věk",
+            "th2": "Suroviny",
+            "th3": "$t(components.trade.label.i_want)",
+            "th4": "Výsledek",
+            "split": "Rozdělit",
+            "ratio": "Poměr"
+          }
+        },
+        "slpit": "Rozdělit nabídky?",
+        "show_ratio": "Zobrazit poměr"
+      },
+      "site_layout": {
+        "hero": {
+          "title": "$t(common:site_title)"
+        },
+        "cookie": {
+          "link": "Více informací"
+        },
+        "day_night": {
+          "Day": "Den",
+          "start_day": "Začátek dne",
+          "Night": "Noc",
+          "start_night": "Začátek noci",
+          "Auto": "Automatické $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night) "
+        },
+        "global_config": "Globální nastavení"
+      },
+      "trade": {
+        "message": {
+          "total": "(celkem: {{amount}} {{key}})"
+        }
+      }
+    },
+    "routes": {
+      "home": {
+        "title": "$t(common:site_title)"
+      },
+      "about": {
+        "title": "O $t(common:site_title)",
+        "cookie": {
+          "info": {
+            "locale": "Zobrazit jazyk",
+            "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
+            "fpBy24h": "$t(components.cf_calculator.block_cfc.fp_by_24h)",
+            "goods": "$t(components.cf_calculator.block_cfc.gb_plunder_goods)",
+            "otherRq": "$t(components.cf_calculator.block_cfc.other_rq)",
+            "secondRq": "$t(components.cf_calculator.block_cfc.second_rq)",
+            "supplies": "$t(components.cf_calculator.block_cfc.supplies_to_use)",
+            "suppliesGathered": "$t(components.cf_calculator.block_cfc.supplies_gathered)",
+            "yourAge": "$t(components.cf_calculator.block_cfc.your_age)",
+            "investorPercentageCustom_x": "$t(components.gb_investment.gb_investment.table.thead.th5)",
+            "investorPercentageGlobal": "$t(components.gb_investment.gb_investment.form.investor_percentage)",
+            "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)"
+          }
+        }
+      },
+      "trade": {
+        "title": "$t(routes.trade.hero.title) | $t(common:site_title)",
+        "tab": {
+          "trade_2_1": {
+            "title": "2:1"
+          }
+        }
+      },
+      "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Pomožte nám přeložit stránky",
+          "subtitle": "Připojit se k týmu překladatelů"
+        },
+        "how_to_join_the_team": "Jak se přidat k týmu?"
+      },
+      "survey": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Dotazník",
+          "subtitle": "Pomožte nám vylepšit $t(common:site_title) vyplněním dotazníku"
+        },
+        "required_field": "Toto pole je povinné",
+        "survey_complete": "Děkujeme za Vaší zpětnou vazbu"
+      },
+      "contact": {
+        "hero": {
+          "title": "Kontakt"
+        }
+      }
+    },
+    "foe_data": {
+      "age": {
+        "NoAge": "Bezdobé období",
+        "BronzeAge": "Doba bronzová",
+        "IronAge": "Doba železná",
+        "EarlyMiddleAges": "Raný středověk",
+        "HighMiddleAges": "Vrcholný středověk",
+        "LateMiddleAges": "Pozdní středověk",
+        "ColonialAge": "Koloniální doba",
+        "IndustrialAge": "Průmyslový věk",
+        "ProgressiveEra": "Doba pokroku",
+        "ModernEra": "Moderní doba",
+        "PostmodernEra": "Postmoderní doba",
+        "ContemporaryEra": "Současná éra",
+        "Tomorrow": "Zítra",
+        "TheFuture": "Budoucnost",
+        "ArcticFuture": "Ledová budoucnost",
+        "OceanicFuture": "Oceánská budoucnost",
+        "VirtualFuture": "Virtuální budoucnost",
+        "SpaceAgeMars": "Vesmírný věk: Mars"
+      },
+      "age_short": {
+        "NoAge": "BO",
+        "BronzeAge": "DB",
+        "IronAge": "DŽ",
+        "EarlyMiddleAges": "RS",
+        "HighMiddleAges": "VS",
+        "LateMiddleAges": "PS",
+        "ColonialAge": "KD",
+        "IndustrialAge": "PV",
+        "ProgressiveEra": "DP",
+        "ModernEra": "MD",
+        "PostmodernEra": "PMD",
+        "ContemporaryEra": "SE",
+        "Tomorrow": "Z",
+        "TheFuture": "B",
+        "ArcticFuture": "LB",
+        "OceanicFuture": "OB",
+        "VirtualFuture": "VB",
+        "SpaceAgeMars": "VDM"
+      },
+      "gb": {
+        "Observatory": "Observatoř",
+        "Temple_of_Relics": "Chrám relikvií"
+      },
+      "gb_short": {
+        "Royal_Albert_Hall": "RAH",
+        "Chateau_Frontenac": "CF"
+      },
+      "goods": {
+        "lumber": "Dřevo",
+        "marble": "Mramor",
+        "stone": "Kámen",
+        "wine": "Víno",
+        "cloth": "Barva",
+        "ebony": "Eben",
+        "iron": "Železo",
+        "jewelry": "Šperky",
+        "limestone": "Vápenec",
+        "alabaster": "Alabastr",
+        "copper": "Měď",
+        "gold": "Zlato",
+        "granite": "Žula",
+        "honey": "Med",
+        "brick": "Cihly",
+        "dried_herbs": "Sušené byliny",
+        "glass": "Sklo",
+        "rope": "Lana",
+        "salt": "Sůl",
+        "basalt": "Čedič",
+        "brass": "Mosaz",
+        "gunpowder": "Střelný prach",
+        "silk": "Hedvábí",
+        "talc_powder": "Mastek",
+        "coffee": "Káva",
+        "porcelain": "Porcelán",
+        "paper": "Papír",
+        "tar": "Dehet",
+        "wire": "Drát",
+        "coke": "Koks",
+        "fertilizer": "Hnojivo",
+        "rubber": "Pryž",
+        "textiles": "Textil",
+        "whale_oil": "Velrybí olej",
+        "asbestos": "Azbest",
+        "explosives": "Výbušniny",
+        "gasoline": "Benzín",
+        "machine_parts": "Strojní součástky",
+        "tinplate": "Pocínovaný plech",
+        "convenience_food": "Polotovar",
+        "ferroconcrete": "Železobeton",
+        "flavorants": "Ochucovadla",
+        "luxury_materials": "Luxusní materiály",
+        "packaging": "Obalové materiály",
+        "genome_data": "Genetické informace",
+        "industrial_filters": "Průmyslové filtry",
+        "renewable_resources": "Obnovitelné zdroje",
+        "semiconductors": "Polovodiče",
+        "steel": "Ocel",
+        "bionics_data": "Bionické údaje",
+        "electromagnets": "Elektromagnety",
+        "gas": "Plyn",
+        "plastics": "Plasty",
+        "robots": "Roboti",
+        "nutrition_research": "Nutriční výzkum",
+        "papercrete": "Papercrete",
+        "preservatives": "Konzervanty",
+        "smart_materials": "Inteligentní materiály",
+        "translucent_concrete": "Průsvitný beton",
+        "algae": "Mořské řasy",
+        "biogeochemical_data": "Biochemické údaje",
+        "nanoparticles": "Nanočástice",
+        "purified_water": "Upravená voda",
+        "superconductors": "Supravodiče",
+        "ai_data": "UI Data",
+        "bioplastics": "Bioplasty",
+        "nanowire": "Nanodrát",
+        "paper_batteries": "Papírové baterie",
+        "transester_gas": "Transesterifikovaný plyn",
+        "artificial_scales": "Umělé šupiny",
+        "biolight": "Biosvětla",
+        "corals": "Korály",
+        "pearls": "Perly",
+        "plankton": "Plankton",
+        "promethium": "Promethium",
+        "orichalcum": "Orichalcum",
+        "cryptocash": "Kryptoměna",
+        "data_crystals": "Datové krystaly",
+        "golden_rice": "Zlatá rýže",
+        "nanites": "Nanity",
+        "tea_silk": "Čajové hedvábí"
+      },
+      "province": {
+        "Red_Sea": "Červené moře"
+      }
+    },
+    "utils": {
+      "content": {
+        "tools": "Nástroje",
+        "statistics": "Statistiky"
+      },
+      "Add": "Přidat",
+      "Remove": "Odstranit",
+      "Yes": "Ano",
+      "No": "Ne",
+      "Ok": "Ok",
+      "Copy": "Kopírovat",
+      "Copyed": "Zkopírováno!",
+      "Information": "Informace",
+      "From": "Od",
+      "Path": "Cesta",
+      "Name": "Jméno",
+      "Description": "Popis",
+      "Rewards": "Odměny",
+      "Cost": "Cena",
+      "Conquered": "Dobyto",
+      "Total": "Celkem",
+      "Secured": "Chráněno",
+      "Reset": "Resetovat",
+      "Confirm": "Potvrdit",
+      "Close": "Zavřít",
+      "Result": "Výsledek",
+      "between_range": "mezi {{min, number}} a {{max, number}}",
+      "Submit": "Odeslat",
+      "Reset_values": "Resetovat hodnoty",
+      "Switch": "Přepnout",
+      "moment": {
+        "year": "{{count}} rok",
+        "year_plural": "{{count, number}} léta",
+        "month": "{{count}} měsíc",
+        "month_plural": "{{count}} měsíce",
+        "day": "{{count}} den",
+        "day_plural": "{{count}} dny"
+      },
+      "graph": {
+        "gb_level": "Level",
+        "gb_level_cost": "Cena levelu",
+        "gb_reward_1st_place": "Odměna za level (první místo)"
+      }
+    },
+    "contributions": {
+      "code": "Kód",
+      "design": "Design",
+      "doc": "Dokumentace",
+      "example": "Příklady",
+      "ideas": "Nápady, plány a zpětná vazba",
+      "infra": "Infrastruktura (Hosting, Build-Tools atd.)",
+      "test": "Testy",
+      "tool": "Nástroje",
+      "translation": "Překlad",
+      "tutorial": "Návody",
+      "video": "Videa"
+    },
+    "seo": {
+      "keywords": {
+        "gb": "VB",
+        "great_building": "Velkolepá Budova",
+        "fp": "FB",
+        "forge_point": "Forge Body",
+        "medals": "medajle",
+        "military_units": "Vojenské jednotky"
+      }
+    }
+  }
+}]

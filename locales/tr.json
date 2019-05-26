@@ -1,4 +1,4 @@
-{
+[{
   "translation": {
     "main_menu": {
       "home": "Ana Sayfa",
@@ -162,8 +162,11 @@
           "version": "Sürüm {{version}}"
         },
         "day_night": {
+          "Day": "Gün",
           "start_day": "Gündüz versiyonunu başlat",
-          "start_night": "Gece versiyonunu başlat"
+          "Night": "Gece",
+          "start_night": "Gece versiyonunu başlat",
+          "Auto": "Otomatik $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)"
         },
         "global_config_dialog": {
           "day_night_mode": {
@@ -605,4 +608,4 @@
       }
     }
   }
-}
+}]
