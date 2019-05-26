@@ -130,7 +130,7 @@
           "title": "Message de promotion",
           "prefix_placeholder": "texte avant le message de promotion",
           "suffix_placeholder": "texte après le message de promotion",
-          "promo": ["P2({{investment}})", "P4({{investment}})"]
+          "promo": ["P1({{investment}})", "P2({{investment}})", "P3({{investment}})", "P4({{investment}})", "P5({{investment}})"]
         }
       },
       "gb_investment_investors": {
