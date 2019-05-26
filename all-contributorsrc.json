@@ -544,6 +544,17 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "FoE Tips from The Forge",
+      "name": "FoE Tips from The Forge",
+      "avatar_url": "https://yt3.ggpht.com/a/AGF-l7_zYHiIZwApE8DB0ttZN-iG9MG1DzMuB6WREw=s176-mo-c-c0xffffffff-rj-k-no",
+      "profile": "https://www.youtube.com/watch?v=8OhfNjjOnws",
+      "contributions": [
+        "tutorial",
+        "video",
+        "talk"
+      ]
     }
   ]
 }
