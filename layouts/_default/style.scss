@@ -239,6 +239,14 @@ section.hero.is-dark-blue .subtitle a:hover {
   bottom: 16px;
 }
 
+// Bulma fix
+
+@media screen and (min-width: $desktop) and (max-width: $widescreen - 1) {
+  .navbar.is-fixed-top .navbar-menu, .navbar.is-fixed-top-touch .navbar-menu {
+    overflow: inherit !important;
+  }
+}
+
 /**
  * Colors by ages
  */
