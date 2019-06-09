@@ -165,7 +165,7 @@
         "estimated_time": "Estimate time to reach the level",
         "message": {
           "single": "To complete the level {{level}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of level: {{cost, number}} FPs.",
-          "multi": "To complete the level {{level}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of levels: {{cost, number}} FPs.",
+          "multi": "To go from level {{from}} to \"$t({{to}})\", the owner has to invest {{preparation, number}} FPs. Total cost of levels: {{cost, number}} FPs.",
           "diff": "With bonus investments, you'll save {{count}} FP",
           "diff_plural": "With bonus investments, you'll save {{count, number}} FPs",
           "estimated_time": "Estimated time to reach the level: {{time}}"
