@@ -9,7 +9,8 @@ import hu from "../locales/hu.json";
 import pl from "../locales/pl.json";
 
 // Requires al packages
-export const i18next = require("i18next");
+import hideI18next from "i18next";
+export const i18next = hideI18next;
 import numeral from "numeral";
 import "numeral/locales/fr";
 import "numeral/locales/de";
