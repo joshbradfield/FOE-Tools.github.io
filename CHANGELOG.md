@@ -1,6 +1,24 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.43.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.41.0...v2.43.0) (2019-06-10)
+
+
+### Bug Fixes
+
+* fix i18next issues related to dependencies upgrade ([924a3d5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/924a3d5))
+* fix i18next issues related to dependencies upgrade ([e625b9c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e625b9c))
+* **l10n:** update translation in english (gb-forecast-cost) ([2279e06](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2279e06)), closes [#238](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/238)
+* **style:** display sub-menu on tablet ([5935af0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5935af0)), closes [#237](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/237)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([967c593](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/967c593))
+* **gb-investment:** add a promotion message builder ([b925c87](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b925c87))
+
+
 
 # [2.42.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.41.0...v2.42.0) (2019-06-10)
 
