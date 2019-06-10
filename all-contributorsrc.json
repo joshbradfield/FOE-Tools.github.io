@@ -434,7 +434,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/1323253?v=4",
       "profile": "https://github.com/soodvarun",
       "contributions": [
-        "ideas"
+        "ideas",
+        "bug"
       ]
     },
     {
@@ -556,5 +557,6 @@
         "talk"
       ]
     }
-  ]
+  ],
+  "commitConvention": "none"
 }
