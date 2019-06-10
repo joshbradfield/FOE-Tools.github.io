@@ -121,10 +121,7 @@
               "total_preparation": "Investissement total du propriétaire",
               "level_cost": "Coût du niveau"
             }
-          },
-          "display_gb_name": "Afficher le nom du GM ?",
-          "use_short_name": "Utiliser un nom court ?",
-          "show_level": "Afficher le niveau ?"
+          }
         },
         "promotion": {
           "title": "Message de promotion",
@@ -307,6 +304,58 @@
           "result": "Pour {{to}} {{ageTo}}, il vous faut {{from}} {{ageFrom}} avec des offres de taille maximal {{count}} :",
           "total": "(total: {{amount}} {{key}})"
         }
+      },
+      "promotion_message_builder": {
+        "title": "Constructeur de messages de promotion",
+        "info": "Ceci peut être copié pour être partagé, par exemple, avec les membres de votre guilde",
+        "note": "Notez que le constructeur de message utilise le niveau 9 → 10 de $t(foe_data.gb.Observatory) avec un ratio de 1.9 pour la prévisualisation.",
+        "action": "Action",
+        "actions": {
+          "create": "Créer un nouveau modèle",
+          "update": "Mettre à jour un modèle existant",
+          "delete": "Supprimer un modèle existant"
+        },
+        "start_from_template": "Commencer à partir d'un modèle ?",
+        "edit_template": "Choisissez le modèle à modifier",
+        "delete_template": "Choisissez le modèle à supprimer",
+        "templates": {
+          "default": "Modèles par défaut",
+          "custom": "Modèles personnalisés"
+        },
+        "config": "Configuration",
+        "use_short_name": "Utiliser un nom court ?",
+        "reverse_place_order": "Inverser l'ordre des places ?",
+        "place_separator": "Séparateur de place",
+        "place_builder": "Constructeur de places",
+        "place_preview": "Aperçu d'une place (1ère place)",
+        "message_builder": "Constructeur de messages",
+        "message_preview": "Aperçu du message",
+        "place_builder_title": "Constructeur de places",
+        "message_builder_title": "Constructeur de messages",
+        "available_variables": "Variables disponibles:",
+        "variables": {
+          "place": {
+            "PI": "Numéro de place",
+            "PV": "Valeur de la place (en PFs)"
+          },
+          "message": {
+            "FLVL": "Du niveau",
+            "TLVL": "Au niveau",
+            "GBN": "Nom du GM",
+            "P": "Places"
+          }
+        },
+        "template_name": "Nom du modèle",
+        "errors": {
+          "template_cannot_have_this_name": "Le modèle ne peut pas avoir ce nom. Veuillez utiliser un autre nom."
+        }
+      },
+      "import_promotion_message": {
+        "title": "Importer un message de promotion",
+        "config_placeholder": "Collez votre configuration ici",
+        "errors": {
+          "invalid_data": "Les données ne sont pas valides"
+        }
       }
     },
     "routes": {
@@ -366,7 +415,11 @@
             "survey": "Un tableau qui contient tous les sondages auquel vous avez déjà répondu",
             "fixedMainMenu": "Indique si le menu principal est toujours visible ou non",
             "gbSelectMode": "Indique le mode de sélection de GB que vous utilisez (auto-complétion ou selecteur simple)",
-            "haveReadLocaleInfoAvailable": "Indique si vous avez lu les informations sur le fait que le site est disponible dans votre langue."
+            "haveReadLocaleInfoAvailable": "Indique si vous avez lu les informations sur le fait que le site est disponible dans votre langue.",
+            "promotionMessageList": "Contient la liste des messages de promotion que vous voulez afficher.",
+            "customPromotionMessagesTemplates": "Contient tous vos messages de promotion personnalisés",
+            "gbShowPrefix": "Indique si vous voulez afficher le préfixe dans les messages de promotions",
+            "gbShowSuffix": "Indique si vous voulez afficher le suffixe dans les messages de promotions"
           }
         },
         "dev_info": {
@@ -1188,6 +1241,12 @@
       "Submit": "Envoyer",
       "Reset_values": "Réinitialiser les valeurs",
       "Switch": "Changer",
+      "Save": "Sauvegarder",
+      "Show": "Afficher",
+      "Hide": "Masquer",
+      "errors": {
+        "field_cannot_be_empty": "Ce champ ne peut pas être vide"
+      },
       "moment": {
         "year": "{{count}} an",
         "year_plural": "{{count, number}} ans",

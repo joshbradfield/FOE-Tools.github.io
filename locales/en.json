@@ -121,10 +121,7 @@
               "total_preparation": "Total investment of the owner",
               "level_cost": "Level cost"
             }
-          },
-          "display_gb_name": "Display GB name ?",
-          "use_short_name": "Use short name ?",
-          "show_level": "Show level ?"
+          }
         },
         "promotion": {
           "title": "Promotion message",
@@ -307,6 +304,58 @@
           "result": "For {{to}} {{ageTo}}, you need {{from}} {{ageFrom}} with offers up to {{count}}:",
           "total": "(total: {{amount}} {{key}})"
         }
+      },
+      "promotion_message_builder": {
+        "title": "Promotion message builder",
+        "info": "This can be copied to be shared, for example, with your guild members",
+        "note": "Note that the message builder uses level 9 → 10 of $t(foe_data.gb.Observatory) with a ratio of 1.9 for previewing.",
+        "action": "Action",
+        "actions": {
+          "create": "Create a new template",
+          "update": "Update an existing template",
+          "delete": "Delete an existing template"
+        },
+        "start_from_template": "Start from a template ?",
+        "edit_template": "Choose the template to edit",
+        "delete_template": "Choose the template to delete",
+        "templates": {
+          "default": "Default templates",
+          "custom": "Custom templates"
+        },
+        "config": "Configuration",
+        "use_short_name": "Use short name ?",
+        "reverse_place_order": "Reverse places order ?",
+        "place_separator": "Place separator",
+        "place_builder": "Place builder",
+        "place_preview": "Place preview (1st place)",
+        "message_builder": "Message builder",
+        "message_preview": "Message preview",
+        "place_builder_title": "Place builder",
+        "message_builder_title": "Message builder",
+        "available_variables": "Available variables:",
+        "variables": {
+          "place": {
+            "PI": "Place index",
+            "PV": "Place value (in FPs)"
+          },
+          "message": {
+            "FLVL": "From level",
+            "TLVL": "To level",
+            "GBN": "GB name",
+            "P": "Places"
+          }
+        },
+        "template_name": "Template name",
+        "errors": {
+          "template_cannot_have_this_name": "Template cannot have this name. Please use an other name."
+        }
+      },
+      "import_promotion_message": {
+        "title": "Import promotion message",
+        "config_placeholder": "Paste your config here",
+        "errors": {
+          "invalid_data": "Data are invalid"
+        }
       }
     },
     "routes": {
@@ -366,7 +415,11 @@
             "survey": "A array that contains all the surveys you have already completed",
             "fixedMainMenu": "Indicates if the main menu is always visible or not",
             "gbSelectMode": "Indicates which GB Select mode you are using",
-            "haveReadLocaleInfoAvailable": "Indicates if you have read the information about the fact that the site is available in your language"
+            "haveReadLocaleInfoAvailable": "Indicates if you have read the information about the fact that the site is available in your language",
+            "promotionMessageList": "Contains the list of promotion message that you want to be displayed",
+            "customPromotionMessagesTemplates": "Contains all your custom promotion message",
+            "gbShowPrefix": "Indicates if you want to show prefix in promotion messages",
+            "gbShowSuffix": "Indicates if you want to show suffix in promotion messages"
           }
         },
         "dev_info": {
@@ -1188,6 +1241,12 @@
       "Submit": "Submit",
       "Reset_values": "Reset values",
       "Switch": "Switch",
+      "Save": "Save",
+      "Show": "Show",
+      "Hide": "Hide",
+      "errors": {
+        "field_cannot_be_empty": "This field cannot be empty"
+      },
       "moment": {
         "year": "{{count}} year",
         "year_plural": "{{count, number}} years",

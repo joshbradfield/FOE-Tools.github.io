@@ -1,5 +1,6 @@
 import { config } from "@vue/test-utils";
 import { createLocalVue, RouterLinkStub } from "@vue/test-utils";
+import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 
 import Vuex from "vuex";
 import * as storeStructure from "~/store/index";
@@ -108,6 +109,8 @@ config.mocks["$cookies"] = {
         return i18next.language;
       case "yourArcBonus":
         return 90.6;
+      case "promotionMessageList":
+        return defaultPromotionMessages;
     }
     return undefined;
   }),

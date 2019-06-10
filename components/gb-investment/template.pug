@@ -306,33 +306,71 @@ div.content
 
   h4.title.is-4.margin-top-one-em(v-if="result !== null") {{$t($data.i18nPrefix + 'promotion.title')}}
 
-  div.columns
-    div.column.is-half
-      b-field(:label="$t('utils.Prefix')" label-for="giPrefix")
-        b-input#giPrefix(type="text" v-model.trim="prefix" name="prefix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')")
-    div.column.is-half
-      b-field(:label="$t('utils.Suffix')" label-for="giSuffix")
-        b-input#giSuffix(type="text" v-model.trim="suffix" name="suffix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')")
-
-  div.columns
-    div.column.is-half
+  b-tabs(v-model="promotionMessageTab" expanded)
+    b-tab-item(:label="$t($data.i18nPrefix + 'promotion.title')")
       div.columns
         div.column.is-half
-          yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
-        div.column.is-half(v-if="displayGbName")
-          yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
-    div.column.is-half
-      yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+          b-field(:label="$t('utils.Prefix')" label-for="giPrefix")
+          b-field
+            b-input#giPrefix(type="text" v-model.trim="prefix" name="prefix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')" expanded)
+            p.control
+              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                button.button.copy(@click="switchPrefix()" :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                  span.icon(v-show="showPrefix")
+                    | &nbsp;&nbsp;
+                    i.fas.fa-eye
+                  span.icon(v-show="!showPrefix")
+                    i.fas.fa-eye-slash
+                    | &nbsp;&nbsp;&nbsp;
 
-  div(v-if="result !== null")
-    b-field(v-for="(value, i) in promotion" :key="i")
-      b-input(type="text" :value="value.message" readonly expanded)
-      p.control
-        b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
-          button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
-            span.icon
-              i.far.fa-copy
-            | &nbsp;&nbsp;{{$t('utils.Copy')}}
+        div.column.is-half
+          b-field(:label="$t('utils.Suffix')" label-for="giSuffix")
+          b-field
+            b-input#giSuffix(type="text" v-model.trim="suffix" name="suffix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')" expanded)
+            p.control
+              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                button.button.copy(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                  span.icon(v-show="showSuffix")
+                    | &nbsp;&nbsp;
+                    i.fas.fa-eye
+                  span.icon(v-show="!showSuffix")
+                    i.fas.fa-eye-slash
+                    | &nbsp;&nbsp;&nbsp;
+
+      div(v-if="result !== null")
+        b-field(v-for="(value, i) in promotion" :key="i")
+          p.control
+            b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+              button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
+                span.icon
+                  i.fas.fa-trash
+          b-input(type="text" :value="value.message" readonly expanded)
+          p.control
+            b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
+              button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
+                span.icon
+                  i.far.fa-copy
+                | &nbsp;&nbsp;{{$t('utils.Copy')}}
+
+      div.columns
+        div.column
+          b-field
+            b-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" expanded)
+              optgroup(:label="$t('components.promotion_message_builder.templates.default')")
+                option(v-for="template in promotionMessageTemplates.default" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+              optgroup(v-if="promotionMessageTemplates.custom.length" :label="$t('components.promotion_message_builder.templates.custom')")
+                option(v-for="template in promotionMessageTemplates.custom" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+
+            p.control
+              button.button.is-info(:title="$t('utils.Add')" @click="addPromotionMessageTemplate" :disabled="maxInvestment <= 0")
+                span.icon
+                  i.fas.fa-plus
+                | &nbsp;&nbsp;{{$t('utils.Add')}}
+
+    b-tab-item(:label="$t('components.import_promotion_message.title')")
+      ImportPromotionMessage
+    b-tab-item(:label="$t('components.promotion_message_builder.title')")
+      PromotionMessageBuilder
 
   div(v-if="result" style="margin-top: 2rem;")
     secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="true" @customYourArcBonus="yourArcBonus = $event")

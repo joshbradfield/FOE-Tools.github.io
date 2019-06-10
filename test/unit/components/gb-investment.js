@@ -3,6 +3,7 @@ import Component from "../../../components/gb-investment/GbInvestment";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
 import * as Errors from "../../../scripts/errors";
+import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 
 const defaultGb = gbsData.Observatory;
 
@@ -113,9 +114,8 @@ describe("GbInvestment", () => {
           gbi_ipg: 90,
           gbi_px: "foo",
           gbi_sx: "bar",
-          gbi_sn: "1",
-          gbi_dgbn: "0",
-          gbi_sl: "1",
+          gbi_spx: "0",
+          gbi_ssx: "0",
           gbi_p1: investorPercentageCustom[0],
           gbi_p2: investorPercentageCustom[1],
           gbi_p3: investorPercentageCustom[2],
@@ -141,9 +141,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.investorPercentageGlobal).toBe(90);
     expect(wrapper.vm.prefix).toBe("foo");
     expect(wrapper.vm.suffix).toBe("bar");
-    expect(wrapper.vm.displayGbName).toBe(false);
-    expect(wrapper.vm.shortName).toBe(true);
-    expect(wrapper.vm.showLevel).toBe(true);
+    expect(wrapper.vm.showPrefix).toBe(false);
+    expect(wrapper.vm.showSuffix).toBe(false);
     expect(wrapper.vm.showSnipe).toBe(true);
     expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
@@ -181,12 +180,6 @@ describe("GbInvestment", () => {
               return "foo";
             case "gbSuffix":
               return "bar";
-            case "shortName":
-              return true;
-            case "displayGbName":
-              return false;
-            case "showLevel":
-              return true;
             case "root_investorPercentageCustom_0":
               return 92;
             case "root_investorPercentageCustom_1":
@@ -205,6 +198,8 @@ describe("GbInvestment", () => {
               return 90;
             case "displayTableCard":
               return true;
+            case "promotionMessageList":
+              return defaultPromotionMessages;
           }
         }
       }
@@ -215,9 +210,6 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.investorPercentageGlobal).toBe(90);
     expect(wrapper.vm.prefix).toBe("foo");
     expect(wrapper.vm.suffix).toBe("bar");
-    expect(wrapper.vm.displayGbName).toBe(false);
-    expect(wrapper.vm.shortName).toBe(true);
-    expect(wrapper.vm.showLevel).toBe(true);
     expect(wrapper.vm.showSnipe).toBe(true);
     expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
@@ -406,23 +398,6 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.errors.yourArcBonus).toBeFalsy();
   });
 
-  test('Change "displayGbName" value', () => {
-    const wrapper = factory();
-    const newValue = false;
-    expect(wrapper.vm.displayGbName).toBe(true);
-    wrapper.vm.displayGbName = newValue;
-    expect(wrapper.vm.displayGbName).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_dgbn"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "displayGbName",
-      false,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
-  });
-
   test('Change "prefix" value', () => {
     const wrapper = factory();
     const newValue = "foo";
@@ -457,40 +432,6 @@ describe("GbInvestment", () => {
     ]);
   });
 
-  test('Change "shortName" value', () => {
-    const wrapper = factory();
-    const newValue = true;
-    expect(wrapper.vm.shortName).toBe(false);
-    wrapper.vm.shortName = newValue;
-    expect(wrapper.vm.shortName).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sn"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "shortName",
-      true,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
-  });
-
-  test('Change "showLevel" value', () => {
-    const wrapper = factory();
-    const newValue = true;
-    expect(wrapper.vm.showLevel).toBe(false);
-    wrapper.vm.showLevel = newValue;
-    expect(wrapper.vm.showLevel).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sl"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "showLevel",
-      true,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
-  });
-
   test('Change "showSnipe" value', () => {
     const wrapper = factory();
     const newValue = true;
@@ -501,6 +442,40 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
       "showSnipe",
       true,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
+  });
+
+  test('Change "showPrefix" value', () => {
+    const wrapper = factory();
+    const newValue = false;
+    expect(wrapper.vm.showPrefix).toBe(true);
+    wrapper.vm.showPrefix = newValue;
+    expect(wrapper.vm.showPrefix).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_spx"]).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "gbShowPrefix",
+      newValue,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
+  });
+
+  test('Change "showSuffix" value', () => {
+    const wrapper = factory();
+    const newValue = false;
+    expect(wrapper.vm.showSuffix).toBe(true);
+    wrapper.vm.showSuffix = newValue;
+    expect(wrapper.vm.showSuffix).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ssx"]).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "gbShowSuffix",
+      newValue,
       {
         path: "/",
         expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
@@ -772,6 +747,8 @@ describe("GbInvestment", () => {
               return [10, 8, 6, 4, 2];
             case "yourArcBonus":
               return 90;
+            case "promotionMessageList":
+              return defaultPromotionMessages;
           }
         }
       }
@@ -788,5 +765,53 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: true }]);
     wrapper.vm.changeIsPotentialSniper(index, value);
     expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: false }]);
+  });
+
+  test("Call 'removePromotionMessage'", () => {
+    const wrapper = factory();
+    const index = 0;
+    wrapper.vm.calculate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+    wrapper.vm.removePromotionMessage(index);
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+  });
+
+  test("Call 'addPromotionMessageTemplate'", () => {
+    const wrapper = factory();
+    wrapper.vm.calculate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+    wrapper.vm.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", [
+      { ...defaultPromotionMessages[0], name: "Custom 1" }
+    ]);
+    wrapper.vm.templateToAdd = "Custom 1";
+    wrapper.vm.addPromotionMessageTemplate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+    wrapper.vm.templateToAdd = "Default 1";
+    wrapper.vm.addPromotionMessageTemplate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+  });
+
+  test("Call 'addPromotionMessageTemplate' 'templateToAdd' not set", () => {
+    const wrapper = factory();
+    wrapper.vm.calculate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+    wrapper.vm.addPromotionMessageTemplate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+  });
+
+  test("Call 'switchPrefix' 'templateToAdd' not set", () => {
+    const wrapper = factory();
+    wrapper.vm.calculate();
+    expect(wrapper.vm.showPrefix).toBe(true);
+    wrapper.vm.switchPrefix();
+    expect(wrapper.vm.showPrefix).toBe(false);
+  });
+
+  test("Call 'switchSuffix' 'templateToAdd' not set", () => {
+    const wrapper = factory();
+    wrapper.vm.calculate();
+    expect(wrapper.vm.showSuffix).toBe(true);
+    wrapper.vm.switchSuffix();
+    expect(wrapper.vm.showSuffix).toBe(false);
   });
 });
