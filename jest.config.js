@@ -23,6 +23,8 @@ module.exports = {
   collectCoverageFrom: [
     "**/*.{js,vue}",
     "!**/components/graph-canvas/**",
+    "!**/components/promotion-message-builder/**",
+    "!**/components/import-promotion-message/**",
     "!**/coverage/**",
     "!**/dist/**",
     "!**/layouts/*.vue",

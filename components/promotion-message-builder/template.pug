@@ -1,0 +1,128 @@
+div
+  h4.title.is-4.margin-top-one-em {{$t($data.i18nPrefix + 'title')}}
+
+  p {{$t($data.i18nPrefix + 'note')}}
+
+  template(v-if="customTemplates.length")
+    div.columns
+      div.column
+        b-field(:label="$t(i18nPrefix + 'action')")
+        b-field
+          b-radio(v-model="action" native-value="create") {{$t(i18nPrefix + 'actions.create')}}
+        b-field
+          b-radio(v-model="action" native-value="update") {{$t(i18nPrefix + 'actions.update')}}
+        b-field
+          b-radio(v-model="action" native-value="delete") {{$t(i18nPrefix + 'actions.delete')}}
+
+  div.columns
+    div.column
+      b-field(:label="selectLabel" label-for="pmbStartFromTemplate")
+        b-select#pmbStartFromTemplate(v-model.trim="startFromTemplate" name="startFromTemplate" autocomplete="off" expanded)
+          template(v-if="action === 'create'")
+            optgroup(:label="$t(i18nPrefix + 'templates.default')")
+              option(v-for="template in defaultTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+            optgroup(v-if="customTemplates.length" :label="$t(i18nPrefix + 'templates.custom')")
+              option(v-for="template in customTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+          option(v-else v-for="template in customTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+
+  template(v-if="action !== 'delete'")
+    div.columns
+      div.column
+        b-field(label-for="pmbConfig")
+          template(slot="label")
+            .media
+              span.media-content {{$t(i18nPrefix + 'config')}}
+              div.media-right
+                b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined)
+                  span.icon
+                    i.far.fa-question-circle
+                b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined position="is-left")
+                  span.icon
+                    i.far.fa-question-circle
+        b-field
+          b-input#pmbConfig(type="text" v-model.trim="resultString" name="config" autocomplete="off" expanded disabled)
+          p.control
+            b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="tooltips.config" always)
+              button.button.copy(v-clipboard="resultString" @success="successCopy('config')" :title="$t('utils.Copy')")
+                span.icon
+                  i.far.fa-copy
+                | &nbsp;&nbsp;{{$t('utils.Copy')}}
+
+    div.columns
+      div.column.is-half
+        b-field(:label="$t('utils.Prefix')" label-for="pmbPrefix")
+          b-input#pmbPrefix(type="text" v-model.trim="result.prefix" name="prefix" autocomplete="off" :placeholder="$t('components.gb_investment.promotion.prefix_placeholder')")
+      div.column.is-half
+        b-field(:label="$t('utils.Suffix')" label-for="pmbSuffix")
+          b-input#pmbSuffix(type="text" v-model.trim="result.suffix" name="suffix" autocomplete="off" :placeholder="$t('components.gb_investment.promotion.suffix_placeholder')")
+
+    div.columns
+      div.column.is-half
+        yes-no(v-model="result.useShortGbName" :label="$t(i18nPrefix + 'use_short_name')")
+      div.column.is-half
+        yes-no(v-model="result.reversePlacesOrder" :label="$t(i18nPrefix + 'reverse_place_order')")
+
+    div.columns
+      div.column.is-half
+        b-field(:label="$t(i18nPrefix + 'place_separator')" label-for="pmbPlaceSeparator")
+          b-input#pmbPlaceSeparator(type="text" v-model="result.placeSeparator" name="placeSeparator" autocomplete="off")
+
+    h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'place_builder_title')}}
+
+    b-message(type="is-info")
+      p {{$t($data.i18nPrefix + 'available_variables')}}
+      ul
+        li
+          b ${PI}
+          | : {{$t($data.i18nPrefix + 'variables.place.PI')}}
+        li
+          b ${PV}
+          | : {{$t($data.i18nPrefix + 'variables.place.PV')}}
+
+    div.columns
+      div.column.is-half
+        b-field(:label="$t(i18nPrefix + 'place_builder')" label-for="pmbPlaceBuilder")
+          b-input#pmbPlaceBuilder(type="text" v-model.trim="result.place" name="pmbPlaceBuilder" autocomplete="off")
+      div.column.is-half
+        b-field(:label="$t(i18nPrefix + 'place_preview')" label-for="pmbPlacePreview")
+          b-input#pmbPlacePreview(type="text" v-model.trim="placePreview" name="pmbPlacePreview" autocomplete="off" disabled)
+
+    h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'message_builder_title')}}
+
+    b-message(type="is-info")
+      p {{$t($data.i18nPrefix + 'available_variables')}}
+      ul
+        li
+          b ${FLVL}
+          | : {{$t($data.i18nPrefix + 'variables.message.FLVL')}}
+        li
+          b ${TLVL}
+          | : {{$t($data.i18nPrefix + 'variables.message.TLVL')}}
+        li
+          b ${GBN}
+          | : {{$t($data.i18nPrefix + 'variables.message.GBN')}}
+        li
+          b ${P}
+          | : {{$t($data.i18nPrefix + 'variables.message.P')}}
+
+    div.columns
+      div.column
+        b-field(:label="$t(i18nPrefix + 'message_builder')" label-for="pmbMessageBuilder")
+          b-input#pmbMessageBuilder(type="text" v-model.trim="result.message" name="pmbMessageBuilder" autocomplete="off" expanded)
+    div.columns
+      div.column
+        b-field(:label="$t(i18nPrefix + 'message_preview')" label-for="pmbMessagePreview")
+          b-input#pmbMessagePreview(type="text" v-model.trim="resultMessage" name="pmbMessagePreview" autocomplete="off" expanded disabled)
+
+    div.columns
+      div.column.is-half
+        b-field(:label="$t(i18nPrefix + 'template_name')" label-for="pmbTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
+          b-input#pmbTemplateName(type="text" v-model.trim="templateName" name="pmbTemplateName" autocomplete="off")
+      div.column.is-half
+        b-field.has-text-centered(label=" ")
+          b-button.is-fullwidth(type="is-info" @click="save") {{$t('utils.Save')}}
+
+  template(v-else)
+    div.columns
+      div.column.is-half.is-offset-3
+        b-button.is-fullwidth(type="is-danger" @click="deleteTemplate") {{$t('utils.Remove')}}

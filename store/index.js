@@ -1,5 +1,6 @@
 import { defaultLocale } from "~/scripts/i18n";
 import * as Errors from "~/scripts/errors";
+import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 
 import Vue from "vue";
 
@@ -77,7 +78,15 @@ export const state = () => ({
   /**
    * Contains survey
    */
-  survey: []
+  survey: [],
+
+  /**
+   * Contains all promotions messages templates
+   */
+  promotionMessageTemplates: {
+    default: defaultPromotionMessages,
+    custom: []
+  }
 });
 
 export const mutations = {
@@ -222,6 +231,10 @@ export const mutations = {
 
   SET_SURVEY: /* istanbul ignore next */ (state, data) => {
     state.survey = data;
+  },
+
+  UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES: /* istanbul ignore next */ (state, data) => {
+    state.promotionMessageTemplates.custom = data;
   }
 };
 
@@ -247,6 +260,14 @@ export const actions = {
     const { data } = await this.$axios.get(`${process.env.surveyURL}${urlParam}`);
     if (data && data instanceof Array) {
       elt.commit("SET_SURVEY", data);
+    }
+
+    if (
+      this.$cookies.get("customPromotionMessagesTemplates") &&
+      this.$cookies.get("customPromotionMessagesTemplates") instanceof Array &&
+      this.$cookies.get("customPromotionMessagesTemplates").length
+    ) {
+      elt.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", this.$cookies.get("customPromotionMessagesTemplates"));
     }
   }
 };

@@ -1,0 +1,20 @@
+div
+  h4.title.is-4.margin-top-one-em {{$t($data.i18nPrefix + 'title')}}
+
+  div.columns
+    div.column
+      b-field(:label="$t('components.promotion_message_builder.config')" label-for="ipmConfig" :type="{ 'is-danger': errors.template.found }" :message="errors.template.found ? errors.template.message : ''")
+        b-input#ipmConfig(type="text" v-model.trim="template" name="config" autocomplete="off" :placeholder="$t(i18nPrefix + 'config_placeholder')" expanded)
+
+  div.columns
+    div.column
+      b-field(:label="$t('components.promotion_message_builder.message_preview')" label-for="ipmMessagePreview")
+        b-input#ipmMessagePreview(type="text" v-model.trim="resultMessage" name="ipmMessagePreview" autocomplete="off" expanded disabled)
+
+  div.columns
+    div.column.is-half
+      b-field(:label="$t('components.promotion_message_builder.template_name')" label-for="ipmTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
+        b-input#ipmTemplateName(type="text" v-model.trim="templateName" name="ipmTemplateName" autocomplete="off")
+    div.column.is-half
+      b-field.has-text-centered(label=" ")
+        b-button.is-fullwidth(type="is-info" @click="save" expanded) {{$t('utils.Save')}}

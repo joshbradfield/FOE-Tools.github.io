@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 1" 1`] = `"Your pseudo foe_data.gb.Observatory 9 → 10 P1(185) P2(100) P3(30) P4(10) up in half hour"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 2" 1`] = `"Yoratheon P1(185) P2(100) P3(30) P4(10) foe_data.gb.Observatory 9 → 10 up dans 30 min"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 3" 1`] = `"Your pseudo foe_data.gb.Observatory 9 → 10 P4(10) P3(30) P2(100) P1(185) up in half hour"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 4" 1`] = `"Yoratheon P4(10) P3(30) P2(100) P1(185) foe_data.gb.Observatory 9 → 10 up dans 30 min"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 5" 1`] = `"Yoratheon foe_data.gb.Observatory 9 → 10 1 2 3 4 up dans 30 min"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 6" 1`] = `"Yoratheon foe_data.gb.Observatory 9 → 10 4 3 2 1 up dans 30 min"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 7" 1`] = `"псевдонимы foe_data.gb.Observatory 9 → 10 1,2,3,4"`;
+
+exports[`Scripts Promotion Message Builder Valid value with "Default 8" 1`] = `"إسم مستعار foe_data.gb.Observatory 9 → 10 4,3,2,1"`;

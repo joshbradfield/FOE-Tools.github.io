@@ -51,7 +51,11 @@ export default {
         { name: "survey" },
         { name: "fixedMainMenu" },
         { name: "gbSelectMode" },
-        { name: "haveReadLocaleInfoAvailable" }
+        { name: "haveReadLocaleInfoAvailable" },
+        { name: "promotionMessageList" },
+        { name: "customPromotionMessagesTemplates" },
+        { name: "gbShowPrefix" },
+        { name: "gbShowSuffix" }
       ]
     };
   }
