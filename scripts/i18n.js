@@ -30,7 +30,7 @@ export const numeralSpecialLocales = {
 };
 
 export function initializeI18next() {
-  i18next.init({
+  hideI18next.init({
     lng: defaultLocale,
     debug: false,
     whitelist: languageList,
