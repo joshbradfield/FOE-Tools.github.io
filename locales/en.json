@@ -121,7 +121,10 @@
               "total_preparation": "Total investment of the owner",
               "level_cost": "Level cost"
             }
-          }
+          },
+          "display_gb_name": "Display GB name ?",
+          "use_short_name": "Use short name ?",
+          "show_level": "Show level ?"
         },
         "promotion": {
           "title": "Promotion message",
@@ -323,7 +326,7 @@
           "custom": "Custom templates"
         },
         "config": "Configuration",
-        "use_short_name": "Use short name ?",
+        "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
         "reverse_place_order": "Reverse places order ?",
         "place_separator": "Place separator",
         "place_builder": "Place builder",

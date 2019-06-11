@@ -24,6 +24,8 @@ const results = [
     config: {
       prefix: "Your pseudo",
       suffix: "up in half hour",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: " ",
@@ -36,6 +38,8 @@ const results = [
     config: {
       prefix: "Yoratheon",
       suffix: "up dans 30 min",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: " ",
@@ -48,6 +52,8 @@ const results = [
     config: {
       prefix: "Your pseudo",
       suffix: "up in half hour",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: " ",
@@ -60,6 +66,8 @@ const results = [
     config: {
       prefix: "Yoratheon",
       suffix: "up dans 30 min",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: " ",
@@ -72,6 +80,8 @@ const results = [
     config: {
       prefix: "Yoratheon",
       suffix: "up dans 30 min",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: " ",
@@ -84,6 +94,8 @@ const results = [
     config: {
       prefix: "Yoratheon",
       suffix: "up dans 30 min",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: " ",
@@ -96,6 +108,8 @@ const results = [
     config: {
       prefix: "псевдонимы",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: ",",
@@ -108,6 +122,8 @@ const results = [
     config: {
       prefix: "إسم مستعار",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: ",",
