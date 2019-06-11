@@ -30,7 +30,7 @@ export default {
           }
           placesInterpolationValues.push([
             { key: "PI", value: i + 1 },
-            { key: "PV", value: Math.round(Observatory.levels[9].reward[i] * 1.9) }
+            { key: "PV", value: Math.round(Observatory.levels[9].reward[i] * 1.9), free: true }
           ]);
         }
         return placesInterpolationValues;

@@ -101,35 +101,35 @@ exports[`Components GbInvestment Call "changePlaceFree" with invalid data 1`] = 
 Array [
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P1(65) P2(35) P3(10) P4(5)",
+    "message": "Observatory 9 → 10 P2(67) P3(19) P4(10)",
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 1 2 3 4",
+    "message": "Observatory 9 → 10 2 3 4",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 4 3 2 1",
+    "message": "Observatory 9 → 10 4 3 2",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 1,2,3,4",
+    "message": "Observatory 9 → 10 2,3,4",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 4,3,2,1",
+    "message": "Observatory 9 → 10 4,3,2",
   },
 ]
 `;
@@ -164,15 +164,15 @@ exports[`Components GbInvestment Call 'addPromotionMessageTemplate' 'templateToA
 Array [
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -192,7 +192,7 @@ Array [
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
 ]
 `;
@@ -201,15 +201,15 @@ exports[`Components GbInvestment Call 'addPromotionMessageTemplate' 'templateToA
 Array [
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -229,7 +229,7 @@ Array [
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
 ]
 `;
@@ -238,15 +238,15 @@ exports[`Components GbInvestment Call 'addPromotionMessageTemplate' 1`] = `
 Array [
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -271,15 +271,15 @@ exports[`Components GbInvestment Call 'addPromotionMessageTemplate' 2`] = `
 Array [
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -299,7 +299,7 @@ Array [
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
 ]
 `;
@@ -308,15 +308,15 @@ exports[`Components GbInvestment Call 'addPromotionMessageTemplate' 3`] = `
 Array [
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -336,7 +336,7 @@ Array [
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
 ]
 `;
@@ -345,19 +345,19 @@ exports[`Components GbInvestment Call 'removePromotionMessage' 1`] = `
 Array [
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P1(65) P2(35) P3(10) P4(5)",
+    "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -382,15 +382,15 @@ exports[`Components GbInvestment Call 'removePromotionMessage' 2`] = `
 Array [
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
   },
   Object {
     "active": false,
@@ -415,19 +415,19 @@ exports[`Components GbInvestment Change "lang" value 1`] = `
 Array [
   Object {
     "active": false,
-    "message": "Observatoire 9 → 10 P1(65) P2(35) P3(10) P4(5)",
+    "message": "Observatoire 9 → 10 P1(124) P2(67) P3(19) P4(10)",
   },
   Object {
     "active": false,
-    "message": "P1(65) P2(35) P3(10) P4(5) Observatoire 9 → 10",
+    "message": "P1(124) P2(67) P3(19) P4(10) Observatoire 9 → 10",
   },
   Object {
     "active": false,
-    "message": "Observatoire 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+    "message": "Observatoire 9 → 10 P4(10) P3(19) P2(67) P1(124)",
   },
   Object {
     "active": false,
-    "message": "P4(5) P3(10) P2(35) P1(65) Observatoire 9 → 10",
+    "message": "P4(10) P3(19) P2(67) P1(124) Observatoire 9 → 10",
   },
   Object {
     "active": false,
@@ -453,19 +453,19 @@ Object {
   "promotion": Array [
     Object {
       "active": false,
-      "message": "Observatory 9 → 10 P1(65) P2(35) P3(10) P4(5)",
+      "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
     },
     Object {
       "active": false,
-      "message": "P1(65) P2(35) P3(10) P4(5) Observatory 9 → 10",
+      "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
     },
     Object {
       "active": false,
-      "message": "Observatory 9 → 10 P4(5) P3(10) P2(35) P1(65)",
+      "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
     },
     Object {
       "active": false,
-      "message": "P4(5) P3(10) P2(35) P1(65) Observatory 9 → 10",
+      "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
     },
     Object {
       "active": false,

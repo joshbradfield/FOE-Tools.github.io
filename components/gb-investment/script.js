@@ -552,12 +552,12 @@ export default {
       const messageInterpolation = [{ key: "FLVL", value: this.level - 1 }, { key: "TLVL", value: this.level }];
       const placesInterpolationValues = [];
       for (let i = 0; i < this.result.investment.length; i++) {
-        if (this.result.investment[i].reward <= 0) {
+        if (!this.result.investment[i].participation || this.result.investment[i].participation <= 0) {
           continue;
         }
         placesInterpolationValues.push([
           { key: "PI", value: i + 1 },
-          { key: "PV", value: this.result.investment[i].reward }
+          { key: "PV", value: this.result.investment[i].participation, free: this.placeFree[i].state }
         ]);
       }
 
@@ -782,12 +782,12 @@ export default {
       const messageInterpolation = [{ key: "FLVL", value: this.level - 1 }, { key: "TLVL", value: this.level }];
       const placesInterpolationValues = [];
       for (let i = 0; i < this.result.investment.length; i++) {
-        if (this.result.investment[i].reward <= 0) {
+        if (!this.result.investment[i].participation || this.result.investment[i].participation <= 0) {
           continue;
         }
         placesInterpolationValues.push([
           { key: "PI", value: i + 1 },
-          { key: "PV", value: this.result.investment[i].reward }
+          { key: "PV", value: this.result.investment[i].participation, free: this.placeFree[i].state }
         ]);
       }
 

@@ -48,7 +48,9 @@ export function buildMessage(gbKey, data, interpolationValues, placeInterpolatio
     ? [...placeInterpolationValues].reverse()
     : placeInterpolationValues;
   goodPlaceInterpolationValues.forEach(interpolation => {
-    places += (places.length > 0 ? data.placeSeparator : "") + buildPlace(data.place, interpolation);
+    if (interpolation[1].free) {
+      places += (places.length > 0 ? data.placeSeparator : "") + buildPlace(data.place, interpolation);
+    }
   });
 
   const goodInterpolationValues = [

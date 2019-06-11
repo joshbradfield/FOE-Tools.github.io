@@ -13,7 +13,7 @@ const rewards = [185, 100, 30, 10];
 
 const placesInterpolationValues = [];
 for (let i = 0; i < rewards.length; i++) {
-  placesInterpolationValues.push([{ key: "PI", value: i + 1 }, { key: "PV", value: rewards[i] }]);
+  placesInterpolationValues.push([{ key: "PI", value: i + 1 }, { key: "PV", value: rewards[i], free: true }]);
 }
 
 const messageInterpolation = [{ key: "FLVL", value: 9 }, { key: "TLVL", value: 10 }];
