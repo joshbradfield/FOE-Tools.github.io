@@ -131,6 +131,18 @@ Array [
     "active": false,
     "message": "Observatory 9 → 10 4,3,2",
   },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2 > 10",
+  },
 ]
 `;
 
@@ -192,6 +204,18 @@ Array [
   },
   Object {
     "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
+  },
+  Object {
+    "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
   },
 ]
@@ -226,6 +250,18 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
   },
   Object {
     "active": false,
@@ -264,6 +300,18 @@ Array [
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
   },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
+  },
 ]
 `;
 
@@ -296,6 +344,18 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
   },
   Object {
     "active": false,
@@ -333,6 +393,18 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
   },
   Object {
     "active": false,
@@ -375,6 +447,18 @@ Array [
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
   },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
+  },
 ]
 `;
 
@@ -407,6 +491,18 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 4,3,2,1 > 10",
   },
 ]
 `;
@@ -445,6 +541,18 @@ Array [
     "active": false,
     "message": "Observatoire 9 → 10 4,3,2,1",
   },
+  Object {
+    "active": false,
+    "message": "Observatoire 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatoire 9 → 10 4,3,2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatoire 9 < 4,3,2,1 > 10",
+  },
 ]
 `;
 
@@ -482,6 +590,18 @@ Object {
     Object {
       "active": false,
       "message": "Observatory 9 → 10 4,3,2,1",
+    },
+    Object {
+      "active": false,
+      "message": "Observatory 9 → 10 4,3,2,1",
+    },
+    Object {
+      "active": false,
+      "message": "Observatory 9 → 10 4,3,2,1",
+    },
+    Object {
+      "active": false,
+      "message": "Observatory 9 < 4,3,2,1 > 10",
     },
   ],
   "result": Object {

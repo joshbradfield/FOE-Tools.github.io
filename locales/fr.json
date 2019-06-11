@@ -121,7 +121,10 @@
               "total_preparation": "Investissement total du propriétaire",
               "level_cost": "Coût du niveau"
             }
-          }
+          },
+          "display_gb_name": "Afficher le nom du GM ?",
+          "use_short_name": "Utiliser un nom court ?",
+          "show_level": "Afficher le niveau ?"
         },
         "promotion": {
           "title": "Message de promotion",
@@ -323,7 +326,7 @@
           "custom": "Modèles personnalisés"
         },
         "config": "Configuration",
-        "use_short_name": "Utiliser un nom court ?",
+        "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
         "reverse_place_order": "Inverser l'ordre des places ?",
         "place_separator": "Séparateur de place",
         "place_builder": "Constructeur de places",

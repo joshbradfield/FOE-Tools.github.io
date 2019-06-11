@@ -26,6 +26,9 @@ const queryKey = {
   placeFree: urlPrefix + "pFree",
   prefix: urlPrefix + "px",
   suffix: urlPrefix + "sx",
+  displayGbName: urlPrefix + "dgbn",
+  shortName: urlPrefix + "sn",
+  showLevel: urlPrefix + "sl",
   showPrefix: urlPrefix + "spx",
   showSuffix: urlPrefix + "ssx",
   showSnipe: urlPrefix + "ss",
@@ -91,6 +94,10 @@ export default {
       placeFree: [{ state: true }, { state: true }, { state: true }, { state: true }, { state: true }],
       prefix: this.$cookies.get("gbPrefix") ? this.$cookies.get("gbPrefix") : "",
       suffix: this.$cookies.get("gbSuffix") ? this.$cookies.get("gbSuffix") : "",
+      displayGbName:
+        typeof this.$cookies.get("displayGbName") === "boolean" ? !!this.$cookies.get("displayGbName") : true,
+      shortName: typeof this.$cookies.get("shortName") === "boolean" ? !!this.$cookies.get("shortName") : false,
+      showLevel: typeof this.$cookies.get("showLevel") === "boolean" ? !!this.$cookies.get("showLevel") : true,
       showPrefix: typeof this.$cookies.get("gbShowPrefix") === "boolean" ? !!this.$cookies.get("gbShowPrefix") : true,
       showSuffix: typeof this.$cookies.get("gbShowSuffix") === "boolean" ? !!this.$cookies.get("gbShowSuffix") : true,
       yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : parseFloat(this.$cookies.get("yourArcBonus")),
@@ -188,6 +195,21 @@ export default {
     this.$store.commit("ADD_URL_QUERY", {
       key: queryKey.suffix,
       value: data.suffix,
+      ns: "gbi"
+    });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.shortName,
+      value: data.shortName ? 1 : 0,
+      ns: "gbi"
+    });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.displayGbName,
+      value: data.displayGbName ? 1 : 0,
+      ns: "gbi"
+    });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.showLevel,
+      value: data.showLevel ? 1 : 0,
       ns: "gbi"
     });
     this.$store.commit("ADD_URL_QUERY", {
@@ -441,6 +463,42 @@ export default {
       });
       this.updatePromotionMessage();
     },
+    displayGbName(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.displayGbName,
+        value: val ? 1 : 0,
+        ns: "gbi"
+      });
+      this.$cookies.set("displayGbName", val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.updatePromotionMessage();
+    },
+    shortName(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.shortName,
+        value: val ? 1 : 0,
+        ns: "gbi"
+      });
+      this.$cookies.set("shortName", val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.updatePromotionMessage();
+    },
+    showLevel(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.showLevel,
+        value: val ? 1 : 0,
+        ns: "gbi"
+      });
+      this.$cookies.set("showLevel", val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.updatePromotionMessage();
+    },
     showPrefix(val) {
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.showPrefix,
@@ -569,7 +627,10 @@ export default {
             {
               ...promotion.config,
               prefix: this.showPrefix ? this.prefix : "",
-              suffix: this.showSuffix ? this.suffix : ""
+              suffix: this.showSuffix ? this.suffix : "",
+              displayGbName: this.displayGbName,
+              useShortGbName: this.shortName,
+              showLevel: this.showLevel
             },
             messageInterpolation,
             placesInterpolationValues
@@ -706,6 +767,21 @@ export default {
       if (this.$route.query[queryKey.suffix]) {
         isPermalink = true;
         result.suffix = this.$route.query[queryKey.suffix];
+      }
+
+      if (this.$route.query[queryKey.displayGbName]) {
+        isPermalink = true;
+        result.displayGbName = !!parseInt(this.$route.query[queryKey.displayGbName]);
+      }
+
+      if (this.$route.query[queryKey.shortName]) {
+        isPermalink = true;
+        result.shortName = !!parseInt(this.$route.query[queryKey.shortName]);
+      }
+
+      if (this.$route.query[queryKey.showLevel]) {
+        isPermalink = true;
+        result.showLevel = !!parseInt(this.$route.query[queryKey.showLevel]);
       }
 
       if (this.$route.query[queryKey.showPrefix]) {

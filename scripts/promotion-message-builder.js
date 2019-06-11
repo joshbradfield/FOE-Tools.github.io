@@ -43,6 +43,15 @@ export function buildPlace(placeBuilder, interpolationValues) {
  */
 export function buildMessage(gbKey, data, interpolationValues, placeInterpolationValues) {
   let result = data.message;
+  const findLevelRange = /\s?\${(?:FLVL|TLVL)}[^(?<!${(?:FLVL|TLVL)})]*\${(?:FLVL|TLVL)}/gi;
+  if (!data.showLevel) {
+    if (findLevelRange.test(data.message)) {
+      result = result.replace(findLevelRange, "");
+    } else {
+      result = result.replace(/\s?\${(?:FLVL|TLVL)}/gi, "");
+    }
+  }
+
   let places = "";
   const goodPlaceInterpolationValues = data.reversePlacesOrder
     ? [...placeInterpolationValues].reverse()
@@ -53,14 +62,16 @@ export function buildMessage(gbKey, data, interpolationValues, placeInterpolatio
     }
   });
 
-  const goodInterpolationValues = [
-    ...interpolationValues,
-    {
+  const goodInterpolationValues = [...interpolationValues, { key: "P", value: places }];
+
+  if (data.displayGbName) {
+    goodInterpolationValues.push({
       key: "GBN",
       value: data.useShortGbName ? this.$t(`foe_data.gb_short.${gbKey}`) : this.$t(`foe_data.gb.${gbKey}`)
-    },
-    { key: "P", value: places }
-  ];
+    });
+  } else {
+    result = result.replace(/\${GBN}\s?/gi, "");
+  }
 
   goodInterpolationValues.forEach(interpolation => {
     result = result.replace(new RegExp(`\\\${${interpolation.key}}`, "gi"), interpolation.value);
@@ -83,6 +94,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: " ",
@@ -95,6 +108,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: " ",
@@ -107,6 +122,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: " ",
@@ -119,6 +136,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: " ",
@@ -131,6 +150,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: " ",
@@ -143,6 +164,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: " ",
@@ -155,6 +178,8 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: ",",
@@ -167,11 +192,55 @@ export const defaultPromotionMessages = [
     config: {
       prefix: "",
       suffix: "",
+      displayGbName: true,
+      showLevel: true,
       useShortGbName: false,
       reversePlacesOrder: true,
       placeSeparator: ",",
       place: "${PI}",
       message: "${GBN} ${FLVL} → ${TLVL} ${P}"
+    }
+  },
+  {
+    name: "Default 9",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: false,
+      showLevel: false,
+      useShortGbName: false,
+      reversePlacesOrder: true,
+      placeSeparator: ",",
+      place: "${PI}",
+      message: "${GBN} ${FLVL} → ${TLVL} ${P}"
+    }
+  },
+  {
+    name: "Default 10",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: true,
+      useShortGbName: false,
+      reversePlacesOrder: true,
+      placeSeparator: ",",
+      place: "${PI}",
+      message: "${GBN} ${FLVL} → ${TLVL} ${P}"
+    }
+  },
+  {
+    name: "Custom 11",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: true,
+      useShortGbName: false,
+      reversePlacesOrder: true,
+      placeSeparator: ",",
+      place: "${PI}",
+      message: "${GBN} ${FLVL} < ${P} > ${TLVL}"
     }
   }
 ];
