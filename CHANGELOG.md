@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.43.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.43.0...v2.43.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* fix the wrong values displayed in promotion messages ([7e2e7c6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7e2e7c6))
+
+
+
 ## [2.43.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.41.0...v2.43.0) (2019-06-10)
 
 
