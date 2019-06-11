@@ -165,7 +165,7 @@
         "estimated_time": "Estimation du temps pour atteindre le niveau",
         "message": {
           "single": "Pour compléter le niveau {{level}} de « $t({{gb}}) », il faut que le propriétaire investisse {{preparation, number}} PFs. Coût total du niveau : {{cost, number}} PFs.",
-          "multi": "Pour aller du niveau {{from}} à {{to}} de « $t({{gb}}) », il faut que le propriétaire investisse {{preparation, number}} PFs. Coût total des niveaux : {{cost, number}} PFs.",
+          "multi": "Pour aller du niveau {{from}} à {{to}} de « $t({{gb}}) », il faut que le propriétaire investisse {{preparation, number}} PFs. Coût total des niveaux : {{cost, number}} PFs.",
           "diff": "Avec les investissement à bonus, vous aller économiser {{count, number}} PF",
           "diff_plural": "Avec les investissement à bonus, vous aller économiser {{count, number}} PFs",
           "estimated_time": "Temps estimé pour atteindre le niveau : {{time}}"

@@ -6,14 +6,25 @@
       "secure_position": "$t(routes.secure_position.hero.title)",
       "cf_calculator": "$t(routes.cf_calculator.hero.title)",
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
-      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)"
+      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
     },
     "footer_menu": {
       "about": "О сервисе",
       "contributors": "Авторы",
-      "changelog": "Изменения"
+      "changelog": "Изменения",
+      "contact": "Контакт"
     },
     "components": {
+      "campaign_cost": {
+        "title": "$t(routes.campaign_cost.hero.title)",
+        "choose_province": "Выберите провинцию",
+        "message": {
+          "haveUnknownCosts": "Эта провинция содержит один или несколько секторов, в которых отсутствуют значения."
+        }
+      },
       "cf_calculator": {
         "block_cfc": {
           "title": "$t(routes.cf_calculator.hero.title)",
@@ -38,7 +49,7 @@
           "reward_message": {
             "daily_ubq": "Ежедневные ПВР: {{count, number}}",
             "bonus_ubq": "Бонус ПВР: {{count, number}}",
-            "second_rq_completed": "Вторых круговых квестов выполнено: {{count, number}}",
+            "second_rq_completed": "Всего круговых заданий выполнено: {{count, number}}",
             "total_goods": "Всего товаров: {{count, number}}",
             "total_fp": "Всего СО: {{count, number}}",
             "total_rq_completed": "Всего круговых заданий выполнено: {{count, number}}"
@@ -70,7 +81,12 @@
             "level": "Уровень {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "Бонус Арки, % (единый для всех мест)",
             "submit_global": "Рассчитать",
-            "submit_custom": "Рассчитать индивидуально"
+            "submit_custom": "Рассчитать индивидуально",
+            "owner_investment": "Количество СО, на данный момент вложенных владельцем (не более {{max}})",
+            "add_investors": "Добавить вкладчика (укажите количество СО, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "tooltip_add_investors": "Нажмите кнопку «$t(utils.Add)» или нажмите клавишу «Ввод», чтобы добавить вкладчика",
+            "investors_list": "Список добавленных вкладчиков",
+            "display_card": "Показать таблицу в виде карты? (на маленьком экране)"
           },
           "table": {
             "title": "$t({{gb_key}}) уровень {{fromLevel, number}} → {{level, number}}",
@@ -80,18 +96,35 @@
               "th3": "СО, которые должен вложить владелец для гарантии места",
               "th4": "Награда с учетом бонуса",
               "th5": "Бонус Арки, %",
-              "th6": "Место свободно"
+              "th6": "Место свободно",
+              "fp_already_putin": "Количество СО уже вложенных",
+              "real_participation": "СО получено с % бонуса % вашей Арки",
+              "is_sniper": "Потенциальный снайпер?"
+            },
+            "tbody": {
+              "tooltip_owner_investment": "СО, которые должен вложить владелец для гарантии места",
+              "tooltip_expected_investment": "Ожидаемые вложения",
+              "button_show_extra_investor": "Показать дополнительного вкладчика",
+              "button_show_extra_investor_plural": "Показать дополнительных вкладчиков",
+              "button_hide_extra_investor": "Скрыть дополнительного вкладчика",
+              "button_hide_extra_investor_plural": "Скрыть дополнительных вкладчиков",
+              "profit": "Этот игрок получит прибыль",
+              "loss": "Этот игрок потеряет СО",
+              "loss_plural": "Этот игрок потеряет СО",
+              "neutral": "Этот игрок не получит прибыль, ни потерять СО"
             },
             "tfoot": {
               "total_preparation": "Общий вклад владельца",
               "level_cost": "Стоимость уровня"
             }
-          }
+          },
+          "show_level": "Показать уровень?"
         },
         "promotion": {
           "title": "Шаблон сообщения с предложением вложиться арочникам",
           "prefix_placeholder": "текст до предложения",
-          "suffix_placeholder": "текст после предложения"
+          "suffix_placeholder": "текст после предложения",
+          "promo": ["P1 ({{investment}})", "P2 ({{investment}})", "P3 ({{investment}})", "P4 ({{investment}})", "P5 ({{investment}})"]
         }
       },
       "gb_forecast_cost": {
@@ -172,6 +205,13 @@
         "footer": {
           "license_html": "Исходный код доступен под лицезией $t(common:links.mit)",
           "version": "Версия {{version}}"
+        }
+      },
+      "promotion_message_builder": {
+        "variables": {
+          "message": {
+            "GBN": "Название ВС"
+          }
         }
       }
     },
@@ -278,7 +318,12 @@
         "Tomorrow": "Завтра",
         "TheFuture": "Будущее",
         "ArcticFuture": "Арктическое будущее",
-        "OceanicFuture": "Океаническое будущее"
+        "OceanicFuture": "Океаническое будущее",
+        "VirtualFuture": "Виртуальное будущее",
+        "SpaceAgeMars": "Космическая эра: Марс"
+      },
+      "age_short": {
+        "NoAge": "Не доступно"
       },
       "gb": {
         "Observatory": "Обсерватория",
@@ -315,7 +360,54 @@
         "Seed_Vault": "Зернохранилище",
         "Atlantis_Museum": "Музей Атлантиды",
         "The_Kraken": "Кракен",
-        "The_Blue_Galaxy": "Синяя галактика"
+        "The_Blue_Galaxy": "Синяя галактика",
+        "Terracotta_Army": "Терракотовая армия",
+        "Himeji_Castle": "Замок Химедзи",
+        "The_Virgo_Project": "Проект Дева"
+      },
+      "gb_short": {
+        "Statue_of_Zeus": "Зевс",
+        "Colosseum": "Колизей",
+        "The_Arc": "Арка",
+        "Atlantis_Museum": "Музей Атлантиды",
+        "The_Kraken": "Кракен"
+      },
+      "goods": {
+        "marble": "Мрамор",
+        "stone": "Камень",
+        "wine": "Вино",
+        "iron": "Железо",
+        "alabaster": "Алебастр",
+        "copper": "Медь",
+        "gold": "Золото",
+        "honey": "Мед",
+        "glass": "Стекло",
+        "salt": "Соль",
+        "basalt": "Базальт",
+        "brass": "Латунь",
+        "gunpowder": "Порох",
+        "silk": "Шёлк",
+        "coffee": "Кофе",
+        "porcelain": "Фарфор",
+        "paper": "Бумага",
+        "whale_oil": "Китовый жир",
+        "asbestos": "Асбест",
+        "explosives": "Взрывчатка",
+        "gasoline": "Бензин",
+        "machine_parts": "Детали машин",
+        "luxury_materials": "Дорогие материалы",
+        "packaging": "Упаковка",
+        "industrial_filters": "Промышленные фильтры",
+        "semiconductors": "Полупроводники",
+        "steel": "Сталь"
+      },
+      "province": {
+        "Behemoth": "Бегемот"
+      },
+      "bonus": {
+        "double_collection": {
+          "gb_description": "Дает вам шанс получить удвоенные ресурсы при первых сборах зданий. Исключая военные и великие строения. Обновляется с каждым сбором этого здания."
+        }
       }
     },
     "utils": {
@@ -328,7 +420,10 @@
         "p1": "Введите значения. Результат будет обновлен автоматически.",
         "p2_html": "<strong>Замечание</strong>: Если результат не обновился автоматически, нажмите \"$t(utils.btn_calculate)\"."
       },
-      "permalink": "постоянная ссылка",
+      "choose_age": "Выберите эпоху",
+      "permalink": "Постоянная ссылка",
+      "Add": "Добавить",
+      "Remove": "Удалить",
       "Yes": "Да",
       "No": "Нет",
       "Ok": "Ok",
@@ -339,6 +434,7 @@
       "To": "До (максимум {{max}})",
       "Prefix": "Префикс",
       "Suffix": "Суффикс",
+      "Rewards": "Награда",
       "moment": {
         "year": "{{count}} год",
         "year_plural": "{{count, number}} лет",

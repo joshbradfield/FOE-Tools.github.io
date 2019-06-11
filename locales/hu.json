@@ -12,7 +12,7 @@
     "footer_menu": {
       "about": "Rólunk",
       "contributors": "Közreműködők",
-      "changelog": "Változási napló",
+      "changelog": "Változás napló",
       "contact": "Kapcsolat"
     },
     "components": {
@@ -100,7 +100,7 @@
         "custom_percentage": "Egyéni Bárka bónusz (minden helyhez)",
         "message": {
           "single": "A $t({{gb}}) {{level}} szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
-          "multi": "A $t({{gb}}) {{level}} szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
+          "multi": "{{from}}$t({{to}}) szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
           "estimated_time": "A kívánt szint eléréséhez szükséges idő: {{time}}"
         },
         "prop_already_invested": "A tulajdonos által a jelenlegi szinten befektetett FP mennyisége",
