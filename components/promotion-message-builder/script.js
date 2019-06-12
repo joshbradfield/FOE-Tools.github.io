@@ -192,6 +192,7 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
+      this.action = "create";
     },
     cookieValid(key) {
       return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
