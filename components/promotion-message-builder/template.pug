@@ -20,10 +20,10 @@ div
         b-select#pmbStartFromTemplate(v-model.trim="startFromTemplate" name="startFromTemplate" autocomplete="off" expanded)
           template(v-if="action === 'create'")
             optgroup(:label="$t(i18nPrefix + 'templates.default')")
-              option(v-for="template in defaultTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+              option(v-for="template in defaultTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
             optgroup(v-if="customTemplates.length" :label="$t(i18nPrefix + 'templates.custom')")
-              option(v-for="template in customTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
-          option(v-else v-for="template in customTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+              option(v-for="template in customTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
+          option(v-else v-for="template in customTemplates" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
 
   template(v-if="action !== 'delete'")
     div.columns

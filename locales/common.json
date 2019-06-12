@@ -8,7 +8,8 @@
       "ru": { "en": "Russian", "original": "Русский" },
       "nl": { "en": "Dutch", "original": "Nederlands" },
       "hu": { "en": "Hungarian", "original": "Magyar" },
-      "pl": { "en": "Polish", "original": "Polski" }
+      "pl": { "en": "Polish", "original": "Polski" },
+      "sv": { "en": "Swedish", "original": "Svenska" }
     },
     "language_selector": {
       "en": "$t(common:lang.en.original)",

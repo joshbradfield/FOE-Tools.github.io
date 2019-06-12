@@ -848,13 +848,10 @@ export default {
       });
       this.promotion.splice(index, 1);
     },
-    getTemplateSample(templateName) {
+    getTemplateSample(template) {
       if (!this.result || !this.result.investment) {
         return;
       }
-      let template = defaultTemplateNameRegex.test(templateName)
-        ? this.promotionMessageTemplates.default.find(elt => elt.name === templateName)
-        : this.promotionMessageTemplates.custom.find(elt => elt.name === templateName);
       const messageInterpolation = [{ key: "FLVL", value: this.level - 1 }, { key: "TLVL", value: this.level }];
       const placesInterpolationValues = [];
       for (let i = 0; i < this.result.investment.length; i++) {
@@ -870,7 +867,7 @@ export default {
       return buildMessage.call(
         this,
         this.gb.key,
-        { ...template.config, prefix: this.prefix, suffix: this.suffix },
+        { ...template, prefix: this.prefix, suffix: this.suffix },
         messageInterpolation,
         placesInterpolationValues
       );

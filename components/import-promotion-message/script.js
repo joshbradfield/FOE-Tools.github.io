@@ -183,18 +183,6 @@ export default {
       });
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(result)));
     },
-    getTemplateSample(templateName) {
-      let template = defaultTemplateNameRegex.test(templateName)
-        ? this.defaultTemplates.find(elt => elt.name === templateName)
-        : this.customTemplates.find(elt => elt.name === templateName);
-      return PMBuilder.buildMessage.call(
-        this,
-        this.$props.gbKey,
-        template.config,
-        this.$props.messageInterpolation,
-        this.$props.placesInterpolationValues
-      );
-    },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";
     }
