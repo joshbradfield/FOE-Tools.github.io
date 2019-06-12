@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Scripts Promotion Message Builder Valid value with "Custom 11" 1`] = `"foe_data.gb.Observatory 9 < 4,3,2,1 > 10"`;
+
 exports[`Scripts Promotion Message Builder Valid value with "Default 1" 1`] = `"Your pseudo foe_data.gb.Observatory 9 → 10 P1(185) P2(100) P3(30) P4(10) up in half hour"`;
 
 exports[`Scripts Promotion Message Builder Valid value with "Default 2" 1`] = `"Yoratheon P1(185) P2(100) P3(30) P4(10) foe_data.gb.Observatory 9 → 10 up dans 30 min"`;

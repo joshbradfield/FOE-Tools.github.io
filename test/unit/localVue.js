@@ -110,7 +110,23 @@ config.mocks["$cookies"] = {
       case "yourArcBonus":
         return 90.6;
       case "promotionMessageList":
-        return defaultPromotionMessages;
+        return [
+          ...defaultPromotionMessages,
+          {
+            name: "Custom 11",
+            config: {
+              prefix: "",
+              suffix: "",
+              displayGbName: true,
+              showLevel: true,
+              useShortGbName: false,
+              reversePlacesOrder: true,
+              placeSeparator: ",",
+              place: "${PI}",
+              message: "${GBN} ${FLVL} < ${P} > ${TLVL}"
+            }
+          }
+        ];
     }
     return undefined;
   }),
