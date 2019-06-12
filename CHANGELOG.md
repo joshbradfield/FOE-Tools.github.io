@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.44.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.43.1...v2.44.0) (2019-06-12)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([8e1549e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8e1549e))
+* **i18n:** add Swedish language ([4163b0a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4163b0a))
+* **l10n:** add Swedish and update translation ([9b12e1f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9b12e1f))
+* **promotion-message:** re-introduce option to show gb name and levels ([8823201](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8823201))
+
+
+
 ### [2.43.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.43.0...v2.43.1) (2019-06-11)
 
 
