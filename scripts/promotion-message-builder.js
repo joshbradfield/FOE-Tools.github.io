@@ -228,19 +228,5 @@ export const defaultPromotionMessages = [
       place: "${PI}",
       message: "${GBN} ${FLVL} → ${TLVL} ${P}"
     }
-  },
-  {
-    name: "Custom 11",
-    config: {
-      prefix: "",
-      suffix: "",
-      displayGbName: true,
-      showLevel: true,
-      useShortGbName: false,
-      reversePlacesOrder: true,
-      placeSeparator: ",",
-      place: "${PI}",
-      message: "${GBN} ${FLVL} < ${P} > ${TLVL}"
-    }
   }
 ];

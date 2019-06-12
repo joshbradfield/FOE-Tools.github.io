@@ -865,6 +865,15 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
 
+  test("Call 'addPromotionMessageTemplate' with unknown template", () => {
+    const wrapper = factory();
+    wrapper.vm.calculate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+    wrapper.vm.templateToAdd = "Foo";
+    wrapper.vm.addPromotionMessageTemplate();
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+  });
+
   test("Call 'switchPrefix' 'templateToAdd' not set", () => {
     const wrapper = factory();
     wrapper.vm.calculate();
