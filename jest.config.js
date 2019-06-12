@@ -25,6 +25,7 @@ module.exports = {
     "!**/components/graph-canvas/**",
     "!**/components/promotion-message-builder/**",
     "!**/components/import-promotion-message/**",
+    "!**/scripts/numeral_custom_locals/**",
     "!**/coverage/**",
     "!**/dist/**",
     "!**/layouts/*.vue",
