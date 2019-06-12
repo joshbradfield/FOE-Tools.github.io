@@ -28,31 +28,31 @@
       "cf_calculator": {
         "block_cfc": {
           "title": "$t(routes.cf_calculator.hero.title)",
-          "your_age": "Din Ålder",
+          "your_age": "Din Era",
           "your_cf_boost": "Din $t(foe_data.gb.Chateau_Frontenac) Boost",
           "coins_to_use": "Mynt att använda i I.F.U",
           "supplies_to_use": "Förnödenheter att använda i I.F.U",
           "gb_plunder_goods": "MB & Plundra Byggnader",
           "fp_by_24h": "24 Timmars FP Produktion",
           "other_rq": "Övriga Dagliga Å.U",
-          "second_rq": "2:a Å.U  Donator",
+          "second_rq": "2:a Å.U Givare ?",
           "supplies_gathered": "Samlade Förnödenheter",
           "table_reward": {
             "title": "$t(utils.Rewards)",
             "thead": {
               "th1": "Ritningar",
               "th2": "Medaljer",
-              "th3": "Gods",
-              "th4": "FP's"
+              "th3": "Varor",
+              "th4": "FP"
             }
           },
           "reward_message": {
-            "daily_ubq": "Dagliga i I.F.U",
-            "bonus_ubq": "Bonus i I.F.U",
-            "second_rq_completed": "2:a Å.U Gjord",
-            "total_goods": "Total Mängd Gods",
-            "total_fp": "Total Mängd FP",
-            "total_rq_completed": "Totalt Antal Å.U Gjorda"
+            "daily_ubq": "Dagliga i I.F.U: {{count, number}}",
+            "bonus_ubq": "Bonus i I.F.U: {{count, number}}",
+            "second_rq_completed": "2:a Å.U Gjord: {{count, number}}",
+            "total_goods": "Total Mängd Gods: {{count, number}}",
+            "total_fp": "Total Mängd FP: {{count, number}}",
+            "total_rq_completed": "Totalt Antal Å.U Gjorda: {{count, number}}"
           },
           "table_return": {
             "thead": {
@@ -75,7 +75,7 @@
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
-            "p1": "Ange värdena på nivå och procentuell bonus.  Tablee-värdena kommer att uppdateras automatiskt.",
+            "p1": "Ange värdena på nivå och procentuell bonus.  Tabell-värdena kommer att uppdateras automatiskt.",
             "p2_html": "<strong>Obs</strong>: Om uppdateringen inte görs automatiskt, ange först nivån på MB't och den generella investeringen, sedan klicka på  [$t(components.gb_investment.gb_investment.form.submit_global)].  Om du vill justera värdet enskilt, gör så och klicka på  [$t(components.gb_investment.gb_investment.form.submit_custom)]."
           },
           "form": {
@@ -96,7 +96,7 @@
               "th1": "Platser",
               "th2": "Standardbelöningar",
               "th3": "FP att lägga av ägaren för att säkra platsen",
-              "th4": "Belöningar med kurs",
+              "th4": "Belöningar med boost",
               "th5": "% av investerares Ark-bonus",
               "th6": "Plats ledig",
               "fp_already_putin": "Antal FP redan lagda",
@@ -184,8 +184,8 @@
       },
       "gb_statistics": {
         "title": "$t(routes.gb_statistics.hero.title)",
-        "p1": "Graferna skapade med hänsyn till era.  Kostnad / belöning på alla MB är desamma för repektive era förutom ett speciellt fall,  $t(foe_data.gb.Oracle_of_Delphi)).",
-        "represent": "Representerar",
+        "p1": "Graferna skapade med hänsyn till era.  Kostnad / belöning på alla MB är densamma för repektive era förutom ett speciellt fall,  $t(foe_data.gb.Oracle_of_Delphi)).",
+        "represent": "Representerar:",
         "graph": {
           "title_1": "Utveckling av kostnader baserat på nivåerna",
           "title_2": "Utveckling av belöningar på 1:a platsen baserat på nivåerna",
@@ -235,7 +235,7 @@
         "table": {
           "thead": {
             "th1": "Era",
-            "th2": "Gods",
+            "th2": "Vara",
             "th3": "$t(components.trade.label.i_want)",
             "th4": "Resultat",
             "split": "Dela",
@@ -251,7 +251,7 @@
           "slogan_html": "Ett set med verktyg som underlättar livet på $t(common:links.foe)"
         },
         "cookie": {
-          "message": "Genom att fortsätta använda $t(common:site_title), accepterar du användande av kakor, som underlättar handhavandet.",
+          "message": "Genom att fortsätta använda $t(common:site_title), accepterar du användande av kakor (som underlättar handhavandet).",
           "link": "Mer information"
         },
         "new_year": {
@@ -261,7 +261,7 @@
         "survey": {
           "message": "Hjälp oss att förbättra $t(common:site_title) genom att fylla i denna enkät"
         },
-        "permalink_info": "You besöker via en \"permalink\", följdaktligen kommer inga ändringar att sparas i kakor.",
+        "permalink_info": "You besöker via en \"permalänk\", följdaktligen kommer inga ändringar att sparas (i kakor).",
         "footer": {
           "license_html": "Käll-kod under $t(common:links.mit) -licens",
           "version": "Version {{version}}"
@@ -275,17 +275,17 @@
         },
         "global_config": "Globala inställningar",
         "global_config_dialog": {
-          "fixed_main_menu": "Huvud-meny alltid synlig",
+          "fixed_main_menu": "Huvudmeny alltid synlig",
           "select_gb_style": "Stil på MB-väljare",
           "select_gb_style_mode": {
-            "datalist": "Auto-komplettera",
+            "datalist": "Autokomplettera",
             "select": "Välj (arv)"
           },
           "day_night": "Tema",
           "day_night_mode": {
             "Day": "Dag",
             "Night": "Natt",
-            "Auto": "Automatisk"
+            "Auto": "Automatiskt"
           }
         },
         "switch_locale": "$t(common:site_title) är tillgängligt på ditt språk"
@@ -297,7 +297,7 @@
           "i_want": "jag vill ha",
           "amount": "Mängd"
         },
-        "split_value": "Max storlek på ett erbjudande, {{count}}",
+        "split_value": "Max storlek på ett erbjudande ({{count}})",
         "split_message": {
           "msg": "{{valueFrom}} {{ageFrom}} för {{valueTo}} {{ageTo}}",
           "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
@@ -309,16 +309,16 @@
         }
       },
       "promotion_message_builder": {
-        "title": "Posttext-byggare",
+        "title": "Postningstext-generator",
         "info": "Detta kan kopieras för att delas, till exempel med dina gille-medlemmar",
-        "note": "Observera att posttext-byggaren använder nivå 9 → 10 av $t(foe_data.gb.Observatory) med ett förhållande på 1,9 för förhandsgranskning.",
+        "note": "Observera att postningstext-generatorn använder nivå 9 → 10 på $t(foe_data.gb.Observatory) med en boost på 90% för förhandsgranskning.",
         "action": "Handling",
         "actions": {
           "create": "Skapa en ny mall",
           "update": "Uppdatera en befintlig mall",
           "delete": "Ta bort en befintlig mall"
         },
-        "start_from_template": "Börja från en mall?",
+        "start_from_template": "Börja från en mall ?",
         "edit_template": "Välj mallen för att redigera",
         "delete_template": "Välj mallen som ska raderas",
         "templates": {
@@ -331,10 +331,10 @@
         "place_separator": "Plats separator",
         "place_builder": "Plats byggare",
         "place_preview": "Plats förhandsgranskning (1:a plats)",
-        "message_builder": "Posttext-byggare",
-        "message_preview": "Förhandsgranskning av posttext",
+        "message_builder": "Postningstext-generator",
+        "message_preview": "Förhandsgranskning av postningstext",
         "place_builder_title": "Plats byggare",
-        "message_builder_title": "Posttext-byggare",
+        "message_builder_title": "Postningstext-generator",
         "available_variables": "Tillgängliga variabler:",
         "variables": {
           "place": {
@@ -354,10 +354,10 @@
         }
       },
       "import_promotion_message": {
-        "title": "Importera post-text",
+        "title": "Importera postningstexter",
         "config_placeholder": "Klistra in din konfiguration här",
         "errors": {
-          "invalid_data": "Datan är ogiltiga"
+          "invalid_data": "Datan är ogiltig"
         }
       }
     },
@@ -371,26 +371,26 @@
           "title": "Allmän information",
           "p1_html": "Forge of Empires, FOE och alla relaterade varumärken och innehåll, tillhör InnoGames GmbH.<br/>$t(common:site_title) är en inofficiell tredje parts plats och är inte affilierad med InnoGames.",
           "p2_html": "$t(common:site_title) skapades av den franske spelaren <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
-          "p3_html": "Denna plats är \"OpenSource\", koden är fritt tillgänglig på $t(common:links.github).<br/> Så att alla med erfoderliga färdigheter kan delta i denna plats förbättring."
+          "p3_html": "Denna plats är \"OpenSource\" och koden är fritt tillgänglig på $t(common:links.github).<br/>Alla med erfoderliga färdigheter kan delta i denna plats förbättring."
         },
         "cookie": {
           "title": "Kakor",
           "p1": "För att förbättra handhavandet används kakor på denna plats.",
           "table_message": "Tabellen nedan visar alla kakor som används på denna plats.",
           "info": {
-            "cookieDisclaimerDisplayed": "indikerar att du har läst informationen angående kakor",
+            "cookieDisclaimerDisplayed": "Indikerar att du har läst informationen angående kakor",
             "gbi_tab": "Global parameter för \"$t(routes.gb_investment_gb_chooser.hero.title)\" som indikerar vilken flik att ladda som standard ($t(routes.gb_investment.tab.owner_view.title), etc.).",
-            "gbPrefix": "Global parameter for \"$t(routes.gb_investment_gb_chooser.hero.title)\" som innehåller prefixet för annons-texten",
-            "gbSuffix": "Global parameter for \"$t(routes.gb_investment_gb_chooser.hero.title)\" som innehåller suffixet för annons-texten",
+            "gbPrefix": "Global parameter for \"$t(routes.gb_investment_gb_chooser.hero.title)\" som innehåller prefixet för postnings-texten",
+            "gbSuffix": "Global parameter for \"$t(routes.gb_investment_gb_chooser.hero.title)\" som innehåller suffixet för postnings-texten",
             "locale": "Visa språk",
-            "shortName": "Global parameter för \"$t(routes.gb_investment_gb_chooser.hero.title)\" som indikerar om det förkortade namnet för MB skall användas i annons-texten",
-            "showLevel": "Global parameter för \"$t(routes.gb_investment_gb_chooser.hero.title)\" som indikerar om nivån för MB skall användas i annons-texten",
+            "shortName": "Global parameter för \"$t(routes.gb_investment_gb_chooser.hero.title)\" som indikerar om det förkortade namnet för MB skall användas i postnings-texten",
+            "showLevel": "Global parameter för \"$t(routes.gb_investment_gb_chooser.hero.title)\" som indikerar om nivån för MB skall användas i postnings-texten",
             "yourArcBonus": "Global inställning innehållandes bonus från din Ark",
             "yourCfBoost": "Global inställning innehållandes bonus från din Château Frontenac",
             "haveReadTipAboutAddInvestor": "Indikerar om du läst informationen angående tips om att använda inmatning av bidragare",
-            "dayNightMode": "indikerar vilket Dag/Natt -läge du använder",
+            "dayNightMode": "Indikerar vilket Dag/Natt -läge du använder",
             "dayStart": "Tid använd för start av dag (använt av \"$t(components.site_layout.day_night.Auto)\")",
-            "nightStart": "Tid använd för start av dag (använt av \"$t(components.site_layout.day_night.Auto)\")",
+            "nightStart": "Tid använd för start av natt (använt av \"$t(components.site_layout.day_night.Auto)\")",
             "showSnipe": "Visa/dölj Plats/Kapare (använt av \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
             "fpBy24h": "$t(components.cf_calculator.block_cfc.fp_by_24h)",
@@ -406,10 +406,10 @@
             "investorParticipation_x": "Förväntat deltagande av investerare när platsen inte ger FP",
             "level": "MB nivå",
             "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
-            "showPx": "Indikerar om platsen ska visas i annons-texten",
+            "showPx": "Indikerar om platsen ska visas i postningstexten",
             "takingPlaceInConsideration": "I fliken \"$t(routes.gb_investment.tab.investors_view.title)\" av \"$t(routes.gb_investment_gb_chooser.hero.title)\", indikerar om övriga platser ska tas hänsyn till i beräkningen",
-            "targetLevel": "I fliken \"$t(routes.gb_investment.tab.investors_view.title)\" av \"$t(routes.gb_investment_gb_chooser.hero.title)\", indikerar from vilken nivå att visa tabell-info",
-            "displayGbName": "Indikerar om namnet på MB ska visas i annons-texten",
+            "targetLevel": "I fliken \"$t(routes.gb_investment.tab.investors_view.title)\" av \"$t(routes.gb_investment_gb_chooser.hero.title)\", indikerar fr.o.m vilken nivå att visa tabell-info",
+            "displayGbName": "Indikerar om namnet på MB ska visas i postningstexten",
             "investorParticipation": "Innehåller en lista på alla tillagda investerare",
             "displayTableCard": "Indikerar om tabell $t(routes.gb_investment_gb_chooser.hero.title) ska visas i enkelt läge (tabell) eller kort-vy (på liten skärm)",
             "from": "Vilken nivå att börja uppställningen (använt i tabell \"$t(routes.gb_investment.tab.investors_view.title)\" från \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
@@ -419,10 +419,10 @@
             "fixedMainMenu": "Indikerar om huvud-menyn alltid är synlig",
             "gbSelectMode": "Indikerar vilket läge av MB-val du använder",
             "haveReadLocaleInfoAvailable": "Indikerar att du läst information om att platsen är tillgänglig på ditt språk",
-            "promotionMessageList": "Innehåller listan över posttexter som du vill visa",
-            "customPromotionMessagesTemplates": "Innehåller alla dina anpassade posttexter",
-            "gbShowPrefix": "Anger om du vill visa prefix i posttexter",
-            "gbShowSuffix": "Anger om du vill visa suffix i posttexter"
+            "promotionMessageList": "Innehåller listan över postningstexter som du vill visa",
+            "customPromotionMessagesTemplates": "Innehåller alla dina anpassade postningstexter",
+            "gbShowPrefix": "Anger om du vill visa prefix i postningstexter",
+            "gbShowSuffix": "Anger om du vill visa suffix i postningstexter"
           }
         },
         "dev_info": {
@@ -430,7 +430,7 @@
           "p1": "Platsen är enkel, statisk och härbärgerad hos GitHub.",
           "p2_html": "Utvecklingen är gjord med Node.js och $t(common:links.framework).  Stilen med hjälp av $t(common:links.style).",
           "p3_html": "Ideer kring funtionaliteten ?  Problem ?  Det är fritt fram att skapa ett ärende på $t(common:links.github) eller skicka mig e-post (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
-          "message_info_github_issue": "<b>Obs:</b> Angående ärenden på GitHub, skriv dem på engelska då det gör det tillgängligare för så många som möjligt."
+          "message_info_github_issue": "<b>Obs:</b> Angående ärenden på GitHub, skriv dem gärna på engelska då det gör det tillgängligare för så många som möjligt."
         }
       },
       "campaign_cost": {
@@ -444,7 +444,7 @@
         "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Château Frontenac Kalkylator",
-          "subtitle": "Ett verktyg som hjälper till att förutsäga mängden varor och fp från att göra återkommande och \"Intefödelsedagsfest\" -uppdrag."
+          "subtitle": "Ett verktyg som försöker räkna ut mängden returen av varor och fp från att göra återkommande (Å.U) och \"Intefödelsedagsfest\" (I.F.U) -uppdrag."
         }
       },
       "changelog": {
@@ -454,7 +454,7 @@
         "title": "$t(routes.contributors.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Bidragare",
-          "subtitle": "Den här sidan (försöker) lista alla bidragare"
+          "subtitle": "Den här sidan är ett försök att lista alla bidragare"
         }
       },
       "gb_investment": {
@@ -464,10 +464,10 @@
         },
         "tab": {
           "owner_view": {
-            "title": "Ägares vy"
+            "title": "Ägarens vy"
           },
           "investors_view": {
-            "title": "Investerares vy"
+            "title": "Investerarens vy"
           }
         }
       },
@@ -475,7 +475,7 @@
         "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "MB Investering",
-          "subtitle": "Detta verktyg gör det möjligt att beräkna antalet FP som en spelare måste lägga på sitt MB för att säkra de 5 första platserna beräknat på en Ark-bonus."
+          "subtitle": "Detta verktyg gör det möjligt att beräkna antalet FP som en spelare måste lägga på sitt MB för att säkra de 5 första platserna, beräknat på  Ark-bonus."
         },
         "choose_gb": {
           "title": "Välj en Mäktig Byggnad"
@@ -485,7 +485,7 @@
         "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Prognos kostnad MB",
-          "subtitle": "Det här verktyget visar antalet FP för att gå från en nivå till nästa på ett MB, med eller utan Ark-bonus."
+          "subtitle": "Det här verktyget visar antalet FP för att gå från en nivå till nästa på ett MB, oavsett Ark-bonus."
         }
       },
       "gb_statistics": {
@@ -511,11 +511,11 @@
         "tab": {
           "trade_2_1": {
             "title": "2:1",
-            "message": "Enkel handel: förhållande 1 mot 1, gods av samma era och 1 mot 2 för gods från nästa era."
+            "message": "Enkel handel: förhållande 1 mot 1 med gods av samma era, och 1 mot 2 för gods från nästa era."
           },
           "fair_trade": {
             "title": "Rättvis handel",
-            "message": "Denna typ av handel tar hänsyn till kostnaden för att tillverka en vara (mynt och resurser) för att bestämma priserna mellan varorna."
+            "message": "Denna typ av handel tar hänsyn till kostnaden för att tillverka en vara (mynt och resurser) för att fastställa kursen mellan varorna."
           }
         }
       },
@@ -523,11 +523,11 @@
         "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Hjälp till att översätta webbplatsen",
-          "subtitle": "Gå med i översättnings-gruppen"
+          "subtitle": "Gå med i översättningsgruppen"
         },
-        "p1": "Ditt språk är inte tillgängligt, översättningen är ofullständig eller innehåller fel ?  Känn dig fri att gå med i webbplatsens översättnings-grupp.",
+        "p1": "Ditt språk är inte tillgängligt, översättningen är ofullständig eller innehåller fel ?  Känn dig fri att gå med i webbplatsens översättningsgrupp.",
         "how_to_join_the_team": "Hur går man med i gruppen?",
-        "p2_html": "$t(common:site_title) översätts av användare.  Vi använder plattformen $t(common:links.lingohub) för att underlätta översättningsprocessen.  För att gå med i gruppen skickar du ett e-post (på engelska) till $t(common:links.contact_foe_tools) specificera språken som du kan översätta till så att vi kan skicka en inbjudan."
+        "p2_html": "$t(common:site_title) översätts av användare.  Vi använder plattformen $t(common:links.lingohub) för att underlätta översättningsprocessen.  För att gå med i gruppen skickar du e-post (på engelska) till $t(common:links.contact_foe_tools).  Specificera även språken som du kan översätta till så att vi kan skicka rätt inbjudan."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
@@ -536,9 +536,9 @@
           "subtitle": "Hjälp att förbättra $t(common:site_title) genom att fylla i denna enkät"
         },
         "required_field": "Detta fält är obligatoriskt",
-        "survey_complete": "Tack för din återkoppling ",
-        "error": "Ett fel har inträffat.  Kolla formuläret och försök igen",
-        "unknown_error": "Ett okänt fel har uppstått, var vänlig kontakta webbplats-administratören"
+        "survey_complete": "Tack för din återkoppling !",
+        "error": "Ett fel har inträffat.  Kontrollera formuläret och försök igen",
+        "unknown_error": "Ett okänt fel har uppstått.  Var vänlig kontakta webbplats-administratören"
       },
       "contact": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
@@ -546,9 +546,9 @@
           "title": "Kontakt",
           "subtitle": "Kontakta underhållaren av $t(common:site_title)"
         },
-        "message_contact_html": "En idé om funktionalitet ?  Ett problem ?  Skicka gärna ett e-post till mig (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
+        "message_contact_html": "En idé om funktionalitet ?  Ett problem ?  Skicka gärna e-post till mig (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
         "message_translate": "Visste du att du också kan hjälpa till att översätta webbplatsen?  Följ följande länk för mer information:",
-        "message_other_info_html": "Om du är utvecklare kan du också skapa ett ärende (och bidra till utvecklingen av webbplatsen) på $t(common:links.github)."
+        "message_other_info_html": "Om du är utvecklare kan du skapa ett ärende (och bidra till utvecklingen av webbplatsen) på $t(common:links.github)."
       },
       "error": {
         "404": {
@@ -582,7 +582,7 @@
       "age_short": {
         "NoAge": "NA",
         "BronzeAge": "BÅ",
-        "IronAge": "IÅ",
+        "IronAge": "JÅ",
         "EarlyMiddleAges": "TMT",
         "HighMiddleAges": "HMT",
         "LateMiddleAges": "SMT",
@@ -674,7 +674,7 @@
         "Arctic_Orangery": "AO",
         "Seed_Vault": "FV",
         "Atlantis_Museum": "Atl",
-        "The_Kraken": "Krak",
+        "The_Kraken": "Kra",
         "The_Blue_Galaxy": "BG",
         "Terracotta_Army": "TA",
         "Himeji_Castle": "HC",
@@ -1112,15 +1112,15 @@
         },
         "coin_boost": {
           "name": "Myntboost",
-          "gb_description": "Ökar resultatet från dina hus med upp till 90 gånger med varje skörd.  Läggs till utöver motivation och övriga bonusar."
+          "gb_description": "Ökar resultatet från dina hus med upp till 90 gånger med varje skörd.  Läggs till utöver motivation och övrig bonus."
         },
         "supply_boost": {
           "name": "Förnödenhetsboost",
-          "gb_description": "Ökar resultatet från dina förnödenhetsbyggnader.  Läggs till utöver motivation och övriga bonusar."
+          "gb_description": "Ökar resultatet från dina förnödenhetsbyggnader.  Läggs till utöver motivation och övrig bonus."
         },
         "good_production": {
           "name": "Varuproduktion",
-          "gb_description": "Producerar en viss mängd varor från din nuvarande ålder var 24:e timme.  Från och med modern tid producerar den dubbla mängden i oraffinerade varor istället (gods från 8 eror bakåt)."
+          "gb_description": "Producerar en viss mängd varor från din nuvarande era var 24:e timme.  Från och med modern tid producerar den dubbla mängden i oraffinerade varor istället (gods från 8 eror bakåt)."
         },
         "medal_production": {
           "name": "Medaljproduktion",
@@ -1160,7 +1160,7 @@
         },
         "support_pool_bonus": {
           "name": "Stödpool Bonus",
-          "gb_description": "Ökar ditt gilles stödpool-bonus, läggs till med varje byggnad."
+          "gb_description": "Ökar ditt gilles stödpool-bonus.  Läggs till med varje byggnad."
         },
         "aid_goods": {
           "name": "Stödvaror",
@@ -1180,11 +1180,11 @@
         },
         "relic_hunt": {
           "name": "Relikjakt",
-          "gb_description": "Denna egenskap ger dig möjlighet att få en \"relik\" när du framgångsrikt löst ett möte i en Imperiumexpedition.  Reliker är  värdefulla och förekommer i 3 olika varianter.  Varje nivå ökar chansen att hitta en relik, samtidigt ökar oddsen att det blir en ovanlig och sällsynt relik."
+          "gb_description": "Denna egenskap ger dig möjlighet att få en \"relik\" när du framgångsrikt löst ett möte i en Imperiumexpedition.  Reliker är  värdefulla och förekommer i 3 olika varianter.  Varje nivå ökar chansen att hitta en relik, samtidigt ökar oddsen att det blir en sällsynt relik."
         },
         "critical_hit": {
           "name": "Kritisk skada",
-          "gb_description": "Ger alla enheter chansen att hantera 1,5 gång den förväntade skadan när de angriper enheter av samma era.  Kritisk träff verkar också mot Reactive Armor (om förväntad skada är 4-4, kommer en kritisk träff att göra 6-6 skador).  Rogues (och andra no-age-enheter) påverkas inte / kan inte använda denna förmåga förrän de omvandlas till en annan enhet.  En kritisk träff med minst 11 skador kommer att döda varje enhet, även med moralbonus.  Denna bonus gäller alla attackerande arméer plus din försvarande armé i PvP.  Den \"kritiska träffen\" sker inte när en enhet retalierar."
+          "gb_description": "Ger alla enheter chansen att hantera 1,5 gång den förväntade skadan när de angriper enheter av samma era.  Kritisk träff verkar också mot \"Reaktiv Sköld\" (om förväntad skada normalt är 4-4, kommer en kritisk träff att öka till 6-6).  Skurkar (och andra \"ingen ålder\" -enheter) påverkas inte / kan inte använda denna förmåga förrän de omvandlas till en annan enhet.  En kritisk träff med minst 11 skador kommer att döda varje enhet, även med moralbonus.  Denna bonus gäller alla attackerande arméer plus din försvarande armé i PvP.  \"Kritisk skada\" sker inte när en enhet retalierar."
         },
         "helping_hands": {
           "name": "Hjälpande händer",
@@ -1196,11 +1196,11 @@
         },
         "first_strike": {
           "name": "Första slaget",
-          "gb_description": "Ger en viss chans att en enhet från fienden dödas omedelbart vid början av strid vid de första striderna.  Detta gäller bara den första vågen.  Uppdateras vid skördning."
+          "gb_description": "Ger en viss chans vid de första striderna, att en enhet från fienden dödas omedelbart vid början av strid.  Detta gäller bara den första vågen.  Uppdateras vid skördning."
         },
         "double_collection": {
           "name": "Dubbelinsamling",
-          "gb_description": "Ger en chans att få dubbla resurser i de första byggnaderna som samlats in. Utesluter militära och stora byggnader.  Uppdateras  vid skördning."
+          "gb_description": "Ger en chans att få dubbla resurser i de första byggnaderna som samlats in.  Utesluter militära och stora byggnader.  Uppdateras vid skördning."
         }
       }
     },
@@ -1211,29 +1211,29 @@
       },
       "btn_calculate": "Beräkna",
       "description": {
-        "p1": "Ange de olika värdena. Resultatet uppdateras automatiskt.",
-        "p2_html": "<strong>Obs! </strong>: Om uppdateringen inte blir klar automatiskt klickar du på \"$t(utils.btn_calculate)\"."
+        "p1": "Ange de olika värdena.  Resultatet uppdateras automatiskt.",
+        "p2_html": "<strong>Obs! </strong>: Om uppdateringen inte blir klar automatiskt klickar du på [$t(utils.btn_calculate)]."
       },
       "choose_age": "Välj en era",
-      "permalink": "Permalink",
+      "permalink": "Permalänk",
       "Add": "Lägg till",
       "Remove": "Ta bort",
       "Yes": "Ja",
       "No": "Nej",
       "Ok": "Ok",
       "Copy": "Kopiera",
-      "Copyed": "Kopierad!",
+      "Copyed": "Kopierad !",
       "Information": "Information",
       "From": "Från",
       "To": "Till (max {{max}})",
       "Prefix": "Prefix",
       "Suffix": "Suffix",
-      "Path": "Väg",
+      "Path": "Sökväg",
       "Name": "Namn",
       "Description": "Beskrivning",
       "Rewards": "Belöningar",
       "Cost": "Kostnad",
-      "Conquered": "Erövrade",
+      "Conquered": "Erövrad",
       "Total": "Totalt",
       "Secured": "Säkrad",
       "Reset": "Återställa",
@@ -1285,7 +1285,7 @@
       "tool": "Verktyg",
       "translation": "Översättning",
       "tutorial": "Handledning",
-      "video": "videor",
+      "video": "Videor",
       "data": "Lägga till eller uppdatera data",
       "inspired_tool": "Verktyg inspirerat av hans arbete",
       "creator": "Skapare av detta projekt"
