@@ -138,14 +138,11 @@ export default {
         self.tooltips[index] = false;
       }, 3000);
     },
-    getTemplateSample(templateName) {
-      let template = defaultTemplateNameRegex.test(templateName)
-        ? this.defaultTemplates.find(elt => elt.name === templateName)
-        : this.customTemplates.find(elt => elt.name === templateName);
+    getTemplateSample(template) {
       return PMBuilder.buildMessage.call(
         this,
         this.$props.gbKey,
-        template.config,
+        template,
         this.$props.messageInterpolation,
         this.$props.placesInterpolationValues
       );

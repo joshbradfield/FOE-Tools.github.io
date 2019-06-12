@@ -367,9 +367,9 @@ div.content
           b-field
             b-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" expanded)
               optgroup(:label="$t('components.promotion_message_builder.templates.default')")
-                option(v-for="template in promotionMessageTemplates.default" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+                option(v-for="template in promotionMessageTemplates.default" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
               optgroup(v-if="promotionMessageTemplates.custom.length" :label="$t('components.promotion_message_builder.templates.custom')")
-                option(v-for="template in promotionMessageTemplates.custom" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.name)}}
+                option(v-for="template in promotionMessageTemplates.custom" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
 
             p.control
               button.button.is-info(:title="$t('utils.Add')" @click="addPromotionMessageTemplate" :disabled="maxInvestment <= 0")
