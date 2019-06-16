@@ -547,7 +547,7 @@
           "subtitle": "Contacter le mainteneur de $t(common:site_title)"
         },
         "message_contact_html": "Une idée de fonctionnalité ? Un problème ? N'hésitez pas m'envoyer un mail à $t(common:links.contact_foe_tools).",
-        "message_translate": "Savez vous que vous pouvez aussi aider à traduire le site ? suivez le lien suivant pour plus d'information : ",
+        "message_translate": "Savez vous que vous pouvez aussi aider à traduire le site ? suivez le lien suivant pour plus d'information :",
         "message_other_info_html": "Si vous êtes développeurs, vous pouvez aussi créer une issue (et contribuer au développement du site) sur $t(common:links.github)."
       },
       "error": {
