@@ -51,13 +51,14 @@ module.exports = [
       .on('end', () => {
         let counter = 0;
 
-        for (var i =  age !== "HighMiddleAges" ? 1 : 10; i < results.length; i++) {
+        for (let i = age !== "HighMiddleAges" ? 1 : 10; i < results.length; i++) {
           if (!results[i].reward) {
             break;
           }
           result += `  { cost: ${results[i].cost}, reward: generateReward(${results[i].reward}) },\n`;
           counter++;
         }
+        counter += age !== "HighMiddleAges" ? 0 : 9;
 
         result += `];\n`;
 
