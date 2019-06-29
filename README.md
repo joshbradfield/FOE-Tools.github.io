@@ -7,7 +7,7 @@
 [![Dependency Status][dependency-badge]][dependency] [![devDependency Status][devdependency-badge]][devdependency] [![codecov][codecov-badge]][codecov] [![CircleCI][circleci-badge]][circleci]
 </div>
 
-This repo is the [website](https://foe-tools.github.io/) of FOE Tools, a set of tools for [Forge Of Empire](https://forgeofempires.com).
+This repo is the [website](https://foe-tools.github.io/) of FOE Tools, a set of tools for [Forge of Empires](https://forgeofempires.com).
 
 ## Install
 
