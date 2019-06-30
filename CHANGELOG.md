@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.46.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.45.0...v2.46.0) (2019-06-30)
+
+
+### Bug Fixes
+
+* **gb-investement:** fix bad owner preparation when huge investor ([1172335](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1172335))
+* **gb-investement:** fix bad owner preparation when no sniper investor ([ec85aba](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ec85aba))
+* fix typo of "Forge of Empires" ([a0832ec](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a0832ec))
+
+
+### Features
+
+* **gb-investment:** allow to show only secured place in promotion message ([891bf8b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/891bf8b))
+* improve translation ([3142e69](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3142e69))
+
+
+
 ## [2.45.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.44.0...v2.45.0) (2019-06-16)
 
 
