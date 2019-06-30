@@ -4,6 +4,7 @@ import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
 
 const defaultGb = gbsData.Observatory;
+const defaultTo = 10;
 
 const factory = (propsData = {}, mocks = {}) => {
   const { localVue, store } = getView();
@@ -135,7 +136,7 @@ describe("GbInvestmentInvestors", () => {
   test('Change "to" value', () => {
     const wrapper = factory();
     const newValue = 5;
-    expect(wrapper.vm.to).toBe(wrapper.vm.maxLevel);
+    expect(wrapper.vm.to).toBe(defaultTo);
     expect(wrapper.vm.errors.from).toBe(false);
     wrapper.vm.to = newValue;
     expect(wrapper.vm.to).toBe(newValue);
@@ -146,7 +147,7 @@ describe("GbInvestmentInvestors", () => {
   test('Change "to" value and from error', () => {
     const wrapper = factory();
     const newValue = 15;
-    expect(wrapper.vm.to).toBe(wrapper.vm.maxLevel);
+    expect(wrapper.vm.to).toBe(defaultTo);
     wrapper.vm.to = 10;
     wrapper.vm.from = wrapper.vm.to + 1;
     expect(wrapper.vm.errors.from).toBe(true);
@@ -159,19 +160,19 @@ describe("GbInvestmentInvestors", () => {
   test('Change "to" invalid value', () => {
     const wrapper = factory();
     const newValue = -1;
-    expect(wrapper.vm.to).toBe(wrapper.vm.maxLevel);
+    expect(wrapper.vm.to).toBe(defaultTo);
     wrapper.vm.to = newValue;
     expect(wrapper.vm.to).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbii"]["gbi_t"]).toBe(wrapper.vm.maxLevel);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbii"]["gbi_t"]).toBe(defaultTo);
   });
 
   test('Change "to" invalid type', () => {
     const wrapper = factory();
     const newValue = "foo";
-    expect(wrapper.vm.to).toBe(wrapper.vm.maxLevel);
+    expect(wrapper.vm.to).toBe(defaultTo);
     wrapper.vm.to = newValue;
     expect(wrapper.vm.to).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbii"]["gbi_t"]).toBe(wrapper.vm.maxLevel);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbii"]["gbi_t"]).toBe(defaultTo);
   });
 
   test('Change "customPercentage" value', () => {
