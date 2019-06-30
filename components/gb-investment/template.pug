@@ -171,7 +171,11 @@ div.content
                   template(v-if="place.participation > 0") &nbsp;(
                     b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
                     | )
-            td(colspan=3)
+            td(:colspan="nbColumns-7")
+            // Potential sniper switch
+            td
+              b-switch(:value="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)") {{investorParticipation[place.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
+            td
 
       tfoot
         tr(v-if="result.otherInvestment.length")
@@ -230,7 +234,7 @@ div.content
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
               td.has-text-right {{ $formatNumber(props.expectedParticipation) }}
             // Current participation
-            tr(v-if="investorParticipationNormalizedSum" :class="index >= result.investment.length ? 'last-in-card' : ''")
+            tr(v-if="investorParticipationNormalizedSum")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
               td(v-if="props.isInvestorParticipation")
                 p {{$formatNumber(props.participation)}}
@@ -271,7 +275,7 @@ div.content
                 b-field(:type="haveError('investorPercentageCustom_' + index)")
                   b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[index]" :name="'investorPercentageCustom_' + index" autocomplete="off")
             // Potential sniper switch
-            tr(v-show="investorParticipation.length > 0")
+            tr(v-show="investorParticipation.length > 0" :class="index >= result.investment.length ? 'last-in-card' : ''")
               template(v-if="props.defaultParticipationIndex >= 0")
                 th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
                 td
