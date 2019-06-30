@@ -88,6 +88,7 @@
             "tooltip_add_investors": "Cliquez sur le bouton \"$t(utils.Add)\" ou appuyez sur la touche \"Entrée\" pour ajouter un investisseur",
             "investors_list": "Liste des investisseurs ajoutés",
             "show_snipe": "Afficher Spot/Snipe",
+            "show_only_secured_places": "Afficher uniquement les places sécurisés",
             "display_card": "Afficher le tableau en mode carte ? (sur petit écran)"
           },
           "table": {

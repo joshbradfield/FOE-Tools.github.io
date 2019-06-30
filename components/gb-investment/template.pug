@@ -349,7 +349,11 @@ div.content
             div.column.is-half(v-if="displayGbName")
               yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
         div.column.is-half
-          yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+          div.columns
+            div.column.is-half
+              yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+            div.column.is-half
+              yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
 
       div(v-if="result !== null")
         b-field(v-for="(value, i) in promotion" :key="i")
