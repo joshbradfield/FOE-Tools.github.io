@@ -16,7 +16,7 @@
       "common": "$t(common:lang.{{lang}}.en) ($t(common:lang.{{lang}}.original))"
     },
     "links": {
-      "foe": "<a href=\"https://forgeofempires.com\">Forge Of Empire</a>",
+      "foe": "<a href=\"https://forgeofempires.com\">Forge of Empires</a>",
       "mit": "<a href=\"http://opensource.org/licenses/mit-license.php\">MIT</a>",
       "framework": "<a href=\"https://nuxtjs.org/\">Nuxt</a>",
       "style": "<a href=\"https://bulma.io/\">Bulma</a>",

@@ -150,6 +150,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showPrefix).toBe(false);
     expect(wrapper.vm.showSuffix).toBe(false);
     expect(wrapper.vm.showSnipe).toBe(true);
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(false);
     expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
     expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
@@ -159,6 +160,30 @@ describe("GbInvestment", () => {
       { state: true },
       { state: true },
       { state: true }
+    ]);
+  });
+
+  test("Initialize with URL query 2", () => {
+    const wrapper = factory(defaultGb, {
+      $route: {
+        query: {
+          gbi_oi: 402,
+          gbi_sosp: 1
+        },
+        params: {
+          gb: "root"
+        }
+      }
+    });
+
+    expect(wrapper.vm.ownerInvestment).toBe(402);
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(true);
+    expect(wrapper.vm.placeFree).toEqual([
+      { state: true },
+      { state: true },
+      { state: false },
+      { state: false },
+      { state: false }
     ]);
   });
 
@@ -210,6 +235,8 @@ describe("GbInvestment", () => {
               return 90;
             case "displayTableCard":
               return true;
+            case "showOnlySecuredPlaces":
+              return true;
             case "promotionMessageList":
               return defaultPromotionMessages;
           }
@@ -226,6 +253,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.shortName).toBe(true);
     expect(wrapper.vm.showLevel).toBe(true);
     expect(wrapper.vm.showSnipe).toBe(true);
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(true);
     expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
     expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
@@ -547,6 +575,25 @@ describe("GbInvestment", () => {
         expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
       }
     ]);
+  });
+
+  test('Change "showOnlySecuredPlaces" value', () => {
+    const wrapper = factory();
+    const newValue = true;
+    wrapper.vm.ownerInvestment = 402;
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(false);
+    wrapper.vm.showOnlySecuredPlaces = newValue;
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sosp"]).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "showOnlySecuredPlaces",
+      newValue,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
+    expect(wrapper.vm.promotion).toMatchSnapshot();
   });
 
   test('Change "displayTableCard" value', () => {

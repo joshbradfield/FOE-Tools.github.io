@@ -796,3 +796,52 @@ Object {
   },
 }
 `;
+
+exports[`Components GbInvestment Change "showOnlySecuredPlaces" value 1`] = `
+Array [
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 P1(124) P2(67)",
+  },
+  Object {
+    "active": false,
+    "message": "P1(124) P2(67) Observatory 9 → 10",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 P2(67) P1(124)",
+  },
+  Object {
+    "active": false,
+    "message": "P2(67) P1(124) Observatory 9 → 10",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 1 2",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 2 1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 1,2",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 → 10 2,1",
+  },
+  Object {
+    "active": false,
+    "message": "Observatory 9 < 2,1 > 10",
+  },
+]
+`;

@@ -88,6 +88,7 @@
             "tooltip_add_investors": "Cliquez sur le bouton \"$t(utils.Add)\" ou appuyez sur la touche \"Entrée\" pour ajouter un investisseur",
             "investors_list": "Liste des investisseurs ajoutés",
             "show_snipe": "Afficher Spot/Snipe",
+            "show_only_secured_places": "Afficher uniquement les places sécurisés",
             "display_card": "Afficher le tableau en mode carte ? (sur petit écran)"
           },
           "table": {
@@ -98,7 +99,7 @@
               "th3": "PF à mettre par le propriétaire pour sécuriser la place",
               "th4": "Récompenses avec taux",
               "th5": "% de bonus (grosses arches) des investisseurs",
-              "th6": "Place libre",
+              "th6": "Inclure dans les champs de copie",
               "fp_already_putin": "Nombre de PF déjà mis",
               "spot_snipe": "Spot/Snipe",
               "expected_participation": "PF obtenu avec le % de bonus attendu par le propriétaire",

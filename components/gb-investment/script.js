@@ -32,6 +32,7 @@ const queryKey = {
   showPrefix: urlPrefix + "spx",
   showSuffix: urlPrefix + "ssx",
   showSnipe: urlPrefix + "ss",
+  showOnlySecuredPlaces: urlPrefix + "sosp",
   yourArcBonus: urlPrefix + "yab"
 };
 
@@ -101,6 +102,10 @@ export default {
       showPrefix: typeof this.$cookies.get("gbShowPrefix") === "boolean" ? !!this.$cookies.get("gbShowPrefix") : true,
       showSuffix: typeof this.$cookies.get("gbShowSuffix") === "boolean" ? !!this.$cookies.get("gbShowSuffix") : true,
       yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : parseFloat(this.$cookies.get("yourArcBonus")),
+      showOnlySecuredPlaces:
+        typeof this.$cookies.get("showOnlySecuredPlaces") === "boolean"
+          ? !!this.$cookies.get("showOnlySecuredPlaces")
+          : false,
       displayTableCard:
         typeof this.$cookies.get("displayTableCard") === "boolean" ? !!this.$cookies.get("displayTableCard") : false,
       result: null,
@@ -230,6 +235,11 @@ export default {
     this.$store.commit("ADD_URL_QUERY", {
       key: queryKey.yourArcBonus,
       value: data.yourArcBonus,
+      ns: "gbi"
+    });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: queryKey.showOnlySecuredPlaces,
+      value: data.showOnlySecuredPlaces,
       ns: "gbi"
     });
 
@@ -523,6 +533,18 @@ export default {
       });
       this.updatePromotionMessage();
     },
+    showOnlySecuredPlaces(val) {
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.showOnlySecuredPlaces,
+        value: val ? 1 : 0,
+        ns: "gbi"
+      });
+      this.$cookies.set("showOnlySecuredPlaces", val, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+      this.updatePlaceFreeWhenOnlySecured();
+    },
     showSnipe(val) {
       this.$store.commit("UPDATE_URL_QUERY", {
         key: queryKey.showSnipe,
@@ -597,6 +619,7 @@ export default {
           Utils.normalizeNumberValue(this.$data.ownerInvestment),
           Utils.normalizeNumberValue(this.$data.yourArcBonus)
         );
+        this.updatePlaceFreeWhenOnlySecured();
       } catch (e) {
         // TODO: error processing
         throw e;
@@ -799,6 +822,11 @@ export default {
         result.showSnipe = !!parseInt(this.$route.query[queryKey.showSnipe]);
       }
 
+      if (this.$route.query[queryKey.showOnlySecuredPlaces]) {
+        isPermalink = true;
+        result.showOnlySecuredPlaces = !!parseInt(this.$route.query[queryKey.showOnlySecuredPlaces]);
+      }
+
       const tmp = Utils.checkFormNumeric(
         this.$route.query[queryKey.yourArcBonus],
         -1,
@@ -930,6 +958,15 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
+    },
+    updatePlaceFreeWhenOnlySecured() {
+      if (!this.showOnlySecuredPlaces || this.ownerInvestmentNormalized <= 0) {
+        return;
+      }
+      for (let i = 0; i < this.result.investment.length; i++) {
+        this.placeFree[i].state = this.result.investment[i].preparation - this.ownerInvestmentNormalized <= 0;
+      }
+      this.updatePromotionMessage();
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";

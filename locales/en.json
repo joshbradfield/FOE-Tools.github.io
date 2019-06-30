@@ -88,6 +88,7 @@
             "tooltip_add_investors": "Click on \"$t(utils.Add)\" button or press \"Enter\" key to add investor",
             "investors_list": "List of added investors",
             "show_snipe": "Show Spot/Snipe",
+            "show_only_secured_places": "Show only secured places",
             "display_card": "Display the table in card view ? (on small screen)"
           },
           "table": {
@@ -98,7 +99,7 @@
               "th3": "FP to put by the owner to secure the place",
               "th4": "Rewards with rate",
               "th5": "% of investors bonus (arc bonus)",
-              "th6": "Place free",
+              "th6": "Include in copy boxes",
               "fp_already_putin": "Number of FP already in",
               "spot_snipe": "Spot/Snipe",
               "expected_participation": "FP obtained with the % bonus expected by the owner",

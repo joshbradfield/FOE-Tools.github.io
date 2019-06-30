@@ -56,7 +56,7 @@ export default {
       result: null,
       maxLevel,
       from: this.cookieValid(`${this.$route.params.gb}_from`) ? this.$cookies.get(`${this.$route.params.gb}_from`) : 1,
-      to: this.cookieValid(`${this.$route.params.gb}_to`) ? this.$cookies.get(`${this.$route.params.gb}_to`) : maxLevel,
+      to: this.cookieValid(`${this.$route.params.gb}_to`) ? this.$cookies.get(`${this.$route.params.gb}_to`) : 10,
       maxConsideration: MAX_TAKING_PLACE_IN_CONSIDERATION + 1,
       takingPlaceInConsideration: this.cookieValid(`${this.$route.params.gb}_takingPlaceInConsideration`)
         ? parseInt(this.$cookies.get(`${this.$route.params.gb}_takingPlaceInConsideration`))

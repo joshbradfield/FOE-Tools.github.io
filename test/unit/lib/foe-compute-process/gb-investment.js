@@ -206,6 +206,18 @@ describe("FoeGbInvestment", () => {
       expect(result).toMatchSnapshot();
     });
 
+    test("Valid value with Arc level 25 → 26, with 2 investors", () => {
+      const result = GbProcess.ComputeLevelInvestment(
+        20,
+        [90, 90, 90, 90, 90],
+        gbsData.Temple_of_Relics.levels,
+        [{ value: 600, isPotentialSniper: true }, { value: 30, isPotentialSniper: true }],
+        0
+      );
+
+      expect(result).toMatchSnapshot();
+    });
+
     test("Throw error when invalid type for currentLevel", () => {
       expect(() => GbProcess.ComputeLevelInvestment("a", [0, 0, 0, 0, 0], agesCost.BronzeAge, [])).toThrow(
         new Errors.InvalidTypeError({
