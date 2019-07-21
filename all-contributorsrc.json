@@ -565,6 +565,33 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Frank the dude (US)",
+      "name": "Frank the dude (US)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "TrueRaptor (PT)",
+      "name": "TrueRaptor (PT)",
+      "avatar_url": "/img/contributors/TrueRaptor.jpg",
+      "profile": "https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "Geribaldi (NL)",
+      "name": "Geribaldi (NL)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "commitConvention": "none"

@@ -53,6 +53,8 @@ export default {
       defaultTemplates,
       customTemplates,
       oldTemplateName: "",
+      addFieldName: "",
+      addFieldValue: "",
       result: {
         prefix: "",
         suffix: "",
@@ -60,10 +62,12 @@ export default {
         reversePlacesOrder: false,
         placeSeparator: "",
         place: "",
-        message: ""
+        message: "",
+        customFields: {}
       },
       errors: {
-        templateName: { found: false, message: "" }
+        templateName: { found: false, message: "" },
+        addFieldName: { found: false, message: "" }
       }
     };
 
@@ -76,10 +80,20 @@ export default {
     resultString() {
       return JSON.stringify(this.result);
     },
+    customFields() {
+      return !this.$data.result.customFields
+        ? []
+        : Object.keys(this.$data.result.customFields).map(key => this.$data.result.customFields[key]);
+    },
     placePreview() {
       return !this.result.place || !this.result.place.length
         ? ""
-        : PMBuilder.buildPlace.call(this, this.result.place, this.$props.placesInterpolationValues[0]);
+        : PMBuilder.buildPlace.call(
+            this,
+            this.$props.gbKey,
+            { displayGbName: true, ...this.result, message: this.result.place },
+            this.$props.placesInterpolationValues[0]
+          );
     },
     selectLabel() {
       return this.action === "create"
@@ -94,7 +108,7 @@ export default {
         : PMBuilder.buildMessage.call(
             this,
             this.$props.gbKey,
-            this.result,
+            { displayGbName: true, ...this.result },
             this.$props.messageInterpolation,
             this.$props.placesInterpolationValues
           );
@@ -123,9 +137,18 @@ export default {
         ? this.defaultTemplates.find(elt => elt.name === templateName).config
         : this.customTemplates.find(elt => elt.name === templateName).config;
       this.result = JSON.parse(JSON.stringify(tmp));
-      this.oldTemplateName = templateName;
-      if (this.action === "edit") {
-        this.templateName = templateName;
+      this.$data.oldTemplateName = templateName;
+      if (this.action === "update") {
+        this.$data.templateName = templateName;
+      }
+    },
+    addFieldName(val) {
+      if (Object.keys(this.$data.result.customFields).indexOf(val) >= 0) {
+        this.$data.errors.addFieldName.found = true;
+        this.$data.errors.addFieldName.message = this.$t(i18nPrefix + "errors.custom_name_already_exists");
+      } else {
+        this.$data.errors.addFieldName.found = false;
+        this.$data.errors.addFieldName.message = "";
       }
     }
   },
@@ -142,7 +165,7 @@ export default {
       return PMBuilder.buildMessage.call(
         this,
         this.$props.gbKey,
-        template,
+        { displayGbName: true, ...template },
         this.$props.messageInterpolation,
         this.$props.placesInterpolationValues
       );
@@ -164,7 +187,7 @@ export default {
       if (!result) {
         result = [];
       }
-      if (this.action === "edit") {
+      if (this.action === "update") {
         let index = this.customTemplates.map(elt => elt.name).indexOf(this.oldTemplateName);
         if (index >= 0) {
           // Otherwise, the user try to edit an template that do not exists
@@ -179,6 +202,11 @@ export default {
       });
       this.customTemplates = result;
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(this.customTemplates)));
+      this.$notification.open({
+        message: this.$t(i18nPrefix + (this.action === "update" ? "template_updated" : "template_saved")),
+        type: "is-success",
+        duration: 5000
+      });
     },
     deleteTemplate() {
       if (!this.startFromTemplate || !this.startFromTemplate.length) {
@@ -193,12 +221,49 @@ export default {
         expires: Utils.getDefaultCookieExpireTime()
       });
       this.action = "create";
+      this.$notification.open({
+        message: this.$t(i18nPrefix + "template_deleted"),
+        type: "is-success",
+        duration: 5000
+      });
+    },
+    addCustomField() {
+      if (!this.$data.addFieldName || !this.$data.addFieldName.length) {
+        this.$data.errors.addFieldName.found = true;
+        this.$data.errors.addFieldName.message = this.$t(i18nPrefix + "errors.custom_name_empty");
+        return;
+      }
+      if (Object.keys(this.$data.result.customFields).indexOf(this.$data.addFieldName) >= 0) {
+        this.$data.errors.addFieldName.found = true;
+        this.$data.errors.addFieldName.message = this.$t(i18nPrefix + "errors.custom_name_already_exists");
+        return;
+      }
+      this.$data.errors.addFieldName.found = false;
+      this.$data.errors.addFieldName.message = "";
+
+      let obj = { ...this.$data.result.customFields };
+      obj[this.$data.addFieldName] = { key: this.$data.addFieldName, value: this.$data.addFieldValue };
+      this.$data.result.customFields = obj;
+      this.$data.addFieldName = "";
+      this.$data.addFieldValue = "";
+    },
+    removeCustomField(name) {
+      let obj = { ...this.$data.result.customFields };
+      delete obj[name];
+      this.$data.result.customFields = obj;
+    },
+    nbMultiLine(src) {
+      const nbLF = src.match(/\n/gi);
+      return nbLF && nbLF.length > 0 ? nbLF.length + 1 : 0;
     },
     cookieValid(key) {
       return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
     },
     haveError(input) {
-      return this.$data.errors[input] ? "is-danger" : "";
+      return this.$data.errors[input].found ? "is-danger" : "";
+    },
+    getErrorMessage(input) {
+      return this.$data.errors[input].found ? this.$data.errors[input].message : "";
     }
   },
   components: {

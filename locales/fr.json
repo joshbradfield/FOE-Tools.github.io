@@ -327,6 +327,12 @@
           "custom": "Modèles personnalisés"
         },
         "config": "Configuration",
+        "add_field_title": "Ajouter des champs personnalisés",
+        "add_field": {
+          "name": "Nom du champ",
+          "value": "Valeur du champ"
+        },
+        "custom_field_title": "Vos champs personnalisés",
         "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
         "reverse_place_order": "Inverser l'ordre des places ?",
         "place_separator": "Séparateur de place",
@@ -346,20 +352,27 @@
             "FLVL": "Du niveau",
             "TLVL": "Au niveau",
             "GBN": "Nom du GM",
-            "P": "Places"
+            "P": "Places",
+            "LF": "Saut de ligne, ajouter une nouvelle ligne"
           }
         },
         "template_name": "Nom du modèle",
         "errors": {
-          "template_cannot_have_this_name": "Le modèle ne peut pas avoir ce nom. Veuillez utiliser un autre nom."
-        }
+          "template_cannot_have_this_name": "Le modèle ne peut pas avoir ce nom. Veuillez utiliser un autre nom.",
+          "custom_name_empty": "Le nom du champ ne peut pas être vide.",
+          "custom_name_already_exists": "Ce nom de champ existe déjà."
+        },
+        "template_saved":  "Modèle sauvegardé",
+        "template_updated":  "Modèle mis à jour",
+        "template_deleted":  "Modèle supprimé"
       },
       "import_promotion_message": {
         "title": "Importer un message de promotion",
         "config_placeholder": "Collez votre configuration ici",
         "errors": {
           "invalid_data": "Les données ne sont pas valides"
-        }
+        },
+        "template_imported":  "Modèle importé"
       }
     },
     "routes": {

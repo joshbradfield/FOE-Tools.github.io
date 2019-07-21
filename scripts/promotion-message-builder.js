@@ -1,18 +1,78 @@
 /**
+ * Create common interpolation
+ *
+ * @param gbKey {string} Key of the GB
+ * @param goodData {object} An object that must contains:
+ * - showLevel {boolean}: display the level
+ * - displayGbName {boolean}: display the name of a GB
+ * - useShortGbName {boolean}: use short name when display the name of the GB,
+ * - message {string}: message pattern, that should contains interpolationValues
+ * @param interpolationValues Custom interpolation to add to common
+ * @returns {{goodInterpolationValues: Array, message: string}}
+ */
+function interpolationBuilder(gbKey, goodData, interpolationValues) {
+  let message = goodData.message;
+  const findLevelRange = /\s?\${(?:FLVL|TLVL)}[^(?<!${(?:FLVL|TLVL)})]*\${(?:FLVL|TLVL)}/gi;
+  if (!goodData.showLevel) {
+    if (findLevelRange.test(goodData.message)) {
+      message = message.replace(findLevelRange, "");
+    } else {
+      message = message.replace(/\s?\${(?:FLVL|TLVL)}/gi, "");
+    }
+  }
+
+  const goodInterpolationValues = [...interpolationValues];
+
+  // Manage GB name
+  if (goodData.displayGbName) {
+    goodInterpolationValues.push({
+      key: "GBN",
+      value: goodData.useShortGbName ? this.$t(`foe_data.gb_short.${gbKey}`) : this.$t(`foe_data.gb.${gbKey}`)
+    });
+  } else {
+    goodInterpolationValues.push({
+      key: "GBN",
+      value: ""
+    });
+  }
+  goodInterpolationValues.push({ key: "LF", value: `\n` });
+
+  if (goodData.customFields) {
+    Object.keys(goodData.customFields)
+      .map(key => goodData.customFields[key])
+      .forEach(interpolation => {
+        goodInterpolationValues.push(interpolation);
+      });
+  }
+
+  return { goodInterpolationValues, message };
+}
+
+/**
  * Build a place for the promotion message.
  *
- * @param placeBuilder {string} Place pattern, that should contains placeInterpolationValues
- * @param interpolationValues {array} An array that must contains object value that have a key and a value.
  * Accepted interpolations:
  * - PI {number}: place index (1, 2, 3, 4, 5)
  * - PV {number}: place value (number of FPs)
+ * @param gbKey {string} Key of the GB
+ * @param data {object} An object that must contains:
+ * - showLevel {boolean}: display the level
+ * - displayGbName {boolean}: display the name of a GB
+ * - useShortGbName {boolean}: use short name when display the name of the GB,
+ * - message {string}: message pattern, that should contains interpolationValues
+ * @param interpolationValues {array} An array that must contains object value that have a key and a value.
  * @returns {string} Return the place created for the promotion message
  */
-export function buildPlace(placeBuilder, interpolationValues) {
-  let result = placeBuilder;
-  for (const interpolation of interpolationValues) {
+export function buildPlace(gbKey, data, interpolationValues) {
+  const interpolation = interpolationBuilder.call(this, gbKey, data, interpolationValues);
+  const goodInterpolationValues = interpolation.goodInterpolationValues;
+  let result = interpolation.message;
+
+  // Do interpolation
+  goodInterpolationValues.forEach(interpolation => {
     result = result.replace(new RegExp(`\\\${${interpolation.key}}`, "gi"), interpolation.value);
-  }
+  });
+
   return result;
 }
 
@@ -23,6 +83,8 @@ export function buildPlace(placeBuilder, interpolationValues) {
  * @param data {object} An object that must contains:
  * - prefix {string}: default prefix,
  * - suffix {string}: default suffix,
+ * - showLevel {boolean}: display the level
+ * - displayGbName {boolean}: display the name of a GB
  * - useShortGbName {boolean}: use short name when display the name of the GB,
  * - reversePlacesOrder {boolean}: reverse place (5,4,3,3,1) instead of (1,2,3,4,5)
  * - placeSeparator {string}: separator used to separate places
@@ -30,59 +92,51 @@ export function buildPlace(placeBuilder, interpolationValues) {
  * - message {string}: message pattern, that should contains interpolationValues
  * @param interpolationValues {array} An array that must contains object value that have a key and a value.
  * Accepted interpolations:
- * - PI {number}: place index (1, 2, 3, 4, 5)
- * - PV {number}: place value (number of FPs)
- * @param placeInterpolationValues {array} An array that must contains object value that have a key and a value.
- * Accepted interpolations for interpolationValues:
  * - FLVL {number}: from level
  * - TLVL {number}: to level
  * - GBN {string}: GB name (managed internally, depending on useGbShort)
  * - P {string}: place (managed internally)
+ * - LF {string}: line feed (managed internally)
+ * @param placeInterpolationValues {array} An array that must contains object value that have a key and a value.
+ * Accepted interpolations for interpolationValues:
+ * - PI {number}: place index (1, 2, 3, 4, 5)
+ * - PV {number}: place value (number of FPs)
+ * - LF {string}: line feed (managed internally)
  * @returns {string} Return the promotion message created
  * @see buildPlace
  */
 export function buildMessage(gbKey, data, interpolationValues, placeInterpolationValues) {
-  let result = data.message;
-  const findLevelRange = /\s?\${(?:FLVL|TLVL)}[^(?<!${(?:FLVL|TLVL)})]*\${(?:FLVL|TLVL)}/gi;
-  if (!data.showLevel) {
-    if (findLevelRange.test(data.message)) {
-      result = result.replace(findLevelRange, "");
-    } else {
-      result = result.replace(/\s?\${(?:FLVL|TLVL)}/gi, "");
-    }
-  }
+  const interpolation = interpolationBuilder.call(this, gbKey, data, interpolationValues);
+  const goodInterpolationValues = interpolation.goodInterpolationValues;
+  let result = interpolation.message;
 
-  let places = "";
+  // Manage places
   const goodPlaceInterpolationValues = data.reversePlacesOrder
     ? [...placeInterpolationValues].reverse()
     : placeInterpolationValues;
-  goodPlaceInterpolationValues.forEach(interpolation => {
-    if (interpolation[1].free) {
-      places += (places.length > 0 ? data.placeSeparator : "") + buildPlace(data.place, interpolation);
+  let places = "";
+  goodPlaceInterpolationValues.forEach(placeInterpolation => {
+    if (placeInterpolation[1].free) {
+      places +=
+        (places.length > 0 ? data.placeSeparator : "") +
+        buildPlace.call(this, gbKey, { ...data, message: data.place }, placeInterpolation);
     }
   });
+  goodInterpolationValues.push({ key: "P", value: places });
 
-  const goodInterpolationValues = [...interpolationValues, { key: "P", value: places }];
-
-  if (data.displayGbName) {
-    goodInterpolationValues.push({
-      key: "GBN",
-      value: data.useShortGbName ? this.$t(`foe_data.gb_short.${gbKey}`) : this.$t(`foe_data.gb.${gbKey}`)
-    });
-  } else {
-    result = result.replace(/\${GBN}\s?/gi, "");
-  }
-
+  // Do interpolation
   goodInterpolationValues.forEach(interpolation => {
     result = result.replace(new RegExp(`\\\${${interpolation.key}}`, "gi"), interpolation.value);
   });
 
+  result = result.replace(new RegExp(`\\\${LF}`, "gi"), `\n`);
+
   if (data.prefix && data.prefix.length) {
-    result = `${data.prefix} ${result}`;
+    result = `${data.prefix}${[" ", `\n`].indexOf(result.charAt(0)) >= 0 ? result : ` ${result}`}`;
   }
 
   if (data.suffix && data.suffix.length) {
-    result = `${result} ${data.suffix}`;
+    result = `${[" ", `\n`].indexOf(result.charAt(result.length - 1)) >= 0 ? result : `${result} `}${data.suffix}`;
   }
 
   return result;
@@ -227,6 +281,26 @@ export const defaultPromotionMessages = [
       placeSeparator: ",",
       place: "${PI}",
       message: "${GBN} ${FLVL} → ${TLVL} ${P}"
+    }
+  },
+  {
+    name: "Default 11",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: true,
+      useShortGbName: false,
+      reversePlacesOrder: false,
+      placeSeparator: "${LF}",
+      place: "${Your pseudo} - ${GBN} ${PI}",
+      message: "${P}",
+      customFields: {
+        "Your pseudo": {
+          key: "Your pseudo",
+          value: "My pseudo"
+        }
+      }
     }
   }
 ];

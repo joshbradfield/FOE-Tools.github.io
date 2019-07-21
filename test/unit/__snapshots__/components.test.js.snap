@@ -102,46 +102,64 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -177,46 +195,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -226,46 +263,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -275,46 +331,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -324,50 +399,70 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Custom 1",
   },
 ]
 `;
@@ -377,54 +472,75 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Custom 1",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
 ]
 `;
@@ -434,46 +550,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -483,46 +618,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -532,46 +686,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -580,43 +753,56 @@ exports[`Components GbInvestment Call 'removePromotionMessage' 2`] = `
 Array [
   Object {
     "active": false,
-    "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
-  },
-  Object {
-    "active": false,
     "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -626,46 +812,65 @@ Array [
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) P3(19) P4(10) Observatoire 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P4(10) P3(19) P2(67) P1(124) Observatoire 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 1 2 3 4",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 4 3 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 1,2,3,4",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 4,3,2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 4,3,2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 → 10 4,3,2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatoire 1
+My pseudo - Observatoire 2
+My pseudo - Observatoire 3
+My pseudo - Observatoire 4",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatoire 9 < 4,3,2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
@@ -676,46 +881,65 @@ Object {
     Object {
       "active": false,
       "message": "Observatory 9 → 10 P1(124) P2(67) P3(19) P4(10)",
+      "name": "Default 1",
     },
     Object {
       "active": false,
       "message": "P1(124) P2(67) P3(19) P4(10) Observatory 9 → 10",
+      "name": "Default 2",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 P4(10) P3(19) P2(67) P1(124)",
+      "name": "Default 3",
     },
     Object {
       "active": false,
       "message": "P4(10) P3(19) P2(67) P1(124) Observatory 9 → 10",
+      "name": "Default 4",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 1 2 3 4",
+      "name": "Default 5",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 4 3 2 1",
+      "name": "Default 6",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 1,2,3,4",
+      "name": "Default 7",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 4,3,2,1",
+      "name": "Default 8",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 4,3,2,1",
+      "name": "Default 9",
     },
     Object {
       "active": false,
       "message": "Observatory 9 → 10 4,3,2,1",
+      "name": "Default 10",
+    },
+    Object {
+      "active": false,
+      "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
+      "name": "Default 11",
     },
     Object {
       "active": false,
       "message": "Observatory 9 < 4,3,2,1 > 10",
+      "name": "Custom 11",
     },
   ],
   "result": Object {
@@ -802,46 +1026,63 @@ Array [
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P1(124) P2(67)",
+    "name": "Default 1",
   },
   Object {
     "active": false,
     "message": "P1(124) P2(67) Observatory 9 → 10",
+    "name": "Default 2",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 P2(67) P1(124)",
+    "name": "Default 3",
   },
   Object {
     "active": false,
     "message": "P2(67) P1(124) Observatory 9 → 10",
+    "name": "Default 4",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1 2",
+    "name": "Default 5",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 2 1",
+    "name": "Default 6",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 1,2",
+    "name": "Default 7",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 2,1",
+    "name": "Default 8",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 2,1",
+    "name": "Default 9",
   },
   Object {
     "active": false,
     "message": "Observatory 9 → 10 2,1",
+    "name": "Default 10",
+  },
+  Object {
+    "active": false,
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2",
+    "name": "Default 11",
   },
   Object {
     "active": false,
     "message": "Observatory 9 < 2,1 > 10",
+    "name": "Custom 11",
   },
 ]
 `;
