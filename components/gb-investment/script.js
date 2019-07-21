@@ -57,12 +57,16 @@ export default {
       ? parseFloat(this.$cookies.get(`${this.$route.params.gb}_investorPercentageGlobal`))
       : defaultArcPercentage;
 
+    let promotionMessageList;
     /* istanbul ignore next */
     if (!this.$cookies.get("promotionMessageList")) {
       this.$cookies.set("promotionMessageList", defaultPromotionMessages, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
+      promotionMessageList = defaultPromotionMessages;
+    } else {
+      promotionMessageList = this.$cookies.get("promotionMessageList");
     }
 
     /* istanbul ignore next */
@@ -123,7 +127,7 @@ export default {
       },
       promotionMessageTab: 0,
       promotion: [],
-      promotionMessageList: this.$cookies.get("promotionMessageList"),
+      promotionMessageList: promotionMessageList,
       childChange: false,
       templateToAdd: ""
     };
@@ -596,6 +600,16 @@ export default {
       if (this.$data.result !== null) {
         this.updatePromotionMessage();
       }
+    },
+    promotionMessageList: {
+      handler: function(val) {
+        this.$cookies.set("promotionMessageList", val, {
+          path: "/",
+          expires: Utils.getDefaultCookieExpireTime()
+        });
+        this.updatePromotionMessage();
+      },
+      deep: true
     }
   },
   methods: {
@@ -642,8 +656,9 @@ export default {
         ]);
       }
 
-      for (const promotion of this.promotionMessageList) {
+      for (const promotion of this.$data.promotionMessageList) {
         result.push({
+          name: promotion.name,
           message: buildMessage.call(
             this,
             this.gb.key,
@@ -895,7 +910,7 @@ export default {
       return buildMessage.call(
         this,
         this.gb.key,
-        { ...template, prefix: this.prefix, suffix: this.suffix },
+        { ...template, prefix: this.prefix, suffix: this.suffix, displayGbName: this.displayGbName },
         messageInterpolation,
         placesInterpolationValues
       );
@@ -911,7 +926,7 @@ export default {
         return;
       }
 
-      this.promotionMessageList.push(elt);
+      this.promotionMessageList.push(JSON.parse(JSON.stringify(elt)));
       this.$cookies.set("promotionMessageList", this.promotionMessageList, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
@@ -967,6 +982,18 @@ export default {
         this.placeFree[i].state = this.result.investment[i].preparation - this.ownerInvestmentNormalized <= 0;
       }
       this.updatePromotionMessage();
+    },
+    getSplittedCustomFields(name) {
+      let fields = this.$data.promotionMessageList[this.$data.promotionMessageList.map(val => val.name).indexOf(name)]
+        .config.customFields;
+      let result = Object.keys(fields).map((key, index) => {
+        return fields[key];
+      });
+      return Utils.splitArray(result, 2, false);
+    },
+    nbMultiLine(src) {
+      const nbLF = src.match(/\n/gi);
+      return nbLF && nbLF.length > 0 ? nbLF.length + 1 : 0;
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";

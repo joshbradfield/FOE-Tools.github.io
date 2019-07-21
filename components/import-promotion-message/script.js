@@ -182,6 +182,15 @@ export default {
         expires: Utils.getDefaultCookieExpireTime()
       });
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(result)));
+      this.$notification.open({
+        message: this.$t(i18nPrefix + "template_imported"),
+        type: "is-success",
+        duration: 5000
+      });
+    },
+    nbMultiLine(src) {
+      const nbLF = src.match(/\n/gi);
+      return nbLF && nbLF.length > 0 ? nbLF.length + 1 : 0;
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";

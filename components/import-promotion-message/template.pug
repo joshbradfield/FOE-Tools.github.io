@@ -9,7 +9,7 @@ div
   div.columns
     div.column
       b-field(:label="$t('components.promotion_message_builder.message_preview')" label-for="ipmMessagePreview")
-        b-input#ipmMessagePreview(type="text" v-model.trim="resultMessage" name="ipmMessagePreview" autocomplete="off" expanded disabled)
+        b-input#ipmMessagePreview(:type="nbMultiLine(resultMessage) ? 'textarea' : 'text'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : ''" v-model.trim="resultMessage" name="ipmMessagePreview" autocomplete="off" expanded disabled)
 
   div.columns
     div.column.is-half

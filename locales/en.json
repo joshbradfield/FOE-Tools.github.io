@@ -327,6 +327,12 @@
           "custom": "Custom templates"
         },
         "config": "Configuration",
+        "add_field_title": "Add custom fields",
+        "add_field": {
+          "name": "Field name",
+          "value": "Field value"
+        },
+        "custom_field_title": "Your custom fields",
         "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
         "reverse_place_order": "Reverse places order ?",
         "place_separator": "Place separator",
@@ -346,20 +352,27 @@
             "FLVL": "From level",
             "TLVL": "To level",
             "GBN": "GB name",
-            "P": "Places"
+            "P": "Places",
+            "LF": "Line Feed, add a new line"
           }
         },
         "template_name": "Template name",
         "errors": {
-          "template_cannot_have_this_name": "Template cannot have this name. Please use an other name."
-        }
+          "template_cannot_have_this_name": "Template cannot have this name. Please use an other name.",
+          "custom_name_empty": "The name of the field cannot be empty.",
+          "custom_name_already_exists": "This field name already exists."
+        },
+        "template_saved":  "Template saved",
+        "template_updated":  "Template updated",
+        "template_deleted":  "Template deleted"
       },
       "import_promotion_message": {
         "title": "Import promotion message",
         "config_placeholder": "Paste your config here",
         "errors": {
           "invalid_data": "Data are invalid"
-        }
+        },
+        "template_imported":  "Template imported"
       }
     },
     "routes": {

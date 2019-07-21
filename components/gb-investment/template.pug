@@ -356,19 +356,29 @@ div.content
               yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
 
       div(v-if="result !== null")
-        b-field(v-for="(value, i) in promotion" :key="i")
-          p.control
-            b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-              button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
-                span.icon
-                  i.fas.fa-trash
-          b-input(type="text" :value="value.message" readonly expanded)
-          p.control
-            b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
-              button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
-                span.icon
-                  i.far.fa-copy
-                | &nbsp;&nbsp;{{$t('utils.Copy')}}
+        template(v-for="(value, i) in promotion")
+          // Show custom fields
+          template(v-if="promotionMessageList[promotionMessageList.map(val => val.name).indexOf(value.name)].config.customFields")
+            div.columns(v-for="(line, index) in getSplittedCustomFields(value.name)")
+              div.column.is-half(v-for="(elt, index) in line")
+                b-field(:label="elt.key" :label-for="'custom_field_' + elt.key")
+                  b-input(:id="'custom_field_' + elt.key" type="text" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
+          // Show value
+          div.columns
+            div.column
+              b-field
+                p.control
+                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+                    button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
+                      span.icon
+                        i.fas.fa-trash
+                b-input(:type="nbMultiLine(value.message) ? 'textarea' : 'text'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : ''" :value="value.message" readonly expanded)
+                p.control
+                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
+                    button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
+                      span.icon
+                        i.far.fa-copy
+                      | &nbsp;&nbsp;{{$t('utils.Copy')}}
 
       div.columns
         div.column

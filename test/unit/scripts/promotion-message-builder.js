@@ -144,6 +144,26 @@ const results = [
       place: "${PI}",
       message: "${GBN} ${FLVL} < ${P} > ${TLVL}"
     }
+  },
+  {
+    name: "Default 11",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: true,
+      useShortGbName: false,
+      reversePlacesOrder: false,
+      placeSeparator: "${LF}",
+      place: "${val1} - ${GBN} ${PI}",
+      message: "${P}",
+      customFields: {
+        "Your pseudo": {
+          key: "Your pseudo",
+          value: "My pseudo"
+        }
+      }
+    }
   }
 ];
 
