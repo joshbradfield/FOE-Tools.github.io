@@ -986,7 +986,7 @@ export default {
     getSplittedCustomFields(name) {
       let fields = this.$data.promotionMessageList[this.$data.promotionMessageList.map(val => val.name).indexOf(name)]
         .config.customFields;
-      let result = Object.keys(fields).map((key, index) => {
+      let result = Object.keys(fields).map(key => {
         return fields[key];
       });
       return Utils.splitArray(result, 2, false);

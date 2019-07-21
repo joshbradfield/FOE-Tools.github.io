@@ -151,9 +151,9 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -244,10 +244,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -312,10 +312,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -380,10 +380,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -448,10 +448,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -521,10 +521,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -599,10 +599,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -667,10 +667,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -735,10 +735,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -793,10 +793,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
     "name": "Default 11",
   },
   Object {
@@ -861,10 +861,10 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatoire 1
-\${val1} - Observatoire 2
-\${val1} - Observatoire 3
-\${val1} - Observatoire 4",
+    "message": "My pseudo - Observatoire 1
+My pseudo - Observatoire 2
+My pseudo - Observatoire 3
+My pseudo - Observatoire 4",
     "name": "Default 11",
   },
   Object {
@@ -930,10 +930,10 @@ Object {
     },
     Object {
       "active": false,
-      "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2
-\${val1} - Observatory 3
-\${val1} - Observatory 4",
+      "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2
+My pseudo - Observatory 3
+My pseudo - Observatory 4",
       "name": "Default 11",
     },
     Object {
@@ -1075,8 +1075,8 @@ Array [
   },
   Object {
     "active": false,
-    "message": "\${val1} - Observatory 1
-\${val1} - Observatory 2",
+    "message": "My pseudo - Observatory 1
+My pseudo - Observatory 2",
     "name": "Default 11",
   },
   Object {

@@ -293,7 +293,7 @@ export const defaultPromotionMessages = [
       useShortGbName: false,
       reversePlacesOrder: false,
       placeSeparator: "${LF}",
-      place: "${val1} - ${GBN} ${PI}",
+      place: "${Your pseudo} - ${GBN} ${PI}",
       message: "${P}",
       customFields: {
         "Your pseudo": {

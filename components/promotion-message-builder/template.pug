@@ -64,15 +64,15 @@ div
 
     div.columns
       div.column.is-half
-        b-field(:label="$t(i18nPrefix + 'place_separator')" label-for="pmbPlaceSeparator")
-          b-input#pmbPlaceSeparator(type="text" v-model="result.placeSeparator" name="placeSeparator" autocomplete="off")
-      div.column.is-half
         b-message(type="is-info")
           p {{$t($data.i18nPrefix + 'available_variables')}}
           ul
             li
               b ${LF}
               | : {{$t($data.i18nPrefix + 'variables.message.LF')}}
+      div.column.is-half
+        b-field(:label="$t(i18nPrefix + 'place_separator')" label-for="pmbPlaceSeparator")
+          b-input#pmbPlaceSeparator(type="text" v-model="result.placeSeparator" name="placeSeparator" autocomplete="off")
 
     h6.title.is-6.margin-top-one-em {{$t($data.i18nPrefix + 'add_field_title')}}
 

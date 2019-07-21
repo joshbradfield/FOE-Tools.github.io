@@ -19,8 +19,8 @@ exports[`Scripts Promotion Message Builder Valid value with "Default 7" 1`] = `"
 exports[`Scripts Promotion Message Builder Valid value with "Default 8" 1`] = `"إسم مستعار foe_data.gb.Observatory 9 → 10 4,3,2,1"`;
 
 exports[`Scripts Promotion Message Builder Valid value with "Default 11" 1`] = `
-"\${val1} - foe_data.gb.Observatory 1
-\${val1} - foe_data.gb.Observatory 2
-\${val1} - foe_data.gb.Observatory 3
-\${val1} - foe_data.gb.Observatory 4"
+"My pseudo - foe_data.gb.Observatory 1
+My pseudo - foe_data.gb.Observatory 2
+My pseudo - foe_data.gb.Observatory 3
+My pseudo - foe_data.gb.Observatory 4"
 `;
