@@ -7,7 +7,9 @@
       "cf_calculator": "$t(routes.cf_calculator.hero.title)",
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
-      "trade": "$t(routes.trade.hero.title)"
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
     },
     "footer_menu": {
       "about": "O nas",
@@ -67,7 +69,8 @@
       },
       "gb_investment": {
         "gb_list_select": {
-          "label": "Zmień Perłę Architektury"
+          "label": "Zmień Perłę Architektury",
+          "info": "Możesz zmienić styl wybierania (wybieranie starszego typu lub autouzupełnianie) w ustawieniach globalnych"
         },
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
@@ -99,7 +102,8 @@
               "fp_already_putin": "Aktualna ilość PR",
               "spot_snipe": "Ilość wymaganych PR do zajęcia miejsca",
               "expected_participation": "Punkty Rozwoju uzyskane z bonusem przewidywanym przez właściciela",
-              "real_participation": "Punkty Rozwoju uzyskane z bonusem twojej Arki"
+              "real_participation": "Punkty Rozwoju uzyskane z bonusem twojej Arki",
+              "is_sniper": "Jest potencjalnym snajperem?"
             },
             "tbody": {
               "tooltip_owner_investment": "Ilość PR'ów, którą musi jeszcze wrzucić właściciel aby zablokować miejsce",
@@ -125,7 +129,8 @@
         "promotion": {
           "title": "Wiadomość ogłaszająca miejsca",
           "prefix_placeholder": "Tekst przed ogłoszeniem miejsc",
-          "suffix_placeholder": "Tekst po ogłoszeniu miejsc"
+          "suffix_placeholder": "Tekst po ogłoszeniu miejsc",
+          "promo": ["P1 ({{investment}})", "P2 ({{investment}})", "P3 ({{investment}})", "P4 ({{investment}})", "P5 ({{investment}})"]
         }
       },
       "gb_investment_investors": {
@@ -302,6 +307,58 @@
           "result": "W przyapdku {{to}} {{ageTo}}, potrzebujesz{{from}} {{ageFrom}} z ofertami do {{count}}:",
           "total": "(Łącznie: {{amount}} {{key}})"
         }
+      },
+      "promotion_message_builder": {
+        "title": "Wiadomość ogłaszająca miejsca",
+        "info": "Możesz to skopiować i udostępnić, na przykład członkom gildii",
+        "note": "Kreator wiadomości używa poziomu 9 → 10 $t(foe_data.gb.Observatory) przy stosunku 1.9 dla podglądu.",
+        "action": "Akcja",
+        "actions": {
+          "create": "Stwórz nowy szablon",
+          "update": "Zaktualizuj istniejący szablon",
+          "delete": "Usuń istniejący szablon"
+        },
+        "start_from_template": "Zacząć od szablonu?",
+        "edit_template": "Wybierz szablon do edycji",
+        "delete_template": "Wybierz szablon do usunięcia",
+        "templates": {
+          "default": "Domyślne szablony",
+          "custom": "Własne szablony"
+        },
+        "config": "Konfiguracja",
+        "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
+        "reverse_place_order": "Odwrócić kolejność miejsc?",
+        "place_separator": "Umieść rozdzielacz",
+        "place_builder": "Kreator miejsca",
+        "place_preview": "Podgląd miejsca (1 miejsce)",
+        "message_builder": "Kreator wiadomości",
+        "message_preview": "Podgląd wiadomości",
+        "place_builder_title": "Kreator miejsca",
+        "message_builder_title": "Kreator wiadomości",
+        "available_variables": "Dostępne zmienne:",
+        "variables": {
+          "place": {
+            "PI": "Umieść znacznik",
+            "PV": "Wpisz wartość(w punktach rozwoju)"
+          },
+          "message": {
+            "FLVL": "Z poziomu",
+            "TLVL": "Do poziomu",
+            "GBN": "Nazwa Perły Architektury",
+            "P": "Miejsca"
+          }
+        },
+        "template_name": "Nazwa szablonu",
+        "errors": {
+          "template_cannot_have_this_name": "Szablon nie może mieć tej nazwy. Użyj innej."
+        }
+      },
+      "import_promotion_message": {
+        "title": "Importuj wiadomość ogłaszającą miejsca",
+        "config_placeholder": "Wklej tutaj swoją konfigurację",
+        "errors": {
+          "invalid_data": "Dane są nieprawidłowe"
+        }
       }
     },
     "routes": {
@@ -361,7 +418,11 @@
             "survey": "Szyk zawierający wszystkie ankiety które wypełniłeś od tej pory",
             "fixedMainMenu": "Wskazuje czy główne menu jest zawsze widoczne, czy nie",
             "gbSelectMode": "Wskazuje jakiego typu selektor Perły Architektury używasz",
-            "haveReadLocaleInfoAvailable": "Wskazuje, czy przeczytałeś informację o tym, że ta strona jest dostępna w twoim języku"
+            "haveReadLocaleInfoAvailable": "Wskazuje, czy przeczytałeś informację o tym, że ta strona jest dostępna w twoim języku",
+            "promotionMessageList": "Zawiera listę wiadomości ogłaszających miejsca, które chcesz wyświetlić",
+            "customPromotionMessagesTemplates": "Zawiera wszystkie własne wiadomości ogłaszające miejsca",
+            "gbShowPrefix": "Wskazuje, czy chcesz by wiadomość ogłaszająca miejsca zawierała prefiks",
+            "gbShowSuffix": "Wskazuje, czy chcesz by wiadomość ogłaszająca miejsca zawierała sufiks"
           }
         },
         "dev_info": {
@@ -459,6 +520,7 @@
         }
       },
       "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Pomóż przetłumaczyć tę stronę",
           "subtitle": "Dołącz do zespołu tłumaczy"
@@ -468,6 +530,7 @@
         "p2_html": "$t(common:site_title) jest tłumaczone przez użytkowników. Używamy do tego platformy $t(common:links.lingohub), aby ułatwić tłumaczenie. Aby dołączyć do zespołu tłumaczącego stronę wyślij emaila (w języku angielskim) do $t(common:links.contact_foe_tools), określając język, w którym możesz przetłumaczyć stronę, abyśmy mogli wysłać Ci zaproszenie."
       },
       "survey": {
+        "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Ankieta",
           "subtitle": "Pomóż w udoskonalaniu $t(common:site_title) wypełniając ankietę"
@@ -478,6 +541,7 @@
         "unknown_error": "Wystąpił nieznany błąd. Skontaktuj się z administratorem strony"
       },
       "contact": {
+        "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Kontakt",
           "subtitle": "Skontaktuj się z opiekunem $t(common:site_title)"
@@ -989,6 +1053,22 @@
         "Bizarre_Plains": "Bizarre Plains",
         "Argus__Watch": "Argus' Watch",
         "Berta_s_Byte_Sauce": "Berta's Byte-Sauce",
+        "Veil_of_Bits": "Veil of Bits",
+        "Harvey_s_Low_Core": "Harvey's Low Core",
+        "The_Byte_Parade": "The Byte Parade",
+        "Reboot_Bay": "Reboot Bay",
+        "Streaming_Forest": "Streaming Forest",
+        "CMYK_Citadel": "CMYK Citadel",
+        "Forgify": "Forgify",
+        "Digital_Town_of_Hope": "Digital Town of Hope",
+        "Cloud_One": "Cloud One",
+        "Re_Birth": "Re:Birth",
+        "Castle_You_Es_Bee": "Castle You-Es-Bee",
+        "NET_MASKerade": "NET MASKerade",
+        "If_Then_Whatever": "If, Then, Whatever",
+        "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
+        "The_Church_of_Games": "The Church of Games",
+        "The_Sacred_Database": "The Sacred Database",
         "Game_Over": "Koniec gry"
       },
       "bonus": {
@@ -1161,7 +1241,15 @@
       "Close": "Zamknij",
       "Result": "Wynik",
       "between_range": "pomiędzy {{min, number}} i {{max, number}}",
+      "Submit": "Zatwierdź",
       "Reset_values": "Zresetuj wartości",
+      "Switch": "Przełącz",
+      "Save": "Zapisz",
+      "Show": "Pokaż",
+      "Hide": "Ukryj",
+      "errors": {
+        "field_cannot_be_empty": "To pole nie może być puste"
+      },
       "moment": {
         "year": "{{count}} rok",
         "year_plural": "{{count, number}} lat",
