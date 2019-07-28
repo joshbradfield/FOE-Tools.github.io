@@ -9,7 +9,8 @@
       "nl": { "en": "Dutch", "original": "Nederlands" },
       "hu": { "en": "Hungarian", "original": "Magyar" },
       "pl": { "en": "Polish", "original": "Polski" },
-      "sv": { "en": "Swedish", "original": "Svenska" }
+      "sv": { "en": "Swedish", "original": "Svenska" },
+      "pt": { "en": "Portuguese", "original": "Português" }
     },
     "language_selector": {
       "en": "$t(common:lang.en.original)",

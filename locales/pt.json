@@ -2,14 +2,14 @@
   "translation": {
     "main_menu": {
       "home": "Casa ",
-      "gb_investment": "$t(routes.eg_investimento_eg_escolher.hero.title)",
-      "secure_position": "$t(routes.posição _segura.hero.title)",
-      "cf_calculator": "$t(routes.cf_calculadora .hero.title)",
-      "gb_statistics": "$t(routes.ge_estatisticas.hero.title)",
-      "gb_forecast_cost": "$t(routes.ge_previsão_de_custo.hero.title",
-      "trade": "$t(routes.trocas.hero.title)",
-      "help_to_translate_the_site": "$t(routes.ajuda_na_tradução_do_site.hero.titles)\n",
-      "campaign_cost": "$t(routes.custo_de_campanha.hero.title"
+      "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
+      "secure_position": "$t(routes.secure_position.hero.title)",
+      "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+      "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
     },
     "footer_menu": {
       "about": "Sobre",
@@ -19,7 +19,7 @@
     },
     "components": {
       "campaign_cost": {
-        "title": "$t(routes.custos_da_campanha.hero.title)",
+        "title": "$t(routes.campaign_cost.hero.title)",
         "choose_province": "Escolhe uma província ",
         "message": {
           "haveUnknownCosts": "Esta província contem um ou mais sectores sem valores"
@@ -27,9 +27,9 @@
       },
       "cf_calculator": {
         "block_cfc": {
-          "title": "$t(routes.cf.calculadora.hero.title)",
+          "title": "$t(routes.cf_calculator.hero.title)",
           "your_age": "A Tua Era ",
-          "your_cf_boost": "O teu $t(foe_data.ge.Castelo_Frontenac)Bonus",
+          "your_cf_boost": "O teu $t(foe_data.gb.Chateau_Frontenac) Bonus",
           "coins_to_use": "Total de moedas para UBQ",
           "supplies_to_use": "Mantimentos para UBQ",
           "gb_plunder_goods": "GE & Mercadorias Pilhadas ",
@@ -38,7 +38,7 @@
           "second_rq": "2º  RQ ?",
           "supplies_gathered": "Mantimentos Recolhidos",
           "table_reward": {
-            "title": "$t(utils.Recompensas)",
+            "title": "$t(utils.Rewards)",
             "thead": {
               "th1": "Plantas ",
               "th2": "Medalhas ",
@@ -47,12 +47,12 @@
             }
           },
           "reward_message": {
-            "daily_ubq": "UBQ's Diarios:{{contagem,numero}}",
-            "bonus_ubq": "UBQ's Bonus:{{contagem,numero}}",
-            "second_rq_completed": "2º RQ's Completada:{{contagem,numero}}",
-            "total_goods": "Total de Mercadorias:{{contagem, numero}}",
-            "total_fp": "Total de PF's:{{contagem, numero}}",
-            "total_rq_completed": "Total de RQ's concluídas: {{contagem, numero}}"
+            "daily_ubq": "UBQ's Diarios: {{count,number}}",
+            "bonus_ubq": "UBQ's Bonus: {{count,number}}",
+            "second_rq_completed": "2º RQ's Completada: {{count,number}}",
+            "total_goods": "Total de Mercadorias: {{count, number}}",
+            "total_fp": "Total de PF's: {{count, number}}",
+            "total_rq_completed": "Total de RQ's concluídas: {{count, number}}"
           },
           "table_return": {
             "thead": {
@@ -62,7 +62,7 @@
             }
           },
           "infinity_generator": {
-            "message": "Com este bónus de $t(foe_data.gb.Chateau_Frontenac),ganharas mais moedas e mantimentos,do que aqueles que usaste para concluíres a missão.Escolhe o numero de$t(components.cf_calculator.block_cfc.infinity_generator.label)que queres fazer.",
+            "message": "Com este bónus de $t(foe_data.gb.Chateau_Frontenac),ganharas mais moedas e mantimentos,do que aqueles que usaste para concluíres a missão.Escolhe o numero de $t(components.cf_calculator.block_cfc.infinity_generator.label) que queres fazer.",
             "label": "Missão acumulativa"
           }
         }
@@ -73,18 +73,18 @@
           "info": "Podes mudar o estilo do seleccionador (seleccionador manual ou de preenchimento automático) nas definições globais."
         },
         "gb_investment": {
-          "title": "$t(routes.ge_investimento_ge_escolher.hero.title)",
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
             "p1": "Insira  o nível (to) e% de bónus da Arca (90% para o nível 80 da Arca). Os valores na tabela são actualizados automaticamente.",
             "p2_html": "</strong>Nota<strong>:Se não for actualizado automaticamente,defina primeiro o nível do GE e o valor total do investimento e clica  em $t(components.gb_investment.gb_investment.form.submit_global)  \"Se quiseres ajustar os valores de cada lugar,clica em\"$t(components.gb_investment.gb_investment.form.submit_custom)"
           },
           "form": {
-            "level": "Nível {{deNível, numero}}→ {{nível, numero}}\n($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "level": "Nível {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "% do bónus dos investidores (bónus da arca)",
             "submit_global": "Calculo Global",
             "submit_custom": "Cálculo personalizado",
             "owner_investment": "Número de PFs actualmente colocados pelo proprietário (máximo {{max}})",
-            "add_investors": "Adicionar investidor (coloque o valor FP, $ t (utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
+            "add_investors": "Adicionar investidor (coloque o valor FP, $t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
             "tooltip_add_investors": "Clique no botão \"$t(utils.Add)\" ou pressione a tecla \"Enter\" para adicionar investidor",
             "investors_list": "Lista de investidores adicionados",
             "show_snipe": "Mostrar lugar/intruso",
@@ -92,7 +92,7 @@
             "display_card": "Exibir a tabela no modo de exibição caixa? (na tela pequena)"
           },
           "table": {
-            "title": "$t({{gb_key}})nivel {{doNível, numero}} → {{nível, numero}}",
+            "title": "$t({{gb_key}}) nivel {{fromLevel, number}} → {{level, number}}",
             "thead": {
               "th1": "Lugares",
               "th2": "Prémios  padrão",
@@ -131,18 +131,18 @@
           "title": "Mensagem de promoção",
           "prefix_placeholder": "texto antes da mensagem de promoção",
           "suffix_placeholder": "texto depois da mensagem de promoção",
-          "promo": ["P1({{investimento}})", "P2 ({{investimento}})", "P3({{investimento}})", "P4({{investimento}})", "P5({{investimento}})"]
+          "promo": ["P1({{investment}})", "P2({{investment}})", "P3({{investment}})", "P4({{investment}})", "P5({{investment}})"]
         }
       },
       "gb_investment_investors": {
         "description": {
-          "p1": "Essa visão permite ver o ganho que pode ser obtido  num lugar com ou sem levar em conta os investimentos em outros lugares. Existem {{count}}tipos de  lugares:"
+          "p1": "Essa visão permite ver o ganho que pode ser obtido  num lugar com ou sem levar em conta os investimentos em outros lugares. Existem {{count}} tipos de lugares:"
         },
         "takingPlaceInConsideration": {
           "label": "Ter outros lugares em consideração ?",
           "form": {
             "show_place": "Mostrar lugar",
-            "no": "$t(utils.Não)",
+            "no": "$t(utils.No)",
             "normal": "Normal",
             "optimal": "Óptimo"
           },
@@ -154,7 +154,7 @@
         },
         "table": {
           "thead": {
-            "th_place": "Lugar{{count}}",
+            "th_place": "Lugar {{count}}",
             "th_profit_loss": "Lucro/Perda"
           }
         }
@@ -165,10 +165,10 @@
         "custom_percentage": "Bónus normal da Arca  (para cada lugar)",
         "estimated_time": "Tempo estimado para atingir o nível",
         "message": {
-          "single": "Para completar o nível {{level}}de \"$t({{gb}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total do nível: {{custo, numero}} PFs.",
-          "multi": "Para passar do nível {{from}}para \"$t({{to}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total dos níveis: {{custo, numero}} PFs.",
+          "single": "Para completar o nível {{level}} de \"$t({{gb}})\", o proprietário deve investir {{preparation, number}} PFs. Custo total do nível: {{cost, number}} PFs.",
+          "multi": "Para passar do nível {{from}} para \"$t({{to}})\", o proprietário deve investir {{preparation, number}} PFs. Custo total dos níveis: {{cost, number}} PFs.",
           "diff": "Com o bónus do investimento,vais poupar {{count}}PF",
-          "diff_plural": "Com o bónus do investimento,vais poupar {{contagem, numero}} ",
+          "diff_plural": "Com o bónus do investimento,vais poupar {{count, number}} ",
           "estimated_time": "Tempo estimado para atingir o nível: {{time}}"
         },
         "prop_already_invested": "PFs já investidos pelo dono no nível actual",
@@ -206,26 +206,26 @@
           "your_arc_bonus": "O teu bónus da Arca",
           "fp_target_reward": "PF's para atingir o lugar ",
           "target_reward": "Lugar designado",
-          "place": "{{place}}({{contagem, numero}} PF)",
-          "place_plural": "{{place}}({{contagem, numero}} PFs)",
+          "place": "{{place}} ({{count, number}} FP)",
+          "place_plural": "{{place}} ({{count, number}} FPs)",
           "various_rate": "Vários taxas",
           "result": {
             "error": "Um ou mais valores não são válidos.",
             "already_blocked": "O teu  lugar está bloqueado.",
-            "default": "Deves ter um total{{count}} de PF's para segurares o lugar",
-            "default_plural": "Deves ter um total{{contagem, numero}} de PF's para segurares o lugar",
+            "default": "Deves ter um total {{count}} de PF's para segurares o lugar",
+            "default_plural": "Deves ter um total {{count, number}} de PF's para segurares o lugar",
             "fp_need_to_lock": "PF necessário para segurar o lugar",
             "fp_need_to_lock_plural": "PF's necessários para segurar o lugar",
             "still_to_put": "Numero de PF's em falta",
-            "fp_to_secure_html": "Ainda precisa colocar {{count}}PF.",
+            "fp_to_secure_html": "Ainda precisa colocar {{count}} PF.",
             "roi": {
-              "profit": "O teu ganho será {{count}}PF",
-              "profit_plural": "O lucro será de {{contagem, numero}} PFs ",
-              "loss": "O prejuízo será de {{count}}PF",
-              "loss_plural": "O prejuízo será de {{contagem, numero}} PF's",
+              "profit": "O teu ganho será {{count}} PF",
+              "profit_plural": "O lucro será de {{count, number}} PFs ",
+              "loss": "O prejuízo será de {{count}} PF",
+              "loss_plural": "O prejuízo será de {{count, number}} PF's",
               "neutral": "O investimento não terá retorno "
             },
-            "fp_to_secure_html_plural": "Ainda faltam {{contagem, numero}}PFs",
+            "fp_to_secure_html_plural": "Ainda faltam {{count, number}}PFs",
             "cant_block": "Não pode bloquear o lugar"
           },
           "unknown": "desconhecido"
@@ -256,11 +256,11 @@
           "link": "Mais Informações"
         },
         "new_year": {
-          "message": "$t(common:site_title)celebra seu ano de {{contagem, numero}}",
-          "message_plural": "$t(common:site_title)celebra os seus {{contagem, numer}} anos"
+          "message": "$t(common:site_title) celebra seu ano de {{count, number}}",
+          "message_plural": "$t(common:site_title) celebra os seus {{count, number}} anos"
         },
         "survey": {
-          "message": "Ajude-nos a melhorar $t(common:site_title)concluindo este inquérito"
+          "message": "Ajude-nos a melhorar $t(common:site_title) concluindo este inquérito"
         },
         "permalink_info": "Você visita um permalink. Consequentemente, quaisquer alterações feitas não serão salvas em cookies.",
         "footer": {
@@ -289,7 +289,7 @@
             "Auto": "Automático"
           }
         },
-        "switch_locale": "$t(common:site_title)está disponível no seu idioma"
+        "switch_locale": "$t(common:site_title) está disponível no seu idioma"
       },
       "trade": {
         "title": "Versão da  Forma",
@@ -300,19 +300,19 @@
         },
         "split_value": "Quantidade máxima de uma oferta (máximo {{count}})",
         "split_message": {
-          "msg": "{{valueFrom}}{{ageFrom}}{{valueTo}}{{ageTo}}",
-          "common": "{{count}}× ($ t (components.trade.split_message.msg, {'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo' : '{{ageTo}}'}))",
+          "msg": "{{valueFrom}} {{ageFrom}} para {{valueTo}} {{ageTo}}",
+          "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
           "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
-          "result": "Para {{to}}{{ageTo}}, você precisa de {{from}}{{ageFrom}}com ofertas até {{count}}:",
-          "total": "(total: {{amount}}{{key}})"
+          "result": "Para {{to}} {{ageTo}}, você precisa de {{from}} {{ageFrom}} com ofertas até {{count}}:",
+          "total": "(total: {{amount}} {{key}})"
         }
       },
       "promotion_message_builder": {
         "title": "Mensagem de promoção",
         "info": "Isso pode ser copiado para ser partilhado, por exemplo, com seus membros da guilda",
-        "note": "Observe que o criador de mensagens usa o nível 9 → 10 de $t(foe_data.gb.Observatory)com uma taxa de 1,9 para visualização.",
+        "note": "Observe que o criador de mensagens usa o nível 9 → 10 de $t(foe_data.gb.Observatory) com uma taxa de 1,9 para visualização.",
         "action": "Acção",
         "actions": {
           "create": "Crie um novo modelo",
@@ -383,8 +383,8 @@
         "title": "Sobre $t(common:site_title)",
         "general_info": {
           "title": "Informação geral",
-          "p1_html": "Forge of Empires, FOE e todas as marcas e conteúdos relacionados pertencem à InnoGames GmbH. <br/>$t(common:site_title)é um site de terceiros não oficial e não é afiliado à InnoGames.",
-          "p2_html": "$t(common:site_title)este site foi criado pelo jogador francês <strong class=\"has-text-weight-semibold\">Yoratheon </strong>.",
+          "p1_html": "Forge of Empires, FOE e todas as marcas e conteúdos relacionados pertencem à InnoGames GmbH. <br/>$t(common:site_title) é um site de terceiros não oficial e não é afiliado à InnoGames.",
+          "p2_html": "$t(common:site_title) este site foi criado pelo jogador francês <strong class=\"has-text-weight-semibold\">Yoratheon </strong>.",
           "p3_html": "O site é OpenSource, o código está disponível gratuitamente em $t(common:links.github). <br/>Assim, todos com os conhecimentos  necessários podem participar da melhoria deste site."
         },
         "cookie": {
@@ -410,13 +410,13 @@
             "fpBy24h": "$t(components.cf_calculator.block_cfc.fp_by_24h)",
             "goods": "$t(components.cf_calculator.block_cfc.gb_plunder_goods)",
             "otherRq": "$t(components.cf_calculator.block_cfc.other_rq)",
-            "cumulativeQuest": "Numero total de Missões",
+            "cumulativeQuest": "Number of cumulative quests",
             "secondRq": "$t(components.cf_calculator.block_cfc.second_rq)",
-            "supplies": "$t(componentes.cf_calculador.block:cfc.mantimentos_para_usar)",
-            "suppliesGathered": "$t(componentes.cf_calculador.block_cfc.mantimentos_reunidos)",
-            "yourAge": "$t(componentes.cf_calculadora.block_cfc. A_tua_Era)",
+            "supplies": "$t(components.cf_calculator.block_cfc.supplies_to_use)",
+            "suppliesGathered": "$t(components.cf_calculator.block_cfc.supplies_gathered)",
+            "yourAge": "$t(components.cf_calculator.block_cfc.your_age)",
             "investorPercentageCustom_x": "$t(components.gb_investment.gb_investment.table.thead.th5)",
-            "investorPercentageGlobal": "$t(components.ge_investimento.ge_investimento.modelo.investidor_percentagem)",
+            "investorPercentageGlobal": "$t(components.gb_investment.gb_investment.form.investor_percentage)",
             "investorParticipation_x": "Participação esperada de investidores quando o lugar não da PFs",
             "level": "Nível do GE",
             "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
@@ -465,14 +465,14 @@
         "title": "Changelog | $t(common:site_title)"
       },
       "contributors": {
-        "title": "$t(routes.contributors.hero.title)$t(common:site_title)",
+        "title": "$t(routes.contributors.hero.title) $t(common:site_title)",
         "hero": {
           "title": "Contribuidores ",
           "subtitle": "Esta página tenta listar todos os contribuidores"
         }
       },
       "gb_investment": {
-        "title": "$ t (routes.gb_investment.hero.title, {'gb_key': '{{gb_key}}'}) | $t(common:site_title)",
+        "title": "$t(routes.gb_investment.hero.title, {'gb_key': '{{gb_key}}'}) | $t(common:site_title)",
         "hero": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)- $t({{gb_key}})"
         },
@@ -541,13 +541,13 @@
         },
         "p1": "Sua língua  não está disponível, a tradução está incompleta ou contém erros? Sinta-se à vontade para participar na equipe de tradução do site.",
         "how_to_join_the_team": "Como se juntar à equipe?",
-        "p2_html": "$t(common:site_title)é traduzido pelos jogadores. Usamos a plataforma $t(common:links.lingohub)para facilitar o processo de tradução. Para participar da equipe, envie um e-mail (em inglês) para $t(common:links.contact_foe_tools)especificando o (s) idioma (s) para o qual você pode traduzir para que possamos enviar um convite."
+        "p2_html": "$t(common:site_title) é traduzido pelos jogadores. Usamos a plataforma $t(common:links.lingohub) para facilitar o processo de tradução. Para participar da equipe, envie um e-mail (em inglês) para $t(common:links.contact_foe_tools) especificando o (s) idioma (s) para o qual você pode traduzir para que possamos enviar um convite."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Inquérito",
-          "subtitle": "Ajude-nos a melhorar $t(common:site_title)ao responder a este inquérito"
+          "subtitle": "Ajude-nos a melhorar $t(common:site_title) ao responder a este inquérito"
         },
         "required_field": "Este campo é obrigatório",
         "survey_complete": "Obrigado pela sua opinião !",
@@ -573,7 +573,7 @@
     },
     "foe_data": {
       "age": {
-        "Oracle": "$t(foe_data.age.NoAge)($t(foe_data.gb.Oracle_of_Delphi))",
+        "Oracle": "$t(foe_data.age.NoAge) ($t(foe_data.gb.Oracle_of_Delphi))",
         "NoAge": "Sem Era ",
         "BronzeAge": "Idade do Bronze",
         "IronAge": "Idade do Ferro ",
@@ -1237,7 +1237,7 @@
       "Copy": "Copiar",
       "Copyed": "Copiado!",
       "Information": "Informação",
-      "From": "DE ",
+      "From": "De",
       "To": "Para (no máximo {{max}})",
       "Prefix": "Prefixo",
       "Suffix": "Sufixo",
@@ -1264,12 +1264,12 @@
         "field_cannot_be_empty": "Este campo não pode estar vazio"
       },
       "moment": {
-        "year": "{{count}}ano",
+        "year": "{{count}} ano",
         "year_plural": "{{count, number}} anos",
-        "month": "{{count}}mês",
-        "month_plural": "{{count}}meses",
-        "day": "{{count}}dia",
-        "day_plural": "{{count}}dias"
+        "month": "{{count}} mês",
+        "month_plural": "{{count}} meses",
+        "day": "{{count}} dia",
+        "day_plural": "{{count}} dias"
       },
       "graph": {
         "gb_level": "Nível ",

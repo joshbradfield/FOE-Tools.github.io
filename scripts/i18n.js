@@ -8,6 +8,7 @@ import nl from "../locales/nl.json";
 import hu from "../locales/hu.json";
 import pl from "../locales/pl.json";
 import sv from "../locales/sv.json";
+import pt from "../locales/pt.json";
 
 // Requires al packages
 import hideI18next from "i18next";
@@ -19,18 +20,20 @@ import "numeral/locales/ru";
 import "numeral/locales/nl-nl";
 import "numeral/locales/hu";
 import "numeral/locales/pl";
+import "numeral/locales/pt-pt";
 import * as numeralSvSe from "./numeral_custom_locals/sv-se";
 numeralSvSe.init(numeral);
 
 // Constant used
 export const defaultLocale = "en";
-export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv"];
+export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv", "pt"];
 const languageList = ["common"].concat(supportedLocales);
-const resources = { common, en, fr, de, ru, nl, hu, pl, sv };
+const resources = { common, en, fr, de, ru, nl, hu, pl, sv, pt };
 
 export const numeralSpecialLocales = {
   nl: "nl-nl",
-  sv: "sv-se"
+  sv: "sv-se",
+  pt: "pt-pt"
 };
 
 export function initializeI18next() {
