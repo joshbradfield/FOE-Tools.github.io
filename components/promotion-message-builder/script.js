@@ -136,7 +136,7 @@ export default {
       const tmp = defaultTemplateNameRegex.test(templateName)
         ? this.defaultTemplates.find(elt => elt.name === templateName).config
         : this.customTemplates.find(elt => elt.name === templateName).config;
-      this.result = JSON.parse(JSON.stringify(tmp));
+      this.result = { customFields: {}, ...JSON.parse(JSON.stringify(tmp)) };
       this.$data.oldTemplateName = templateName;
       if (this.action === "update") {
         this.$data.templateName = templateName;
