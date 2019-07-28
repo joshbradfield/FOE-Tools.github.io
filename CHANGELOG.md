@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.47.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.46.0...v2.47.0) (2019-07-28)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([8b14b8f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8b14b8f))
+* **foe-data:** add levels of several ages ([8c2ac3c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8c2ac3c))
+* **l10n:** add Portuguese ([122be70](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/122be70))
+* **l10n:** update translation and add Portuguese ([52111f7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/52111f7))
+* **promotion-message-builder:** add multiline support ([1f46adb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1f46adb))
+
+
+
 ## [2.46.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.45.0...v2.46.0) (2019-06-30)
 
 
