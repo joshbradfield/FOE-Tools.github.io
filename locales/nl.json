@@ -84,7 +84,7 @@
             "submit_global": "Globale Berekening",
             "submit_custom": "Aangepaste Berekening",
             "owner_investment": "Aantal FP's dat door de GG eigenaar tot nu is gestort (max. {{max}})",
-            "add_investors": "Voeg investeerder toe (aantal FP's, $ t (utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
+            "add_investors": "Voeg investeerder toe (aantal FP's, $t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
             "tooltip_add_investors": "Klik op de knop \"$t(utils.Add)\" of druk op de \"Enter\" -toets om een investeerder toe te voegen",
             "investors_list": "Lijst van toegevoegde investeerders",
             "show_snipe": "Toon P veilig/Snipe winst",
@@ -136,7 +136,7 @@
       },
       "gb_investment_investors": {
         "description": {
-          "p1": "Deze weergave maakt het mogelijk de winst te zien die kan worden verkregen door een plaats in te nemen met of zonder rekening te houden met investeringen op andere plaatsen. Er zijn {{count}}soorten overwegingen van andere plaatsen:"
+          "p1": "Deze weergave maakt het mogelijk de winst te zien die kan worden verkregen door een plaats in te nemen met of zonder rekening te houden met investeringen op andere plaatsen. Er zijn {{count}} soorten overwegingen van andere plaatsen:"
         },
         "takingPlaceInConsideration": {
           "label": "Neem andere plaatsen in overweging?",
@@ -256,11 +256,11 @@
           "link": "Meer informatie"
         },
         "new_year": {
-          "message": "$t(common:site_title)viert het {{count, number}} jaar",
-          "message_plural": "$t(common:site_title)viert zijn {{count, number}} jaar"
+          "message": "$t(common:site_title) viert het {{count, number}} jaar",
+          "message_plural": "$t(common:site_title) viert zijn {{count, number}} jaar"
         },
         "survey": {
-          "message": "Help ons om $t(common:site_title)te verbeteren door deze enquête in te vullen"
+          "message": "Help ons om $t(common:site_title) te verbeteren door deze enquête in te vullen"
         },
         "permalink_info": "Je bezoekt een permalink. Daardoor zullen de wijzigingen niet worden opgeslagen in een cookie.",
         "footer": {
@@ -289,7 +289,7 @@
             "Auto": "automatisch"
           }
         },
-        "switch_locale": "$t(common:site_title)is beschikbaar in uw taal"
+        "switch_locale": "$t(common:site_title) is beschikbaar in uw taal"
       },
       "trade": {
         "title": "Formulier versie",
@@ -300,19 +300,19 @@
         },
         "split_value": "Maximumgrootte van een aanbieding (max {{count}})",
         "split_message": {
-          "msg": "{{valueFrom}}{{ageFrom}}voor {{valueTo}}{{ageTo}}",
-          "common": "{{count}}× ($ t (components.trade.split_message.msg, {'valueFrom': '{{valueFrom}}', 'TP vanaf': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'TP tot' : '{{ageTo}}'}))",
-          "multi": "$ t (components.trade.split_message.common, {'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}'}) en $ t (components.trade.split_message.common, {' count ': 1,' valueFrom ':' {{valueFromSingle}}',' ageFrom ':' {{ageFrom}}',' valueTo ':' {{valueToSingle}}',' ageTo ':' {{ageTo}}'})"
+          "msg": "{{valueFrom}} {{ageFrom}} voor {{valueTo}} {{ageTo}}",
+          "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
-          "result": "Voor {{to}}{{ageTo}}heeft u {{from}}{{ageFrom}}nodig met aanbiedingen tot {{count}}:",
-          "total": "(totaal: {{amount}}{{key}})"
+          "result": "Voor {{to}} {{ageTo}} heeft u {{from}} {{ageFrom}} nodig met aanbiedingen tot {{count}}:",
+          "total": "(totaal: {{amount}} {{key}})"
         }
       },
       "promotion_message_builder": {
         "title": "Promotie bericht builder",
         "info": "Dit kan worden gekopieerd om te worden gedeeld, bijvoorbeeld met uw gildeleden",
-        "note": "Merk op dat de berichten builder niveau 9 → 10 van $t(foe_data.gb.Observatory)gebruikt met een ratio van 1,9 voor preview.",
+        "note": "Merk op dat de berichten builder niveau 9 → 10 van $t(foe_data.gb.Observatory) gebruikt met een ratio van 1,9 voor preview.",
         "action": "Actie",
         "actions": {
           "create": "Maak een nieuwe sjabloon",
@@ -541,13 +541,13 @@
         },
         "p1": "Uw taal is niet beschikbaar, de vertaling is onvolledig of bevat fouten? Voel je vrij om deel te nemen aan het vertaalteam van de site.",
         "how_to_join_the_team": "Hoe wordt je lid van het team?",
-        "p2_html": "$t(common:site_title)wordt vertaald door gebruikers. We gebruiken het $t(common:links.lingohub)-platform om het vertaalproces te vergemakkelijken. Om lid te worden van het team, stuur een e-mail (in het Engels) naar $t(common:links.contact_foe_tools)met de taal (talen) waarin u kunt vertalen, zodat we u een uitnodiging kunnen sturen."
+        "p2_html": "$t(common:site_title) wordt vertaald door gebruikers. We gebruiken het $t(common:links.lingohub)-platform om het vertaalproces te vergemakkelijken. Om lid te worden van het team, stuur een e-mail (in het Engels) naar $t(common:links.contact_foe_tools) met de taal (talen) waarin u kunt vertalen, zodat we u een uitnodiging kunnen sturen."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Enquête",
-          "subtitle": "Help om $t(common:site_title)te verbeteren door deze enquête in te vullen"
+          "subtitle": "Help om $t(common:site_title) te verbeteren door deze enquête in te vullen"
         },
         "required_field": "Dit veld is verplicht",
         "survey_complete": "Bedankt voor je feedback!",

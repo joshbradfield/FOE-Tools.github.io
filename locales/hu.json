@@ -136,7 +136,7 @@
         "message": {
           "single": "A $t({{gb}}) {{level}} szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
           "multi": "{{from}}$t({{to}}) szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
-          "diff": "Bónuszbefektetésekkel megtakarítasz:  {{count}}FP-t",
+          "diff": "Bónuszbefektetésekkel megtakarítasz:  {{count}} FP-t",
           "estimated_time": "A kívánt szint eléréséhez szükséges idő: {{time}}"
         },
         "prop_already_invested": "A tulajdonos által a jelenlegi szinten befektetett FP mennyisége",
