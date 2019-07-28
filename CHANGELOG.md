@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.47.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.47.0...v2.47.1) (2019-07-28)
+
+
+### Bug Fixes
+
+* **l10n:** fix typo ([8342963](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8342963))
+* **promotion-message-builder:** fix add field when start from template ([d983706](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d983706))
+
+
+
 ## [2.47.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.46.0...v2.47.0) (2019-07-28)
 
 
