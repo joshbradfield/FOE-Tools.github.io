@@ -88,6 +88,7 @@
             "tooltip_add_investors": "Klicka på knappen [$t(utils.Add)] eller tryck på [Enter], för att lägga till investerare",
             "investors_list": "Lista över tillagda investerare",
             "show_snipe": "Visa Plats/Kapare",
+            "show_only_secured_places": "Visa endast säkra platser",
             "display_card": "Visa tabellen i kort-vy (för liten skärm) ?"
           },
           "table": {
@@ -98,7 +99,7 @@
               "th3": "FP att lägga av ägaren för att grunda platsen",
               "th4": "Belöningar med boost",
               "th5": "% av investerares Ark-bonus",
-              "th6": "Annonsera plats",
+              "th6": "Inkludera i annonser",
               "fp_already_putin": "Antal FP redan lagda",
               "spot_snipe": "Plats/Kapare",
               "expected_participation": "FP anskaffade med % bonus förväntat av ägaren",
@@ -127,9 +128,9 @@
           "show_level": "Visa nivå ?"
         },
         "promotion": {
-          "title": "Postningstext",
-          "prefix_placeholder": "text före postningstext",
-          "suffix_placeholder": "text efter postningstext",
+          "title": "Annonstext",
+          "prefix_placeholder": "text före annonstext",
+          "suffix_placeholder": "text efter annonstext",
           "promo": ["1({{investment}})", "4({{investment}})", "3({{investment}})", "2({{investment}})", "5({{investment}})"]
         }
       },
@@ -327,12 +328,12 @@
         },
         "config": "Konfiguration",
         "use_short_name": "Använd förkortning ?",
-        "reverse_place_order": "Reverserad ordning på platser ?",
+        "reverse_place_order": "Reversera ordning på platser?",
         "place_separator": "Plats separator",
         "place_builder": "Platsbyggare",
         "place_preview": "Plats förhandsgranskning (1:a plats)",
         "message_builder": "Annonsbyggare",
-        "message_preview": "Förhandsgranskning av postningstext",
+        "message_preview": "Förhandsgranskning av annonstext",
         "place_builder_title": "Platsbyggare",
         "message_builder_title": "Annonsbyggare",
         "available_variables": "Tillgängliga variabler:",
@@ -1151,7 +1152,7 @@
           "gb_description": "Höjer dina mynt, förnödenheter, varor, medaljer eller diamanter från uppdragsbelöningar."
         },
         "penal_unit": {
-          "name": "Straffenhet",
+          "name": "Militär enhet",
           "gb_description": "Rekryterar oanslutna enheter var 24:e timme, slumpmässigt valt från någon/några militärbyggnad(er) i din stad."
         },
         "guild_goods": {
@@ -1273,7 +1274,7 @@
       "eventOrganizing": "Händelsearrangemang",
       "example": "Exempel",
       "financial": "Finansiell",
-      "fundingFinding": "Finansiering Hitta",
+      "fundingFinding": "Söka Finansiering",
       "ideas": "Idéer, Planering & Återkoppling",
       "infra": "Infrastruktur (Inhysning, Bygg-verktyg, etc)",
       "platform": "Packetering / portning till ny plattform",

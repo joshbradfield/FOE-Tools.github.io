@@ -8,12 +8,14 @@
       "gb_statistics": "$t(routes.gb_statistics.hero.title)",
       "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
       "trade": "$t(routes.trade.hero.title)",
-      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
     },
     "footer_menu": {
       "about": "Über",
       "contributors": "Mitwirkende",
-      "changelog": "Änderungsprotokoll"
+      "changelog": "Änderungsprotokoll",
+      "contact": "Kontakt"
     },
     "components": {
       "campaign_cost": {
@@ -67,12 +69,13 @@
       },
       "gb_investment": {
         "gb_list_select": {
-          "label": "Auswahl des Legendären Bauwerks"
+          "label": "Auswahl des Legendären Bauwerks",
+          "info": "Sie können den Stil der Auswahl (alte Auswahl oder automatische Vervollständigung) in den globalen Einstellungen ändern"
         },
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
-            "p1": "Trage hier die Werte für Stufe und Mäzenbelohnung ein. Die Tabellenwerte werden sich automatisch aktualisieren.",
+            "p1": "Trage hier die Werte für Stufe und Arc Belohnung (Arc lvl80 ist 90%) ein. Die Tabellenwerte werden sich automatisch aktualisieren.",
             "p2_html": "<strong>Hinweis</strong>: Falls die Aktualisierung nicht automatisch erfolgen sollte, gib zuerst die LB Stufe und den allgemeinen Investitionswert ein und klicke dann auf \"$t(components.gb_investment.gb_investment.form.submit_global)\". Wenn du die einzelnen Platzierungswerte ändern möchtest, passe sie an deine Bedürfnisse an und klicke auf \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
           "form": {
@@ -85,6 +88,7 @@
             "tooltip_add_investors": "Klicken Sie auf die Schaltfläche \"$t(utils.Add)\" oder drücken Sie die \"Enter\" -Taste, um den Mäzen hinzuzufügen",
             "investors_list": "Liste der hinzugefügten Mäzen",
             "show_snipe": "Platz / Snipe anzeigen",
+            "show_only_secured_places": "Zeige nur gesicherte Plätze",
             "display_card": "Anzeige der Tabelle als Kartenansicht? (für kleinere Bildschirme)"
           },
           "table": {
@@ -126,7 +130,8 @@
         "promotion": {
           "title": "Werbenachricht",
           "prefix_placeholder": "Text vor der Werbenachricht",
-          "suffix_placeholder": "Text nach der Werbenachricht"
+          "suffix_placeholder": "Text nach der Werbenachricht",
+          "promo": ["P1({{investment}})", "P2({{investment}})", "P3({{investment}})", "P4({{investment}})", "P5({{investment}})"]
         }
       },
       "gb_investment_investors": {
@@ -161,7 +166,7 @@
         "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe",
         "message": {
           "single": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufe: {{cost, number}} FPs.",
-          "multi": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufen: {{cost, number}} FPs.",
+          "multi": "Um von Stufe {{from}}zu \"$t({{to}})\" zu gelangen, muss der Besitzer {{Preparation, Number}} FPs investieren. Gesamtkosten der Stufen: {{cost, number}} FPs.",
           "diff": "Mit Bonusinvestitionen sparen Sie {{count}} FP",
           "diff_plural": "Mit Bonusinvestitionen sparen Sie {{count, number}} FPs",
           "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe: {{time}}"
@@ -269,13 +274,22 @@
           "start_night": "Beginn der Nacht",
           "Auto": "Automatischer$t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night) Wechsel"
         },
+        "global_config": "Globale Einstellungen",
         "global_config_dialog": {
+          "fixed_main_menu": "Hauptmenü immer sichtbar",
+          "select_gb_style": "LB Auswahlmodus",
+          "select_gb_style_mode": {
+            "datalist": "Automatisch vervollständigen",
+            "select": "Wählen Sie (Vermächtnis)"
+          },
+          "day_night": "Thema",
           "day_night_mode": {
             "Day": "Tag",
             "Night": "Nacht",
             "Auto": "Automatischer"
           }
-        }
+        },
+        "switch_locale": "$t(common:site_title)ist in Ihrer Sprache verfügbar"
       },
       "trade": {
         "title": "Formularversion",
@@ -294,6 +308,71 @@
           "result": "Für {{to}} {{ageTo}}, benötigst du {{from}} {{ageFrom}} mit Angeboten bis zu {{count}}:",
           "total": "(Gesamt: {{amount}}{{key}})"
         }
+      },
+      "promotion_message_builder": {
+        "title": "Promotion message builder",
+        "info": "Dies kann kopiert werden, um es zum Beispiel mit deinen Gildenmitgliedern zu teilen",
+        "note": "Beachten Sie, dass der Message Builder Level 9 → 10 von $t(foe_data.gb.Observatory)mit einem Verhältnis von 1,9 für die Vorschau verwendet.",
+        "action": "Aktion",
+        "actions": {
+          "create": "Erstellen Sie eine neue Vorlage",
+          "update": "Aktualisieren Sie eine vorhandene Vorlage",
+          "delete": "Löschen Sie eine vorhandene Vorlage"
+        },
+        "start_from_template": "Ausgehend von einer Vorlage?",
+        "edit_template": "Wählen Sie die zu bearbeitende Vorlage",
+        "delete_template": "Wählen Sie die zu löschende Vorlage",
+        "templates": {
+          "default": "Standardvorlagen",
+          "custom": "Benutzerdefinierte Vorlagen"
+        },
+        "config": "Konfiguration",
+        "add_field_title": "Fügen Sie benutzerdefinierte Felder hinzu",
+        "add_field": {
+          "name": "Feldname",
+          "value": "Feldwert"
+        },
+        "custom_field_title": "Ihre benutzerdefinierten Felder",
+        "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
+        "reverse_place_order": "Umgekehrte Reihenfolge der Platze?",
+        "place_separator": "(Platzen) Trennzeichen setzen",
+        "place_builder": "Platz Builder",
+        "place_preview": "Ortsvorschau (1. Platz)",
+        "message_builder": "Builder für Nachricht",
+        "message_preview": "Vorschau der Nachricht",
+        "place_builder_title": "Platz Builder",
+        "message_builder_title": "Builder für Nachricht",
+        "available_variables": "Verfügbare Variablen:",
+        "variables": {
+          "place": {
+            "PI": "Platz Index",
+            "PV": "Stellenwert (in FPs)"
+          },
+          "message": {
+            "FLVL": "Vom Stufe",
+            "TLVL": "Zu Stufe",
+            "GBN": "LB Name",
+            "P": "Plätze",
+            "LF": "Zeilenvorschub, fügen Sie eine neue Zeile hinzu"
+          }
+        },
+        "template_name": "Vorlagenname",
+        "errors": {
+          "template_cannot_have_this_name": "Die Vorlage darf diesen Namen nicht haben. Bitte verwenden Sie einen anderen Namen.",
+          "custom_name_empty": "Der Name des Feldes darf nicht leer sein.",
+          "custom_name_already_exists": "Dieser Feldname existiert bereits."
+        },
+        "template_saved": "Vorlage gespeichert",
+        "template_updated": "Vorlage aktualisiert",
+        "template_deleted": "Vorlage gelöscht"
+      },
+      "import_promotion_message": {
+        "title": "Werbebotschaft importieren",
+        "config_placeholder": "Fügen Sie hier Ihre Konfiguration ein",
+        "errors": {
+          "invalid_data": "Daten sind ungültig"
+        },
+        "template_imported": "Vorlage importiert"
       }
     },
     "routes": {
@@ -348,7 +427,16 @@
             "investorParticipation": "Enthält eine Liste aller hinzugefügten Mäzen",
             "displayTableCard": "Gibt an, ob die Tabelle in \"$t(routes.gb_investment_gb_chooser.hero.title)\" im einfachen Modus (Tabelle) oder in der Kartenansicht auf einem kleinen Bildschirm angezeigt werden soll",
             "from": "Stufe, ab der die Liste zu starten ist (verwendet im Tab \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
-            "survey": "Ein Array, welche alle bereits von dir durchgeführten Umfragen enthält"
+            "to": "Stufe, ab der die Liste zu starten ist (verwendet im Tab \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "showPlace": "Ein Array, das enthält, ob ein Ort angezeigt werden soll oder nicht (in der Registerkarte \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\"))",
+            "survey": "Ein Array, welche alle bereits von dir durchgeführten Umfragen enthält",
+            "fixedMainMenu": "Gibt an, ob das Hauptmenü immer sichtbar ist oder nicht",
+            "gbSelectMode": "Gibt an, welchen LB Auswahlmodus Sie verwenden",
+            "haveReadLocaleInfoAvailable": "Gibt an, ob Sie die Informationen darüber gelesen haben, dass die Site in Ihrer Sprache verfügbar ist",
+            "promotionMessageList": "Enthält die Liste der Promotion-Nachrichten, die angezeigt werden sollen",
+            "customPromotionMessagesTemplates": "Enthält alle Ihre benutzerdefinierten Werbebotschaften",
+            "gbShowPrefix": "Gibt an, ob in Werbemeldungen ein Präfix angezeigt werden soll",
+            "gbShowSuffix": "Gibt an, ob Sie in Werbemeldungen ein Suffix anzeigen möchten"
           }
         },
         "dev_info": {
@@ -466,6 +554,15 @@
         "error": "Ein Fehler ist aufgetreten, überprüfe bitte deine Eingaben und versuche es erneut",
         "unknown_error": "Ein unbekannter Fehler ist aufgetreten. Bitte wende dich an den Site-Administrator"
       },
+      "contact": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "subtitle": "Wenden Sie sich an den Betreuer von $t(common:site_title)"
+        },
+        "message_contact_html": "Eine Vorstellung von Funktionalität? Ein Problem ? Sie können mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools)senden.",
+        "message_translate": "Wussten Sie, dass Sie auch bei der Übersetzung der Website helfen können? Folgen Sie dem folgenden Link für weitere Informationen:",
+        "message_other_info_html": "Wenn Sie Entwickler sind, können Sie auch ein Problem auf $t(common:links.github)erstellen (und zur Entwicklung der Site beitragen)."
+      },
       "error": {
         "404": {
           "title": "Seite nicht gefunden | $t(common:site_title)",
@@ -492,7 +589,8 @@
         "TheFuture": "Zukunft",
         "ArcticFuture": "Arktische Zukunft",
         "OceanicFuture": "Ozeanische Zukunft",
-        "VirtualFuture": "Virtuelle Zukunft"
+        "VirtualFuture": "Virtuelle Zukunft",
+        "SpaceAgeMars": "Raumfahrt: Mars"
       },
       "age_short": {
         "NoAge": "ZL",
@@ -501,6 +599,7 @@
         "EarlyMiddleAges": "FMA",
         "HighMiddleAges": "HMA",
         "LateMiddleAges": "SMA",
+        "ColonialAge": "Kolo",
         "IndustrialAge": "IZ",
         "ProgressiveEra": "JHW",
         "ModernEra": "MZA",
@@ -510,7 +609,8 @@
         "TheFuture": "ZUK",
         "ArcticFuture": "AZ",
         "OceanicFuture": "OZ",
-        "VirtualFuture": "VZ"
+        "VirtualFuture": "VZ",
+        "SpaceAgeMars": "Mars"
       },
       "gb": {
         "Observatory": "Observatorium",
@@ -549,7 +649,9 @@
         "The_Kraken": "Der Kraken",
         "The_Blue_Galaxy": "Die blaue Galaxie",
         "Terracotta_Army": "Terrakotta-Armee",
-        "Himeji_Castle": "Burg Himeji"
+        "Himeji_Castle": "Burg Himeji",
+        "The_Virgo_Project": "Das Virgo-Projekt",
+        "Star_Gazer": "Star Gazer"
       },
       "gb_short": {
         "Observatory": "Obs",
@@ -588,7 +690,9 @@
         "The_Kraken": "Kraken",
         "The_Blue_Galaxy": "Galaxie",
         "Terracotta_Army": "TA",
-        "Himeji_Castle": "Burg"
+        "Himeji_Castle": "Burg",
+        "The_Virgo_Project": "VP",
+        "Star_Gazer": "SG"
       },
       "goods": {
         "dye": "Farbe",
@@ -949,7 +1053,32 @@
         "Alpha_1_Omega_2": "Alpha 1 Omega 2",
         "Ray_s_Ray_s": "Ray's Ray's",
         "Purple_Palace": "Purple Palace",
-        "Three_Oc3ans": "Three Oc3ans"
+        "Three_Oc3ans": "Three Oc3ans",
+        "Vortex": "Wirbel",
+        "Cas_Cade": "Cas.Cade",
+        "The_Historical_Museum": "Das historische Museum",
+        "Slate_13": "Slate 13",
+        "New_final_final_exe": "New_final_final.exe",
+        "Bizarre_Plains": "Bizarre Plains",
+        "Argus__Watch": "Argus' Watch",
+        "Berta_s_Byte_Sauce": "Berta's Byte-Sauce",
+        "Veil_of_Bits": "Veil of Bits",
+        "Harvey_s_Low_Core": "Harvey's Low Core",
+        "The_Byte_Parade": "The Byte Parade",
+        "Reboot_Bay": "Reboot Bay",
+        "Streaming_Forest": "Streaming Forest",
+        "CMYK_Citadel": "CMYK Citadel",
+        "Forgify": "Forgify",
+        "Digital_Town_of_Hope": "Digital Town of Hope",
+        "Cloud_One": "Cloud One",
+        "Re_Birth": "Re:Birth",
+        "Castle_You_Es_Bee": "Castle You-Es-Bee",
+        "NET_MASKerade": "NET MASKerade",
+        "If_Then_Whatever": "If, Then, Whatever",
+        "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
+        "The_Church_of_Games": "The Church of Games",
+        "The_Sacred_Database": "The Sacred Database",
+        "Game_Over": "Game Over"
       },
       "bonus": {
         "coin": {
@@ -982,14 +1111,25 @@
         "blueprint": {
           "name": "Blaupause"
         },
+        "military_boost": {
+          "name": "Militärischer Schub",
+          "gb_description": "Erhöht den Angriffs- und Verteidigungsbonus für Einheiten in der angreifenden Armee, summiert sich mit jedem Gebäude."
+        },
+        "fierce_resistance": {
+          "name": "Heftiger Widerstand",
+          "gb_description": "Erhöht den Angriffs- und Verteidigungsbonus für Einheiten in der verteidigenden Armee und erhöht den Unterstützungspoolbonus, der sich mit jedem Gebäude aufsummiert."
+        },
         "coin_boost": {
-          "name": "Münzboost"
+          "name": "Münzboost",
+          "gb_description": "Erhöht das Ergebnis Ihrer Häuser mit jedem Sammeln um bis zu 90 Mal, summiert sich mit Produktivität und Motivation."
         },
         "supply_boost": {
-          "name": "Vorratsboost"
+          "name": "Vorratsboost",
+          "gb_description": "Steigert das Ergebnis Ihrer Produktionsgebäude, summiert sich mit Produktivität, Motivation und anderen Angebotserhöhungen."
         },
         "good_production": {
-          "name": "Güterproduktion"
+          "name": "Güterproduktion",
+          "gb_description": "Produziert alle 24 Stunden eine bestimmte Menge Waren aus Ihrem aktuellen Alter. Produziert ab Modern Era die doppelte Menge an unraffinierten Gütern."
         },
         "medal_production": {
           "name": "Medaillenproduktion",
@@ -1015,11 +1155,53 @@
           "name": "Zufriedenheit",
           "gb_description": "Permanenter Glücksbonus."
         },
+        "quest_reward_boost": {
+          "name": "Quest Belohnungsschub",
+          "gb_description": "Sammelt nur Münzen, Vorräte, Waren, Medaillen oder Diamanten aus Questbelohnungen."
+        },
+        "penal_unit": {
+          "name": "militärische einheiten",
+          "gb_description": "Rekrutiert alle 24 Stunden nicht verbundene Einheiten, die zufällig aus einem Militärgebäude in Ihrer Stadt ausgewählt werden."
+        },
         "guild_goods": {
           "name": "Gildengüter"
         },
+        "support_pool_bonus": {
+          "name": "Support-Pool-Bonus",
+          "gb_description": "Erhöht den Unterstützungspoolbonus deiner Gilde und addiert sich mit jedem Gebäude."
+        },
+        "aid_goods": {
+          "name": "Hilfsgüter",
+          "gb_description": "Erzeugt 1 zufällige Ware, wenn Sie die Stadt eines anderen Spielers unterstützen (manuell motivieren / polieren, dies gilt auch als Hilfe). Das Alter der Zufallsgüter entspricht dem Alter des von Ihnen unterstützten Gebäudes."
+        },
+        "plunder_goods": {
+          "gb_description": "Produziert beim Plündern der Stadt eines anderen Spielers zufällige Waren für bis zu 3 Nachbarn. Das Alter der zufälligen Waren entspricht dem Alter des Gebäudes, das Sie plündern."
+        },
+        "contribution_boost": {
+          "gb_description": "Erhöht die FP, Medaillen und Blaupausen, die Sie durch belohnungen erhalten."
+        },
         "aid_blueprints": {
           "name": "Hilfsblaupausen"
+        },
+        "relic_hunt": {
+          "name": "Reliktsuche",
+          "gb_description": "Diese Fähigkeit gibt dir die Möglichkeit, Relikte auf der Gildenexpeditionskarte zu erhalten, wenn du eine Begegnung erfolgreich löst. Relikte sind sehr wertvoll und können in 3 verschiedenen Raritäten vorkommen. Jedes Level erhöht die Chance, ein Relikt zu finden, aber auch die Wahrscheinlichkeit, ein ungewöhnliches oder seltenes Relikt zu finden, im Gegensatz zu einem gewöhnlichen."
+        },
+        "critical_hit": {
+          "name": "Kritischer Treffer",
+          "gb_description": "Gewährt allen Einheiten die Chance, beim Angriff auf Einheiten derselben Ära das 1,5-fache des erwarteten Schadens zu verursachen. Kritische Treffer wirken sich auch auf Reaktive Rüstung aus (wenn der erwartete Schaden 4-4 beträgt, verursacht ein kritischer Treffer 6-6 Schaden). Schurken (und andere Einheiten ohne Alter) sind nicht betroffen / können diese Fähigkeit erst nutzen, wenn sie sich in eine andere Einheit verwandeln. Ein kritischer Treffer, der mindestens 11 Schadenspunkte verursacht, tötet eine Einheit mit einem Treffer, auch mit dem Moralbonus. Dieser Bonus gilt für alle angreifenden Armeen sowie Ihre verteidigende Armee im PvP. Der kritische Treffer wird nicht eintreten, wenn sich eine Einheit revanchiert."
+        },
+        "helping_hands": {
+          "name": "Helfende Hände",
+          "gb_description": "Gibt Ihnen eine gewisse Chance, eine zufällige Ressource zu erhalten, wenn Sie die Stadt eines anderen Spielers unterstützen (manuelles Motivieren / Polieren zählt ebenfalls als Unterstützung). Sie können Waren aus Ihrem aktuellen Alter, Vorräte, Münzen, Medaillen oder sogar Diamanten erhalten."
+        },
+        "plunder_and_pillage": {
+          "name": "Plünderung",
+          "gb_description": "Gibt dir eine gewisse Chance, die Ressourcen zu verdoppeln, wenn du die Stadt eines Nachbarn plünderst, nachdem du dessen Verteidigung erfolgreich besiegt hast. Es verdoppelt alle Ressourcen, die du plündern kannst, einschließlich Schmiedepunkte und Gildenmacht."
+        },
+        "first_strike": {
+          "name": "Erstschlag",
+          "gb_description": "Gibt dir die Chance, dass zu Beginn der nächsten Kämpfe eine Einheit der feindlichen Verteidigungsarmee sofort getötet wird. Dies gilt nur für die erste Welle einer Schlacht."
         },
         "double_collection": {
           "name": "Doppelte Ernte",
@@ -1065,6 +1247,14 @@
       "Result": "Ergebnis",
       "between_range": "zwischen {{min, number}} und {{max, number}}",
       "Submit": "Abschicken",
+      "Reset_values": "Werte zurücksetzen",
+      "Switch": "Schalter",
+      "Save": "Speichern",
+      "Show": "Anzeigen",
+      "Hide": "Verbergen",
+      "errors": {
+        "field_cannot_be_empty": "Dieses Feld kann nicht leer sein"
+      },
       "moment": {
         "year": "{{count}} Jahr",
         "year_plural": "{{count, number}} Jahre",
@@ -1088,21 +1278,26 @@
       "eventOrganizing": "Event-Organisation",
       "example": "Beispiele",
       "financial": "Finanz-",
+      "fundingFinding": "Finanzierung finden",
+      "ideas": "Ideen, Planung & Feedback",
       "infra": "Infrastruktur (Hosting, Build-Tools usw.)",
       "platform": "Migration / Portierung auf eine neue Plattform",
       "plugin": "Plugin / Hilfsprogrammbibliotheken",
       "question": "Beantwortet Fragen",
       "review": "Überprüfte Pull Requests",
+      "talk": "Gespräche",
       "test": "Tests",
       "tool": "Werkzeuge",
       "translation": "Übersetzung",
       "tutorial": "Tutorials",
       "video": "Videos",
+      "data": "Daten hinzufügen oder aktualisieren",
+      "inspired_tool": "Werkzeug inspiriert von seiner Arbeit",
       "creator": "Entwickler dieses Projekts"
     },
     "seo": {
       "keywords": {
-        "gb": "lg",
+        "gb": "LB",
         "great_building": "legendäres bauwerk",
         "fp": "fp",
         "forge_point": "forge point",

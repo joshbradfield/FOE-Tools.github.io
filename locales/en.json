@@ -75,7 +75,7 @@
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
-            "p1": "Enter the values for level and bonus percentage. The values in the table update automatically.",
+            "p1": "Enter the level (to) and Arc bonus % (90% for Arc lvl 80). The values in the table update automatically.",
             "p2_html": "<strong>Note</strong>: If the update is not done automatically, first set the GB level and the overall investment value and click on \"$t(components.gb_investment.gb_investment.form.submit_global)\". If you want to adjust the values of each place, adjust to your convenience and click on \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
           "form": {
@@ -334,7 +334,7 @@
         },
         "custom_field_title": "Your custom fields",
         "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
-        "reverse_place_order": "Reverse places order ?",
+        "reverse_place_order": "Reverse order of places?",
         "place_separator": "Place separator",
         "place_builder": "Place builder",
         "place_preview": "Place preview (1st place)",
@@ -362,9 +362,9 @@
           "custom_name_empty": "The name of the field cannot be empty.",
           "custom_name_already_exists": "This field name already exists."
         },
-        "template_saved":  "Template saved",
-        "template_updated":  "Template updated",
-        "template_deleted":  "Template deleted"
+        "template_saved": "Template saved",
+        "template_updated": "Template updated",
+        "template_deleted": "Template deleted"
       },
       "import_promotion_message": {
         "title": "Import promotion message",
@@ -372,7 +372,7 @@
         "errors": {
           "invalid_data": "Data are invalid"
         },
-        "template_imported":  "Template imported"
+        "template_imported": "Template imported"
       }
     },
     "routes": {
@@ -1165,7 +1165,7 @@
           "gb_description": "Raises only your coins, supplies, goods, medals, or diamonds from quest rewards."
         },
         "penal_unit": {
-          "name": "Penal Unit",
+          "name": "Military Unit",
           "gb_description": "Recruits unattached units every 24 hours, randomly chosen from any military building in your city."
         },
         "guild_goods": {
@@ -1287,7 +1287,7 @@
       "eventOrganizing": "Event Organizing",
       "example": "Examples",
       "financial": "Financial",
-      "fundingFinding": "Funding Finding",
+      "fundingFinding": "Find Funding",
       "ideas": "Ideas, Planning, & Feedback",
       "infra": "Infrastructure (Hosting, Build-Tools, etc)",
       "platform": "Packaging/porting to new platform",

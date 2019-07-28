@@ -362,9 +362,9 @@
           "custom_name_empty": "Le nom du champ ne peut pas être vide.",
           "custom_name_already_exists": "Ce nom de champ existe déjà."
         },
-        "template_saved":  "Modèle sauvegardé",
-        "template_updated":  "Modèle mis à jour",
-        "template_deleted":  "Modèle supprimé"
+        "template_saved": "Modèle sauvegardé",
+        "template_updated": "Modèle mis à jour",
+        "template_deleted": "Modèle supprimé"
       },
       "import_promotion_message": {
         "title": "Importer un message de promotion",
@@ -372,7 +372,7 @@
         "errors": {
           "invalid_data": "Les données ne sont pas valides"
         },
-        "template_imported":  "Modèle importé"
+        "template_imported": "Modèle importé"
       }
     },
     "routes": {

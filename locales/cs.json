@@ -22,7 +22,7 @@
         "title": "$t(routes.campaign_cost.hero.title)",
         "choose_province": "Vyberte provincii",
         "message": {
-          "haveUnknownCosts": "Provincie obsahuje jeden nebo více sektorů"
+          "haveUnknownCosts": "Provincie obsahuje jeden nebo více sektorů, kterým chybí hodnoty."
         }
       },
       "cf_calculator": {
@@ -30,23 +30,28 @@
           "title": "$t(routes.cf_calculator.hero.title)",
           "your_age": "Tvůj věk",
           "your_cf_boost": "Tvoje $t(foe_data.gb.Chateau_Frontenac) navýšení",
-          "coins_to_use": "Cena mincí za NV",
-          "supplies_to_use": "Cena zásob za NV",
-          "fp_by_24h": "24 hodinová produkce FB",
-          "other_rq": "Jiné denní ",
-          "supplies_gathered": "Zásoby vráceny",
+          "coins_to_use": "Počet mincí nutných pro Narozeninový večírek",
+          "supplies_to_use": "Počet zásob nutných pro Narozeninový večírek",
+          "gb_plunder_goods": "VB a vyrabované zboží",
+          "fp_by_24h": "24hodinová produkce FP",
+          "other_rq": "Jiné denní opakovací úkoly",
+          "second_rq": "2. opakovačky?",
+          "supplies_gathered": "Zásob získáno",
           "table_reward": {
+            "title": "$t(utils.Rewards)",
             "thead": {
-              "th2": "Medajle",
+              "th2": "Medaile",
               "th3": "Suroviny",
               "th4": "FB"
             }
           },
           "reward_message": {
-            "daily_ubq": "Denní NV: {{count, number}}",
-            "bonus_ubq": "Bonusové NV: {{count, number}}",
+            "daily_ubq": "Denní Narozeninové večírky: {{count, number}}",
+            "bonus_ubq": "Bonusové Narozeninové večírky: {{count, number}}",
+            "second_rq_completed": "Druhé opakovačky splněny: {{count, number}}",
             "total_goods": "Celkem surovin: {{count, number}}",
-            "total_fp": "Celkem FB: {{count, number}}"
+            "total_fp": "Celkem FB: {{count, number}}",
+            "total_rq_completed": "Celkem splněno opakovacích úkolů: {{count, number}}"
           },
           "table_return": {
             "thead": {
@@ -54,46 +59,67 @@
               "th_coin": "Navrácené mince",
               "th_supply": "Navrácené zásoby"
             }
+          },
+          "infinity_generator": {
+            "message": "Se současným bonusem z $t(foe_data.gb.Chateau_Frontenac) získáš více mincí a zásob, než kolik použiješ pro splnění úkolů. Prosím zvol počet \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\", kterých chceš udělat.",
+            "label": "Kumulativní úkol"
           }
         }
       },
       "gb_investment": {
         "gb_list_select": {
-          "label": "Změnit Velkolepou Budovu"
+          "label": "Změnit Velkolepou budovu",
+          "info": "V nastavení si můžeš změnit styl rozbalovací nabídky (na řazení VB dle ér nebo abecedně)."
         },
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
+          "description": {
+            "p1": "Vlož na jaký level a bonusová procenta Arcu (90 % pro Arc na 80. úrovni). Hodnoty v tabulce se automaticky aktualizují.",
+            "p2_html": "<strong>Poznámka</strong>: Když není aktualizace provedena automaticky, nejdříve nastav level VB a celkovou hodnotu investic a klikni na \"$t(components.gb_investment.gb_investment.form.submit_global)\". Když chceš změnit hodnoty jednotlivých pozic, uprav je dle svých potřeb a klikni na \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
+          },
           "form": {
-            "investor_percentage": "% Bonus z Arcu přispěvatelů",
-            "tooltip_add_investors": "Klikněte na \"$t(utils.Add)\" tlačítko nebo zmáčkněte klávesu \"Enter\" k přidání dalšího přispěvatele",
-            "investors_list": "Seznam přidaných přispěvatelů"
+            "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "investor_percentage": "% bonus globálních přispěvatelů (bonus z Arcu)",
+            "submit_global": "Globální kalkulace",
+            "submit_custom": "Vlastní kalkulace",
+            "owner_investment": "Počet FP momentálně vložených majitelem (max {{max}})",
+            "add_investors": "Přidat investora (vložit počet FP, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "tooltip_add_investors": "Klikni na \"$t(utils.Add)\" tlačítko nebo zmáčkni klávesu \"Enter\" pro přidání dalšího přispěvatele",
+            "investors_list": "Seznam přidaných přispěvatelů",
+            "show_snipe": "Ukázat Spot/Snipe",
+            "show_only_secured_places": "Ukázat pouze zajištěné pozice",
+            "display_card": "Ukázat tabulku v kartách? (na malé obrazovce)"
           },
           "table": {
+            "title": "$t({{gb_key}}) level {{fromLevel, number}} → {{level, number}}",
             "thead": {
-              "th1": "Místa",
-              "th2": "Základní odměna",
-              "th3": "Počet vlastních FB k zajištění místa pro",
-              "th4": "Zhodnocení",
-              "th5": "% Bonus z Arcu přispěvatelů",
+              "th1": "Pozice",
+              "th2": "Základní odměny",
+              "th3": "FP nutné pro zajištění pozice majitelem",
+              "th4": "Odměny s % z Arcu",
+              "th5": "% bonus přispěvatelů (bonus z Arcu)",
               "th6": "Volné místo",
-              "fp_already_putin": "Počet FB ",
-              "spot_snipe": "Zabrat místo",
+              "fp_already_putin": "Počet již vložených FP ",
+              "spot_snipe": "Pozice/Snipe",
+              "expected_participation": "FP získané s % bonusem očekávaným majitelem",
+              "real_participation": "FP získané s % bonusem tvého Arcu",
               "is_sniper": "Může někdo ukrást místo na VB?"
             },
             "tbody": {
+              "tooltip_owner_investment": "Zbývající FP nutné vložit pro zajištění pozice majitelem",
               "tooltip_expected_investment": "Očekávaná investice",
               "button_show_extra_investor": "Ukázat extra investora",
               "button_show_extra_investor_plural": "Ukázat extra investory",
               "button_hide_extra_investor": "Schovat extra investora",
               "button_hide_extra_investor_plural": "Schovat extra investory",
-              "profit": "Tento hráč vydělá",
-              "loss": "Tento hráč prodělá FB",
-              "loss_plural": "Tento hráč prodělá FB",
-              "neutral": "Tento hráč nevydělá a ani neprodělá žádné FB"
+              "profit": "Tento hráč bude mít zisk",
+              "loss": "Tento hráč prodělá bod",
+              "loss_plural": "Tento hráč prodělá body",
+              "neutral": "Tento hráč nevydělá a ani neprodělá žádné FP"
             },
             "tfoot": {
-              "total_preparation": "Celková investice vlastníka",
-              "level_cost": "Cena levelu"
+              "total_preparation": "Celková investice majitele",
+              "level_cost": "Cena úrovně"
             }
           },
           "display_gb_name": "Zobrazit jméno VB?",
@@ -104,20 +130,31 @@
           "title": "Promo zpráva",
           "prefix_placeholder": "text před promo zprávou",
           "suffix_placeholder": "text za promo zprávou",
-          "promo": ["H1({{investment}})", "H2({{investment}})", "H3({{investment}})", "H4({{investment}})", "H5({{investment}})"]
+          "promo": ["P1({{investment}})", "P2({{investment}})", "P3({{investment}})", "P4({{investment}})", "P5({{investment}})"]
         }
       },
       "gb_investment_investors": {
+        "description": {
+          "p1": "Tento pohled umožňuje vidět zisk, který je možno získat obsazením pozice s vzetím (či bez) v úvahu investice na ostatních pozicích. Jsou {{count}} způsoby, jak přistupovat k ostatním pozicím:"
+        },
         "takingPlaceInConsideration": {
+          "label": "Vzít v potaz i další pozice?",
           "form": {
             "show_place": "Zobrazit místo",
-            "normal": "Normální",
+            "no": "$t(utils.No)",
+            "normal": "Standardní",
             "optimal": "Optimální"
+          },
+          "description": {
+            "no": "nebrat v potaz další pozice",
+            "normal": "vzít v potaz ostatní pozice, ale jen s minimálními investicemi přispěvatelů bez zajištění majitelem",
+            "optimal": "vzít v potah ostatní pozice s investicí bez zisku přispěvatelů a se zajištěním majitelem"
           }
         },
         "table": {
           "thead": {
-            "th_profit_loss": "Profit/Ztráta"
+            "th_place": "Pozice {{count}}",
+            "th_profit_loss": "Zisk/Ztráta"
           }
         }
       },
@@ -181,7 +218,14 @@
           "start_night": "Začátek noci",
           "Auto": "Automatické $t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night) "
         },
-        "global_config": "Globální nastavení"
+        "global_config": "Globální nastavení",
+        "global_config_dialog": {
+          "select_gb_style": "Rozbalovací nabídka VB",
+          "select_gb_style_mode": {
+            "datalist": "Abecední řazení",
+            "select": "Řazení dle ér"
+          }
+        }
       },
       "trade": {
         "message": {
