@@ -165,6 +165,12 @@ export default {
         path: this.$i18nPath("cf-calculator/"),
         query: this.$store.state.urlQuery
       };
+    },
+    minCoins() {
+      return 7 * this.$data.questData.ages[this.$data.yourAge].cost.coins;
+    },
+    minSupplies() {
+      return 7 * this.$data.questData.ages[this.$data.yourAge].cost.coins;
     }
   },
   watch: {
@@ -247,7 +253,7 @@ export default {
           "coins",
           !val || val.length === 0 ? 0 : val,
           oldVal,
-          inputComparator.coins.comparator,
+          [">=", this.minCoins],
           !this.isPermalink,
           "coins"
         ) === Utils.FormCheck.VALID
@@ -266,7 +272,7 @@ export default {
           "supplies",
           !val || val.length === 0 ? 0 : val,
           oldVal,
-          inputComparator.supplies.comparator,
+          [">=", this.minSupplies],
           !this.isPermalink,
           "supplies"
         ) === Utils.FormCheck.VALID
@@ -384,21 +390,37 @@ export default {
      * Based on: https://docs.google.com/spreadsheets/d/13-mBxR4eumRXWPi6Ayq2D9OGZ9C55eMEb6xyHnLl_-g/edit#gid=2009380732
      */
     calculate() {
-      this.$data.result = cfCalculatorProcess.compute(
-        JSON.parse(JSON.stringify(this.$data.questData.ages[this.$data.yourAge])),
-        Utils.normalizeNumberValue(this.$data.yourCfBoost),
-        Utils.normalizeNumberValue(this.$data.coins),
-        Utils.normalizeNumberValue(this.$data.supplies),
-        Utils.normalizeNumberValue(this.$data.goods),
-        Utils.normalizeNumberValue(this.$data.fpBy24h),
-        !!this.$data.secondRq,
-        Utils.normalizeNumberValue(this.$data.suppliesGathered),
-        Utils.normalizeNumberValue(this.$data.otherRq),
-        Utils.normalizeNumberValue(this.$data.cumulativeQuest)
-      );
-      this.$data.infinityGenerator = this.$data.result.infinityGenerator;
-      if (this.$data.infinityGenerator && this.$data.cumulativeQuest === 0) {
-        this.$data.cumulativeQuest = this.$data.result.defaultCumulativeQuest;
+      /* istanbul ignore next */
+      if (
+        Utils.normalizeNumberValue(this.$data.coins) < this.$data.minCoins ||
+        Utils.normalizeNumberValue(this.$data.supplies) < this.$data.minSupplies
+      ) {
+        // If coins or supplies are < than 7 times the amount of quests, we cannot guarantee any profit (statistically)
+        return;
+      }
+      try {
+        this.$data.result = cfCalculatorProcess.compute(
+          JSON.parse(JSON.stringify(this.$data.questData.ages[this.$data.yourAge])),
+          Utils.normalizeNumberValue(this.$data.yourCfBoost),
+          Utils.normalizeNumberValue(this.$data.coins),
+          Utils.normalizeNumberValue(this.$data.supplies),
+          Utils.normalizeNumberValue(this.$data.goods),
+          Utils.normalizeNumberValue(this.$data.fpBy24h),
+          !!this.$data.secondRq,
+          Utils.normalizeNumberValue(this.$data.suppliesGathered),
+          Utils.normalizeNumberValue(this.$data.otherRq),
+          Utils.normalizeNumberValue(this.$data.cumulativeQuest)
+        );
+        this.$data.infinityGenerator = this.$data.result.infinityGenerator;
+        if (this.$data.infinityGenerator && this.$data.cumulativeQuest === 0) {
+          this.$data.cumulativeQuest = this.$data.result.defaultCumulativeQuest;
+        }
+      } catch (e) {
+        if (e.name === "BoundExceededError") {
+          console.error("classic error");
+        } /* istanbul ignore next */ else {
+          throw e;
+        }
       }
     },
     checkQuery() {

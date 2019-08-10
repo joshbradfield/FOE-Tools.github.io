@@ -31,6 +31,7 @@
           "your_age": "Your Age",
           "your_cf_boost": "Your $t(foe_data.gb.Chateau_Frontenac) Boost",
           "coins_to_use": "Coins to use on UBQ",
+          "coins_supplies_info": "This value should be greater or equal than {{min}} because underneath we cannot guarantee any profit (statistically)",
           "supplies_to_use": "Supplies to use on UBQ",
           "gb_plunder_goods": "GB & Plunder Goods",
           "fp_by_24h": "24 Hour FP Production",

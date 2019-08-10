@@ -19,7 +19,17 @@ div
         b-select#your-age(v-model="yourAge" name="your-age" expanded)
           option(v-for="age in questData.ages" :value="age.key" :key="age.key" :selected="yourAge == age.key" :id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
       b-field(:label="$t(i18nPrefix + 'block_cfc.coins_to_use')" label-for="coins" :type="haveError('coins')")
-        b-input#coins(type="number" min="0" v-model.number="coins" name="coins" autocomplete="off")
+        template(slot="label")
+          .media
+            span.media-content {{$t(i18nPrefix + 'block_cfc.coins_to_use')}}
+            div.media-right
+              b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins })" multilined)
+                span.icon
+                  i.far.fa-question-circle
+              b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins })" multilined position="is-left")
+                span.icon
+                  i.far.fa-question-circle
+        b-input#coins(type="number" :min="minCoins" v-model.number="coins" name="coins" autocomplete="off")
       b-field(:label="$t(i18nPrefix + 'block_cfc.gb_plunder_goods')" label-for="goods" :type="haveError('goods')")
         b-input#goods(type="number" min="0" v-model.number="goods" name="goods" autocomplete="off")
       yes-no(v-show="checkSecondQuest" v-model="secondRq" :label="$t(i18nPrefix + 'block_cfc.second_rq')")
@@ -29,7 +39,17 @@ div
       b-field(:label="$t(i18nPrefix + 'block_cfc.your_cf_boost')" label-for="your-cf-boost" :type="haveError('yourCfBoost')")
         b-input#your-cf-boost(type="number" min="0" v-model.number="yourCfBoost" name="your-cf-boost" autocomplete="off")
       b-field(:label="$t(i18nPrefix + 'block_cfc.supplies_to_use')" label-for="supplies" :type="haveError('supplies')")
-        b-input#supplies(type="number" min="0" v-model.number="supplies" name="supplies" autocomplete="off")
+        template(slot="label")
+          .media
+            span.media-content {{$t(i18nPrefix + 'block_cfc.supplies_to_use')}}
+            div.media-right
+              b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies })" multilined)
+                span.icon
+                  i.far.fa-question-circle
+              b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies })" multilined position="is-left")
+                span.icon
+                  i.far.fa-question-circle
+        b-input#supplies(type="number" :min="minSupplies" v-model.number="supplies" name="supplies" autocomplete="off")
       b-field(:label="$t(i18nPrefix + 'block_cfc.fp_by_24h')" label-for="fp-by-24h" :type="haveError('fpBy24h')")
         b-input#fp-by-24h(type="number" min="0" v-model.number="fpBy24h" name="fp-by-24h" autocomplete="off")
       b-field(v-show="checkSecondQuest && secondRq" :label="$t(i18nPrefix + 'block_cfc.supplies_gathered')" label-for="supplies-gathered" :type="haveError('suppliesGathered')")
