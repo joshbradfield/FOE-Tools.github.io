@@ -32,6 +32,7 @@
           "your_cf_boost": "Le bonus de votre $t(foe_data.gb.Chateau_Frontenac)",
           "coins_to_use": "PO à utiliser dans la quête de Rinbin",
           "supplies_to_use": "Marchandises à utiliser dans la quête de Rinbin",
+          "coins_supplies_info": "Cette valeur doit être supérieure ou égale à {{min}} car en dessous on ne peut garantir aucun profit (statistiquement)",
           "gb_plunder_goods": "Ressources obtenues par les GMs et le pillage",
           "fp_by_24h": "Production de PF par 24h ",
           "other_rq": "Autre quête récurrente accomplie",
