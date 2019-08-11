@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.48.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.47.1...v2.48.0) (2019-08-11)
+
+
+### Bug Fixes
+
+* **cf-calculator:** add a min value to 7 times the amount for the quests ([390fcb0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/390fcb0))
+
+
+### Features
+
+* **i18n:** add Spanish language ([777c98b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/777c98b))
+
 ### [2.47.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.47.0...v2.47.1) (2019-07-28)
 
 
