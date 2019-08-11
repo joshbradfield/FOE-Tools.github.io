@@ -559,9 +559,9 @@
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Contact",
-          "subtitle": "Contact the maintainer of $t(common:site_title)"
+          "subtitle": "Contact the administrator of $t(common:site_title)"
         },
-        "message_contact_html": "An idea of functionality ? A problem ? Feel free to send me an email (in English or in French) at $t(common:links.contact_foe_tools).",
+        "message_contact_html": "An idea to improve functionality? A problem? Feel free to send me an email (in English or in French) at $t(common:links.contact_foe_tools).",
         "message_translate": "Did you know that you can also help translate the site ? Follow the following link for more information:",
         "message_other_info_html": "If you are developers, you can also create an issue (and contribute to the development of the site) on $t(common:links.github)."
       },

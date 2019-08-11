@@ -327,6 +327,12 @@
           "custom": "Anpassade mallar"
         },
         "config": "Konfiguration",
+        "add_field_title": "Lägg till anpassade fält",
+        "add_field": {
+          "name": "Fältnamn",
+          "value": "Fältvärde"
+        },
+        "custom_field_title": "Dina anpassade fält",
         "use_short_name": "Använd förkortning ?",
         "reverse_place_order": "Reversera ordning på platser?",
         "place_separator": "Plats separator",
@@ -346,20 +352,27 @@
             "FLVL": "Från nivå",
             "TLVL": "Till nivå",
             "GBN": "MB namn",
-            "P": "Plats"
+            "P": "Plats",
+            "LF": "Fältmatning, lägg till ny rad"
           }
         },
         "template_name": "Mallnamn",
         "errors": {
-          "template_cannot_have_this_name": "Mallen kan inte ha detta namn,  använd ett annat namn."
-        }
+          "template_cannot_have_this_name": "Mallen kan inte ha detta namn,  använd ett annat namn.",
+          "custom_name_empty": "Namnet på fältet kan inte vara tomt.",
+          "custom_name_already_exists": "Fältnamnet finns redan."
+        },
+        "template_saved": "Mall sparad",
+        "template_updated": "Mall uppdaterad",
+        "template_deleted": "Mall raderad"
       },
       "import_promotion_message": {
         "title": "Importera postningstexter",
         "config_placeholder": "Klistra in din konfiguration här",
         "errors": {
           "invalid_data": "Datan är ogiltig"
-        }
+        },
+        "template_imported": "Mall importerad"
       }
     },
     "routes": {

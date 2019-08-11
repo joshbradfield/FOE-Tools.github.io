@@ -166,7 +166,7 @@
         "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe",
         "message": {
           "single": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufe: {{cost, number}} FPs.",
-          "multi": "Um von Stufe {{from}}zu \"$t({{to}})\" zu gelangen, muss der Besitzer {{Preparation, Number}} FPs investieren. Gesamtkosten der Stufen: {{cost, number}} FPs.",
+          "multi": "Um von Stufe {{from}} zu \"$t({{to}})\" zu gelangen, muss der Besitzer {{preparation, number}} FPs investieren. Gesamtkosten der Stufen: {{cost, number}} FPs.",
           "diff": "Mit Bonusinvestitionen sparen Sie {{count}} FP",
           "diff_plural": "Mit Bonusinvestitionen sparen Sie {{count, number}} FPs",
           "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe: {{time}}"
@@ -338,7 +338,7 @@
         "place_separator": "(Platzen) Trennzeichen setzen",
         "place_builder": "Platz Builder",
         "place_preview": "Ortsvorschau (1. Platz)",
-        "message_builder": "Builder für Nachricht",
+        "message_builder": "Builder für Nachrichten",
         "message_preview": "Vorschau der Nachricht",
         "place_builder_title": "Platz Builder",
         "message_builder_title": "Builder für Nachricht",
@@ -428,7 +428,7 @@
             "displayTableCard": "Gibt an, ob die Tabelle in \"$t(routes.gb_investment_gb_chooser.hero.title)\" im einfachen Modus (Tabelle) oder in der Kartenansicht auf einem kleinen Bildschirm angezeigt werden soll",
             "from": "Stufe, ab der die Liste zu starten ist (verwendet im Tab \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "to": "Stufe, ab der die Liste zu starten ist (verwendet im Tab \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
-            "showPlace": "Ein Array, das enthält, ob ein Ort angezeigt werden soll oder nicht (in der Registerkarte \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\"))",
+            "showPlace": "Ein Feld, das enthält, ob ein Platz angezeigt werden soll oder nicht (in der Registerkarte \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "survey": "Ein Array, welche alle bereits von dir durchgeführten Umfragen enthält",
             "fixedMainMenu": "Gibt an, ob das Hauptmenü immer sichtbar ist oder nicht",
             "gbSelectMode": "Gibt an, welchen LB Auswahlmodus Sie verwenden",
@@ -557,9 +557,10 @@
       "contact": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
         "hero": {
-          "subtitle": "Wenden Sie sich an den Betreuer von $t(common:site_title)"
+          "title": "Kontakt",
+          "subtitle": "Wenden Sie sich an den Administrator von $t(common:site_title)"
         },
-        "message_contact_html": "Eine Vorstellung von Funktionalität? Ein Problem ? Sie können mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools)senden.",
+        "message_contact_html": "Eine Idee zur Verbesserung der Funktionalität? Ein Problem? Sie können mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools)senden.",
         "message_translate": "Wussten Sie, dass Sie auch bei der Übersetzung der Website helfen können? Folgen Sie dem folgenden Link für weitere Informationen:",
         "message_other_info_html": "Wenn Sie Entwickler sind, können Sie auch ein Problem auf $t(common:links.github)erstellen (und zur Entwicklung der Site beitragen)."
       },
@@ -1054,9 +1055,13 @@
         "Ray_s_Ray_s": "Ray's Ray's",
         "Purple_Palace": "Purple Palace",
         "Three_Oc3ans": "Three Oc3ans",
-        "Vortex": "Wirbel",
+        "Vortex": "Vortex",
+        "Twisted_Alps": "Twisted Alps",
+        "Archives_of_Junkman": "Archives of Junkman",
+        "Frozen_RAM": "Frozen RAM",
         "Cas_Cade": "Cas.Cade",
         "The_Historical_Museum": "Das historische Museum",
+        "Aerial_Boulevard": "Aerial Boulevard",
         "Slate_13": "Slate 13",
         "New_final_final_exe": "New_final_final.exe",
         "Bizarre_Plains": "Bizarre Plains",
@@ -1164,7 +1169,8 @@
           "gb_description": "Rekrutiert alle 24 Stunden nicht verbundene Einheiten, die zufällig aus einem Militärgebäude in Ihrer Stadt ausgewählt werden."
         },
         "guild_goods": {
-          "name": "Gildengüter"
+          "name": "Gildengüter",
+          "gb_description": "Produziert Waren aus der Zeitalter, die direkt an die Guild Treasury gehen."
         },
         "support_pool_bonus": {
           "name": "Support-Pool-Bonus",
@@ -1175,13 +1181,16 @@
           "gb_description": "Erzeugt 1 zufällige Ware, wenn Sie die Stadt eines anderen Spielers unterstützen (manuell motivieren / polieren, dies gilt auch als Hilfe). Das Alter der Zufallsgüter entspricht dem Alter des von Ihnen unterstützten Gebäudes."
         },
         "plunder_goods": {
+          "name": "Plünder-Güter",
           "gb_description": "Produziert beim Plündern der Stadt eines anderen Spielers zufällige Waren für bis zu 3 Nachbarn. Das Alter der zufälligen Waren entspricht dem Alter des Gebäudes, das Sie plündern."
         },
         "contribution_boost": {
+          "name": "Mäzen-Bonus",
           "gb_description": "Erhöht die FP, Medaillen und Blaupausen, die Sie durch belohnungen erhalten."
         },
         "aid_blueprints": {
-          "name": "Hilfsblaupausen"
+          "name": "Hilfsblaupausen",
+          "gb_description": "Erhöht die Chance, einen Blaupaus zu erhalten, wenn Sie die Stadt eines anderen Spielers unterstützen (manuell motivieren / polieren, dies gilt auch als Hilfe). I.E. Mit einem 100% Bonus verdoppelt sich Ihre Chance, einen Blaupaus zu finden."
         },
         "relic_hunt": {
           "name": "Reliktsuche",
