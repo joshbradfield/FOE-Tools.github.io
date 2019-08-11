@@ -31,7 +31,7 @@
           "your_age": "Tu Era",
           "your_cf_boost": "Tu $t(foe_data.gb.Chateau_Frontenac) Bonus",
           "coins_to_use": "Monedas a usar en  M. No Cumpleaños",
-          "coins_supplies_info": "Este valor debe ser mayor o igual que {{min}}porque debajo no podemos garantizar ningún beneficio (estadísticamente)",
+          "coins_supplies_info": "Este valor debe ser mayor o igual que {{min}} porque debajo no podemos garantizar ningún beneficio (estadísticamente)",
           "supplies_to_use": "Suministros a usar en M. No Cumpleaños",
           "gb_plunder_goods": "GEs y Bienes Robados",
           "fp_by_24h": "Producción de PF en 24 H",
@@ -289,7 +289,7 @@
             "Auto": "Automático"
           }
         },
-        "switch_locale": "$t(common:site_title)está disponible en su idioma"
+        "switch_locale": "$t(common:site_title) está disponible en su idioma"
       },
       "trade": {
         "title": "Versión de formulario",
@@ -300,9 +300,9 @@
         },
         "split_value": "Tamaño máximo de una oferta (máx. {{count}})",
         "split_message": {
-          "msg": "{{valueFrom}}{{ageFrom}}para {{valueTo}}{{ageTo}}",
-          "common": "{{count}}× ($ t (components.trade.split_message.msg, {'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo' : '{{ageTo}}'}))",
-          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+          "msg": "{{valueFrom}}{{ageFrom}} para {{valueTo}}{{ageTo}}",
+          "common": "{{count}}× ($t(components.trade.split_message.msg, {'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo' : '{{ageTo}}'}))",
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) y $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
           "result": "Para {{to}} {{ageTo}}, necesitas {{from}} {{ageFrom}} con ofertas superiores a {{count}}:",
@@ -312,7 +312,7 @@
       "promotion_message_builder": {
         "title": "Constructor de mensajes de promoción.",
         "info": "Esto se puede copiar para compartir, por ejemplo, con los miembros de tu gremio",
-        "note": "Tenga en cuenta que el generador de mensajes utiliza el nivel 9 → 10 de $t(foe_data.gb.Observatory)con una proporción de 1.9 para obtener una vista previa.",
+        "note": "Tenga en cuenta que el generador de mensajes utiliza el nivel 9 → 10 de $t(foe_data.gb.Observatory) con una proporción de 1.9 para obtener una vista previa.",
         "action": "Acción",
         "actions": {
           "create": "Crea una nueva plantilla",
@@ -383,8 +383,8 @@
         "title": "Sobre $t(common:site_title)",
         "general_info": {
           "title": "Información general",
-          "p1_html": "Forge of Empires, FOE y todas las marcas y el contenido relacionados pertenecen a InnoGames GmbH. <br/>$t(common:site_title)es un sitio no oficial de terceros y no está afiliado a InnoGames.",
-          "p2_html": "$t(common:site_title)fue creado por el jugador francés <strong class=\"has-text-weight-semibold\">Yoratheon </strong>.",
+          "p1_html": "Forge of Empires, FOE y todas las marcas y el contenido relacionados pertenecen a InnoGames GmbH. <br/>$t(common:site_title) es un sitio no oficial de terceros y no está afiliado a InnoGames.",
+          "p2_html": "$t(common:site_title) fue creado por el jugador francés <strong class=\"has-text-weight-semibold\">Yoratheon </strong>.",
           "p3_html": "El sitio es OpenSource, el código está disponible gratuitamente en $t(common:links.github). <br/>Por lo tanto, todos los que tengan las habilidades necesarias pueden participar en la mejora de este sitio."
         },
         "cookie": {
@@ -442,7 +442,7 @@
         "dev_info": {
           "title": "Información de desarrollo",
           "p2_html": "El desarrollo se realiza en Node.js utilizando $t(common:links.framework). El estilo se hace usando $t(common:links.style).",
-          "p3_html": "¿Una idea de funcionalidad? Un problema ? Siéntase libre de crear una incidencia en $t(common:links.github)o envíeme un correo electrónico (en inglés o en francés) al $t(common:links.contact_foe_tools).",
+          "p3_html": "¿Una idea de funcionalidad? Un problema ? Siéntase libre de crear una incidencia en $t(common:links.github) o envíeme un correo electrónico (en inglés o en francés) al $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Nota: </b>Con respecto a los problemas en GitHub, asegúrese de escribirlos en inglés para facilitar la comprensión del mayor número de miembros."
         }
       },
@@ -528,13 +528,13 @@
         },
         "p1": "¿Su idioma no está disponible, la traducción está incompleta o contiene errores? Siéntase libre de unirse al equipo de traducción del sitio.",
         "how_to_join_the_team": "¿Cómo unirse al equipo?",
-        "p2_html": "$t(common:site_title)es traducido por los usuarios. Utilizamos la plataforma $t(common:links.lingohub)para facilitar el proceso de traducción. Para unirse al equipo, envíe un correo electrónico (en inglés) a $t(common:links.contact_foe_tools)especificando el (los) idioma (s) en que puede traducir para que podamos enviarle una invitación."
+        "p2_html": "$t(common:site_title) es traducido por los usuarios. Utilizamos la plataforma $t(common:links.lingohub) para facilitar el proceso de traducción. Para unirse al equipo, envíe un correo electrónico (en inglés) a $t(common:links.contact_foe_tools) especificando el (los) idioma (s) en que puede traducir para que podamos enviarle una invitación."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Encuesta",
-          "subtitle": "Ayuda a mejorar $t(common:site_title)completando esta encuesta"
+          "subtitle": "Ayuda a mejorar $t(common:site_title) completando esta encuesta"
         },
         "required_field": "Este campo es requerido",
         "survey_complete": "Gracias por tus comentarios !",
@@ -1219,12 +1219,12 @@
         "field_cannot_be_empty": "Este campo no puede estar vacío"
       },
       "moment": {
-        "year": "{{count}}año",
+        "year": "{{count}} año",
         "year_plural": "{{count, number}} años",
-        "month": "{{count}}mes",
-        "month_plural": "{{count}}meses",
-        "day": "{{count}}día",
-        "day_plural": "{{count}}días"
+        "month": "{{count}} mes",
+        "month_plural": "{{count}} meses",
+        "day": "{{count}} día",
+        "day_plural": "{{count}} días"
       },
       "graph": {
         "gb_level": "Nivel",
