@@ -198,9 +198,9 @@
           "title": "Zablokuj jego miejsce",
           "level_cost": "Koszt poziomu",
           "current_deposits": "Suma obecnych wpłat",
-          "your_participation": "Twój obecny udział",
-          "other_participation": "Udział gracza by wyprzedzić",
-          "fp_to_complete_level": "Liczba pozostałego punktu rozwoju by ukończyć poziom:",
+          "your_participation": "Twój obecny wkład",
+          "other_participation": "Udział gracza aby wyprzedzić",
+          "fp_to_complete_level": "Liczba pozostałych punktów rozwoju by ukończyć poziom:",
           "fp_to_complete_level_plural": "Liczba pozostałych punktów rozwoju by ukończyć poziom:",
           "your_arc_bonus": "Twój bonus Arki",
           "fp_target_reward": "PR na docelowe miejsce",
@@ -214,7 +214,7 @@
             "default": "Musisz łącznie mieć {{count}} PR by zablokować to miejsce.",
             "default_plural": "Musisz łącznie mieć {{count, number}} PR by zablokować to miejsce.",
             "fp_need_to_lock": "Punkt Rozwoju który musisz wpłacić aby zablokować miejsce:",
-            "fp_need_to_lock_plural": "Punkty Rozwoju które musisz wpłacić aby zablokować miejsce:",
+            "fp_need_to_lock_plural": "Punkty Rozwoju, które musisz wpłacić aby zablokować miejsce:",
             "still_to_put": "Liczba Punktów Rozwoju które nadal musisz wpłacić",
             "fp_to_secure_html": "Wciąż musisz wrzucić {{count}} PR.",
             "roi": {
@@ -231,7 +231,7 @@
         }
       },
       "simple_trade": {
-        "title": "Table version",
+        "title": "Wersja tabletowa",
         "table": {
           "thead": {
             "th1": "Epoka",

@@ -1,1 +1,62 @@
-{ }
+{
+  "translation": {
+    "main_menu": {
+      "home": "Casa"
+    },
+    "footer_menu": {
+      "about": "Su",
+      "contributors": "Contributori",
+      "changelog": "Registro delle modifiche",
+      "contact": "Contatto"
+    },
+    "components": {
+      "campaign_cost": {
+        "choose_province": "Scegli una provincia",
+        "message": {
+          "haveUnknownCosts": "Questa provincia contiene uno o più settori che stanno perdendo utilità."
+        }
+      },
+      "cf_calculator": {
+        "block_cfc": {
+          "your_age": "Tua età",
+          "your_cf_boost": "Il tuo $t(foe_data.gb.Chateau_Frontenac)Boost",
+          "coins_to_use": "Monete da utilizzare su UBQ",
+          "supplies_to_use": "Provviste da utilizzare su UBQ",
+          "gb_plunder_goods": "GB e articoli di saccheggio",
+          "fp_by_24h": "Produzione di punti forge da 24 ore",
+          "other_rq": "Altri RQ giornalieri",
+          "supplies_gathered": "Materiali Raccolti",
+          "table_reward": {
+            "thead": {
+              "th1": "Progetti di Grandi Edifici",
+              "th2": "Medaglie",
+              "th3": "Beni",
+              "th4": "Punti Forge"
+            }
+          },
+          "reward_message": {
+            "total_goods": "Totale Beni: {{conteggio, numero}}",
+            "total_fp": "Punti Forge Totali: {{count, number}}"
+          },
+          "table_return": {
+            "thead": {
+              "th_level": "Livello",
+              "th_coin": "Moneta restituita",
+              "th_supply": "Materiale restituito"
+            }
+          },
+          "infinity_generator": {
+            "message": "Con l'attuale bonus di $t(foe_data.gb.Chateau_Frontenac), guadagnerai più monete e materiali di quanti ne utilizzerai per completare le missioni. Scegli il numero di \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" che desideri eseguire.",
+            "label": "Ricerca cumulativa"
+          }
+        }
+      },
+      "gb_investment": {
+        "gb_list_select": {
+          "label": "Cambia grande edificio",
+          "info": "È possibile modificare lo stile del selettore (selettore legacy o completamento automatico) nelle impostazioni globali"
+        }
+      }
+    }
+  }
+}

@@ -190,7 +190,7 @@
         "graph": {
           "title_1": "Evolutie van de kosten van de niveaus t.o.v. de niveaus",
           "title_2": "Evolutie van de opbrengst van de eerste positie t.o.v. de niveaus",
-          "title_3": "Evolutie van de kosten van de niveaus t.o.v. de opbrangst van de eerste positie",
+          "title_3": "Evolutie van de kosten van de niveaus t.o.v. de opbrengst van de eerste positie",
           "title_4": "Evolutie van de opbrengst van de eerste positie t.o.v. de kosten van de niveaus"
         }
       },
@@ -312,7 +312,7 @@
       "promotion_message_builder": {
         "title": "Promotie bericht builder",
         "info": "Dit kan worden gekopieerd om te worden gedeeld, bijvoorbeeld met uw gildeleden",
-        "note": "Merk op dat de berichten builder niveau 9 → 10 van $t(foe_data.gb.Observatory) gebruikt met een ratio van 1,9 voor preview.",
+        "note": "Merk op dat de messagebuilder niveau 9 → 10 gebruikt van $t(foe_data.gb.Observatory) met een ratio van 1,9 voor preview.",
         "action": "Actie",
         "actions": {
           "create": "Maak een nieuwe sjabloon",
@@ -560,7 +560,7 @@
           "title": "Contact",
           "subtitle": "Neem contact op met de beheerder van $t(common:site_title)"
         },
-        "message_contact_html": "Een idee voor een functionaliteit? Een probleem ? Wees zo vrij om mij een email (in het Engels of Frans) te sturen op $t(common:links.contact_foe_tools).",
+        "message_contact_html": "Een idee voor betere functionaliteit? Een probleem ? Stuur mij een email (in het Engels of Frans) op $t(common:links.contact_foe_tools).",
         "message_translate": "Wist u dat u ook kunt helpen de site te vertalen? Volg de volgende link voor meer informatie:",
         "message_other_info_html": "Als u ontwikkelaars bent, kunt u ook een probleem (en een bijdrage aan de ontwikkeling van de site) maken op $t(common:links.github)."
       },
@@ -1117,7 +1117,7 @@
           "name": "Blauwdruk"
         },
         "military_boost": {
-          "name": "Militaire bonussen",
+          "name": "Militaire bonus",
           "gb_description": "Verhoogt de aanvals- en verdedigingsbonus voor eenheden in aanvallend leger. Wordt verhoogd met ieder level"
         },
         "fierce_resistance": {

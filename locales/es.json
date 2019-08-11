@@ -1,7 +1,7 @@
 {
   "translation": {
     "main_menu": {
-      "home": "Inicio",
+      "home": "Casa",
       "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
       "secure_position": "$t(routes.secure_position.hero.title)",
       "cf_calculator": "$t(routes.cf_calculator.hero.title)",
@@ -13,7 +13,7 @@
     },
     "footer_menu": {
       "about": "Acerca de",
-      "contributors": "Contribuidores",
+      "contributors": "Colaboradores",
       "changelog": "Registro de Cambios",
       "contact": "Contacto"
     },
@@ -31,6 +31,7 @@
           "your_age": "Tu Era",
           "your_cf_boost": "Tu $t(foe_data.gb.Chateau_Frontenac) Bonus",
           "coins_to_use": "Monedas a usar en  M. No Cumpleaños",
+          "coins_supplies_info": "Este valor debe ser mayor o igual que {{min}} porque debajo no podemos garantizar ningún beneficio (estadísticamente)",
           "supplies_to_use": "Suministros a usar en M. No Cumpleaños",
           "gb_plunder_goods": "GEs y Bienes Robados",
           "fp_by_24h": "Producción de PF en 24 H",
@@ -288,7 +289,7 @@
             "Auto": "Automático"
           }
         },
-        "switch_locale": "$t(common:site_title)está disponible en su idioma"
+        "switch_locale": "$t(common:site_title) está disponible en su idioma"
       },
       "trade": {
         "title": "Versión de formulario",
@@ -299,9 +300,9 @@
         },
         "split_value": "Tamaño máximo de una oferta (máx. {{count}})",
         "split_message": {
-          "msg": "{{valueFrom}}{{ageFrom}}para {{valueTo}}{{ageTo}}",
-          "common": "{{count}}× ($ t (components.trade.split_message.msg, {'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo' : '{{ageTo}}'}))",
-          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+          "msg": "{{valueFrom}}{{ageFrom}} para {{valueTo}}{{ageTo}}",
+          "common": "{{count}}× ($t(components.trade.split_message.msg, {'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo' : '{{ageTo}}'}))",
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) y $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
           "result": "Para {{to}} {{ageTo}}, necesitas {{from}} {{ageFrom}} con ofertas superiores a {{count}}:",
@@ -311,13 +312,58 @@
       "promotion_message_builder": {
         "title": "Constructor de mensajes de promoción.",
         "info": "Esto se puede copiar para compartir, por ejemplo, con los miembros de tu gremio",
-        "note": "Tenga en cuenta que el generador de mensajes utiliza el nivel 9 → 10 de $t(foe_data.gb.Observatory)con una proporción de 1.9 para obtener una vista previa.",
+        "note": "Tenga en cuenta que el generador de mensajes utiliza el nivel 9 → 10 de $t(foe_data.gb.Observatory) con una proporción de 1.9 para obtener una vista previa.",
         "action": "Acción",
         "actions": {
           "create": "Crea una nueva plantilla",
           "update": "Actualizar una plantilla existente",
           "delete": "Eliminar una plantilla existente"
         },
+        "start_from_template": "Comenzar desde una plantilla?",
+        "edit_template": "Elija la plantilla para editar",
+        "delete_template": "Elija la plantilla para eliminar",
+        "templates": {
+          "default": "Plantillas por defecto",
+          "custom": "Plantillas personalizadas"
+        },
+        "config": "Configuración",
+        "add_field_title": "Agregar campos personalizados",
+        "add_field": {
+          "name": "Nombre del campo",
+          "value": "Valor del campo"
+        },
+        "custom_field_title": "Sus campos personalizados",
+        "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
+        "reverse_place_order": "Orden inverso de lugares?",
+        "place_separator": "Separador de lugar",
+        "place_builder": "Constructor de lugares",
+        "place_preview": "Vista previa del lugar (1er lugar)",
+        "message_builder": "Constructor de mensajes de promoción.",
+        "message_preview": "Vista previa del mensaje",
+        "place_builder_title": "Constructor de lugares",
+        "message_builder_title": "Constructor de mensajes de promoción.",
+        "available_variables": "Variables disponibles:",
+        "variables": {
+          "place": {
+            "PI": "Indice de lugar",
+            "PV": "Valor posicional (en PF)"
+          },
+          "message": {
+            "FLVL": "Desde el nivel",
+            "TLVL": "Hasta el nivel",
+            "GBN": "Nombre GE",
+            "P": "Lugares",
+            "LF": "Avance de línea, agregue una nueva línea"
+          }
+        },
+        "template_name": "Nombre de la plantilla",
+        "errors": {
+          "template_cannot_have_this_name": "La plantilla no puede tener este nombre. Por favor use otro nombre.",
+          "custom_name_empty": "El nombre del campo no puede estar vacío.",
+          "custom_name_already_exists": "Este nombre de campo ya existe."
+        },
+        "template_saved": "Plantilla guardada",
+        "template_updated": "Plantilla actualizada",
         "template_deleted": "Plantilla eliminada"
       },
       "import_promotion_message": {
@@ -330,15 +376,58 @@
       }
     },
     "routes": {
+      "home": {
+        "title": "$t(common:site_title)"
+      },
       "about": {
         "title": "Sobre $t(common:site_title)",
         "general_info": {
           "title": "Información general",
-          "p1_html": "Forge of Empires, FOE y todas las marcas y el contenido relacionados pertenecen a InnoGames GmbH. <br/>$t(common:site_title)es un sitio no oficial de terceros y no está afiliado a InnoGames.",
-          "p2_html": "$t(common:site_title)fue creado por el jugador francés <strong class=\"has-text-weight-semibold\">Yoratheon </strong>."
+          "p1_html": "Forge of Empires, FOE y todas las marcas y el contenido relacionados pertenecen a InnoGames GmbH. <br/>$t(common:site_title) es un sitio no oficial de terceros y no está afiliado a InnoGames.",
+          "p2_html": "$t(common:site_title) fue creado por el jugador francés <strong class=\"has-text-weight-semibold\">Yoratheon </strong>.",
+          "p3_html": "El sitio es OpenSource, el código está disponible gratuitamente en $t(common:links.github). <br/>Por lo tanto, todos los que tengan las habilidades necesarias pueden participar en la mejora de este sitio."
         },
         "cookie": {
+          "title": "Cookies",
+          "p1": "Al continuar usando $t(common:site_title) aceptas el uso de cookies para mejorar el uso del sitio.",
+          "table_message": "La siguiente tabla muestra todas las cookies utilizadas en este sitio.",
           "info": {
+            "cookieDisclaimerDisplayed": "Indica si ha leído el mensaje de información sobre la sugerencia para usar la entrada de agregar contribuyentes",
+            "gbi_tab": "Parámetro global para \"$t(routes.gb_investment_gb_chooser.hero.title)\" que indica qué pestaña cargar por defecto ($t(routes.gb_investment.tab.owner_view.title), etc.).",
+            "gbPrefix": "Parámetro global para \"$t(routes.gb_investment_gb_chooser.hero.title)\" que indica si se debe mostrar el nivel de GE para el mensaje de promoción",
+            "gbSuffix": "Parámetro global para \"$t(routes.gb_investment_gb_chooser.hero.title)\" que indica si se debe mostrar el nivel de GE para el mensaje de promoción",
+            "locale": "Mostrar idioma",
+            "shortName": "Parámetro global para \"$t(routes.gb_investment_gb_chooser.hero.title)\" que indica si se debe mostrar el nivel de GE para el mensaje de promoción",
+            "showLevel": "Parámetro global para \"$t(routes.gb_investment_gb_chooser.hero.title)\" que indica si se debe mostrar el nivel de GE para el mensaje de promoción",
+            "yourArcBonus": "Configuración global que contiene la bonificación de tu Arca",
+            "yourCfBoost": "Configuración global que contiene la bonificación de su Castillo de Frontenac",
+            "haveReadTipAboutAddInvestor": "Indica si ha leído el mensaje de información sobre la sugerencia para usar la entrada de agregar contribuyentes",
+            "dayNightMode": "Indica qué modo de selección de GE está utilizando",
+            "dayStart": "Tiempo utilizado para el comienzo de la noche (utilizado en \"$t(components.site_layout.day_night.Auto)\")",
+            "nightStart": "Tiempo utilizado para el comienzo de la noche (utilizado en \"$t(components.site_layout.day_night.Auto)\")",
+            "showSnipe": "Mostrar u ocultar Spot / Snipe (utilizado en \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
+            "fpBy24h": "$t(components.cf_calculator.block_cfc.fp_by_24h)",
+            "goods": "$t(components.cf_calculator.block_cfc.gb_plunder_goods)",
+            "otherRq": "$t(components.cf_calculator.block_cfc.other_rq)",
+            "cumulativeQuest": "Número de misiones acumulativas",
+            "secondRq": "$t(components.cf_calculator.block_cfc.second_rq)",
+            "supplies": "$t(components.cf_calculator.block_cfc.supplies_to_use)",
+            "suppliesGathered": "$t(components.cf_calculator.block_cfc.supplies_gathered)",
+            "yourAge": "$t(components.cf_calculator.block_cfc.your_age)",
+            "investorPercentageCustom_x": "$t(components.gb_investment.gb_investment.table.thead.th5)",
+            "investorPercentageGlobal": "$t(components.gb_investment.gb_investment.form.investor_percentage)",
+            "investorParticipation_x": "Participación esperada de los inversores cuando el lugar no otorga PF",
+            "level": "Nivel de GE",
+            "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
+            "showPx": "Indica si quieres mostrar el prefijo en los mensajes de promoción.",
+            "takingPlaceInConsideration": "En la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\", indica si los otros lugares deben tenerse en cuenta en el cálculo",
+            "targetLevel": "En la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\", indica desde qué nivel mostrar la información en la tabla",
+            "displayGbName": "Indica si se desea mostrar el nombre de GE en el mensaje de promoción",
+            "investorParticipation": "Contiene una lista de todos los inversores agregados.",
+            "displayTableCard": "Indique si se debe mostrar la tabla en \"$t(routes.gb_investment_gb_chooser.hero.title)\" en modo simple (tabla) o en vista de tarjeta en pantalla pequeña",
+            "from": "Nivel donde comenzar la matriz (usado en la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "to": "Nivel donde comenzar la matriz (usado en la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "showPlace": "Una matriz que contiene si se muestra un lugar o no (se usa en la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "survey": "Una matriz que contiene todas las encuestas que ya ha completado.",
             "fixedMainMenu": "Indica si el menú principal está siempre visible o no.",
@@ -353,7 +442,7 @@
         "dev_info": {
           "title": "Información de desarrollo",
           "p2_html": "El desarrollo se realiza en Node.js utilizando $t(common:links.framework). El estilo se hace usando $t(common:links.style).",
-          "p3_html": "¿Una idea de funcionalidad? Un problema ? Siéntase libre de crear una incidencia en $t(common:links.github)o envíeme un correo electrónico (en inglés o en francés) al $t(common:links.contact_foe_tools).",
+          "p3_html": "¿Una idea de funcionalidad? Un problema ? Siéntase libre de crear una incidencia en $t(common:links.github) o envíeme un correo electrónico (en inglés o en francés) al $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Nota: </b>Con respecto a los problemas en GitHub, asegúrese de escribirlos en inglés para facilitar la comprensión del mayor número de miembros."
         }
       },
@@ -432,18 +521,20 @@
         }
       },
       "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Ayuda para traducir el sitio.",
           "subtitle": "Únete al equipo de traducción"
         },
         "p1": "¿Su idioma no está disponible, la traducción está incompleta o contiene errores? Siéntase libre de unirse al equipo de traducción del sitio.",
         "how_to_join_the_team": "¿Cómo unirse al equipo?",
-        "p2_html": "$t(common:site_title)es traducido por los usuarios. Utilizamos la plataforma $t(common:links.lingohub)para facilitar el proceso de traducción. Para unirse al equipo, envíe un correo electrónico (en inglés) a $t(common:links.contact_foe_tools)especificando el (los) idioma (s) en que puede traducir para que podamos enviarle una invitación."
+        "p2_html": "$t(common:site_title) es traducido por los usuarios. Utilizamos la plataforma $t(common:links.lingohub) para facilitar el proceso de traducción. Para unirse al equipo, envíe un correo electrónico (en inglés) a $t(common:links.contact_foe_tools) especificando el (los) idioma (s) en que puede traducir para que podamos enviarle una invitación."
       },
       "survey": {
+        "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Encuesta",
-          "subtitle": "Ayuda a mejorar $t(common:site_title)completando esta encuesta"
+          "subtitle": "Ayuda a mejorar $t(common:site_title) completando esta encuesta"
         },
         "required_field": "Este campo es requerido",
         "survey_complete": "Gracias por tus comentarios !",
@@ -451,8 +542,10 @@
       },
       "contact": {
         "hero": {
-          "title": "Contacto"
-        }
+          "title": "Contacto",
+          "subtitle": "Póngase en contacto con el administrador de $t(common:site_title)"
+        },
+        "message_contact_html": "¿Una idea para mejorar la funcionalidad? ¿Un problema? No dude en enviarme un correo electrónico (en inglés o francés) al $t(common:links.contact_foe_tools)."
       }
     },
     "foe_data": {
@@ -462,6 +555,11 @@
         "IronAge": "Edad de Hierro"
       },
       "age_short": {
+        "ColonialAge": "COL",
+        "IndustrialAge": "IND",
+        "ProgressiveEra": "PRO",
+        "ModernEra": "MOD",
+        "PostmodernEra": "POS",
         "ContemporaryEra": "CON",
         "Tomorrow": "MAÑ",
         "TheFuture": "FUT",
@@ -474,6 +572,19 @@
         "Temple_of_Relics": "Templo de las reliquias",
         "Oracle_of_Delphi": "Oráculo de Delfos",
         "Tower_of_Babel": "Torre de Babel",
+        "Statue_of_Zeus": "Estatua de Zeus",
+        "Colosseum": "Coliseo",
+        "Lighthouse_of_Alexandria": "El Faro de Alejandria",
+        "Hagia_Sophia": "Santa Sofía",
+        "Cathedral_of_Aachen": "Catedral de Aachen",
+        "St_Mark_s_Basilica": "Basílica de San Marcos",
+        "Notre_Dame": "Notre Dame",
+        "Saint_Basil_s_Cathedral": "Catedral de San Basilio",
+        "Castel_del_Monte": "Castillo del Monte",
+        "Deal_Castle": "Deal Castle",
+        "Frauenkirche_of_Dresden": "Dresden Frauenkirche",
+        "Capitol": "Capitolio",
+        "Royal_Albert_Hall": "Royal Albert Hall",
         "Chateau_Frontenac": "Castillo de Frontenac",
         "Alcatraz": "Alcatraz",
         "Space_Needle": "Aguja Espacial",
@@ -524,7 +635,7 @@
         "Lotus_Temple": "TdL",
         "Innovation_Tower": "Inno",
         "Dynamic_Tower": "TD",
-        "Voyager_V1": "Viajero",
+        "Voyager_V1": "Voyager",
         "The_Arc": "El Arca",
         "Rain_Forest_Project": "PS",
         "Gaea_Statue": "Gea",
@@ -929,6 +1040,96 @@
         "Game_Over": "Juego Terminado"
       },
       "bonus": {
+        "coin": {
+          "name": "Moneda"
+        },
+        "supply": {
+          "name": "Herramienta"
+        },
+        "good": {
+          "name": "Bien"
+        },
+        "special_good": {
+          "name": "Bienes Especiales"
+        },
+        "good_bonus": {
+          "name": "Bono de producción"
+        },
+        "expansion": {
+          "name": "Expansión"
+        },
+        "medal": {
+          "name": "Medalla"
+        },
+        "diamond": {
+          "name": "Diamante"
+        },
+        "pvp_tower": {
+          "name": "Torre PvP"
+        },
+        "blueprint": {
+          "name": "Plano"
+        },
+        "military_boost": {
+          "name": "Bonificación militar",
+          "gb_description": "Aumenta la bonificación de ataque y defensa para las unidades en el ejército atacante, se suma a cada edificio."
+        },
+        "fierce_resistance": {
+          "name": "Resistencia feroz",
+          "gb_description": "Aumenta la bonificación de ataque y defensa para las unidades en el ejército defensor y aumenta la bonificación del Gremio, se suma con cada edificio."
+        },
+        "coin_boost": {
+          "name": "Mejora de monedas",
+          "gb_description": "Aumenta el resultado de sus casas hasta 90 veces con cada recolección, se suma a la productividad y la motivación."
+        },
+        "supply_boost": {
+          "name": "Mejora de suministros",
+          "gb_description": "Aumenta el resultado de sus edificios de producción, se suma a la productividad, la motivación y otros aumentos de la oferta."
+        },
+        "good_production": {
+          "name": "Producción de bienes",
+          "gb_description": "Produce una cierta cantidad de productos de su edad actual cada 24 horas. A partir de la era moderna, produce el doble de la cantidad en bienes sin refinar."
+        },
+        "medal_production": {
+          "name": "Producción de medallas",
+          "gb_description": "Produce una cierta cantidad de medallas cada 24 horas."
+        },
+        "research": {
+          "name": "Investigación",
+          "gb_description": "Produce una pequeña cantidad de puntos forge cada 24 horas."
+        },
+        "coin_production": {
+          "name": "Producción de monedas",
+          "gb_description": "Produce una cierta cantidad de monedas cada 24 horas."
+        },
+        "supply_production": {
+          "name": "Producción de suministros",
+          "gb_description": "Produce una cierta cantidad de suministros cada 24 horas."
+        },
+        "population": {
+          "name": "Población",
+          "gb_description": "Bonificación de población permanente."
+        },
+        "happiness": {
+          "name": "Felicidad",
+          "gb_description": "Bono de felicidad permanente."
+        },
+        "quest_reward_boost": {
+          "name": "Búsqueda de recompensa",
+          "gb_description": "Reúne solo tus monedas, suministros, bienes, medallas o diamantes de las recompensas de misiones."
+        },
+        "penal_unit": {
+          "name": "Unidad militar",
+          "gb_description": "Recluta unidades independientes cada 24 horas, elegidas al azar de cualquier edificio militar en tu ciudad."
+        },
+        "guild_goods": {
+          "name": "Bienes del Gremio",
+          "gb_description": "Produce bienes de la era actual que van directamente al Tesoro del Gremio."
+        },
+        "support_pool_bonus": {
+          "name": "Bonificación de grupo de apoyo",
+          "gb_description": "Aumenta el bono de grupo de apoyo de tu gremio, se suma a cada edificio."
+        },
         "aid_goods": {
           "name": "Bienes de ayuda",
           "gb_description": "Produce un bien aleatorio al ayudar a la ciudad de otro jugador (motivarlos / embellecerlos manualmente también cuentan como ayuda). La edad del bien aleatorio corresponde a la edad del edificio al que está ayudando."
@@ -1018,12 +1219,12 @@
         "field_cannot_be_empty": "Este campo no puede estar vacío"
       },
       "moment": {
-        "year": "{{count}}año",
+        "year": "{{count}} año",
         "year_plural": "{{count, number}} años",
-        "month": "{{count}}mes",
-        "month_plural": "{{count}}meses",
-        "day": "{{count}}día",
-        "day_plural": "{{count}}días"
+        "month": "{{count}} mes",
+        "month_plural": "{{count}} meses",
+        "day": "{{count}} día",
+        "day_plural": "{{count}} días"
       },
       "graph": {
         "gb_level": "Nivel",
@@ -1042,7 +1243,20 @@
       "financial": "Financiero",
       "fundingFinding": "Encontrar financiación",
       "ideas": "Ideas, planificación y comentarios",
-      "infra": "Infraestructura (Hosting, Build-Tools, etc)"
+      "infra": "Infraestructura (Hosting, Build-Tools, etc)",
+      "platform": "Compactar / mover a nueva plataforma",
+      "plugin": "Plugin / bibliotecas de utilidades",
+      "question": "Respondiendo preguntas",
+      "review": "Revisión de pedidos",
+      "talk": "Conversaciones",
+      "test": "Tests",
+      "tool": "Herramientas",
+      "translation": "Traducción",
+      "tutorial": "Tutoriales",
+      "video": "Videos",
+      "data": "Añadir o actualizar datos",
+      "inspired_tool": "Herramientas inspiradas por este trabajo",
+      "creator": "Creador de este proyecto"
     },
     "seo": {
       "keywords": {
