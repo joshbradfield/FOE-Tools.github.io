@@ -3,7 +3,8 @@
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Heziode"><img src="https://avatars0.githubusercontent.com/u/16735076?v=4" width="100px;" alt="Heziode (Yoratheon)"/><br /><sub><b>Heziode (Yoratheon)</b></sub></a><br /><a href="#creator-Heziode" title="Creator of this project">👑</a> <a href="#code-Heziode" title="Code">💻</a> <a href="#design-Heziode" title="Design">🎨</a> <a href="#doc-Heziode" title="Documentation">📖</a> <a href="#bug-Heziode" title="Bug reports">🐛</a> <a href="#ideas-Heziode" title="Ideas, Planning, & Feedback">🤔</a> <a href="#data-Heziode" title="Adding or updating data">🗃</a> <a href="#review-Heziode" title="Reviewed Pull Requests">👀</a> <a href="#talk-Heziode" title="Talks">📢</a> <a href="#tool-Heziode" title="Tools">🔧</a> <a href="#translation-Heziode" title="Translation">🌍</a></td>
@@ -73,9 +74,12 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Frank the dude (US)"/><br /><sub><b>Frank the dude (US)</b></sub></a><br /><a href="#ideas-Frank the dude (US)" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/"><img src="/img/contributors/TrueRaptor.jpg" width="100px;" alt="TrueRaptor (PT)"/><br /><sub><b>TrueRaptor (PT)</b></sub></a><br /><a href="#translation-TrueRaptor (PT)" title="Translation">🌍</a></td>
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Geribaldi (NL)"/><br /><sub><b>Geribaldi (NL)</b></sub><br /><a href="#translation-Geribaldi (NL)" title="Translation">🌍</a></td>
+    <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="waldmann (SK)"/><br /><sub><b>waldmann (SK)</b></sub><br /><a href="#bug-waldmann (SK)" title="Bug reports">🐛</a> <a href="#translation-waldmann (SK)" title="Translation">🌍</a></td>
   </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

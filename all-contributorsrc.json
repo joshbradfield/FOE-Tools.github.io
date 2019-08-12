@@ -592,6 +592,16 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "waldmann (SK)",
+      "name": "waldmann (SK)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "",
+      "contributions": [
+        "bug",
+        "translation"
+      ]
     }
   ],
   "commitConvention": "none"
