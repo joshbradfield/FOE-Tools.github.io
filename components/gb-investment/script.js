@@ -946,7 +946,7 @@ export default {
     haveReadTipAboutAddInvestor: /* istanbul ignore next */ function() {
       if (!this.$cookies.get("haveReadTipAboutAddInvestor")) {
         let self = this;
-        this.$snackbar.open({
+        this.$buefy.snackbar.open({
           message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
           position: "is-top",
           actionText: this.$t("utils.Ok"),

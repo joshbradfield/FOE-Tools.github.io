@@ -182,7 +182,7 @@ export default {
         expires: Utils.getDefaultCookieExpireTime()
       });
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(result)));
-      this.$notification.open({
+      this.$buefy.notification.open({
         message: this.$t(i18nPrefix + "template_imported"),
         type: "is-success",
         duration: 5000

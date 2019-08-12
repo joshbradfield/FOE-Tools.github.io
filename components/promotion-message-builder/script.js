@@ -202,7 +202,7 @@ export default {
       });
       this.customTemplates = result;
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(this.customTemplates)));
-      this.$notification.open({
+      this.$buefy.notification.open({
         message: this.$t(i18nPrefix + (this.action === "update" ? "template_updated" : "template_saved")),
         type: "is-success",
         duration: 5000
@@ -221,7 +221,7 @@ export default {
         expires: Utils.getDefaultCookieExpireTime()
       });
       this.action = "create";
-      this.$notification.open({
+      this.$buefy.notification.open({
         message: this.$t(i18nPrefix + "template_deleted"),
         type: "is-success",
         duration: 5000
