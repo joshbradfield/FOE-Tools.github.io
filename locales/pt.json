@@ -29,9 +29,9 @@
         "block_cfc": {
           "title": "$t(routes.cf_calculator.hero.title)",
           "your_age": "A Tua Era ",
-          "your_cf_boost": "Seu $t(foe_data.gb.Chateau_Frontenac)Bónus",
+          "your_cf_boost": "Seu $t(foe_data.gb.Chateau_Frontenac) Bónus",
           "coins_to_use": "Total de moedas para UBQ",
-          "coins_supplies_info": "Esse valor deve ser maior ou igual a {{min}}porque, por baixo, não podemos garantir nenhum lucro (estatisticamente)",
+          "coins_supplies_info": "Esse valor deve ser maior ou igual a {{min}} porque, por baixo, não podemos garantir nenhum lucro (estatisticamente)",
           "supplies_to_use": "Mantimentos para UBQ",
           "gb_plunder_goods": "GE & Mercadorias Pilhadas ",
           "fp_by_24h": "Produção de PF's durante 24h ",
@@ -80,7 +80,7 @@
             "p2_html": "</strong>Nota<strong>:Se não for actualizado automaticamente,defina primeiro o nível do GE e o valor total do investimento e clica  em $t(components.gb_investment.gb_investment.form.submit_global)  \"Se quiseres ajustar os valores de cada lugar,clica em\"$t(components.gb_investment.gb_investment.form.submit_custom)"
           },
           "form": {
-            "level": "Nível {{deLevel, number}} → {{level, number}} ($ t (utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
+            "level": "Nível {{deLevel, number}} → {{level, number}} ($t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
             "investor_percentage": "% do bónus dos investidores (bónus da arca)",
             "submit_global": "Calculo Global",
             "submit_custom": "Cálculo personalizado",
@@ -168,7 +168,7 @@
         "message": {
           "single": "Para completar o nível {{level}} de \"$t({{gb}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total do nível: {{custo, numero}} PFs.",
           "multi": "Para passar do nível {{from}} para\"$t({{to}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total dos níveis: {{custo, numero}} PFs.",
-          "diff": "Com o bónus do investimento,vais poupar {{count}}PF",
+          "diff": "Com o bónus do investimento,vais poupar {{count}} PF",
           "diff_plural": "Com o bónus do investimento,vais poupar {{contagem, numero}} ",
           "estimated_time": "Tempo estimado para atingir o nível: {{time}}"
         },
@@ -444,7 +444,7 @@
           "title": "Informação de desenvolvimento",
           "p1": "O site é um site estático simples hospedado no GitHub.",
           "p2_html": "O desenvolvimento é feito em Node.js usando $t(common:links.framework). O estilo é feito usando $t(common:links.style).",
-          "p3_html": "Uma ideia de funcionalidade? Um problema ? Sinta-se à vontade para criar um problema em $t(common:links.github)ou envie-me um e-mail (em inglês ou francês) em $t(common:links.contact_foe_tools).",
+          "p3_html": "Uma ideia de funcionalidade? Um problema ? Sinta-se à vontade para criar um problema em $t(common:links.github) ou envie-me um e-mail (em inglês ou francês) em $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Nota: </b>Com relação a problemas no GitHub, certifique-se de escrevê-los em inglês para facilitar o entendimento para o maior número possível de pessoas."
         }
       },

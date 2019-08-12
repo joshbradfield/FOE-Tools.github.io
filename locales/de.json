@@ -257,7 +257,7 @@
         },
         "new_year": {
           "message": "$t(common:site_title) feiert sein {{count, number}} Jahr",
-          "message_plural": "$t(common:site_title)feiert seine {{Anzahl, Anzahl}} Jahre"
+          "message_plural": "$t(common:site_title) feiert seine {{Anzahl, Anzahl}} Jahre"
         },
         "survey": {
           "message": "Hilf uns $t(common:site_title) zu verbessern, indem du diese Umfrage ausfüllst"
@@ -289,7 +289,7 @@
             "Auto": "Automatischer"
           }
         },
-        "switch_locale": "$t(common:site_title)ist in Ihrer Sprache verfügbar"
+        "switch_locale": "$t(common:site_title) ist in Ihrer Sprache verfügbar"
       },
       "trade": {
         "title": "Formularversion",
@@ -312,7 +312,7 @@
       "promotion_message_builder": {
         "title": "Promotion message builder",
         "info": "Dies kann kopiert werden, um es zum Beispiel mit deinen Gildenmitgliedern zu teilen",
-        "note": "Beachten Sie, dass der Message Builder Level 9 → 10 von $t(foe_data.gb.Observatory)mit einem Verhältnis von 1,9 für die Vorschau verwendet.",
+        "note": "Beachten Sie, dass der Message Builder Level 9 → 10 von $t(foe_data.gb.Observatory) mit einem Verhältnis von 1,9 für die Vorschau verwendet.",
         "action": "Aktion",
         "actions": {
           "create": "Erstellen Sie eine neue Vorlage",
@@ -541,7 +541,7 @@
         },
         "p1": "Ihre Sprache ist nicht verfügbar, die Übersetzung ist unvollständig oder fehlerhaft? Sie können sich gerne dem Übersetzungsteam der Website anschließen.",
         "how_to_join_the_team": "Wie kann man dem Team beitreten?",
-        "p2_html": "$t(common:site_title) wird von Nutzern übersetzt. Wir verwenden die Plattform $t(common:links.lingohub), um den Übersetzungsprozess zu vereinfachen. Um dem Team beizutreten, sende eine E-Mail (in Englisch) an $t(common:links.contact_foe_tools)und gib die Sprache(n) an, in die du übersetzen kannst, damit wir dir eine Einladung senden können."
+        "p2_html": "$t(common:site_title) wird von Nutzern übersetzt. Wir verwenden die Plattform $t(common:links.lingohub), um den Übersetzungsprozess zu vereinfachen. Um dem Team beizutreten, sende eine E-Mail (in Englisch) an $t(common:links.contact_foe_tools) und gib die Sprache(n) an, in die du übersetzen kannst, damit wir dir eine Einladung senden können."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
@@ -560,9 +560,9 @@
           "title": "Kontakt",
           "subtitle": "Wenden Sie sich an den Administrator von $t(common:site_title)"
         },
-        "message_contact_html": "Eine Idee zur Verbesserung der Funktionalität? Ein Problem? Sie können mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools)senden.",
+        "message_contact_html": "Eine Idee zur Verbesserung der Funktionalität? Ein Problem? Sie können mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools) senden.",
         "message_translate": "Wussten Sie, dass Sie auch bei der Übersetzung der Website helfen können? Folgen Sie dem folgenden Link für weitere Informationen:",
-        "message_other_info_html": "Wenn Sie Entwickler sind, können Sie auch ein Problem auf $t(common:links.github)erstellen (und zur Entwicklung der Site beitragen)."
+        "message_other_info_html": "Wenn Sie Entwickler sind, können Sie auch ein Problem auf $t(common:links.github) erstellen (und zur Entwicklung der Site beitragen)."
       },
       "error": {
         "404": {

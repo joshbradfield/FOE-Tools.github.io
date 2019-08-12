@@ -19,7 +19,7 @@
       "cf_calculator": {
         "block_cfc": {
           "your_age": "Tua età",
-          "your_cf_boost": "Il tuo $t(foe_data.gb.Chateau_Frontenac)Boost",
+          "your_cf_boost": "Il tuo $t(foe_data.gb.Chateau_Frontenac) Boost",
           "coins_to_use": "Monete da utilizzare su UBQ",
           "supplies_to_use": "Provviste da utilizzare su UBQ",
           "gb_plunder_goods": "GB e articoli di saccheggio",

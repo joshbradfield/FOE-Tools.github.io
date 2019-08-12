@@ -165,7 +165,7 @@
         "estimated_time": "Przewidywany czas na osiągnięcie poziomu",
         "message": {
           "single": "Aby ukończyć poziom {{level}} z \"$t({{gb}})\", właściciel musi zainwestować {{preparation, number}} PR. Całkowity koszt poziomu: {{cost, number}} PR.",
-          "multi": "Aby ukończyć poziom {{level}} z \"$t({{gb}})\", właściciel musi zainwestować {{preparation, number}}PR. Całkowity koszt poziomu: {{cost, number}} PR.",
+          "multi": "Aby ukończyć poziom {{level}} z \"$t({{gb}})\", właściciel musi zainwestować {{preparation, number}} PR. Całkowity koszt poziomu: {{cost, number}} PR.",
           "diff": "Dzięki inwestycjom bonusowym zaoszczędzisz {{count}} PR",
           "diff_plural": "Dzięki inwestycjom bonusowym zaoszczędzisz {{count, number}} PR",
           "estimated_time": "Przewidywany czas osiągnięcia poziomu: {{time}}"
