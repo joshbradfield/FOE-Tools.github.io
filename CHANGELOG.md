@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.48.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.48.1...v2.48.2) (2019-08-12)
+
+
+### Bug Fixes
+
+* update code for modal, snackbar, notification due to Buefy breaking change ([e05e213](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e05e213))
+
 ### [2.48.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.48.0...v2.48.1) (2019-08-12)
 
 
