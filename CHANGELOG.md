@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.48.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.48.0...v2.48.1) (2019-08-12)
+
+
+### Bug Fixes
+
+* **l10:** fix translation ([15ea6f9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/15ea6f9))
+* **l10n:** fix translation ([b19b5fe](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b19b5fe))
+
 ## [2.48.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.47.1...v2.48.0) (2019-08-11)
 
 
