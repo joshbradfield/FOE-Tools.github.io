@@ -1,7 +1,7 @@
 {
   "translation": {
     "main_menu": {
-      "home": "Casa",
+      "home": "Inicio",
       "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
       "secure_position": "$t(routes.secure_position.hero.title)",
       "cf_calculator": "$t(routes.cf_calculator.hero.title)",
@@ -89,6 +89,7 @@
             "tooltip_add_investors": "Click \"$t(utils.Add)\" en el Botón u oprima la tecla \"Enter\" para agregar un inversionista",
             "investors_list": "Lista de inversionistas agregados",
             "show_snipe": "Mostrar Lugar",
+            "show_only_secured_places": "Mostrar solo lugares seguros",
             "display_card": "¿Mostrar la tabla en vista de tarjeta? (en pantalla pequeña)"
           },
           "table": {
@@ -441,6 +442,7 @@
         },
         "dev_info": {
           "title": "Información de desarrollo",
+          "p1": "El sitio es un sitio estático simple alojado en GitHub.",
           "p2_html": "El desarrollo se realiza en Node.js utilizando $t(common:links.framework). El estilo se hace usando $t(common:links.style).",
           "p3_html": "¿Una idea de funcionalidad? Un problema ? Siéntase libre de crear una incidencia en $t(common:links.github) o envíeme un correo electrónico (en inglés o en francés) al $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Nota: </b>Con respecto a los problemas en GitHub, asegúrese de escribirlos en inglés para facilitar la comprensión del mayor número de miembros."
@@ -538,23 +540,55 @@
         },
         "required_field": "Este campo es requerido",
         "survey_complete": "Gracias por tus comentarios !",
-        "error": "Ha ocurrido un error, verifique el formulario e intentelo nuevamente"
+        "error": "Ha ocurrido un error, verifique el formulario e intentelo nuevamente",
+        "unknown_error": "Se ha producido un error desconocido. Póngase en contacto con el administrador del sitio."
       },
       "contact": {
+        "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "Contacto",
           "subtitle": "Póngase en contacto con el administrador de $t(common:site_title)"
         },
-        "message_contact_html": "¿Una idea para mejorar la funcionalidad? ¿Un problema? No dude en enviarme un correo electrónico (en inglés o francés) al $t(common:links.contact_foe_tools)."
+        "message_contact_html": "¿Una idea para mejorar la funcionalidad? ¿Un problema? No dude en enviarme un correo electrónico (en inglés o francés) al $t(common:links.contact_foe_tools).",
+        "message_translate": "¿Sabía que también puede ayudar a traducir el sitio? Siga el siguiente enlace para más información:",
+        "message_other_info_html": "Si son desarrolladores, también pueden crear un problema (y contribuir al desarrollo del sitio) en $t(common:links.github)."
+      },
+      "error": {
+        "404": {
+          "title": "Página no encontrada | $t(common:site_title)",
+          "message": "Lo sentimos, la página que estás buscando no existe o ya no existe"
+        }
       }
     },
     "foe_data": {
       "age": {
+        "Oracle": "$t(foe_data.age.NoAge)($t(foe_data.gb.Oracle_of_Delphi))",
         "NoAge": "Sin edad",
         "BronzeAge": "Edad de Bronce",
-        "IronAge": "Edad de Hierro"
+        "IronAge": "Edad de Hierro",
+        "EarlyMiddleAges": "Alta Edad Media",
+        "HighMiddleAges": "Plena Edad Media",
+        "LateMiddleAges": "Baja Edad Media",
+        "ColonialAge": "Edad Colonial",
+        "IndustrialAge": "Edad Industrial",
+        "ProgressiveEra": "Edad del Progreso",
+        "ModernEra": "Edad Moderna",
+        "PostmodernEra": "Edad Postmoderna",
+        "ContemporaryEra": "Edad Contemporánea",
+        "Tomorrow": "Edad del Mañana",
+        "TheFuture": "El Futuro",
+        "ArcticFuture": "Futuro Ártico",
+        "OceanicFuture": "Futuro Oceánico",
+        "VirtualFuture": "Futuro Virtual",
+        "SpaceAgeMars": "Era Espacial Marciana"
       },
       "age_short": {
+        "NoAge": "SE",
+        "BronzeAge": "BR",
+        "IronAge": "HI",
+        "EarlyMiddleAges": "BEM",
+        "HighMiddleAges": "AEM",
+        "LateMiddleAges": "PEM",
         "ColonialAge": "COL",
         "IndustrialAge": "IND",
         "ProgressiveEra": "PRO",
@@ -565,7 +599,8 @@
         "TheFuture": "FUT",
         "ArcticFuture": "FA",
         "OceanicFuture": "FO",
-        "VirtualFuture": "FV"
+        "VirtualFuture": "FV",
+        "SpaceAgeMars": "EEM"
       },
       "gb": {
         "Observatory": "Observatorio",
