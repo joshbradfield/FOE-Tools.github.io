@@ -115,13 +115,13 @@ export default {
           // handle error
           this.$data.loading = false;
           if (error.response.status === 400) {
-            this.$notification.open({
+            this.$buefy.notification.open({
               message: this.$t(i18nPrefix + "error"),
               type: "is-danger",
               indefinite: true
             });
           } else {
-            this.$notification.open({
+            this.$buefy.notification.open({
               message: this.$t(i18nPrefix + "unknown_error"),
               type: "is-danger",
               indefinite: true
@@ -191,7 +191,7 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
-      this.$notification.open(notifParams);
+      this.$buefy.notification.open(notifParams);
       this.$router.push("/");
       this.$store.dispatch("nuxtServerInit");
     }

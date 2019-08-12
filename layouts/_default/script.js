@@ -221,7 +221,7 @@ export default {
     },
     showGlobalSettings: /* istanbul ignore next */ function() {
       let self = this;
-      this.$modal.open({
+      this.$buefy.modal.open({
         parent: this,
         component: GlobalSettings,
         hasModalCard: true,
