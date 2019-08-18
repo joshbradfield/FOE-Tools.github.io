@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.49.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.48.2...v2.49.0) (2019-08-18)
+
+
+### Features
+
+* **l10n:** add Slovak ([b9b06e4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b9b06e4))
+
 ### [2.48.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.48.1...v2.48.2) (2019-08-12)
 
 
