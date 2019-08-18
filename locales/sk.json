@@ -1,0 +1,1319 @@
+{
+  "translation": {
+    "main_menu": {
+      "home": "Domov",
+      "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
+      "secure_position": "$t(routes.secure_position.hero.title)",
+      "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+      "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+      "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+      "trade": "$t(routes.trade.hero.title)",
+      "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+      "campaign_cost": "$t(routes.campaign_cost.hero.title)"
+    },
+    "footer_menu": {
+      "about": "viac info o",
+      "contributors": "prispievatelia",
+      "changelog": "log zmien",
+      "contact": "kontakt"
+    },
+    "components": {
+      "campaign_cost": {
+        "title": "$t(routes.campaign_cost.hero.title)",
+        "choose_province": "Zvoľte si provinciu",
+        "message": {
+          "haveUnknownCosts": "Provincia obsahuje jeden alebo viac sektorov , ktorým chýbajú hodnoty."
+        }
+      },
+      "cf_calculator": {
+        "block_cfc": {
+          "title": "$t(routes.cf_calculator.hero.title)",
+          "your_age": "Tvoj vek",
+          "your_cf_boost": "Tvoje $t(foe_data.gb.Chateau_Frontenac) vylepšenie",
+          "coins_to_use": "Počet mincí potrebných pre \"nenarodeninovú párty\" (opakujúca sa úloha)",
+          "coins_supplies_info": "Táto hodnota by mala byť väčšia alebo rovná ako {{min}} ,lebo pod túto hodnotu nemôžeme garantovať žiadny zisk (štatisticky)",
+          "supplies_to_use": "Počet zásob potrebných pre \"nenarodeninovú párty\" (opakovateľná úloha)",
+          "gb_plunder_goods": "VB a ukoristené tovary",
+          "fp_by_24h": "24 hodinová produkcia BV",
+          "other_rq": "Ostatné opakovateľné denné úlohy",
+          "second_rq": "Druhý zadávateľ opakovaných úloh?",
+          "supplies_gathered": "Získané zásob",
+          "table_reward": {
+            "title": "$t(utils.Rewards)",
+            "thead": {
+              "th1": "Plány",
+              "th2": "Medaile",
+              "th3": "Tovar",
+              "th4": "BV"
+            }
+          },
+          "reward_message": {
+            "daily_ubq": "Denné \"nenarodeninové párty\" (opakovateľná úloha): {{count, number}}",
+            "bonus_ubq": "Bonusové \"nenarodeninové párty\" (opakovateľná úloha): {{count, number}}",
+            "second_rq_completed": "Druhé opakovateľné úlohy splnené: {{count, number}}",
+            "total_goods": "Spolu tovaru: {{count, number}}",
+            "total_fp": "Spolu BV: {{count, number}}",
+            "total_rq_completed": "Spolu splnených úloh: {{count, number}}"
+          },
+          "table_return": {
+            "thead": {
+              "th_level": "Úroveň",
+              "th_coin": "Vrátené mince",
+              "th_supply": "Vrátené zásoby"
+            }
+          },
+          "infinity_generator": {
+            "message": "So súčasným bonusom z $t(foe_data.gb.Chateau_Frontenac) získate viac mincí a spotrebného materiálu, ako použijete na dokončenie úloh. Prosím vyberte si počet „$t(components.cf_calculator.block_cfc.infinity_generator.label)“, ktoré chcete urobiť.",
+            "label": "Nadväzujúca úloha"
+          }
+        }
+      },
+      "gb_investment": {
+        "gb_list_select": {
+          "label": "Zmeňte Veľkolepú budovu",
+          "info": "V nastaveniach si môžete zmeniť spôsob hľadania názvu VB (radenie postupne podľa dôb alebo automatického dopĺňania textu)"
+        },
+        "gb_investment": {
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
+          "description": {
+            "p1": "Vlož na akú úroveň a bonus % Oblúka (90% pre Oblúk úr 80). Hodnoty v tabuľke sa aktualizujú automaticky.",
+            "p2_html": "<strong>Poznámka </strong>: Ak sa aktualizácia neuskutoční automaticky, najprv nastavte úroveň VB a celkovú investíciu bv a kliknite na „$t(components.gb_investment.gb_investment.form.submit_global)“. Ak chcete upraviť hodnoty každého miesta, upravte ich ako Vám to vyhovuje a kliknite na „$t(components.gb_investment.gb_investment.form.submit_custom)“."
+          },
+          "form": {
+            "level": "Úroveň {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'})))",
+            "investor_percentage": "% z bonusov hlavných prispievateľov (bonus oblúku)",
+            "submit_global": "Globálne prepočítanie",
+            "submit_custom": "Upravené prepočítanie",
+            "owner_investment": "Počet BV momentálne vložených vlastníkom (max {{max}})",
+            "add_investors": "Pridajte investora (vložte počet BV, $t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'}))",
+            "tooltip_add_investors": "Kliknutím na tlačidlo $t(utils.Add)“alebo stlačením klávesy „Enter“ pridáte prispievateľa",
+            "investors_list": "Zoznam pridaných prispievateľov",
+            "show_snipe": "Zobraziť Zabezpečená pozícia / Možný profit",
+            "show_only_secured_places": "Ukázať len zaistené pozície",
+            "display_card": "Zobraziť tabuľku v karte ? (na malej obrazovke)"
+          },
+          "table": {
+            "title": "$t({{gb_key}})úroveň {{fromLevel, number}} → {{level, number}}",
+            "thead": {
+              "th1": "Miesta",
+              "th2": "Základné odmeny",
+              "th3": "BV vložené majiteľom na zaistenie pozície",
+              "th4": "Odmena s bonusom",
+              "th5": "% bonus prispievateľa (bonus Oblúka)",
+              "th6": "Zahrň do kopírovacích kolóniek ",
+              "fp_already_putin": "Počet už vložených BV",
+              "spot_snipe": "Zabezpečená pozícia / Možný profit",
+              "expected_participation": "BV získané s % bonusom očakávaným majiteľom",
+              "real_participation": "BV získané s % bonusom tvojho Oblúka",
+              "is_sniper": "Môže sa snažiť o získanie pozície ?"
+            },
+            "tbody": {
+              "tooltip_owner_investment": "Zostávajúci počet BV, ktoré musí majiteľ vložiť na zaistenie pozície ",
+              "tooltip_expected_investment": "Očakávaná investícia",
+              "button_show_extra_investor": "Ukáž ďalšieho prispievateľa",
+              "button_show_extra_investor_plural": "Ukáž ďalších prispievateľov",
+              "button_hide_extra_investor": "Skry ďalšieho prispievateľa",
+              "button_hide_extra_investor_plural": "Skry ďalších prispievateľov",
+              "profit": "Tento hráč bude mať zisk",
+              "loss": "Tento hráč stratí BV",
+              "loss_plural": "Tento hráč stratí viac BV",
+              "neutral": "Tento hráč nezarobí ani nestratí BV"
+            },
+            "tfoot": {
+              "total_preparation": "Celková investícia majiteľa",
+              "level_cost": "Cena úrovne"
+            }
+          },
+          "display_gb_name": "Ukázať názov VB ?",
+          "use_short_name": "Ukáž skratku názvu ?",
+          "show_level": "Zobraziť úroveň ?"
+        },
+        "promotion": {
+          "title": "Propagačná správa",
+          "prefix_placeholder": "text pred propagačnou správou",
+          "suffix_placeholder": "text za propagačnou správou",
+          "promo": ["P1 ({{investment}})", "P2 ({{investment}})", "P3 ({{investment}})", "P4 ({{investment}})", "P5 ({{investment}})"]
+        }
+      },
+      "gb_investment_investors": {
+        "description": {
+          "p1": "Tento pohľad umožňuje vidieť zisk, ktorý je možné dosiahnuť získaním pozície s alebo bez zobratia v úvahu investície na iných pozíciach. Sú tu {{count}}  spôsoby s ohľadom na ostatné pozície :"
+        },
+        "takingPlaceInConsideration": {
+          "label": "Zobrať v úvahu ostatné pozície ?",
+          "form": {
+            "show_place": "Zobraziť pozíciu",
+            "no": "$t(utils.No)",
+            "normal": "Základný",
+            "optimal": "Optimálny"
+          },
+          "description": {
+            "no": "nebrať v úvahu ostatné miesta",
+            "normal": "brať v úvahu ostatné miesta s minimálnou investíciou prispievateľov a bez zaistenia majiteľom",
+            "optimal": "brať v úvahu  ostatné miesta s investíciou bez zisku prispievateľov a so zaistením majiteľom"
+          }
+        },
+        "table": {
+          "thead": {
+            "th_place": "Pozícia {{count}}",
+            "th_profit_loss": "Zisk / Strata"
+          }
+        }
+      },
+      "gb_forecast_cost": {
+        "title": "Prognóza",
+        "p1": "Určite počet BV potrebných na postup z jednej úrovne do druhej  s a bez bonusu Oblúka.",
+        "custom_percentage": "Rôzny bonus Oblúka (pre každé miesto)",
+        "estimated_time": "Predpokladaný čas na uzavretie úrovne",
+        "message": {
+          "single": "Na dokončenie  {{level}} úrovne v „$t({{gb}})“, musí majiteľ investovať {{preparation, number}}  BV. Celkové náklady na úroveň: {{cost, number}} BV.",
+          "multi": "Na zvýšenie \"$t({{gb}})\" z {{from}} na {{to}} úroveň, musí majiteľ investovať {{preparation, number}} BV. Celková cena úrovní: {{cost, number}} BV.",
+          "diff": "S bonusom investícií ušetríte {{count}} BV",
+          "diff_plural": "S bonusom investícií ušetríte {{count, number}} BV",
+          "estimated_time": "Predpokladaný čas na uzavretie úrovne: {{time}}"
+        },
+        "prop_already_invested": "Počet BV už investovaných majiteľom v terajšej úrovni",
+        "graph": {
+          "title": "Prognóza potrebnej investície majiteľom na prípravu pre \"$t({{gb}})\"",
+          "x_axes_label": "$t(utils.graph.gb_level)",
+          "y_axes_label": "$t(utils.graph.gb_level_cost)",
+          "label": {
+            "default": "Celková cena úrovne",
+            "default_preparation": "Veľkosť potrebnej investície na prípravu bez bonusu",
+            "custom_preparation": "Veľkosť potrebnej investície na prípravu s bonusom"
+          }
+        }
+      },
+      "gb_statistics": {
+        "title": "$t(routes.gb_statistics.hero.title)",
+        "p1": "Grafy sú robené podľa doby, lebo cena / odmena vo VB-kach je rovnaká pre každú VB z danej doby, okrem týchto prípadov ($t(foe_data.gb.Oracle_of_Delphi)).",
+        "represent": "Predstaviteľ:",
+        "graph": {
+          "title_1": "Vývoj cien úrovní podľa úrovní",
+          "title_2": "Vývoj odmien prvej pozície podľa úrovní",
+          "title_3": "Vývoj cien úrovní podľa odmien na prvej pozícii",
+          "title_4": "Vývoj odmien na prvej pozícii podľa cien úrovní"
+        }
+      },
+      "secure_position": {
+        "block_place": {
+          "title": "Zablokujte jeho pozíciu",
+          "level_cost": "Cena úrovne",
+          "current_deposits": "Suma terajších investícií",
+          "your_participation": "Váš aktuálny vklad",
+          "other_participation": "BV hráča, s ktorým treba rátať pri zaisťovaní pozície",
+          "fp_to_complete_level": "BV zostávajúci do uzavretia úrovne:",
+          "fp_to_complete_level_plural": "BV zostávajúcich do uzavretia úrovne:",
+          "your_arc_bonus": "Váš bonus Oblúka",
+          "fp_target_reward": "BV na požadovanú pozíciu",
+          "target_reward": "Požadovaná pozícia",
+          "place": "{{place}}({{count, number}} BV)",
+          "place_plural": "{{place}} ({{count, number}} BV)",
+          "various_rate": "Rôzne hodnoty",
+          "result": {
+            "error": "Jedna alebo viac premenných nemajú správnu hodnotu.",
+            "already_blocked": "Vaša pozícia je zablokovaná.",
+            "default": "Musíte mať {{count}} BV na zablokovanie pozície.",
+            "default_plural": "Musíte mať celkovo {{count, number}} BV na zablokovanie pozície.",
+            "fp_need_to_lock": "Na zaistenie Vašej pozície potrebujete vložiť BV:",
+            "fp_need_to_lock_plural": "Na zaistenie Vašej pozície potrebujete vložiť toľko BV:",
+            "still_to_put": "Počet BV ktoré ešte musíte vložiť",
+            "fp_to_secure_html": "Stále musíte vložiť {{count}} BV.",
+            "roi": {
+              "profit": "Váš zisk bude {{count}} BV",
+              "profit_plural": "Váš zisk bude {{count, number}} BV",
+              "loss": "Vaša strata bude {{count}} BV",
+              "loss_plural": "Vaša strata bude {{count}} BV",
+              "neutral": "Vaša investícia sa nevráti"
+            },
+            "fp_to_secure_html_plural": "Musíte vložiť ešte {{count, number}} BV.",
+            "cant_block": "Nemôžete zablokovať pozíciu."
+          },
+          "unknown": "neznáme"
+        }
+      },
+      "simple_trade": {
+        "title": "Tabuľková verzia",
+        "table": {
+          "thead": {
+            "th1": "Vek",
+            "th2": "Tovar",
+            "th3": "$t(components.trade.label.i_want)",
+            "th4": "Výsledok",
+            "split": "Rozdeliť",
+            "ratio": "Pomer"
+          }
+        },
+        "slpit": "Rozdeliť ponuky?",
+        "show_ratio": "Zobraziť pomer"
+      },
+      "site_layout": {
+        "hero": {
+          "title": "$t(common:site_title)",
+          "slogan_html": "Zostava náradia pre zjednodušenie života v $t(common:links.foe)"
+        },
+        "cookie": {
+          "message": "Ak budete naďalej používať $t(common:site_title), súhlasíte s využitím cookies, ktoré Vám zjednoduší jej používanie.",
+          "link": "Viac informácií"
+        },
+        "new_year": {
+          "message": "$t(common:site_title) oslavuje svoje {{count, number}}  výročie",
+          "message_plural": "$t(common:site_title) oslavuje svoje {{count, number}}  výročie"
+        },
+        "survey": {
+          "message": "Pomôžte nám vylepšiť  $t(common:site_title) vyplnením tohto dotazníka"
+        },
+        "permalink_info": "Pozeráte sa na permalink. Akékoľvek následné nastavenia sa neuložia do cookies.",
+        "footer": {
+          "license_html": "Zdrojový kód patrí pod $t(common:links.mit) licenciu",
+          "version": "Verzia {{version}}"
+        },
+        "day_night": {
+          "Day": "Deň",
+          "start_day": "Začiatok dňa",
+          "Night": "Noc",
+          "start_night": "Začiatok noci",
+          "Auto": "Automatické$t(components.site_layout.day_night.Day)/$t(components.site_layout.day_night.Night)"
+        },
+        "global_config": "Globálne nastavenie",
+        "global_config_dialog": {
+          "fixed_main_menu": "Hlavné menu vždy viditeľné",
+          "select_gb_style": "Štýl výberu VB ",
+          "select_gb_style_mode": {
+            "datalist": "Auto-doplnenie textu",
+            "select": "Výberom zo zoznamu podľa dôb"
+          },
+          "day_night": "Téma",
+          "day_night_mode": {
+            "Day": "Deň",
+            "Night": "Noc",
+            "Auto": "Automatické"
+          }
+        },
+        "switch_locale": "$t(common:site_title) je dostupná vo Vašom jazyku"
+      },
+      "trade": {
+        "title": "Verzia formuláru",
+        "label": {
+          "i_have": "Mám",
+          "i_want": "Chcem",
+          "amount": "Množstvo"
+        },
+        "split_value": "Maximálna veľkosť ponuky (max {{count}})",
+        "split_message": {
+          "msg": "{{valueFrom}}{{ageFrom}} pre {{valueTo}}{{ageTo}}",
+          "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) a $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+        },
+        "message": {
+          "result": "Pre {{to}}{{ageTo}}, potrebujete {{from}}{{ageFrom}} s ponukou do{{count}}:",
+          "total": "(celkom:{{amount}}{{key}})"
+        }
+      },
+      "promotion_message_builder": {
+        "title": "Nástroj na propagačné správy pre prispievateľov",
+        "info": "Toto môže byť skopírované a ďalej zdieľané, napríklad pre členov Vášho cechu",
+        "note": "Všimnite si prosím, že tento nástroj pre správy používa úroveň 9 → 10 z $t(foe_data.gb.Observatory) s pomerom 1.9 násobku pre zobrazenie.",
+        "action": "Akcia",
+        "actions": {
+          "create": "Vytvor novú šablónu",
+          "update": "Uprav existujúcu šablónu",
+          "delete": "Vymaž existujúcu šablónu"
+        },
+        "start_from_template": "Začať z šablóny ?",
+        "edit_template": "Vyberte si šablónu na úpravu",
+        "delete_template": "Vyberte si šablónu na vymazanie",
+        "templates": {
+          "default": "Predvolené šablóny",
+          "custom": "Prispôsobené šablóny"
+        },
+        "config": "Nastavenie",
+        "add_field_title": "Pridajte prispôsobené polia",
+        "add_field": {
+          "name": "Názov poľa",
+          "value": "Hodnota poľa"
+        },
+        "custom_field_title": "Vaše prispôsobené polia",
+        "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
+        "reverse_place_order": "Vymeniť poradie pozícií?",
+        "place_separator": "Oddeľovač pozícií",
+        "place_builder": "Poradovník pozícií",
+        "place_preview": "Zobrazenie pozície (1 pozícia)",
+        "message_builder": "Nástroj na správy",
+        "message_preview": "Zobrazenie správy",
+        "place_builder_title": "Poradovník pozícií",
+        "message_builder_title": "Nástroj na správy",
+        "available_variables": "Dostupné premenné:",
+        "variables": {
+          "place": {
+            "PI": "Zoznam pozícií",
+            "PV": "Hodnota pozícií (v BV)"
+          },
+          "message": {
+            "FLVL": "Z úrovne",
+            "TLVL": "Po úroveň",
+            "GBN": "Názov VB",
+            "P": "Pozície",
+            "LF": "Riadok, pridajte nový riadok"
+          }
+        },
+        "template_name": "Názov šablóny",
+        "errors": {
+          "template_cannot_have_this_name": "Šablóna nemôže mať tento názov. Použite prosím iný názov.",
+          "custom_name_empty": "Názov poľa nemôže byť prázdny.",
+          "custom_name_already_exists": "Tento názov poľa už existuje."
+        },
+        "template_saved": "Šablóna bola uložená",
+        "template_updated": "Šablóna bola aktualizovaná",
+        "template_deleted": "Šablóna bola odstránená"
+      },
+      "import_promotion_message": {
+        "title": "Nahrajte propagačnú správu",
+        "config_placeholder": "Sem vložte svoje nastavenia",
+        "errors": {
+          "invalid_data": "Údaje sú neplatné"
+        },
+        "template_imported": "Šablóna bola úspešne nahraná"
+      }
+    },
+    "routes": {
+      "home": {
+        "title": "$t(common:site_title)"
+      },
+      "about": {
+        "title": "Informácia o$t(common:site_title)",
+        "general_info": {
+          "title": "Všeobecné informácie",
+          "p1_html": "Forge of Empires, FOE a všetky súvisiace ochranné známky a obsah patria spoločnosti InnoGames GmbH. <br/>$t(common:site_title) je neoficiálny web tretej strany a nie je súčasťou InnoGames.",
+          "p2_html": "$t(common:site_title) bola vytvorená francúzskym hráčom <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
+          "p3_html": "Táto stránka je OpenSource, kód je voľne k dispozícii na $t(common:links.github). <br/>Takto sa môžu všetci, ktorí majú potrebné zručnosti, podieľať na zdokonaľovaní tejto stránky."
+        },
+        "cookie": {
+          "title": "Cookies",
+          "p1": "Pre zjednodušenie používania, stránka používa cookies.",
+          "table_message": "V nasledujúcej tabuľke sú uvedené všetky cookies použité na tejto stránke.",
+          "info": {
+            "cookieDisclaimerDisplayed": "Oznamuje, že ste si prečítali informačnú správu o používaní cookies",
+            "gbi_tab": "Globálny parameter pre \"$t(routes.gb_investment_gb_chooser.hero.title)\" ktorý označuje, ktorá karta sa nahrá ako predvolená ($t(routes.gb_investment.tab.owner_view.title), atď.). ",
+            "gbPrefix": "Globálny parameter pre \"$t(routes.gb_investment_gb_chooser.hero.title)\" ktorý obsahuje text pred propagačnou správou",
+            "gbSuffix": "Globálny parameter pre \"$t(routes.gb_investment_gb_chooser.hero.title)\" ktorý obsahuje text za propagačnou správou",
+            "locale": "Jazyk zobrazenia",
+            "shortName": "Globálny parameter pre „$t(routes.gb_investment_gb_chooser.hero.title)“, ktorý označuje, či sa má v propagačnej správe zobraziť skrátený názov VB.",
+            "showLevel": "Globálny parameter pre „$t(routes.gb_investment_gb_chooser.hero.title)“, ktorý označuje, či sa má pre propagačnú správu zobraziť úroveň VB.",
+            "yourArcBonus": "Globálne nastavenie obsahujúce bonus vášho Oblúka",
+            "yourCfBoost": "Globálne nastavenie obsahujúce bonus vášho Frontenacu",
+            "haveReadTipAboutAddInvestor": "Označuje, či ste si prečítali informačnú správu týkajúcu sa tipov, ako môžu používatelia prispieť",
+            "dayNightMode": "Označuje, ktorý režim deň / noc používate",
+            "dayStart": "Čas použitý pre začiatok dňa (použitý v \"$t(components.site_layout.day_night.Auto)\")",
+            "nightStart": "Čas použitý pre začiatok noci (použitý v \"$t(components.site_layout.day_night.Auto)\")",
+            "showSnipe": "Zobraziť alebo skryť požadovaný počet BV do zaistenia miesta (použité v \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "coins": "$t(components.cf_calculator.block_cfc.coins_to_use)",
+            "fpBy24h": "$t(components.cf_calculator.block_cfc.fp_by_24h)",
+            "goods": "$t(components.cf_calculator.block_cfc.gb_plunder_goods)",
+            "otherRq": "$t(components.cf_calculator.block_cfc.other_rq)",
+            "cumulativeQuest": "Počet nadväzujúcich úloh",
+            "secondRq": "$t(components.cf_calculator.block_cfc.second_rq)",
+            "supplies": "$t(components.cf_calculator.block_cfc.supplies_to_use)",
+            "suppliesGathered": "$t(components.cf_calculator.block_cfc.supplies_gathered)",
+            "yourAge": "$t(components.cf_calculator.block_cfc.your_age)",
+            "investorPercentageCustom_x": "$t(components.gb_investment.gb_investment.table.thead.th5)",
+            "investorPercentageGlobal": "$t(components.gb_investment.gb_investment.form.investor_percentage)",
+            "investorParticipation_x": "Očakávaná účasť prispievateľov aj keď miesto neposkytuje BV",
+            "level": "Úroveň VB",
+            "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
+            "showPx": "Označuje, či sa má v propagačnej správe uviesť pozícia",
+            "takingPlaceInConsideration": "Na karte „$t(routes.gb_investment.tab.investors_view.title)“ z „$t(routes.gb_investment_gb_chooser.hero.title)“ označuje, či sa pri výpočte musia zohľadniť ďalšie miesta.",
+            "targetLevel": "Na karte „$t(routes.gb_investment.tab.investors_view.title)“ z „$t(routes.gb_investment_gb_chooser.hero.title)“ označuje, z akej úrovne sa majú zobraziť informácie v tabuľke",
+            "displayGbName": "Označuje, či sa v propagačnej správe má zobraziť názov VB",
+            "investorParticipation": "Obsahuje zoznam všetkých pridaných prispievateľov",
+            "displayTableCard": "Označuje, či sa má tabuľka zobraziť v „$t(routes.gb_investment_gb_chooser.hero.title)“ v jednoduchom režime (tabuľka) alebo v zobrazení karty na malej obrazovke",
+            "from": "Úroveň, kde sa má spustiť pole (použité na karte „$t(routes.gb_investment.tab.investors_view.title)“ z „$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "to": "Úroveň, kde sa má ukončiť pole (použité na karte „$t(routes.gb_investment.tab.investors_view.title)“ z „$t(routes.gb_investment_gb_chooser.hero.title)\")",
+            "showPlace": "Pole, ktoré ukazuje, či sa má pozícia zobraziť alebo nie (použité na karte „$t(routes.gb_investment.tab.investors_view.title)“ z „$t(routes.gb_investment_gb_chooser.hero.title)\")“",
+            "survey": "Pole, ktoré obsahuje všetky prehľady, ktoré ste už dokončili",
+            "fixedMainMenu": "Označuje, či je hlavné menu vždy viditeľné alebo nie",
+            "gbSelectMode": "Označuje, ktorý režim výberu VB sa používa",
+            "haveReadLocaleInfoAvailable": "Označuje, či ste si prečítali informácie o skutočnosti, že stránka je k dispozícii vo vašom jazyku",
+            "promotionMessageList": "Obsahuje zoznam propagačných správ, ktoré chcete zobraziť",
+            "customPromotionMessagesTemplates": "Obsahuje všetky vaše upravené propagačné správy",
+            "gbShowPrefix": "Označuje, či sa má zobraziť text pred propagačnými správami",
+            "gbShowSuffix": "Označuje, či sa má zobraziť text za propagačnými správami"
+          }
+        },
+        "dev_info": {
+          "title": "Informácie o vývoji",
+          "p1": "Táto stránka je jednoduchá statická stránka hosťovaná na serveri GitHub.",
+          "p2_html": "Stránka je vyvíjaná v Node.js za pomoci $t(common:links.framework). Štýl je vytvorený pomocou $t(common:links.style).",
+          "p3_html": "Nápad na novú funkcionalitu? Problém ? Neváhajte nás kontaktovať na $t(common:links.github) alebo mi pošlite e-mail (v angličtine alebo francúzštine) na $t(common:links.contact_foe_tools).",
+          "message_info_github_issue": "<b>Poznámka: </b>Pokiaľ ide o problémy týkajúce sa GitHub, nezabudnite ich napísať v angličtine, aby im mohlo porozumieť čo najväčší počet ľudí."
+        }
+      },
+      "campaign_cost": {
+        "title": "$t(routes.campaign_cost.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Cena kampane",
+          "subtitle": "Tento nástroj predpovedá náklady na získanie sektora alebo provincie."
+        }
+      },
+      "cf_calculator": {
+        "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Château Frontenac kalkulátor",
+          "subtitle": "Nástroj, ktorý pomáha predpovedať produkciu fp a produkciu opakujúcich sa questov a nedobytných výprav na párty (Rinbin)."
+        }
+      },
+      "changelog": {
+        "title": "Zoznam zmien | $t(common:site_title)"
+      },
+      "contributors": {
+        "title": "$t(routes.contributors.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Spolupracovníci",
+          "subtitle": "Táto stránka sa pokúša uviesť zoznam všetkých spolupracovníkov"
+        }
+      },
+      "gb_investment": {
+        "title": "$t(routes.gb_investment.hero.title, { 'gb_key': '{{gb_key}}' }) | $t(common:site_title)",
+        "hero": {
+          "title": "$t(routes.gb_investment_gb_chooser.hero.title) - $t({{gb_key}})"
+        },
+        "tab": {
+          "owner_view": {
+            "title": "Pohľad majiteľa"
+          },
+          "investors_view": {
+            "title": "Pohľad prispievateľa"
+          }
+        }
+      },
+      "gb_investment_gb_chooser": {
+        "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Príspevky do VB",
+          "subtitle": "Tento nástroj umožňuje vypočítať počet bodov, ktoré musí hráč dať do svojej VB, aby  zabezpečil prvých 5 pozícií podľa výšky odmien (bonus za oblúk)."
+        },
+        "choose_gb": {
+          "title": "Vyberte si Veľkolepú budovu"
+        }
+      },
+      "gb_forecast_cost": {
+        "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Prognóza ceny VB",
+          "subtitle": "Tento nástroj určuje počet BV, potrebných na zvýšenie úrovne VB s  alebo bez bonusu Oblúka."
+        }
+      },
+      "gb_statistics": {
+        "title": "$t(routes.gb_statistics.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "VB štatistiky",
+          "subtitle": "Tento nástroj umožňuje zobraziť grafy vývoja nákladov VB po dosiahnutí veku."
+        }
+      },
+      "secure_position": {
+        "title": "$t(routes.secure_position.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Zabezpečená pozícia",
+          "subtitle": "Tento nástroj vypočítava počet BV, ktoré musí hráč vložiť do VB na zablokovanie svojej pozície"
+        }
+      },
+      "trade": {
+        "title": "$t(routes.trade.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Obchodovanie",
+          "subtitle": "Tento nástroj napomáha Vášmu obchodovaniu tým, že Vám ponúkne najlepšie pomery podľa toho ktorým smerom obchodujete."
+        },
+        "tab": {
+          "trade_2_1": {
+            "title": "2:1",
+            "message": "Jednoduché obchodovanie, pomer 1 za 1 s zdrojmi tej istej doby a 1 za 2 s cieľom získať zdroje nie z najbližšej doby, ale až z tej po nej."
+          },
+          "fair_trade": {
+            "title": "Fér obchodovanie",
+            "message": "Tento druh obchodu zohľadňuje náklady na výrobu tovaru (mince a zásoby) na určenie sadzieb medzi tovarmi."
+          }
+        }
+      },
+      "help_to_translate_the_site": {
+        "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Pomôžte s prekladom stránky",
+          "subtitle": "Pripojte sa k prekladateľskému tímu"
+        },
+        "p1": "Váš jazyk nie je k dispozícii, preklad je neúplný alebo obsahuje chyby? Neváhajte a pripojte sa k prekladateľskému tímu stránky.",
+        "how_to_join_the_team": "Ako sa pripojiť k tímu?",
+        "p2_html": "$t(common:site_title) je prekladaný používateľmi. Na uľahčenie prekladania využívame platformu $t(common:links.lingohub). Pre pripojenie sa k týmu pošlite email (v Angličtine) na $t(common:links.contact_foe_tools) kde uveďte do ktorého jazyka by ste chceli prekladať, aby sme Vám mohli postať pozvánku do týmu."
+      },
+      "survey": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "hero": {
+          "title": "Dotazník",
+          "subtitle": "Pomôžte nám vylepšiť $t(common:site_title) vyplnením tohto dotazníka"
+        },
+        "required_field": "Toto políčko je povinné",
+        "survey_complete": "Ďakujeme za Vašu reakciu!",
+        "error": "Vyskytla sa chyba, skontrolujte formulár a skúste to znova",
+        "unknown_error": "Vyskytla sa neznáma chyba, kontaktujte prosím správcu stránky"
+      },
+      "contact": {
+        "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
+        "hero": {
+          "title": "Kontakt",
+          "subtitle": "Kontakt na administrátora $t(common:site_title)"
+        },
+        "message_contact_html": "Nápad na novú funkcionalitu? Problém ? Neváhajte a pošlite e-mail (v angličtine alebo francúzštine) na $t(common:links.contact_foe_tools).",
+        "message_translate": "Vedeli ste, že môžete tiež pomôcť s prekladom stránky? Ak chcete získať ďalšie informácie, kliknite na nasledujúci odkaz:",
+        "message_other_info_html": "Ak ste vývojári, môžete tiež vytvoriť ticket (a prispieť k rozvoju stránky ) na $t(common:links.github)."
+      },
+      "error": {
+        "404": {
+          "title": "Stránka sa nenašla | $t(common:site_title)",
+          "message": "Ľutujeme, hľadaná stránka neexistuje alebo už neexistuje"
+        }
+      }
+    },
+    "foe_data": {
+      "age": {
+        "Oracle": "$t(foe_data.age.NoAge)($t(foe_data.gb.Oracle_of_Delphi))",
+        "NoAge": "žiadna doba",
+        "BronzeAge": "Doba brondzová",
+        "IronAge": "Doba železná",
+        "EarlyMiddleAges": "Raný stredovek",
+        "HighMiddleAges": "Vrcholný stredovek",
+        "LateMiddleAges": "Neskorý stredovek",
+        "ColonialAge": "Koloniálny vek",
+        "IndustrialAge": "Priemyselná éra",
+        "ProgressiveEra": "Progresívna doba",
+        "ModernEra": "Moderná éra",
+        "PostmodernEra": "Postmoderná éra",
+        "ContemporaryEra": "Súčasná éra",
+        "Tomorrow": "Zajtra",
+        "TheFuture": "Budúcnosť",
+        "ArcticFuture": "Arktická budúcnosť",
+        "OceanicFuture": "Oceánska budúcnosť",
+        "VirtualFuture": "Virtuálna budúcnosť",
+        "SpaceAgeMars": "Vesmírny vek: Mars"
+      },
+      "age_short": {
+        "NoAge": "ZD",
+        "BronzeAge": "DB",
+        "IronAge": "DZ",
+        "EarlyMiddleAges": "RS",
+        "HighMiddleAges": "VS",
+        "LateMiddleAges": "NS",
+        "ColonialAge": "KV",
+        "IndustrialAge": "PE",
+        "ProgressiveEra": "PD",
+        "ModernEra": "ME",
+        "PostmodernEra": "PME",
+        "ContemporaryEra": "SE",
+        "Tomorrow": "ZA",
+        "TheFuture": "BU",
+        "ArcticFuture": "AB",
+        "OceanicFuture": "OB",
+        "VirtualFuture": "VB",
+        "SpaceAgeMars": "VVM"
+      },
+      "gb": {
+        "Observatory": "Hvezdáreň",
+        "Temple_of_Relics": "Chrám relikvií",
+        "Oracle_of_Delphi": "Delfská veštiareň",
+        "Tower_of_Babel": "Babylonská veža",
+        "Statue_of_Zeus": "Diova socha",
+        "Colosseum": "Koloseum",
+        "Lighthouse_of_Alexandria": "Alexandrijský maják",
+        "Hagia_Sophia": "Hagia Sofia",
+        "Cathedral_of_Aachen": "Aachenský dóm",
+        "St_Mark_s_Basilica": "Bazilika svätého Marka",
+        "Notre_Dame": "Katedrála Notre-Dame",
+        "Saint_Basil_s_Cathedral": "Chrám Vasila Blaženého",
+        "Castel_del_Monte": "Castel del Monte",
+        "Deal_Castle": "Dealský hrad",
+        "Frauenkirche_of_Dresden": "Drážďanský kostol Panny Márie",
+        "Capitol": "Kapitol",
+        "Royal_Albert_Hall": "Royal Albert Hall",
+        "Chateau_Frontenac": "Château Frontenac",
+        "Alcatraz": "Alcatraz",
+        "Space_Needle": "Space Needle",
+        "Atomium": "Atómium",
+        "Cape_Canaveral": "Cape Canaveral",
+        "The_Habitat": "Habitat",
+        "Lotus_Temple": "Lotosový chrám",
+        "Innovation_Tower": "Inovačná veža",
+        "Dynamic_Tower": "Dynamic Tower",
+        "Voyager_V1": "Voyager V1",
+        "The_Arc": "Oblúk",
+        "Rain_Forest_Project": "Projekt dažďového pralesa",
+        "Gaea_Statue": "Socha matky Gaea",
+        "Arctic_Orangery": "Arktický skleník",
+        "Seed_Vault": "Trezor so semienkami",
+        "Atlantis_Museum": "Múzeum Atlantídy",
+        "The_Kraken": "Kraken",
+        "The_Blue_Galaxy": "Modrá galaxia",
+        "Terracotta_Army": "Terakotová armáda",
+        "Himeji_Castle": "Hrad Himeji",
+        "The_Virgo_Project": "Projekt Virgo",
+        "Star_Gazer": "Star Gazer"
+      },
+      "gb_short": {
+        "Observatory": "Hvezd.",
+        "Temple_of_Relics": "Relikvie",
+        "Oracle_of_Delphi": "Veštiareň",
+        "Tower_of_Babel": "Babylon",
+        "Statue_of_Zeus": "Dio",
+        "Colosseum": "Kolo",
+        "Lighthouse_of_Alexandria": "Maják",
+        "Hagia_Sophia": "Hagia",
+        "Cathedral_of_Aachen": "Aachen",
+        "St_Mark_s_Basilica": "Bazilika",
+        "Notre_Dame": "Notre",
+        "Saint_Basil_s_Cathedral": "Vasil",
+        "Castel_del_Monte": "Castel",
+        "Deal_Castle": "Dealsky",
+        "Frauenkirche_of_Dresden": "Drážďansky",
+        "Capitol": "Kapitol",
+        "Royal_Albert_Hall": "Royal",
+        "Chateau_Frontenac": "Fronte",
+        "Alcatraz": "Alca",
+        "Space_Needle": "Ihla",
+        "Atomium": "Atom",
+        "Cape_Canaveral": "Cape",
+        "The_Habitat": "Habitat",
+        "Lotus_Temple": "Lotus",
+        "Innovation_Tower": "Inovačka",
+        "Dynamic_Tower": "Dynamik",
+        "Voyager_V1": "Voyager",
+        "The_Arc": "Oblúk",
+        "Rain_Forest_Project": "Prales",
+        "Gaea_Statue": "Gaea",
+        "Arctic_Orangery": "Skleník",
+        "Seed_Vault": "Trezor",
+        "Atlantis_Museum": "Múzeum",
+        "The_Kraken": "Kraken",
+        "The_Blue_Galaxy": "Galaxia",
+        "Terracotta_Army": "Terra",
+        "Himeji_Castle": "Himeji",
+        "The_Virgo_Project": "Virgo",
+        "Star_Gazer": "Gazer"
+      },
+      "goods": {
+        "dye": "Farbivo",
+        "lumber": "Stavebné drevo",
+        "marble": "Mramor",
+        "stone": "Kameň",
+        "wine": "Víno",
+        "cloth": "Látka",
+        "ebony": "Eben",
+        "iron": "Železo",
+        "jewelry": "Šperky",
+        "limestone": "Vápenec",
+        "alabaster": "Alabaster",
+        "copper": "Meď",
+        "gold": "Zlato",
+        "granite": "Žula",
+        "honey": "Med",
+        "brick": "Tehla",
+        "dried_herbs": "Sušené bylinky",
+        "glass": "Sklo",
+        "rope": "Lano",
+        "salt": "Soľ",
+        "basalt": "Čadič",
+        "brass": "Mosadz",
+        "gunpowder": "Strelný prach",
+        "silk": "Hodváb",
+        "talc_powder": "Prášok z mastenca",
+        "coffee": "Káva",
+        "porcelain": "Porcelán",
+        "paper": "Papier",
+        "tar": "Decht",
+        "wire": "Drôt",
+        "coke": "Koks",
+        "fertilizer": "Hnojivo",
+        "rubber": "Guma",
+        "textiles": "Textil",
+        "whale_oil": "Veľrybí olej",
+        "asbestos": "Azbest",
+        "explosives": "Výbušniny",
+        "gasoline": "Benzín",
+        "machine_parts": "Strojové súčiastky",
+        "tinplate": "Cínové plechy",
+        "convenience_food": "Polotovary",
+        "ferroconcrete": "Železobetón",
+        "flavorants": "Dochucovadlá",
+        "luxury_materials": "Luxusné materiály",
+        "packaging": "Obalové materiály",
+        "genome_data": "Genetické informácie",
+        "industrial_filters": "Priemyselné filtre",
+        "renewable_resources": "Obnoviteľné zdroje",
+        "semiconductors": "Polovodiče",
+        "steel": "Oceľ",
+        "bionics_data": "Bionické údaje",
+        "electromagnets": "Elektromagnety",
+        "gas": "Plyn",
+        "plastics": "Plasty",
+        "robots": "Roboty",
+        "nutrition_research": "Nutričný výskum",
+        "papercrete": "Papierobetón",
+        "preservatives": "Konzervanty",
+        "smart_materials": "Inteligentné materiály",
+        "translucent_concrete": "Sklobetón",
+        "algae": "Riasy",
+        "biogeochemical_data": "Biogeochemické údaje",
+        "nanoparticles": "Nanočastice",
+        "purified_water": "Čistená voda",
+        "superconductors": "Supravodiče",
+        "ai_data": "Dáta pre U.I.",
+        "bioplastics": "Bioplasty",
+        "nanowire": "Nanodrôt",
+        "paper_batteries": "Ohybné batérie",
+        "transester_gas": "Transesterový plyn",
+        "artificial_scales": "Umelé šupiny",
+        "biolight": "Biosvetlá",
+        "corals": "Koraly",
+        "pearls": "Perly",
+        "plankton": "Planktón",
+        "promethium": "Prométium",
+        "orichalcum": "Orichalkum",
+        "cryptocash": "Kryptomena",
+        "data_crystals": "Dátové kryštály",
+        "golden_rice": "Zlatá ryža",
+        "nanites": "Nanity",
+        "tea_silk": "Čajovníkový hodváb"
+      },
+      "province": {
+        "Dunarsund": "Dunarsund",
+        "Fel_Dranghyr": "Fel Dranghyr",
+        "Tyr": "Tyr",
+        "Hymir": "Hymir",
+        "Badakus": "Badakus",
+        "Paruuch": "Paruuch",
+        "Ruug": "Ruug",
+        "Karchagu": "Karchagu",
+        "East_Nagach": "East-Nagach",
+        "West_Nagach": "West-Nagach",
+        "Maktaba": "Maktaba",
+        "Pfefferberg": "Pfefferberg",
+        "Dunkelwald": "Dunkelwald",
+        "Greifental": "Griefental",
+        "Sturmhohen": "Sturmhohen",
+        "Kaltenweiher": "Kaltenweiher",
+        "Teufelsfurt": "Teufelsfurt",
+        "Felssenke": "Felssenke",
+        "Galgenschlucht": "Galgenschlucht",
+        "Todepass": "Todepass",
+        "Steilsturz": "Steilsturz",
+        "Tarmelmann": "Tarmelmann",
+        "Breturia": "Breturia",
+        "Canturia": "Canturia",
+        "Veletrites": "Veletrites",
+        "Frathia": "Frathia",
+        "Mons_Suiry": "Mons Suiry",
+        "Jaims": "Jaims",
+        "Moravaria": "Moravaria",
+        "Cragshire": "Cragshire",
+        "Eldenborough": "Eldenborough",
+        "Cuttingham": "Cuttingham",
+        "Spearth": "Spearth",
+        "Wolvhampton": "Wolvhampton",
+        "FourGallows": "FourGallows",
+        "Mount_Killmore": "Mount Killmore",
+        "RavensCreek": "RavensCreek",
+        "Houndsmoor": "Houndsmoor",
+        "Zaldon_on_Sea": "Zaldon-on-Sea",
+        "Grand_Cap": "Grand Cap",
+        "Northcastle": "Severný hrad",
+        "Queenshope": "Queenshope",
+        "Ashcrook": "Ashcrook",
+        "Narcien": "Narcien",
+        "Lavignon": "Lavignon",
+        "Troulope": "Troulope",
+        "Deuxerres": "Deuxerres",
+        "Lombardeaux": "Lombardeaux",
+        "Pisterrac": "Pisterrac",
+        "Varseille": "Varseille",
+        "Haulenois": "Haulenois",
+        "NewCragshire": "NewCragshire",
+        "Okahe": "Okahe",
+        "Rantford": "Rantford",
+        "Desperation": "Beznádej",
+        "St_Marque": "St.Marque",
+        "Las_Penas": "Las Penas",
+        "DragonCity": "DragonCity",
+        "Garrincton": "Garrincton",
+        "ElFuego": "ElFuego",
+        "SantaCatalina": "SantaCatalina",
+        "Dorango": "Dorango",
+        "Nevarrone": "Nevarrone",
+        "Embruniez": "Embruniez",
+        "Gabordeaux": "Gabordeaux",
+        "Ydine": "Ydine",
+        "Wenoevre": "Wenoevre",
+        "Havre": "Havre",
+        "Omoien": "Omoien",
+        "Uxrow": "Uxrow",
+        "Gaelford": "Gaelford",
+        "Sud": "Sud",
+        "Kriegreich": "Kriegreich",
+        "Ostrand": "Ostrand",
+        "Langenreich": "Langenreich",
+        "Uceria": "Uceria",
+        "Gorski": "Gorski",
+        "Inashu": "Inashu",
+        "Natsuishu": "Natsuishu",
+        "Chigikawa": "Chigikawa",
+        "Igujima": "Igujima",
+        "Kyushima": "Kyushima",
+        "Igioka": "Igioka",
+        "Igamoto": "Igamoto",
+        "Higematsu": "Higematsu",
+        "Kibakuguchi": "Kibakuguchi",
+        "Hiromaguchi": "Hiromaguchi",
+        "Toimuro": "Toimuro",
+        "CaiChetNui": "CaiChetNui",
+        "SotDamLay": "SotDamLay",
+        "DayDuAo": "DayDuAo",
+        "TrungDoi": "TrungDoi",
+        "KhayHuyenBayGio": "KhayHuyenBayGio",
+        "RungTrai": "RungTrai",
+        "RungChienDau": "RungChienDau",
+        "GiaiCuuBinhMinh": "GiaiCuuBinhMinh",
+        "PhucKich": "PhucKich",
+        "MauMatDat": "MauMatDat",
+        "DongBangSong": "DongBangSong",
+        "OngChuCuoiCung": "OngChuCuoiCung",
+        "Amaryah_City": "Mesto Amaryah City",
+        "Khail": "Khail",
+        "Batif": "Batif",
+        "Hafar_Al_Karak": "Hafar Al Karak",
+        "Al_Shadyra": "Al-Shadyra",
+        "Salfah": "Salfah",
+        "Ain_Al_Khansa": "Ain Al-Khansa",
+        "Suqqah": "Suqqah",
+        "Shayhour": "Shayhour",
+        "Kardad": "Kardad",
+        "Qumeira": "Qumeira",
+        "Jandahar": "Jandahar",
+        "Torrinhos": "Torrinhos",
+        "Villabaja": "Villabaja",
+        "Itabarai": "Itabarai",
+        "Bajatai": "Bajatai",
+        "Villariba": "Villariba",
+        "Rio_Roxo": "Rio Roxo",
+        "Sierra_Torrido": "Sierra Torrido",
+        "Santa_Nerea": "Santa Nerea",
+        "La_Huega": "La Huega",
+        "Jamenez": "Jamenez",
+        "Falsa_Cruz": "Falsa Cruz",
+        "Desierto_de_la_Muerte": "Desierto de la Muerte",
+        "Sao_Malvado": "Sao Malvado",
+        "Agadar": "Agadar",
+        "Esan_Ewu": "Esan-Ewu",
+        "Omogba": "Omogba",
+        "Owopele": "Owopele",
+        "Jak": "Jak",
+        "Pala": "Pala",
+        "Kolabourg": "Kolabourg",
+        "Bontaville": "Bontaville",
+        "Botuku": "Botuku",
+        "Kalabuye": "Kalabuye",
+        "Bisoraba": "Bisoraba",
+        "Fort_Buntu": "Fort Buntu",
+        "Nutarniq": "Nutarniq",
+        "Iluliaq": "Iluliaq",
+        "Aurora_s_Dale": "Údolie polárnej žiary",
+        "Cold_Bay": "Chladný záliv",
+        "Arctic_Horizon": "Arktický horizont",
+        "Tuklavik": "Tuklavik",
+        "Ananevut": "Ananevut",
+        "Qaniit": "Qaniit",
+        "White_Gate": "Biela brána",
+        "Snowdrifts": "Záveje",
+        "Median_Waters": "Vody mediánu",
+        "Frosty_Mountain": "Mrazivá hora",
+        "Southern_Valley": "Južné údolie",
+        "Ilug": "Ilug",
+        "Chugiak": "Chugiak",
+        "Kesukavut": "Kesukavut",
+        "Adlartok": "Adlartok",
+        "Northern_Passage": "Severná trasa",
+        "Avalanche": "Lavína",
+        "Manirak": "Manirak",
+        "Tundra_Rock": "Tundrová skala",
+        "Patuktuq": "Patuktuq",
+        "Summit_Ice": "Ľadový vrch",
+        "Kilalurak": "Kilalurak",
+        "Nilak": "Nilak",
+        "Chulyin": "Chulyin",
+        "Tattilgat": "Tattilgat",
+        "Atka": "Atka",
+        "Pimniq": "Pimniq",
+        "Anyu": "Anyu",
+        "Glacial_Peak": "Ľadový štít",
+        "Nunataq": "Nunataq",
+        "Nanuq": "Nanuq",
+        "Precipice": "Svah",
+        "Unalaq": "Unalaq",
+        "Neural_Rites": "Rituálne miesto",
+        "Frozen_Steppe": "Zamrznutá step",
+        "The_Grotto": "Jaskyňa",
+        "Temple_Floe": "Kryha s chrámom",
+        "Spirit_Plane": "Pláň duší",
+        "Murky_Waters": "Kalné vody",
+        "Cursed_Current": "Prekliaty prúd",
+        "Coral_Depths": "Koralové hlbiny",
+        "Rough_Expanse": "Hrboľatá šírava",
+        "Strong_Tide": "Silný prúd",
+        "Dark_Abyss": "Temná priepasť",
+        "Fresh_Flow": "Čerstvý prúd",
+        "Tideless_Deep": "Bezprílivová hlbina",
+        "Glimmering_Surf": "Pokojné vlny",
+        "Serene_Waves": "Trblietavý surf",
+        "Red_Sea": "Červené more",
+        "Wondering_Ocean": "Oceán zamyslenia",
+        "Foam_Ceiling": "Molitanový strop",
+        "Walled_Gulf": "Záliv obohnaný múrom",
+        "Lower_Grotto": "Dolná jaskyňa",
+        "Silver_Swarms": "Strieborné húfy",
+        "Upper_Grotto": "Horná jaskyňa",
+        "Rocky_Domain": "Skalnaté panstvo",
+        "Nautical_Parlay": "Morská stávka",
+        "Restless_Buoy": "Nepokojná bója",
+        "Ripped_Sails": "Búrlivé prúdy",
+        "Nautilus_Mirage": "Vidina Nautila",
+        "Ravenous_Tides": "Roztrhnuté plachty",
+        "Deep_Dive": "Hlboký ponor",
+        "Furious_Storm": "Zúrivá búrka",
+        "Silver_Crest": "Strieborný hrebeň",
+        "Grey_Clouds": "Sivé oblaky",
+        "Translucent_Algae": "Priesvitné riasy",
+        "Treacherous_Surf": "Zradný surf",
+        "Single_Wave": "Jedna vlna",
+        "Cursed_Lip": "Prekliata pera",
+        "Coral_Kingdom": "Koralové kráľovstvo",
+        "Telescopic_Barrel": "Teleskopický sud",
+        "Sponge_Sands": "Dierkované piesky",
+        "Seagull_Domain": "Kráľovstvo čajok",
+        "Tangled_Fins": "Prepletené plutvy",
+        "Scuba_Bay": "Zátoka potápačov",
+        "Tide_Ascent": "Stúpajúci príliv",
+        "Breakwater_Wharf": "Vlnolamové prístavisko",
+        "Adrift_Liner": "Neriadený parník",
+        "Bermuda_Quay": "Bermutské nábrežie",
+        "Sextant_Mast": "Sťažeň na sextant",
+        "Grog_Wash": "Záplava grogu",
+        "R_lyeh_Reef": "Útes v R'lyehu",
+        "Capricorn_Waterway": "Vodná cesta pre lode",
+        "Barnacle_Deck": "Paluba morského vlka",
+        "Ahab_s_Tomb": "Achabova hrobka",
+        "Galley_Commodore": "Kapitán galeje",
+        "Adamastor": "Adamastor",
+        "Deadeye_Admiral": "Ostrostrelecký admirál",
+        "Monkey_s_Fist": "Opičia päsť",
+        "Dagon_s_Dagger": "Dagonova dýka",
+        "Sunken_Leviathan": "Potopený leviatan",
+        "Raging_Tides": "Zúrivé prúdy",
+        "Buccaneer_Plateau": "Korzárska plošina",
+        "Craggy_Cay": "Skalnatý ostrovček",
+        "Behemoth": "Behemoth",
+        "Privateer_Helm": "Korzárske kormidlo",
+        "Medusa_Cove": "Zátoka medúz",
+        "Man_O_War": "Medúza mechúrikovitá",
+        "Nemo_s_Dock": "Nemova paluba",
+        "Anchorage_Ruin": "Zrúcaniny kotviska",
+        "Ahoy_Alee": "Záveterná strana",
+        "Ursula_s_Valley": "Ursulino údolie",
+        "Dungbie_Trough": "Zadný žľab",
+        "Idlers_Range": "Lodníkovo pohorie",
+        "Wherry_Gap": "Pramicový priesmyk",
+        "Nock_s_Turn": "Nockov obrat",
+        "Scuttle_Ridge": "Hlboký hrebeň",
+        "Ghost_Trench": "Prízračný zákop",
+        "Scurvy_Atoll": "Skorbutový atol",
+        "Capsize_Lagoon": "Lagúna prevrhnutých lodí",
+        "Undertow_Bank": "Pobrežie spodných prúdov",
+        "Neptune_s_Galleon": "Neptúnová galeóna",
+        "Seafarer_s_Current": "Moreplavcov prúd",
+        "Blackwater_Cape": "Čiernovodný mys",
+        "Leviathan_Wreck": "Vrak leviatana",
+        "Typhoon_Peninsula": "Poloostrov tajfúnov",
+        "Corsair_s_Skerry": "Korzárova skala",
+        "Mutiny_Canyon": "Kaňon vzbury",
+        "Bytedirt_Planes": "Bytedirt Planes",
+        "End_of_the_Void": "End of the Void",
+        "Banker_s_Heaven": "Banker's Heaven",
+        "Shift_Land": "Shift/Land",
+        "Black_Net_Market": "Black Net Market",
+        "Pulse_City": "Pulse City",
+        "Max_s_Shelter": "Max's Shelter",
+        "The_Open_Zone": "The Open Zone",
+        "The_Warring_Towers": "The Warring Towers",
+        "Forgotten_Fragments": "Forgotten Fragments",
+        "Backup_NET": "Backup:NET",
+        "Spoiled_Resort": "Spoiled Resort",
+        "Fort_Duplex": "Fort Duplex",
+        "LoneHub": "LoneHub",
+        "Alpha_1_Omega_2": "Alpha 1 Omega 2",
+        "Ray_s_Ray_s": "Ray's Ray's",
+        "Purple_Palace": "Purple Palace",
+        "Three_Oc3ans": "Three Oc3ans",
+        "Vortex": "Vortex",
+        "Twisted_Alps": "Twisted Alps",
+        "Archives_of_Junkman": "Archives of Junkman",
+        "Frozen_RAM": "Frozen RAM",
+        "Cas_Cade": "Cas.Cade",
+        "The_Historical_Museum": "The Historical Museum",
+        "Aerial_Boulevard": "Aerial Boulevard",
+        "Slate_13": "Slate 13",
+        "New_final_final_exe": "New_final_final.exe",
+        "Bizarre_Plains": "Bizarre Plains",
+        "Argus__Watch": "Argus' Watch",
+        "Berta_s_Byte_Sauce": "Berta's Byte-Sauce",
+        "Veil_of_Bits": "Veil of Bits",
+        "Harvey_s_Low_Core": "Harvey's Low Core",
+        "The_Byte_Parade": "The Byte Parade",
+        "Reboot_Bay": "Reboot Bay",
+        "Streaming_Forest": "Streaming Forest",
+        "CMYK_Citadel": "CMYK Citadel",
+        "Forgify": "Forgify",
+        "Digital_Town_of_Hope": "Digital Town of Hope",
+        "Cloud_One": "Cloud One",
+        "Re_Birth": "Re:Birth",
+        "Castle_You_Es_Bee": "Castle You-Es-Bee",
+        "NET_MASKerade": "NET MASKerade",
+        "If_Then_Whatever": "If, Then, Whatever",
+        "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
+        "The_Church_of_Games": "The Church of Games",
+        "The_Sacred_Database": "The Sacred Database",
+        "Game_Over": "Game Over"
+      },
+      "bonus": {
+        "coin": {
+          "name": "Mince"
+        },
+        "supply": {
+          "name": "Zásoby"
+        },
+        "good": {
+          "name": "Tovar"
+        },
+        "special_good": {
+          "name": "Špeciálny tovar"
+        },
+        "good_bonus": {
+          "name": "Produkčný bonus"
+        },
+        "expansion": {
+          "name": "Rozšírenie"
+        },
+        "medal": {
+          "name": "Medaila"
+        },
+        "diamond": {
+          "name": "Diamant"
+        },
+        "pvp_tower": {
+          "name": "PvP Veža"
+        },
+        "blueprint": {
+          "name": "Plán"
+        },
+        "military_boost": {
+          "name": "Posilnenie armády",
+          "gb_description": "Zvyšuje útočný a obranný bonus pre jednotky v útočnej armáde, sčítava sa s každou budovou."
+        },
+        "fierce_resistance": {
+          "name": "Zúrivý odpor",
+          "gb_description": "Obranné jednotky majú posilnené svoje útočné a obranné hodnoty o určité percento. Rovnako aj cech dostane do svojho podporného fondu určité množstvo a bonus sa sčítava s každou budovou."
+        },
+        "coin_boost": {
+          "name": "Zvýšenie počtu mincí",
+          "gb_description": "Prvých niekoľko vyzdvihnutých (až do 90 krát) produkcií mincí sa o určité percento posilní. Sčítava sa so zvýšením z produktivity, motivácie a iných zvýšení produkcie mincí."
+        },
+        "supply_boost": {
+          "name": "Zvýšenie množstva zásob",
+          "gb_description": "Prvých niekoľko vyzdvihnutých produkcií zásob sa o určité percento posilní. Sčítava sa so zvýšením z produktivity, motivácie a iných zvýšení produkcie zásob."
+        },
+        "good_production": {
+          "name": "Produkcia tovaru",
+          "gb_description": "Každých 24 hodín produkuje určitý počet náhodných tovarov z hráčovej doby. Od modernej éry zas produkuje dvojnásobok neopracovaného tovaru."
+        },
+        "medal_production": {
+          "name": "Produkcia medailí ",
+          "gb_description": "Každých 24 hodín produkuje určitý počet medail."
+        },
+        "research": {
+          "name": "Výskum",
+          "gb_description": "Produkuje malé množstvo bodov výskumu každých 24 hodín."
+        },
+        "coin_production": {
+          "name": "Výroba mincí",
+          "gb_description": "Produkuje určité množstvo mincí každých 24 hodín."
+        },
+        "supply_production": {
+          "name": "Výroba zásob",
+          "gb_description": "Produkuje určité množstvo zásob každých 24 hodín."
+        },
+        "population": {
+          "name": "Populácia",
+          "gb_description": "Stály bonus obyvateľstva."
+        },
+        "happiness": {
+          "name": "Spokojnosť",
+          "gb_description": "Trvalý bonus spokojnosti."
+        },
+        "quest_reward_boost": {
+          "name": "Bonus k odmenám za úlohy",
+          "gb_description": "Keď dostanete mince, zásoby, tovary, diamanty alebo medaily ako odmenu za úlohy, dostanete k nim navyše ďalšie určité percento."
+        },
+        "penal_unit": {
+          "name": "Vojenská jednotka",
+          "gb_description": "Každých 24 hodín produkuje náhodné nepripojené jednotky z vojenských budov v hráčovom meste. Podpora náboru cechu dokáže skrátiť čas."
+        },
+        "guild_goods": {
+          "name": "Tovary cechu",
+          "gb_description": "Produkuje niekoľko kusov z každého súčasného tovaru do pokladňe cechu. Možnosť vyzdvihnutia len pri členstve v cechu."
+        },
+        "support_pool_bonus": {
+          "name": "Bonus podporného fondu",
+          "gb_description": "Cech dostane určité množstvo do svojho podporného fondu za každú budovu s týmto bonusom."
+        },
+        "aid_goods": {
+          "name": "Tovar z pomoci",
+          "gb_description": "Za prvých niekoľko pomocí budove iného hráča, dostanete náhodný tovar z doby danej budovy."
+        },
+        "plunder_goods": {
+          "name": "Tovar za plienenie ",
+          "gb_description": "Za prvých niekoľko vyplienení budovy iného hráča dostanete náhodný tovar z doby danej budovy."
+        },
+        "contribution_boost": {
+          "name": "Zvýšenie príspevku",
+          "gb_description": "Odmeny za príspevok pri obsadení pozície vo VB sa o určité percento zvýšia."
+        },
+        "aid_blueprints": {
+          "name": "Pomocné plány",
+          "gb_description": "Keď pomôžete (motiváciou alebo zdokonalením budovy) inému hráčovi, vaša šanca na nájdete plánu z doby budovy sa zvýši. "
+        },
+        "relic_hunt": {
+          "name": "Hľadanie relikvií",
+          "gb_description": "Zvyšuje sa šanca, že sa po vyriešení stretnutia na mape cechovej expedície objaví skrytá odmena vo forme relikvie. Taktiež sa zvyšuje šanca , že daná relikvia bude vyššej kvality.\nNeovplyvňuje akú odmenu z už vygenerovanej relikvie dostanete."
+        },
+        "critical_hit": {
+          "name": "Kritický zásah",
+          "gb_description": "Poskytuje šancu spôsobiť 150 % poškodenie proti jednotkám z rovnakej doby.\nKritický zásah funguje aj u reaktívneho panciera. U rogue nefunguje až do jeho premenenia. Tento bonus funguje pre útočné aj obranné jednotky."
+        },
+        "helping_hands": {
+          "name": "Pomocná ruka priateľa",
+          "gb_description": "Keď pomôžete iným hráčom, máte určitú šancu získať niečo navyše (tovar, zásoby, mince, medaily, diamanty)."
+        },
+        "plunder_and_pillage": {
+          "name": "Plienenie a rabovanie",
+          "gb_description": "Pridáva šancu na zdvojnásobenie zisku z vyplienených budov."
+        },
+        "first_strike": {
+          "name": "Prvý úder",
+          "gb_description": "Pri prvých niekoľkých bitkách budete mať šancu na zabitie 1 nepriateľskej jednotky hneď na začiatku bitky. V bitkách, ktoré prebiehajú v dvoch vlnách, platí schopnosť len v prvej vlne."
+        },
+        "double_collection": {
+          "name": "Dvojnásobný výber",
+          "gb_description": "Pri prvých niekoľkých vyzdvihnutiach v budovách vzniká šanca na zdvojnásobenie vyzdvihnutých surovín.Tento bonus sa nedá uplatniť u vojenských a veľkolepých budovách."
+        }
+      }
+    },
+    "utils": {
+      "content": {
+        "tools": "Nástroje",
+        "statistics": "Štatistiky"
+      },
+      "btn_calculate": "Vypočítať",
+      "description": {
+        "p1": "Zadajte rôzne hodnoty. Výsledok sa aktualizuje automaticky.",
+        "p2_html": "<strong>Poznámka</strong>: ak sa aktualizácia neuskutoční automaticky, kliknite prosím na \"$t(utils.btn_calculate)\"."
+      },
+      "choose_age": "Vyberte si dobu",
+      "permalink": "Trvalý odkaz",
+      "Add": "Pridať",
+      "Remove": "Vymazať",
+      "Yes": "Áno",
+      "No": "Nie",
+      "Ok": "Ok",
+      "Copy": "Kopírovať",
+      "Copyed": "Skopírované!",
+      "Information": "Informácia",
+      "From": "Z",
+      "To": "Do (max {{max}})",
+      "Prefix": "Pred",
+      "Suffix": "Za",
+      "Path": "Cesta",
+      "Name": "Meno",
+      "Description": "Popis",
+      "Rewards": "Odmeny",
+      "Cost": "Náklady",
+      "Conquered": "Podrobené",
+      "Total": "Celkom",
+      "Secured": "Zaistené",
+      "Reset": "Resetovať",
+      "Confirm": "Potvrdiť",
+      "Close": "Zatvoriť",
+      "Result": "Výsledok",
+      "between_range": "medzi{{min, number}} a {{max, number}}",
+      "Submit": "Odoslať",
+      "Reset_values": "Resetovať hodnoty",
+      "Switch": "Prepnúť",
+      "Save": "Uložiť",
+      "Show": "Ukázať",
+      "Hide": "Skryť",
+      "errors": {
+        "field_cannot_be_empty": "Toto políčko nemôže ostať prázdne"
+      },
+      "moment": {
+        "year": "{{count}} rok",
+        "year_plural": "{{count, number}} roky",
+        "month": "{{count}} mesiac",
+        "month_plural": "{{count}} mesiace",
+        "day": "{{count}} deň",
+        "day_plural": "{{count}} dni"
+      },
+      "graph": {
+        "gb_level": "Úroveň",
+        "gb_level_cost": "Cena úrovne",
+        "gb_reward_1st_place": "Odmena za úroveň (prvé miesto)"
+      }
+    },
+    "contributions": {
+      "blog": "Blogové príspevky",
+      "bug": "Hlásenia chýb",
+      "code": "kód",
+      "design": "Dizajn",
+      "doc": "Dokumentácia",
+      "eventOrganizing": "Organizér udalostí",
+      "example": "Príklady",
+      "financial": "Finančné",
+      "fundingFinding": "Nájsť financovanie",
+      "ideas": "Nápady, Plánovanie a Spätná väzba",
+      "infra": "Infraštruktúra (Hosting, Vytváranie nástrojov atď.)",
+      "platform": "Balenie / prenos na novú platformu",
+      "plugin": "prídavný modul/knižnica pomocných programov",
+      "question": "Odpovede na otázky",
+      "review": "Preskúmané návrhy zmien",
+      "talk": "Diskusia",
+      "test": "Testy",
+      "tool": "Nástroje",
+      "translation": "Preklad",
+      "tutorial": "Návody",
+      "video": "Videá",
+      "data": "Pridávanie alebo aktualizácia údajov",
+      "inspired_tool": "Nástroj inšpirovaný jeho prácou",
+      "creator": "Tvorca tohto projektu"
+    },
+    "seo": {
+      "keywords": {
+        "gb": "VB",
+        "great_building": "veľkolepá budova",
+        "fp": "BV",
+        "forge_point": "body výskumu",
+        "medals": "medaily",
+        "military_units": "vojenské jednotky"
+      }
+    }
+  }
+}
