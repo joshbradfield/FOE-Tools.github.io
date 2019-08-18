@@ -156,7 +156,7 @@
         "estimated_time": "Примерное время на достижения уровня",
         "message": {
           "single": "Для достижения уровня {{level}} \"$t({{gb}})\", владелец должен вложить {{preparation, number}} СО. Общая стоимость уровней: {{cost, number}} СО.",
-          "multi": "Чтобы перейти с {{from}} уровня на \"$t({{to}})\", владелец должен вложить {{preparation, number}} СО. Общая стоимость уровней: {{cost, number}} СО.",
+          "multi": "Чтобы перейти с {{from}} уровня на {{to}} из \"$t({{gb}})\", владелец должен вложить {{preparation, number}} СО. Общая стоимость уровней: {{cost, number}} СО.",
           "diff": "За счет бонуса вы сэкономите {{count}} СО",
           "diff_plural": "За счет бонуса вы сэкономите {{count}} СО",
           "estimated_time": "Примерное время на достижение уровня: {{time}}"
@@ -221,7 +221,9 @@
         "table": {
           "thead": {
             "th1": "Эпоха",
-            "th2": "Товар"
+            "th2": "Товар",
+            "th4": "Результат",
+            "split": "Разбить"
           }
         }
       },
@@ -240,10 +242,14 @@
           "version": "Версия {{version}}"
         },
         "day_night": {
+          "Day": "День",
+          "start_day": "Начало дня",
           "Night": "Ночь",
           "start_night": "Начало ночи"
         },
+        "global_config": "Глобальные настройки",
         "global_config_dialog": {
+          "fixed_main_menu": "Всегда отображать глобальное меню",
           "select_gb_style_mode": {
             "datalist": "Автозавершение"
           },
@@ -263,6 +269,7 @@
         }
       },
       "promotion_message_builder": {
+        "action": "Действие",
         "variables": {
           "message": {
             "GBN": "Название ВС"
