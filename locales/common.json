@@ -11,7 +11,8 @@
       "pl": { "en": "Polish", "original": "Polski" },
       "sv": { "en": "Swedish", "original": "Svenska" },
       "pt": { "en": "Portuguese", "original": "Português" },
-      "es": { "en": "Spanish", "original": "Español" }
+      "es": { "en": "Spanish", "original": "Español" },
+      "sk": { "en": "Slovak", "original": "Slovensko" }
     },
     "language_selector": {
       "en": "$t(common:lang.en.original)",

@@ -10,6 +10,7 @@ import pl from "../locales/pl.json";
 import sv from "../locales/sv.json";
 import pt from "../locales/pt.json";
 import es from "../locales/es.json";
+import sk from "../locales/sk.json";
 
 // Requires al packages
 import hideI18next from "i18next";
@@ -23,14 +24,15 @@ import "numeral/locales/hu";
 import "numeral/locales/pl";
 import "numeral/locales/pt-pt";
 import "numeral/locales/es";
+import "numeral/locales/sk";
 import * as numeralSvSe from "./numeral_custom_locals/sv-se";
 numeralSvSe.init(numeral);
 
 // Constant used
 export const defaultLocale = "en";
-export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv", "pt", "es"];
+export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv", "pt", "es", "sk"];
 const languageList = ["common"].concat(supportedLocales);
-const resources = { common, en, fr, de, ru, nl, hu, pl, sv, pt, es };
+const resources = { common, en, fr, de, ru, nl, hu, pl, sv, pt, es, sk };
 
 export const numeralSpecialLocales = {
   nl: "nl-nl",

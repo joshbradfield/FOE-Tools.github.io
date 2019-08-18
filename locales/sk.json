@@ -63,7 +63,7 @@
             }
           },
           "infinity_generator": {
-            "message": "So súčasným bonusom z $t(foe_data.gb.Chateau_Frontenac)získate viac mincí a spotrebného materiálu, ako použijete na dokončenie úloh. Prosím vyberte si počet „$t(components.cf_calculator.block_cfc.infinity_generator.label)“, ktoré chcete urobiť.",
+            "message": "So súčasným bonusom z $t(foe_data.gb.Chateau_Frontenac) získate viac mincí a spotrebného materiálu, ako použijete na dokončenie úloh. Prosím vyberte si počet „$t(components.cf_calculator.block_cfc.infinity_generator.label)“, ktoré chcete urobiť.",
             "label": "Nadväzujúca úloha"
           }
         }
@@ -80,7 +80,7 @@
             "p2_html": "<strong>Poznámka </strong>: Ak sa aktualizácia neuskutoční automaticky, najprv nastavte úroveň VB a celkovú investíciu bv a kliknite na „$t(components.gb_investment.gb_investment.form.submit_global)“. Ak chcete upraviť hodnoty každého miesta, upravte ich ako Vám to vyhovuje a kliknite na „$t(components.gb_investment.gb_investment.form.submit_custom)“."
           },
           "form": {
-            "level": "Úroveň {{fromLevel, number}} → {{level, number}} ($ t (utils.between_range, {'min': '{{min}}', 'max': '{{max}}'})))",
+            "level": "Úroveň {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'})))",
             "investor_percentage": "% z bonusov hlavných prispievateľov (bonus oblúku)",
             "submit_global": "Globálne prepočítanie",
             "submit_custom": "Upravené prepočítanie",
@@ -303,7 +303,7 @@
         "split_message": {
           "msg": "{{valueFrom}}{{ageFrom}} pre {{valueTo}}{{ageTo}}",
           "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
-          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+          "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) a $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
           "result": "Pre {{to}}{{ageTo}}, potrebujete {{from}}{{ageFrom}} s ponukou do{{count}}:",
@@ -384,7 +384,7 @@
         "title": "Informácia o$t(common:site_title)",
         "general_info": {
           "title": "Všeobecné informácie",
-          "p1_html": "Forge of Empires, FOE a všetky súvisiace ochranné známky a obsah patria spoločnosti InnoGames GmbH. <br/>$t(common:site_title)je neoficiálny web tretej strany a nie je súčasťou InnoGames.",
+          "p1_html": "Forge of Empires, FOE a všetky súvisiace ochranné známky a obsah patria spoločnosti InnoGames GmbH. <br/>$t(common:site_title) je neoficiálny web tretej strany a nie je súčasťou InnoGames.",
           "p2_html": "$t(common:site_title) bola vytvorená francúzskym hráčom <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
           "p3_html": "Táto stránka je OpenSource, kód je voľne k dispozícii na $t(common:links.github). <br/>Takto sa môžu všetci, ktorí majú potrebné zručnosti, podieľať na zdokonaľovaní tejto stránky."
         },
@@ -444,7 +444,7 @@
           "title": "Informácie o vývoji",
           "p1": "Táto stránka je jednoduchá statická stránka hosťovaná na serveri GitHub.",
           "p2_html": "Stránka je vyvíjaná v Node.js za pomoci $t(common:links.framework). Štýl je vytvorený pomocou $t(common:links.style).",
-          "p3_html": "Nápad na novú funkcionalitu? Problém ? Neváhajte nás kontaktovať na $t(common:links.github)alebo mi pošlite e-mail (v angličtine alebo francúzštine) na $t(common:links.contact_foe_tools).",
+          "p3_html": "Nápad na novú funkcionalitu? Problém ? Neváhajte nás kontaktovať na $t(common:links.github) alebo mi pošlite e-mail (v angličtine alebo francúzštine) na $t(common:links.contact_foe_tools).",
           "message_info_github_issue": "<b>Poznámka: </b>Pokiaľ ide o problémy týkajúce sa GitHub, nezabudnite ich napísať v angličtine, aby im mohlo porozumieť čo najväčší počet ľudí."
         }
       },

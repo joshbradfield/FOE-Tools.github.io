@@ -167,7 +167,7 @@
         "estimated_time": "Estimera tiden för att nå nästa nivå",
         "message": {
           "single": "För att fullfölja nivå {{level}} av  \"$t({{gb}})\", måste ägaren investera {{preparation, number}} FP.  Total nivåkostnad: {{cost, number}} FP.",
-          "multi": "För att gå från nivå {{from}} till {{to}}på $t({{gb}}), måste ägaren investera {{preparation, number}} FP.  Totalkostnad för nivåer:  {{cost, number}} FP.",
+          "multi": "För att gå från nivå {{from}} till {{to}} på $t({{gb}}), måste ägaren investera {{preparation, number}} FP.  Totalkostnad för nivåer:  {{cost, number}} FP.",
           "diff": "Med bonus investeringar sparar du {{count}} FP",
           "diff_plural": "Med bonus investeringar sparar du {{count, number}} FP",
           "estimated_time": "Estimerad tid för att nå nivån: {{time}}"
