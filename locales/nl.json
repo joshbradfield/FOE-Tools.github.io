@@ -31,6 +31,7 @@
           "your_age": "Jouw tijdperk",
           "your_cf_boost": "Jouw $t(foe_data.gb.Chateau_Frontenac) Boost",
           "coins_to_use": "Munten voor de NVF Quest",
+          "coins_supplies_info": "Deze waarde moet groter of gelijk zijn aan {{min}}omdat hieronder geen winst kan worden gegarandeerd (statistisch)",
           "supplies_to_use": "Voorraden voor de  NVF Quest",
           "gb_plunder_goods": "GG & Plunder Goederen",
           "fp_by_24h": "24 Uurs FP Productie",
@@ -166,7 +167,7 @@
         "estimated_time": "Schat tijd om het volgende niveau te halen",
         "message": {
           "single": "Om Van - Tot level(s) {{level}} van \"$t({{gb}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van niveau: {{cost, number}} FP's.",
-          "multi": "Om level {{from}} van \"$t({{to}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale levelkosten: {{cost, number}} FP's.",
+          "multi": "Om van level {{from}} naar {{to}} te gaan van \"$t({{gb}})\", moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van niveau: {{cost, number}} FP's.",
           "diff": "Inclusief bonus investeringen, bespaar je {{count}} FP",
           "diff_plural": "Inclusief bonus investeringen, bespaar je {{count, number}} FP's",
           "estimated_time": "Geschatte tijd om het niveau te halen: {{time}}"
@@ -529,7 +530,7 @@
           },
           "fair_trade": {
             "title": "Eerlijke handel",
-            "message": "Dit type transactie houdt rekening met de productiekosten van een goed (munten en voorraden) om de tarieven tussen de goederen te bepalen."
+            "message": "Dit type transactie houdt rekening met de productiekosten van een goed (munten en voorraden) om de waardeverhouding tussen de goederen te bepalen."
           }
         }
       },
