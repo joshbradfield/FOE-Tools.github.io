@@ -167,9 +167,9 @@
         "estimated_time": "Tempo estimado para atingir o nível",
         "message": {
           "single": "Para completar o nível {{level}} de \"$t({{gb}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total do nível: {{custo, numero}} PFs.",
-          "multi": "To go from level {{from}} to {{to}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of levels: {{cost, number}} FPs.",
-          "diff": "With bonus investments, you'll save {{count}} FP",
-          "diff_plural": "Com o bónus do investimento,vais poupar {{contagem, numero}} ",
+          "multi": "Do nível  {{from}} para  {{to}} de  \"$t({{gb}})\", o dono tem de investir {{preparation, number}} PF's. Custo total do nível: {{cost, number}} PFs.",
+          "diff": "Com o bónus do investimento,vais poupar  {{count}} PF",
+          "diff_plural": "Com o bónus do investimento,vais poupar{{count, number}} PFs",
           "estimated_time": "Tempo estimado para atingir o nível: {{time}}"
         },
         "prop_already_invested": "PFs já investidos pelo dono no nível actual",

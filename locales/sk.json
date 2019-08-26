@@ -293,7 +293,7 @@
         "switch_locale": "$t(common:site_title) je dostupná vo Vašom jazyku"
       },
       "trade": {
-        "title": "Verzia formuláru",
+        "title": "Formulárová verzia",
         "label": {
           "i_have": "Mám",
           "i_want": "Chcem",
@@ -576,7 +576,7 @@
       "age": {
         "Oracle": "$t(foe_data.age.NoAge)($t(foe_data.gb.Oracle_of_Delphi))",
         "NoAge": "žiadna doba",
-        "BronzeAge": "Doba brondzová",
+        "BronzeAge": "Doba bronzová",
         "IronAge": "Doba železná",
         "EarlyMiddleAges": "Raný stredovek",
         "HighMiddleAges": "Vrcholný stredovek",

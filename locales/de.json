@@ -31,6 +31,7 @@
           "your_age": "Ihr Zeitalter",
           "your_cf_boost": "Questbelohnungs-Boost des $t(foe_data.gb.Chateau_Frontenac)",
           "coins_to_use": "Für die Nichtgeburtstags-Party Quest zu verwendende Münzen",
+          "coins_supplies_info": "Dieser Wert sollte größer oder gleich {{min}}sein, da wir darunter keinen Gewinn garantieren können (statistisch)",
           "supplies_to_use": "Für die Nichtgeburtstags-Party Quest zu verwendende Vorräte",
           "gb_plunder_goods": "LB & Plündergüter",
           "fp_by_24h": "24 Stunden FP Produktion",
@@ -166,7 +167,7 @@
         "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe",
         "message": {
           "single": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufe: {{cost, number}} FPs.",
-          "multi": "Um von Stufe {{from}} zu \"$t({{to}})\" zu gelangen, muss der Besitzer {{preparation, number}} FPs investieren. Gesamtkosten der Stufen: {{cost, number}} FPs.",
+          "multi": "Um von Level {{from}}zu {{to}} von \"$t({{gb}})\" zu gelangen, muss der Eigentümer {{preparation, number}}FPs. Gesamtkosten der Ebenen: {{cost, number}}FPs.",
           "diff": "Mit Bonusinvestitionen sparen Sie {{count}} FP",
           "diff_plural": "Mit Bonusinvestitionen sparen Sie {{count, number}} FPs",
           "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe: {{time}}"
@@ -257,7 +258,7 @@
         },
         "new_year": {
           "message": "$t(common:site_title) feiert sein {{count, number}} Jahr",
-          "message_plural": "$t(common:site_title) feiert seine {{Anzahl, Anzahl}} Jahre"
+          "message_plural": "$t(common:site_title) feiert seine {{count, number}} Jahre"
         },
         "survey": {
           "message": "Hilf uns $t(common:site_title) zu verbessern, indem du diese Umfrage ausfüllst"
@@ -310,9 +311,9 @@
         }
       },
       "promotion_message_builder": {
-        "title": "Promotion message builder",
+        "title": "Builder für Werbenachricht",
         "info": "Dies kann kopiert werden, um es zum Beispiel mit deinen Gildenmitgliedern zu teilen",
-        "note": "Beachten Sie, dass der Message Builder Level 9 → 10 von $t(foe_data.gb.Observatory) mit einem Verhältnis von 1,9 für die Vorschau verwendet.",
+        "note": "Beachten Sie, dass der Message Builder verwendet Level 9 → 10 von $t(foe_data.gb.Observatory) mit einem Verhältnis von 1,9 für die Vorschau.",
         "action": "Aktion",
         "actions": {
           "create": "Erstellen Sie eine neue Vorlage",
@@ -341,7 +342,7 @@
         "message_builder": "Builder für Nachrichten",
         "message_preview": "Vorschau der Nachricht",
         "place_builder_title": "Platz Builder",
-        "message_builder_title": "Builder für Nachricht",
+        "message_builder_title": "Builder für Nachrichten",
         "available_variables": "Verfügbare Variablen:",
         "variables": {
           "place": {
@@ -1165,7 +1166,7 @@
           "gb_description": "Sammelt nur Münzen, Vorräte, Waren, Medaillen oder Diamanten aus Questbelohnungen."
         },
         "penal_unit": {
-          "name": "militärische einheiten",
+          "name": "militärische Einheit",
           "gb_description": "Rekrutiert alle 24 Stunden nicht verbundene Einheiten, die zufällig aus einem Militärgebäude in Ihrer Stadt ausgewählt werden."
         },
         "guild_goods": {
