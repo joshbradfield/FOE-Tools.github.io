@@ -63,7 +63,7 @@
             }
           },
           "infinity_generator": {
-            "message": "So súčasným bonusom z $t(foe_data.gb.Chateau_Frontenac) získate viac mincí a spotrebného materiálu, ako použijete na dokončenie úloh. Prosím vyberte si počet „$t(components.cf_calculator.block_cfc.infinity_generator.label)“, ktoré chcete urobiť.",
+            "message": "So súčasným bonusom z $t(foe_data.gb.Chateau_Frontenac) získate viac mincí a zásob, ako použijete na dokončenie úloh. Prosím vyberte si počet «$t(components.cf_calculator.block_cfc.infinity_generator.label)», ktoré chcete urobiť.",
             "label": "Nadväzujúca úloha"
           }
         }
@@ -80,7 +80,7 @@
             "p2_html": "<strong>Poznámka </strong>: Ak sa aktualizácia neuskutoční automaticky, najprv nastavte úroveň VB a celkovú investíciu bv a kliknite na „$t(components.gb_investment.gb_investment.form.submit_global)“. Ak chcete upraviť hodnoty každého miesta, upravte ich ako Vám to vyhovuje a kliknite na „$t(components.gb_investment.gb_investment.form.submit_custom)“."
           },
           "form": {
-            "level": "Úroveň {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, {'min': '{{min}}', 'max': '{{max}}'})))",
+            "level": "Úroveň {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "% z bonusov hlavných prispievateľov (bonus oblúku)",
             "submit_global": "Globálne prepočítanie",
             "submit_custom": "Upravené prepočítanie",
@@ -384,7 +384,7 @@
         "title": "Informácia o$t(common:site_title)",
         "general_info": {
           "title": "Všeobecné informácie",
-          "p1_html": "Forge of Empires, FOE a všetky súvisiace ochranné známky a obsah patria spoločnosti InnoGames GmbH. <br/>$t(common:site_title) je neoficiálny web tretej strany a nie je súčasťou InnoGames.",
+          "p1_html": "Forge of Empires, FOE a všetky súvisiace ochranné známky a obsah patria spoločnosti InnoGames GmbH. <br/>$t(common:site_title) je neoficiálna web stránka tretej strany a nie je súčasťou InnoGames.",
           "p2_html": "$t(common:site_title) bola vytvorená francúzskym hráčom <strong class=\"has-text-weight-semibold\">Yoratheon</strong>.",
           "p3_html": "Táto stránka je OpenSource, kód je voľne k dispozícii na $t(common:links.github). <br/>Takto sa môžu všetci, ktorí majú potrebné zručnosti, podieľať na zdokonaľovaní tejto stránky."
         },
