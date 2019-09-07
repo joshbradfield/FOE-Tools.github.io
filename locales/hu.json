@@ -28,6 +28,7 @@
           "your_age": "Melyik korban vagy",
           "your_cf_boost": "A $t(foe_data.gb.Chateau_Frontenac) bónuszod",
           "coins_to_use": "A \"Nem születésnapi buli\" küldetésben befizetendő pénz mennyiésge",
+          "coins_supplies_info": "Ennek az értéknek nagyobbnak vagy egyenlőnek kell lennie, mint {{min}}, mivel az alatt nem garantálható profit (statisztikailag)",
           "supplies_to_use": "A \"Nem születésnapi buli\" küldetésben befizetendő alapanyag mennyiésge",
           "fp_by_24h": "Napi FP termelésed",
           "supplies_gathered": "Begyűjtött alapanyag",
@@ -41,7 +42,11 @@
             }
           },
           "reward_message": {
-            "total_goods": "Összes áru: {{count, number}}"
+            "daily_ubq": "Napi \"Nem születésnapi buli\" küldetések száma: {{count, number}}",
+            "second_rq_completed": "Második visszatérő küldetések száma: {{count, number}}",
+            "total_goods": "Összes áru: {{count, number}}",
+            "total_fp": "Összes FP: {{count, number}}",
+            "total_rq_completed": "Az összes visszatérő küldetés száma: {{count, number}}"
           },
           "table_return": {
             "thead": {
@@ -69,6 +74,7 @@
             "add_investors": "Befektető hozzáadása (FP  száma, {{min}} és {{max}} között)",
             "tooltip_add_investors": "Kattints az \"$t(utils.Add)\" gombra vagy nyomd meg az \"Enter\" billentyűt befektető hozzáadásához",
             "investors_list": "Hozzáadott befektetők listája",
+            "show_snipe": "Helyezés/rablás (pont nyereség/veszteség) megjelenítése",
             "show_only_secured_places": "Csak biztosított helyek megjelenítése",
             "display_card": "Táblázat megjelenítése kártyaként (kis képernyőhöz)"
           },
@@ -82,6 +88,7 @@
               "th5": "befektetők bónuszának százléka (Bárka bónusz)",
               "th6": "Szabad a hely",
               "fp_already_putin": "A már betett FP mennyisége",
+              "spot_snipe": "Helyezés/rablás",
               "real_participation": "Bárka bónuszoddal megszerezhető FP",
               "is_sniper": "Várható, hogy előzni fog?"
             },
@@ -116,9 +123,15 @@
       "gb_investment_investors": {
         "takingPlaceInConsideration": {
           "form": {
+            "show_place": "Helyezés megjelenítése",
             "no": "$t(utils.No)",
             "normal": "Normál",
             "optimal": "Optimális"
+          },
+          "description": {
+            "no": "ne vegye figyelembe a többi helyezést",
+            "normal": "vegye figyelembe a többi helyezést a befektetők minimális befektetésével de a tulajdonos biztosítása nélkül",
+            "optimal": "vegye figyelembe a többi helyezést a befektetők minimális befektetésével és a tulajdonos biztosításával"
           }
         },
         "table": {
@@ -134,9 +147,10 @@
         "custom_percentage": "Egyéni Bárka bónusz (minden helyhez)",
         "estimated_time": "A szint eléréséhez szükséges becsült idő: {{time}}",
         "message": {
-          "single": "A $t({{gb}}) {{level}} szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
-          "multi": "{{from}}$t({{to}}) szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
+          "single": "A $t({{gb}}) nevezetes {{level}} szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
+          "multi": "A $t({{gb}}) nevezetes épület {{from}} szintől {{to}} szintre való fejlesztésének költsége a tulajdonos számára {{preparation, number}}\nA szintlépések teljes összköltésge: {{cost, number}}",
           "diff": "Bónuszbefektetésekkel megtakarítasz:  {{count}} FP-t",
+          "diff_plural": "Bónuszbefektetésekkel megtakarítasz: {{count, number}} FP-t",
           "estimated_time": "A kívánt szint eléréséhez szükséges idő: {{time}}"
         },
         "prop_already_invested": "A tulajdonos által a jelenlegi szinten befektetett FP mennyisége",
@@ -170,6 +184,7 @@
           "fp_to_complete_level": "A szint befejezéséhez szükséges FP-k száma",
           "fp_to_complete_level_plural": "A szint befejezéséhez szükséges FP-k száma",
           "your_arc_bonus": "Bárka bónuszod",
+          "fp_target_reward": "Megszerezni kívánt helyezés költsége",
           "target_reward": "Megszerezni kívánt helyezés",
           "place": "{{place}}({{count, number}} FP)",
           "result": {
@@ -258,6 +273,7 @@
       },
       "promotion_message_builder": {
         "title": "Promóciós üzenet készítő",
+        "info": "Ez az üzenet másolható, hogy másokkal meg tudd osztani, például a céhtársaiddal.",
         "actions": {
           "create": "Új sablon létrehozása",
           "update": "Létező sablon frissítése",
