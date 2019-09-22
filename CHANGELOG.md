@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.51.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.50.0...v2.51.0) (2019-09-22)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([d7e746e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d7e746e))
+* **gb-investment:** Take in consideration investors when "Show only secured places" is true ([1b326aa](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1b326aa)), closes [#267](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/267)
+* **l10n:** update translation (hu,sk) ([93f870b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/93f870b))
+
 ## [2.50.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.49.0...v2.50.0) (2019-08-26)
 
 
