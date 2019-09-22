@@ -979,7 +979,9 @@ export default {
         return;
       }
       for (let i = 0; i < this.result.investment.length; i++) {
-        this.placeFree[i].state = this.result.investment[i].preparation - this.ownerInvestmentNormalized <= 0;
+        this.placeFree[i].state =
+          !this.result.investment[i].isInvestorParticipation &&
+          this.result.investment[i].preparation - this.ownerInvestmentNormalized <= 0;
       }
       this.updatePromotionMessage();
     },
