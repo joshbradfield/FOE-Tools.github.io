@@ -75,6 +75,11 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/"><img src="/img/contributors/TrueRaptor.jpg" width="100px;" alt="TrueRaptor (PT)"/><br /><sub><b>TrueRaptor (PT)</b></sub></a><br /><a href="#translation-TrueRaptor (PT)" title="Translation">🌍</a></td>
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Geribaldi (NL)"/><br /><sub><b>Geribaldi (NL)</b></sub><br /><a href="#translation-Geribaldi (NL)" title="Translation">🌍</a></td>
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="waldmann (SK)"/><br /><sub><b>waldmann (SK)</b></sub><br /><a href="#bug-waldmann (SK)" title="Bug reports">🐛</a> <a href="#translation-waldmann (SK)" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://forum.tr.forgeofempires.com/index.php?members/inanagyuz.36471/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="inanagyuz (TR)"/><br /><sub><b>inanagyuz (TR)</b></sub></a><br /><a href="#translation-inanagyuz (TR)" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://forum.tr.forgeofempires.com/index.php?members/yuga.36335/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Yuga (TR)"/><br /><sub><b>Yuga (TR)</b></sub></a><br /><a href="#translation-Yuga (TR)" title="Translation">🌍</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://forum.tr.forgeofempires.com/index.php?members/coup-de-grace.36597/"><img src="https://forum.tr.forgeofempires.com/data/avatars/l/36/36597.jpg?1569408800" width="100px;" alt="Coup de Grace (TR)"/><br /><sub><b>Coup de Grace (TR)</b></sub></a><br /><a href="#translation-Coup de Grace (TR)" title="Translation">🌍</a></td>
   </tr>
 </table>
 

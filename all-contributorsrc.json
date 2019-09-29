@@ -602,6 +602,33 @@
         "bug",
         "translation"
       ]
+    },
+    {
+      "login": "inanagyuz (TR)",
+      "name": "inanagyuz (TR)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.tr.forgeofempires.com/index.php?members/inanagyuz.36471/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "Yuga (TR)",
+      "name": "Yuga (TR)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.tr.forgeofempires.com/index.php?members/yuga.36335/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "Coup de Grace (TR)",
+      "name": "Coup de Grace (TR)",
+      "avatar_url": "https://forum.tr.forgeofempires.com/data/avatars/l/36/36597.jpg?1569408800",
+      "profile": "https://forum.tr.forgeofempires.com/index.php?members/coup-de-grace.36597/",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "commitConvention": "none"
