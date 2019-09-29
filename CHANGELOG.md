@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.52.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.51.0...v2.52.0) (2019-09-29)
+
+
+### Features
+
+* **contributors:** Add contributor ([5bd6fd5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5bd6fd5))
+* **l10n:** add Turkish ([6725c5a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6725c5a))
+
 ## [2.51.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.50.0...v2.51.0) (2019-09-22)
 
 
