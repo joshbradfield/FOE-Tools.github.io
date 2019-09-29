@@ -100,7 +100,7 @@
               "th3": "PFs a poner por el propietario para asegurar el lugar",
               "th4": "Recompensas con bono",
               "th5": "% de bono de inversionistas (bono del Arca) ",
-              "th6": "Lugar libre",
+              "th6": "Inluir en los cuadros de copia",
               "fp_already_putin": "Cantidad de PFs ya puestos",
               "spot_snipe": "Lugar",
               "expected_participation": "PFs obtenidos con el % de bono experado por el propietario",
@@ -1107,7 +1107,7 @@
         },
         "military_boost": {
           "name": "Bonificación militar",
-          "gb_description": "Aumenta la bonificación de ataque y defensa para las unidades en el ejército atacante, se suma a cada edificio."
+          "gb_description": "Aumenta la bonificación de ataque y defensa para las unidades en el ejército defensor y aumenta la bonificación del Gremio, se suma con cada edificio."
         },
         "fierce_resistance": {
           "name": "Resistencia feroz",
@@ -1179,7 +1179,7 @@
         },
         "aid_blueprints": {
           "name": "Planos de ayuda",
-          "gb_description": "Aumenta la posibilidad de obtener un plano al ayudar a la ciudad de otro jugador (motivarlos / embellecerlos manualmente también cuenta como ayuda). Por ejemplo: Tener un bono del 100% duplicará las posibilidades de encontrar un plan."
+          "gb_description": "Aumenta la posibilidad de obtener un plano al ayudar a la ciudad de otro jugador (motivarlos / embellecerlos manualmente también cuenta como ayuda). Por ejemplo: Tener un bono del 100% duplicará las posibilidades de encontrar un plano."
         },
         "relic_hunt": {
           "name": "Caza de reliquias",
