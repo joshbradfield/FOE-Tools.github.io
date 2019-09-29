@@ -88,6 +88,7 @@
             "tooltip_add_investors": "Naciśnij na \"$t(utils.Add)\" przycisk lub wciśnij  \"Enter\" by dodać wpłacającego",
             "investors_list": "Lista dodanych wpłacających",
             "show_snipe": "Pokaż wymagane PR'y do zajęcia miejsca",
+            "show_only_secured_places": "Pokaż tylko zabezpieczone miejsca",
             "display_card": "Wyświetlić tabelę w widoku karty ? (dla małych ekranów)"
           },
           "table": {
@@ -123,14 +124,14 @@
             }
           },
           "display_gb_name": "Pokazać nazwę perły ?",
-          "use_short_name": "Użyć krótszej nazwy ?",
+          "use_short_name": "Użyć skrótu ?",
           "show_level": "Pokazać poziom ?"
         },
         "promotion": {
           "title": "Wiadomość ogłaszająca miejsca",
           "prefix_placeholder": "Tekst przed ogłoszeniem miejsc",
           "suffix_placeholder": "Tekst po ogłoszeniu miejsc",
-          "promo": ["P1 ({{investment}})", "P2 ({{investment}})", "P3 ({{investment}})", "P4 ({{investment}})", "P5 ({{investment}})"]
+          "promo": ["M1 ({{investment}})", "M2 ({{investment}})", "M3 ({{investment}})", "M4 ({{investment}})", "M5 ({{investment}})"]
         }
       },
       "gb_investment_investors": {
@@ -279,7 +280,7 @@
           "select_gb_style": "Styl selektora Pereł Architektury",
           "select_gb_style_mode": {
             "datalist": "Auto-uzupełnianie",
-            "select": "Wybierz (starsze)"
+            "select": "Wybierz (starszy)"
           },
           "day_night": "Motyw",
           "day_night_mode": {

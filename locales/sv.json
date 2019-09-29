@@ -129,9 +129,9 @@
           "show_level": "Visa nivå ?"
         },
         "promotion": {
-          "title": "Annonstext",
-          "prefix_placeholder": "text före annonstext",
-          "suffix_placeholder": "text efter annonstext",
+          "title": "Annons-text",
+          "prefix_placeholder": "text före annons-text",
+          "suffix_placeholder": "text efter annons-text",
           "promo": ["1({{investment}})", "4({{investment}})", "3({{investment}})", "2({{investment}})", "5({{investment}})"]
         }
       },
@@ -311,7 +311,7 @@
         }
       },
       "promotion_message_builder": {
-        "title": "Annonstext-byggare",
+        "title": "Annons-text-byggare",
         "info": "Detta kan kopieras för att delas, till exempel med dina gille-medlemmar",
         "note": "Observera att annonsbyggaren använder nivå 9 → 10 på $t(foe_data.gb.Observatory) med en boost på 90% för förhandsgranskning.",
         "action": "Handling",
@@ -340,7 +340,7 @@
         "place_builder": "Platsbyggare",
         "place_preview": "Plats förhandsgranskning (1:a plats)",
         "message_builder": "Annonsbyggare",
-        "message_preview": "Förhandsgranskning av annonstext",
+        "message_preview": "Förhandsgranskning av annons-text",
         "place_builder_title": "Platsbyggare",
         "message_builder_title": "Annonsbyggare",
         "available_variables": "Tillgängliga variabler:",
@@ -368,7 +368,7 @@
         "template_deleted": "Mall raderad"
       },
       "import_promotion_message": {
-        "title": "Importera postningstexter",
+        "title": "Importera annonstexter",
         "config_placeholder": "Klistra in din konfiguration här",
         "errors": {
           "invalid_data": "Datan är ogiltig"
@@ -434,10 +434,10 @@
             "fixedMainMenu": "Indikerar om huvud-menyn alltid är synlig",
             "gbSelectMode": "Indikerar vilket läge av MB-val du använder",
             "haveReadLocaleInfoAvailable": "Indikerar att du läst information om att platsen är tillgänglig på ditt språk",
-            "promotionMessageList": "Innehåller listan över postningstexter som du vill visa",
-            "customPromotionMessagesTemplates": "Innehåller alla dina anpassade postningstexter",
-            "gbShowPrefix": "Anger om du vill visa prefix i postningstexter",
-            "gbShowSuffix": "Anger om du vill visa suffix i postningstexter"
+            "promotionMessageList": "Innehåller listan över annonstexter som du vill visa",
+            "customPromotionMessagesTemplates": "Innehåller alla dina anpassade annonstexter",
+            "gbShowPrefix": "Anger om du vill visa prefix i annonstexter",
+            "gbShowSuffix": "Anger om du vill visa suffix i annonstexter"
           }
         },
         "dev_info": {
