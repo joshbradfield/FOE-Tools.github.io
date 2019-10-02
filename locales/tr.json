@@ -29,37 +29,37 @@
         "block_cfc": {
           "title": "$t(routes.cf_calculator.hero.title)",
           "your_age": "Çağınız",
-          "your_cf_boost": "$t(foe_data.gb.Chateau_Frontenac) Yükselt",
-          "coins_to_use": "UBQ'da kullanılacak madeni paralar",
+          "your_cf_boost": "$t(foe_data.gb.Chateau_Frontenac) Bonusunuz",
+          "coins_to_use": "Sıradan Gün Partisi'nin istediği para",
           "coins_supplies_info": "Bu değer {{min}} değerinden büyük veya ona eşit olmalıdır, çünkü bunun altındaki değer kazançı (istatistiksel olarak) garanti etmez",
-          "supplies_to_use": "UBQ'da kullanılacak sarf malzemeleri",
-          "gb_plunder_goods": "GB ve Yağma Malları",
+          "supplies_to_use": "Sıradan Gün Partisi'nin istediği erzak",
+          "gb_plunder_goods": "DB ve Yağma Malları",
           "fp_by_24h": "24 Saat FP üretimi",
-          "other_rq": "Diğer Günlük RQ’lar",
-          "second_rq": "2. RQ satıcı?",
+          "other_rq": "Diğer Günlük Yinelenen Görevler",
+          "second_rq": "2. Yinelenen Görev ?",
           "supplies_gathered": "Toplanan Malzemeler",
           "table_reward": {
             "title": "$t(utils.Rewards)",
             "thead": {
-              "th1": "BP'ler",
+              "th1": "Ozalitler",
               "th2": "Madalyalar",
               "th3": "Ürünler",
               "th4": "FP'ler"
             }
           },
           "reward_message": {
-            "daily_ubq": "Günlük UBQ’lar: {{count, number}}",
-            "bonus_ubq": "UBQ Bonusu: {{count, number}}",
-            "second_rq_completed": "2. RQ Tamamlandı: {{count, number}}",
+            "daily_ubq": "Günlük Sıradan Gün Partisi Sayısı: {{count, number}}",
+            "bonus_ubq": "Sıradan Günü Partisi Bonusu: {{count, number}}",
+            "second_rq_completed": "Tamamlanan 2. Yinelenen Görev: {{count, number}}",
             "total_goods": "Toplam Ürünler: {{count, number}}",
             "total_fp": "Toplam FP: {{count, number}}",
-            "total_rq_completed": "Toplam RQ Tamamlandı: {{count, number}}"
+            "total_rq_completed": "Toplam Tamamlanan Yinelenen Görev Sayısı: {{count, number}}"
           },
           "table_return": {
             "thead": {
               "th_level": "Seviye",
-              "th_coin": "İade edilen para",
-              "th_supply": "Arz geri döndü"
+              "th_coin": "Gelen Para",
+              "th_supply": "Gelen Erzak"
             }
           },
           "infinity_generator": {
@@ -76,20 +76,20 @@
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
-            "p1": "Seviye ve bonus yüzdesi için değerler girin. Tablodaki değerler otomatik olarak güncellenir.",
+            "p1": "Seviye ve Ark bonus % (90% için Ark seviyesi 80) girin. Tablodaki değerler otomatik olarak güncellenir.",
             "p2_html": "<strong>Not </strong>: Güncelleme otomatik olarak yapılmazsa, önce GB seviyesini ve genel yatırım değerini ayarlayın ve \"$t(components.gb_investment.gb_investment.form.submit_global)\" üzerine tıklayın. Her bir yerin değerlerini ayarlamak istiyorsanız, uygunluğunuzu ayarlayın ve \"$t(components.gb_investment.gb_investment.form.submit_custom)\" üzerine tıklayın."
           },
           "form": {
-            "level": "Seviye {{fromLevel, number}} → {{level, number}}($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "level": "Seviye {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
             "investor_percentage": "FP atacak kişilerin Ark bonusu",
             "submit_global": "Global hesaplama",
             "submit_custom": "Özel hesaplama",
-            "owner_investment": "Bina sahibinin şu an atmış olduğu FP miktarı({{max}})",
-            "add_investors": "Yatırımcı ekle (FP değerini girin, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "owner_investment": "Bina sahibinin atmış olduğu FP miktarı (Maksimum {{max}})",
+            "add_investors": "Yatırımcı ekle (\n$t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }) FP değeri girin, )",
             "tooltip_add_investors": "FP atan kişi girmek için $t(utils.Add)'e basın veya Enter tuşuna basın",
             "investors_list": "FP atanların olduğu liste",
-            "show_snipe": "Nokta / Nişancı Göster",
-            "show_only_secured_places": "Yalnızca güvenli yerleri göster",
+            "show_snipe": "Bina kilitlemeyi göster",
+            "show_only_secured_places": "Yalnızca garantili yerleri göster",
             "display_card": "Kart görünümde gösterilsin mi?(küçük ekranda)"
           },
           "table": {
@@ -97,18 +97,18 @@
             "thead": {
               "th1": "Sıralar",
               "th2": "Varsayılan ödüller",
-              "th3": "Sırayı güvence altına almak için sahibi tarafından atılması gereken FP",
+              "th3": "Sırayı garantilemek için bina sahibinin atması gereken FP",
               "th4": "Bonusla birlikte ödül",
               "th5": "FP atacak kişilerin Ark bonusu",
-              "th6": "Kopyalama kutularına dahil et",
+              "th6": "Tanıtım mesajına dahil et",
               "fp_already_putin": "Şu an atılmış FP sayısı",
-              "spot_snipe": "Nokta / Nişancı",
+              "spot_snipe": "Bina kilitleme",
               "expected_participation": "FP sahibinin % bonus ile kazancı",
               "real_participation": "Ark'ınızın % bonus'uyla elde edilen FP",
               "is_sniper": "Potansiyel bir keskin nişancı mı?"
             },
             "tbody": {
-              "tooltip_owner_investment": "Sırayı güvence altına almak için sahibi tarafından atılması gereken FP",
+              "tooltip_owner_investment": "Sıranın garantilenmesi için bina sahibinin atması gereken kalan FP miktarı",
               "tooltip_expected_investment": "Beklenen yatırım",
               "button_show_extra_investor": "Ekstra yatırımcı göster",
               "button_show_extra_investor_plural": "Ekstra yatırımcıları göster",
@@ -120,18 +120,18 @@
               "neutral": "Bu oyuncu ne kar eder ne de zarar"
             },
             "tfoot": {
-              "total_preparation": "Bina sahibinin attığı fp",
+              "total_preparation": "Bina sahibinin atması gereken toplam FP",
               "level_cost": "Seviyenin maliyeti"
             }
           },
           "display_gb_name": "DB'nın ismi gösterilsin mi?",
-          "use_short_name": "Takma ad kullan?",
+          "use_short_name": "Kısa isim kullan?",
           "show_level": "Seviyeyi göster?"
         },
         "promotion": {
-          "title": "Promosyon mesajı",
-          "prefix_placeholder": "promosyon iletisinden önceki metin",
-          "suffix_placeholder": "promosyon iletisinden sonraki metin",
+          "title": "Tanıtım mesajı",
+          "prefix_placeholder": "Tanıtım mesajından önceki metin",
+          "suffix_placeholder": "Tanıtım mesajından sonraki metin",
           "promo": ["P1 ({{investment}})", "P2 ({{investment}})", "P3 ({{investment}})", "P4 ({{investment}})", "P5 ({{investment}})"]
         }
       },
@@ -172,7 +172,7 @@
           "diff_plural": "Bonuslarla birlikte, {{count, number}} FP tasarruf edeceksiniz",
           "estimated_time": "Bu seviyeye ulaşmak için gereken zaman: {{time}}"
         },
-        "prop_already_invested": "Bina sahibinin şu anki seviyede halihazırda attığı FP",
+        "prop_already_invested": "Bina sahibinin şu anki seviyede atmış olduğu FP",
         "graph": {
           "title": "$t({{gb}}) Devasal Binası için bina sahibinin tahmini FP miktarı",
           "x_axes_label": "$t(utils.graph.gb_level)",
@@ -189,15 +189,15 @@
         "p1": "Grafikler çağlara göre ayarlanır; aynı çağın devasal binalarının seviye yükseltme bedeli / ödülleri aynıdır. ($t(foe_data.gb.Oracle_of_Delphi) İstisnadır)",
         "represent": "Kılavuz:",
         "graph": {
-          "title_1": "Seviyelerin maliyetinin seviyelere göre değişimi",
+          "title_1": "Seviye maliyetinin seviyelere göre değişimi",
           "title_2": "Birinci sıra ödülünün seviyelere göre değişimi",
-          "title_3": "Birinci ",
+          "title_3": "Seviye maliyetlerinin ilk sıra ödülüne göre değişimi",
           "title_4": "İlk sıra ödülünün seviye maliyetlerine göre değişimi"
         }
       },
       "secure_position": {
         "block_place": {
-          "title": "Onun sırasını kilitle",
+          "title": "Birinin sırasını kilitle",
           "level_cost": "Seviyenin toplam maliyeti",
           "current_deposits": "Yatırımların toplamı",
           "your_participation": "Güncel yatırımınız",
@@ -240,11 +240,11 @@
             "th2": "Ürünler",
             "th3": "$t(components.trade.label.i_want)",
             "th4": "Sonuç",
-            "split": "Ayır",
+            "split": "Ayrılmış şekli:",
             "ratio": "Oran"
           }
         },
-        "slpit": "Teklifleri böl?",
+        "slpit": "Teklifleri ayır ?",
         "show_ratio": "Oranı göster"
       },
       "site_layout": {
@@ -295,18 +295,18 @@
       "trade": {
         "title": "Form versiyonu",
         "label": {
-          "i_have": "Sahibim",
-          "i_want": "İstiyorum",
+          "i_have": "Sahip olduğum ürünün çağı",
+          "i_want": "İstediğim ürünün çağı",
           "amount": "Miktar"
         },
-        "split_value": "Olabilecek en büyük teklif (max {{count}})",
+        "split_value": "Teklifin boyutu (max {{count}})",
         "split_message": {
           "msg": "{{valueTo}}{{ageTo}} için {{valueFrom}}{{ageFrom}}",
           "common": "{{count}} x ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
           "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) ve $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
-          "result": "{{to}} {{ageTo}} için, {{count}} teklifleri ile birlikte {{from}} {{ageFrom}}'a ihtiyacınız olacak.",
+          "result": "{{to}} {{ageTo}} ürünü için, {{count}} ürüne kadar {{from}} {{ageFrom}} ürününe ihtiyacınız olacak.",
           "total": "(toplamda: {{amount}}{{key}})"
         }
       },
@@ -459,7 +459,7 @@
         "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Frontenac Şatosu Hesaplama Aracı",
-          "subtitle": "Tekrarlayan görevler ve sıradan günü partisi görevlerini tamamlayarak kazanılacak FP ve ürünleri hesaplayan bir araç"
+          "subtitle": "Hikaye görevleri ve günlük görevlerini tamamlayarak kazanılacak FP ve ürünleri hesaplayan bir araç"
         }
       },
       "changelog": {
@@ -479,10 +479,10 @@
         },
         "tab": {
           "owner_view": {
-            "title": "Bina sahibinin gözünden bakış"
+            "title": "Bina sahibinin gözünden"
           },
           "investors_view": {
-            "title": "Bina atacak kişinin gözünden bakış"
+            "title": "Yatırımcının gözünden"
           }
         }
       },
@@ -490,7 +490,7 @@
         "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Devasa Binalara FP Yatırımı",
-          "subtitle": "Bu araç, bir oyuncunun Devasa Binasının ilk 5 sırasını korumak için atması gereken FP oranını Ark bonusuyla birlikte hesaplamasını mümkün kılar."
+          "subtitle": "Bu araç, bir oyuncunun Devasa Binasının ilk 5 sırasını garantilemek için atması gereken FP oranını (Ark bonusuyla birlikte) hesaplar."
         },
         "choose_gb": {
           "title": "Bir Devasa Bina Seç"
@@ -514,14 +514,14 @@
         "title": "$t(routes.secure_position.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Sıra garantileme",
-          "subtitle": "Bu araç, bir oyuncunun herhangi bir Devasa Binada kilitleyeceği sıra için kaç FP atması gerektiğini hesaplar."
+          "subtitle": "Bu araç, bir oyuncunun herhangi bir Devasa Binada kilitleyeceği sıra için atması gereken FP sayısını hesaplar."
         }
       },
       "trade": {
         "title": "$t(routes.trade.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Ticaret",
-          "subtitle": "Bu araç, ürün alışverişi konusunda sizin takas tarzınıza göre yapabileceğiniz takas imkanlarını sunar."
+          "subtitle": "Bu araç, takas tarzınıza göre en iyi oranları hesaplayarak işinizi kolaylaştırır."
         },
         "tab": {
           "trade_2_1": {
@@ -530,14 +530,14 @@
           },
           "fair_trade": {
             "title": "Adil Ticaret",
-            "message": "Bu tür bir ticaret, ürünler arasındaki oranları belirlemek için bir ürünün ( para ve erzak bakımından) imalat maliyetini hesaba katar."
+            "message": "Bu tür bir ticaret, ürünler arasındaki oranları belirlemek için bir ürünün (para ve erzak bakımından) üretim maliyetini hesaba katar."
           }
         }
       },
       "help_to_translate_the_site": {
         "title": "$t(routes.help_to_translate_the_site.hero.title) | $t(common:site_title)",
         "hero": {
-          "title": "Bu sitenin çevrilmesinde yardımcı ol",
+          "title": "Bu sitenin tercümesine yardımcı ol",
           "subtitle": "Çeviri ekibine katıl"
         },
         "p1": "Kullandığınız dil henüz listemizde yok. Çeviri hatalı veya eksik mi? Çeviri ekibine aktarmaktan çekinmeyin.",
@@ -585,7 +585,7 @@
         "IndustrialAge": "Sanayi Çağı",
         "ProgressiveEra": "İlerleme Çağı",
         "ModernEra": "Modern Çağ",
-        "PostmodernEra": "Postmodern Çap",
+        "PostmodernEra": "Postmodern Çağ",
         "ContemporaryEra": "Yakın Çağ",
         "Tomorrow": "Yakın Gelecek",
         "TheFuture": "Gelecek",
@@ -727,7 +727,7 @@
         "paper": "Kağıt",
         "tar": "Katran",
         "wire": "Tel",
-        "coke": "Kök",
+        "coke": "Kok",
         "fertilizer": "Gübre",
         "rubber": "Kauçuk",
         "textiles": "Dokuma",
@@ -758,7 +758,7 @@
         "smart_materials": "Akıllı Malzeme",
         "translucent_concrete": "Şeffaf Beton",
         "algae": "Alg",
-        "biogeochemical_data": "Biyokimyasal Veri",
+        "biogeochemical_data": "Biyojeokimyasal Veri",
         "nanoparticles": "Nano Parça",
         "purified_water": "Arıtılmış Su",
         "superconductors": "Süper İletken",
@@ -775,9 +775,9 @@
         "promethium": "Prometyum",
         "orichalcum": "Orichalcum",
         "cryptocash": "Gizemli",
-        "data_crystals": "Diğer Kristaller",
+        "data_crystals": "Veri Kristalleri",
         "golden_rice": "Altın Tepsi",
-        "nanites": "Nanotüp",
+        "nanites": "Nanit",
         "tea_silk": "Çay İpeği"
       },
       "province": {
@@ -1226,7 +1226,7 @@
       },
       "btn_calculate": "Hesapla",
       "description": {
-        "p1": "Farklı değerleri girin. Sonuç otomatik olarak güncellenecektir.",
+        "p1": "Değerleri girin. Değiştirdiğinizde sonuç otomatik olarak güncellenecektir.",
         "p2_html": "<strong>Not:</strong> Güncelleme otomatik olarak yapılmaz ise, buraya tıklayın: \"$t(utils.btn_calculate)\""
       },
       "choose_age": "Bir çağ seçin",
@@ -1239,8 +1239,8 @@
       "Copy": "Kopyala",
       "Copyed": "Kopyalandı",
       "Information": "Bilgi",
-      "From": "-den, -dan",
-      "To": "En yükseğe ({{max}})",
+      "From": "Şu seviyeden:",
+      "To": "Şu seviyeye: (Maksimum {{max}})",
       "Prefix": "Ön ek",
       "Suffix": "Son ek",
       "Path": "Yol",
@@ -1248,7 +1248,7 @@
       "Description": "Açıklama",
       "Rewards": "Ödüller",
       "Cost": "Maliyet",
-      "Conquered": "Fethetti",
+      "Conquered": "Fethedildi mi ?",
       "Total": "Toplam",
       "Secured": "Güvenli",
       "Reset": "Sıfırla",
