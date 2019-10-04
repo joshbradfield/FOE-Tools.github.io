@@ -320,12 +320,14 @@ export default {
         this.$data.roi = result.roi;
 
         for (let i = 0; i < this.$data.variousRate.length; i++) {
-          this.$data.variousRate[i].result = {
-            fp: Math.round(
-              this.$data.variousRate[i].displayRate * Utils.normalizeNumberValue(this.$data.fpTargetReward)
-            )
-          };
-          this.$data.variousRate[i].result.roi = this.$data.variousRate[i].result.fp - this.$data.fp;
+          this.$data.variousRate[i].result = gbProcess.ComputeSecurePlace(
+            Utils.normalizeNumberValue(this.$data.levelCost),
+            Utils.normalizeNumberValue(this.$data.currentDeposits),
+            Utils.normalizeNumberValue(this.$data.yourParticipation),
+            Utils.normalizeNumberValue(this.$data.otherParticipation),
+            Utils.normalizeNumberValue(this.$data.variousRate[i].rate),
+            Utils.normalizeNumberValue(this.$data.fpTargetReward)
+          );
         }
       }
     },
