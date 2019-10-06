@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.53.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.52.0...v2.53.0) (2019-10-06)
+
+
+### Bug Fixes
+
+* Fix bad redirection according to locale ([9aaaa20](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9aaaa20))
+
+
+### Features
+
+* **l10n:** improve translation in trade tool ([8650a40](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8650a40))
+* **l10n:** update translation ([3a31273](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3a31273))
+* **secure-position:** give expected rewards according to data for various rate ([b8b87d4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b8b87d4))
+
 ## [2.52.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.51.0...v2.52.0) (2019-09-29)
 
 
