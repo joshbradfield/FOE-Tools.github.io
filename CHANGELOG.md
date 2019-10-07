@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.53.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.53.0...v2.53.1) (2019-10-07)
+
+
+### Bug Fixes
+
+* **language-selector:** fix bad flag for Swedish country ([f9681d5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f9681d5))
+
 ## [2.53.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.52.0...v2.53.0) (2019-10-06)
 
 
