@@ -3,7 +3,7 @@ div
     button.button(slot="trigger")
       article.media
         .media-left
-          span {{countryFlagEmoji.get(this.$i18n.i18next.language === "en" ? "GB" : this.$i18n.i18next.language).emoji}}
+          span {{countryFlagEmoji.get(this.$i18n.i18next.language === "en" ? "GB" : getCurrentCountry(this.$i18n.i18next.language)).emoji}}
         .media-content {{ $t('lang.' + this.$i18n.i18next.language + '.original') }}
         .media-right(v-if="this.$i18n.i18next.language === 'en'")
           span {{countryFlagEmoji.get("US").emoji}}
@@ -13,7 +13,7 @@ div
     b-dropdown-item(v-for="lang in supportedLocales" :key="lang.key" data-lang="lang" @click="currentLang = lang.key" :class="[lang.key === currentLang ? 'is-active' : '']")
       article.media
         .media-left
-          span {{countryFlagEmoji.get(lang.key === "en" ? "GB" : lang.key).emoji}}
+          span {{countryFlagEmoji.get(lang.key === "en" ? "GB" : getCurrentCountry(lang.key)).emoji}}
         .media-content {{ lang.displayName }}
         .media-right(v-if="lang.key === 'en'")
           span {{countryFlagEmoji.get("US").emoji}}
