@@ -28,5 +28,15 @@ export default {
       this.$store.commit("SET_LANG", lang);
       window.location.reload();
     }
+  },
+  methods: {
+    getCurrentCountry(locale) {
+      // This allow to manage special cases
+      if (locale === "sv") {
+        return "se";
+      } else {
+        return locale;
+      }
+    }
   }
 };

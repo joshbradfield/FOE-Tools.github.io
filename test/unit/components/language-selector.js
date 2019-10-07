@@ -35,4 +35,18 @@ describe("LanguageSelector", () => {
     expect(wrapper.vm.$store.state.locale).toBe("fr");
     expect(window.location.reload.mock.calls.length).toBe(1);
   });
+
+  test('Call "getCurrentCountry" with a non special locale', () => {
+    const wrapper = factory();
+    window.location.reload = jest.fn();
+
+    expect(wrapper.vm.getCurrentCountry("en")).toBe("en");
+  });
+
+  test('Call "getCurrentCountry" with a special locale', () => {
+    const wrapper = factory();
+    window.location.reload = jest.fn();
+
+    expect(wrapper.vm.getCurrentCountry("sv")).toBe("se");
+  });
 });
