@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.54.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.53.1...v2.54.0) (2019-10-13)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([4b36fcc](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4b36fcc))
+* **secure-position:** show FP to put according to the rate and to lock ([4aef3ac](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4aef3ac))
+
 ### [2.53.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.53.0...v2.53.1) (2019-10-07)
 
 
