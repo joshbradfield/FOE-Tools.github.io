@@ -100,25 +100,60 @@ div.content
 
   div.margin-top-one-em(v-show="(fp > 0) && (yourArcBonus >= 0) && (fpTargetReward > 0)")
     h5.title.is-5 {{$t(i18nPrefix + 'block_place.various_rate')}}
+    div.is-hidden-mobile
+      div.columns
+        div.column.is-half
+          h6.title.is-6 {{$t(i18nPrefix + 'block_place.rate')}}
+        div.column.is-one-quarter
+          h6.title.is-6 {{$t(i18nPrefix + 'block_place.fp_according_rate')}}
+        div.column.is-one-quarter
+          h6.title.is-6 {{$t(i18nPrefix + 'block_place.fp_to_lock')}}
     div.columns(v-for="(value, index) in variousRate" v-show="value !== yourArcBonus" v-if="value.rate !== yourArcBonus")
       div.column.is-half
-        p {{value.displayRate}}
-      div.column.is-half
+        p
+        span.title.is-6.is-hidden-tablet {{$t(i18nPrefix + 'block_place.rate')}}:&nbsp;
+        | {{value.displayRate}}
+      div.column.is-one-quarter
         template(v-if="value.result && value.result.fp !== null")
           p(v-if="value.result.roi > 0")
+            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_according_rate')}}:&nbsp;
             b {{ $formatNumber(value.result.fp) }}
             | &nbsp;(
             span.icon.is-small.has-text-success(style="vertical-align: middle;")
               i.fas.fa-arrow-up
             | {{$formatNumber(Math.abs(value.result.roi))}})
           p(v-else-if="value.result.roi === 0")
+            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_according_rate')}}:&nbsp;
             b {{$formatNumber(value.result.fp)}} (
             span.icon.is-small(style="vertical-align: middle;")
               i.fas.fa-exchange-alt
             | )
           p(v-else)
+            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_according_rate')}}:&nbsp;
             b {{$formatNumber(value.result.fp)}}
             | &nbsp;(
             span.icon.is-small.has-text-danger(style="vertical-align: middle;")
               i.fas.fa-arrow-down
             | {{$formatNumber(Math.abs(value.result.roi))}})
+      div.column.is-one-quarter
+        template(v-if="value.result && value.result.fp !== null")
+          p(v-if="value.result.roiSnipe > 0")
+            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_to_lock')}}:&nbsp;
+            b {{ $formatNumber(value.result.fpSnipe) }}
+            | &nbsp;(
+            span.icon.is-small.has-text-success(style="vertical-align: middle;")
+              i.fas.fa-arrow-up
+            | {{$formatNumber(Math.abs(value.result.roiSnipe))}})
+          p(v-else-if="value.result.roiSnipe === 0")
+            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_to_lock')}}:&nbsp;
+            b {{$formatNumber(value.result.fpSnipe)}} (
+            span.icon.is-small(style="vertical-align: middle;")
+              i.fas.fa-exchange-alt
+            | )
+          p(v-else)
+            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_to_lock')}}:&nbsp;
+            b {{$formatNumber(value.result.fpSnipe)}}
+            | &nbsp;(
+            span.icon.is-small.has-text-danger(style="vertical-align: middle;")
+              i.fas.fa-arrow-down
+            | {{$formatNumber(Math.abs(value.result.roiSnipe))}})

@@ -210,6 +210,9 @@
           "place": "{{place}} ({{count, number}} FP)",
           "place_plural": "{{place}} ({{count, number}} FPs)",
           "various_rate": "Various rates",
+          "rate": "Rate",
+          "fp_according_rate": "FP to put according to the rate",
+          "fp_to_lock": "FP to put to lock your place",
           "result": {
             "error": "One or more values are not valid.",
             "already_blocked": "Your place is blocked.",
