@@ -328,6 +328,16 @@ export default {
             Utils.normalizeNumberValue(this.$data.variousRate[i].rate),
             Utils.normalizeNumberValue(this.$data.fpTargetReward)
           );
+          this.$data.variousRate[i].result.fpSnipe = JSON.parse(JSON.stringify(this.$data.variousRate[i].result.fp));
+          this.$data.variousRate[i].result.roiSnipe = JSON.parse(JSON.stringify(this.$data.variousRate[i].result.roi));
+
+          this.$data.variousRate[i].result.fp = Math.min(
+            Math.round(this.$data.variousRate[i].displayRate * Utils.normalizeNumberValue(this.$data.fpTargetReward)),
+            this.$data.levelCost - this.$data.currentDeposits
+          );
+          this.$data.variousRate[i].result.roi =
+            Math.round(this.$data.variousRate[i].displayRate * Utils.normalizeNumberValue(this.$data.fpTargetReward)) -
+            this.$data.variousRate[i].result.fp;
         }
       }
     },
