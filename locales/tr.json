@@ -76,7 +76,7 @@
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
-            "p1": "Seviye ve Ark bonus % (90% için Ark seviyesi 80) girin. Tablodaki değerler otomatik olarak güncellenir.",
+            "p1": "Seviye ve Ark bonus yüzdesi girin (80 Seviye Ark için %90 oran). Tablodaki değerler otomatik olarak güncellenir.",
             "p2_html": "<strong>Not </strong>: Güncelleme otomatik olarak yapılmazsa, önce GB seviyesini ve genel yatırım değerini ayarlayın ve \"$t(components.gb_investment.gb_investment.form.submit_global)\" üzerine tıklayın. Her bir yerin değerlerini ayarlamak istiyorsanız, uygunluğunuzu ayarlayın ve \"$t(components.gb_investment.gb_investment.form.submit_custom)\" üzerine tıklayın."
           },
           "form": {
@@ -210,6 +210,9 @@
           "place": "{{place}} ({{count, number}} FP)",
           "place_plural": "{{place}} ({{count, number}} FP)",
           "various_rate": "Değişik oranlar",
+          "rate": "Oran",
+          "fp_according_rate": "Orana göre atılacak FP",
+          "fp_to_lock": "Sıranızı kilitlemek için atılacak FP",
           "result": {
             "error": "Bir veya daha fazla değer geçersiz.",
             "already_blocked": "Sıranız kilitlendi",

@@ -306,7 +306,7 @@
           "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
-          "result": "Voor {{to}} {{ageTo}} heeft u {{from}} {{ageFrom}} nodig met aanbiedingen tot {{count}}:",
+          "result": "Voor {{to}} goederen van {{ageTo}} heeft u {{from}}goederen van  {{ageFrom}} nodig met aanbiedingen tot {{count}}:",
           "total": "(totaal: {{amount}} {{key}})"
         }
       },

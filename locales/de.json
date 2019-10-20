@@ -71,12 +71,12 @@
       "gb_investment": {
         "gb_list_select": {
           "label": "Auswahl des Legendären Bauwerks",
-          "info": "Sie können den Stil der Auswahl (alte Auswahl oder automatische Vervollständigung) in den globalen Einstellungen ändern"
+          "info": "Du kannst den Auswahlstil (automatische Vervollständigung oder alte Version) in den globalen Einstellungen ändern"
         },
         "gb_investment": {
           "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
           "description": {
-            "p1": "Trage hier die Werte für Stufe und Arc Belohnung (Arc lvl80 ist 90%) ein. Die Tabellenwerte werden sich automatisch aktualisieren.",
+            "p1": "Trage hier die Werte für das Stufenziel und die Archebelohnung (90% für Stufe 80) ein. Die Tabellenwerte werden sich automatisch aktualisieren.",
             "p2_html": "<strong>Hinweis</strong>: Falls die Aktualisierung nicht automatisch erfolgen sollte, gib zuerst die LB Stufe und den allgemeinen Investitionswert ein und klicke dann auf \"$t(components.gb_investment.gb_investment.form.submit_global)\". Wenn du die einzelnen Platzierungswerte ändern möchtest, passe sie an deine Bedürfnisse an und klicke auf \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
           "form": {
@@ -86,10 +86,10 @@
             "submit_custom": "Spezifische Berechnung",
             "owner_investment": "Anzahl der FPs, die derzeit vom Eigentümer eingesetzt sind (max. {{max}})",
             "add_investors": "Mäzen hinzufügen (FP-Wert, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' })",
-            "tooltip_add_investors": "Klicken Sie auf die Schaltfläche \"$t(utils.Add)\" oder drücken Sie die \"Enter\" -Taste, um den Mäzen hinzuzufügen",
+            "tooltip_add_investors": "Klicke auf die Schaltfläche \"$t(utils.Add)\" oder drücke die Eingabetaste, um den Mäzen hinzuzufügen",
             "investors_list": "Liste der hinzugefügten Mäzen",
             "show_snipe": "Platz / Snipe anzeigen",
-            "show_only_secured_places": "Zeige nur gesicherte Plätze",
+            "show_only_secured_places": "Zeige nur sichere Plätze",
             "display_card": "Anzeige der Tabelle als Kartenansicht? (für kleinere Bildschirme)"
           },
           "table": {
@@ -104,7 +104,7 @@
               "fp_already_putin": "Anzahl der bereits vorhandenen FP",
               "spot_snipe": "Platz / Snipe",
               "expected_participation": "FP erhalten mit dem vom Eigentümer erwarteten %-Bonus",
-              "real_participation": "FP erhalten mit dem % bonus % deiner Arche",
+              "real_participation": "FP erhalten mit dem % Bonus % deiner Arche",
               "is_sniper": "Ist ein möglicher Sniper?"
             },
             "tbody": {
@@ -137,7 +137,7 @@
       },
       "gb_investment_investors": {
         "description": {
-          "p1": "Diese Ansicht ermöglicht es, den Gewinn zu schätzen, der durch die Belegung eines Platzes mit oder ohne Berücksichtigung von Investitionen in andere Plätze erzielt werden kann. Es gibt {{count}} Arten der Berücksichtigung anderer Plätze:"
+          "p1": "Diese Ansicht ermöglicht es, den Gewinn zu sehen, der durch die Belegung eines Platzes mit oder ohne Berücksichtigung von Investitionen in andere Plätze erzielt werden kann. Es gibt {{count}} Arten der Berücksichtigung anderer Plätze:"
         },
         "takingPlaceInConsideration": {
           "label": "Andere Plätze in Betracht ziehen?",
@@ -168,8 +168,8 @@
         "message": {
           "single": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufe: {{cost, number}} FPs.",
           "multi": "Um von Level {{from}}zu {{to}} von \"$t({{gb}})\" zu gelangen, muss der Eigentümer {{preparation, number}}FPs. Gesamtkosten der Ebenen: {{cost, number}}FPs.",
-          "diff": "Mit Bonusinvestitionen sparen Sie {{count}} FP",
-          "diff_plural": "Mit Bonusinvestitionen sparen Sie {{count, number}} FPs",
+          "diff": "Mit Bonusinvestitionen sparst du {{count}} FP",
+          "diff_plural": "Mit Bonusinvestitionen sparst du {{count, number}} FPs",
           "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe: {{time}}"
         },
         "prop_already_invested": "Vom Eigentümer bereits investierte FPs in aktueller Stufe",
@@ -186,13 +186,13 @@
       },
       "gb_statistics": {
         "title": "$t(routes.gb_statistics.hero.title)",
-        "p1": "Die Diagramme werden entsprechend dem Zeitalter erstellt, da die Kosten / Belohnung der GB für jedes GB eines Zeitalters gleich sind, außer in einem bestimmten Fall ($t(foe_data.gb.Oracle_of_Delphi)).",
+        "p1": "Die Diagramme werden entsprechend dem Zeitalter erstellt, da die Kosten / Belohnung der LB für jedes LB eines Zeitalters gleich sind, außer in einem bestimmten Fall ($t(foe_data.gb.Oracle_of_Delphi)).",
         "represent": "Zeige:",
         "graph": {
           "title_1": "Entwicklung der Stufenkosten abhängig von der Stufe",
           "title_2": "Entwicklung der Belohnung des ersten Platzes abhängig von der Stufe",
-          "title_3": "Entwicklung derStufenkosten abhängig von den Belohnungen des ersten Platzes",
-          "title_4": "Entwicklung der Stufenkosten abhängig von den Belohnungen des ersten Platzes"
+          "title_3": "Entwicklung der Stufenkosten abhängig von den Belohnungen des ersten Platzes",
+          "title_4": "Entwicklung der Belohnung des ersten Platzes abhängig von den Stufenkosten"
         }
       },
       "secure_position": {
@@ -204,7 +204,7 @@
           "other_participation": "Beteiligung des Spielers, welcher überholt werden soll",
           "fp_to_complete_level": "Anzahl der verbleibenden FP, um das Level zu beenden:",
           "fp_to_complete_level_plural": "Anzahl der verbleibenden FPs, um das Level zu beenden:",
-          "your_arc_bonus": "Ihr Arche Bonus",
+          "your_arc_bonus": "Dein Archebonus",
           "fp_target_reward": "FP des anvisierten Platzes",
           "target_reward": "Anvisierten Platz",
           "place": "{{place}} ({{count, number}} FP)",
@@ -213,18 +213,18 @@
           "result": {
             "error": "Ein oder mehrere Werte sind ungültig.",
             "already_blocked": "Dein Platz ist gesichert.",
-            "default": "Du brauchst insgesamt einen {{count}} FP um den Platz zu blocken.",
+            "default": "Du brauchst insgesamt {{count}} FP um den Platz zu blocken.",
             "default_plural": "Du brauchst insgesamt {{count, number}} FPs um den Platz zu blocken.",
             "fp_need_to_lock": "Verbleibender FP, um deinen Platz abzusichern:",
             "fp_need_to_lock_plural": "Verbleibende FPs, um deinen Platz abzusichern:",
             "still_to_put": "Anzahl der FPs, die du noch investieren musst:",
             "fp_to_secure_html": "Du musst noch einen {{count}} FP investieren.",
             "roi": {
-              "profit": "Ihr Gewinn wird {{count}} FP betragen",
-              "profit_plural": "Ihr Gewinn wird {{count, number}} FPs betragen",
-              "loss": "Ihr Verlust wird {{count}} FP betragen",
-              "loss_plural": "Ihr Verlust wird {{count, number}} FPs betragen",
-              "neutral": "Sie werden kein Gewinn machen"
+              "profit": "Dein Gewinn wird {{count}} FP betragen",
+              "profit_plural": "Dein Gewinn wird {{count, number}} FPs betragen",
+              "loss": "Dein Verlust wird {{count}} FP betragen",
+              "loss_plural": "Dein Verlust wird {{count, number}} FPs betragen",
+              "neutral": "Du wirst kein Gewinn machen"
             },
             "fp_to_secure_html_plural": "Du musst noch {{count, number}} FPs investieren.",
             "cant_block": "Du kannst diesen Platz nicht blockieren."
@@ -281,7 +281,7 @@
           "select_gb_style": "LB Auswahlmodus",
           "select_gb_style_mode": {
             "datalist": "Automatisch vervollständigen",
-            "select": "Wählen Sie (Vermächtnis)"
+            "select": "Auswahl (veraltet)"
           },
           "day_night": "Thema",
           "day_night_mode": {
@@ -290,7 +290,7 @@
             "Auto": "Automatischer"
           }
         },
-        "switch_locale": "$t(common:site_title) ist in Ihrer Sprache verfügbar"
+        "switch_locale": "$t(common:site_title) ist in deiner Sprache verfügbar"
       },
       "trade": {
         "title": "Formularversion",
@@ -306,7 +306,7 @@
           "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) und $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
-          "result": "Für {{to}} {{ageTo}}, benötigst du {{from}} {{ageFrom}} mit Angeboten bis zu {{count}}:",
+          "result": "Für {{to}} Güter der {{ageTo}}, benötigst du {{from}} Güter der {{ageFrom}} mit Angeboten bis zu {{count}} Stück:",
           "total": "(Gesamt: {{amount}}{{key}})"
         }
       },
@@ -359,7 +359,7 @@
         },
         "template_name": "Vorlagenname",
         "errors": {
-          "template_cannot_have_this_name": "Die Vorlage darf diesen Namen nicht haben. Bitte verwenden Sie einen anderen Namen.",
+          "template_cannot_have_this_name": "Die Vorlage darf diesen Namen nicht haben. Bitte verwende einen anderen Namen.",
           "custom_name_empty": "Der Name des Feldes darf nicht leer sein.",
           "custom_name_already_exists": "Dieser Feldname existiert bereits."
         },
@@ -369,7 +369,7 @@
       },
       "import_promotion_message": {
         "title": "Werbebotschaft importieren",
-        "config_placeholder": "Fügen Sie hier Ihre Konfiguration ein",
+        "config_placeholder": "Füge hier deine Konfiguration ein",
         "errors": {
           "invalid_data": "Daten sind ungültig"
         },
@@ -507,7 +507,7 @@
         "title": "$t(routes.gb_statistics.hero.title)| $t(common:site_title)",
         "hero": {
           "title": "LB Statistiken",
-          "subtitle": "Dieses Tool ermöglicht die Visualisierung der Entwicklung der Stufenkosten des LBs eines Zeitalters."
+          "subtitle": "Dieses Tool visualisiert die Stufenkostenentwicklung eines LB anhand seines Zeitalters."
         }
       },
       "secure_position": {
