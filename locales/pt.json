@@ -210,6 +210,9 @@
           "place": "{{place}} ({{contagem, numero}} PF)",
           "place_plural": "{{place}} ({{contagem, numero}} FPs)",
           "various_rate": "Vários taxas",
+          "rate": "Rácio",
+          "fp_according_rate": "PF's a colocar de acordo com o rácio",
+          "fp_to_lock": "PF's a colocar para segurar o lugar ",
           "result": {
             "error": "Um ou mais valores não são válidos.",
             "already_blocked": "O teu  lugar está bloqueado.",
@@ -306,7 +309,7 @@
           "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
         },
         "message": {
-          "result": "Para {{to}} {{ageTo}}, você precisa de {{from}} {{ageFrom}} com ofertas até {{count}}:",
+          "result": "Para {{to}} mercadorias da {{ageTo}}, você precisa de {{from}} mercadorias da {{ageFrom}} com ofertas até {{count}}:",
           "total": "(total: {{amount}} {{key}})"
         }
       },
