@@ -630,6 +630,15 @@
         "translation",
         "bug"
       ]
+    },
+    {
+      "login": "Philio",
+      "name": "Phil Bayfield",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/237850?v=4",
+      "profile": "https://philio.me/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "commitConvention": "none"

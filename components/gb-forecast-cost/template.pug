@@ -55,8 +55,8 @@ div.content
 
   // Result
   div(v-if="previsionResult !== null")
-    p(v-if="from === to") {{$t(i18nPrefix + 'message.single', { level: from, preparation: previsionResult.global.totalPreparations, gb: 'foe_data.gb.' + gb.key, cost: previsionResult.global.cost})}}
-    p(v-else) {{$t(i18nPrefix + 'message.multi', { from: from, to: to, preparation: previsionResult.global.totalPreparations, gb: 'foe_data.gb.' + gb.key, cost: previsionResult.global.cost })}}
+    p(v-if="from === to") {{$t(i18nPrefix + 'message.single', { level: from - 1, preparation: previsionResult.global.totalPreparations, gb: 'foe_data.gb.' + gb.key, cost: previsionResult.global.cost})}}
+    p(v-else) {{$t(i18nPrefix + 'message.multi', { from: from - 1, to: to, preparation: previsionResult.global.totalPreparations, gb: 'foe_data.gb.' + gb.key, cost: previsionResult.global.cost })}}
     p(v-if="previsionDefault.global.totalPreparations !== previsionResult.global.totalPreparations") {{$t(i18nPrefix + 'message.diff', { count: previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations})}}
 
   h4.margin-top-one-em {{$t(i18nPrefix + 'estimated_time')}}
