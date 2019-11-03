@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.55.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.55.0...v2.55.1) (2019-11-03)
+
+
+### Bug Fixes
+
+* **gb-forecast-cost:** fix wrong start level ([118d60c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/118d60c)), closes [#281](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/281)
+
 ## [2.55.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.54.0...v2.55.0) (2019-10-20)
 
 
