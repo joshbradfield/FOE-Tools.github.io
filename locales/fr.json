@@ -266,6 +266,9 @@
         "survey": {
           "message": "Aidez-nous à améliorer $t(common:site_title) en répondant à ce sondage."
         },
+        "update":  "Une mise à jour depuis votre dernière visite.",
+        "update_plural":  "{{count}} mises à jour depuis votre dernière visite.",
+        "whats_new":  "Quoi de neuf ?",
         "permalink_info": "Vous visitez un lien permanent. De ce fait, toutes modifications effectuées ne seront pas sauvegardées dans des cookies.",
         "footer": {
           "license_html": "Code source sous licence $t(common:links.mit)",
@@ -397,7 +400,7 @@
           "table_message": "Le tableau ci-dessous présent tous les cookies utilisés sur ce site.",
           "info": {
             "cookieDisclaimerDisplayed": "Indique si vous avez lu le message d'information concernant l'utilisation de cookies",
-            "gbi_tab": "Paramètre global pour « $t(routes.gb_investment_gb_chooser.hero.title) » indiquant quel onglet charger par défaut ($t(routes.gb_investment.tab.owner_view.title), etc.).",
+            "gbi_tab": "Paramètre global pour « $t(routes.gb_investment_gb_chooser.hero.title) » indiquant quel onglet charger par défaut ($t(routes.gb_investment.tab.owner_view.title), etc.)",
             "gbPrefix": "Paramètre global pour « $t(routes.gb_investment_gb_chooser.hero.title) » contenant le préfixe pour le message de promotion",
             "gbSuffix": "Paramètre global pour « $t(routes.gb_investment_gb_chooser.hero.title) » contenant le suffixe pour le message de promotion",
             "locale": "Langue d'affichage",
@@ -436,11 +439,12 @@
             "survey": "Un tableau qui contient tous les sondages auquel vous avez déjà répondu",
             "fixedMainMenu": "Indique si le menu principal est toujours visible ou non",
             "gbSelectMode": "Indique le mode de sélection de GB que vous utilisez (auto-complétion ou selecteur simple)",
-            "haveReadLocaleInfoAvailable": "Indique si vous avez lu les informations sur le fait que le site est disponible dans votre langue.",
-            "promotionMessageList": "Contient la liste des messages de promotion que vous voulez afficher.",
+            "haveReadLocaleInfoAvailable": "Indique si vous avez lu les informations sur le fait que le site est disponible dans votre langue",
+            "promotionMessageList": "Contient la liste des messages de promotion que vous voulez afficher",
             "customPromotionMessagesTemplates": "Contient tous vos messages de promotion personnalisés",
             "gbShowPrefix": "Indique si vous voulez afficher le préfixe dans les messages de promotions",
-            "gbShowSuffix": "Indique si vous voulez afficher le suffixe dans les messages de promotions"
+            "gbShowSuffix": "Indique si vous voulez afficher le suffixe dans les messages de promotions",
+            "lastVisitVersion": "Contient le numéro de version du site lors de votre dernière visite"
           }
         },
         "dev_info": {

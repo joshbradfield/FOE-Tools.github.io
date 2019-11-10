@@ -266,6 +266,9 @@
         "survey": {
           "message": "Help us improve $t(common:site_title) by completing this survey"
         },
+        "update":  "One update since your last visit.",
+        "update_plural":  "{{count}} updates since your last visit.",
+        "whats_new":  "What's new ?",
         "permalink_info": "You visit a permalink. Consequently, any changes made will not be saved in cookies.",
         "footer": {
           "license_html": "Source code under $t(common:links.mit) license",
@@ -440,7 +443,8 @@
             "promotionMessageList": "Contains the list of promotion message that you want to be displayed",
             "customPromotionMessagesTemplates": "Contains all your custom promotion message",
             "gbShowPrefix": "Indicates if you want to show prefix in promotion messages",
-            "gbShowSuffix": "Indicates if you want to show suffix in promotion messages"
+            "gbShowSuffix": "Indicates if you want to show suffix in promotion messages",
+            "lastVisitVersion": "Contains the version of the site of your last visit"
           }
         },
         "dev_info": {

@@ -8,6 +8,8 @@ import { getUserLocale } from "get-user-locale";
 const i18nPrefix = "components.site_layout.";
 const dayNightWatchdogTimeout = 60000;
 
+const tagURL = "https://api.github.com/repos/FOE-Tools/FOE-Tools.github.io/git/refs/tags";
+
 export default {
   head /* istanbul ignore next */: function() {
     return {
@@ -44,10 +46,17 @@ export default {
       "IS_GB_SELECT_MODE_DATALIST",
       this.$cookies.get("gbSelectMode") === undefined ? false : this.$cookies.get("gbSelectMode") === "datalist"
     );
+    if (this.$cookies.get("lastVisitVersion") === undefined) {
+      this.$cookies.set("lastVisitVersion", packageConfig.version, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+    }
 
     return {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
+      nbUpdateSinceLastVisit: 0,
       dayNightMode: this.$cookies.get("dayNightMode") === undefined ? "day" : this.$cookies.get("dayNightMode"),
       burgerMenuVisible: false,
       cookieDisclaimerUndisplayed:
@@ -277,7 +286,7 @@ export default {
       window.location.reload();
     }
   },
-  mounted() {
+  mounted: /* istanbul ignore next */ function() {
     this.$formatNumberLocale(this.lang);
     if (this.dayNightMode === "auto") {
       this.dayNightWatchdog.start.call(this);
@@ -285,7 +294,6 @@ export default {
     }
 
     const detectedLocale = getUserLocale().slice(0, 2);
-    /* istanbul ignore next */
     if (
       !this.haveReadLocaleInfoAvailable &&
       this.lang !== detectedLocale &&
@@ -293,6 +301,44 @@ export default {
     ) {
       this.showSnackbarChangeLocale = true;
       this.detectedLocale = detectedLocale;
+    }
+
+    // Check updates
+    if (this.$cookies.get("lastVisitVersion") !== this.$data.siteVersion) {
+      const lastVisitVersion = this.$cookies.get("lastVisitVersion");
+      let xhr = new XMLHttpRequest();
+      let self = this;
+      xhr.open("GET", tagURL, true);
+      xhr.onload = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const tags = JSON.parse(xhr.responseText);
+            let found = false;
+            let nb = 0;
+            tags.forEach(elt => {
+              if (!found && elt.ref.match(/v(\d+\.\d+\.\d+)$/)[1] === lastVisitVersion) {
+                found = true;
+              } else if (found) {
+                nb += 1;
+              }
+              return false;
+            });
+
+            self.$data.nbUpdateSinceLastVisit = nb;
+
+            self.$cookies.set("lastVisitVersion", self.$data.siteVersion, {
+              path: "/",
+              expires: Utils.getDefaultCookieExpireTime()
+            });
+          } else {
+            console.error(xhr.statusText);
+          }
+        }
+      };
+      xhr.onerror = function() {
+        console.error(xhr.statusText);
+      };
+      xhr.send(null);
     }
   },
   components: {

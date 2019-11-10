@@ -34,7 +34,8 @@ describe("Default", () => {
               return "auto";
           }
           return undefined;
-        })
+        }),
+        set: config.mocks["$cookies"].set
       }
     });
     expect(wrapper.vm.cookieDisclaimerUndisplayed).toBe(false);
@@ -75,12 +76,13 @@ describe("Default", () => {
   });
 
   test('Call "updateDayNightCookie"', () => {
-    const wrapper = factory();
+    const wrapper = factory({ ...config.mocks["$cookies"] });
+
     wrapper.vm.updateDayNightCookie("auto");
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(1);
-    expect(config.mocks.$cookies.set.mock.calls[0][0]).toEqual("dayNightMode");
-    expect(config.mocks.$cookies.set.mock.calls[0][1]).toEqual("auto");
-    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toEqual("/");
-    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
+    expect(config.mocks.$cookies.set.mock.calls.length).toBe(2);
+    expect(config.mocks.$cookies.set.mock.calls[1][0]).toEqual("dayNightMode");
+    expect(config.mocks.$cookies.set.mock.calls[1][1]).toEqual("auto");
+    expect(config.mocks.$cookies.set.mock.calls[1][2].path).toEqual("/");
+    expect(config.mocks.$cookies.set.mock.calls[1][2].expires).toBeTruthy();
   });
 });
