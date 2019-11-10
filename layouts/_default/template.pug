@@ -83,6 +83,11 @@
           div.column.is-three-quarters
             b-notification(type="is-info" :closable="false")
               nuxt-link(to="/survey") {{$t(i18nPrefix + 'survey.message')}}
+        div.columns.is-centered.is-margin-top-one-em-touch(v-show="nbUpdateSinceLastVisit")
+          div.column.is-three-quarters
+            b-notification(type="is-info" :closable="true")
+              p {{$t(i18nPrefix + 'update', { count: nbUpdateSinceLastVisit })}}
+              nuxt-link(to="/changelog") {{$t(i18nPrefix + 'whats_new')}}
         div.columns.is-centered
           div.column.is-11-desktop.is-three-quarters-fullhd.is-three-quarters-widescreen.is-full-tablet
             div(v-if="(['home', 'gb_investment', 'contributors'].indexOf($store.state.currentLocation) >= 0) && !$route.params.gb")
