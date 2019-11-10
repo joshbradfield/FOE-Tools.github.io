@@ -458,8 +458,8 @@ Object {
       "reward": 80,
       "roi": 0,
       "snipe": Object {
-        "fp": 102,
-        "roi": -22,
+        "fp": 117,
+        "roi": -37,
       },
     },
     Object {
@@ -472,8 +472,8 @@ Object {
       "reward": 25,
       "roi": 0,
       "snipe": Object {
-        "fp": 102,
-        "roi": -77,
+        "fp": 117,
+        "roi": -92,
       },
     },
     Object {
@@ -750,8 +750,8 @@ Object {
       "reward": 70,
       "roi": 0,
       "snipe": Object {
-        "fp": 112,
-        "roi": -42,
+        "fp": 140,
+        "roi": -70,
       },
     },
     Object {
@@ -764,8 +764,8 @@ Object {
       "reward": 20,
       "roi": -19,
       "snipe": Object {
-        "fp": 140,
-        "roi": -120,
+        "fp": 141,
+        "roi": -121,
       },
     },
     Object {
@@ -897,8 +897,8 @@ Object {
       "reward": 155,
       "roi": 0,
       "snipe": Object {
-        "fp": 363,
-        "roi": -208,
+        "fp": 373,
+        "roi": -218,
       },
     },
     Object {
@@ -911,8 +911,8 @@ Object {
       "reward": 80,
       "roi": 0,
       "snipe": Object {
-        "fp": 363,
-        "roi": -283,
+        "fp": 373,
+        "roi": -293,
       },
     },
     Object {
@@ -925,8 +925,8 @@ Object {
       "reward": 25,
       "roi": 0,
       "snipe": Object {
-        "fp": 363,
-        "roi": -338,
+        "fp": 373,
+        "roi": -348,
       },
     },
     Object {
@@ -939,8 +939,8 @@ Object {
       "reward": 5,
       "roi": -11,
       "snipe": Object {
-        "fp": 373,
-        "roi": -368,
+        "fp": 383,
+        "roi": -378,
       },
     },
     Object {
@@ -953,8 +953,8 @@ Object {
       "reward": 0,
       "roi": -20,
       "snipe": Object {
-        "fp": 373,
-        "roi": -373,
+        "fp": 380,
+        "roi": -380,
       },
     },
   ],
