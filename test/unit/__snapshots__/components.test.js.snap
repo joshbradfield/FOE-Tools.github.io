@@ -46,8 +46,8 @@ Object {
       "reward": 65,
       "roi": 24,
       "snipe": Object {
-        "fp": -1,
-        "roi": 0,
+        "fp": 105,
+        "roi": 19,
       },
     },
     Object {
@@ -60,8 +60,8 @@ Object {
       "reward": 20,
       "roi": 0,
       "snipe": Object {
-        "fp": 50,
-        "roi": -12,
+        "fp": 55,
+        "roi": -17,
       },
     },
     Object {
