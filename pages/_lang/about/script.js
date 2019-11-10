@@ -55,7 +55,8 @@ export default {
         { name: "promotionMessageList" },
         { name: "customPromotionMessagesTemplates" },
         { name: "gbShowPrefix" },
-        { name: "gbShowSuffix" }
+        { name: "gbShowSuffix" },
+        { name: "lastVisitVersion" }
       ]
     };
   }
