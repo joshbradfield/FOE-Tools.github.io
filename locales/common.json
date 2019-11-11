@@ -13,7 +13,8 @@
       "pt": { "en": "Portuguese", "original": "Português" },
       "es": { "en": "Spanish", "original": "Español" },
       "sk": { "en": "Slovak", "original": "Slovensko" },
-      "tr": { "en": "Turkish", "original": "Türkçe" }
+      "tr": { "en": "Turkish", "original": "Türkçe" },
+      "it": { "en": "Italian", "original": "Italiana" }
     },
     "language_selector": {
       "en": "$t(common:lang.en.original)",

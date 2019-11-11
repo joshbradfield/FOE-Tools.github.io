@@ -266,9 +266,9 @@
         "survey": {
           "message": "Help us improve $t(common:site_title) by completing this survey"
         },
-        "update":  "One update since your last visit.",
-        "update_plural":  "{{count}} updates since your last visit.",
-        "whats_new":  "What's new ?",
+        "update": "One update since your last visit.",
+        "update_plural": "{{count}} updates since your last visit.",
+        "whats_new": "What's new ?",
         "permalink_info": "You visit a permalink. Consequently, any changes made will not be saved in cookies.",
         "footer": {
           "license_html": "Source code under $t(common:links.mit) license",

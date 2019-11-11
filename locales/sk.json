@@ -210,6 +210,9 @@
           "place": "{{place}}({{count, number}} BV)",
           "place_plural": "{{place}} ({{count, number}} BV)",
           "various_rate": "Rôzne hodnoty",
+          "rate": "Bonus",
+          "fp_according_rate": "Vložiť BV podla aktuálneho bonusu",
+          "fp_to_lock": "Vložiť BV na zaistenie Vašej pozície",
           "result": {
             "error": "Jedna alebo viac premenných nemajú správnu hodnotu.",
             "already_blocked": "Vaša pozícia je zablokovaná.",

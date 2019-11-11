@@ -12,6 +12,7 @@ import pt from "../locales/pt.json";
 import es from "../locales/es.json";
 import sk from "../locales/sk.json";
 import tr from "../locales/tr.json";
+import it from "../locales/it.json";
 
 // Requires al packages
 import hideI18next from "i18next";
@@ -27,14 +28,15 @@ import "numeral/locales/pt-pt";
 import "numeral/locales/es";
 import "numeral/locales/sk";
 import "numeral/locales/tr";
+import "numeral/locales/it";
 import * as numeralSvSe from "./numeral_custom_locals/sv-se";
 numeralSvSe.init(numeral);
 
 // Constant used
 export const defaultLocale = "en";
-export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv", "pt", "es", "sk", "tr"];
+export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv", "pt", "es", "sk", "tr", "it"];
 const languageList = ["common"].concat(supportedLocales);
-const resources = { common, en, fr, de, ru, nl, hu, pl, sv, pt, es, sk, tr };
+const resources = { common, en, fr, de, ru, nl, hu, pl, sv, pt, es, sk, tr, it };
 
 export const numeralSpecialLocales = {
   nl: "nl-nl",

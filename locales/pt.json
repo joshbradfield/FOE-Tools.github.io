@@ -266,6 +266,9 @@
         "survey": {
           "message": "Ajude-nos a melhorar $t(common:site_title) a responder a este inquérito"
         },
+        "update": "Uma actualização desde da sua ultima visita ",
+        "update_plural": "{{count}}  actualizações desde da sua ultima visita ",
+        "whats_new": "O que existe de novo ?",
         "permalink_info": "Você visita um permalink. Consequentemente, quaisquer alterações feitas não serão salvas em cookies.",
         "footer": {
           "license_html": "Código-fonte sob a licença $t(common:links.mit)",
@@ -440,7 +443,8 @@
             "promotionMessageList": "Contém a lista de mensagens de promoção que você deseja exibir",
             "customPromotionMessagesTemplates": "Contém toda a sua mensagem de promoção personalizada",
             "gbShowPrefix": "Indica se você deseja mostrar o prefixo em mensagens de promoção",
-            "gbShowSuffix": "Indica se você deseja mostrar o sufixo nas mensagens de promoção"
+            "gbShowSuffix": "Indica se você deseja mostrar o sufixo nas mensagens de promoção",
+            "lastVisitVersion": "Contém a versão do site da sua última visita"
           }
         },
         "dev_info": {
@@ -528,7 +532,7 @@
         },
         "tab": {
           "trade_2_1": {
-            "title": "2: 1",
+            "title": "2:1",
             "message": "Comércio simples, proporção 1 para 1 com recursos da mesma idade e 1 para 2 para obter recursos com uma idade de intervalo."
           },
           "fair_trade": {

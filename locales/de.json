@@ -28,10 +28,10 @@
       "cf_calculator": {
         "block_cfc": {
           "title": "$t(routes.cf_calculator.hero.title)",
-          "your_age": "Ihr Zeitalter",
+          "your_age": "Dein Zeitalter",
           "your_cf_boost": "Questbelohnungs-Boost des $t(foe_data.gb.Chateau_Frontenac)",
           "coins_to_use": "Für die Nichtgeburtstags-Party Quest zu verwendende Münzen",
-          "coins_supplies_info": "Dieser Wert sollte größer oder gleich {{min}}sein, da wir darunter keinen Gewinn garantieren können (statistisch)",
+          "coins_supplies_info": "Dieser Wert sollte größer oder gleich {{min}} sein, da wir darunter keinen Gewinn garantieren können (statistisch)",
           "supplies_to_use": "Für die Nichtgeburtstags-Party Quest zu verwendende Vorräte",
           "gb_plunder_goods": "LB & Plündergüter",
           "fp_by_24h": "24 Stunden FP Produktion",
@@ -63,7 +63,7 @@
             }
           },
           "infinity_generator": {
-            "message": "Mit dem aktuellen Boost durch $t(foe_data.gb.Chateau_Frontenac) erhalten Sie mehr Münzen und Vorräte, als Sie für die Quest benötigen. Bitte wählen Sie die gewünschte Anzahl von \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" aus.",
+            "message": "Mit dem aktuellen Boost durch $t(foe_data.gb.Chateau_Frontenac) erhältst du mehr Münzen und Vorräte, als du für die Quest benötigst. Bitte wähle die gewünschte Anzahl von \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" aus.",
             "label": "Kumulative Quest"
           }
         }
@@ -167,12 +167,12 @@
         "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe",
         "message": {
           "single": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufe: {{cost, number}} FPs.",
-          "multi": "Um von Level {{from}}zu {{to}} von \"$t({{gb}})\" zu gelangen, muss der Eigentümer {{preparation, number}}FPs. Gesamtkosten der Ebenen: {{cost, number}}FPs.",
-          "diff": "Mit Bonusinvestitionen sparst du {{count}} FP",
+          "multi": "Um \"$t({{gb}})\" von Stufe {{from}} auf {{to}} zu bringen, muss der Eigentümer {{preparation, number}} FPs einsetzen. Gesamtkosten der Stufen: {{cost, number}} FPs.",
+          "diff": "Mit Bonusinvestitionen sparst du {{count}} FPs",
           "diff_plural": "Mit Bonusinvestitionen sparst du {{count, number}} FPs",
           "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe: {{time}}"
         },
-        "prop_already_invested": "Vom Eigentümer bereits investierte FPs in aktueller Stufe",
+        "prop_already_invested": "Vom Eigentümer bereits in aktueller Stufe investierte FPs",
         "graph": {
           "title": "Prognose des Vorbereitungsbetrags des Eigentümers für \"$t({{gb}})\"",
           "x_axes_label": "$t(utils.graph.gb_level)",
@@ -206,10 +206,13 @@
           "fp_to_complete_level_plural": "Anzahl der verbleibenden FPs, um das Level zu beenden:",
           "your_arc_bonus": "Dein Archebonus",
           "fp_target_reward": "FP des anvisierten Platzes",
-          "target_reward": "Anvisierten Platz",
+          "target_reward": "Anvisierter Platz",
           "place": "{{place}} ({{count, number}} FP)",
           "place_plural": "{{place}} ({{count, number}} FPs)",
           "various_rate": "Verschiedene Tarife",
+          "rate": "Bonusfaktor",
+          "fp_according_rate": "FP, welche abhängig von dem Bonusfaktor zu setzen sind",
+          "fp_to_lock": "Noch zu setzende FPs, um deinen Platz abzusichern",
           "result": {
             "error": "Ein oder mehrere Werte sind ungültig.",
             "already_blocked": "Dein Platz ist gesichert.",
@@ -217,7 +220,7 @@
             "default_plural": "Du brauchst insgesamt {{count, number}} FPs um den Platz zu blocken.",
             "fp_need_to_lock": "Verbleibender FP, um deinen Platz abzusichern:",
             "fp_need_to_lock_plural": "Verbleibende FPs, um deinen Platz abzusichern:",
-            "still_to_put": "Anzahl der FPs, die du noch investieren musst:",
+            "still_to_put": "Anzahl der FPs, die du noch investieren musst",
             "fp_to_secure_html": "Du musst noch einen {{count}} FP investieren.",
             "roi": {
               "profit": "Dein Gewinn wird {{count}} FP betragen",
@@ -263,6 +266,9 @@
         "survey": {
           "message": "Hilf uns $t(common:site_title) zu verbessern, indem du diese Umfrage ausfüllst"
         },
+        "update": "Ein Update seit deinem letzten Besuch.",
+        "update_plural": "{{count}} Updates seit deinem letzten Besuch",
+        "whats_new": "Was gibt es Neues?",
         "permalink_info": "Sie besuchen einen Permalink. Änderungen werden daher nicht in den Cookies gespeichert.",
         "footer": {
           "license_html": "Quellcode unter $t(common:links.mit) Lizenz",
@@ -307,13 +313,13 @@
         },
         "message": {
           "result": "Für {{to}} Güter der {{ageTo}}, benötigst du {{from}} Güter der {{ageFrom}} mit Angeboten bis zu {{count}} Stück:",
-          "total": "(Gesamt: {{amount}}{{key}})"
+          "total": "(Gesamt: {{amount}} {{key}})"
         }
       },
       "promotion_message_builder": {
         "title": "Builder für Werbenachricht",
         "info": "Dies kann kopiert werden, um es zum Beispiel mit deinen Gildenmitgliedern zu teilen",
-        "note": "Beachten Sie, dass der Message Builder verwendet Level 9 → 10 von $t(foe_data.gb.Observatory) mit einem Verhältnis von 1,9 für die Vorschau.",
+        "note": "Beachte, dass der Message Builder Level 9 → 10 von $t(foe_data.gb.Observatory) mit einem Verhältnis von 1,9 für die Vorschau verwendet.",
         "action": "Aktion",
         "actions": {
           "create": "Erstellen Sie eine neue Vorlage",
@@ -354,7 +360,7 @@
             "TLVL": "Zu Stufe",
             "GBN": "LB Name",
             "P": "Plätze",
-            "LF": "Zeilenvorschub, fügen Sie eine neue Zeile hinzu"
+            "LF": "Zeilenvorschub, füge eine neue Zeile hinzu"
           }
         },
         "template_name": "Vorlagenname",
@@ -437,7 +443,8 @@
             "promotionMessageList": "Enthält die Liste der Promotion-Nachrichten, die angezeigt werden sollen",
             "customPromotionMessagesTemplates": "Enthält alle Ihre benutzerdefinierten Werbebotschaften",
             "gbShowPrefix": "Gibt an, ob in Werbemeldungen ein Präfix angezeigt werden soll",
-            "gbShowSuffix": "Gibt an, ob Sie in Werbemeldungen ein Suffix anzeigen möchten"
+            "gbShowSuffix": "Gibt an, ob Sie in Werbemeldungen ein Suffix anzeigen möchten",
+            "lastVisitVersion": "Enthält die Version der Seite deines letzten Besuchs."
           }
         },
         "dev_info": {
@@ -497,14 +504,14 @@
         }
       },
       "gb_forecast_cost": {
-        "title": "$t(routes.gb_forecast_cost.hero.title)| $t(common:site_title)",
+        "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "LB Kostenprognose",
           "subtitle": "Dieses Tool berechnet die benötigten Anzahl der FPs, um ein LB aufzustufen, abhängig eines beliebigen Archebonusses."
         }
       },
       "gb_statistics": {
-        "title": "$t(routes.gb_statistics.hero.title)| $t(common:site_title)",
+        "title": "$t(routes.gb_statistics.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "LB Statistiken",
           "subtitle": "Dieses Tool visualisiert die Stufenkostenentwicklung eines LB anhand seines Zeitalters."
@@ -518,10 +525,10 @@
         }
       },
       "trade": {
-        "title": "$t(routes.trade.hero.title)| $t(common:site_title)",
+        "title": "$t(routes.trade.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Handel",
-          "subtitle": "Dieses Tool erleichtert Ihnen den Handel, indem es Ihnen die besten Kurse entsprechend Ihrer Handelsart bietet."
+          "subtitle": "Dieses Tool erleichtert den Güterhandel, indem es die besten Kurse entsprechend deiner Handelsart bietet."
         },
         "tab": {
           "trade_2_1": {

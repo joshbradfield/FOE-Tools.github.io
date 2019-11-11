@@ -31,6 +31,7 @@
           "your_age": "Tvůj věk",
           "your_cf_boost": "Tvoje $t(foe_data.gb.Chateau_Frontenac) navýšení",
           "coins_to_use": "Počet mincí nutných pro Narozeninový večírek",
+          "coins_supplies_info": "Tato hodnota by měla být větší nebo rovná {{min}}, protože pod ní nemůžeme zaručit žádný zisk (statisticky)",
           "supplies_to_use": "Počet zásob nutných pro Narozeninový večírek",
           "gb_plunder_goods": "VB a vyrabované zboží",
           "fp_by_24h": "24hodinová produkce FP",
@@ -40,6 +41,7 @@
           "table_reward": {
             "title": "$t(utils.Rewards)",
             "thead": {
+              "th1": "BP's",
               "th2": "Medaile",
               "th3": "Suroviny",
               "th4": "FB"
@@ -48,7 +50,7 @@
           "reward_message": {
             "daily_ubq": "Denní Narozeninové večírky: {{count, number}}",
             "bonus_ubq": "Bonusové Narozeninové večírky: {{count, number}}",
-            "second_rq_completed": "Druhé opakovačky splněny: {{count, number}}",
+            "second_rq_completed": "2. RQ dokončeno: {{count, number}}",
             "total_goods": "Celkem surovin: {{count, number}}",
             "total_fp": "Celkem FB: {{count, number}}",
             "total_rq_completed": "Celkem splněno opakovacích úkolů: {{count, number}}"
@@ -98,7 +100,7 @@
               "th3": "FP nutné pro zajištění pozice majitelem",
               "th4": "Odměny s % z Arcu",
               "th5": "% bonus přispěvatelů (bonus z Arcu)",
-              "th6": "Volné místo",
+              "th6": "Zahrnout do kopií",
               "fp_already_putin": "Počet již vložených FP ",
               "spot_snipe": "Pozice/Snipe",
               "expected_participation": "FP získané s % bonusem očekávaným majitelem",
@@ -135,7 +137,7 @@
       },
       "gb_investment_investors": {
         "description": {
-          "p1": "Tento pohled umožňuje vidět zisk, který je možno získat obsazením pozice s vzetím (či bez) v úvahu investice na ostatních pozicích. Jsou {{count}} způsoby, jak přistupovat k ostatním pozicím:"
+          "p1": "Tento pohled umožňuje vidět zisk, kterého lze dosáhnout tím, že se místo uskuteční s nebo bez zohlednění investic na jiných místech. Existují {{count}} typy dalších míst:"
         },
         "takingPlaceInConsideration": {
           "label": "Vzít v potaz i další pozice?",
@@ -148,7 +150,7 @@
           "description": {
             "no": "nebrat v potaz další pozice",
             "normal": "vzít v potaz ostatní pozice, ale jen s minimálními investicemi přispěvatelů bez zajištění majitelem",
-            "optimal": "vzít v potah ostatní pozice s investicí bez zisku přispěvatelů a se zajištěním majitelem"
+            "optimal": "brát v úvahu další místa s investicí bez zisku investorů a se zajištěním vlastníkem"
           }
         },
         "table": {
@@ -160,21 +162,61 @@
       },
       "gb_forecast_cost": {
         "title": "Předpověď",
+        "p1": "Určete počet FP, které mají jít z jedné úrovně na druhou, s nebo bez Arkových bonusů.",
+        "custom_percentage": "Bonus vlastního ARCu (za každé místo)",
         "estimated_time": "Přibližný čas na dosažení dalšího evelu",
+        "message": {
+          "single": "K dokončení úrovně {{level}} od \"$t({{gb}})\",vlastníka musí investovat {{preparation, number}} FP. Celkové náklady na úroveň: {{cost, number}} FP",
+          "diff": "S bonusovými investicemi ušetříte {{count}} FP",
+          "diff_plural": "S bonusovými investicemi ušetříte {{count, number}} FP",
+          "estimated_time": "Estimated time to reach the level: {{time}}"
+        },
+        "prop_already_invested": "Výzkumné body již investoval vlastník na současné úrovni",
         "graph": {
+          "title": "Prognóza částky přípravy majitele na $t({{gb}})",
+          "x_axes_label": "$t(utils.graph.gb_level)",
+          "y_axes_label": "$t(utils.graph.gb_level_cost)",
           "label": {
+            "default": "Hrubé náklady na úroveň",
             "default_preparation": "Náklady na přípravu bez bonusu",
             "custom_preparation": "Náklady na přípravu s bonusem"
           }
         }
       },
+      "gb_statistics": {
+        "title": "$t(routes.gb_statistics.hero.title)",
+        "p1": "Grafy jsou vytvářeny podle věku, protože cena / odměna GB je stejná pro každou GB věku, s výjimkou konkrétního případu ($t(foe_data.gb.Oracle_of_Delphi))",
+        "represent": "Zastupovat:",
+        "graph": {
+          "title_1": "Vývoj nákladů na úrovně podle úrovní",
+          "title_2": "Vývoj odměny prvního místa podle úrovní",
+          "title_3": "Vývoj nákladů na úrovni podle odměny na prvním místě",
+          "title_4": "Vývoj odměny prvního místa podle nákladů na úrovně"
+        }
+      },
       "secure_position": {
         "block_place": {
+          "title": "Zablokujte jeho místo",
           "level_cost": "Cena levelu",
+          "current_deposits": "Součet běžných vkladů",
+          "your_participation": "Vaše současná účast",
+          "other_participation": "Účast hráče na dohnání",
+          "fp_to_complete_level": "Počet zbývajících výzkumných bodů k dokončení úrovně:",
+          "fp_to_complete_level_plural": "Počet zbývajících FP k dokončení úrovně:",
           "your_arc_bonus": "Tvůj Arc bonus",
+          "fp_target_reward": "Výzkumné body cílového místa",
+          "target_reward": "Cílené místo",
+          "place": "{{place}}({{count, number}} výzkumné body)",
+          "place_plural": "{{place}}({{count, number}} výzkumných bodů)",
           "various_rate": "Různé hodnoty",
+          "rate": "Hodnotit",
+          "fp_according_rate": "Výzkumné body dát podle kurzu",
+          "fp_to_lock": "Počet výzkumných bodů na pojištění pozice",
           "result": {
             "error": "Jedna nebo více",
+            "already_blocked": "Vaše místo je jištěno.",
+            "default": "Abyste mohli toto místo zablokovat, musíte mít celkem {{count}} výzkumných bodů",
+            "default_plural": "Chcete-li toto místo zablokovat, musíte mít celkem {{count, number}}výzkumných bodů.",
             "fp_need_to_lock": "Počet FB na pojištění pozice:",
             "fp_need_to_lock_plural": "Počet FB na pojištění pozice:",
             "still_to_put": "Počet FB, které musíte vložit",
@@ -185,12 +227,14 @@
               "loss": "Vaše ztráta bude {{count}} FB",
               "loss_plural": "Vaše ztráta bude {{count, number}} FB",
               "neutral": "Na této investici nebudete mít žádný zisk"
-            }
+            },
+            "cant_block": "Místo nemůžete pojistit."
           },
           "unknown": "neznámý"
         }
       },
       "simple_trade": {
+        "title": "Verze tabulky",
         "table": {
           "thead": {
             "th1": "Věk",
@@ -220,17 +264,34 @@
         },
         "global_config": "Globální nastavení",
         "global_config_dialog": {
-          "select_gb_style": "Rozbalovací nabídka VB",
+          "fixed_main_menu": "Hlavní menu je vždy viditelné",
+          "select_gb_style": "Styl výběru VB",
           "select_gb_style_mode": {
-            "datalist": "Abecední řazení",
-            "select": "Řazení dle ér"
+            "datalist": "Automatické dokončení",
+            "select": "Vybrat (starší)"
+          },
+          "day_night": "Téma",
+          "day_night_mode": {
+            "Day": "Den",
+            "Night": "Noc",
+            "Auto": "Automatický"
           }
         }
       },
       "trade": {
+        "title": "Verze formuláře",
+        "label": {
+          "i_have": "mám",
+          "i_want": "Chci",
+          "amount": "Množství"
+        },
         "message": {
           "total": "(celkem: {{amount}} {{key}})"
         }
+      },
+      "promotion_message_builder": {
+        "title": "Tvůrce propagačních zpráv",
+        "info": "Toto lze zkopírovat a sdílet například se svými členy cechu"
       }
     },
     "routes": {
