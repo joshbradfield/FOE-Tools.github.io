@@ -30,6 +30,6 @@ Example:
 
 
 
-Next, in `script/i18n.js` import the language (example: `import fr from "../locales/fr.json";`), import numeral corresponding locale (example: `import "numeral/locales/fr";`) and add it in **supportedLocales** and **resources**.
+Next, in `scripts/i18n.js` import the language (example: `import fr from "../locales/fr.json";`), import numeral corresponding locale (example: `import "numeral/locales/fr";`) and add it in **supportedLocales** and **resources**.
 
 *Note: the code of language respect [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) standard.*
