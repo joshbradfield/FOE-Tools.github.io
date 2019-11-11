@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.56.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.55.1...v2.56.0) (2019-11-11)
+
+
+### Bug Fixes
+
+* **gb-investment:** fix bad computation of snipe ([64b25d6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/64b25d6))
+
+
+### Features
+
+* **l10n:** add Italian ([a832252](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a832252))
+* add website update notification ([6e9aa2d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6e9aa2d))
+
 ### [2.55.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.55.0...v2.55.1) (2019-11-03)
 
 
