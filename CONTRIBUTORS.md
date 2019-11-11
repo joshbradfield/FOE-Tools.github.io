@@ -81,6 +81,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
   <tr>
     <td align="center"><a href="https://forum.tr.forgeofempires.com/index.php?members/coup-de-grace.36597/"><img src="https://forum.tr.forgeofempires.com/data/avatars/l/36/36597.jpg?1569408800" width="100px;" alt="Coup de Grace (TR)"/><br /><sub><b>Coup de Grace (TR)</b></sub></a><br /><a href="#translation-Coup de Grace (TR)" title="Translation">🌍</a> <a href="#bug-Coup de Grace (TR)" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://philio.me/"><img src="https://avatars2.githubusercontent.com/u/237850?v=4" width="100px;" alt="Phil Bayfield"/><br /><sub><b>Phil Bayfield</b></sub></a><br /><a href="#bug-Philio" title="Bug reports">🐛</a></td>
+    <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Red1983"/><br /><sub><b>Red1983</b></sub><br /><a href="#translation-Red1983" title="Translation">🌍</a></td>
   </tr>
 </table>
 
