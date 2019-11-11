@@ -266,9 +266,9 @@
         "survey": {
           "message": "Aidez-nous à améliorer $t(common:site_title) en répondant à ce sondage."
         },
-        "update":  "Une mise à jour depuis votre dernière visite.",
-        "update_plural":  "{{count}} mises à jour depuis votre dernière visite.",
-        "whats_new":  "Quoi de neuf ?",
+        "update": "Une mise à jour depuis votre dernière visite.",
+        "update_plural": "{{count}} mises à jour depuis votre dernière visite.",
+        "whats_new": "Quoi de neuf ?",
         "permalink_info": "Vous visitez un lien permanent. De ce fait, toutes modifications effectuées ne seront pas sauvegardées dans des cookies.",
         "footer": {
           "license_html": "Code source sous licence $t(common:links.mit)",

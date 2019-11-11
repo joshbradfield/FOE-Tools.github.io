@@ -210,6 +210,9 @@
           "place": "{{place}}({{count, number}} FP)",
           "place_plural": "{{place}}({{count, number}} FP's)",
           "various_rate": "Verschillende tarieven",
+          "rate": "Bonus",
+          "fp_according_rate": "FP te storten afhankelijk van % Arc Bonus",
+          "fp_to_lock": "FP te storten om P (Plek) veilig te stellen",
           "result": {
             "error": "Één of meer waarden zijn niet geldig.",
             "already_blocked": "Je positie is veilig.",

@@ -266,6 +266,9 @@
         "survey": {
           "message": "Bu anketi tamamlayarak $t(common:site_title) sitemizi geliştirmemize yardım edin"
         },
+        "update": "Son ziyaretinizden bu yana bir güncelleme var.",
+        "update_plural": "Son ziyaretinizden bu yana {{count}} güncelleme var.",
+        "whats_new": "Yeni ne var ?",
         "permalink_info": "Kalıcı bir bağlantı ziyaret ediyorsunuz. Yapılan değişiklikler çerezlere kaydedilmeyecektir.",
         "footer": {
           "license_html": "Kaynak kodu $t(common:links.mit) lisansı altındadır",
@@ -440,7 +443,8 @@
             "promotionMessageList": "Görüntülenmesini istediğiniz tanıtım mesajları listesini içerir.",
             "customPromotionMessagesTemplates": "Tüm özel tanıtım mesajlarınızı içerir",
             "gbShowPrefix": "Tanıtım mesajlarında ön ek göstermek isteyip istemediğinizi belirtir",
-            "gbShowSuffix": "Tanıtım mesajlarında son ek göstermek isteyip istemediğinizi belirtir"
+            "gbShowSuffix": "Tanıtım mesajlarında son ek göstermek isteyip istemediğinizi belirtir",
+            "lastVisitVersion": "Sitenin son ziyaretinizdeki sürümünü içerir."
           }
         },
         "dev_info": {

@@ -210,6 +210,9 @@
           "place": "{{place}} ({{count, number}} FP)",
           "place_plural": "{{place}} ({{count, number}} FP)",
           "various_rate": "Diverse kurser",
+          "rate": "Kurs",
+          "fp_according_rate": "FP att lägga enligt kursen",
+          "fp_to_lock": "FP att lägga för att låsa din plats",
           "result": {
             "error": "En eller flera värden är ogiltiga.",
             "already_blocked": "Din plats är säkrad.",
