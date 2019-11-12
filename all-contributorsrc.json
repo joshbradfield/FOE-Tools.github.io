@@ -648,6 +648,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "vince1989",
+      "name": "vince1989",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.fr.forgeofempires.com/index.php?members/vince1989.34307/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "commitConvention": "none"
