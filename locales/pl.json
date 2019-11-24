@@ -31,6 +31,7 @@
           "your_age": "Twoja epoka",
           "your_cf_boost": "Twój $t(foe_data.gb.Chateau_Frontenac) Bonus",
           "coins_to_use": "Monety potrzebne do zadania \"Przyjęcie Nieurodzinowe\" (UBQ)",
+          "coins_supplies_info": "Ta wartość powinna być większa lub równa {{min}} ponieważ poniżej nie możemy zagwarantować żadnego zysku (statystycznie)",
           "supplies_to_use": "Zaopatrzenie potrzebne do zadania \"Przyjęcie Nieurodzinowe\" (UBQ)",
           "gb_plunder_goods": "Perły Architektury & Plądrowanie towarów",
           "fp_by_24h": "Całkowita 24-godzinna produkcja PR",
@@ -209,6 +210,9 @@
           "place": "{{place}} ({{count, number}} PR)",
           "place_plural": "{{place}} ({{count, number}} PR)",
           "various_rate": "Różne stawki",
+          "rate": "Współczynnik",
+          "fp_according_rate": "PR do wrzucenia według stawki",
+          "fp_to_lock": "PR do wrzucenia by zablokować Twoje miejsce",
           "result": {
             "error": "Jedna lub więcej wartości jest błędna.",
             "already_blocked": "Twoje miejsce jest już zablokowane.",
@@ -262,6 +266,9 @@
         "survey": {
           "message": "Pomóż nam ulepszyć $t(common:site_title) wypełniając ankietę"
         },
+        "update": "Jedna aktualizacja od Twojej ostatniej wizyty.",
+        "update_plural": "{{count}} aktualizacji od twojej ostatniej wizyty.",
+        "whats_new": "Co nowego?",
         "permalink_info": "Odwiedzasz permalink. W związku z tym wszelkie wprowadzone zmiany nie zostaną zapisane w plikach cookie.",
         "footer": {
           "license_html": "Kod źródłowy pod licencją $t(common:links.mit)",
@@ -327,6 +334,12 @@
           "custom": "Własne szablony"
         },
         "config": "Konfiguracja",
+        "add_field_title": "Dodaj niestandardowe pola",
+        "add_field": {
+          "name": "Nazwa pola",
+          "value": "Znajdź pole"
+        },
+        "custom_field_title": "Twoje pola niestandardowe",
         "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
         "reverse_place_order": "Odwrócić kolejność miejsc?",
         "place_separator": "Umieść rozdzielacz",
@@ -346,20 +359,27 @@
             "FLVL": "Z poziomu",
             "TLVL": "Do poziomu",
             "GBN": "Nazwa Perły Architektury",
-            "P": "Miejsca"
+            "P": "Miejsca",
+            "LF": "Line Feed, dodaj nową linię"
           }
         },
         "template_name": "Nazwa szablonu",
         "errors": {
-          "template_cannot_have_this_name": "Szablon nie może mieć tej nazwy. Użyj innej."
-        }
+          "template_cannot_have_this_name": "Szablon nie może mieć tej nazwy. Użyj innej.",
+          "custom_name_empty": "Pole nazwy nie może być puste",
+          "custom_name_already_exists": "Nazwa już zajęta"
+        },
+        "template_saved": "Szablon zapisany",
+        "template_updated": "Szablon zaktulizowany",
+        "template_deleted": "Szablon usunięty"
       },
       "import_promotion_message": {
         "title": "Importuj wiadomość ogłaszającą miejsca",
         "config_placeholder": "Wklej tutaj swoją konfigurację",
         "errors": {
           "invalid_data": "Dane są nieprawidłowe"
-        }
+        },
+        "template_imported": "Szablon zaimportowany"
       }
     },
     "routes": {
@@ -423,7 +443,8 @@
             "promotionMessageList": "Zawiera listę wiadomości ogłaszających miejsca, które chcesz wyświetlić",
             "customPromotionMessagesTemplates": "Zawiera wszystkie własne wiadomości ogłaszające miejsca",
             "gbShowPrefix": "Wskazuje, czy chcesz by wiadomość ogłaszająca miejsca zawierała prefiks",
-            "gbShowSuffix": "Wskazuje, czy chcesz by wiadomość ogłaszająca miejsca zawierała sufiks"
+            "gbShowSuffix": "Wskazuje, czy chcesz by wiadomość ogłaszająca miejsca zawierała sufiks",
+            "lastVisitVersion": "Zawiera wersję strony z ostatniej wizyty"
           }
         },
         "dev_info": {

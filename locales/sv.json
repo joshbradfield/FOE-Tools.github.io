@@ -266,6 +266,9 @@
         "survey": {
           "message": "Hjälp oss att förbättra $t(common:site_title) genom att fylla i denna enkät"
         },
+        "update": "En uppdatering sedan ditt senaste besök.",
+        "update_plural": "{{count}}  uppdaterinarg sedan ditt senaste besök.",
+        "whats_new": "Vad är nytt ?",
         "permalink_info": "You besöker via en \"permalänk\", följdaktligen kommer inga ändringar att sparas (i kakor).",
         "footer": {
           "license_html": "Källkod under $t(common:links.mit) -licens",
@@ -440,7 +443,8 @@
             "promotionMessageList": "Innehåller listan över annonstexter som du vill visa",
             "customPromotionMessagesTemplates": "Innehåller alla dina anpassade annonstexter",
             "gbShowPrefix": "Anger om du vill visa prefix i annonstexter",
-            "gbShowSuffix": "Anger om du vill visa suffix i annonstexter"
+            "gbShowSuffix": "Anger om du vill visa suffix i annonstexter",
+            "lastVisitVersion": "Innehåller versionen av platsen sedan ditt senaste besök"
           }
         },
         "dev_info": {
