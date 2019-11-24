@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.57.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.56.0...v2.57.0) (2019-11-24)
+
+
+### Features
+
+* **gb-investment:** improve secure place switch behavior ([764faf4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/764faf4))
+* **l10n:** update translation ([d70177a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d70177a))
+* **promotion-message-builder:** add preparation of the owner ([3610698](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3610698))
+
 ## [2.56.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.55.1...v2.56.0) (2019-11-11)
 
 
