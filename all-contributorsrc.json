@@ -657,6 +657,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Hats",
+      "name": "Hats",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"

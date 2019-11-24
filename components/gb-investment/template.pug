@@ -93,6 +93,10 @@ div.content
                 span.has-text-success {{$t('utils.Secured')}}
               | )
             p(v-else) {{$formatNumber(place.preparation)}}
+              template(v-if="place.preparation === 0")
+                | &nbsp;(
+                span.has-text-success {{$t('utils.Secured')}}
+                | )
           // Reward with arc bonus
           td.has-text-right
             p {{$formatNumber(place.expectedParticipation)}}
