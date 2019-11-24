@@ -10,10 +10,15 @@ function $t(key) {
 }
 
 const rewards = [185, 100, 30, 10];
+const preparation = [200, 220, 240, 300];
 
 const placesInterpolationValues = [];
 for (let i = 0; i < rewards.length; i++) {
-  placesInterpolationValues.push([{ key: "PI", value: i + 1 }, { key: "PV", value: rewards[i], free: true }]);
+  placesInterpolationValues.push([
+    { key: "PI", value: i + 1 },
+    { key: "PV", value: rewards[i], free: true },
+    { key: "PP", value: preparation[i] }
+  ]);
 }
 
 const messageInterpolation = [{ key: "FLVL", value: 9 }, { key: "TLVL", value: 10 }];

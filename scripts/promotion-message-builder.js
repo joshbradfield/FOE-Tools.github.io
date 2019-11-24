@@ -54,6 +54,8 @@ function interpolationBuilder(gbKey, goodData, interpolationValues) {
  * Accepted interpolations:
  * - PI {number}: place index (1, 2, 3, 4, 5)
  * - PV {number}: place value (number of FPs)
+ * - PP {number}: place preparation, by the owner (number of FPs)
+ * - LF {string}: line feed (managed internally)
  * @param gbKey {string} Key of the GB
  * @param data {object} An object that must contains:
  * - showLevel {boolean}: display the level
@@ -96,11 +98,14 @@ export function buildPlace(gbKey, data, interpolationValues) {
  * - TLVL {number}: to level
  * - GBN {string}: GB name (managed internally, depending on useGbShort)
  * - P {string}: place (managed internally)
+ * - OP {string}: total owner preparation
+ * - PPx {string}: place preparation, by the owner for place "x" (number of FPs)
  * - LF {string}: line feed (managed internally)
  * @param placeInterpolationValues {array} An array that must contains object value that have a key and a value.
  * Accepted interpolations for interpolationValues:
  * - PI {number}: place index (1, 2, 3, 4, 5)
  * - PV {number}: place value (number of FPs)
+ * - PP {number}: place preparation, by the owner (number of FPs)
  * - LF {string}: line feed (managed internally)
  * @returns {string} Return the promotion message created
  * @see buildPlace
@@ -115,13 +120,17 @@ export function buildMessage(gbKey, data, interpolationValues, placeInterpolatio
     ? [...placeInterpolationValues].reverse()
     : placeInterpolationValues;
   let places = "";
-  goodPlaceInterpolationValues.forEach(placeInterpolation => {
+  goodPlaceInterpolationValues.forEach((placeInterpolation, index) => {
     if (placeInterpolation[1].free) {
       places +=
         (places.length > 0 ? data.placeSeparator : "") +
         buildPlace.call(this, gbKey, { ...data, message: data.place }, placeInterpolation);
     }
+    goodInterpolationValues.push({ key: "PP" + (index + 1), value: placeInterpolation[2].value });
   });
+  for (let i = goodPlaceInterpolationValues.length; i < 5; i++) {
+    goodInterpolationValues.push({ key: "PP" + (i + 1), value: "" });
+  }
   goodInterpolationValues.push({ key: "P", value: places });
 
   // Do interpolation

@@ -353,13 +353,16 @@
         "variables": {
           "place": {
             "PI": "Place index",
-            "PV": "Place value (in FPs)"
+            "PV": "Place value (in FPs)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "From level",
             "TLVL": "To level",
             "GBN": "GB name",
             "P": "Places",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Number of PFs to be put by the owner for place \"x\" (with \"x\" from 1 to 5)",
             "LF": "Line Feed, add a new line"
           }
         },

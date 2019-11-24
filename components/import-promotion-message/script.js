@@ -17,20 +17,24 @@ export default {
     messageInterpolation: {
       type: Array,
       default: () => {
-        return [{ key: "FLVL", value: 9 }, { key: "TLVL", value: 10 }];
+        return [{ key: "FLVL", value: 9 }, { key: "TLVL", value: 10 }, { key: "OP", value: 430 }];
       }
     },
     placesInterpolationValues: {
       type: Array,
       default: () => {
         const placesInterpolationValues = [];
+        const RewardsAt90Percent = [124, 67, 19, 10, 0];
+        const ownerPreparation = [402, 402, 421, 421, 430];
+
         for (let i = 0; i < Observatory.levels[9].reward.length; i++) {
           if (Observatory.levels[9].reward[i] <= 0) {
             continue;
           }
           placesInterpolationValues.push([
             { key: "PI", value: i + 1 },
-            { key: "PV", value: Math.round(Observatory.levels[9].reward[i] * 1.9), free: true }
+            { key: "PV", value: RewardsAt90Percent[i], free: true },
+            { key: "PP", value: ownerPreparation[i] }
           ]);
         }
         return placesInterpolationValues;
