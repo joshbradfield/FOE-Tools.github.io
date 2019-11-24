@@ -96,7 +96,9 @@ export default {
       addInvestors: null,
       showExtraInvestors: false,
       showSnipe: typeof this.cookieValid("showSnipe") === "boolean" ? !!this.$cookies.get("showSnipe") : false,
-      placeFree: [{ state: true }, { state: true }, { state: true }, { state: true }, { state: true }],
+      placeFree: Array.from(new Array(5), () => {
+        return { state: true };
+      }),
       prefix: this.$cookies.get("gbPrefix") ? this.$cookies.get("gbPrefix") : "",
       suffix: this.$cookies.get("gbSuffix") ? this.$cookies.get("gbSuffix") : "",
       displayGbName:
@@ -325,6 +327,13 @@ export default {
         this.$data.showExtraInvestors = false;
         this.$data.investorParticipation = [];
         this.$data.result = {};
+
+        if (!this.showOnlySecuredPlaces) {
+          this.$data.placeFree = Array.from(new Array(5), () => {
+            return { state: true };
+          });
+        }
+
         this.calculate();
       }
     },
@@ -975,7 +984,7 @@ export default {
       });
     },
     updatePlaceFreeWhenOnlySecured() {
-      if (!this.showOnlySecuredPlaces || this.ownerInvestmentNormalized <= 0) {
+      if (!this.showOnlySecuredPlaces) {
         return;
       }
       for (let i = 0; i < this.result.investment.length; i++) {
