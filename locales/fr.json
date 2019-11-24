@@ -353,13 +353,16 @@
         "variables": {
           "place": {
             "PI": "Numéro de place",
-            "PV": "Valeur de la place (en PFs)"
+            "PV": "Valeur de la place (en PFs)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Du niveau",
             "TLVL": "Au niveau",
             "GBN": "Nom du GM",
             "P": "Places",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Nombre de PFs à mettre par le propriétaire pour la place \"x\" (avec \"x\" allant de 1 à 5)",
             "LF": "Saut de ligne, ajouter une nouvelle ligne"
           }
         },

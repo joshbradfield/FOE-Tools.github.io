@@ -134,6 +134,9 @@ div
         li
           b ${PV}
           | : {{$t($data.i18nPrefix + 'variables.place.PV')}}
+        li
+          b ${PP}
+          | : {{$t($data.i18nPrefix + 'variables.place.PP')}}
         li(v-for="(customField, index) in customFields")
           b {{"${" + customField.key + "}"}}
           | : {{customField.value}}
@@ -166,6 +169,11 @@ div
         li
           b ${P}
           | : {{$t($data.i18nPrefix + 'variables.message.P')}}
+        li
+          b ${OP}
+        li
+          b ${PPx}
+          | : {{$t($data.i18nPrefix + 'variables.message.PPx')}}
         li(v-for="(customField, index) in customFields")
           b {{"${" + customField.key + "}"}}
           | : {{customField.value}}
