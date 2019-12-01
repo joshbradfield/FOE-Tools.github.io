@@ -236,7 +236,19 @@ div.content
             // Owner preparation
             tr(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th3') }}
-              td.has-text-right {{ $formatNumber(props.preparation) }}
+              td.has-text-right
+                p(v-if="(props.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(props.preparation)}} (
+                  template(v-if="props.preparation - ownerInvestmentNormalized > 0")
+                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" position="is-left" dashed)
+                      span.has-text-danger {{$formatNumber(props.preparation - ownerInvestmentNormalized)}}
+                  template(v-else)
+                    span.has-text-success {{$t('utils.Secured')}}
+                  | )
+                p(v-else) {{$formatNumber(props.preparation)}}
+                  template(v-if="props.preparation === 0")
+                    | &nbsp;(
+                    span.has-text-success {{$t('utils.Secured')}}
+                    | )
             // Reward with arc bonus
             tr(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
@@ -311,6 +323,10 @@ div.content
             th {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
             td
               p.level-right {{$formatNumber(result.totalPreparations)}}
+                template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
+                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment')" position="is-left" dashed)
+                    span.has-text-danger {{$formatNumber(result.totalPreparations - ownerInvestmentNormalized)}}
+                  | )
           tr
             th {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
             td
