@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.58.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.57.0...v2.58.0) (2019-12-01)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([f84e6d4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f84e6d4))
+* **gb-investment:** add info about remaining FPs of the owner in card view ([375cff1](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/375cff1))
+* **gb-investment:** add the total remaining FPs preparation of the owner ([efdb0ff](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/efdb0ff))
+
 ## [2.57.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.56.0...v2.57.0) (2019-11-24)
 
 
