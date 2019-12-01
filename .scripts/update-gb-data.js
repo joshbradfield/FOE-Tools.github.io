@@ -46,12 +46,25 @@ module.exports = [
 `;
   return new Promise((resolve) => {
     download(urlConfig.url + urlConfig[age])
-      .pipe(csv(["level", null, "cost", "reward"]))
+      .pipe(csv({
+        mapHeaders: ({ index }) => {
+          switch (index) {
+            case 0:
+              return "level";
+            case 2:
+              return "cost";
+            case 3:
+              return "reward";
+            default:
+              return null;
+          }
+        }
+      }))
       .on('data', (value) => results.push(value))
       .on('end', () => {
         let counter = 0;
 
-        for (let i = age !== "HighMiddleAges" ? 1 : 10; i < results.length; i++) {
+        for (let i = age !== "HighMiddleAges" ? 0 : 9; i < results.length; i++) {
           if (!results[i].reward) {
             break;
           }

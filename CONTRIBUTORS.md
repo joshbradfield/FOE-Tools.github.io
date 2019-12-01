@@ -84,6 +84,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Red1983"/><br /><sub><b>Red1983</b></sub><br /><a href="#translation-Red1983" title="Translation">🌍</a></td>
     <td align="center"><a href="https://forum.fr.forgeofempires.com/index.php?members/vince1989.34307/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="vince1989"/><br /><sub><b>vince1989</b></sub></a><br /><a href="#bug-vince1989" title="Bug reports">🐛</a></td>
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Hats"/><br /><sub><b>Hats</b></sub><br /><a href="#ideas-Hats" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Gold Fluffy (FR)"/><br /><sub><b>Gold Fluffy (FR)</b></sub><br /><a href="#ideas-Gold Fluffy (FR)" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
