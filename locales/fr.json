@@ -121,6 +121,7 @@
             },
             "tfoot": {
               "total_preparation": "Investissement total du propriétaire",
+              "tooltip_owner_investment": "PFs restant à mettre par le propriétaire pour finir le niveau",
               "level_cost": "Coût du niveau"
             }
           },

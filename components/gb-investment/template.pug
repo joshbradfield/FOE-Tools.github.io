@@ -198,6 +198,10 @@ div.content
           th(:colspan="nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
           td
             p.level-right {{$formatNumber(result.totalPreparations)}}
+              template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment')" position="is-left" dashed)
+                  span.has-text-danger {{$formatNumber(result.totalPreparations - ownerInvestmentNormalized)}}
+                | )
         tr
           th(:colspan="nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
           td

@@ -121,6 +121,7 @@
             },
             "tfoot": {
               "total_preparation": "Total investment of the owner",
+              "tooltip_owner_investment": "FPs remaining to be put by the owner to complete the level",
               "level_cost": "Level cost"
             }
           },
