@@ -34,6 +34,8 @@ export default {
       // This allow to manage special cases
       if (locale === "sv") {
         return "se";
+      } else if (locale === "cs") {
+        return "cz";
       } else {
         return locale;
       }
