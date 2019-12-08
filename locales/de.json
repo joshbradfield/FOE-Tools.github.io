@@ -108,15 +108,15 @@
               "is_sniper": "Ist ein möglicher Sniper?"
             },
             "tbody": {
-              "tooltip_owner_investment": "Durch Eigentümer zu setzende FPs, um Platz abzusichern",
-              "tooltip_expected_investment": "Erwartete Investition",
-              "button_show_extra_investor": "Zusätzlichen Investor anzeigen",
+              "button_show_extra_investor": "Zusätzlichen Mäzen anzeigen",
               "button_show_extra_investor_plural": "Zusätzliche Investoren anzeigen",
-              "button_hide_extra_investor": "Zusätzlichen Investor ausblenden",
+              "button_hide_extra_investor": "Zusätzlichen Mäzen ausblenden",
               "button_hide_extra_investor_plural": "Zusätzliche Investoren ausblenden",
-              "profit": "Dieser Spieler wird einen Gewinn erzielen",
               "loss": "Dieser Spieler verliert FP",
               "loss_plural": "Dieser Spieler verliert FPs",
+              "tooltip_owner_investment": "Durch Eigentümer zu setzende FPs, um Platz abzusichern",
+              "tooltip_expected_investment": "Erwartete Investition",
+              "profit": "Dieser Spieler wird einen Gewinn erzielen",
               "neutral": "Dieser Spieler wird weder Gewinn erzielen noch FP verlieren"
             },
             "tfoot": {
@@ -166,10 +166,10 @@
         "custom_percentage": "Benutzerdefinierter Archebonus (für jeden Platz)",
         "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe",
         "message": {
+          "diff": "Mit Bonusinvestitionen sparst du {{count}} FP",
+          "diff_plural": "Mit Bonusinvestitionen sparst du {{count, number}} FPs",
           "single": "Um die Stufe {{level}} von \"$t({{gb}})\" abzuschließen, muss der Eigentümer {{preparation, number}} FPs investieren. Gesamtkosten der Stufe: {{cost, number}} FPs.",
           "multi": "Um \"$t({{gb}})\" von Stufe {{from}} auf {{to}} zu bringen, muss der Eigentümer {{preparation, number}} FPs einsetzen. Gesamtkosten der Stufen: {{cost, number}} FPs.",
-          "diff": "Mit Bonusinvestitionen sparst du {{count}} FPs",
-          "diff_plural": "Mit Bonusinvestitionen sparst du {{count, number}} FPs",
           "estimated_time": "Geschätzte Zeit bis zum Erreichen der Stufe: {{time}}"
         },
         "prop_already_invested": "Vom Eigentümer bereits in aktueller Stufe investierte FPs",
@@ -197,35 +197,35 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "Anzahl der verbleibenden FP, um das Level zu beenden:",
+          "place": "{{place}} ({{count, number}} FP)",
           "title": "Blockiere seinen Platz",
           "level_cost": "Stufenkosten",
           "current_deposits": "Aktuelle Investitionssumme",
           "your_participation": "Deine aktuelle Beteiligung",
           "other_participation": "Beteiligung des Spielers, welcher überholt werden soll",
-          "fp_to_complete_level": "Anzahl der verbleibenden FP, um das Level zu beenden:",
           "fp_to_complete_level_plural": "Anzahl der verbleibenden FPs, um das Level zu beenden:",
           "your_arc_bonus": "Dein Archebonus",
           "fp_target_reward": "FP des anvisierten Platzes",
           "target_reward": "Anvisierter Platz",
-          "place": "{{place}} ({{count, number}} FP)",
           "place_plural": "{{place}} ({{count, number}} FPs)",
           "various_rate": "Verschiedene Tarife",
           "rate": "Bonusfaktor",
           "fp_according_rate": "FP, welche abhängig von dem Bonusfaktor zu setzen sind",
           "fp_to_lock": "Noch zu setzende FPs, um deinen Platz abzusichern",
           "result": {
+            "default": "Du brauchst insgesamt {{count}} FP um den Platz zu blocken.",
+            "fp_need_to_lock": "Verbleibender FP, um deinen Platz abzusichern:",
+            "fp_to_secure_html": "Du musst noch einen {{count}} FP investieren.",
             "error": "Ein oder mehrere Werte sind ungültig.",
             "already_blocked": "Dein Platz ist gesichert.",
-            "default": "Du brauchst insgesamt {{count}} FP um den Platz zu blocken.",
             "default_plural": "Du brauchst insgesamt {{count, number}} FPs um den Platz zu blocken.",
-            "fp_need_to_lock": "Verbleibender FP, um deinen Platz abzusichern:",
             "fp_need_to_lock_plural": "Verbleibende FPs, um deinen Platz abzusichern:",
             "still_to_put": "Anzahl der FPs, die du noch investieren musst",
-            "fp_to_secure_html": "Du musst noch einen {{count}} FP investieren.",
             "roi": {
               "profit": "Dein Gewinn wird {{count}} FP betragen",
-              "profit_plural": "Dein Gewinn wird {{count, number}} FPs betragen",
               "loss": "Dein Verlust wird {{count}} FP betragen",
+              "profit_plural": "Dein Gewinn wird {{count, number}} FPs betragen",
               "loss_plural": "Dein Verlust wird {{count, number}} FPs betragen",
               "neutral": "Du wirst kein Gewinn machen"
             },
@@ -251,12 +251,13 @@
         "show_ratio": "Verhältnis anzeigen"
       },
       "site_layout": {
+        "update": "Ein Update seit deinem letzten Besuch.",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "Eine Sammlung an Tools, welche das Leben in $t(common:links.foe) vereinfacht"
         },
         "cookie": {
-          "message": "Durch die weitere Verwendung von $t(common:site_title) stimmen Sie der Verwendung von Cookies zu, um Ihren Nutzungskomfort zu verbessern.",
+          "message": "Durch die weitere Verwendung von $t(common:site_title) stimmst du der Verwendung von Cookies zu, um deinen Bedienungskomfort zu verbessern.",
           "link": "Mehr Informationen"
         },
         "new_year": {
@@ -266,10 +267,9 @@
         "survey": {
           "message": "Hilf uns $t(common:site_title) zu verbessern, indem du diese Umfrage ausfüllst"
         },
-        "update": "Ein Update seit deinem letzten Besuch.",
         "update_plural": "{{count}} Updates seit deinem letzten Besuch",
         "whats_new": "Was gibt es Neues?",
-        "permalink_info": "Sie besuchen einen Permalink. Änderungen werden daher nicht in den Cookies gespeichert.",
+        "permalink_info": "Du besuchst einen Permalink. Änderungen werden daher nicht in den Cookies gespeichert.",
         "footer": {
           "license_html": "Quellcode unter $t(common:links.mit) Lizenz",
           "version": "Version {{version}}"
@@ -322,24 +322,24 @@
         "note": "Beachte, dass der Message Builder Level 9 → 10 von $t(foe_data.gb.Observatory) mit einem Verhältnis von 1,9 für die Vorschau verwendet.",
         "action": "Aktion",
         "actions": {
-          "create": "Erstellen Sie eine neue Vorlage",
-          "update": "Aktualisieren Sie eine vorhandene Vorlage",
-          "delete": "Löschen Sie eine vorhandene Vorlage"
+          "create": "Erstelle eine neue Vorlage",
+          "update": "Passe eine vorhandene Vorlage an",
+          "delete": "Lösche eine vorhandene Vorlage"
         },
         "start_from_template": "Ausgehend von einer Vorlage?",
-        "edit_template": "Wählen Sie die zu bearbeitende Vorlage",
-        "delete_template": "Wählen Sie die zu löschende Vorlage",
+        "edit_template": "Wähle die zu bearbeitende Vorlage",
+        "delete_template": "Wähle die zu löschende Vorlage",
         "templates": {
           "default": "Standardvorlagen",
           "custom": "Benutzerdefinierte Vorlagen"
         },
         "config": "Konfiguration",
-        "add_field_title": "Fügen Sie benutzerdefinierte Felder hinzu",
+        "add_field_title": "Füge benutzerdefinierte Felder hinzu",
         "add_field": {
           "name": "Feldname",
           "value": "Feldwert"
         },
-        "custom_field_title": "Ihre benutzerdefinierten Felder",
+        "custom_field_title": "Deine benutzerdefinierten Felder",
         "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
         "reverse_place_order": "Umgekehrte Reihenfolge der Platze?",
         "place_separator": "(Platzen) Trennzeichen setzen",
@@ -353,13 +353,16 @@
         "variables": {
           "place": {
             "PI": "Platz Index",
-            "PV": "Stellenwert (in FPs)"
+            "PV": "Stellenwert (in FPs)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Vom Stufe",
             "TLVL": "Zu Stufe",
             "GBN": "LB Name",
             "P": "Plätze",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Anzahl der vom Eigentümer zu setzenden FPs für Platz \"x\" (mit \"x\" zwischen 1 und 5)",
             "LF": "Zeilenvorschub, füge eine neue Zeile hinzu"
           }
         },
@@ -374,7 +377,7 @@
         "template_deleted": "Vorlage gelöscht"
       },
       "import_promotion_message": {
-        "title": "Werbebotschaft importieren",
+        "title": "Werbenachricht importieren",
         "config_placeholder": "Füge hier deine Konfiguration ein",
         "errors": {
           "invalid_data": "Daten sind ungültig"
@@ -438,12 +441,12 @@
             "showPlace": "Ein Feld, das enthält, ob ein Platz angezeigt werden soll oder nicht (in der Registerkarte \"$t(routes.gb_investment.tab.investors_view.title)\" von \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
             "survey": "Ein Array, welche alle bereits von dir durchgeführten Umfragen enthält",
             "fixedMainMenu": "Gibt an, ob das Hauptmenü immer sichtbar ist oder nicht",
-            "gbSelectMode": "Gibt an, welchen LB Auswahlmodus Sie verwenden",
-            "haveReadLocaleInfoAvailable": "Gibt an, ob Sie die Informationen darüber gelesen haben, dass die Site in Ihrer Sprache verfügbar ist",
+            "gbSelectMode": "Gibt an, welchen LB-Auswahlmodus du verwendest",
+            "haveReadLocaleInfoAvailable": "Gibt an, ob du die Informationen darüber gelesen hast, dass die Website in deiner Sprache verfügbar ist",
             "promotionMessageList": "Enthält die Liste der Promotion-Nachrichten, die angezeigt werden sollen",
-            "customPromotionMessagesTemplates": "Enthält alle Ihre benutzerdefinierten Werbebotschaften",
+            "customPromotionMessagesTemplates": "Enthält alle deine benutzerdefinierten Werbenachricht",
             "gbShowPrefix": "Gibt an, ob in Werbemeldungen ein Präfix angezeigt werden soll",
-            "gbShowSuffix": "Gibt an, ob Sie in Werbemeldungen ein Suffix anzeigen möchten",
+            "gbShowSuffix": "Gibt an, ob du ein Suffix in Werbemeldungen angezeigt haben möchtest",
             "lastVisitVersion": "Enthält die Version der Seite deines letzten Besuchs."
           }
         },
@@ -466,7 +469,7 @@
         "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Château Frontenac Rechner",
-          "subtitle": "Ein Tool, welches es erlaubt, Waren und FP-Produktionen zu prognostizieren, indem es Schleifenquests und Nichtgeburtstagsparty-Quests durchführt (Rinbin)."
+          "subtitle": "Ein Tool, welches Güter und FP-Produktionen schätzt, indem es Schleifenquests und Nichtgeburtstagsparty-Quests simuliert (Rinbin)."
         }
       },
       "changelog": {
@@ -544,10 +547,10 @@
       "help_to_translate_the_site": {
         "title": "$t(routes.help_to_translate_the_site.hero.title)| $t(common:site_title)",
         "hero": {
-          "title": "Helfen Sie beim Übersetzen der Website",
-          "subtitle": "Werden Sie Teil des Übersetzungsteams"
+          "title": "Hilf mit, diese Website zu übersetzen",
+          "subtitle": "Werde Teil des Übersetzungsteams"
         },
-        "p1": "Ihre Sprache ist nicht verfügbar, die Übersetzung ist unvollständig oder fehlerhaft? Sie können sich gerne dem Übersetzungsteam der Website anschließen.",
+        "p1": "Deine Sprache ist nicht verfügbar, die Übersetzung ist unvollständig oder fehlerhaft? Du kannst dich gerne dem Übersetzungsteam der Website anschließen.",
         "how_to_join_the_team": "Wie kann man dem Team beitreten?",
         "p2_html": "$t(common:site_title) wird von Nutzern übersetzt. Wir verwenden die Plattform $t(common:links.lingohub), um den Übersetzungsprozess zu vereinfachen. Um dem Team beizutreten, sende eine E-Mail (in Englisch) an $t(common:links.contact_foe_tools) und gib die Sprache(n) an, in die du übersetzen kannst, damit wir dir eine Einladung senden können."
       },
@@ -566,11 +569,11 @@
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Kontakt",
-          "subtitle": "Wenden Sie sich an den Administrator von $t(common:site_title)"
+          "subtitle": "Wende dich an den Administrator von $t(common:site_title)"
         },
-        "message_contact_html": "Eine Idee zur Verbesserung der Funktionalität? Ein Problem? Sie können mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools) senden.",
-        "message_translate": "Wussten Sie, dass Sie auch bei der Übersetzung der Website helfen können? Folgen Sie dem folgenden Link für weitere Informationen:",
-        "message_other_info_html": "Wenn Sie Entwickler sind, können Sie auch ein Problem auf $t(common:links.github) erstellen (und zur Entwicklung der Site beitragen)."
+        "message_contact_html": "Eine Idee zur Verbesserung der Funktionalität? Ein Problem? Du darfst mir gerne eine E-Mail (auf Englisch oder Französisch) an $t(common:links.contact_foe_tools) senden.",
+        "message_translate": "Wusstest du, dass du auch bei der Übersetzung der Website helfen kannst? Folge dem folgenden Link für weitere Informationen:",
+        "message_other_info_html": "Wenn du Entwickler bist, kannst du auch dein Anliegen auf $t(common:links.github) beschreiben (und zur Entwicklung der Website beitragen)."
       },
       "error": {
         "404": {
@@ -1142,7 +1145,7 @@
         },
         "good_production": {
           "name": "Güterproduktion",
-          "gb_description": "Produziert alle 24 Stunden eine bestimmte Menge Waren aus Ihrem aktuellen Alter. Produziert ab Modern Era die doppelte Menge an unraffinierten Gütern."
+          "gb_description": "Produziert alle 24 Stunden eine bestimmte Menge Güter aus deinem aktuellen Zeitalter. Produziert ab der Moderne die doppelte Menge an unverarbeiteten Gütern."
         },
         "medal_production": {
           "name": "Medaillenproduktion",
@@ -1170,7 +1173,7 @@
         },
         "quest_reward_boost": {
           "name": "Quest Belohnungsschub",
-          "gb_description": "Sammelt nur Münzen, Vorräte, Waren, Medaillen oder Diamanten aus Questbelohnungen."
+          "gb_description": "Sammelt nur Münzen, Vorräte, Güter, Medaillen oder Diamanten aus Questbelohnungen."
         },
         "penal_unit": {
           "name": "militärische Einheit",
@@ -1178,7 +1181,7 @@
         },
         "guild_goods": {
           "name": "Gildengüter",
-          "gb_description": "Produziert Waren aus der Zeitalter, die direkt an die Guild Treasury gehen."
+          "gb_description": "Produziert Güter aus dem aktuellen Zeitalter, die direkt an die Gildenkasse gehen."
         },
         "support_pool_bonus": {
           "name": "Support-Pool-Bonus",
@@ -1186,19 +1189,19 @@
         },
         "aid_goods": {
           "name": "Hilfsgüter",
-          "gb_description": "Erzeugt 1 zufällige Ware, wenn Sie die Stadt eines anderen Spielers unterstützen (manuell motivieren / polieren, dies gilt auch als Hilfe). Das Alter der Zufallsgüter entspricht dem Alter des von Ihnen unterstützten Gebäudes."
+          "gb_description": "Erzeugt ein zufälliges Gut, wenn du die Stadt eines anderen Spielers unterstützt (manuell motivieren / polieren gilt auch als Hilfe). Das Zeitalter der Zufallsgüter entspricht dem Zeitalter des unterstützten Gebäudes."
         },
         "plunder_goods": {
           "name": "Plünder-Güter",
-          "gb_description": "Produziert beim Plündern der Stadt eines anderen Spielers zufällige Waren für bis zu 3 Nachbarn. Das Alter der zufälligen Waren entspricht dem Alter des Gebäudes, das Sie plündern."
+          "gb_description": "Produziert beim Plündern der Stadt eines anderen Spielers zufällige Güter für bis zu 3 Nachbarn. Das Zeitalter der zufälligen Güter entspricht dem Zeitalter des Gebäudes, dass du plünderst."
         },
         "contribution_boost": {
           "name": "Mäzen-Bonus",
-          "gb_description": "Erhöht die FP, Medaillen und Blaupausen, die Sie durch belohnungen erhalten."
+          "gb_description": "Erhöht die Anzahl an FP, Medaillen und Blaupausen, welche du durch Belohnungen erhälst."
         },
         "aid_blueprints": {
           "name": "Hilfsblaupausen",
-          "gb_description": "Erhöht die Chance, einen Blaupaus zu erhalten, wenn Sie die Stadt eines anderen Spielers unterstützen (manuell motivieren / polieren, dies gilt auch als Hilfe). I.E. Mit einem 100% Bonus verdoppelt sich Ihre Chance, einen Blaupaus zu finden."
+          "gb_description": "Erhöht die Chance, eine Blaupause zu erhalten, wenn du die Stadt eines anderen Spielers unterstützt (manuelles motivieren / polieren gilt auch als Hilfe). Zum Beispiel verdoppelt sich deine Chance mit einem 100% Bonus, eine Blaupause zu finden."
         },
         "relic_hunt": {
           "name": "Reliktsuche",
@@ -1206,11 +1209,11 @@
         },
         "critical_hit": {
           "name": "Kritischer Treffer",
-          "gb_description": "Gewährt allen Einheiten die Chance, beim Angriff auf Einheiten derselben Ära das 1,5-fache des erwarteten Schadens zu verursachen. Kritische Treffer wirken sich auch auf Reaktive Rüstung aus (wenn der erwartete Schaden 4-4 beträgt, verursacht ein kritischer Treffer 6-6 Schaden). Schurken (und andere Einheiten ohne Alter) sind nicht betroffen / können diese Fähigkeit erst nutzen, wenn sie sich in eine andere Einheit verwandeln. Ein kritischer Treffer, der mindestens 11 Schadenspunkte verursacht, tötet eine Einheit mit einem Treffer, auch mit dem Moralbonus. Dieser Bonus gilt für alle angreifenden Armeen sowie Ihre verteidigende Armee im PvP. Der kritische Treffer wird nicht eintreten, wenn sich eine Einheit revanchiert."
+          "gb_description": "Gewährt allen Einheiten die Chance, beim Angriff auf Einheiten desselben Zeitalters das Anderthalbfache des erwarteten Schadens zu verursachen. Kritische Treffer wirken sich auch auf die Fähigkeit \"Reaktivpanzerung\" aus (wenn der erwartete Schaden 4-4 beträgt, verursacht ein kritischer Treffer 6-6 Schaden). Agenten (und andere Einheiten ohne Zeitalter) sind nicht betroffen bzw. können diese Fähigkeit erst nutzen, wenn sie sich in eine andere Einheit verwandeln. Ein kritischer Treffer, der mindestens 11 Schadenspunkte verursacht, eliminiert eine Einheit mit einem Treffer, auch mit dem Moralbonus. Dieser Bonus gilt für alle angreifenden Armeen sowie deine verteidigende Armee im PvP. Der kritische Treffer tritt nicht ein, wenn die Einheit einen Vergeltungsschlag ausführt."
         },
         "helping_hands": {
           "name": "Helfende Hände",
-          "gb_description": "Gibt Ihnen eine gewisse Chance, eine zufällige Ressource zu erhalten, wenn Sie die Stadt eines anderen Spielers unterstützen (manuelles Motivieren / Polieren zählt ebenfalls als Unterstützung). Sie können Waren aus Ihrem aktuellen Alter, Vorräte, Münzen, Medaillen oder sogar Diamanten erhalten."
+          "gb_description": "Gibt dir eine gewisse Chance, eine zufällige Ressource zu erhalten, wenn du die Stadt eines anderen Spielers unterstützt (manuelles Motivieren / Polieren zählt ebenfalls als Unterstützung). Du kannst Güter aus deinem aktuellen Zeitalter, Vorräte, Münzen, Medaillen oder sogar Diamanten erhalten."
         },
         "plunder_and_pillage": {
           "name": "Plünderung",
@@ -1236,7 +1239,7 @@
         "p1": "Gib die verschiedenen Werte ein. Das Ergebnis wird automatisch aktualisiert.",
         "p2_html": "<strong>Hinweis</strong>: Falls die Aktualisierung nicht automatisch erfolgen sollte, klicke auf \"$t(utils.btn_calculate)\"."
       },
-      "choose_age": "Wählen Sie ein Zeitalter",
+      "choose_age": "Wähle ein Zeitalter",
       "permalink": "Permalink",
       "Add": "Hinzufügen",
       "Remove": "Entfernen",
@@ -1265,7 +1268,7 @@
       "between_range": "zwischen {{min, number}} und {{max, number}}",
       "Submit": "Abschicken",
       "Reset_values": "Werte zurücksetzen",
-      "Switch": "Schalter",
+      "Switch": "Anpassen",
       "Save": "Speichern",
       "Show": "Anzeigen",
       "Hide": "Verbergen",
@@ -1274,10 +1277,10 @@
       },
       "moment": {
         "year": "{{count}} Jahr",
-        "year_plural": "{{count, number}} Jahre",
         "month": "{{count}} Monat",
-        "month_plural": "{{count}} Monate",
         "day": "{{count}} Tag",
+        "year_plural": "{{count, number}} Jahre",
+        "month_plural": "{{count}} Monate",
         "day_plural": "{{count}} Tage"
       },
       "graph": {

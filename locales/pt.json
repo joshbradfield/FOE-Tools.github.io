@@ -108,14 +108,14 @@
               "is_sniper": "É um potencial intruso ?"
             },
             "tbody": {
+              "button_show_extra_investor": "Mostrar novo investidor",
+              "button_hide_extra_investor": "Ocultar novo investidor",
+              "loss": "Este jogador ira perder PF's ",
               "tooltip_owner_investment": "PF's restantes colocados pelo dono para segurar posições",
               "tooltip_expected_investment": "Investimento esperado",
-              "button_show_extra_investor": "Mostrar investidor extra",
               "button_show_extra_investor_plural": "Mostrar investidores extras",
-              "button_hide_extra_investor": "Ocultar investidor extra",
               "button_hide_extra_investor_plural": "Ocultar investidores extras",
               "profit": "Jogador que vai ter lucro",
-              "loss": "Este jogador vai perder PF's ",
               "loss_plural": "Este jogador vai perder PF's ",
               "neutral": "Este jogador não terá lucro nem vai perder  PF's"
             },
@@ -166,9 +166,9 @@
         "custom_percentage": "Bónus normal da Arca  (para cada lugar)",
         "estimated_time": "Tempo estimado para atingir o nível",
         "message": {
+          "diff": "Com o bónus do investimento,vais poupar  {{count}} PF",
           "single": "Para completar o nível {{level}} de \"$t({{gb}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total do nível: {{custo, numero}} PFs.",
           "multi": "Do nível  {{from}} para  {{to}} de  \"$t({{gb}})\", o dono tem de investir {{preparation, number}} PF's. Custo total do nível: {{cost, number}} PFs.",
-          "diff": "Com o bónus do investimento,vais poupar  {{count}} PF",
           "diff_plural": "Com o bónus do investimento,vais poupar{{count, number}} PFs",
           "estimated_time": "Tempo estimado para atingir o nível: {{time}}"
         },
@@ -197,35 +197,35 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "Número de PF's restantes para completar o nível:",
+          "place": "{{place}} ({{count, number}} PF)",
           "title": "Segurar o lugar",
           "level_cost": "Custo do nível",
           "current_deposits": "Soma dos investimentos  actuais",
           "your_participation": "Sua participação actual",
           "other_participation": "Participação do jogador para ultrapassar",
-          "fp_to_complete_level": "Número de PF's restantes para completar o nível:",
           "fp_to_complete_level_plural": "Número de PF's restantes para completar o nível:",
           "your_arc_bonus": "O teu bónus da Arca",
           "fp_target_reward": "PF's para atingir o lugar ",
           "target_reward": "Lugar designado",
-          "place": "{{place}} ({{contagem, numero}} PF)",
           "place_plural": "{{place}} ({{contagem, numero}} FPs)",
           "various_rate": "Vários taxas",
           "rate": "Rácio",
           "fp_according_rate": "PF's a colocar de acordo com o rácio",
           "fp_to_lock": "PF's a colocar para segurar o lugar ",
           "result": {
+            "default": "Deves ter um total {{count}}de PF's para segurares o lugar",
+            "fp_need_to_lock": "PF's necessários  para segurar o lugar",
+            "fp_to_secure_html": "Ainda precisa colocar {{count}} PF's.",
             "error": "Um ou mais valores não são válidos.",
             "already_blocked": "O teu  lugar está bloqueado.",
-            "default": "Deves ter um total {{count}} de PF's para segurares o lugar",
-            "default_plural": "Deves ter um total {{contagem, numero}} de PF's para segurares o lugar",
-            "fp_need_to_lock": "PF necessário para segurar o lugar",
+            "default_plural": "Deves ter um total {{count, number}} de PF's para segurares o lugar",
             "fp_need_to_lock_plural": "PF's necessários para segurar o lugar",
             "still_to_put": "Numero de PF's em falta",
-            "fp_to_secure_html": "Ainda precisa colocar {{count}} PF.",
             "roi": {
-              "profit": "O teu ganho será {{count}} PF's",
+              "profit": "Vais ganhar {{count}} PF's",
+              "loss": "A tua perda será {{count}} PF's",
               "profit_plural": "O Ganho será  {{count, number}} PFs",
-              "loss": "O prejuízo será de {{count}} PF's",
               "loss_plural": "O prejuízo será de {{contagem, numero}} PF's",
               "neutral": "O investimento não terá retorno "
             },
@@ -251,6 +251,7 @@
         "show_ratio": "Mostrar rácio"
       },
       "site_layout": {
+        "update": "{{count}} actualizações  desde da sua ultima visita ",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "Um conjunto de ferramentas para ajudar $t(common:links.foe)"
@@ -260,13 +261,12 @@
           "link": "Mais Informações"
         },
         "new_year": {
-          "message": "$t(common:site_title) celebra o seu {{contagem, numero}} ano ",
+          "message": "$t(common:site_title) comemora  o teu {{count, number}} ano ",
           "message_plural": "$t(common:site_title) celebra os seus {{contagem, numero}} anos"
         },
         "survey": {
           "message": "Ajude-nos a melhorar $t(common:site_title) a responder a este inquérito"
         },
-        "update": "Uma actualização desde da sua ultima visita ",
         "update_plural": "{{count}}  actualizações desde da sua ultima visita ",
         "whats_new": "O que existe de novo ?",
         "permalink_info": "Você visita um permalink. Consequentemente, quaisquer alterações feitas não serão salvas em cookies.",
@@ -353,13 +353,16 @@
         "variables": {
           "place": {
             "PI": "Índice do lugar",
-            "PV": "Coloque o valor (em PFs)"
+            "PV": "Coloque o valor (em PFs)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Do nível ",
             "TLVL": "Para o nível",
             "GBN": "Nome do GE ",
             "P": "Lugares",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Numero de PF's colocados pelo dono para o lugar \"x\"(sendo \"x\" de 1 a 5)",
             "LF": "Adicionar Linha, adicione uma nova linha "
           }
         },
@@ -1273,10 +1276,10 @@
       },
       "moment": {
         "year": "{{count}} ano",
-        "year_plural": "{{count, number}} anos",
         "month": "{{count}} mês",
+        "day": "{{count}}dia",
+        "year_plural": "{{count, number}} anos",
         "month_plural": "{{count}} meses",
-        "day": "{{count}} dia",
         "day_plural": "{{count}} dias"
       },
       "graph": {

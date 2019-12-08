@@ -108,15 +108,15 @@
               "is_sniper": "Is a potential sniper ?"
             },
             "tbody": {
-              "tooltip_owner_investment": "FPs remaining to be put by the owner to secure the place",
-              "tooltip_expected_investment": "Expected investment",
               "button_show_extra_investor": "Show extra investor",
               "button_show_extra_investor_plural": "Show extra investors",
               "button_hide_extra_investor": "Hide extra investor",
               "button_hide_extra_investor_plural": "Hide extra investors",
-              "profit": "This player will make a profit",
               "loss": "This player will lose FP",
               "loss_plural": "This player will lose FPs",
+              "tooltip_owner_investment": "FPs remaining to be put by the owner to secure the place",
+              "tooltip_expected_investment": "Expected investment",
+              "profit": "This player will make a profit",
               "neutral": "This player will neither make profit nor lose FPs"
             },
             "tfoot": {
@@ -167,10 +167,10 @@
         "custom_percentage": "Custom Arc bonus (for each place)",
         "estimated_time": "Estimate time to reach the level",
         "message": {
-          "single": "To complete the level {{level}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of level: {{cost, number}} FPs.",
-          "multi": "To go from level {{from}} to {{to}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of levels: {{cost, number}} FPs.",
           "diff": "With bonus investments, you'll save {{count}} FP",
           "diff_plural": "With bonus investments, you'll save {{count, number}} FPs",
+          "single": "To complete the level {{level}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of level: {{cost, number}} FPs.",
+          "multi": "To go from level {{from}} to {{to}} of \"$t({{gb}})\", the owner has to invest {{preparation, number}} FPs. Total cost of levels: {{cost, number}} FPs.",
           "estimated_time": "Estimated time to reach the level: {{time}}"
         },
         "prop_already_invested": "FPs already invested by the owner on the current level",
@@ -198,31 +198,32 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "Number of FP remaining to complete the level:",
+          "fp_to_complete_level_plural": "Number of FPs remaining to complete the level:",
+          "place": "{{place}} ({{count, number}} FP)",
+          "place_plural": "{{place}} ({{count, number}} FPs)",
           "title": "Block his place",
           "level_cost": "Level cost",
           "current_deposits": "Sum of current deposits",
           "your_participation": "Your current participation",
           "other_participation": "Participation of the player to overtake",
-          "fp_to_complete_level": "Number of FP remaining to complete the level:",
-          "fp_to_complete_level_plural": "Number of FPs remaining to complete the level:",
           "your_arc_bonus": "Your Arc bonus",
           "fp_target_reward": "FP of the targeted place",
           "target_reward": "Targeted place",
-          "place": "{{place}} ({{count, number}} FP)",
-          "place_plural": "{{place}} ({{count, number}} FPs)",
           "various_rate": "Various rates",
           "rate": "Rate",
           "fp_according_rate": "FP to put according to the rate",
           "fp_to_lock": "FP to put to lock your place",
           "result": {
-            "error": "One or more values are not valid.",
-            "already_blocked": "Your place is blocked.",
             "default": "You must have totaled {{count}} FP to block the place.",
             "default_plural": "You must have totaled {{count, number}} FPs to block the place.",
             "fp_need_to_lock": "FP you need to place to lock your place:",
             "fp_need_to_lock_plural": "FPs you need to place to lock your place:",
-            "still_to_put": "Number of FPs you still need to put in",
             "fp_to_secure_html": "You still have to put {{count}} FP.",
+            "fp_to_secure_html_plural": "You still have to put {{count, number}} FPs.",
+            "error": "One or more values are not valid.",
+            "already_blocked": "Your place is blocked.",
+            "still_to_put": "Number of FPs you still need to put in",
             "roi": {
               "profit": "Your gain will be {{count}} FP",
               "profit_plural": "Your gain will be {{count, number}} FPs",
@@ -230,7 +231,6 @@
               "loss_plural": "Your loss will be {{count, number}} FPs",
               "neutral": "You will not have a return on investment"
             },
-            "fp_to_secure_html_plural": "You still have to put {{count, number}} FPs.",
             "cant_block": "You can not block the place."
           },
           "unknown": "unknown"
@@ -252,6 +252,8 @@
         "show_ratio": "Display ratio"
       },
       "site_layout": {
+        "update": "One update since your last visit.",
+        "update_plural": "{{count}} updates since your last visit.",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "A set of tools to simplify life on $t(common:links.foe)"
@@ -267,8 +269,6 @@
         "survey": {
           "message": "Help us improve $t(common:site_title) by completing this survey"
         },
-        "update": "One update since your last visit.",
-        "update_plural": "{{count}} updates since your last visit.",
         "whats_new": "What's new ?",
         "permalink_info": "You visit a permalink. Consequently, any changes made will not be saved in cookies.",
         "footer": {
