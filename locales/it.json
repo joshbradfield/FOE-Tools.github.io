@@ -105,14 +105,14 @@
               "real_participation": "PF ottenuti con la % di bonus del tuo Arc"
             },
             "tbody": {
+              "button_show_extra_investor": "Mostra un ulteriore extra ",
+              "button_hide_extra_investor": "Nascondi un investitore extra",
+              "loss": "Questo giocatore perderà PF",
               "tooltip_owner_investment": "PF che il proprietario deve ancora versare per coprire la posizione",
               "tooltip_expected_investment": "Investimento previsto",
-              "button_show_extra_investor": "Mostra un ulteriore extra ",
               "button_show_extra_investor_plural": "Mostra investitori extra",
-              "button_hide_extra_investor": "Nascondi un investitore extra",
               "button_hide_extra_investor_plural": "Nascondi investitori extra",
               "profit": "Questo giocatore avrà un profitto",
-              "loss": "Questo giocatore perderà PF",
               "loss_plural": "Questo giocatore perderà PF",
               "neutral": "Questo giocatore non avrà profitti né perderà PF"
             },
@@ -163,9 +163,9 @@
         "custom_percentage": "Personalizza il bonus Arc (per ogni posizione)",
         "estimated_time": "Tempo stimato per raggiungere la posizione",
         "message": {
+          "diff": "Con il bonus investimenti, risparmierai {{count}} PF",
           "single": "Per completare il livello {{level}} del \"$t({{gb}})\", il proprietario deve in vestire {{preparation, number}} PF. Costo totale del livello: {{cost, number}} PF.",
           "multi": "Per passare dal livello {{from}} al {{to}} di \"$t({{gb}})\", il proprietario deve investire {{preparation, number}} PF. Costo totale dei livelli: {{cost, number}} PF.",
-          "diff": "Con il bonus investimenti, risparmierai {{count}} PF",
           "diff_plural": "Con il bonus investimenti, risparmierai {{count, number}} PF",
           "estimated_time": "Tempo stimato per raggiungere il livello: {{time}}"
         },
@@ -194,35 +194,35 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "Numero di PF rimanenti per completare il livello:",
+          "place": "{{place}} ({{count, number}} PF)",
           "title": "Blocca il suo posto",
           "level_cost": "Costo del livello",
           "current_deposits": "Somma dei versamenti correnti",
           "your_participation": "La tua attuale contribuzione",
           "other_participation": "Contribuzione del palyer da superare",
-          "fp_to_complete_level": "Numero di PF rimanenti per completare il livello:",
           "fp_to_complete_level_plural": "Numero di PF rimanenti per completare il livello:",
           "your_arc_bonus": "Il tuo bonus Arc",
           "fp_target_reward": "PF della posizione desiderata",
           "target_reward": "Posizione desiderata",
-          "place": "{{place}} ({{count, number}} PF)",
           "place_plural": "{{place}} ({{count, number}} PF)",
           "various_rate": "Tassi vari",
           "rate": "Tasso",
           "fp_according_rate": "PQ da mettere in base al tasso",
           "fp_to_lock": "PF da mettere per assicurare la posizione",
           "result": {
+            "default": "Devi aver totalizzato {{count}} FP per bloccare il posto.",
+            "fp_need_to_lock": "PF da mettere per assicurarti la posizione:",
+            "fp_to_secure_html": "Devi ancora mettere {{count}} PF.",
             "error": "Uno o più valori non sono validi.",
             "already_blocked": "La tua posizione è bloccata.",
-            "default": "Devi aver totalizzato {{count}} FP per bloccare il posto.",
             "default_plural": "Devi aver totalizzato {{count, number}} PF per bloccare il posto.",
-            "fp_need_to_lock": "PF da mettere per assicurarti la posizione:",
             "fp_need_to_lock_plural": "PF da mettere per assicurarti la posizione:",
             "still_to_put": "Numero di PF ancora da mettere ",
-            "fp_to_secure_html": "Devi ancora mettere {{count}} PF.",
             "roi": {
               "profit": "Il tuo guadagno sarà di {{count}} PF.",
-              "profit_plural": "Il tuo guadagno sarà di {{count, number}} PF",
               "loss": "La tua perdita sarà di {{count}} PF",
+              "profit_plural": "Il tuo guadagno sarà di {{count, number}} PF",
               "loss_plural": "La tua perdita sarà di {{count, number}} PF",
               "neutral": "Non avrei un ritorno dal tuo investimento"
             },
@@ -1051,10 +1051,10 @@
       },
       "moment": {
         "year": "{{count}} anno",
-        "year_plural": "{{count, number}} anni",
         "month": "{{count}} mese",
-        "month_plural": "{{count}} mesi",
         "day": "{{count}} giorno",
+        "year_plural": "{{count, number}} anni",
+        "month_plural": "{{count}} mesi",
         "day_plural": "{{count}} giorni"
       },
       "graph": {

@@ -108,15 +108,15 @@
               "is_sniper": "Är en potentiell kapare ?"
             },
             "tbody": {
-              "tooltip_owner_investment": "FP som återstår för ägaren att lägga för att grunda platsen",
-              "tooltip_expected_investment": "Förväntad investering",
               "button_show_extra_investor": "Visa extra investerare",
               "button_show_extra_investor_plural": "Visa extra investerare",
               "button_hide_extra_investor": "Dölj extra investerare",
               "button_hide_extra_investor_plural": "Dölj extra investerare",
-              "profit": "Denna spelare kommer att profitera",
               "loss": "Denna spelare kommer att förlora FP",
               "loss_plural": "Denna spelare kommer att förlora FP",
+              "tooltip_owner_investment": "FP som återstår för ägaren att lägga för att grunda platsen",
+              "tooltip_expected_investment": "Förväntad investering",
+              "profit": "Denna spelare kommer att profitera",
               "neutral": "Denna spelare kommer att gå +/- 0 i FP"
             },
             "tfoot": {
@@ -166,10 +166,10 @@
         "custom_percentage": "Anpassad Ark-bonus (för varje plats)",
         "estimated_time": "Estimera tiden för att nå nästa nivå",
         "message": {
-          "single": "För att fullfölja nivå {{level}} av  \"$t({{gb}})\", måste ägaren investera {{preparation, number}} FP.  Total nivåkostnad: {{cost, number}} FP.",
-          "multi": "För att gå från nivå {{from}} till {{to}} på $t({{gb}}), måste ägaren investera {{preparation, number}} FP.  Totalkostnad för nivåer:  {{cost, number}} FP.",
           "diff": "Med bonus investeringar sparar du {{count}} FP",
           "diff_plural": "Med bonus investeringar sparar du {{count, number}} FP",
+          "single": "För att fullfölja nivå {{level}} av  \"$t({{gb}})\", måste ägaren investera {{preparation, number}} FP.  Total nivåkostnad: {{cost, number}} FP.",
+          "multi": "För att gå från nivå {{from}} till {{to}} på $t({{gb}}), måste ägaren investera {{preparation, number}} FP.  Totalkostnad för nivåer:  {{cost, number}} FP.",
           "estimated_time": "Estimerad tid för att nå nivån: {{time}}"
         },
         "prop_already_invested": "FP redan investerade av ägaren på nuvarande nivå",
@@ -197,31 +197,32 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "Återstående FP för att fylla nivån:",
+          "fp_to_complete_level_plural": "Återstående FP för att fylla nivån:",
+          "place": "{{place}} ({{count, number}} FP)",
+          "place_plural": "{{place}} ({{count, number}} FP)",
           "title": "Säkra din plats",
           "level_cost": "Nivåkostnad",
           "current_deposits": "Summan av investeringar",
           "your_participation": "Ditt nuvarande bidrag",
           "other_participation": "Bidrag att överträffa",
-          "fp_to_complete_level": "Återstående FP för att fylla nivån:",
-          "fp_to_complete_level_plural": "Återstående FP för att fylla nivån:",
           "your_arc_bonus": "Din Ark-bonus",
           "fp_target_reward": "FP för önskad plats",
           "target_reward": "Önskad plats",
-          "place": "{{place}} ({{count, number}} FP)",
-          "place_plural": "{{place}} ({{count, number}} FP)",
           "various_rate": "Diverse kurser",
           "rate": "Kurs",
           "fp_according_rate": "FP att lägga enligt kursen",
           "fp_to_lock": "FP att lägga för att låsa din plats",
           "result": {
-            "error": "En eller flera värden är ogiltiga.",
-            "already_blocked": "Din plats är säkrad.",
             "default": "Du måste lägga minst {{count}} FP för att säkra platsen.",
             "default_plural": "Du måste lägga minst {{count, number}} FP för att säkra platsen.\n",
             "fp_need_to_lock": "FP du måste investera för att säkra din plats.",
             "fp_need_to_lock_plural": "FP du måste investera för att säkra din plats.",
-            "still_to_put": "FP du måste investera ytterligare för att säkra din plats.",
             "fp_to_secure_html": "Du måste lägga {{count}} FP",
+            "fp_to_secure_html_plural": "Du måste lägga {{count, number}} FP.",
+            "error": "En eller flera värden är ogiltiga.",
+            "already_blocked": "Din plats är säkrad.",
+            "still_to_put": "FP du måste investera ytterligare för att säkra din plats.",
             "roi": {
               "profit": "Din förtjänst  kommer att bli {{count}} FP",
               "profit_plural": "Din förtjänst  kommer att bli {{count, number}} FP",
@@ -229,7 +230,6 @@
               "loss_plural": "Din förlust kommer att bli {{count, number}} FP",
               "neutral": "Du kommer inte att få retur på din investering"
             },
-            "fp_to_secure_html_plural": "Du måste lägga {{count, number}} FP.",
             "cant_block": "Du kan inte säkra platsen."
           },
           "unknown": "okänd"
@@ -251,6 +251,8 @@
         "show_ratio": "Visa förhållande"
       },
       "site_layout": {
+        "update": "En uppdatering sedan ditt senaste besök.",
+        "update_plural": "{{count}}  uppdaterinarg sedan ditt senaste besök.",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "Ett uppsättning verktyg att underlätta livet på $t(common:links.foe)"
@@ -266,8 +268,6 @@
         "survey": {
           "message": "Hjälp oss att förbättra $t(common:site_title) genom att fylla i denna enkät"
         },
-        "update": "En uppdatering sedan ditt senaste besök.",
-        "update_plural": "{{count}}  uppdaterinarg sedan ditt senaste besök.",
         "whats_new": "Vad är nytt ?",
         "permalink_info": "You besöker via en \"permalänk\", följdaktligen kommer inga ändringar att sparas (i kakor).",
         "footer": {
@@ -353,13 +353,16 @@
         "variables": {
           "place": {
             "PI": "Platsindex",
-            "PV": "Plats värde (i FP)"
+            "PV": "Plats värde (i FP)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Från nivå",
             "TLVL": "Till nivå",
             "GBN": "MB namn",
             "P": "Plats",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Antal FP att läggas av ägaren för plats \"x\" (\"x\" avser 1 till 5)",
             "LF": "Fältmatning, lägg till ny rad"
           }
         },

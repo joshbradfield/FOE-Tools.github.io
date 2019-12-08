@@ -14,7 +14,8 @@
       "es": { "en": "Spanish", "original": "Español" },
       "sk": { "en": "Slovak", "original": "Slovensko" },
       "tr": { "en": "Turkish", "original": "Türkçe" },
-      "it": { "en": "Italian", "original": "Italiana" }
+      "it": { "en": "Italian", "original": "Italiana" },
+      "cs": { "en": "Czech", "original": "čeština" }
     },
     "language_selector": {
       "en": "$t(common:lang.en.original)",

@@ -675,6 +675,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "najbic (CZ)",
+      "name": "najbic (CZ)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.cz.forgeofempires.com/index.php?members/najbic.15840/",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "commitConvention": "none"

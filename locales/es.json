@@ -108,14 +108,14 @@
               "is_sniper": "Hay un apostador potencial?"
             },
             "tbody": {
+              "button_show_extra_investor": "Mostrar inversionista extra",
+              "button_hide_extra_investor": "Ocultar inversinista extra",
+              "loss": "Este jugador perderá PFs",
               "tooltip_owner_investment": "PFs pendientes a poner por el dueño para asegurar el lugar",
               "tooltip_expected_investment": "Inversión esperada",
-              "button_show_extra_investor": "Mostrar inversionista extra",
               "button_show_extra_investor_plural": "Mostrar inversionistas extras",
-              "button_hide_extra_investor": "Ocultar inversinista extra",
               "button_hide_extra_investor_plural": "Ocultar inversionistas extras",
               "profit": "Este jugador obtendrá ganancias",
-              "loss": "Este jugador perderá PFs",
               "loss_plural": "Este jugador perderá PFs",
               "neutral": "Este jugador ni ganará ni perderá PFs"
             },
@@ -166,9 +166,9 @@
         "custom_percentage": "Personalizar el bono del Arca (para cada nivel)",
         "estimated_time": "Estimar el tiempo para alcanzar el nivel",
         "message": {
+          "diff": "Con inversiones con bono, ahorrarás {{count}} PFs",
           "single": "Para completar el nivel {{level}} de $t({{gb}}), el propietario debe invertir {{preparation, number}} PFs. Costo total del nivel : {{cost, number}} PFs",
           "multi": "Para competar el nivell {{from}} a {{to}} de \"$t({{gb}})\", el propietario debe invertir {{preparation, number}}PFs. Coste Total del nivel: {{cost, number}} PFs.",
-          "diff": "Con inversiones con bono, ahorrarás {{count}} PFs",
           "diff_plural": "Con inversiones con bono, ahorrarás  {{count, number}} PFs",
           "estimated_time": "Tiempo estimado para alcanzar el nivel: {{time}}"
         },
@@ -197,32 +197,32 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "Cantidad de PFs pendientes para completar el nivel",
+          "place": "{{place}}({{count, number}} FP)",
           "title": "Bloquear su lugar",
           "level_cost": "Costo del nivel",
           "current_deposits": "Suma de los depósitos actuales",
           "your_participation": "Tu participación actual",
           "other_participation": "Participación del jugador a adelantar",
-          "fp_to_complete_level": "Cantidad de PFs pendientes para completar el nivel",
           "fp_to_complete_level_plural": "Cantidad de PFs pendientes para completar el nivel",
           "your_arc_bonus": "El bono de tu Arca",
           "fp_target_reward": "PFs del lugar objetivo",
           "target_reward": "Lugar objetivo",
-          "place": "{{place}}({{count, number}} FP)",
           "place_plural": "{{place}}({{count, number}} FPs)",
           "various_rate": "Varias tasas",
           "result": {
+            "default": "Debes totalizar {{count}} PFs para bloquear el lugar",
+            "fp_need_to_lock": "PFs necesarios para bloquear tu lugar",
+            "fp_to_secure_html": "Aun te falta poner  {{count}} PFs",
             "error": "Uno o más valores no son válidos",
             "already_blocked": "Tu lugar está bloqueado",
-            "default": "Debes totalizar {{count}} PFs para bloquear el lugar",
             "default_plural": "Debes haber totalizado  {{count, number}} PFs para bloquear el lugar",
-            "fp_need_to_lock": "PFs necesarios para bloquear tu lugar",
             "fp_need_to_lock_plural": "PFs necesarios para bloquear tu lugar",
             "still_to_put": "Cantidad de PFs que aun necesitas poner",
-            "fp_to_secure_html": "Aun te falta poner  {{count}} PFs",
             "roi": {
               "profit": "Ti ganancia será de {{count}} PFs",
-              "profit_plural": "Tu ganancia será de  {{count, number}} PFs",
               "loss": "Tu pérdida será de {{count}} PFs",
+              "profit_plural": "Tu ganancia será de  {{count, number}} PFs",
               "loss_plural": "Tu pérdida será de {{count, number}} PFs",
               "neutral": "No obtendrás retorno por tu inversión"
             },
@@ -1255,10 +1255,10 @@
       },
       "moment": {
         "year": "{{count}} año",
-        "year_plural": "{{count, number}} años",
         "month": "{{count}} mes",
-        "month_plural": "{{count}} meses",
         "day": "{{count}} día",
+        "year_plural": "{{count, number}} años",
+        "month_plural": "{{count}} meses",
         "day_plural": "{{count}} días"
       },
       "graph": {

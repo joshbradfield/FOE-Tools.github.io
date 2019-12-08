@@ -86,6 +86,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Hats"/><br /><sub><b>Hats</b></sub><br /><a href="#ideas-Hats" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="Gold Fluffy (FR)"/><br /><sub><b>Gold Fluffy (FR)</b></sub><br /><a href="#ideas-Gold Fluffy (FR)" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://forum.cz.forgeofempires.com/index.php?members/najbic.15840/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt="najbic (CZ)"/><br /><sub><b>najbic (CZ)</b></sub></a><br /><a href="#translation-najbic (CZ)" title="Translation">🌍</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->

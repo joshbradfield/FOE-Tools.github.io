@@ -93,14 +93,14 @@
               "is_sniper": "Várható, hogy előzni fog?"
             },
             "tbody": {
+              "button_show_extra_investor": "Mutasd a többi befektetőt",
+              "button_hide_extra_investor": "Rejtsd el a többi befektetőt",
+              "loss": "Ez a játékos FP-t fog veszíteni",
               "tooltip_owner_investment": "A tulajdonos által még beteendő FP-k a hely biztosításához",
               "tooltip_expected_investment": "Várható beruházás",
-              "button_show_extra_investor": "Mutasd a többi befektetőt",
               "button_show_extra_investor_plural": "Mutasd a többi befektetőt",
-              "button_hide_extra_investor": "Rejtsd el a többi befektetőt",
               "button_hide_extra_investor_plural": "Rejtsd el a többi befektetőt",
               "profit": "Ez a játékos nyereségre tesz szert",
-              "loss": "Ez a játékos FP-t fog veszíteni",
               "loss_plural": "Ez a játékos FP-ket fog veszíteni",
               "neutral": "Ez a játékos nem fog sem nyerni, sem veszíteni FP-t"
             },
@@ -147,9 +147,9 @@
         "custom_percentage": "Egyéni Bárka bónusz (minden helyhez)",
         "estimated_time": "A szint eléréséhez szükséges becsült idő: {{time}}",
         "message": {
+          "diff": "Bónuszbefektetésekkel megtakarítasz:  {{count}} FP-t",
           "single": "A $t({{gb}}) nevezetes {{level}} szintjének elérése a tulajdonosnak {{preparation, number}} FP-be kerül. A teljes költség: {{cost, number}} FP.",
           "multi": "A $t({{gb}}) nevezetes épület {{from}} szintől {{to}} szintre való fejlesztésének költsége a tulajdonos számára {{preparation, number}}\nA szintlépések teljes összköltésge: {{cost, number}}",
-          "diff": "Bónuszbefektetésekkel megtakarítasz:  {{count}} FP-t",
           "diff_plural": "Bónuszbefektetésekkel megtakarítasz: {{count, number}} FP-t",
           "estimated_time": "A kívánt szint eléréséhez szükséges idő: {{time}}"
         },
@@ -176,24 +176,24 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level": "A szint befejezéséhez szükséges FP-k száma",
+          "place": "{{place}}({{count, number}} FP)",
           "title": "Helyezés biztosítása",
           "level_cost": "Szint költsége",
           "current_deposits": "Jelenleg betett összes FP-k száma",
           "your_participation": "Általad betett FP-k száma",
           "other_participation": "A megelőzni kívánt játékos által betett FP-k száma",
-          "fp_to_complete_level": "A szint befejezéséhez szükséges FP-k száma",
           "fp_to_complete_level_plural": "A szint befejezéséhez szükséges FP-k száma",
           "your_arc_bonus": "Bárka bónuszod",
           "fp_target_reward": "Megszerezni kívánt helyezés költsége",
           "target_reward": "Megszerezni kívánt helyezés",
-          "place": "{{place}}({{count, number}} FP)",
           "result": {
+            "fp_need_to_lock": "Saját helyezés biztosításához szükséges FP mennyiség",
+            "fp_to_secure_html": "Még {{count}} FP-t kell betenned",
             "error": "Egy vagy több érték érvénytelen.",
             "already_blocked": "A helyed védett.",
-            "fp_need_to_lock": "Saját helyezés biztosításához szükséges FP mennyiség",
             "fp_need_to_lock_plural": "Saját helyezés biztosításához szükséges FP mennyiség",
             "still_to_put": "Még ennyi FP-t kell betenned",
-            "fp_to_secure_html": "Még {{count}} FP-t kell betenned",
             "roi": {
               "profit": "A nyereséged {{count}} FP lesz",
               "loss": "A vesztesége {{count}} FP lesz",
@@ -1072,10 +1072,10 @@
       "Hide": "Elrejt",
       "moment": {
         "year": "{{count}} év",
-        "year_plural": "{{count, number}} év",
         "month": "{{count}} hónap",
-        "month_plural": "{{count}} hónap",
         "day": "{{count}} nap",
+        "year_plural": "{{count, number}} év",
+        "month_plural": "{{count}} hónap",
         "day_plural": "{{count}} nap"
       },
       "graph": {

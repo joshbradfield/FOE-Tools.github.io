@@ -108,14 +108,17 @@
               "is_sniper": "Môže sa snažiť o získanie pozície ?"
             },
             "tbody": {
+              "button_show_extra_investor_0": "Ukáž ďalšieho prispievateľa",
+              "button_show_extra_investor_2": "Ukáž ďalších prispievateľov",
+              "button_hide_extra_investor_0": "Skry ďalšieho prispievateľa",
+              "button_hide_extra_investor_2": "Skry ďalších prispievateľov",
+              "loss_0": "Tento hráč stratí BV",
+              "loss_2": "Tento hráč stratí viac BV",
               "tooltip_owner_investment": "Zostávajúci počet BV, ktoré musí majiteľ vložiť na zaistenie pozície ",
               "tooltip_expected_investment": "Očakávaná investícia",
-              "button_show_extra_investor": "Ukáž ďalšieho prispievateľa",
               "button_show_extra_investor_plural": "Ukáž ďalších prispievateľov",
-              "button_hide_extra_investor": "Skry ďalšieho prispievateľa",
               "button_hide_extra_investor_plural": "Skry ďalších prispievateľov",
               "profit": "Tento hráč bude mať zisk",
-              "loss": "Tento hráč stratí BV",
               "loss_plural": "Tento hráč stratí viac BV",
               "neutral": "Tento hráč nezarobí ani nestratí BV"
             },
@@ -166,9 +169,10 @@
         "custom_percentage": "Rôzny bonus Oblúka (pre každé miesto)",
         "estimated_time": "Predpokladaný čas na uzavretie úrovne",
         "message": {
+          "diff_0": "S bonusom investícií ušetríte {{count}} BV",
+          "diff_2": "S bonusom investícií ušetríte {{count, number}} BV",
           "single": "Na dokončenie  {{level}} úrovne v „$t({{gb}})“, musí majiteľ investovať {{preparation, number}}  BV. Celkové náklady na úroveň: {{cost, number}} BV.",
           "multi": "Na zvýšenie \"$t({{gb}})\" z {{from}} na {{to}} úroveň, musí majiteľ investovať {{preparation, number}} BV. Celková cena úrovní: {{cost, number}} BV.",
-          "diff": "S bonusom investícií ušetríte {{count}} BV",
           "diff_plural": "S bonusom investícií ušetríte {{count, number}} BV",
           "estimated_time": "Predpokladaný čas na uzavretie úrovne: {{time}}"
         },
@@ -197,35 +201,42 @@
       },
       "secure_position": {
         "block_place": {
+          "fp_to_complete_level_0": "BV zostávajúci do uzavretia úrovne:",
+          "fp_to_complete_level_2": "BV zostávajúcich do uzavretia úrovne:",
+          "place_0": "{{place}}({{count, number}} BV)",
+          "place_2": "{{place}} ({{count, number}} BV)",
           "title": "Zablokujte jeho pozíciu",
           "level_cost": "Cena úrovne",
           "current_deposits": "Suma terajších investícií",
           "your_participation": "Váš aktuálny vklad",
           "other_participation": "BV hráča, s ktorým treba rátať pri zaisťovaní pozície",
-          "fp_to_complete_level": "BV zostávajúci do uzavretia úrovne:",
           "fp_to_complete_level_plural": "BV zostávajúcich do uzavretia úrovne:",
           "your_arc_bonus": "Váš bonus Oblúka",
           "fp_target_reward": "BV na požadovanú pozíciu",
           "target_reward": "Požadovaná pozícia",
-          "place": "{{place}}({{count, number}} BV)",
           "place_plural": "{{place}} ({{count, number}} BV)",
           "various_rate": "Rôzne hodnoty",
           "rate": "Bonus",
           "fp_according_rate": "Vložiť BV podla aktuálneho bonusu",
           "fp_to_lock": "Vložiť BV na zaistenie Vašej pozície",
           "result": {
+            "default_0": "Musíte mať celkovo {{count}} BV na zablokovanie pozície.",
+            "default_2": "Musíte mať celkovo {{count, number}} BV na zablokovanie pozície.",
+            "fp_need_to_lock_0": "BV potrebný na zaistenie Vašej pozície:",
+            "fp_need_to_lock_2": "BV potrebných na zaistenie Vašej pozície:",
+            "fp_to_secure_html_0": "Stále musíte vložiť {{count}} BV.",
+            "fp_to_secure_html_2": "Stále musíte vložiť {{count, number}}BV.",
             "error": "Jedna alebo viac premenných nemajú správnu hodnotu.",
             "already_blocked": "Vaša pozícia je zablokovaná.",
-            "default": "Musíte mať {{count}} BV na zablokovanie pozície.",
             "default_plural": "Musíte mať celkovo {{count, number}} BV na zablokovanie pozície.",
-            "fp_need_to_lock": "Na zaistenie Vašej pozície potrebujete vložiť BV:",
             "fp_need_to_lock_plural": "Na zaistenie Vašej pozície potrebujete vložiť toľko BV:",
             "still_to_put": "Počet BV ktoré ešte musíte vložiť",
-            "fp_to_secure_html": "Stále musíte vložiť {{count}} BV.",
             "roi": {
-              "profit": "Váš zisk bude {{count}} BV",
+              "profit_0": "Váš zisk bude {{count}} BV",
+              "profit_2": "Váš zisk bude {{count, number}} BV",
+              "loss_0": "Vaša strata bude {{count}} BV",
+              "loss_2": "Vaša strata bude {{count, number}} BV",
               "profit_plural": "Váš zisk bude {{count, number}} BV",
-              "loss": "Vaša strata bude {{count}} BV",
               "loss_plural": "Vaša strata bude {{count}} BV",
               "neutral": "Vaša investícia sa nevráti"
             },
@@ -251,6 +262,8 @@
         "show_ratio": "Zobraziť pomer"
       },
       "site_layout": {
+        "update_0": "Jedna novinka od Vašej poslednej návštevy",
+        "update_2": "{{count}} noviniek od Vašej poslednej návštevy",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "Zostava náradia pre zjednodušenie života v $t(common:links.foe)"
@@ -260,12 +273,15 @@
           "link": "Viac informácií"
         },
         "new_year": {
-          "message": "$t(common:site_title) oslavuje svoje {{count, number}}  výročie",
+          "message_0": "$t(common:site_title) oslavuje svoj {{count, number}}  rok",
+          "message_2": "$t(common:site_title) oslavuje {{count, number}} rokov",
           "message_plural": "$t(common:site_title) oslavuje svoje {{count, number}}  výročie"
         },
         "survey": {
           "message": "Pomôžte nám vylepšiť  $t(common:site_title) vyplnením tohto dotazníka"
         },
+        "update_plural": "{{count}} noviniek od Vašej poslednej návštevy.",
+        "whats_new": "Čo je nové ?",
         "permalink_info": "Pozeráte sa na permalink. Akékoľvek následné nastavenia sa neuložia do cookies.",
         "footer": {
           "license_html": "Zdrojový kód patrí pod $t(common:links.mit) licenciu",
@@ -350,13 +366,16 @@
         "variables": {
           "place": {
             "PI": "Zoznam pozícií",
-            "PV": "Hodnota pozícií (v BV)"
+            "PV": "Hodnota pozícií (v BV)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Z úrovne",
             "TLVL": "Po úroveň",
             "GBN": "Názov VB",
             "P": "Pozície",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Počet bodov na vloženie majiteľom pre miesto \"x\" (\"x\" je od 1 to 5)",
             "LF": "Riadok, pridajte nový riadok"
           }
         },
@@ -440,7 +459,8 @@
             "promotionMessageList": "Obsahuje zoznam propagačných správ, ktoré chcete zobraziť",
             "customPromotionMessagesTemplates": "Obsahuje všetky vaše upravené propagačné správy",
             "gbShowPrefix": "Označuje, či sa má zobraziť text pred propagačnými správami",
-            "gbShowSuffix": "Označuje, či sa má zobraziť text za propagačnými správami"
+            "gbShowSuffix": "Označuje, či sa má zobraziť text za propagačnými správami",
+            "lastVisitVersion": "Obsahuje verziu stránky z Vašej poslednej návštevy"
           }
         },
         "dev_info": {
@@ -784,6 +804,7 @@
         "tea_silk": "Čajovníkový hodváb"
       },
       "province": {
+        "Alpha_1_Omega_2": "Alpha 1 Omega 2",
         "Dunarsund": "Dunarsund",
         "Fel_Dranghyr": "Fel Dranghyr",
         "Tyr": "Tyr",
@@ -1055,7 +1076,6 @@
         "Spoiled_Resort": "Spoiled Resort",
         "Fort_Duplex": "Fort Duplex",
         "LoneHub": "LoneHub",
-        "Alpha_1_Omega_2": "Alpha 1 Omega 2",
         "Ray_s_Ray_s": "Ray's Ray's",
         "Purple_Palace": "Purple Palace",
         "Three_Oc3ans": "Three Oc3ans",
@@ -1269,11 +1289,14 @@
         "field_cannot_be_empty": "Toto políčko nemôže ostať prázdne"
       },
       "moment": {
-        "year": "{{count}} rok",
+        "year_0": "{{count}} rok",
+        "year_2": "{{count, number}} rokov",
+        "month_0": "{{count}} mesiac",
+        "month_2": "{{count}} mesiacov",
+        "day_0": "{{count}} deň",
+        "day_2": "{{count}} dní",
         "year_plural": "{{count, number}} roky",
-        "month": "{{count}} mesiac",
         "month_plural": "{{count}} mesiace",
-        "day": "{{count}} deň",
         "day_plural": "{{count}} dni"
       },
       "graph": {
