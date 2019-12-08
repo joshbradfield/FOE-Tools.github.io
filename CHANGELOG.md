@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.59.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.58.0...v2.59.0) (2019-12-08)
+
+
+### Features
+
+* **l10n:** add Czech ([80c618f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/80c618f7b6546f6d255f1138c88177583dbe1d9a))
+
 ## [2.58.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.57.0...v2.58.0) (2019-12-01)
 
 
