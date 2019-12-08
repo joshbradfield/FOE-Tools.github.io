@@ -21,8 +21,22 @@ const dataCheckResult = [
     value: 500,
     splitValue: 1000,
     result: [
-      { key: "IronAge", amount: 2000, split: [{ from: 1000, to: 500, count: 2 }, { from: 0, to: 0 }] },
-      { key: "EarlyMiddleAges", amount: 1000, split: [{ from: 1000, to: 500, count: 1 }, { from: 0, to: 0 }] },
+      {
+        key: "IronAge",
+        amount: 2000,
+        split: [
+          { from: 1000, to: 500, count: 2 },
+          { from: 0, to: 0 }
+        ]
+      },
+      {
+        key: "EarlyMiddleAges",
+        amount: 1000,
+        split: [
+          { from: 1000, to: 500, count: 1 },
+          { from: 0, to: 0 }
+        ]
+      },
       { key: "HighMiddleAges", amount: 500 }
     ]
   },
@@ -32,8 +46,22 @@ const dataCheckResult = [
     value: 427,
     splitValue: 100,
     result: [
-      { amount: 1708, key: "IronAge", split: [{ count: 17, from: 100, to: 50 }, { from: 8, to: 4 }] },
-      { amount: 854, key: "EarlyMiddleAges", split: [{ count: 8, from: 100, to: 50 }, { from: 54, to: 27 }] },
+      {
+        amount: 1708,
+        key: "IronAge",
+        split: [
+          { count: 17, from: 100, to: 50 },
+          { from: 8, to: 4 }
+        ]
+      },
+      {
+        amount: 854,
+        key: "EarlyMiddleAges",
+        split: [
+          { count: 8, from: 100, to: 50 },
+          { from: 54, to: 27 }
+        ]
+      },
       { amount: 427, key: "HighMiddleAges" }
     ]
   },
@@ -43,8 +71,22 @@ const dataCheckResult = [
     value: 12000,
     splitValue: 1000,
     result: [
-      { amount: 3000, key: "HighMiddleAges", split: [{ count: 6, from: 500, to: 1000 }, { from: 0, to: 0 }] },
-      { amount: 6000, key: "EarlyMiddleAges", split: [{ count: 12, from: 500, to: 1000 }, { from: 0, to: 0 }] },
+      {
+        amount: 3000,
+        key: "HighMiddleAges",
+        split: [
+          { count: 6, from: 500, to: 1000 },
+          { from: 0, to: 0 }
+        ]
+      },
+      {
+        amount: 6000,
+        key: "EarlyMiddleAges",
+        split: [
+          { count: 12, from: 500, to: 1000 },
+          { from: 0, to: 0 }
+        ]
+      },
       { amount: 12000, key: "IronAge" }
     ]
   }

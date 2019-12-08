@@ -17,7 +17,7 @@ function factory(numeral) {
     ordinal: function(number) {
       let a = Math.abs(number) % 10,
         b = Math.abs(number) % 100;
-      if ((a === 1 || a === 2) && (b !== 11 && b !== 12)) {
+      if ((a === 1 || a === 2) && b !== 11 && b !== 12) {
         return ":a";
       }
       return ":e";

@@ -454,7 +454,7 @@ module.exports = {
   },
 
   router: {
-    middleware: "i18next",
+    middleware: "i18next"
   },
   plugins: [
     { src: "~/plugins/i18next.js" },
