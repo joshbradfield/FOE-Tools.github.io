@@ -17,11 +17,7 @@ export default {
     messageInterpolation: {
       type: Array,
       default: () => {
-        return [
-          { key: "FLVL", value: 9 },
-          { key: "TLVL", value: 10 },
-          { key: "OP", value: 430 }
-        ];
+        return [{ key: "FLVL", value: 9 }, { key: "TLVL", value: 10 }, { key: "OP", value: 430 }];
       }
     },
     placesInterpolationValues: {

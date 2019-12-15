@@ -21,10 +21,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with extra investors (2 snip for P1 and P2)", () => {
-      const extraInvestors = [
-        { value: 1069, isPotentialSniper: false },
-        { value: 537, isPotentialSniper: false }
-      ];
+      const extraInvestors = [{ value: 1069, isPotentialSniper: false }, { value: 537, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(42, [90, 90, 90, 90, 90], agesCost.TheFuture, extraInvestors);
 
       expect(result).toMatchSnapshot();
@@ -49,10 +46,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with investor that secure place with P1 780 instead of 181 and P3 10 instead of 29", () => {
-      const extraInvestors = [
-        { value: 780, isPotentialSniper: false },
-        { value: 10, isPotentialSniper: false }
-      ];
+      const extraInvestors = [{ value: 780, isPotentialSniper: false }, { value: 10, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(10, [90, 90, 90, 90, 90], agesCost.PostmodernEra, extraInvestors);
       expect(result).toMatchSnapshot();
     });
@@ -155,10 +149,7 @@ describe("FoeGbInvestment", () => {
     });
 
     test("Valid value with Château Frontenac level 85 → 86, with two investor at 100 PFs", () => {
-      const extraInvestors = [
-        { value: 100, isPotentialSniper: false },
-        { value: 100, isPotentialSniper: false }
-      ];
+      const extraInvestors = [{ value: 100, isPotentialSniper: false }, { value: 100, isPotentialSniper: false }];
       const result = GbProcess.ComputeLevelInvestment(
         86,
         [80, 80, 80, 80, 80],
@@ -220,10 +211,7 @@ describe("FoeGbInvestment", () => {
         20,
         [90, 90, 90, 90, 90],
         gbsData.Temple_of_Relics.levels,
-        [
-          { value: 600, isPotentialSniper: true },
-          { value: 30, isPotentialSniper: true }
-        ],
+        [{ value: 600, isPotentialSniper: true }, { value: 30, isPotentialSniper: true }],
         0
       );
 

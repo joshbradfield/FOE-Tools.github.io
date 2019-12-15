@@ -21,10 +21,7 @@ for (let i = 0; i < rewards.length; i++) {
   ]);
 }
 
-const messageInterpolation = [
-  { key: "FLVL", value: 9 },
-  { key: "TLVL", value: 10 }
-];
+const messageInterpolation = [{ key: "FLVL", value: 9 }, { key: "TLVL", value: 10 }];
 
 const results = [
   {

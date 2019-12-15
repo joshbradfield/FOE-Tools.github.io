@@ -1,19 +1,19 @@
 {
   "BronzeAge": 159,
-  "IronAge": 118,
-  "EarlyMiddleAges": 138,
+  "IronAge": 119,
+  "EarlyMiddleAges": 139,
   "HighMiddleAges": 115,
   "LateMiddleAges": 144,
-  "ColonialAge": 107,
+  "ColonialAge": 108,
   "IndustrialAge": 106,
   "ProgressiveEra": 183,
   "ModernEra": 109,
-  "PostmodernEra": 136,
+  "PostmodernEra": 137,
   "ContemporaryEra": 126,
   "Tomorrow": 104,
   "TheFuture": 183,
-  "ArcticFuture": 137,
+  "ArcticFuture": 143,
   "OceanicFuture": 116,
   "VirtualFuture": 123,
-  "SpaceAgeMars": 105
+  "SpaceAgeMars": 106
 }

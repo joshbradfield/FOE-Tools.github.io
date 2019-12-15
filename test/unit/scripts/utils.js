@@ -184,14 +184,7 @@ describe("Utils", () => {
   });
 
   describe("checkFormNumeric", () => {
-    const inputComparatorValues = [
-      ["<", 6],
-      ["<=", 5],
-      [">", 4],
-      [">=", 5],
-      ["==", 5],
-      ["===", 5]
-    ];
+    const inputComparatorValues = [["<", 6], ["<=", 5], [">", 4], [">=", 5], ["==", 5], ["===", 5]];
 
     for (const value of inputComparatorValues) {
       test(`[LOOP] Valid value with change, checkFormNumeric(5, 4, ${JSON.stringify(value)})`, () => {
@@ -308,10 +301,7 @@ describe("Utils", () => {
     test("Valid value split [1, 2, 3, 4, 5] into arrays with max size of 3", () => {
       const result = Utils.splitArray([1, 2, 3, 4, 5], 3);
 
-      expect(result).toEqual([
-        [1, 2, 3],
-        [4, 5]
-      ]);
+      expect(result).toEqual([[1, 2, 3], [4, 5]]);
     });
 
     test(
@@ -319,10 +309,7 @@ describe("Utils", () => {
       () => {
         const result = Utils.splitArray([1, 2, 3, 4, 5], 3, true);
 
-        expect(result).toEqual([
-          [1, 2, 3],
-          [4, 5, null]
-        ]);
+        expect(result).toEqual([[1, 2, 3], [4, 5, null]]);
       }
     );
 
