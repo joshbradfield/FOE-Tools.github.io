@@ -684,6 +684,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "TBone1985 (DK)",
+      "name": "TBone1985 (DK)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png",
+      "profile": "https://forum.dk.forgeofempires.com/index.php?members/tbone1985.2832/",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "commitConvention": "none"
