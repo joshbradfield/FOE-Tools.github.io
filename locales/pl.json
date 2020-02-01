@@ -114,10 +114,10 @@
               "button_hide_extra_investor_3": "Ukryj dodatkowych inwestorów",
               "loss_0": "Ten gracz straci PR",
               "loss_3": "Ten gracz straci PRy",
-              "tooltip_owner_investment": "Ilość PR'ów, którą musi jeszcze wrzucić właściciel aby zablokować miejsce",
-              "tooltip_expected_investment": "Spodziewana inwestycja",
               "button_show_extra_investor_plural": "Pokaż dodatkowych inwestorów",
               "button_hide_extra_investor_plural": "Ukryj dodatkowych inwestorów",
+              "tooltip_owner_investment": "Ilość PR'ów, którą musi jeszcze wrzucić właściciel aby zablokować miejsce",
+              "tooltip_expected_investment": "Spodziewana inwestycja",
               "profit": "Ten gracz zarobi",
               "loss_plural": "Ten gracz straci PRy",
               "neutral": "Ten gracz nie zarobi ani nie straci PR"
@@ -208,9 +208,9 @@
           "title": "Zablokuj jego miejsce",
           "level_cost": "Koszt poziomu",
           "current_deposits": "Suma obecnych wpłat",
+          "fp_to_complete_level_plural": "Liczba pozostałych punktów rozwoju by ukończyć poziom:",
           "your_participation": "Twój obecny wkład",
           "other_participation": "Udział gracza aby wyprzedzić",
-          "fp_to_complete_level_plural": "Liczba pozostałych punktów rozwoju by ukończyć poziom:",
           "your_arc_bonus": "Twój bonus Arki",
           "fp_target_reward": "PR na docelowe miejsce",
           "target_reward": "Docelowe miejsce",
@@ -226,11 +226,9 @@
             "fp_need_to_lock_3": "Punkty Rozwoju, które musisz wpłacić aby zablokować miejsce:",
             "fp_to_secure_html_0": "Wciąż musisz wrzucić {{count}} PR.",
             "fp_to_secure_html_3": "Wciąż musisz wrzucić {{count, number}} PR.",
-            "error": "Jedna lub więcej wartości jest błędna.",
-            "already_blocked": "Twoje miejsce jest już zablokowane.",
             "default_plural": "Musisz łącznie mieć {{count, number}} PR by zablokować to miejsce.",
             "fp_need_to_lock_plural": "Punkty Rozwoju, które musisz wpłacić aby zablokować miejsce:",
-            "still_to_put": "Liczba Punktów Rozwoju które nadal musisz wpłacić",
+            "error": "Jedna lub więcej wartości jest błędna.",
             "roi": {
               "profit_0": "Zyskasz {{count}} PR",
               "profit_3": "Zyskasz {{count, number}} PR",
@@ -240,6 +238,8 @@
               "loss_plural": "Stracisz {{count, number}} PR",
               "neutral": "Nie otrzymasz zwrotu z inwestycji"
             },
+            "already_blocked": "Twoje miejsce jest już zablokowane.",
+            "still_to_put": "Liczba Punktów Rozwoju które nadal musisz wpłacić",
             "fp_to_secure_html_plural": "Wciąż musisz wrzucić {{count, number}} PR.",
             "cant_block": "Nie możesz zablokować miejsca."
           },
@@ -801,6 +801,7 @@
         "tea_silk": "Jedwab herbaciany"
       },
       "province": {
+        "Alpha_1_Omega_2": "Alpha 1 Omega 2",
         "Dunarsund": "Dunarsund",
         "Fel_Dranghyr": "Fel Dranghyr",
         "Tyr": "Tyr",
@@ -1072,7 +1073,6 @@
         "Spoiled_Resort": "Spoiled Resort",
         "Fort_Duplex": "Fort Duplex",
         "LoneHub": "LoneHub",
-        "Alpha_1_Omega_2": "Alpha 1 Omega 2",
         "Ray_s_Ray_s": "Ray's Ray's",
         "Purple_Palace": "Purple Palace",
         "Three_Oc3ans": "Three Oc3ans",

@@ -109,18 +109,19 @@
             },
             "tbody": {
               "button_show_extra_investor": "Extra investeerder tonen",
+              "button_show_extra_investor_plural": "Extra investeerders tonen",
               "button_hide_extra_investor": "Extra investeerder verbergen",
+              "button_hide_extra_investor_plural": "Extra investeerders verbergen",
               "loss": "Deze speler verliest FP",
+              "loss_plural": "Deze speler verliest FP's",
               "tooltip_owner_investment": "De door de eigenaar nog te storten FPs om de plaats veilig te stellen",
               "tooltip_expected_investment": "Verwachte investering",
-              "button_show_extra_investor_plural": "Extra investeerders tonen",
-              "button_hide_extra_investor_plural": "Extra investeerders verbergen",
               "profit": "Deze speler maakt (FP) winst",
-              "loss_plural": "Deze speler verliest FP's",
               "neutral": "Deze speler maakt geen winst of verlies"
             },
             "tfoot": {
               "total_preparation": "Totale investering door eigenaar",
+              "tooltip_owner_investment": "Aantal FP's over om het niveau af te ronden: {{count, number}}",
               "level_cost": "Kosten niveau"
             }
           },
@@ -167,9 +168,9 @@
         "estimated_time": "Schat tijd om het volgende niveau te halen",
         "message": {
           "diff": "Inclusief bonus investeringen, bespaar je {{count}} FP",
+          "diff_plural": "Inclusief bonus investeringen, bespaar je {{count, number}} FP's",
           "single": "Om Van - Tot level(s) {{level}} van \"$t({{gb}})\" af te ronden, moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van niveau: {{cost, number}} FP's.",
           "multi": "Om van level {{from}} naar {{to}} te gaan van \"$t({{gb}})\", moet de eigenaar {{preparation, number}} FP's investeren. Totale kosten van niveau: {{cost, number}} FP's.",
-          "diff_plural": "Inclusief bonus investeringen, bespaar je {{count, number}} FP's",
           "estimated_time": "Geschatte tijd om het niveau te halen: {{time}}"
         },
         "prop_already_invested": "Reeds door de eigenaar geïnvesteerde FP's voor het huidige niveau",
@@ -198,38 +199,38 @@
       "secure_position": {
         "block_place": {
           "fp_to_complete_level": "FP over om het niveau af te ronden: {{count}}",
+          "fp_to_complete_level_plural": "Hoeveelheid FP's over om het niveau af te ronden: {{count, number}}",
           "place": "{{place}}({{count, number}} FP)",
+          "place_plural": "{{place}}({{count, number}} FP's)",
           "title": "Positie veilig stellen",
           "level_cost": "Kosten niveau",
           "current_deposits": "Som van de actuele stortingen",
           "your_participation": "Jouw actuele bijdrage",
           "other_participation": "Bijdrage van de in te halen speler",
-          "fp_to_complete_level_plural": "Hoeveelheid FP's over om het niveau af te ronden: {{count, number}}",
           "your_arc_bonus": "Jouw Arc bonus",
           "fp_target_reward": "FP's van de beoogde positie",
           "target_reward": "Beoogde positie",
-          "place_plural": "{{place}}({{count, number}} FP's)",
           "various_rate": "Verschillende tarieven",
           "rate": "Bonus",
           "fp_according_rate": "FP te storten afhankelijk van % Arc Bonus",
           "fp_to_lock": "FP te storten om P (Plek) veilig te stellen",
           "result": {
-            "default": "Je moet totaal {{count}} FP hebben gestort om de positie veilig te stellen.",
-            "fp_need_to_lock": "FP te storten om je plaats veilig te stellen:",
-            "fp_to_secure_html": "Je moet nog {{count}} FP storten.",
-            "error": "Één of meer waarden zijn niet geldig.",
-            "already_blocked": "Je positie is veilig.",
+            "default": "Stort totaal {{count}} FP om positie veilig te stellen.",
             "default_plural": "Je moet totaal {{count, number}} FP's hebben gestort om de positie veilig te stellen.",
+            "fp_need_to_lock": "FP te storten om je plaats veilig te stellen:",
             "fp_need_to_lock_plural": "FPs te storten om je plaats veilig te stellen:",
-            "still_to_put": "Aantal FP's nog te storten",
+            "fp_to_secure_html": "Je moet nog {{count}} FP storten.",
+            "fp_to_secure_html_plural": "Je moet nog {{count, number}} FP's storten.",
+            "error": "Één of meer waarden zijn niet geldig.",
             "roi": {
               "profit": "Je zult {{count}} FP winnen",
-              "loss": "Je verliest {{count}} FP",
               "profit_plural": "Je zult {{count, number}} FP's winnen",
+              "loss": "Je verliest {{count}} FP",
               "loss_plural": "Je verliest {{count, number}} FP's",
               "neutral": "Je zult geen winst op je investering ontvangen"
             },
-            "fp_to_secure_html_plural": "Je moet nog {{count, number}} FP's storten.",
+            "already_blocked": "Je positie is veilig.",
+            "still_to_put": "Aantal FP's nog te storten",
             "cant_block": "Je kunt de positie niet veilig stellen."
           },
           "unknown": "onbekend"
@@ -266,6 +267,8 @@
         "survey": {
           "message": "Help ons om $t(common:site_title) te verbeteren door deze enquête in te vullen"
         },
+        "update_plural": "{{count}}updates sinds uw laatste bezoek.",
+        "whats_new": "Wat is er nieuw ?",
         "permalink_info": "Je bezoekt een permalink. Daardoor zullen de wijzigingen niet worden opgeslagen in een cookie.",
         "footer": {
           "license_html": "Broncode onder $t(common:links.mit) licentie",
@@ -350,13 +353,16 @@
         "variables": {
           "place": {
             "PI": "Plaats de index",
-            "PV": "Waarde plaats (in FPs)"
+            "PV": "Waarde plaats (in FPs)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Van niveau",
             "TLVL": "Naar niveau",
             "GBN": "GG naam",
             "P": "Posities",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Aantal PF's te storten door de eigenaar voor plaats \"x\" (met \"x\" van 1 tot 5)",
             "LF": "Enter, Voeg nieuwe regel toe"
           }
         },
@@ -440,7 +446,8 @@
             "promotionMessageList": "Bevat de lijst met promotiebericht die u wilt weergeven",
             "customPromotionMessagesTemplates": "Bevat al uw aangepaste promotiebericht",
             "gbShowPrefix": "Geeft aan of u het voorvoegsel in promotieberichten wilt weergeven",
-            "gbShowSuffix": "Geeft aan of u het achtervoegsel in promotieberichten wilt weergeven"
+            "gbShowSuffix": "Geeft aan of u het achtervoegsel in promotieberichten wilt weergeven",
+            "lastVisitVersion": "Bevat de versie van de site van uw laatste bezoek"
           }
         },
         "dev_info": {
@@ -1270,10 +1277,10 @@
       },
       "moment": {
         "year": "{{count}} jaar",
-        "month": "{{count}} maand",
-        "day": "{{count}} dag",
         "year_plural": "{{count, number}} jaren",
+        "month": "{{count}} maand",
         "month_plural": "{{count}} maanden",
+        "day": "{{count}} dag",
         "day_plural": "{{count}} dagen"
       },
       "graph": {

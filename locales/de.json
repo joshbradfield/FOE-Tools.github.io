@@ -121,6 +121,7 @@
             },
             "tfoot": {
               "total_preparation": "Gesamtinvestition durch Eigentümer",
+              "tooltip_owner_investment": "Durch Eigentümer zu setzende FPs, um das Level zu beenden:",
               "level_cost": "Stufenpreis"
             }
           },
@@ -198,38 +199,38 @@
       "secure_position": {
         "block_place": {
           "fp_to_complete_level": "Anzahl der verbleibenden FP, um das Level zu beenden:",
+          "fp_to_complete_level_plural": "Anzahl der verbleibenden FPs, um das Level zu beenden:",
           "place": "{{place}} ({{count, number}} FP)",
+          "place_plural": "{{place}} ({{count, number}} FPs)",
           "title": "Blockiere seinen Platz",
           "level_cost": "Stufenkosten",
           "current_deposits": "Aktuelle Investitionssumme",
           "your_participation": "Deine aktuelle Beteiligung",
           "other_participation": "Beteiligung des Spielers, welcher überholt werden soll",
-          "fp_to_complete_level_plural": "Anzahl der verbleibenden FPs, um das Level zu beenden:",
           "your_arc_bonus": "Dein Archebonus",
           "fp_target_reward": "FP des anvisierten Platzes",
           "target_reward": "Anvisierter Platz",
-          "place_plural": "{{place}} ({{count, number}} FPs)",
           "various_rate": "Verschiedene Tarife",
           "rate": "Bonusfaktor",
           "fp_according_rate": "FP, welche abhängig von dem Bonusfaktor zu setzen sind",
           "fp_to_lock": "Noch zu setzende FPs, um deinen Platz abzusichern",
           "result": {
             "default": "Du brauchst insgesamt {{count}} FP um den Platz zu blocken.",
-            "fp_need_to_lock": "Verbleibender FP, um deinen Platz abzusichern:",
-            "fp_to_secure_html": "Du musst noch einen {{count}} FP investieren.",
-            "error": "Ein oder mehrere Werte sind ungültig.",
-            "already_blocked": "Dein Platz ist gesichert.",
             "default_plural": "Du brauchst insgesamt {{count, number}} FPs um den Platz zu blocken.",
+            "fp_need_to_lock": "Verbleibender FP, um deinen Platz abzusichern:",
             "fp_need_to_lock_plural": "Verbleibende FPs, um deinen Platz abzusichern:",
-            "still_to_put": "Anzahl der FPs, die du noch investieren musst",
+            "fp_to_secure_html": "Du musst noch einen {{count}} FP investieren.",
+            "fp_to_secure_html_plural": "Du musst noch {{count, number}} FPs investieren.",
+            "error": "Ein oder mehrere Werte sind ungültig.",
             "roi": {
               "profit": "Dein Gewinn wird {{count}} FP betragen",
-              "loss": "Dein Verlust wird {{count}} FP betragen",
               "profit_plural": "Dein Gewinn wird {{count, number}} FPs betragen",
+              "loss": "Dein Verlust wird {{count}} FP betragen",
               "loss_plural": "Dein Verlust wird {{count, number}} FPs betragen",
               "neutral": "Du wirst kein Gewinn machen"
             },
-            "fp_to_secure_html_plural": "Du musst noch {{count, number}} FPs investieren.",
+            "already_blocked": "Dein Platz ist gesichert.",
+            "still_to_put": "Anzahl der FPs, die du noch investieren musst",
             "cant_block": "Du kannst diesen Platz nicht blockieren."
           },
           "unknown": "unbekannt"
@@ -252,6 +253,7 @@
       },
       "site_layout": {
         "update": "Ein Update seit deinem letzten Besuch.",
+        "update_plural": "{{count}} Updates seit deinem letzten Besuch",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "Eine Sammlung an Tools, welche das Leben in $t(common:links.foe) vereinfacht"
@@ -267,7 +269,6 @@
         "survey": {
           "message": "Hilf uns $t(common:site_title) zu verbessern, indem du diese Umfrage ausfüllst"
         },
-        "update_plural": "{{count}} Updates seit deinem letzten Besuch",
         "whats_new": "Was gibt es Neues?",
         "permalink_info": "Du besuchst einen Permalink. Änderungen werden daher nicht in den Cookies gespeichert.",
         "footer": {
@@ -1277,10 +1278,10 @@
       },
       "moment": {
         "year": "{{count}} Jahr",
-        "month": "{{count}} Monat",
-        "day": "{{count}} Tag",
         "year_plural": "{{count, number}} Jahre",
+        "month": "{{count}} Monat",
         "month_plural": "{{count}} Monate",
+        "day": "{{count}} Tag",
         "day_plural": "{{count}} Tage"
       },
       "graph": {

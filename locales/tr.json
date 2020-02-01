@@ -109,14 +109,14 @@
             },
             "tbody": {
               "button_show_extra_investor": "Ekstra yatırımcı göster",
+              "button_show_extra_investor_plural": "Ekstra yatırımcıları göster",
               "button_hide_extra_investor": "Ekstra yatırımcıyı gizle",
+              "button_hide_extra_investor_plural": "Ekstra yatırımcıları gizle",
               "loss": "Bu oyuncu FP kaybedece",
+              "loss_plural": "Bu oyuncu FP kaybedecek",
               "tooltip_owner_investment": "Sıranın garantilenmesi için bina sahibinin atması gereken kalan FP miktarı",
               "tooltip_expected_investment": "Beklenen yatırım",
-              "button_show_extra_investor_plural": "Ekstra yatırımcıları göster",
-              "button_hide_extra_investor_plural": "Ekstra yatırımcıları gizle",
               "profit": "Bu oyuncu kar edecek",
-              "loss_plural": "Bu oyuncu FP kaybedecek",
               "neutral": "Bu oyuncu ne kar eder ne de zarar"
             },
             "tfoot": {
@@ -167,9 +167,9 @@
         "estimated_time": "Seviyeye ulaşmak için tahmini zaman",
         "message": {
           "diff": "Atılan bonuslu FP'lerle, {{count}} FP kazanç sağlayacaksınız.",
+          "diff_plural": "Bonuslarla birlikte, {{count, number}} FP tasarruf edeceksiniz",
           "single": "$t({{gb}}) binasının {{level}} seviyesini tamamlamak için bina sahibi {{preparation, number}} FP atmalıdır. Bu seviyenin toplam maliyeti: {{cost, number}} FP.",
           "multi": "$t({{gb}}) Devasal Binasının, Seviye {{from}}'den {{to}}'e geçmesi için; bina sahibinin {{preparation, number}} FP yatırması gerekiyor. Tüm seviyeler için gereken toplam FP: {{cost, number}}",
-          "diff_plural": "Bonuslarla birlikte, {{count, number}} FP tasarruf edeceksiniz",
           "estimated_time": "Bu seviyeye ulaşmak için gereken zaman: {{time}}"
         },
         "prop_already_invested": "Bina sahibinin şu anki seviyede atmış olduğu FP",
@@ -198,38 +198,38 @@
       "secure_position": {
         "block_place": {
           "fp_to_complete_level": "Bu seviyeyi tamamlamak için gereken FP sayısı:",
+          "fp_to_complete_level_plural": "Bu seviyeyi tamamlamak için gereken FP sayısı:",
           "place": "{{place}} ({{count, number}} FP)",
+          "place_plural": "{{place}} ({{count, number}} FP)",
           "title": "Birinin sırasını kilitle",
           "level_cost": "Seviyenin toplam maliyeti",
           "current_deposits": "Yatırımların toplamı",
           "your_participation": "Güncel yatırımınız",
           "other_participation": "Geçilecek oyuncunun yatırımı",
-          "fp_to_complete_level_plural": "Bu seviyeyi tamamlamak için gereken FP sayısı:",
           "your_arc_bonus": "Ark bonusunuz",
           "fp_target_reward": "Hedeflenen sıra için gereken FP",
           "target_reward": "Hedeflenen sıra",
-          "place_plural": "{{place}} ({{count, number}} FP)",
           "various_rate": "Değişik oranlar",
           "rate": "Oran",
           "fp_according_rate": "Orana göre atılacak FP",
           "fp_to_lock": "Sıranızı kilitlemek için atılacak FP",
           "result": {
             "default": "Sırayı kilitlemek için {{count}} FP'ye sahip olmalısınız.",
-            "fp_need_to_lock": "Sırayı kilitlemek için için sahip olmanız gereken FP:",
-            "fp_to_secure_html": "Hala {{count}} FP atmanız gerekli.",
-            "error": "Bir veya daha fazla değer geçersiz.",
-            "already_blocked": "Sıranız kilitlendi",
             "default_plural": "Sırayı kilitlemek için {{count, number}} FP'ye sahip olmalısınız.",
+            "fp_need_to_lock": "Sırayı kilitlemek için için sahip olmanız gereken FP:",
             "fp_need_to_lock_plural": "Yerinizi garantilemeniz için yatırmanız gereken FP sayısı",
-            "still_to_put": "Hala yatırmanız gereken FP sayısı",
+            "fp_to_secure_html": "Hala {{count}} FP atmanız gerekli.",
+            "fp_to_secure_html_plural": "Hala  {{count, number}} FP atmanız gerekli.",
+            "error": "Bir veya daha fazla değer geçersiz.",
             "roi": {
               "profit": "{{count}} FP kazanacaksınız",
-              "loss": "{{count}} FP kaybedeceksiniz",
               "profit_plural": "{{count, number}} FP kazancaksınız",
+              "loss": "{{count}} FP kaybedeceksiniz",
               "loss_plural": "{{count, number}} FP kaybedeceksiniz",
               "neutral": "Bu yatırımdan kazancınız olmayacak"
             },
-            "fp_to_secure_html_plural": "Hala  {{count, number}} FP atmanız gerekli.",
+            "already_blocked": "Sıranız kilitlendi",
+            "still_to_put": "Hala yatırmanız gereken FP sayısı",
             "cant_block": "Bu sırayı kilitleyemezsin."
           },
           "unknown": "bilinmeyen"
@@ -252,6 +252,7 @@
       },
       "site_layout": {
         "update": "Son ziyaretinizden bu yana bir güncelleme var.",
+        "update_plural": "Son ziyaretinizden bu yana {{count}} güncelleme var.",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "$t(common:links.foe) tecrübenizi kolaylaştırmaya yaran birkaç araç."
@@ -267,7 +268,6 @@
         "survey": {
           "message": "Bu anketi tamamlayarak $t(common:site_title) sitemizi geliştirmemize yardım edin"
         },
-        "update_plural": "Son ziyaretinizden bu yana {{count}} güncelleme var.",
         "whats_new": "Yeni ne var ?",
         "permalink_info": "Kalıcı bir bağlantı ziyaret ediyorsunuz. Yapılan değişiklikler çerezlere kaydedilmeyecektir.",
         "footer": {
@@ -1274,10 +1274,10 @@
       },
       "moment": {
         "year": "{{count}} yıl",
-        "month": "{{count}} ay",
-        "day": "{{count}} gün",
         "year_plural": "{{count, number}} years",
+        "month": "{{count}} ay",
         "month_plural": "{{count}} ay",
+        "day": "{{count}} gün",
         "day_plural": "{{count}} gün"
       },
       "graph": {

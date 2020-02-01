@@ -105,10 +105,10 @@
               "button_show_extra_investor_0": "Показать дополнительного вкладчика",
               "button_hide_extra_investor_0": "Скрыть дополнительного вкладчика",
               "loss_0": "Этот игрок потеряет СО",
-              "tooltip_owner_investment": "СО, которые должен вложить владелец для гарантии места",
-              "tooltip_expected_investment": "Ожидаемые вложения",
               "button_show_extra_investor_plural": "Показать дополнительных вкладчиков",
               "button_hide_extra_investor_plural": "Скрыть дополнительных вкладчиков",
+              "tooltip_owner_investment": "СО, которые должен вложить владелец для гарантии места",
+              "tooltip_expected_investment": "Ожидаемые вложения",
               "profit": "Этот игрок получит прибыль",
               "loss_plural": "Этот игрок потеряет СО",
               "neutral": "Этот игрок не получит прибыль, ни потерять СО"
@@ -191,9 +191,9 @@
           "title": "Обеспечение гарантии",
           "level_cost": "Стоимость уровня",
           "current_deposits": "Сумма вложений на данный момент",
+          "fp_to_complete_level_plural": "Количество СО, которые осталось вложить до закрытия уровня: {{count}}",
           "your_participation": "Ваше вложение",
           "other_participation": "Вложение игрока, которого нужно обойти",
-          "fp_to_complete_level_plural": "Количество СО, которые осталось вложить до закрытия уровня: {{count}}",
           "your_arc_bonus": "Бонус вашей Арки",
           "fp_target_reward": "СО планируемого места",
           "target_reward": "Ожидаемое место",
@@ -201,9 +201,8 @@
           "result": {
             "default_0": "Вы должны вложить всего {{count}} СО, чтобы занять место.",
             "fp_to_secure_html_0": "Вам нужно добавить еще {{count}} СО.",
-            "error": "Одно или несколько значений не верны.",
-            "already_blocked": "Это место уже занято.",
             "default_plural": "Вы должны вложить всего {{count, number}} СО, чтобы занять место.",
+            "error": "Одно или несколько значений не верны.",
             "roi": {
               "profit_0": "Вы получите {{count}} СО",
               "loss_0": "Вы потеряете {{count}} СО",
@@ -211,6 +210,7 @@
               "loss_plural": "Вы потеряете {{count, number}} СО",
               "neutral": "Вы не получите возврат с этого вложения"
             },
+            "already_blocked": "Это место уже занято.",
             "fp_to_secure_html_plural": "Вам нужно вложить еще {{count, number}} СО.",
             "cant_block": "Вы не можете занять это место."
           },

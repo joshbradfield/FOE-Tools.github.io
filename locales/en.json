@@ -222,8 +222,6 @@
             "fp_to_secure_html": "You still have to put {{count}} FP.",
             "fp_to_secure_html_plural": "You still have to put {{count, number}} FPs.",
             "error": "One or more values are not valid.",
-            "already_blocked": "Your place is blocked.",
-            "still_to_put": "Number of FPs you still need to put in",
             "roi": {
               "profit": "Your gain will be {{count}} FP",
               "profit_plural": "Your gain will be {{count, number}} FPs",
@@ -231,6 +229,8 @@
               "loss_plural": "Your loss will be {{count, number}} FPs",
               "neutral": "You will not have a return on investment"
             },
+            "already_blocked": "Your place is blocked.",
+            "still_to_put": "Number of FPs you still need to put in",
             "cant_block": "You can not block the place."
           },
           "unknown": "unknown"

@@ -221,8 +221,6 @@
             "fp_to_secure_html": "Du måste lägga {{count}} FP",
             "fp_to_secure_html_plural": "Du måste lägga {{count, number}} FP.",
             "error": "En eller flera värden är ogiltiga.",
-            "already_blocked": "Din plats är säkrad.",
-            "still_to_put": "FP du måste investera ytterligare för att säkra din plats.",
             "roi": {
               "profit": "Din förtjänst  kommer att bli {{count}} FP",
               "profit_plural": "Din förtjänst  kommer att bli {{count, number}} FP",
@@ -230,6 +228,8 @@
               "loss_plural": "Din förlust kommer att bli {{count, number}} FP",
               "neutral": "Du kommer inte att få retur på din investering"
             },
+            "already_blocked": "Din plats är säkrad.",
+            "still_to_put": "FP du måste investera ytterligare för att säkra din plats.",
             "cant_block": "Du kan inte säkra platsen."
           },
           "unknown": "okänd"
