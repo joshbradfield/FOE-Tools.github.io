@@ -38,7 +38,23 @@ numeralSvSe.init(numeral);
 
 // Constant used
 export const defaultLocale = "en";
-export const supportedLocales = ["en", "fr", "de", "ru", "nl", "hu", "pl", "sv", "pt", "es", "sk", "tr", "it", "cs", "da"];
+export const supportedLocales = [
+  "en",
+  "fr",
+  "de",
+  "ru",
+  "nl",
+  "hu",
+  "pl",
+  "sv",
+  "pt",
+  "es",
+  "sk",
+  "tr",
+  "it",
+  "cs",
+  "da"
+];
 const languageList = ["common"].concat(supportedLocales);
 const resources = { common, en, fr, de, ru, nl, hu, pl, sv, pt, es, sk, tr, it, cs, da };
 
