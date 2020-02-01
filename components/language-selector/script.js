@@ -36,6 +36,8 @@ export default {
         return "se";
       } else if (locale === "cs") {
         return "cz";
+      } else if (locale === "da") {
+        return "dk";
       } else {
         return locale;
       }
