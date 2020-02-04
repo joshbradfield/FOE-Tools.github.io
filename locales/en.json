@@ -163,7 +163,7 @@
       },
       "gb_forecast_cost": {
         "title": "Forecast",
-        "p1": "Determine the number of FPs to go from one level to another, with or without Ark's bonuses.",
+        "p1": "Determine the number of FPs to go from one level to another, with or without Arc's bonuses.",
         "custom_percentage": "Custom Arc bonus (for each place)",
         "estimated_time": "Estimate time to reach the level",
         "message": {
@@ -511,7 +511,7 @@
         "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
         "hero": {
           "title": "Forecast cost GB",
-          "subtitle": "This tool determine the number of FPs to go from one level to another of a GB, with or without Ark's bonuses."
+          "subtitle": "This tool determine the number of FPs to go from one level to another of a GB, with or without Arc's bonuses."
         }
       },
       "gb_statistics": {
