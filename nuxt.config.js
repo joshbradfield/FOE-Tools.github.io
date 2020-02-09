@@ -335,8 +335,9 @@ const modifyHtml = (page, locale) => {
   return "<!DOCTYPE html>\n" + window.document.querySelector("html").outerHTML;
 };
 
-function generateSitemapRoutes(baseURL, locales, routes) {
+function generateSitemapRoutes(locales, routes) {
   const result = [];
+  const baseURL = "";
   const lastmodISO = new Date().toISOString();
   for (let route of routes) {
     let obj = {};
@@ -427,7 +428,7 @@ const sitemap =
     ? {
         sitemap: {
           hostname,
-          routes: generateSitemapRoutes(hostname, supportedLocales, defaultRoutes),
+          routes: generateSitemapRoutes(supportedLocales, defaultRoutes),
           exclude: ["/survey", "/**/survey"]
         }
       }
