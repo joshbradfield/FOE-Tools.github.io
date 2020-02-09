@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.62.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.61.0...v2.62.0) (2020-02-09)
+
+
+### Features
+
+* **gb-investment:** show all place by default when "Show only secured places" is set to "No" ([0cf1e87](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0cf1e8782b83ab25ca7949fb85a62ff49b7a5383)), closes [#301](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/301)
+
+
+### Bug Fixes
+
+* **campaign-cost:** fix missing bionics data in Contemporary Era ([9e9b171](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9e9b171bfd00a87d70f53f65e95a93d773ba0e68))
+
 ## [2.61.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.60.0...v2.61.0) (2020-02-02)
 
 
