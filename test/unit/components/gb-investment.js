@@ -596,6 +596,26 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
 
+  test('Change "showOnlySecuredPlaces" value and revert', () => {
+    const wrapper = factory();
+    const newValue = true;
+    wrapper.vm.ownerInvestment = 402;
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(false);
+    wrapper.vm.showOnlySecuredPlaces = newValue;
+    expect(wrapper.vm.showOnlySecuredPlaces).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sosp"]).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
+      "showOnlySecuredPlaces",
+      newValue,
+      {
+        path: "/",
+        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
+      }
+    ]);
+    wrapper.vm.showOnlySecuredPlaces = !newValue;
+    expect(wrapper.vm.promotion).toMatchSnapshot();
+  });
+
   test('Change "displayTableCard" value', () => {
     const wrapper = factory();
     const newValue = true;

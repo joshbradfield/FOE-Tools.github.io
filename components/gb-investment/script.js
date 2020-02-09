@@ -556,6 +556,12 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
+      if (!val) {
+        for (let i = 0; i < this.result.investment.length; i++) {
+          this.placeFree[i].state = true;
+        }
+        this.updatePromotionMessage();
+      }
       this.updatePlaceFreeWhenOnlySecured();
     },
     showSnipe(val) {
