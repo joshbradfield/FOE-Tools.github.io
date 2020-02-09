@@ -693,6 +693,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "akotulu",
+      "name": "Ako",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1204475?v=4",
+      "profile": "http://existanz.planet.ee",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"

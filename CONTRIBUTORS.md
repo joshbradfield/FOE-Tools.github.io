@@ -89,6 +89,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
   <tr>
     <td align="center"><a href="https://forum.cz.forgeofempires.com/index.php?members/najbic.15840/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt=""/><br /><sub><b>najbic (CZ)</b></sub></a><br /><a href="#translation-najbic (CZ)" title="Translation">🌍</a></td>
     <td align="center"><a href="https://forum.dk.forgeofempires.com/index.php?members/tbone1985.2832/"><img src="https://forum.en.forgeofempires.com/styles/foe_mx/xenforo/avatars/avatar_l.png" width="100px;" alt=""/><br /><sub><b>TBone1985 (DK)</b></sub></a><br /><a href="#translation-TBone1985 (DK)" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://existanz.planet.ee"><img src="https://avatars3.githubusercontent.com/u/1204475?v=4" width="100px;" alt=""/><br /><sub><b>Ako</b></sub></a><br /><a href="#ideas-akotulu" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
