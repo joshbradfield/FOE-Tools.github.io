@@ -223,7 +223,7 @@
             "fp_to_secure_html_plural": "Ainda faltam {{contagem, numero}} PF's",
             "error": "Um ou mais valores não são válidos.",
             "roi": {
-              "profit": "Vais ganhar {{count}} PF'",
+              "profit": "Vais ganhar {{count}} PF",
               "profit_plural": "O Ganho será  {{count, number}} PFs",
               "loss": "Ira perder  {{count}} PF's",
               "loss_plural": "O prejuízo será de {{contagem, numero}} PF's",

@@ -252,6 +252,7 @@
         "show_ratio": "verhouding weergeven"
       },
       "site_layout": {
+        "update_plural": "{{count}}updates sinds uw laatste bezoek.",
         "hero": {
           "title": "$t(common:site_title)",
           "slogan_html": "Een set tools om het leven op $t(common:links.foe) te versimpelen."
@@ -267,7 +268,6 @@
         "survey": {
           "message": "Help ons om $t(common:site_title) te verbeteren door deze enquête in te vullen"
         },
-        "update_plural": "{{count}}updates sinds uw laatste bezoek.",
         "whats_new": "Wat is er nieuw ?",
         "permalink_info": "Je bezoekt een permalink. Daardoor zullen de wijzigingen niet worden opgeslagen in een cookie.",
         "footer": {

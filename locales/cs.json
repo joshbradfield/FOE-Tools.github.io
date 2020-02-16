@@ -166,7 +166,7 @@
       },
       "gb_forecast_cost": {
         "title": "Předpověď",
-        "p1": "Určete počet FP, které mají jít z jedné úrovně na druhou, s nebo bez Arkových bonusů.",
+        "p1": "Určete počet FP, potřebných z jedné úrovně do další, s nebo bez Arc bonusů.",
         "custom_percentage": "Bonus vlastního ARCu (za každé místo)",
         "estimated_time": "Přibližný čas na dosažení dalšího evelu",
         "message": {
