@@ -121,6 +121,7 @@
             },
             "tfoot": {
               "total_preparation": "Total investering av ägaren",
+              "tooltip_owner_investment": "FP som återstår för att fylla nivån",
               "level_cost": "Nivåkostnad"
             }
           },

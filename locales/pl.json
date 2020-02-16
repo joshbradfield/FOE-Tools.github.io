@@ -366,13 +366,15 @@
         "variables": {
           "place": {
             "PI": "Umieść znacznik",
-            "PV": "Wpisz wartość(w punktach rozwoju)"
+            "PV": "Wpisz wartość(w punktach rozwoju)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Z poziomu",
             "TLVL": "Do poziomu",
             "GBN": "Nazwa Perły Architektury",
             "P": "Miejsca",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
             "LF": "Line Feed, dodaj nową linię"
           }
         },

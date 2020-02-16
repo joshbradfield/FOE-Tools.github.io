@@ -113,10 +113,10 @@
               "button_hide_extra_investor": "Skjul ekstra bidrager",
               "button_hide_extra_investor_plural": "Skjul ekstra bidragere",
               "loss": "Denne spiller vil miste et FP",
+              "loss_plural": "Denne spiller vil miste FP's",
               "tooltip_owner_investment": "FP der mangler at blive lagt af ejeren for at sikre placeringen",
               "tooltip_expected_investment": "Forventet bidrag",
               "profit": "Denne spille vil tjene FP's",
-              "loss_plural": "Denne spiller vil miste FP's",
               "neutral": "Denne spille vil hverken tjene eller miste FP's"
             },
             "tfoot": {
@@ -199,12 +199,12 @@
       "secure_position": {
         "block_place": {
           "fp_to_complete_level": "Antal af FP der mangler for at fuldføre niveauet:",
+          "fp_to_complete_level_plural": "Antal resterende FP's for at fuldføre niveauet:",
           "place": "{{place}}({{count, number}}FP)",
           "place_plural": "{{place}}({{count, number}}FP's)",
           "title": "Bloker vedkommendes placering",
           "level_cost": "Niveau omkostninger",
           "current_deposits": "Summen af de nuværende bidrag",
-          "fp_to_complete_level_plural": "Antal resterende FP's for at fuldføre niveauet:",
           "your_participation": "Dit nuværende bidrag",
           "other_participation": "Spilleren du vil overhale's bidrag",
           "your_arc_bonus": "Din Ark bonus",

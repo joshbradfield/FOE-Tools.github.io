@@ -121,6 +121,7 @@
             },
             "tfoot": {
               "total_preparation": "Bina sahibinin atması gereken toplam FP",
+              "tooltip_owner_investment": "Seviyeyi tamamlamak için sahibinin atması gereken FP'ler",
               "level_cost": "Seviyenin maliyeti"
             }
           },
@@ -353,13 +354,16 @@
         "variables": {
           "place": {
             "PI": "Sıra dizini",
-            "PV": "Sıra değeri (FP cinsinden)"
+            "PV": "Sıra değeri (FP cinsinden)",
+            "PP": "$t(components.gb_investment.gb_investment.table.thead.th3)"
           },
           "message": {
             "FLVL": "Şu seviyeden",
             "TLVL": "Şu seviyeye",
             "GBN": "Devasal Bina ismi",
             "P": "Sıralar",
+            "OP": "$t(components.gb_investment.gb_investment.table.tfoot.total_preparation)",
+            "PPx": "Sahibin \"x\" sırası için atacağı FP sayısı (\"x\" ile 1'den 5'e kadar)",
             "LF": "Satır akışı, yeni satır ekle"
           }
         },
