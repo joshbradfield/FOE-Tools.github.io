@@ -645,6 +645,16 @@
         "message_translate": "Did you know that you can also help translate the site ? Follow the following link for more information:",
         "message_other_info_html": "If you are developers, you can also create an issue (and contribute to the development of the site) on $t(common:links.github)."
       },
+      "donate": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "donation_message": "$t(common:site_title) is an ad-free, open source project, and I am not doing this for financial gain. Thus, my time spent making this is unpaid. I do however accept donations from anyone who appreciates my work enough that they feel inclined to compensate me, no matter the amount and the way (one-time or monthly). Donations mean a lot to me, as they help cover costs associated with server upkeep, domains and hosting, and general cost of living, and they serve as an incentive for me to keep working on this open-source project.",
+        "conversion": "If you appreciates my work, please consider donation.",
+        "donation_options": "Donate with $t(common:links.donorbox) or $t(common:links.paypal).",
+        "hero": {
+          "title": "$t(utils.Donate)",
+          "subtitle": "Donate to $t(common:site_title)"
+        }
+      },
       "error": {
         "404": {
           "title": "Page not found | $t(common:site_title)",
@@ -1349,6 +1359,7 @@
       "FP": "{{count, number}} FP",
       "FP_plural": "{{count, number}} FPs",
       "Tutorial": "Tutorial",
+      "Donate": "Donate",
       "errors": {
         "field_cannot_be_empty": "This field cannot be empty"
       },

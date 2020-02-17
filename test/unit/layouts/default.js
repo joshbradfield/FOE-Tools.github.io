@@ -79,10 +79,10 @@ describe("Default", () => {
     const wrapper = factory({ ...config.mocks["$cookies"] });
 
     wrapper.vm.updateDayNightCookie("auto");
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(2);
-    expect(config.mocks.$cookies.set.mock.calls[1][0]).toEqual("dayNightMode");
-    expect(config.mocks.$cookies.set.mock.calls[1][1]).toEqual("auto");
-    expect(config.mocks.$cookies.set.mock.calls[1][2].path).toEqual("/");
-    expect(config.mocks.$cookies.set.mock.calls[1][2].expires).toBeTruthy();
+    expect(config.mocks.$cookies.set.mock.calls.length).toBe(3);
+    expect(config.mocks.$cookies.set.mock.calls[2][0]).toEqual("dayNightMode");
+    expect(config.mocks.$cookies.set.mock.calls[2][1]).toEqual("auto");
+    expect(config.mocks.$cookies.set.mock.calls[2][2].path).toEqual("/");
+    expect(config.mocks.$cookies.set.mock.calls[2][2].expires).toBeTruthy();
   });
 });

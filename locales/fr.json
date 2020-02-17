@@ -646,6 +646,16 @@
         "message_translate": "Savez vous que vous pouvez aussi aider à traduire le site ? suivez le lien suivant pour plus d'information :",
         "message_other_info_html": "Si vous êtes développeurs, vous pouvez aussi créer une issue (et contribuer au développement du site) sur $t(common:links.github)."
       },
+      "donate": {
+        "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+        "donation_message": "$t(common:site_title) est un projet open source sans publicité, et je ne le fais pas dans un but lucratif. Par conséquent, le temps que je passe à le réaliser n'est pas rémunéré. J'accepte cependant les dons de toute personne qui apprécie suffisamment mon travail pour être encline à me rémunérer, quel qu'en soit le montant et la façon (ponctuel ou mensuel). Les dons ont une grande importance pour moi, car ils aident à couvrir les coûts liés à la maintenance des serveurs, aux domaines et à l'hébergement, ainsi que le coût de la vie en général, et ils me servent de motivation pour continuer à travailler sur ce projet open-source.",
+        "conversion": "Si vous appréciez mon travail, veuillez envisager de faire un don.",
+        "donation_options": "Faites un don avec $t(common:links.donorbox) ou $t(common:links.paypal).",
+        "hero": {
+          "title": "$t(utils.Donate)",
+          "subtitle": "Faites un don à $t(common:site_title)"
+        }
+      },
       "error": {
         "404": {
           "title": "Page non trouvée | $t(common:site_title)",
@@ -1349,6 +1359,8 @@
       "Done": "Fini",
       "FP": "{{count, number}} PF",
       "FP_plural": "{{count, number}} PFs",
+      "Tutorial": "Tutoriel",
+      "Donate": "Faire un don",
       "errors": {
         "field_cannot_be_empty": "Ce champ ne peut pas être vide"
       },

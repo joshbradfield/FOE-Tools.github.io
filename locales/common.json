@@ -29,7 +29,9 @@
       "style": "<a href=\"https://bulma.io/\">Bulma</a>",
       "contact_foe_tools": "<a href=\"mailto:foe-tools@protonmail.com?subject=FOE-Tools\">foe-tools@protonmail.com</a>",
       "lingohub": "<a href=\"https://lingohub.com/\">LingoHub</a>",
-      "github": "<a href=\"https://github.com/FOE-Tools/FOE-Tools.github.io\">GitHub</a>"
+      "github": "<a href=\"https://github.com/FOE-Tools/FOE-Tools.github.io\">GitHub</a>",
+      "donorbox": "<a href=\"https://donorbox.org/foe-tools\">Donorbox</a>",
+      "paypal": "<a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9WHHPQUXHVJ2Q&source=url\">PayPal</a>"
     },
     "tools": {
       "gb_investment": {
