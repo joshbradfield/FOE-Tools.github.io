@@ -1,4 +1,5 @@
 export function getVideoTag(url, type = "video/mp4") {
+  // eslint-disable-next-line max-len
   return `<div style="text-align:center"><video width="320" height="410" autoplay loop muted><source src="${url}" type="${type}" /></video></div>`;
 }
 
