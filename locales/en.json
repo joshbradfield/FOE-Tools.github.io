@@ -622,7 +622,8 @@
         },
         "p1": "Your language is not available, the translation is incomplete or contains errors? Feel free to join the site's translation team.",
         "how_to_join_the_team": "How to join the team ?",
-        "p2_html": "$t(common:site_title) is translated by users. We use the $t(common:links.lingohub) platform to facilitate the translation process. To join the team send an email (in English) to $t(common:links.contact_foe_tools) specifying the language(s) into which you can translate so that we can send you an invitation."
+        "p2_html": "$t(common:site_title) is translated by users. We use the $t(common:links.translation_platform) platform to facilitate the translation process. To join the team just visit the following link and register: $t(common:links.translation_platform)",
+        "state_of_translation": "State of the translation :"
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",

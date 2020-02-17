@@ -553,7 +553,7 @@
         },
         "p1": "Sua língua  não está disponível, a tradução está incompleta ou contém erros? Sinta-se à vontade para participar na equipe de tradução do site.",
         "how_to_join_the_team": "Como se juntar à equipe?",
-        "p2_html": "$t(common:site_title) é traduzido pelos jogadores. Usamos a plataforma $t(common:links.lingohub) para facilitar o processo de tradução. Para participar da equipe, envie um e-mail (em inglês) para $t(common:links.contact_foe_tools) especificando o (s) idioma (s) para o qual você pode traduzir para que possamos enviar um convite."
+        "p2_html": "$t(common:site_title) é traduzido pelos jogadores. Usamos a plataforma $t(common:links.translation_platform) para facilitar o processo de tradução. Para participar da equipe, envie um e-mail (em inglês) para $t(common:links.contact_foe_tools) especificando o (s) idioma (s) para o qual você pode traduzir para que possamos enviar um convite."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title)| $t(common:site_title)",

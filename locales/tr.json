@@ -553,7 +553,7 @@
         },
         "p1": "Kullandığınız dil henüz listemizde yok. Çeviri hatalı veya eksik mi? Çeviri ekibine aktarmaktan çekinmeyin.",
         "how_to_join_the_team": "Çeviri ekibine nasıl katılırım?",
-        "p2_html": "$t(common:site_title), kullanıcılar tarafından tercüme edilmektedir. Tercüme sürecini $t(common:links.lingohub) üzerinden yürütmekteyiz. Ekibe katılmak için $t(common:links.contact_foe_tools) adresine, hangi dillerde tercüme yapabileceğinizi belirten bir email atabilirsiniz (email İngilizce olmalı); böylece size davet gönderebiliriz."
+        "p2_html": "$t(common:site_title), kullanıcılar tarafından tercüme edilmektedir. Tercüme sürecini $t(common:links.translation_platform) üzerinden yürütmekteyiz. Ekibe katılmak için $t(common:links.contact_foe_tools) adresine, hangi dillerde tercüme yapabileceğinizi belirten bir email atabilirsiniz (email İngilizce olmalı); böylece size davet gönderebiliriz."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",

@@ -566,7 +566,7 @@
         },
         "p1": "Váš jazyk není dostupný, překlad je neúplný nebo obsahuje chyby? Neváhejte a připojte s k překladatelskému týmu.",
         "how_to_join_the_team": "Jak se přidat k týmu?",
-        "p2_html": "$t(common:site_title) překládají ho uživatelé.Pro zjednodušení překladu využíváme $t(common:links.lingohub).Pro připojení k našemu týmu pošlete e-mail (v angličtině) na $t(common:links.contact_foe_tools) uveďte do kterého jazyka by jste chtěli překládat aby jsme Vám mohli poslat pozvánku do našeho týmu."
+        "p2_html": "$t(common:site_title) překládají ho uživatelé.Pro zjednodušení překladu využíváme $t(common:links.translation_platform).Pro připojení k našemu týmu pošlete e-mail (v angličtině) na $t(common:links.contact_foe_tools) uveďte do kterého jazyka by jste chtěli překládat aby jsme Vám mohli poslat pozvánku do našeho týmu."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",

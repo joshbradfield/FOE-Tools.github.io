@@ -565,7 +565,7 @@
         },
         "p1": "Váš jazyk nie je k dispozícii, preklad je neúplný alebo obsahuje chyby? Neváhajte a pripojte sa k prekladateľskému tímu stránky.",
         "how_to_join_the_team": "Ako sa pripojiť k tímu?",
-        "p2_html": "$t(common:site_title) je prekladaný používateľmi. Na uľahčenie prekladania využívame platformu $t(common:links.lingohub). Pre pripojenie sa k týmu pošlite email (v Angličtine) na $t(common:links.contact_foe_tools) kde uveďte do ktorého jazyka by ste chceli prekladať, aby sme Vám mohli postať pozvánku do týmu."
+        "p2_html": "$t(common:site_title) je prekladaný používateľmi. Na uľahčenie prekladania využívame platformu $t(common:links.translation_platform). Pre pripojenie sa k týmu pošlite email (v Angličtine) na $t(common:links.contact_foe_tools) kde uveďte do ktorého jazyka by ste chceli prekladať, aby sme Vám mohli postať pozvánku do týmu."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",

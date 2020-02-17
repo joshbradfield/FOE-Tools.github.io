@@ -552,7 +552,7 @@
         },
         "p1": "Uw taal is niet beschikbaar, de vertaling is onvolledig of bevat fouten? Voel je vrij om deel te nemen aan het vertaalteam van de site.",
         "how_to_join_the_team": "Hoe wordt je lid van het team?",
-        "p2_html": "$t(common:site_title) wordt vertaald door gebruikers. We gebruiken het $t(common:links.lingohub)-platform om het vertaalproces te vergemakkelijken. Om lid te worden van het team, stuur een e-mail (in het Engels) naar $t(common:links.contact_foe_tools) met de taal (talen) waarin u kunt vertalen, zodat we u een uitnodiging kunnen sturen."
+        "p2_html": "$t(common:site_title) wordt vertaald door gebruikers. We gebruiken het $t(common:links.translation_platform)-platform om het vertaalproces te vergemakkelijken. Om lid te worden van het team, stuur een e-mail (in het Engels) naar $t(common:links.contact_foe_tools) met de taal (talen) waarin u kunt vertalen, zodat we u een uitnodiging kunnen sturen."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
