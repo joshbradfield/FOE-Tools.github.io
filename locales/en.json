@@ -66,6 +66,28 @@
             "message": "With the current bonus of $t(foe_data.gb.Chateau_Frontenac), you will earn more coins and more supplies than you will use to complete the quests. Please choose the number of \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" you want to do.",
             "label": "Cumulative quest"
           }
+        },
+        "tutorial": {
+          "welcome": "This tool is purely informal. It gives you information about what you can statistically obtain with your $t(foe_data.gb.Chateau_Frontenac).",
+          "yourAge": "Select your Age.",
+          "yourCfBoost": "Put your $t(foe_data.gb.Chateau_Frontenac) boost.\n\nExample: for 450%, put 450.",
+          "coins": "Put the number of coins you want to use for all quests.",
+          "supplies": "Put the number of supplies you want to use for all quests.",
+          "goods": "Put the number of goods you gather from your GB and plunder.",
+          "fpBy24h": "Put the number of FPs you obtain in 24 hours.",
+          "checkSecondQuest": "From $t(foe_data.age.LateMiddleAges), you can do a second recurring quest. Set \"$t(utils.Yes)\" if you want to do the second recurring quest.\n\n<i><b>Note</b>: It suppose that the second reccuring quest are: gather X supplies.</i>.",
+          "suppliesGathered": "Put the number of supplies you want to use for the second recurring quest.",
+          "otherRq": "Set the other daily recurring quests you have currently done.",
+          "infiniteGenerator": "This section are show only when the $t(foe_data.gb.Chateau_Frontenac) boost (according to your Age) give you statistically more coins and supply that you will spend.",
+          "cumulativeQuest": "In that case, you need to set the number of Quests you want to do.",
+          "tableReward": "This table shows you the rewards that you will earn. Keep in mind that the values are based on an empirical probability.",
+          "totalGoods": "Number of goods you will earn with quests, GBs, etc.",
+          "totalFp": "Number of FPs you will earn with quests, GBs, etc.",
+          "totalRqCompleted": "Total of recurring quests you can (statistically) complete.",
+          "dailyUbq": "Number of Unbirthday Quests that you can complete according with what you are willing to spend in coins and supplies.",
+          "bonusUbq": "Number of Unbirthday Quests that you can (statistically) complete with your initial coins and supplies and what you will earn.",
+          "secondRqCompleted": "Number of second recurring quests that you can complete.",
+          "coinSupplyReturn": "This table show you the number of coins and supplies that you will earn statistically from the initial investment (with what you are willing to spend in coins and supplies)."
         }
       },
       "gb_investment": {

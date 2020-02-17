@@ -2,6 +2,8 @@ import questData from "~/lib/foe-data/rq-quests";
 import cfCalculatorProcess from "~/lib/foe-compute-process/cf-calculator";
 import Utils from "~/scripts/utils";
 import YesNo from "~/components/yes-no/YesNo";
+import Shepherd from "shepherd.js";
+import { formatTuto } from "~/scripts/tutorial";
 
 const i18nPrefix = "components.cf_calculator.";
 const urlPrefix = "cfc_";
@@ -57,7 +59,8 @@ export default {
       fpBy24h: 0,
       otherRq: 0,
       suppliesGathered: 0,
-      cumulativeQuest: 0
+      cumulativeQuest: 0,
+      tutoMode: false
     };
 
     for (let key in data) {
@@ -455,6 +458,98 @@ export default {
       }
 
       return result;
+    },
+    startTour: /* istanbul ignore next */ function() {
+      let tour = new Shepherd.Tour({
+        defaultStepOptions: {
+          classes: "buefy-theme",
+          scrollTo: true,
+          showCancelLink: true,
+          shepherdElementMaxHeight: "100%",
+          shepherdElementMaxWidth: "100%"
+        },
+        classPrefix: "buefy-",
+        useModalOverlay: true
+      });
+
+      const defaultOptions = {
+        scrollTo: { behavior: "smooth", block: "center" },
+        canClickTarget: false,
+        cancelIcon: {
+          enabled: true
+        },
+        buttons: [
+          {
+            action: tour.back,
+            classes: "button is-info",
+            text: this.$t("utils.Previous")
+          },
+          {
+            action: tour.next,
+            classes: "button is-info is-margin-left-auto",
+            text: this.$t("utils.Next")
+          }
+        ]
+      };
+
+      tour.addStep({
+        id: "welcome",
+        text: formatTuto(this.$t(i18nPrefix + "tutorial.welcome")),
+        ...defaultOptions,
+        buttons: [
+          {
+            action: tour.cancel,
+            classes: "button is-link is-disabled",
+            text: this.$t("utils.Exit")
+          },
+          {
+            action: tour.next,
+            classes: "button is-info is-margin-left-auto",
+            text: this.$t("utils.Next")
+          }
+        ]
+      });
+
+      const commonInfo = [
+        { keyId: "yourAge", tagId: "#your-age-container" },
+        { keyId: "yourCfBoost", tagId: "#your-cf-boost-container" },
+        { keyId: "coins", tagId: "#coins-container" },
+        { keyId: "supplies", tagId: "#supplies" },
+        { keyId: "goods", tagId: "#goods-container" },
+        { keyId: "fpBy24h", tagId: "#fp-by-24h-container" },
+        { keyId: "checkSecondQuest", tagId: "#checkSecondQuest" },
+        { keyId: "suppliesGathered", tagId: "#supplies-gathered-container" },
+        { keyId: "otherRq", tagId: "#other-rq-container" },
+        { keyId: "infiniteGenerator", tagId: "#infinityGenerator" },
+        { keyId: "cumulativeQuest", tagId: "#cumulativeQuest-container" },
+        { keyId: "tableReward", tagId: "#tableReward" },
+        { keyId: "totalGoods", tagId: "#totalGoods" },
+        { keyId: "totalFp", tagId: "#totalFp" },
+        { keyId: "totalRqCompleted", tagId: "#totalRqCompleted" },
+        { keyId: "dailyUbq", tagId: "#dailyUbq" },
+        { keyId: "bonusUbq", tagId: "#bonusUbq" },
+        { keyId: "secondRqCompleted", tagId: "#secondRqCompleted" },
+        { keyId: "coinSupplyReturn", tagId: "#coinSupplyReturn" }
+      ];
+
+      for (const elt of commonInfo) {
+        tour.addStep({
+          id: elt.keyId,
+          text: formatTuto(this.$t(i18nPrefix + "tutorial." + elt.keyId)),
+          attachTo: { element: elt.tagId, on: "top" },
+          ...defaultOptions
+        });
+      }
+
+      let self = this;
+      tour.on("cancel", () => {
+        self.$data.tutoMode = false;
+      });
+      tour.on("complete", () => {
+        self.$data.tutoMode = false;
+      });
+      this.$data.tutoMode = true;
+      tour.start();
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";

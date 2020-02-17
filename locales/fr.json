@@ -66,6 +66,28 @@
             "message": "Avec le bonus actuel du $t(foe_data.gb.Chateau_Frontenac), vous allez gagner plus de pièces d'or et de marchandises que ce que vous allez utiliser pour accomplir les quêtes. Veuillez choisir le nombre de « $t(components.cf_calculator.block_cfc.infinity_generator.label) » que vous souhaitez faire.",
             "label": "Quête cumulée"
           }
+        },
+        "tutorial": {
+          "welcome": "Cet outil est purement informel. Il vous donne des informations sur ce que vous pouvez statistiquement obtenir avec votre $t(foe_data.gb.Chateau_Frontenac).",
+          "yourAge": "Sélectionnez votre âge.",
+          "yourCfBoost": "Mettez le bonus de votre $t(foe_data.gb.Chateau_Frontenac).\n\nExemple : pour 450%, mettez 450.",
+          "coins": "Indiquez le nombre de pièces d'or que vous souhaitez utiliser pour toutes les quêtes.",
+          "supplies": "Indiquez le nombre de marchandises que vous souhaitez utiliser pour toutes les quêtes.",
+          "goods": "Indiquez le nombre de ressources que vous avez récoltés de votre GM et pillage.",
+          "fpBy24h": "Mettez le nombre de PFs que vous obtenez tous les 24 heures.",
+          "checkSecondQuest": "A partir de $t(foe_data.age.LateMiddleAges), vous pouvez faire une deuxième quête récurrente. Mettre \"$t(utils.Yes)\" si vous voulez faire la deuxième quête récurrente.\n\n<i><b>Note</b> : On suppose que la deuxième quête récurrente est : Collecter X marchandises.</i>.",
+          "suppliesGathered": "Indiquez le nombre de marchandises que vous souhaitez utiliser pour la deuxième quête récurrente.",
+          "otherRq": "Indiquez les autres quêtes récurrentes que vous avez effectuées aujourd'hui.",
+          "infiniteGenerator": "Cette section n'est affichée que lorsque le boost $t(foe_data.gb.Chateau_Frontenac) (en fonction de votre âge) vous donne statistiquement plus de pièces d'or et de marchandises que vous allez en dépenser pour faire les quêtes.",
+          "cumulativeQuest": "Dans ce cas, vous devez indiquez le nombre de quêtes que vous voulez faire.",
+          "tableReward": "Ce tableau vous indique les récompenses que vous gagnerez. N'oubliez pas que les valeurs sont basées sur une probabilité empirique.",
+          "totalGoods": "Nombre de ressources que vous gagnerez avec les quêtes, les GMs, etc.",
+          "totalFp": "Nombre de PFs que vous gagnerez avec les quêtes, les GMs, etc.",
+          "totalRqCompleted": "Total des quêtes récurrentes que vous pouvez (statistiquement) accomplir.",
+          "dailyUbq": "Nombre de quêtes de Non-anniversaire que vous pouvez accomplir en fonction de ce que vous êtes prêt à dépenser en pièces d'or et en marchandises.",
+          "bonusUbq": "Nombre de quêtes d'anniversaire que vous pouvez (statistiquement) accomplir avec vos pièces d'or et marchandises initiales et ceux que vous allez gagner.",
+          "secondRqCompleted": "Nombre de secondes quêtes récurrentes que vous pouvez accomplir.",
+          "coinSupplyReturn": "Ce tableau vous indique le nombre de pièces d'or et de marchandises que vous gagnerez statistiquement à partir de l'investissement initial (avec ce que vous êtes prêt à dépenser en pièces d'or et marchandises)."
         }
       },
       "gb_investment": {
