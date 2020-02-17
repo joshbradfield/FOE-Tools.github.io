@@ -31,7 +31,7 @@
           "your_age": "Votre age",
           "your_cf_boost": "Le bonus de votre $t(foe_data.gb.Chateau_Frontenac)",
           "coins_to_use": "PO à utiliser dans la quête de Rinbin",
-          "coins_supplies_info": "Cette valeur doit être supérieure ou égale à {{min}} car en dessous on ne peut garantir aucun profit (statistiquement)",
+          "coins_supplies_info": "Cette valeur doit être supérieure ou égale à {{min, number}} car en dessous on ne peut garantir aucun profit (statistiquement)",
           "supplies_to_use": "Marchandises à utiliser dans la quête de Rinbin",
           "gb_plunder_goods": "Ressources obtenues par les GMs et le pillage",
           "fp_by_24h": "Production de PF par 24h ",
@@ -66,6 +66,28 @@
             "message": "Avec le bonus actuel du $t(foe_data.gb.Chateau_Frontenac), vous allez gagner plus de pièces d'or et de marchandises que ce que vous allez utiliser pour accomplir les quêtes. Veuillez choisir le nombre de « $t(components.cf_calculator.block_cfc.infinity_generator.label) » que vous souhaitez faire.",
             "label": "Quête cumulée"
           }
+        },
+        "tutorial": {
+          "welcome": "Cet outil est purement informel. Il vous donne des informations sur ce que vous pouvez statistiquement obtenir avec votre $t(foe_data.gb.Chateau_Frontenac).",
+          "yourAge": "Sélectionnez votre âge.",
+          "yourCfBoost": "Mettez le bonus de votre $t(foe_data.gb.Chateau_Frontenac).\n\nExemple : pour 450%, mettez 450.",
+          "coins": "Indiquez le nombre de pièces d'or que vous souhaitez utiliser pour toutes les quêtes.",
+          "supplies": "Indiquez le nombre de marchandises que vous souhaitez utiliser pour toutes les quêtes.",
+          "goods": "Indiquez le nombre de ressources que vous avez récoltés de votre GM et pillage.",
+          "fpBy24h": "Mettez le nombre de PFs que vous obtenez tous les 24 heures.",
+          "checkSecondQuest": "A partir de $t(foe_data.age.LateMiddleAges), vous pouvez faire une deuxième quête récurrente. Mettre \"$t(utils.Yes)\" si vous voulez faire la deuxième quête récurrente.\n\n<i><b>Note</b> : On suppose que la deuxième quête récurrente est : Collecter X marchandises.</i>.",
+          "suppliesGathered": "Indiquez le nombre de marchandises que vous souhaitez utiliser pour la deuxième quête récurrente.",
+          "otherRq": "Indiquez les autres quêtes récurrentes que vous avez effectuées aujourd'hui.",
+          "infiniteGenerator": "Cette section n'est affichée que lorsque le boost $t(foe_data.gb.Chateau_Frontenac) (en fonction de votre âge) vous donne statistiquement plus de pièces d'or et de marchandises que vous allez en dépenser pour faire les quêtes.",
+          "cumulativeQuest": "Dans ce cas, vous devez indiquez le nombre de quêtes que vous voulez faire.",
+          "tableReward": "Ce tableau vous indique les récompenses que vous gagnerez. N'oubliez pas que les valeurs sont basées sur une probabilité empirique.",
+          "totalGoods": "Nombre de ressources que vous gagnerez avec les quêtes, les GMs, etc.",
+          "totalFp": "Nombre de PFs que vous gagnerez avec les quêtes, les GMs, etc.",
+          "totalRqCompleted": "Total des quêtes récurrentes que vous pouvez (statistiquement) accomplir.",
+          "dailyUbq": "Nombre de quêtes de Non-anniversaire que vous pouvez accomplir en fonction de ce que vous êtes prêt à dépenser en pièces d'or et en marchandises.",
+          "bonusUbq": "Nombre de quêtes d'anniversaire que vous pouvez (statistiquement) accomplir avec vos pièces d'or et marchandises initiales et ceux que vous allez gagner.",
+          "secondRqCompleted": "Nombre de secondes quêtes récurrentes que vous pouvez accomplir.",
+          "coinSupplyReturn": "Ce tableau vous indique le nombre de pièces d'or et de marchandises que vous gagnerez statistiquement à partir de l'investissement initial (avec ce que vous êtes prêt à dépenser en pièces d'or et marchandises)."
         }
       },
       "gb_investment": {
@@ -80,12 +102,12 @@
             "p2_html": "<strong>Note</strong> : Si la mise à jour ne se fait pas automatiquement, dans un premier temps, définissez le niveau du GM et la valeur d'investissement globale et cliquez sur « $t(components.gb_investment.gb_investment.form.submit_global) ». Si vous souhaitez ajuster les valeurs de chaque place, ajuster à votre convenance et cliquez sur « $t(components.gb_investment.gb_investment.form.submit_custom) »."
           },
           "form": {
-            "level": "Niveau {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "level": "Niveau {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
             "investor_percentage": "% de bonus (grosses arches) global des investisseurs",
             "submit_global": "Calcul global",
             "submit_custom": "Calcul personnalisé",
-            "owner_investment": "Nombre de PFs actuellement mis par le propriétaire (max {{max}})",
-            "add_investors": "Ajouter un investisseur (mettre la valeur en PF, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "owner_investment": "Nombre de PFs actuellement mis par le propriétaire (max {{max, number}})",
+            "add_investors": "Ajouter un investisseur (mettre la valeur en PF, $t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
             "tooltip_add_investors": "Cliquez sur le bouton \"$t(utils.Add)\" ou appuyez sur la touche \"Entrée\" pour ajouter un investisseur",
             "investors_list": "Liste des investisseurs ajoutés",
             "show_snipe": "Afficher Spot/Snipe",
@@ -134,6 +156,54 @@
           "prefix_placeholder": "texte avant le message de promotion",
           "suffix_placeholder": "texte après le message de promotion",
           "promo": ["P1({{investment}})", "P2({{investment}})", "P3({{investment}})", "P4({{investment}})", "P5({{investment}})"]
+        },
+        "tutorial": {
+          "message": "Tutoriel",
+          "welcome": "Le but de ce tutoriel est d'expliquer toutes les fonctionnalités de cet outil.\nVous pouvez cliquer sur les liens suivants pour en apprendre plus sur certaines notions. Pour continuer, cliquez sur le boutton \"$t(utils.Next)\".",
+          "rush_1_9": {
+            "title": "Rush 1.9, 1.8, etc.",
+            "content": "$t(foe_data.gb.The_Arc) est un GM qui donne un bonus augmentant les récompenses que vous obtenez en vous plaçant parmi les 5 premiers sur le GM de quelqu'un. Ce bonus augmente au fil des niveaux de l'Arche.\n\nC'est ainsi qu'on a commencé à parler de 1.8, 1.9, etc. En réalité, cela représente le bonus de l'Arche.\nEn effet, 1.0 représente la récompense de base, 1.8 représente une récompense avec un Arche niveau 70 (il donne 80% plus de récompense à ce niveau) et 1.9 représente la récompense avec un Arche niveau 80 (90% plus de récompenses).\n\nDes fils exclusivement réservés à ce type d'investissement ont était créer dans les guildes et groupes d'amis. Cela part d'un principe de « Je donne ce que je reçois », limitant ainsi les conflits entre membres de la guilde ou les amis en ne réalisant pas de profits sur leurs GM. Contrairement aux chaînes sans fin, l'autre avantage des fils 1.8, 1.9, etc. est que cela permet de faire gagner un temps considérable pour le propriétaire du GM. En effet, le propriétaire a besoin de mettre uniquement le nombre de PFs nécessaire pour sécuriser des places qui vont être prises par des Arches niveau 80 (dans le cas de fil 1.9).\n\nPrenons un exemple :\n\nImaginons que vous souhaitez monter votre $t(foe_data.gb.Observatory) du niveau 10 au niveau 60 et que vous gagnez $t(utils.FP, { 'count': 50 }) par jour.\nLe coût total des niveaux représente $t(utils.FP, { 'count': 64975 }).\n\nSi vous utilisez des chaînes sans fin, votre investissement sera de l'ordre de 1 pour 1, autrement dit, $t(utils.FP, { 'count': 25 }) investie sur un GM = $t(utils.FP, { 'count': 25 }) qu'un autre joueur va investir sur votre GM. Il faudra donc <strong>investir $t(utils.FP, { 'count': 37320 })</strong> pour atteindre le niveau 60. À $t(utils.FP, { 'count': 50 }) par jour, cela vous prendra <strong>2 ans et 17 jours</strong>.\n\nMaintenant, si vous utilisez un fil 1.9, vous allez devoir <strong>n'investir que $t(utils.FP, { 'count': 12363 })</strong> pour atteindre le niveau 60, soit <strong>une économie de $t(utils.FP, { 'count': 24957 }) !</strong>\nToujours avec $t(utils.FP, { 'count': 50 }) par jour, vous passer de 2 ans et 17 jours à <strong>8 mois et 5 jours</strong> !"
+          },
+          "snipe": {
+            "title": "Snipe",
+            "content": "Le snipe est le fait qu'un joueur prenne une place sur un GM afin de réaliser un profit, en ne respectant généralement pas les attentes du propriétaire.\n\nPar exemple le niveau 49 → 50 du GM \"$t(foe_data.gb.The_Virgo_Project)\" ne nécessite pas de PFs de la part du propriétaire pour sécuriser les deux premières places. L'investissement attendu à 1.9 est de $t(utils.FP, { 'count': 1739 }). Un Sniper (avec un Arche niveau 80) pourrait attendre l'ouverture du niveau pour prendre place directement et poser $t(utils.FP, { 'count': 1679 }), ce qui permettrait d'assurer sa place et de dégager un bénéfice de $t(utils.FP, { 'count': 60 })."
+          },
+          "display_modes": {
+            "title": "Modes d'affichages",
+            "content": "Cet outil vous donne toutes les informations que le propriétaire et les investisseurs doivent savoir pour investir sur un niveau d'un GM. Il dispose de deux modes d’affichages: \n\n« $t(routes.gb_investment.tab.owner_view.title) » (là où vous vous trouvez) qui affiche des informations uniquement sur le niveau actuel et de manière très détaillé.\n\n« $t(routes.gb_investment.tab.investors_view.title) » affiche les valeurs de plusieurs niveaux sous forme de tableau. Vous y trouverez uniquement le nombre de PFs que doit mettre le propriétaire, ainsi que les investisseurs avec le gain/perte occasionné."
+          },
+          "gb_select": "Ce champ permet de changer rapidement de grand monument.\nIl existe deux types de sélecteur.\n\nLe simple sélecteur (ancienne version) qui affiche une simple liste déroulante. C’est le sélecteur par défaut :\n\n{{- videoSelect}}\n\nL’auto-complétion qui permet de trouver un GM en tapant des séquences lettres contenues dans le nom du GM souhaité :\n\n{{- videoAutoComplete}}",
+          "level": "Sélectionner le niveau sur lequel vous souhaitez travailler",
+          "investor_percentage": "Sélectionné le bonus d'arche que vous attendez des investisseurs.\nExemple: pour un investissement à 1.9, mettre 90",
+          "owner_investment": "Avez vous déjà mis des FPs sur votre GM ? Si la réponse est oui, ajouter le montant des PFs que vous avez mis",
+          "your_arc_bonus": "Ce champ est destiné aux investisseurs et doit être utilisé avec \"$t(components.gb_investment.gb_investment.form.show_snipe)\" réglé sur \"$t(utils.Yes)\".\nIl vous indique le nombre de PFs que vous devez mettre sur le niveau pour assurer une place ; il donne également le profit ou la perte que vous allez réaliser.",
+          "add_investors": "Avez vous des personnes qui ont déjà posés des PFs sur votre GM ? Mettez tout les investissements courant, l'outil va calculer les nouvelles valeurs pour sécuriser les places",
+          "show_snipe": "Ce champ est destiné aux investisseurs et permet d'afficher une colonne supplémentaire dans le tableau, nommée \"$t(components.gb_investment.gb_investment.form.show_snipe)\".\nCette colonne vous indique (en fonction de la valeur définie dans \"$t(components.secure_position.block_place.your_arc_bonus)\") le nombre de PFs que vous devez mettre sur le GM pour assurer votre place.\nIl indique également le profit ou la perte que vous allez réaliser.",
+          "display_card": "Ce champ vous permet d'afficher les données du tableau dans une \"Vue Carte\".\nCeci est \"optimisé\" pour la lecture sur smartphone, de sorte que vous n'avez pas besoin de faire défiler l'écran horizontalement.\nCe champ ne s'affiche que sur un petit écran.",
+          "table": {
+            "message": "Ce tableau vous montre toutes les informations que vous voulez savoir.",
+            "place": "Correspondant au numéro de la place.",
+            "default_rewards": "C'est la récompense par défaut (sans bonus d'Arche) de la place.",
+            "fp_to_put_by_the_owner": "Comme son nom l'indique, il correspond au montant de PFs que le propriétaire doit mettre sur son GM pour sécuriser les places.",
+            "rewards_with_rate": "C'est le nombre de PFs attendu par le propriétaire lorsqu'un investisseur prend une place.",
+            "fp_already_putin": "Cette colonne s'affiche lorsque vous avez saisie au moins un investisseur. Il vous montre quelle sera la place de l'investisseur avec la stratégie (investissement attendu) du propriétaire.",
+            "spot_snipe": "Cette colonne n'est affichée que si vous avez réglé \"$t(components.gb_investment.gb_investment.form.show_snipe)\" sur \"$t(utils.Yes)\" et est destinée aux investisseurs. Cette colonne vous indique (en fonction de la valeur définie dans \"$t(components.secure_position.block_place.your_arc_bonus)\") le nombre de PF que vous devez mettre sur le GM pour sécuriser votre place.\nIl indique également le profit ou la perte que vous allez réaliser.",
+            "percentage_investors": "Comme \"$t(components.gb_investment.gb_investment.form.investor_percentage)\", cette colonne permet au propriétaire de définir l'investissement attendu des investisseurs, mais elle permet de saisir la valeur pour chaque place.",
+            "is_sniper": "Cette colonne s'affiche lorsque vous avez défini au moins un investisseur. Il est utilisé pour définir si un joueur est un sniper potentiel ou non. Ces informations sont utilisées pour le calcul de sécurisation de place.",
+            "include_in_copy_boxes": "Ce champ vous permet d'afficher cette place dans le message de promotion que vous pourrez copier et coller dans le jeu."
+          },
+          "promotion_message": {
+            "message": "Cette section vous permet d’avoir des messages contenant des informations sur le niveau courant du GM et les places. Vous pouvez copier un message et le coller directement dans le jeu, par exemple dans un fils 1.9.",
+            "tabs": "Les messages suivent un modèle. Vous pouvez importer un modèle à partir de l'onglet \"$t(components.import_promotion_message.title)\" ou créer votre propre modèle à partir de l'onglet \"$t(components.promotion_message_builder.title)\".",
+            "prefix": "Texte qui sera ajouté au début du message.",
+            "suffix": "Texte qui sera ajouté à la fin du message.",
+            "display_gb_name": "Affiche le nom du GM (s'il est inclus dans le modèle de message).",
+            "use_short_name": "Permet de définir si vous voulez afficher un nom court pour le nom du GM (Exemple : \"$t(foe_data.gb.Observatory)\" sera affiché \"$t(foe_data.gb_short.Observatory)\").",
+            "show_level": "Permet d'afficher le niveau du GM (s'il est inclus dans le modèle de message).",
+            "show_only_secured_places": "Cette option vous permet d'ajouter automatiquement des places dans le message de promotion si ces places sont sécurisés et pas encore prises. Pour pouvoir utiliser cette fonctionnalité, vous devez saisir le nombre de PFs actuellement mis par le propriétaire ainsi que les investisseurs actuellement présents sur le niveau.",
+            "custom_fields": "Notez que certains modèle dispose de leurs propres champs avec leurs propres noms.",
+            "add_message": "Ce champs vous permet d'ajouter des messages de promotions."
+          }
         }
       },
       "gb_investment_investors": {
@@ -1251,7 +1321,7 @@
       "Copyed": "Copié !",
       "Information": "Information",
       "From": "De",
-      "To": "À (max {{max}})",
+      "To": "À (max {{max, number}})",
       "Prefix": "Préfixe",
       "Suffix": "Suffixe",
       "Path": "Chemin",
@@ -1273,6 +1343,12 @@
       "Save": "Sauvegarder",
       "Show": "Afficher",
       "Hide": "Masquer",
+      "Next": "→",
+      "Previous": "←",
+      "Exit": "Quitter",
+      "Done": "Fini",
+      "FP": "{{count, number}} PF",
+      "FP_plural": "{{count, number}} PFs",
       "errors": {
         "field_cannot_be_empty": "Ce champ ne peut pas être vide"
       },

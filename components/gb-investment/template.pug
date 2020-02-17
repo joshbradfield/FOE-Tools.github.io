@@ -1,16 +1,21 @@
-div.content
+div.content#gbiContent
   div.columns
     div.column.is-half
       div.field
         h3.title.is-3 {{$t('foe_data.gb.' + gb.key)}}
-      div.field
+      div.field#gbListSelect
         gb-list-select(:current="gb.key" @change="goTo($event)")
-    div.column.is-half(v-show="canPermalink")
-      div.field
+    div.column.is-half
+      div.field(v-show="canPermalink")
         nuxt-link#permalink.level-right(:to="permaLink" exact)
           span.icon
             i.fas.fa-link
           | &nbsp;{{$t('utils.permalink')}}
+      div.field(style="text-align:right !important;")
+        div.content
+          a.is-text.has-text-primary(@click.prevent="startTour")
+            i.fas.fa-info-circle.fa-2x
+            span.tutorial-link.has-text-centered <br /> {{$t('utils.Tutorial')}}
 
   h4.title.is-4 {{$t($data.i18nPrefix + 'gb_investment.title')}}
 
@@ -18,24 +23,18 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
+      b-field#fieldId(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
         numberinput#giLevel(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
-    div.column.is-half
+    div.column.is-half#fieldInvestorPercentage
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
         numberinput#giInvestorPercentageGlobal(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
 
   div.columns(v-if="result !== null")
-    div.column.is-half
+    div.column.is-half#fieldOwnerInvestment
       b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
         numberinput#giOwnerInvestment(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
     div.column.is-half
-      b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
-        numberinput#giYourArcBonus(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
-
-  div.columns
-    // Investor participation
-    div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors")
+      b-field#fieldAddInvestors(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors")
         b-field(:type="haveError('addInvestors')")
           b-input#giAddInvestors(type="number" min="1" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" autocomplete="off" expanded :disabled="maxInvestment <= 0" @click.native="haveReadTipAboutAddInvestor")
           p.control
@@ -43,8 +42,6 @@ div.content
               span.icon
                 i.fas.fa-plus
               | &nbsp;&nbsp;{{$t('utils.Add')}}
-    div.column.is-half
-      yes-no(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
 
   div.columns(v-if="result !== null")
     div.column(v-if="investorParticipation.length > 0")
@@ -53,30 +50,38 @@ div.content
         div.control(v-for="(investor,index) in investorParticipation")
           b-tag(:type="isNaN(investor.value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
 
-  div.columns.is-hidden-desktop.is-hidden-widescreen
+  div.columns
+    // Investor participation
+    div.column.is-half
+      yes-no#fieldShowSnipe(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
+    div.column.is-half#fieldYourArcBonus(v-if="showSnipe || tutoMode")
+      b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
+        numberinput#giYourArcBonus(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
+
+  div.columns(:class="vueCardClass")
       div.column.is-half
-        yes-no(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
+        yes-no#fieldDisplayCard(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
 
   div.table-wrapper(v-if="result !== null")
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(:class="displayTableCard ? 'is-hidden-touch' : ''")
+    table.table.is-bordered.is-striped.is-narrow.is-fullwidth.gbiTable(:class="displayTableCard ? 'is-hidden-touch' : ''")
       thead
         tr
-          th.has-text-centered(:colspan="nbColumns")
+          th.has-text-centered(:colspan="tutoMode ? maxColumns : nbColumns")
             p {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: 'foe_data.gb.' + gb.key, level: result.level, fromLevel: (result.level - 1)})}}
         tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
-          th.has-text-centered(:colspan="nbColumns")
+          th.has-text-centered(:colspan="tutoMode ? maxColumns : nbColumns")
             progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
             p {{$formatNumber(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $formatNumber(result.cost)}} ({{$formatNumber(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
         tr
-          th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
-          th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
-          th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th3')}}
-          th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th4')}}
-          th(v-if="investorParticipationNormalizedSum") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
-          th(v-show="showSnipe") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
-          th {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
-          th(v-show="investorParticipationNormalizedSum") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
-          th(width="100px") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
+          th.tableDataPlace {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
+          th.tableDataDefaultRewards {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
+          th.tableDataFpToPutByTheOwner {{$t($data.i18nPrefix + 'gb_investment.table.thead.th3')}}
+          th.tableDataRewardsWithRate {{$t($data.i18nPrefix + 'gb_investment.table.thead.th4')}}
+          th.tableDataNumberOfFPAlreadyIn(v-if="investorParticipationNormalizedSum || tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
+          th.tableDataSpotSnipe(v-show="showSnipe|| tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
+          th.tableDataPercentageInvestors {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
+          th.tableDataIsSniper(v-show="investorParticipationNormalizedSum|| tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
+          th.tableDataIncludeInCopyBoxes(width="100px") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
       tbody
         tr(v-for="(place, i) in result.investment")
           // Place
@@ -101,7 +106,7 @@ div.content
           td.has-text-right
             p {{$formatNumber(place.expectedParticipation)}}
           // Current participation
-          td.has-text-right(v-if="investorParticipationNormalizedSum" width="150px")
+          td.has-text-right(v-if="investorParticipationNormalizedSum|| tutoMode" width="150px")
             template(v-if="place.isInvestorParticipation")
               p {{$formatNumber(place.participation)}} (
                 template(v-if="place.roi > 0")
@@ -126,7 +131,7 @@ div.content
                   b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
                   | )
           // Spot / Snipe
-          td.has-text-right(v-show="showSnipe" width="110px")
+          td.has-text-right(v-show="showSnipe|| tutoMode" width="110px")
             template(v-if="place.snipe.fp === -1")
               span.icon.is-small(style="vertical-align: middle;")
                 i.fas.fa-lock
@@ -153,14 +158,14 @@ div.content
             b-field(:type="haveError('investorPercentageCustom_' + i)")
               b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[i]" :name="'investorPercentageCustom_' + i" autocomplete="off")
           // Potential sniper switch
-          td(v-show="investorParticipation.length > 0")
+          td(v-show="investorParticipation.length > 0 || tutoMode")
             template(v-if="place.defaultParticipationIndex >= 0")
               b-switch(:value="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)") {{investorParticipation[place.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
           // Place free
           td
             b-switch(:value="placeFree[i].state" type="is-info" @input="changePlaceFree(i, $event)") {{placeFree[i].state ? $t('utils.Yes') : $t('utils.No')}}
 
-        template(v-if="result.otherInvestment.length && showExtraInvestors")
+        template(v-if="(result.otherInvestment.length && showExtraInvestors) || tutoMode")
           tr(v-for="(place, i) in result.otherInvestment")
             // Place
             td.has-text-right {{$formatNumber(i + result.investment.length + 1)}}
@@ -183,7 +188,7 @@ div.content
 
       tfoot
         tr(v-if="result.otherInvestment.length")
-          th.has-text-centered(:colspan="nbColumns")
+          th.has-text-centered(:colspan="tutoMode ? maxColumns : nbColumns")
             p.control.has-text-centered
               button.button.is-info(v-if="!showExtraInvestors" @click="showExtraInvestors = true")
                 span.icon
@@ -195,7 +200,7 @@ div.content
                   i.fas.fa-eye-slash
                 | &nbsp;&nbsp; {{$t(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', { count: result.otherInvestment.length })}}
         tr
-          th(:colspan="nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
+          th(:colspan="tutoMode ? maxColumns -1 : nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
           td
             p.level-right {{$formatNumber(result.totalPreparations)}}
               template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
@@ -203,7 +208,7 @@ div.content
                   span.has-text-danger {{$formatNumber(result.totalPreparations - ownerInvestmentNormalized)}}
                 | )
         tr
-          th(:colspan="nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
+          th(:colspan="tutoMode ? maxColumns -1 : nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
           td
             p.level-right {{$formatNumber(result.cost)}}
 
@@ -213,7 +218,7 @@ div.content
 
   div.is-hidden-desktop.is-hidden-widescreen(v-if="result !== null && displayTableCard")
     div.table-wrapper
-      table.table.has-table-cards
+      table.table.has-table-cards.gbiTable
         thead
           tr
             th.has-text-centered(:colspan=2)
@@ -226,15 +231,15 @@ div.content
         tbody
           template(v-for="(props, index) in result.investment.concat(showExtraInvestors ? result.otherInvestment : [])")
             // Place
-            tr
+            tr.tableDataPlace
               th {{ $t(i18nPrefix + 'gb_investment.table.thead.th1') }}
               td.has-text-right {{ $formatNumber(index + 1) }}
             // Default reward
-            tr(v-if="index < result.investment.length")
+            tr.tableDataDefaultRewards(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th2') }}
               td.has-text-right {{ $formatNumber(props.reward) }}
             // Owner preparation
-            tr(v-if="index < result.investment.length")
+            tr.tableDataFpToPutByTheOwner(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th3') }}
               td.has-text-right
                 p(v-if="(props.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(props.preparation)}} (
@@ -250,11 +255,11 @@ div.content
                     span.has-text-success {{$t('utils.Secured')}}
                     | )
             // Reward with arc bonus
-            tr(v-if="index < result.investment.length")
+            tr.tableDataRewardsWithRate(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
               td.has-text-right {{ $formatNumber(props.expectedParticipation) }}
             // Current participation
-            tr(v-if="investorParticipationNormalizedSum")
+            tr.tableDataNumberOfFPAlreadyIn(v-if="investorParticipationNormalizedSum")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
               td(v-if="props.isInvestorParticipation")
                 p {{$formatNumber(props.participation)}}
@@ -264,7 +269,7 @@ div.content
                     b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(props.participation)}}
                     | )
             // Spot / Snipe
-            tr(v-if="showSnipe && index < result.investment.length")
+            tr.tableDataSpotSnipe(v-if="showSnipe && index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe') }}
               td
                 template(v-if="props.snipe.fp === -1")
@@ -289,19 +294,19 @@ div.content
                       i.fas.fa-exchange-alt
                   | )
             // Custom arc bonus
-            tr(v-if="index < result.investment.length")
+            tr.tableDataPercentageInvestors(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th5') }}
               td
                 b-field(:type="haveError('investorPercentageCustom_' + index)")
                   b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[index]" :name="'investorPercentageCustom_' + index" autocomplete="off")
             // Potential sniper switch
-            tr(v-show="investorParticipation.length > 0" :class="index >= result.investment.length ? 'last-in-card' : ''")
+            tr.tableDataIsSniper(v-show="investorParticipation.length > 0" :class="index >= result.investment.length ? 'last-in-card' : ''")
               template(v-if="props.defaultParticipationIndex >= 0")
                 th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
                 td
                   b-switch(:value="investorParticipation[props.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(props.defaultParticipationIndex, $event)") {{investorParticipation[props.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
             // Place free
-            tr.last-in-card(v-if="index < result.investment.length")
+            tr.tableDataIncludeInCopyBoxes.last-in-card(v-if="index < result.investment.length")
               th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th6') }}
               td
                 b-switch(:value="placeFree[index].state" type="is-info" @input="changePlaceFree(index, $event)") {{placeFree[index].state ? $t('utils.Yes') : $t('utils.No')}}
@@ -332,97 +337,98 @@ div.content
             td
               p.level-right {{$formatNumber(result.cost)}}
 
-  h4.title.is-4.margin-top-one-em(v-if="result !== null") {{$t($data.i18nPrefix + 'promotion.title')}}
+  div#giPromotionMessage
+    h4.title.is-4.margin-top-one-em(v-if="result !== null") {{$t($data.i18nPrefix + 'promotion.title')}}
 
-  b-tabs(v-model="promotionMessageTab" expanded)
-    b-tab-item(:label="$t($data.i18nPrefix + 'promotion.title')")
-      div.columns
-        div.column.is-half
-          b-field(:label="$t('utils.Prefix')" label-for="giPrefix")
-          b-field
-            b-input#giPrefix(type="text" v-model.trim="prefix" name="prefix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')" expanded)
-            p.control
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
-                button.button.copy(@click="switchPrefix()" :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
-                  span.icon(v-show="showPrefix")
-                    | &nbsp;&nbsp;
-                    i.fas.fa-eye
-                  span.icon(v-show="!showPrefix")
-                    i.fas.fa-eye-slash
-                    | &nbsp;&nbsp;&nbsp;
+    b-tabs#giPromotionMessageTab(v-model="promotionMessageTab" expanded)
+      b-tab-item(:label="$t($data.i18nPrefix + 'promotion.title')")
+        div.columns
+          div.column.is-half#pmPrefix
+            b-field(:label="$t('utils.Prefix')" label-for="giPrefix")
+            b-field
+              b-input#giPrefix(type="text" v-model.trim="prefix" name="prefix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')" expanded)
+              p.control
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                  button.button.copy(@click="switchPrefix()" :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                    span.icon(v-show="showPrefix")
+                      | &nbsp;&nbsp;
+                      i.fas.fa-eye
+                    span.icon(v-show="!showPrefix")
+                      i.fas.fa-eye-slash
+                      | &nbsp;&nbsp;&nbsp;
 
-        div.column.is-half
-          b-field(:label="$t('utils.Suffix')" label-for="giSuffix")
-          b-field
-            b-input#giSuffix(type="text" v-model.trim="suffix" name="suffix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')" expanded)
-            p.control
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
-                button.button.copy(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
-                  span.icon(v-show="showSuffix")
-                    | &nbsp;&nbsp;
-                    i.fas.fa-eye
-                  span.icon(v-show="!showSuffix")
-                    i.fas.fa-eye-slash
-                    | &nbsp;&nbsp;&nbsp;
+          div.column.is-half#pmSuffix
+            b-field(:label="$t('utils.Suffix')" label-for="giSuffix")
+            b-field
+              b-input#giSuffix(type="text" v-model.trim="suffix" name="suffix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')" expanded)
+              p.control
+                b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                  button.button.copy(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                    span.icon(v-show="showSuffix")
+                      | &nbsp;&nbsp;
+                      i.fas.fa-eye
+                    span.icon(v-show="!showSuffix")
+                      i.fas.fa-eye-slash
+                      | &nbsp;&nbsp;&nbsp;
 
-      div.columns
-        div.column.is-half
-          div.columns
-            div.column.is-half
-              yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
-            div.column.is-half(v-if="displayGbName")
-              yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
-        div.column.is-half
-          div.columns
-            div.column.is-half
-              yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
-            div.column.is-half
-              yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
+        div.columns
+          div.column.is-half
+            div.columns
+              div.column.is-half#pmDisplayGbName
+                yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
+              div.column.is-half#pmShortName(v-if="displayGbName || tutoMode")
+                yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
+          div.column.is-half
+            div.columns
+              div.column.is-half#pmShowLevel
+                yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+              div.column.is-half#pmShowOnlySecuredPlaces
+                yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
 
-      div(v-if="result !== null")
-        template(v-for="(value, i) in promotion")
-          // Show custom fields
-          template(v-if="promotionMessageList[promotionMessageList.map(val => val.name).indexOf(value.name)].config.customFields")
-            div.columns(v-for="(line, index) in getSplittedCustomFields(value.name)")
-              div.column.is-half(v-for="(elt, index) in line")
-                b-field(:label="elt.key" :label-for="'custom_field_' + elt.key")
-                  b-input(:id="'custom_field_' + elt.key" type="text" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
-          // Show value
-          div.columns
-            div.column
-              b-field
-                p.control
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-                    button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
-                      span.icon
-                        i.fas.fa-trash
-                b-input(:type="nbMultiLine(value.message) ? 'textarea' : 'text'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : ''" :value="value.message" readonly expanded)
-                p.control
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
-                    button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
-                      span.icon
-                        i.far.fa-copy
-                      | &nbsp;&nbsp;{{$t('utils.Copy')}}
+        div(v-if="result !== null")
+          template(v-for="(value, i) in promotion")
+            // Show custom fields
+            template(v-if="promotionMessageList[promotionMessageList.map(val => val.name).indexOf(value.name)].config.customFields")
+              div.columns(v-for="(line, index) in getSplittedCustomFields(value.name)")
+                div.column.is-half(v-for="(elt, index) in line")
+                  b-field.custom_field(:label="elt.key" :label-for="'custom_field_' + elt.key")
+                    b-input(:id="'custom_field_' + elt.key" type="text" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
+            // Show value
+            div.columns
+              div.column
+                b-field
+                  p.control
+                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+                      button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
+                        span.icon
+                          i.fas.fa-trash
+                  b-input(:type="nbMultiLine(value.message) ? 'textarea' : 'text'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : ''" :value="value.message" readonly expanded)
+                  p.control
+                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
+                      button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
+                        span.icon
+                          i.far.fa-copy
+                        | &nbsp;&nbsp;{{$t('utils.Copy')}}
 
-      div.columns
-        div.column
-          b-field
-            b-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" expanded)
-              optgroup(:label="$t('components.promotion_message_builder.templates.default')")
-                option(v-for="template in promotionMessageTemplates.default" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
-              optgroup(v-if="promotionMessageTemplates.custom.length" :label="$t('components.promotion_message_builder.templates.custom')")
-                option(v-for="template in promotionMessageTemplates.custom" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
+        div.columns
+          div.column
+            b-field#pmAddMessage
+              b-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" expanded)
+                optgroup(:label="$t('components.promotion_message_builder.templates.default')")
+                  option(v-for="template in promotionMessageTemplates.default" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
+                optgroup(v-if="promotionMessageTemplates.custom.length" :label="$t('components.promotion_message_builder.templates.custom')")
+                  option(v-for="template in promotionMessageTemplates.custom" :key="template.name" :value="template.name") {{template.name}}: {{getTemplateSample(template.config)}}
 
-            p.control
-              button.button.is-info(:title="$t('utils.Add')" @click="addPromotionMessageTemplate" :disabled="maxInvestment <= 0")
-                span.icon
-                  i.fas.fa-plus
-                | &nbsp;&nbsp;{{$t('utils.Add')}}
+              p.control
+                button.button.is-info(:title="$t('utils.Add')" @click="addPromotionMessageTemplate" :disabled="maxInvestment <= 0")
+                  span.icon
+                    i.fas.fa-plus
+                  | &nbsp;&nbsp;{{$t('utils.Add')}}
 
-    b-tab-item(:label="$t('components.import_promotion_message.title')")
-      ImportPromotionMessage
-    b-tab-item(:label="$t('components.promotion_message_builder.title')")
-      PromotionMessageBuilder
+      b-tab-item(:label="$t('components.import_promotion_message.title')")
+        ImportPromotionMessage
+      b-tab-item(:label="$t('components.promotion_message_builder.title')")
+        PromotionMessageBuilder
 
   div(v-if="result" style="margin-top: 2rem;")
-    secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="true" @customYourArcBonus="yourArcBonus = $event")
+    secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="showSnipe" @customYourArcBonus="yourArcBonus = $event")
