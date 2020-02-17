@@ -553,7 +553,7 @@
         },
         "p1": "Deine Sprache ist nicht verfügbar, die Übersetzung ist unvollständig oder fehlerhaft? Du kannst dich gerne dem Übersetzungsteam der Website anschließen.",
         "how_to_join_the_team": "Wie kann man dem Team beitreten?",
-        "p2_html": "$t(common:site_title) wird von Nutzern übersetzt. Wir verwenden die Plattform $t(common:links.lingohub), um den Übersetzungsprozess zu vereinfachen. Um dem Team beizutreten, sende eine E-Mail (in Englisch) an $t(common:links.contact_foe_tools) und gib die Sprache(n) an, in die du übersetzen kannst, damit wir dir eine Einladung senden können."
+        "p2_html": "$t(common:site_title) wird von Nutzern übersetzt. Wir verwenden die Plattform $t(common:links.translation_platform), um den Übersetzungsprozess zu vereinfachen. Um dem Team beizutreten, sende eine E-Mail (in Englisch) an $t(common:links.contact_foe_tools) und gib die Sprache(n) an, in die du übersetzen kannst, damit wir dir eine Einladung senden können."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",

@@ -553,7 +553,7 @@
         },
         "p1": "Ditt språk är inte tillgängligt, översättningen är ofullständig eller innehåller fel?  Känn dig fri att gå med i webbplatsens översättningsgrupp.",
         "how_to_join_the_team": "Hur går man med i gruppen?",
-        "p2_html": "$t(common:site_title) översätts av användare.  Vi använder plattformen $t(common:links.lingohub) för att underlätta översättningsprocessen.  För att gå med i gruppen skickar du e-post (på engelska) till $t(common:links.contact_foe_tools).  Specificera även språken som du kan översätta till så att vi kan skicka rätt inbjudan."
+        "p2_html": "$t(common:site_title) översätts av användare.  Vi använder plattformen $t(common:links.translation_platform) för att underlätta översättningsprocessen.  För att gå med i gruppen skickar du e-post (på engelska) till $t(common:links.contact_foe_tools).  Specificera även språken som du kan översätta till så att vi kan skicka rätt inbjudan."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title) | $t(common:site_title)",

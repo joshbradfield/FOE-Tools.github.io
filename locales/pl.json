@@ -564,7 +564,7 @@
         },
         "p1": "Twój język jest niedostępny, tłumaczenie jest niekompletne lub zawiera błędy? Zgłoś się do zespołu tłumaczącego i pomóż w tłumaczeniu strony.",
         "how_to_join_the_team": "Jak dołączyć do zespołu tłumaczącego?",
-        "p2_html": "$t(common:site_title) jest tłumaczone przez użytkowników. Używamy do tego platformy $t(common:links.lingohub), aby ułatwić tłumaczenie. Aby dołączyć do zespołu tłumaczącego stronę wyślij emaila (w języku angielskim) do $t(common:links.contact_foe_tools), określając język, w którym możesz przetłumaczyć stronę, abyśmy mogli wysłać Ci zaproszenie."
+        "p2_html": "$t(common:site_title) jest tłumaczone przez użytkowników. Używamy do tego platformy $t(common:links.translation_platform), aby ułatwić tłumaczenie. Aby dołączyć do zespołu tłumaczącego stronę wyślij emaila (w języku angielskim) do $t(common:links.contact_foe_tools), określając język, w którym możesz przetłumaczyć stronę, abyśmy mogli wysłać Ci zaproszenie."
       },
       "survey": {
         "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
