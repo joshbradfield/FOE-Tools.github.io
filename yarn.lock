@@ -13183,6 +13183,14 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
+shepherd.js@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/shepherd.js/-/shepherd.js-6.0.2.tgz#ded562607cf73c88f112e9a6dabc0481a7615035"
+  integrity sha512-QMkOjr08fmE8GVpi05bbmEN2NqCrDEnA4NGOI4Qk2WlV/QsAl347aoTMx7BEfMIrJeZSbLYaY2ZESvI+MRmlbQ==
+  dependencies:
+    smoothscroll-polyfill "^0.4.4"
+    tether "^2.0.0-beta.4"
+
 sigmund@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sigmund/-/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
@@ -13237,6 +13245,11 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+smoothscroll-polyfill@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
+  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -14133,6 +14146,11 @@ testcafe@^1.7.0:
     tmp "0.0.28"
     tree-kill "^1.1.0"
     typescript "^3.3.3"
+
+tether@^2.0.0-beta.4:
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/tether/-/tether-2.0.0-beta.5.tgz#702d1ea038e405cf6aed0621d2f4fe01e26ae51d"
+  integrity sha512-cgNWJn+jznlK2SYeRSpozCj0LSPSgCccBg9bO5+PA/XysrszjDAXF66XnPxHxzb+MdX7P89tJze/j2zjkBGODg==
 
 text-extensions@^1.0.0:
   version "1.9.0"

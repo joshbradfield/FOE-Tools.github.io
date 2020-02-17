@@ -80,12 +80,12 @@
             "p2_html": "<strong>Note</strong>: If the update is not done automatically, first set the GB level and the overall investment value and click on \"$t(components.gb_investment.gb_investment.form.submit_global)\". If you want to adjust the values of each place, adjust to your convenience and click on \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
           },
           "form": {
-            "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
             "investor_percentage": "% of global investors bonus (arc bonus)",
             "submit_global": "Global calculation",
             "submit_custom": "Custom calculation",
-            "owner_investment": "Number of FPs currently put by the owner (max {{max}})",
-            "add_investors": "Add investor (put FP value, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+            "owner_investment": "Number of FPs currently put by the owner (max {{max, number}})",
+            "add_investors": "Add investor (put FP value, $t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
             "tooltip_add_investors": "Click on \"$t(utils.Add)\" button or press \"Enter\" key to add investor",
             "investors_list": "List of added investors",
             "show_snipe": "Show Spot/Snipe",
@@ -1251,7 +1251,7 @@
       "Copyed": "Copied !",
       "Information": "Information",
       "From": "From",
-      "To": "To (max {{max}})",
+      "To": "To (max {{max, number}})",
       "Prefix": "Prefix",
       "Suffix": "Suffix",
       "Path": "Path",
@@ -1273,6 +1273,13 @@
       "Save": "Save",
       "Show": "Show",
       "Hide": "Hide",
+      "Next": "→",
+      "Previous": "←",
+      "Exit": "Exit",
+      "Done": "Done",
+      "FP": "{{count, number}} FP",
+      "FP_plural": "{{count, number}} FPs",
+      "Tutorial": "Tutorial",
       "errors": {
         "field_cannot_be_empty": "This field cannot be empty"
       },

@@ -1,4 +1,5 @@
 @import "~bulma/sass/utilities/_all";
+@import "~shepherd.js/dist/css/shepherd";
 
 .is-icon-2rem svg {
   height: 2rem !important;
@@ -7,6 +8,32 @@
 
 html.light-theme {
   background-color: $white-bis;
+  .shepherd-element.shepherd-element-attached-bottom.shepherd-element-attached-center .shepherd-arrow,
+  .shepherd-element.shepherd-pinned-top .shepherd-arrow {
+    border-top: 15px solid whitesmoke !important;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  .shepherd-element.shepherd-element-attached-top.shepherd-element-attached-center .shepherd-arrow {
+    border-bottom: 15px solid whitesmoke !important;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  .shepherd-element.shepherd-element-attached-middle.shepherd-element-attached-right .shepherd-arrow,
+  .shepherd-element.shepherd-pinned-left .shepherd-arrow {
+    border-left: 15px solid whitesmoke !important;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+
+  .shepherd-element.shepherd-element-attached-middle.shepherd-element-attached-left .shepherd-arrow,
+  .shepherd-element.shepherd-pinned-right .shepherd-arrow {
+    border-right: 15px solid whitesmoke !important;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
 }
 
 body.light-theme {
@@ -41,10 +68,46 @@ body.light-theme {
       color: $grey;
     }
   }
+
+  .tutorial-link {
+    color: $black;
+  }
 }
 
 html.dark-theme {
   background-color: $dark;
+
+  .shepherd-text {
+    background-color: #242424;
+    color: white;
+  }
+
+  .shepherd-element.shepherd-element-attached-bottom.shepherd-element-attached-center .shepherd-arrow,
+  .shepherd-element.shepherd-pinned-top .shepherd-arrow {
+    border-top: 15px solid #363636 !important;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  .shepherd-element.shepherd-element-attached-top.shepherd-element-attached-center .shepherd-arrow {
+    border-bottom: 15px solid #363636 !important;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  .shepherd-element.shepherd-element-attached-middle.shepherd-element-attached-right .shepherd-arrow,
+  .shepherd-element.shepherd-pinned-left .shepherd-arrow {
+    border-left: 15px solid #363636 !important;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+
+  .shepherd-element.shepherd-element-attached-middle.shepherd-element-attached-left .shepherd-arrow,
+  .shepherd-element.shepherd-pinned-right .shepherd-arrow {
+    border-right: 15px solid #363636 !important;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
 }
 body.dark-theme {
   @import "./style/theme/dark/variables";
@@ -107,6 +170,10 @@ body.dark-theme {
 
   .radio {
     color: $grey-light;
+  }
+
+  .tutorial-link {
+    color: $white;
   }
 }
 
@@ -180,6 +247,10 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
 
 .margin-top-two-em {
   margin-top: 2em !important;
+}
+
+.margin-right-one-em {
+  margin-right: 1em !important;
 }
 
 @media screen and (max-width: $tablet - 1) {
@@ -296,4 +367,48 @@ table.table.has-table-cards {
       margin-bottom: 1rem;
     }
   }
+}
+
+// shepherd
+
+.shepherd-header {
+  @extend .modal-card-head;
+  display: flex !important;
+}
+.shepherd-footer {
+  @extend .modal-card-foot;
+}
+
+.shepherd-text {
+  overflow: auto;
+  max-height: 30vh;
+  text-align: justify;
+}
+
+.shepherd-element .shepherd-arrow {
+  border-width: 0;
+  height: auto;
+  width: auto;
+}
+
+.shepherd-element .shepherd-arrow:after {
+  display: inline-block;
+}
+
+.shepherd-element.shepherd-element-attached-bottom.shepherd-element-attached-center .shepherd-arrow:after,
+.shepherd-element.shepherd-pinned-top .shepherd-arrow:after {
+  transform: rotate(270deg);
+}
+
+.shepherd-element.shepherd-element-attached-top.shepherd-element-attached-center .shepherd-arrow:after {
+  transform: rotate(90deg);
+}
+
+.shepherd-element.shepherd-element-attached-middle.shepherd-element-attached-right .shepherd-arrow:after,
+.shepherd-element.shepherd-pinned-left .shepherd-arrow:after {
+  transform: rotate(180deg);
+}
+
+.is-margin-left-auto {
+  margin-left: auto !important;
 }

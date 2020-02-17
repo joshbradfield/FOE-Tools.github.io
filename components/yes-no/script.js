@@ -5,11 +5,13 @@ export default {
       type: Boolean,
       required: true
     },
-    label: String
+    label: String,
+    customId: String
   },
   data() {
     return {
-      newValue: this.value
+      newValue: this.value,
+      id: this.$props.customId ? this.$props.customId : ""
     };
   },
   watch: {

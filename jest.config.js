@@ -39,7 +39,8 @@ module.exports = {
     "!**/*.config.js",
     "!**/components/**/script.js",
     "!**/components/number-input/**",
-    "!**/layouts/**/script.js"
+    "!**/layouts/**/script.js",
+    "!**/scripts/tutorial.js"
   ],
   coverageReporters: ["html", "text", "text-summary"]
 };
