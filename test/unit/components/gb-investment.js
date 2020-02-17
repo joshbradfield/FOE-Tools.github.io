@@ -962,4 +962,9 @@ describe("GbInvestment", () => {
     wrapper.vm.calculate();
     expect(wrapper.vm.getCustomArcBonus).toBe(90.6);
   });
+
+  test("Check 'maxColumns'", () => {
+    const wrapper = factory();
+    expect(wrapper.vm.maxColumns).toBe(9);
+  });
 });

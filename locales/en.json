@@ -134,6 +134,53 @@
           "prefix_placeholder": "text before the promotion message",
           "suffix_placeholder": "text after the promotion message",
           "promo": ["P1({{investment}})", "P2({{investment}})", "P3({{investment}})", "P4({{investment}})", "P5({{investment}})"]
+        },
+        "tutorial": {
+          "welcome": "The purpose of this tutorial is to explain all the features of this tool.\n\nYou can click the below links to learn more about them.\nTo continue with the tutorial please click on \"$t(utils.Next)\" button.",
+          "rush_1_9": {
+            "title": "Rush 1.9, 1.8, etc.",
+            "content": "$t(foe_data.gb.The_Arc) is a GB that gives a bonus that increases the rewards you get by placing in the top 5 on someone's GB. More the level of the Arc is high, more the reward are important.\n\nThat's how we started talking about 1.8, 1.9, etc. In reality, this is the Arc bonus.\nIn fact, 1.0 represents the basic reward, 1.8 represents the reward with an Arc level 70 (it gives 80% more reward at that level) and 1.9 represents the reward with an Arc level 80 (90% more reward).\n\nThreads exclusively reserved for this type of investment were created in guilds and groups of friends. This is based on the principle of \"I give what I get\", thus limiting conflicts between guild members or friends by not making profits on their GBs. Unlike endless threads (10, 50, 100, etc.), the other advantage of 1.8, 1.9, etc. threads is that it saves a considerable amount of time for the GB owner. This is because the owner only needs to put in the necessary number of FPs to secure places that are going to be taken by level 80 Arcs (in the case of thread 1.9).\n\nLet's take an example:\n\nLet's imagine that you want to raise your $t(foe_data.gb.Observatory) from level 10 to 60 and that you earn $t(utils.FP, {'count': 50 }) per day.\nThe total cost of the levels is $t(utils.FP, {'count': 64975 }).\n\nIf you are using endless threads, your investment will be 1:1, i.e. $t(utils.FP, {'count': 25 }) invested on a GB = $t(utils.FP, {'count': 25 }) that another player will invest on your GB. So you will have to <strong>invest $t(utils.FP, {'count': 37320 })</strong> to reach level 60. At $t(utils.FP, {'count': 50 }) per day, it will take you <strong>2 years and 17 days</strong>.\n\nNow, if you use a 1.9 thread, you will have to <strong>only invest $t(utils.FP, {'count': 12363 })</strong> to reach level 60, so <strong>a saving of $t(utils.FP, {'count': 24957 }) !</strong>.\nStill with $t(utils.FP, {'count': 50 }) per day, you go from 2 years and 17 days to <strong>8 months and 5 days</strong> !"
+          },
+          "snipe": {
+            "title": "Snipe",
+            "content": "Snipe is when a player takes a place on a GB in order to make a profit, usually not meeting the owner's expectations.\n\nFor example level 49 → 50 of the GB \"$t(foe_data.gb.The_Virgo_Project)\" does not require any FPs from the owner to secure the first two places. The expected investment at 1.9 is $t(utils.FP, {'count': 1739 }). A sniper (with an Arc level 80) could wait until the level opens to take his place directly and put $t(utils.FP, {'count': 1679 }), which would secure his place and make a profit of $t(utils.FP, {'count': 60 })."
+          },
+          "display_modes": {
+            "title": "Display modes",
+            "content": "This tool gives you all the information the owner and investors need to know to invest on a level of a GB. It has two display modes: \n\n\"$t(routes.gb_investment.tab.owner_view.title)\" (where you are) which displays information only on the current level and in great detail.\n\n\"$t(routes.gb_investment.tab.investors_view.title)\" displays the values of several levels in tabular form. You will only find the number of FPs that the owner and the investors have to put in with the resulting profit/loss."
+          },
+          "gb_select": "This field allows you to quickly change GBs.\nThere are two types of selector.\n\nThe simple selector (old version) which displays a simple drop-down list. This is the default selector:\n\n{{- videoSelect}}\n\nThe auto-completion that allows you to find a GB by typing letters contained in the desired GB name:\n\n{{- videoAutoComplete}}",
+          "level": "Select the level you want to work on.",
+          "investor_percentage": "Select the rate you expect your investors to use\nExample: for an investment at 1.9, put 90",
+          "owner_investment": "Do you already have some fps in your GB?\nIf yes, add here how many fps you have in your GB",
+          "your_arc_bonus": "This field is for investors and must be used with \"$t(components.gb_investment.gb_investment.form.show_snipe)\" set to \"$t(utils.Yes)\".\nIt tells you how many FPs you need to put on the level to secure a place; it also gives you the profit or loss you will make.",
+          "add_investors": "Do you have random investments in your GB that are lower or higher than your designated rate?\nPut all current odd investments in this field separately\nThe tool will calculate your new safe fps and also show what spots you have covered.",
+          "show_snipe": "This field is intended for investors and is used to display an additional column in the table, named \"$t(components.gb_investment.gb_investment.form.show_snipe)\".\nThis column tells you (based on the value defined in \"$t(components.secure_position.block_place.your_arc_bonus)\") how many FPs you need to put on the GB to secure your place.\nIt also indicates the profit or loss you will make.",
+          "display_card": "This field allows you to display the table data in a \"Card View\".\nThis is \"optimized\" for reading on a smartphone, so you don't need to scroll horizontally.\nThis field is only displayed on a small screen.",
+          "table": {
+            "message": "This table shows you all the information you want to know.",
+            "place": "Corresponding to the place index.",
+            "default_rewards": "This is the default reward (without Arc bonus) of the place.",
+            "fp_to_put_by_the_owner": "As its name indicates, it corresponds to the amount of FPs that the owner must put on his GB to secure the place.",
+            "rewards_with_rate": "This is the number of FPs expected by the owner when an investor takes a place.",
+            "fp_already_putin": "This column is displayed when you have entered at least one investor. It shows you what will be the place of the investor with the strategy (expected investment) of the owner.",
+            "spot_snipe": "This column is only displayed if you have set \"$t(components.gb_investment.gb_investment.form.show_snipe)\" to \"$t(utils.Yes)\" and is for investors. This column tells you (based on the value set in \"$t(components.secure_position.block_place.your_arc_bonus)\") how many FPs you need to put on the GB to secure your place.\nIt also indicates the profit or loss you will make.",
+            "percentage_investors": "Like \"$t(components.gb_investment.gb_investment.form.investor_percentage)\", this column allows the owner to define the investment expected from investors, but it allows to enter the value for each place.",
+            "is_sniper": "This column is displayed when you have defined at least one investor. It is used to define if a player is a potential sniper or not. This information is used for the calculation of place security.",
+            "include_in_copy_boxes": "This field allows you to display this place in the promotion message that you can copy and paste into the game."
+          },
+          "promotion_message": {
+            "message": "This section allows you to have messages containing information about the current GB level and places. You can copy a message and paste it directly into the game, for example into a 1.9 thread.",
+            "tabs": "The messages follow a template. You can import a template from the \"$t(components.import_promotion_message.title)\" tab or create your own from the \"$t(components.promotion_message_builder.title)\" tab.",
+            "prefix": "Text that will be added at the beginning of the message.",
+            "suffix": "Text that will be added at the end of the message.",
+            "display_gb_name": "Displays the name of the GB (if included in the message template).",
+            "use_short_name": "Allows to define if you want to display a short name for the GB's name (Example: \"$t(foe_data.gb.Observatory)\" will be displayed \"$t(foe_data.gb_short.Observatory)\").",
+            "show_level": "Displays the GB level (if included in the message template).",
+            "show_only_secured_places": "This option allows you to automatically add places in the promotion message if these places are secured and not yet taken. In order to use this feature, you must enter the number of FPs currently put by the owner as well as the investors currently present on the level.",
+            "custom_fields": "Note that some templates have their own fields with their own names.",
+            "add_message": "This field allow you to add messages."
+          }
         }
       },
       "gb_investment_investors": {

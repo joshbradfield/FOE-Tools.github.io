@@ -8,6 +8,8 @@ import PromotionMessageBuilder from "~/components/promotion-message-builder/Prom
 import ImportPromotionMessage from "~/components/import-promotion-message/ImportPromotionMessage";
 import * as Errors from "../../scripts/errors";
 import { defaultPromotionMessages, buildMessage } from "~/scripts/promotion-message-builder";
+import Shepherd from "shepherd.js";
+import { getVideoTag, formatTuto } from "~/scripts/tutorial";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -131,7 +133,8 @@ export default {
       promotion: [],
       promotionMessageList: promotionMessageList,
       childChange: false,
-      templateToAdd: ""
+      templateToAdd: "",
+      tutoMode: false
     };
 
     for (let i = 0; i < 5; i++) {
@@ -293,11 +296,17 @@ export default {
     nbColumns() {
       return 6 + (this.$data.showSnipe ? 1 : 0) + (this.investorParticipationNormalizedSum ? 2 : 0);
     },
+    maxColumns() {
+      return 9;
+    },
     getCustomArcBonus() {
       return Utils.normalizeNumberValue(this.$data.yourArcBonus);
     },
     promotionMessageTemplates() {
       return this.$store.state.promotionMessageTemplates;
+    },
+    vueCardClass() {
+      return this.$data.tutoMode ? [] : ["is-hidden-desktop", "is-hidden-widescreen"];
     }
   },
   watch: {
@@ -1020,6 +1029,295 @@ export default {
     nbMultiLine(src) {
       const nbLF = src.match(/\n/gi);
       return nbLF && nbLF.length > 0 ? nbLF.length + 1 : 0;
+    },
+    startTour: /* istanbul ignore next */ function() {
+      let tour = new Shepherd.Tour({
+        defaultStepOptions: {
+          classes: "buefy-theme",
+          scrollTo: true,
+          showCancelLink: true,
+          shepherdElementMaxHeight: "100%",
+          shepherdElementMaxWidth: "100%"
+        },
+        classPrefix: "buefy-",
+        useModalOverlay: true
+      });
+
+      const defaultOptions = {
+        scrollTo: { behavior: "smooth", block: "center" },
+        canClickTarget: false,
+        cancelIcon: {
+          enabled: true
+        },
+        buttons: [
+          {
+            action: tour.back,
+            classes: "button is-info",
+            text: this.$t("utils.Previous")
+          },
+          {
+            action: tour.next,
+            classes: "button is-info is-margin-left-auto",
+            text: this.$t("utils.Next")
+          }
+        ]
+      };
+
+      const canShow = {
+        rush_1_9: false,
+        snipe: false
+      };
+
+      const tutoLinks = [
+        {
+          id: "rush_1_9",
+          stepId: "rush_1_9"
+        },
+        {
+          id: "snipe",
+          stepId: "snipe"
+        },
+        {
+          id: "display_modes",
+          stepId: "display_modes",
+          attachTo: { element: "#GBInvestmentVueMode nav", on: "bottom" }
+        }
+      ];
+
+      const TableColumnData = [
+        { i18nKey: "place", stepId: "thPlace", attachTo: { element: ".tableDataPlace", on: "top" } },
+        {
+          i18nKey: "default_rewards",
+          stepId: "thDefaultRewards",
+          attachTo: { element: ".tableDataDefaultRewards", on: "top" }
+        },
+        {
+          i18nKey: "fp_to_put_by_the_owner",
+          stepId: "thFpToPutByTheOwner",
+          attachTo: { element: ".tableDataFpToPutByTheOwner", on: "top" }
+        },
+        {
+          i18nKey: "rewards_with_rate",
+          stepId: "thRewardsWithRate",
+          attachTo: { element: ".tableDataRewardsWithRate", on: "top" }
+        },
+        {
+          i18nKey: "fp_already_putin",
+          stepId: "thNumberOfFPAlreadyIn",
+          attachTo: { element: ".tableDataNumberOfFPAlreadyIn", on: "top" }
+        },
+        { i18nKey: "spot_snipe", stepId: "thSpotSnipe", attachTo: { element: ".tableDataSpotSnipe", on: "top" } },
+        {
+          i18nKey: "percentage_investors",
+          stepId: "thPercentageInvestors",
+          attachTo: { element: ".tableDataPercentageInvestors", on: "top" }
+        },
+        { i18nKey: "is_sniper", stepId: "thIsSniper", attachTo: { element: ".tableDataIsSniper", on: "top" } },
+        {
+          i18nKey: "include_in_copy_boxes",
+          stepId: "thIncludeInCopyBoxes",
+          attachTo: { element: ".tableDataIncludeInCopyBoxes", on: "top" }
+        }
+      ];
+
+      const promotionMessage = [
+        { i18nKey: "tabs", stepId: "thDefaultRewards", attachTo: { element: "#giPromotionMessageTab nav", on: "top" } },
+        { i18nKey: "prefix", stepId: "giPrefix", attachTo: { element: "#pmPrefix", on: "top" } },
+        { i18nKey: "suffix", stepId: "giSuffix", attachTo: { element: "#pmSuffix", on: "top" } },
+        { i18nKey: "display_gb_name", stepId: "pmDisplayGbName", attachTo: { element: "#pmDisplayGbName", on: "top" } },
+        { i18nKey: "use_short_name", stepId: "pmShortName", attachTo: { element: "#pmShortName", on: "top" } },
+        { i18nKey: "show_level", stepId: "pmShowLevel", attachTo: { element: "#pmShowLevel", on: "top" } },
+        {
+          i18nKey: "show_only_secured_places",
+          stepId: "pmShowOnlySecuredPlaces",
+          attachTo: { element: "#pmShowOnlySecuredPlaces", on: "top" }
+        },
+        { i18nKey: "custom_fields", stepId: "pmCustomField", attachTo: { element: ".custom_field", on: "top" } }
+      ];
+
+      const makeTutoLinks = () => {
+        let result = "<div id='welcomePromotionMessage'><ul>";
+
+        for (const elt of tutoLinks) {
+          result +=
+            "<li><a href='#' id='" +
+            elt.id +
+            "'>" +
+            this.$t("components.gb_investment.tutorial." + elt.stepId + ".title") +
+            "</a></li>";
+        }
+
+        return result + "</ul></div>";
+      };
+
+      tour.addStep({
+        id: "welcomePromotionMessage",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.welcome")) + makeTutoLinks(),
+        ...defaultOptions,
+        buttons: [
+          {
+            action: tour.cancel,
+            classes: "button is-link is-disabled",
+            text: this.$t("utils.Exit")
+          },
+          {
+            action: tour.next,
+            classes: "button is-info is-margin-left-auto",
+            text: this.$t("utils.Next")
+          }
+        ],
+        when: {
+          show() {
+            let self = this;
+            for (const elt of tutoLinks) {
+              document.getElementById(elt.id).addEventListener("click", e => {
+                e.preventDefault();
+                canShow[elt.stepId] = true;
+                self.tour.next(elt.stepId);
+              });
+            }
+          }
+        }
+      });
+
+      // Add extra steps
+      for (const elt of tutoLinks) {
+        tour.addStep({
+          id: elt.stepId,
+          text: formatTuto(this.$t("components.gb_investment.tutorial." + elt.stepId + ".content")),
+          title: this.$t("components.gb_investment.tutorial." + elt.stepId + ".title"),
+          showOn: () => canShow[elt.stepId],
+          ...defaultOptions,
+          when: {
+            hide() {
+              canShow[elt.stepId] = false;
+            }
+          },
+          attachTo: elt.attachTo
+        });
+      }
+
+      tour.addStep({
+        id: "gbListSelect",
+        text: formatTuto(
+          this.$t("components.gb_investment.tutorial.gb_select", {
+            videoSelect: getVideoTag("/video/select.mp4"),
+            videoAutoComplete: getVideoTag("/video/auto-complete.mp4")
+          })
+        ),
+        attachTo: { element: "#gbListSelect", on: "bottom" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldId",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.level")),
+        attachTo: { element: "#fieldId", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldInvestorPercentage",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.investor_percentage")),
+        attachTo: { element: "#fieldInvestorPercentage", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldOwnerInvestment",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.owner_investment")),
+        attachTo: { element: "#fieldOwnerInvestment", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldAddInvestors",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.add_investors")),
+        attachTo: { element: "#fieldAddInvestors", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldShowSnipe",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.show_snipe")),
+        attachTo: { element: "#fieldShowSnipe", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldYourArcBonus",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.your_arc_bonus")),
+        attachTo: { element: "#fieldYourArcBonus", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "fieldDisplayCard",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.display_card")),
+        attachTo: { element: "#fieldDisplayCard", on: "top" },
+        ...defaultOptions
+      });
+
+      tour.addStep({
+        id: "gbiTable",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.table.message")),
+        attachTo: { element: ".gbiTable", on: "top" },
+        ...defaultOptions
+      });
+
+      for (const elt of TableColumnData) {
+        tour.addStep({
+          id: elt.stepId,
+          text: formatTuto(this.$t("components.gb_investment.tutorial.table." + elt.i18nKey)),
+          attachTo: elt.attachTo,
+          ...defaultOptions
+        });
+      }
+
+      tour.addStep({
+        id: "giPromotionMessage",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.promotion_message.message")),
+        attachTo: { element: "#giPromotionMessage", on: "top" },
+        ...defaultOptions
+      });
+
+      for (const elt of promotionMessage) {
+        tour.addStep({
+          id: elt.stepId,
+          text: formatTuto(this.$t("components.gb_investment.tutorial.promotion_message." + elt.i18nKey)),
+          attachTo: elt.attachTo,
+          ...defaultOptions
+        });
+      }
+
+      tour.addStep({
+        id: "pmAddMessage",
+        text: formatTuto(this.$t("components.gb_investment.tutorial.promotion_message.add_message")),
+        attachTo: { element: "#pmAddMessage", on: "top" },
+        ...defaultOptions,
+        buttons: [
+          {
+            action: tour.back,
+            classes: "button is-info",
+            text: this.$t("utils.Previous")
+          },
+          {
+            action: tour.next,
+            classes: "button is-link is-margin-left-auto",
+            text: this.$t("utils.Done")
+          }
+        ]
+      });
+
+      let self = this;
+      tour.on("cancel", () => {
+        self.$data.tutoMode = false;
+      });
+      tour.on("complete", () => {
+        self.$data.tutoMode = false;
+      });
+      this.$data.tutoMode = true;
+      tour.start();
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";
