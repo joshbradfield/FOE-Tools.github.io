@@ -32,6 +32,11 @@
             language-selector
 
           div.navbar-item
+            div.field.is-grouped
+              nuxt-link.button.is-warning(:to="$i18nPath('donate')" exact)
+                span {{$t('utils.Donate')}}
+
+          div.navbar-item
             div.field
               b-tooltip.control.is-hidden-mobile(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
                 button.button(@click="showGlobalSettings" :class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
@@ -47,7 +52,6 @@
               a.button(href="https://github.com/FOE-Tools/FOE-Tools.github.io" target="_blank")
                 span.icon
                   i.fab.fa-github
-                span GitHub
 
   .notices.is-top(v-if="showSnackbarChangeLocale")
     .snackbar.is-warning.is-top(style='')
@@ -95,6 +99,13 @@
             div.card.article(v-else)
               div.card-content
                 div.content.article-body
+                  div.columns(v-show="isConversionDate")
+                    div.column
+                      b-message(:title="$t('utils.Information')" type="is-info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
+                        p
+                        p
+                          nuxt-link.button.is-warning(:to="$i18nPath('donate')" exact)
+                            span {{$t('utils.Donate')}}
                   div.columns(v-show="isPermalink")
                     div.column
                       b-message(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}

@@ -53,6 +53,13 @@ export default {
       });
     }
 
+    if (this.$cookies.get("donationConversion") === undefined) {
+      this.$cookies.set("donationConversion", this.getNextConversion(), {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
+    }
+
     return {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
@@ -183,6 +190,9 @@ export default {
     nbYears() {
       return this.$moment().year() - this.creationDate.year();
     },
+    isConversionDate() {
+      return this.$moment().isAfter(this.$moment(this.$cookies.get("donationConversion"), "YYYY-MM-DD"));
+    },
     hasSurvey() {
       return (
         this.$store.state.currentLocation !== "survey" && this.$store.state.survey && this.$store.state.survey.length
@@ -221,6 +231,14 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
+    },
+    getNextConversion() {
+      const min = 15;
+      const max = 30;
+      const amount = Math.random() * (max - min) + min;
+      return this.$moment()
+        .add(amount, "days")
+        .format("YYYY-MM-DD");
     },
     toggleMenu() {
       Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
@@ -284,6 +302,12 @@ export default {
       });
       this.$store.commit("SET_LANG", this.detectedLocale);
       window.location.reload();
+    },
+    onCloseDonationMessage: /* istanbul ignore next */ function() {
+      this.$cookies.set("donationConversion", this.getNextConversion(), {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
     }
   },
   mounted: /* istanbul ignore next */ function() {
