@@ -96,7 +96,7 @@
     "bulma": "^0.8.0",
     "bulmaswatch": "^0.7.5",
     "chart.js": "^2.9.3",
-    "codecov": "^3.6.1",
+    "codecov": "^3.6.5",
     "cookie-universal-nuxt": "^2.0.19",
     "country-flag-emoji": "^1.0.3",
     "enumify": "^1.0.4",
