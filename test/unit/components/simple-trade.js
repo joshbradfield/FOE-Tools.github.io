@@ -19,114 +19,22 @@ const dataCheckResult = [
   {
     age: Object.keys(fairTradeArray)[3],
     value: 500,
-    splitValue: 1000,
-    result: {
-      ArcticFuture: { ratio: 0, show: false, split: "", value: 0 },
-      BronzeAge: { ratio: 0, show: false, split: "", value: 0 },
-      ColonialAge: { ratio: 0, show: false, split: "", value: 0 },
-      ContemporaryEra: { ratio: 0, show: false, split: "", value: 0 },
-      EarlyMiddleAges: { ratio: 2, show: true, split: 1000, value: "1,000" },
-      HighMiddleAges: { ratio: 1, show: true, split: 500, value: "500" },
-      IndustrialAge: { ratio: 0, show: false, split: "", value: 0 },
-      IronAge: { ratio: 0, show: false, split: "", value: 0 },
-      LateMiddleAges: { ratio: 0.5, show: true, split: 250, value: "250" },
-      ModernEra: { ratio: 0, show: false, split: "", value: 0 },
-      OceanicFuture: { ratio: 0, show: false, split: "", value: 0 },
-      PostmodernEra: { ratio: 0, show: false, split: "", value: 0 },
-      ProgressiveEra: { ratio: 0, show: false, split: "", value: 0 },
-      TheFuture: { ratio: 0, show: false, split: "", value: 0 },
-      Tomorrow: { ratio: 0, show: false, split: "", value: 0 },
-      VirtualFuture: { ratio: 0, show: false, split: "", value: 0 }
-    }
+    splitValue: 1000
   },
   {
     age: Object.keys(fairTradeArray)[3],
     value: 427,
-    splitValue: 100,
-    result: {
-      ArcticFuture: { ratio: 0, show: false, split: "", value: 0 },
-      BronzeAge: { ratio: 0, show: false, split: "", value: 0 },
-      ColonialAge: { ratio: 0, show: false, split: "", value: 0 },
-      ContemporaryEra: { ratio: 0, show: false, split: "", value: 0 },
-      EarlyMiddleAges: {
-        ratio: 2,
-        show: true,
-        split: "4 × (50 HMA for 100 EMA) and 1 × (14 HMA for 27 EMA)",
-        value: "854"
-      },
-      HighMiddleAges: {
-        ratio: 1,
-        show: true,
-        split: "4 × (100 HMA for 100 HMA) and 1 × (27 HMA for 27 HMA)",
-        value: "427"
-      },
-      IndustrialAge: { ratio: 0, show: false, split: "", value: 0 },
-      IronAge: { ratio: 0, show: false, split: "", value: 0 },
-      LateMiddleAges: {
-        ratio: 0.5,
-        show: true,
-        split: "8 × (100 HMA for 50 LMA) and 1 × (54 HMA for 27 LMA)",
-        value: "214"
-      },
-      ModernEra: { ratio: 0, show: false, split: "", value: 0 },
-      OceanicFuture: { ratio: 0, show: false, split: "", value: 0 },
-      PostmodernEra: { ratio: 0, show: false, split: "", value: 0 },
-      ProgressiveEra: { ratio: 0, show: false, split: "", value: 0 },
-      TheFuture: { ratio: 0, show: false, split: "", value: 0 },
-      Tomorrow: { ratio: 0, show: false, split: "", value: 0 },
-      VirtualFuture: { ratio: 0, show: false, split: "", value: 0 }
-    }
+    splitValue: 100
   },
   {
     age: Object.keys(fairTradeArray)[3],
     value: 12000,
-    splitValue: 1000,
-    result: {
-      ArcticFuture: { ratio: 0, show: false, split: "", value: 0 },
-      BronzeAge: { ratio: 0, show: false, split: "", value: 0 },
-      ColonialAge: { ratio: 0, show: false, split: "", value: 0 },
-      ContemporaryEra: { ratio: 0, show: false, split: "", value: 0 },
-      EarlyMiddleAges: { ratio: 2, show: true, split: 24000, value: "24,000" },
-      HighMiddleAges: { ratio: 1, show: true, split: 12000, value: "12,000" },
-      IndustrialAge: { ratio: 0, show: false, split: "", value: 0 },
-      IronAge: { ratio: 0, show: false, split: "", value: 0 },
-      LateMiddleAges: { ratio: 0.5, show: true, split: 6000, value: "6,000" },
-      ModernEra: { ratio: 0, show: false, split: "", value: 0 },
-      OceanicFuture: { ratio: 0, show: false, split: "", value: 0 },
-      PostmodernEra: { ratio: 0, show: false, split: "", value: 0 },
-      ProgressiveEra: { ratio: 0, show: false, split: "", value: 0 },
-      TheFuture: { ratio: 0, show: false, split: "", value: 0 },
-      Tomorrow: { ratio: 0, show: false, split: "", value: 0 },
-      VirtualFuture: { ratio: 0, show: false, split: "", value: 0 }
-    }
+    splitValue: 1000
   },
   {
     age: Object.keys(fairTradeArray)[10],
     value: 100,
-    splitValue: 100,
-    result: {
-      ArcticFuture: { ratio: 0.62, show: true, split: "1 × (100 CE for 62 AF) and 1 × (62 CE for 38 AF)", value: "62" },
-      BronzeAge: { ratio: 0, show: false, split: "", value: 0 },
-      ColonialAge: { ratio: 0, show: false, split: "", value: 0 },
-      ContemporaryEra: { ratio: 1, show: true, split: "1 × (100 CE for 100 CE)", value: "100" },
-      EarlyMiddleAges: { ratio: 0, show: false, split: "", value: 0 },
-      HighMiddleAges: { ratio: 0, show: false, split: "", value: 0 },
-      IndustrialAge: { ratio: 0, show: false, split: "", value: 0 },
-      IronAge: { ratio: 0, show: false, split: "", value: 0 },
-      LateMiddleAges: { ratio: 0, show: false, split: "", value: 0 },
-      ModernEra: { ratio: 1.5, show: true, split: "1 × (67 CE for 100 ME)", value: "150" },
-      OceanicFuture: {
-        ratio: 0.56,
-        show: true,
-        split: "1 × (100 CE for 56 OF) and 1 × (79 CE for 44 OF)",
-        value: "56"
-      },
-      PostmodernEra: { ratio: 1.2, show: true, split: "1 × (84 CE for 100 PME)", value: "120" },
-      ProgressiveEra: { ratio: 1.8, show: true, split: "1 × (56 CE for 100 PE)", value: "180" },
-      TheFuture: { ratio: 0.72, show: true, split: "1 × (100 CE for 72 TF) and 1 × (39 CE for 28 TF)", value: "72" },
-      Tomorrow: { ratio: 0.86, show: true, split: "1 × (100 CE for 86 TE) and 1 × (16 CE for 14 TE)", value: "86" },
-      VirtualFuture: { ratio: 0, show: false, split: "", value: 0 }
-    }
+    splitValue: 100
   }
 ];
 
@@ -235,7 +143,7 @@ describe("SimpleTrade", () => {
 
       wrapper.vm.getBestRates(elt.age);
 
-      expect(wrapper.vm.results).toEqual(elt.result);
+      expect(wrapper.vm.results).toMatchSnapshot();
     });
   }
 });

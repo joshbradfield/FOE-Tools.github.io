@@ -8,7 +8,6 @@ const i18nPrefix = "components.campaign_cost.";
 
 const ages = JSON.parse(JSON.stringify(allAges));
 delete ages.NoAge;
-delete ages.SpaceAgeMars;
 
 export default {
   name: "CampaignCost",
