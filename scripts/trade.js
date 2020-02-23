@@ -20,7 +20,7 @@ function getTotalGoodCostFairTrade(good) {
 
   do {
     currentGood = result === 0 ? good : goods.agesCost[currentGood.unrefined][0];
-    result += currentGood.coins + currentGood.supplies;
+    result += (currentGood.coins + currentGood.supplies) / currentGood.quantity;
   } while (currentGood.unrefined !== null);
 
   return result;

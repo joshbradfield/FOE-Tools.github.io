@@ -869,7 +869,12 @@
         "data_crystals": "Data Crystals",
         "golden_rice": "Golden Rice",
         "nanites": "Nanites",
-        "tea_silk": "Tea Silk"
+        "tea_silk": "Tea Silk",
+        "lubricants": "Lubricants",
+        "biotech_crops": "BioTech Crops",
+        "mars_microbes": "Mars Microbes",
+        "fusion_reactors": "Fusion Reactors",
+        "superalloys": "Superalloys"
       },
       "province": {
         "Dunarsund": "Dunarsund",

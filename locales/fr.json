@@ -870,7 +870,12 @@
         "data_crystals": "Cristal de données",
         "golden_rice": "Riz dorée",
         "nanites": "Nanorobot",
-        "tea_silk": "Soie de thé"
+        "tea_silk": "Soie de thé",
+        "lubricants": "Huiles de graissage",
+        "biotech_crops": "Cultures biotechnologiques",
+        "mars_microbes": "Microbes martiens",
+        "fusion_reactors": "Réacteurs de fusion",
+        "superalloys": "Superalliages"
       },
       "province": {
         "Dunarsund": "Dunarsund",

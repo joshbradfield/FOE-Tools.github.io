@@ -1154,3 +1154,431 @@ My pseudo - Observatory 4",
   },
 ]
 `;
+
+exports[`Components SimpleTrade Check result with current age ContemporaryEra for value 100 and split 100 1`] = `
+Object {
+  "ArcticFuture": Object {
+    "ratio": 0.62,
+    "show": true,
+    "split": "1 × (100 CE for 62 AF) and 1 × (62 CE for 38 AF)",
+    "value": "62",
+  },
+  "BronzeAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ColonialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ContemporaryEra": Object {
+    "ratio": 1,
+    "show": true,
+    "split": "1 × (100 CE for 100 CE)",
+    "value": "100",
+  },
+  "EarlyMiddleAges": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "HighMiddleAges": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "IndustrialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "IronAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "LateMiddleAges": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ModernEra": Object {
+    "ratio": 1.5,
+    "show": true,
+    "split": "1 × (67 CE for 100 ME)",
+    "value": "150",
+  },
+  "OceanicFuture": Object {
+    "ratio": 0.56,
+    "show": true,
+    "split": "1 × (100 CE for 56 OF) and 1 × (79 CE for 44 OF)",
+    "value": "56",
+  },
+  "PostmodernEra": Object {
+    "ratio": 1.2,
+    "show": true,
+    "split": "1 × (84 CE for 100 PME)",
+    "value": "120",
+  },
+  "ProgressiveEra": Object {
+    "ratio": 1.8,
+    "show": true,
+    "split": "1 × (56 CE for 100 PE)",
+    "value": "180",
+  },
+  "SpaceAgeMars": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "TheFuture": Object {
+    "ratio": 0.72,
+    "show": true,
+    "split": "1 × (100 CE for 72 TF) and 1 × (39 CE for 28 TF)",
+    "value": "72",
+  },
+  "Tomorrow": Object {
+    "ratio": 0.86,
+    "show": true,
+    "split": "1 × (100 CE for 86 TE) and 1 × (16 CE for 14 TE)",
+    "value": "86",
+  },
+  "VirtualFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+}
+`;
+
+exports[`Components SimpleTrade Check result with current age HighMiddleAges for value 427 and split 100 1`] = `
+Object {
+  "ArcticFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "BronzeAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ColonialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ContemporaryEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "EarlyMiddleAges": Object {
+    "ratio": 2,
+    "show": true,
+    "split": "4 × (50 HMA for 100 EMA) and 1 × (14 HMA for 27 EMA)",
+    "value": "854",
+  },
+  "HighMiddleAges": Object {
+    "ratio": 1,
+    "show": true,
+    "split": "4 × (100 HMA for 100 HMA) and 1 × (27 HMA for 27 HMA)",
+    "value": "427",
+  },
+  "IndustrialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "IronAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "LateMiddleAges": Object {
+    "ratio": 0.5,
+    "show": true,
+    "split": "8 × (100 HMA for 50 LMA) and 1 × (54 HMA for 27 LMA)",
+    "value": "214",
+  },
+  "ModernEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "OceanicFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "PostmodernEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ProgressiveEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "SpaceAgeMars": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "TheFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "Tomorrow": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "VirtualFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+}
+`;
+
+exports[`Components SimpleTrade Check result with current age HighMiddleAges for value 500 and split 1000 1`] = `
+Object {
+  "ArcticFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "BronzeAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ColonialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ContemporaryEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "EarlyMiddleAges": Object {
+    "ratio": 2,
+    "show": true,
+    "split": 1000,
+    "value": "1,000",
+  },
+  "HighMiddleAges": Object {
+    "ratio": 1,
+    "show": true,
+    "split": 500,
+    "value": "500",
+  },
+  "IndustrialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "IronAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "LateMiddleAges": Object {
+    "ratio": 0.5,
+    "show": true,
+    "split": 250,
+    "value": "250",
+  },
+  "ModernEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "OceanicFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "PostmodernEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ProgressiveEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "SpaceAgeMars": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "TheFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "Tomorrow": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "VirtualFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+}
+`;
+
+exports[`Components SimpleTrade Check result with current age HighMiddleAges for value 12000 and split 1000 1`] = `
+Object {
+  "ArcticFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "BronzeAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ColonialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ContemporaryEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "EarlyMiddleAges": Object {
+    "ratio": 2,
+    "show": true,
+    "split": 24000,
+    "value": "24,000",
+  },
+  "HighMiddleAges": Object {
+    "ratio": 1,
+    "show": true,
+    "split": 12000,
+    "value": "12,000",
+  },
+  "IndustrialAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "IronAge": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "LateMiddleAges": Object {
+    "ratio": 0.5,
+    "show": true,
+    "split": 6000,
+    "value": "6,000",
+  },
+  "ModernEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "OceanicFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "PostmodernEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "ProgressiveEra": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "SpaceAgeMars": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "TheFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "Tomorrow": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+  "VirtualFuture": Object {
+    "ratio": 0,
+    "show": false,
+    "split": "",
+    "value": 0,
+  },
+}
+`;
