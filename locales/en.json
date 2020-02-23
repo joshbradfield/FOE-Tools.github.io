@@ -1180,7 +1180,38 @@
         "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
         "The_Church_of_Games": "The Church of Games",
         "The_Sacred_Database": "The Sacred Database",
-        "Game_Over": "Game Over"
+        "Game_Over": "Game Over",
+        "Rustikauri": "Rustikauri",
+        "Mathaben": "Mathaben",
+        "Kardine_Haven": "Kardine Haven",
+        "Vradeen": "Vradeen",
+        "Nobisia": "Nobisia",
+        "Ghirken": "Ghirken",
+        "Klaylach": "Klaylach",
+        "Wrandasten_3": "Wrandasten 3",
+        "Carva_Caska": "Carva Caska",
+        "Fortrin": "Fortrin",
+        "Oppeska": "Oppeska",
+        "Enervein": "Enervein",
+        "Akuppers": "Akuppers",
+        "Xalvades": "Xalvades",
+        "Ertannen_Belt": "Ertannen Belt",
+        "New_Frozenstone": "New Frozenstone",
+        "Vaanderbirch": "Vaanderbirch",
+        "Zomantau": "Zomantau",
+        "Verda_Dophria": "Verda Dophria",
+        "Phovolken": "Phovolken",
+        "Astra_Prime": "Astra Prime",
+        "Destallia": "Destallia",
+        "Vyvalgis": "Vyvalgis",
+        "Low_Hacoon_Valley": "Low Hacoon Valley",
+        "High_Hacoon_Valley": "High Hacoon Valley",
+        "Plateau_Firnane_2": "Plateau Firnane-2",
+        "Jalcion_Crater": "Jalcion Crater",
+        "Loakmolden": "Loakmolden",
+        "Sharvice": "Sharvice",
+        "Delta_Hills": "Delta Hills",
+        "Everdoom": "Everdoom"
       },
       "bonus": {
         "coin": {
@@ -1312,6 +1343,10 @@
         "double_collection": {
           "name": "Double Collection",
           "gb_description": "Gives you a chance to get double the resources in the the first buildings collected. Excludes military and great buildings. Refreshes with each collection of this building."
+        },
+        "exploration_site": {
+          "name": "Exploration Site",
+          "gb_description": ""
         }
       }
     },
