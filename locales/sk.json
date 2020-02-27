@@ -207,7 +207,7 @@
                         "title": "Zobraziť režimy"
                     },
                     "snipe": {
-                        "content": "Hráč poľuje, ak zaberie miesto vo VB s cieľom vytvoriť profit, zvyčajne sa to nestretáva s očakávaniami majiteľa.\n\nNapríklad úroveň 49 → 50 vo VB \"$t(foe_data.gb.The_Virgo_Project)\" nepotrebuje žiadne BV od majiteľa na zaistenie prvých dvoch miest. Očakávaná investícia pri 1.9 je $t(utils.FP, {'count': 1739 }).  Poľujúci hráč (s Oblúkom úrovne 80) by mohol počkať na otvorenie úrovne a hneď zabrať miesto s vložením $t(utils.FP, {'count': 1679 }), čo mu zabezpečí jeho miesto s profitom $t(utils.FP, {'count': 60 }).",
+                        "content": "Hráč \"poľuje\" (na miesto vo VB), ak zaberie miesto vo VB s cieľom vytvoriť profit, zvyčajne sa to nestretáva s očakávaniami majiteľa.\n\nNapríklad úroveň 49 → 50 vo VB \"$t(foe_data.gb.The_Virgo_Project)\" nepotrebuje žiadne BV od majiteľa na zaistenie prvých dvoch miest. Očakávaná investícia pri 1.9 je $t(utils.FP, {'count': 1739 }).  Poľujúci hráč (s Oblúkom úrovne 80) by mohol počkať na otvorenie úrovne a hneď zabrať miesto s vložením $t(utils.FP, {'count': 1679 }), čo mu zabezpečí jeho miesto s profitom $t(utils.FP, {'count': 60 }).",
                         "title": "Poľovať"
                     },
                     "rush_1_9": {
@@ -891,7 +891,12 @@
                 "data_crystals": "Dátové kryštály",
                 "golden_rice": "Zlatá ryža",
                 "nanites": "Nanity",
-                "tea_silk": "Čajovníkový hodváb"
+                "tea_silk": "Čajovníkový hodváb",
+                "superalloys": "Superzliatina",
+                "fusion_reactors": "Fúzny reaktor",
+                "mars_microbes": "Marťanské mikróby",
+                "biotech_crops": "Biotechnologické plodiny",
+                "lubricants": "Mazivo"
             },
             "province": {
                 "Alpha_1_Omega_2": "Alpha 1 Omega 2",
@@ -1197,7 +1202,38 @@
                 "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
                 "The_Church_of_Games": "The Church of Games",
                 "The_Sacred_Database": "The Sacred Database",
-                "Game_Over": "Game Over"
+                "Game_Over": "Game Over",
+                "Astra_Prime": "Astra Prime",
+                "Phovolken": "Phovolken",
+                "Verda_Dophria": "Verda Dophria",
+                "Zomantau": "Zomantau",
+                "Vaanderbirch": "Vaanderbirch",
+                "New_Frozenstone": "New Frozenstone",
+                "Ertannen_Belt": "Ertannen Belt",
+                "Xalvades": "Xalvades",
+                "Akuppers": "Akuppers",
+                "Enervein": "Enervein",
+                "Oppeska": "Oppeska",
+                "Fortrin": "Fortrin",
+                "Carva_Caska": "Carva Caska",
+                "Wrandasten_3": "Wrandasten 3",
+                "Klaylach": "Klaylach",
+                "Ghirken": "Ghirken",
+                "Nobisia": "Nobisia",
+                "Vradeen": "Vradeen",
+                "Kardine_Haven": "Kardine Haven",
+                "Mathaben": "Mathaben",
+                "Everdoom": "Everdoom",
+                "Delta_Hills": "Delta Hills",
+                "Sharvice": "Sharvice",
+                "Loakmolden": "Loakmolden",
+                "Jalcion_Crater": "Jalcion Crater",
+                "Plateau_Firnane_2": "Plateau Firnane-2",
+                "High_Hacoon_Valley": "High Hacoon Valley",
+                "Low_Hacoon_Valley": "Low Hacoon Valley",
+                "Vyvalgis": "Vyvalgis",
+                "Destallia": "Destallia",
+                "Rustikauri": "Rustikauri"
             },
             "bonus": {
                 "coin": {
@@ -1329,6 +1365,10 @@
                 "double_collection": {
                     "name": "Dvojnásobný výber",
                     "gb_description": "Pri prvých niekoľkých vyzdvihnutiach v budovách vzniká šanca na zdvojnásobenie vyzdvihnutých surovín.Tento bonus sa nedá uplatniť u vojenských a veľkolepých budovách."
+                },
+                "exploration_site": {
+                    "gb_description": "Niekoľko provincií na mape Marsu obsahuje prieskumné stanoviská.\nPo získaní takejto provincie hráčom",
+                    "name": "Prieskumné stanovisko"
                 }
             }
         },
