@@ -69,13 +69,30 @@
                 },
                 "tutorial": {
                     "yourAge": "Selecciones su Edad.",
-                    "welcome": "Esta herramienta es puramente informal. Le brinda información sobre lo que puede obtener estadísticamente con su $t(foe_data.gb.Chateau_Frontenac)."
+                    "welcome": "Esta herramienta es puramente informal. Le brinda información sobre lo que puede obtener estadísticamente con su $t(foe_data.gb.Chateau_Frontenac).",
+                    "infiniteGenerator": "Esta sección se muestra solo cuando el aumento de $t(foe_data.gb.Chateau_Frontenac) (según su edad) le proporciona estadísticamente más monedas y suministros que gastará.",
+                    "otherRq": "Establece las otras misiones recurrentes diarias que hayas hecho actualmente.",
+                    "suppliesGathered": "Ponga la cantidad de suministros que desea usar para la segunda búsqueda recurrente.",
+                    "coinSupplyReturn": "Esta tabla le muestra la cantidad de monedas y suministros que obtendrá estadísticamente de la inversión inicial (con lo que está dispuesto a gastar en monedas y suministros).",
+                    "secondRqCompleted": "Número de segundas misiones recurrentes que puedes completar.",
+                    "bonusUbq": "Número de misiones de cumpleaños que puedes completar (estadísticamente) con tus monedas y suministros iniciales y lo que ganarás.",
+                    "dailyUbq": "Número de misiones de cumpleaños que puedes completar de acuerdo con lo que estás dispuesto a gastar en monedas y suministros.",
+                    "totalRqCompleted": "Total de misiones recurrentes que puedes completar (estadísticamente).",
+                    "totalFp": "Número de FP que ganarás con misiones, GEs, etc.",
+                    "totalGoods": "Número de bienes que ganarás con misiones, GEs, etc.",
+                    "tableReward": "Esta tabla le muestra las recompensas que ganará. Tenga en cuenta que los valores se basan en una probabilidad empírica.",
+                    "cumulativeQuest": "En ese caso, debe establecer el número de misiones que desea hacer.",
+                    "yourCfBoost": "Indique su bono de $t(foe_data.gb.Chateau_Frontenac).",
+                    "fpBy24h": "Ponga la cantidad de FP que obtiene en 24 horas.",
+                    "goods": "Ponga la cantidad de bienes que recolecta de su GE y saqueos.",
+                    "supplies": "Ponga la cantidad de suministros que desea usar para todas las misiones.",
+                    "coins": "Ponga la cantidad de monedas que desea usar para todas las misiones."
                 }
             },
             "gb_investment": {
                 "gb_list_select": {
                     "label": "Cambiar de Gran Edificio",
-                    "info": "Puede cambiar el estilo de selección (por selección o auto completar) en los ajustes globales."
+                    "info": "Puede cambiar el estilo de selección (por selección o auto completar) en los ajustes globales"
                 },
                 "gb_investment": {
                     "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
@@ -125,7 +142,8 @@
                         },
                         "tfoot": {
                             "total_preparation": "Inversión total del propietario",
-                            "level_cost": "Costo del nivel"
+                            "level_cost": "Costo del nivel",
+                            "tooltip_owner_investment": "PF restantes que debe poner el propietario para completar el nivel"
                         }
                     },
                     "display_gb_name": "¿Mostrar nombre del GE?",
@@ -143,6 +161,35 @@
                         "P4({{investment}})",
                         "P5({{investment}})"
                     ]
+                },
+                "tutorial": {
+                    "table": {
+                        "fp_already_putin": "Esta columna se muestra cuando ha ingresado al menos un inversor. Le muestra cuál será el lugar del inversor con la estrategia (inversión esperada) del propietario.",
+                        "rewards_with_rate": "Este es el número de FP esperados por el propietario cuando un inversionista toma un lugar.",
+                        "fp_to_put_by_the_owner": "Como su nombre lo indica, corresponde a la cantidad de FP que el propietario debe poner en su GB para asegurar el lugar.",
+                        "default_rewards": "Esta es la recompensa predeterminada (sin bonificación de Arca) del lugar.",
+                        "place": "Corresponde al número del lugar.",
+                        "message": "Esta tabla le muestra toda la información que desea conocer."
+                    },
+                    "display_card": "Este campo le permite mostrar los datos de la tabla en una \"Vista de tarjeta\".\nEsto está \"optimizado\" para leer en un smartphone, por lo que no necesita desplazarse horizontalmente.\nEste campo solo se muestra en una pantalla pequeña.",
+                    "show_snipe": "Este campo está destinado a inversores y se utiliza para mostrar una columna adicional en la tabla, denominada \"$ t (components.gb_investment.gb_investment.form.show_snipe)\".\nEsta columna le indica (en función del valor definido en \"$ t (components.secure_position.block_place.your_arc_bonus)\") cuántos FP necesita colocar en el GB para asegurar su lugar.\nTambién indica la ganancia o pérdida que obtendrá.",
+                    "add_investors": "¿Tiene inversiones aleatorias en su GB que son más bajas o más altas que su tasa designada?\nPonga todas las inversiones impares actuales en este campo por separado\nLa herramienta calculará sus nuevos fps seguros y también mostrará qué puntos ha cubierto.",
+                    "your_arc_bonus": "Este campo es para inversores y debe usarse con \"$ t (components.gb_investment.gb_investment.form.show_snipe)\" configurado en \"$ t (utils.Yes)\".\nTe dice cuántos FP necesitas poner en el nivel para asegurar un lugar; También le brinda las ganancias o pérdidas que obtendrá.",
+                    "owner_investment": "¿Ya tienes algunos fps en tu GB?\nEn caso afirmativo, agregue aquí cuántos fps tiene en su GB",
+                    "investor_percentage": "Seleccione la tasa que espera que utilicen sus inversores\nEjemplo: para una inversión en 1.9, ponga 90",
+                    "level": "Seleccione el nivel en el que desea trabajar.",
+                    "gb_select": "Este campo le permite cambiar rápidamente los GB.\nHay dos tipos de selector.\n\nEl selector simple (versión anterior) que muestra una lista desplegable simple. Este es el selector predeterminado:\n\n{{- videoSelect}}\n\nEl autocompletado que le permite encontrar un GB escribiendo letras contenidas en el nombre de GB deseado:\n\n{{- videoAutoComplete}}",
+                    "display_modes": {
+                        "content": "Esta herramienta le brinda toda la información que el propietario y los inversores necesitan saber para invertir en un nivel de GB. Tiene dos modos de visualización:\n\n\"$ t (routes.gb_investment.tab.owner_view.title)\" (donde se encuentra) que muestra información solo sobre el nivel actual y con gran detalle.\n\n\"$ t (routes.gb_investment.tab.investors_view.title)\" muestra los valores de varios niveles en forma de tabla. Solo encontrará la cantidad de FP que el propietario y los inversores tienen que poner con la ganancia / pérdida resultante.",
+                        "title": "Modos de visualización"
+                    },
+                    "snipe": {
+                        "content": "Snipe es cuando un jugador toma un lugar en un GB para obtener ganancias, generalmente no cumple con las expectativas del propietario.\n\nPor ejemplo, el nivel 49 → 50 del GB \"$ t (foe_data.gb.The_Virgo_Project)\" no requiere ningún FP del propietario para asegurar los dos primeros lugares. La inversión esperada en 1.9 es $ t (utils.FP, {'count': 1739}). Un francotirador (con un nivel de Arco 80) podría esperar hasta que el nivel se abra para tomar su lugar directamente y poner $ t (utils.FP, {'count': 1679}), lo que aseguraría su lugar y obtendría una ganancia de $ t (utils.FP, {'cuenta': 60})."
+                    },
+                    "rush_1_9": {
+                        "content": "$ t (foe_data.gb.The_Arc) es un GB que otorga un bono que aumenta las recompensas que obtienes al ubicarte entre los 5 primeros en el GB de alguien. Cuanto más alto es el nivel del Arca, más importante es la recompensa.\n\nAsí es como comenzamos a hablar de 1.8, 1.9, etc. En realidad, esta es la bonificación de Arc.\nDe hecho, 1.0 representa la recompensa básica, 1.8 representa la recompensa con un nivel de Arco 70 (proporciona un 80% más de recompensa en ese nivel) y 1.9 representa la recompensa con un nivel de Arca 80 (90% más de recompensa).\n\nLos hilos reservados exclusivamente para este tipo de inversión se crearon en gremios y grupos de amigos. Esto se basa en el principio de \"doy lo que recibo\", lo que limita los conflictos entre los miembros del gremio o amigos al no obtener ganancias en sus GB. A diferencia de los hilos sin fin (10, 50, 100, etc.), la otra ventaja de los hilos 1.8, 1.9, etc. es que ahorra una cantidad considerable de tiempo para el propietario de GB. Esto se debe a que el propietario solo necesita poner la cantidad necesaria de FP para asegurar los lugares que ocuparán las Arcas de nivel 80 (en el caso del hilo 1.9).\n\nTomemos un ejemplo:\n\nImaginemos que desea aumentar su $ t (foe_data.gb.Observatory) del nivel 10 al 60 y que gana $ t (utils.FP, {'count': 50}) por día.\nEl costo total de los niveles es $ t (utils.FP, {'count': 64975}).\n\nSi está utilizando hilos sin fin, su inversión será 1: 1, es decir, $ t (utils.FP, {'count': 25}) invertido en un GB = $ t (utils.FP, {'count': 25} ) que otro jugador invertirá en tu GB. Por lo tanto, deberá <strong> invertir $ t (utils.FP, {'count': 37320}) </strong> para alcanzar el nivel 60. A $ t (utils.FP, {'count': 50}) por día, te llevará <strong> 2 años y 17 días </strong>.\n\nAhora, si usa un hilo 1.9, tendrá que <strong> solo invertir $ t (utils.FP, {'count': 12363}) </strong> para alcanzar el nivel 60, entonces <strong> un ahorro de $ t (utils.FP, {'count': 24957})! </strong>.\n¡Aún con $ t (utils.FP, {'count': 50}) por día, pasa de 2 años y 17 días a <strong> 8 meses y 5 días </strong>!"
+                    },
+                    "welcome": "El propósito de este tutorial es explicar todas las características de esta herramienta.\n\nPuede hacer clic en los enlaces a continuación para obtener más información sobre ellos.\nPara continuar con el tutorial, haga clic en el botón \"$ t (utils.Next)\"."
                 }
             },
             "gb_investment_investors": {
