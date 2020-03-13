@@ -186,13 +186,29 @@
                         "fp_to_put_by_the_owner": "Como o nome indica, corresponde a quantidade de PFs que o dono deve colocar no seu GE para segurar o lugar.",
                         "default_rewards": "Este é o prémio normal ( sem bónus da Arca) do lugar.",
                         "place": "Corresponde ao lugar indexado.",
-                        "message": "Esta tabela mostra toda a informação que queres saber."
+                        "message": "Esta tabela mostra toda a informação que queres saber.",
+                        "include_in_copy_boxes": "Este campo permite mostrar um lugar na mensagem de promoção que você copia e cola no jogo.",
+                        "is_sniper": "Esta coluna é apenas mostrada quando é definido pelo menos 1 investidor. É usada para definir se um jogador é um potencial intruso ou não.\nEsta informação é usada para calcular um lugar seguro.",
+                        "percentage_investors": "Como\"$t(components.gb_investment.gb_investment.form.investor_percentage)\", esta coluna mostra , permite ao dono definir o investimento esperado dos investidores, mas permite colocar o valor de cada lugar.",
+                        "spot_snipe": "Esta coluna é apenas mostrada se colocar \"$t(components.gb_investment.gb_investment.form.show_snipe)\" para \"$t(utils.Yes)\" e é para investidores.Esta coluna diz te (baseada no valor colocado em \"$t(components.secure_position.block_place.your_arc_bonus)\") quantos PFs são necessarios para colocar para segurar o teu lugar.\nTambém indica o lucro ou perdas que possas ter."
                     },
                     "display_card": "Este campo permite que vejas a tabela em modo \" Card View\"\nIsto foi optimizado para telemóvel,por isso não necessita que vejas na horizontal.\nEste campo é apenas mostrado em ecrã pequeno.",
                     "show_snipe": "Este campo é para investidores e é usado para mostrar uma nova coluna,chamada\"$t(components.gb_investment.gb_investment.form.show_snipe)\". \nEsta coluna diz te ( baseada no valor definido em\"$t(components.secure_position.block_place.your_arc_bonus)\") quantos pfs precisas para colocares no GE para segurares o teu lugar\nTambém indica o lucro ou perda que vais ter.",
                     "add_investors": "Tens vários investimentos no teu GE que são mais baixos ou mais altos que o rácio pedido ?\nColoca todos os investimentos separados neste campo\nA ferramenta vai calcular os teus novos lugares seguros e quais os lugares que que seguras te .",
                     "your_arc_bonus": "Este campo é para investidores e tem de ser usado com\"$t(components.gb_investment.gb_investment.form.show_snipe)\" posto em \"$t(utils.Yes)\".\nEle diz quantos PFs tens de colocar no nível para segurares o lugar, vai te dizer o teu lucro ou perda que vais ter.",
-                    "owner_investment": "Ja tens alguns pfs no teu GE?\nSe sim, adiciona aqui quantos pfs tens no teu GE"
+                    "owner_investment": "Ja tens alguns pfs no teu GE?\nSe sim, adiciona aqui quantos pfs tens no teu GE",
+                    "promotion_message": {
+                        "add_message": "Este lugar permite que adiciones mensagens.",
+                        "custom_fields": "Nota que existe modelos já tem os seus lugares e os seus nomes.",
+                        "show_only_secured_places": "Esta opção permite que adiciones lugares a mensagem de promoção se esse lugares estão seguros e ainda não estão feitos.De modo a usar esta função , tens de colocar o numero de PFs colocados pelo dono, tal como, pelos investidores.",
+                        "show_level": "Mostra o nível do GE ( se incluído no modelo da mensagem).",
+                        "use_short_name": "Permite definir se queres mostrar o nome curto do GE (Exemplo: \"$t(foe_data.gb.Observatory)\"a ser mostrado \"$t(foe_data.gb_short.Observatory)\").",
+                        "display_gb_name": "Mostra o nome do GE (incluindo o modelo da mensagem).",
+                        "suffix": "Texto que será adicionado ao fim da mensagem.",
+                        "prefix": "Texto que será adicionado ao principio da mensagem.",
+                        "tabs": "A mensagem segue um modelo .Podes importar um modelo da \"$t(components.import_promotion_message.title)\" tabela ou criar a tua daqui \"$t(components.promotion_message_builder.title)\".",
+                        "message": "Esta Secção permite que tenha mensagens com informação sobre o  nível e lugares do GE. Você copiar uma mensagem e colar directamente no jogo, por exemplo numa carta a 1.9."
+                    }
                 }
             },
             "gb_investment_investors": {
@@ -612,7 +628,8 @@
                 },
                 "p1": "Sua língua  não está disponível, a tradução está incompleta ou contém erros? Sinta-se à vontade para participar na equipe de tradução do site.",
                 "how_to_join_the_team": "Como se juntar à equipe?",
-                "p2_html": "$t(common:site_title) é traduzido pelos jogadores. Usamos a plataforma $t(common:links.translation_platform) para facilitar o processo de tradução. Para participar da equipe, envie um e-mail (em inglês) para $t(common:links.contact_foe_tools) especificando o (s) idioma (s) para o qual você pode traduzir para que possamos enviar um convite."
+                "p2_html": "$t(common:site_title) é traduzido pelos jogadores. Usamos a plataforma $t(common:links.translation_platform) para facilitar o processo de tradução. Para participar da equipe, envie um e-mail (em inglês) para $t(common:links.contact_foe_tools) especificando o (s) idioma (s) para o qual você pode traduzir para que possamos enviar um convite.",
+                "state_of_translation": "Estado da tradução :"
             },
             "survey": {
                 "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
@@ -640,6 +657,16 @@
                     "title": "Página não encontrada | $t(common:site_title)",
                     "message": "Desculpe, a página que você está a procura não existe ou deixou de existir"
                 }
+            },
+            "donate": {
+                "hero": {
+                    "subtitle": "Faz uma doação",
+                    "title": "$t(utils.Donate)"
+                },
+                "donation_options": "Doa com $t(common:links.donorbox) or $t(common:links.paypal).",
+                "conversion": "Se aprecias o meu trabalho, por favor considera uma doação.",
+                "donation_message": "$t(common:site_title é um projecto grátis, de código fonte livre e sem fins lucrativos.Portanto o meu tempo a fazer isto é sem remuneração.Mas também aceito donativos de quem aprecia o meu trabalho e se sinta na obrigação de me compensar, não interessa o montante se é uma vez ou mensal.As doações são muito importantes para mim, porque ajuda com os custos com o servidor,domínios e etc , ajuda também em gastos individuais e serve como incentivo para mim para continuar a trabalhar neste projecto.",
+                "title": "$t(routes.survey.hero.title) | $t(common:site_title)"
             }
         },
         "foe_data": {
@@ -848,7 +875,12 @@
                 "data_crystals": "Cristais de Dados",
                 "golden_rice": "Arroz Dourado",
                 "nanites": "Nanorrobôs",
-                "tea_silk": "Seda De Chá"
+                "tea_silk": "Seda De Chá",
+                "superalloys": "Superligas",
+                "fusion_reactors": "Reactor de Fusão",
+                "mars_microbes": "Micróbios Marcianos",
+                "biotech_crops": "Colheitas Biotecnológicas",
+                "lubricants": "Lubrificantes"
             },
             "province": {
                 "Dunarsund": "Dunarsund",
@@ -1154,7 +1186,38 @@
                 "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
                 "The_Church_of_Games": "The Church of Games",
                 "The_Sacred_Database": "The Sacred Database",
-                "Game_Over": "Game Over"
+                "Game_Over": "Game Over",
+                "Everdoom": "Everdoom",
+                "Delta_Hills": "Delta Hills",
+                "Sharvice": "Sharvice",
+                "Loakmolden": "Loakmolden",
+                "Jalcion_Crater": "Jalcion Crater",
+                "Plateau_Firnane_2": "Plateau Firnane-2",
+                "High_Hacoon_Valley": "High Hacoon Valley",
+                "Low_Hacoon_Valley": "Low Hacoon Valley",
+                "Vyvalgis": "Vyvalgis",
+                "Destallia": "Destallia",
+                "Astra_Prime": "Astra Prime",
+                "Phovolken": "Phovolken",
+                "Verda_Dophria": "Verda Dophria",
+                "Zomantau": "Zomantau",
+                "Vaanderbirch": "Vaanderbirch",
+                "New_Frozenstone": "New Frozenstone",
+                "Ertannen_Belt": "Ertannen Belt",
+                "Xalvades": "Xalvades",
+                "Akuppers": "Akuppers",
+                "Enervein": "Enervein",
+                "Oppeska": "Oppeska",
+                "Fortrin": "Fortrin",
+                "Carva_Caska": "Carva Caska",
+                "Wrandasten_3": "Wrandasten 3",
+                "Klaylach": "Klaylach",
+                "Ghirken": "Ghirken",
+                "Nobisia": "Nobisia",
+                "Vradeen": "Vradeen",
+                "Kardine_Haven": "Kardine Haven",
+                "Mathaben": "Mathaben",
+                "Rustikauri": "Rustikauri"
             },
             "bonus": {
                 "coin": {
@@ -1236,7 +1299,8 @@
                     "gb_description": "Quando recebes moedas, mantimentos, mercadorias, Diamantes ou medalhas como recompensa pelas missões, recebes uma percentagem adicional."
                 },
                 "penal_unit": {
-                    "gb_description": "Fornece unidades independentes dos edifícios militares existentes na cidade a cada 24 horas. O tempo de recolha pode ser reduzido pelo Desconto de Recrutamento da Guilda."
+                    "gb_description": "Fornece unidades independentes dos edifícios militares existentes na cidade a cada 24 horas. O tempo de recolha pode ser reduzido pelo Desconto de Recrutamento da Guilda.",
+                    "name": "Unidade Militar"
                 },
                 "guild_goods": {
                     "name": "Mercadorias da Guilda",
@@ -1263,28 +1327,31 @@
                     "gb_description": "Melhora a probabilidade de encontrares uma planta quando auxilias os outros jogadores."
                 },
                 "relic_hunt": {
-                    "name": " Caçar Relíquias ",
-                    "gb_description": "Probabilidade de encontrar uma Relíquia no Mapa da Expedição da Guilda após resolução de um conflito.Cada nível aumenta a probabilidade de encontrares uma relíquia e também a chance de encontrares relíquias incomuns ou raras,em oposição as normais.  "
+                    "name": "Caçar Relíquias",
+                    "gb_description": "Probabilidade de encontrar uma Relíquia no Mapa da Expedição da Guilda após resolução de um conflito.Cada nível aumenta a probabilidade de encontrares uma relíquia e também a chance de encontrares relíquias incomuns ou raras,em oposição as normais."
                 },
                 "critical_hit": {
                     "name": "Dano Crítico",
-                    "gb_description": "Dá a todas as unidades a chance de causar 1,5 vezes o dano esperado ao atacar unidades da mesma época. Dano Critico também funciona contra Armadura Reactiva (se o dano esperado for 4-4, um acerto crítico causará 6-6 de dano). AS  (e outras unidades sem idade) não são afectadas / não podem usar essa habilidade até se transformarem em outra unidade. O dano crítico não acontecerá quando uma unidade estiver a retaliar."
+                    "gb_description": "Dá a todas as unidades a chance de causar 1,5 vezes o dano esperado ao atacar unidades da mesma época. Dano Critico também funciona contra Armadura Reactiva (se o dano esperado for 4-4, um acerto crítico causará 6-6 de dano). AS (e outras unidades sem idade) não são afectadas / não podem usar essa habilidade até se transformarem em outra unidade. O dano crítico não acontecerá quando uma unidade estiver a retaliar."
                 },
                 "helping_hands": {
-                    "name": "Entreajuda ",
+                    "name": "Entreajuda",
                     "gb_description": "Adiciona a probabilidade de obteres um recurso adicional quando auxilias os outros jogadores.Podes receber moedas,medalhas e até diamantes."
                 },
                 "plunder_and_pillage": {
-                    "name": "Saquear e Pilhar ",
-                    "gb_description": "Probabilidade de duplicar a quantidade de recursos saqueados. Poderá dobrar todos os recursos que pode pilhar, incluído pontos forge e Poder da Guilda.  "
+                    "name": "Saquear e Pilhar",
+                    "gb_description": "Probabilidade de duplicar a quantidade de recursos saqueados. Poderá dobrar todos os recursos que pode pilhar, incluído pontos forge e Poder da Guilda."
                 },
                 "first_strike": {
                     "name": "Impacto Inicial",
                     "gb_description": "Nas primeiras batalhas, existe uma probabilidade de uma unidade adversária ser destruída no início da batalha. Nas batalhas de duas ondas, a habilidade apenas tem efeito na primeira onda. Actualiza a cada recolha do Edifício."
                 },
                 "double_collection": {
-                    "name": "Recolha Dupla ",
+                    "name": "Recolha Dupla",
                     "gb_description": "Nas primeiras recolhas de edifícios, terás uma probabilidade de duplicar os recursos recolhidos. Excepto nos edifícios militares e Grandes Edifícios.Actualiza a cada recolha do Edifício."
+                },
+                "exploration_site": {
+                    "name": "Local de Exploração"
                 }
             }
         },
@@ -1298,8 +1365,8 @@
                 "p1": "Escreva os diferentes valores. O resultado é actualizado automaticamente.",
                 "p2_html": "<strong>Nota </strong>: se a atualização não for feita automaticamente, clique em \"$t(utils.btn_calculate)\"."
             },
-            "choose_age": "Escolha a ERA ",
-            "permalink": "Permalink",
+            "choose_age": "Escolha uma Era",
+            "permalink": "Link Permanente",
             "Add": "Adicionar",
             "Remove": "Remover",
             "Yes": "Sim",
@@ -1309,7 +1376,7 @@
             "Copyed": "Copiado!",
             "Information": "Informação",
             "From": "A partir de",
-            "To": "Para (no máximo {{max}})",
+            "To": "Para (max {{max, number}})",
             "Prefix": "Prefixo",
             "Suffix": "Sufixo",
             "Path": "Caminho",
