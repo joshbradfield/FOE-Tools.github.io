@@ -371,6 +371,11 @@ describe("Utils", () => {
           set: jest.fn((key, value, param) => {
             cookies.push({ key, value, param });
           })
+        },
+        $store: {
+          commit: jest.fn((key, value) => {
+            cookies.push({ key, value });
+          })
         }
       };
     });
@@ -380,7 +385,7 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$cookies.set.mock.calls.length).toBe(0);
+      expect(ctx.$store.commit.mock.calls.length).toBe(0);
       expect(cookies).toEqual([]);
     });
 
@@ -389,17 +394,8 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$cookies.set.mock.calls.length).toBe(1);
-      expect(cookies).toEqual([
-        {
-          key: "myKey",
-          param: {
-            expires: cookies[0].param.expires, // We don't care
-            path: "/"
-          },
-          value: 5
-        }
-      ]);
+      expect(ctx.$store.commit.mock.calls.length).toBe(1);
+      expect(cookies).toMatchSnapshot();
     });
 
     test("Valid value and save in cookie with key 'foo'", () => {
@@ -407,17 +403,8 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$cookies.set.mock.calls.length).toBe(1);
-      expect(cookies).toEqual([
-        {
-          key: "foo",
-          param: {
-            expires: cookies[0].param.expires, // We don't care
-            path: "/"
-          },
-          value: 5
-        }
-      ]);
+      expect(ctx.$store.commit.mock.calls.length).toBe(1);
+      expect(cookies).toMatchSnapshot();
     });
 
     test("Valid value with float value and save in cookie with path '/foo'", () => {
@@ -425,17 +412,8 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$cookies.set.mock.calls.length).toBe(1);
-      expect(cookies).toEqual([
-        {
-          key: "foo",
-          param: {
-            expires: cookies[0].param.expires, // We don't care
-            path: "/"
-          },
-          value: 5.3
-        }
-      ]);
+      expect(ctx.$store.commit.mock.calls.length).toBe(1);
+      expect(cookies).toMatchSnapshot();
     });
 
     test("Throw invalid type error when ctx is not a valid object", () => {

@@ -74,7 +74,11 @@
     "eslint-plugin-testcafe": "^0.2.1",
     "eslint-plugin-vue": "^6.0.1",
     "jest": "^24.9.0",
+    "jest-localstorage-mock": "^2.4.0",
     "jest-serializer-vue": "^2.0.2",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.2",
+    "lodash.set": "^4.3.2",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",
     "pug": "^2.0.4",
@@ -85,6 +89,7 @@
     "standard-version": "^7.0.1",
     "testcafe": "^1.7.0",
     "testcafe-nuxt-selectors": "^1.0.6",
+    "uuid": "^7.0.2",
     "vue-jest": "^3.0.5"
   },
   "dependencies": {
@@ -114,7 +119,9 @@
     "remark-html": "^10.0.0",
     "shepherd.js": "^6.0.2",
     "vue-clipboards": "^1.3.0",
+    "vue-content-loader": "^0.2.2",
     "vue-invisible-recaptcha": "^0.2.1",
-    "vue-router": "^3.1.3"
+    "vue-router": "^3.1.3",
+    "vuex-persistedstate": "^2.7.1"
   }
 }

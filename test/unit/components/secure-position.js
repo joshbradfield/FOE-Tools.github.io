@@ -3,9 +3,10 @@ import Component from "../../../components/secure-position/SecurePosition";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
+import { getDefaultStore } from "../utils";
 
 const factory = (propsData = {}, mocks = {}) => {
-  const { localVue, store } = getView();
+  const { localVue, store } = getView(getDefaultStore());
   return shallowMount(Component, {
     propsData,
     localVue: localVue,
@@ -256,24 +257,6 @@ describe("SecurePosition", () => {
     expect(wrapper.vm.levelCost).toBe(gbData.cost);
   });
 
-  test("Initialize with no cookie", () => {
-    const wrapper = factory(
-      { levelData: gbData },
-      {
-        $cookies: {
-          get: jest.fn().mockImplementation(key => {
-            switch (key) {
-              case "yourArcBonus":
-                return undefined;
-            }
-            return null;
-          })
-        }
-      }
-    );
-    expect(wrapper.vm.yourArcBonus).toBe(0);
-  });
-
   test('Change "fpTargetReward" value when initialize with custom "levelData"', () => {
     const wrapper = factory({ levelData: gbData });
     expect(wrapper.vm.fpTargetReward).toBe(0);
@@ -430,7 +413,7 @@ describe("SecurePosition", () => {
     expect(wrapper.vm.currentDeposits).toBe(0);
     expect(wrapper.vm.yourParticipation).toBe(0);
     expect(wrapper.vm.otherParticipation).toBe(0);
-    expect(wrapper.vm.yourArcBonus).toBe(90.6);
+    expect(wrapper.vm.yourArcBonus).toBe(90);
     expect(wrapper.vm.fpTargetReward).toBe(0);
   });
 });

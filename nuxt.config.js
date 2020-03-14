@@ -455,9 +455,11 @@ module.exports = {
   },
 
   router: {
-    middleware: "i18next"
+    middleware: ["i18next"]
   },
   plugins: [
+    { src: "~/plugins/vuex-persist", mode: "client" },
+    { src: "~/plugins/clone.js" },
     { src: "~/plugins/i18next.js" },
     { src: "~/plugins/clipboard.js" },
     { src: "~/plugins/numeral-plugin.js" },

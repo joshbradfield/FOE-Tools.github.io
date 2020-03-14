@@ -292,10 +292,7 @@ export default {
     let result = this.checkFormNumeric(value, currentValue, comparator, type);
     ctx.$data.errors[key] = result.state === FormCheck.INVALID;
     if (saveCookie && result.state === FormCheck.VALID) {
-      ctx.$cookies.set(cookieKey, result.value, {
-        path: "/",
-        expires: this.getDefaultCookieExpireTime()
-      });
+      ctx.$store.commit("profile/updateSpecificKey", { key: cookieKey, value: result.value });
     }
     return result.state;
   },
@@ -453,5 +450,44 @@ export default {
     }
 
     //we don't insert duplicates
+  },
+
+  /**
+   * Check if the param is null or undefined.
+   * @param elt Element to control
+   * @return {boolean} Return true if elt is null or undefined, false otherwise
+   */
+  isNullOrUndef(elt) {
+    return elt === null || typeof elt === "undefined";
+  },
+
+  /**
+   * Get default configuration for localStorage
+   * @returns {{investorView: {from: number, to: number, showPlace: boolean[]},
+   * tab: number, ownerView: {ownerInvestment: number, level: number, investorParticipation: Array,
+   * investorPercentageGlobal: number, investorPercentageCustom: number[]}}}
+   */
+  getDefaultGBConf() {
+    const defaultInvestorPercentageGlobal = 90;
+
+    return {
+      ownerView: {
+        level: 10,
+        ownerInvestment: 0,
+        investorParticipation: [],
+        investorPercentageGlobal: defaultInvestorPercentageGlobal,
+        investorPercentageCustom: Array.from(new Array(5), () => defaultInvestorPercentageGlobal)
+      },
+      investorView: {
+        from: 1,
+        to: 10,
+        showPlace: Array.from(new Array(5), (val, index) => index === 0),
+        takingPlaceInConsideration: 0,
+        investorPercentageGlobal: defaultInvestorPercentageGlobal,
+        investorPercentageCustom: Array.from(new Array(5), () => defaultInvestorPercentageGlobal),
+        customPercentage: false
+      },
+      tab: 0
+    };
   }
 };

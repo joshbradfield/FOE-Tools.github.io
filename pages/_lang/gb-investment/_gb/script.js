@@ -33,10 +33,17 @@ export default {
   },
   data() {
     this.$store.commit("SET_CURRENT_LOCATION", "gb_investment");
+    // If the GB is not in profile, we add a default conf
+    if (!(this.$route.params.gb in this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb)) {
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}`,
+        value: this.$clone(Utils.getDefaultGBConf())
+      });
+    }
 
-    let tab = this.cookieValid(this.$route.params.gb + "_tab")
-      ? parseInt(this.$cookies.get(this.$route.params.gb + "_tab"))
-      : 0;
+    let tab = this.$clone(
+      this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].tab
+    );
     tab = Utils.inRange(tab, 0, MAX_TAB) ? tab : 0;
 
     this.$store.commit("ADD_URL_QUERY", {
@@ -68,7 +75,7 @@ export default {
           oldVal,
           [0, MAX_TAB],
           !this.isPermalink,
-          this.$route.params.gb + "_tab"
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.tab`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -79,9 +86,6 @@ export default {
     }
   },
   methods: {
-    cookieValid(key) {
-      return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
-    },
     checkQuery() {
       let result = {};
       let isPermalink = false;

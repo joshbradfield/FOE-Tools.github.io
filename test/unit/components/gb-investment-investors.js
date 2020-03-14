@@ -2,12 +2,16 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/gb-investment-investors/GbInvestmentInvestors";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
+import { getDefaultStore } from "../utils";
 
 const defaultGb = gbsData.Observatory;
 const defaultTo = 10;
 
+const defaultInvestorPercentageGlobal = 90;
+const defaultInvestorPercentageCustom = Array.from(new Array(5), () => defaultInvestorPercentageGlobal);
+
 const factory = (propsData = {}, mocks = {}) => {
-  const { localVue, store } = getView();
+  const { localVue, store } = getView(getDefaultStore());
   return shallowMount(Component, {
     propsData: {
       gb: defaultGb,
@@ -26,9 +30,6 @@ const factory = (propsData = {}, mocks = {}) => {
     }
   });
 };
-
-const defaultInvestorPercentageGlobal = 80;
-const defaultInvestorPercentageCustom = [80, 80, 80, 80, 80];
 
 describe("GbInvestmentInvestors", () => {
   test("Is a Vue instance", () => {
@@ -65,35 +66,6 @@ describe("GbInvestmentInvestors", () => {
     expect(wrapper.vm.$data.yourArcBonus).toBe(90);
     expect(wrapper.vm.takingPlaceInConsideration).toBe(0);
     expect(wrapper.vm.$data.investorPercentageCustom).toEqual(investorPercentageCustom);
-
-    expect(wrapper.vm.showPlace).toEqual(showPlaceValues);
-  });
-
-  test("Initialize with cookies", () => {
-    const showPlaceValues = [true, true, false, false, false];
-    const wrapper = factory(defaultGb, {
-      $cookies: {
-        get: key => {
-          switch (key) {
-            case "root_from":
-              return 10;
-            case "root_to":
-              return 80;
-            case "yourArcBonus":
-              return undefined;
-            case "root_takingPlaceInConsideration":
-              return 1;
-            case "root_showPlace":
-              return showPlaceValues;
-          }
-        }
-      }
-    });
-
-    expect(wrapper.vm.from).toBe(10);
-    expect(wrapper.vm.to).toBe(80);
-    expect(wrapper.vm.yourArcBonus).toBe(0);
-    expect(wrapper.vm.takingPlaceInConsideration).toBe(1);
 
     expect(wrapper.vm.showPlace).toEqual(showPlaceValues);
   });
@@ -198,7 +170,7 @@ describe("GbInvestmentInvestors", () => {
 
   test('Change "investorPercentageGlobal" value', () => {
     const wrapper = factory();
-    const newValue = 90;
+    const newValue = 80;
     expect(wrapper.vm.investorPercentageGlobal).toBe(defaultInvestorPercentageGlobal);
     wrapper.vm.investorPercentageGlobal = newValue;
     expect(wrapper.vm.investorPercentageGlobal).toBe(newValue);
@@ -270,8 +242,13 @@ describe("GbInvestmentInvestors", () => {
 
   test('Change "takingPlaceInConsideration" value', () => {
     const wrapper = factory();
-    const newValue = 2;
+    let newValue = 1;
     expect(wrapper.vm.takingPlaceInConsideration).toBe(0);
+
+    wrapper.vm.takingPlaceInConsideration = newValue;
+    expect(wrapper.vm.takingPlaceInConsideration).toBe(newValue);
+    expect(wrapper.vm.$store.state.urlQueryNamespace["gbii"]["gbi_tpic"]).toBe(newValue);
+    newValue = 2;
     wrapper.vm.takingPlaceInConsideration = newValue;
     expect(wrapper.vm.takingPlaceInConsideration).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbii"]["gbi_tpic"]).toBe(newValue);

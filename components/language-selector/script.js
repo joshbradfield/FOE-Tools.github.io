@@ -14,13 +14,17 @@ export default {
     supportedLocales.sort((a, b) => (a.displayName > b.displayName ? 1 : b.displayName > a.displayName ? -1 : 0));
 
     return {
-      currentLang: this.$cookies.get("locale"),
+      currentLang: this.$clone(this.$store.state.global.locale),
       supportedLocales,
       countryFlagEmoji
     };
   },
   watch: {
     currentLang(lang) {
+      this.$store.commit("global/updateSpecificKey", {
+        key: `locale`,
+        value: lang
+      });
       this.$cookies.set("locale", lang, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()

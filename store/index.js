@@ -235,6 +235,10 @@ export const mutations = {
 
   UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES: /* istanbul ignore next */ (state, data) => {
     state.promotionMessageTemplates.custom = data;
+  },
+
+  RESTORE_MUTATION: /* istanbul ignore next */ () => {
+    this.$RESTORE_MUTATION(this);
   }
 };
 
