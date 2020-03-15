@@ -171,6 +171,20 @@ Object {
         Object {
           "config": Object {
             "displayGbName": true,
+            "message": "\${GBN} \${P}",
+            "place": "\${PI} (\${PV})",
+            "placeSeparator": "  ",
+            "prefix": "",
+            "reversePlacesOrder": true,
+            "showLevel": false,
+            "suffix": "",
+            "useShortGbName": false,
+          },
+          "name": "Default 0",
+        },
+        Object {
+          "config": Object {
+            "displayGbName": true,
             "message": "\${GBN} \${FLVL} → \${TLVL} \${P}",
             "place": "P\${PI}(\${PV})",
             "placeSeparator": " ",
