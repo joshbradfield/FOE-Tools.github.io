@@ -1,4 +1,3 @@
-import { gbsData } from "~/lib/foe-data/gbs";
 import gbInvestment from "~/components/gb-investment/GbInvestment";
 import gbInvestmentInvestors from "~/components/gb-investment-investors/GbInvestmentInvestors";
 import securePosition from "~/components/secure-position/SecurePosition";
@@ -13,9 +12,14 @@ const queryKey = {
 };
 
 export default {
-  validate({ params }) {
+  async validate({ app, store, params }) {
     // Check if `params.gb` is an existing Great Building
-    return params.gb in gbsData;
+    if (!Object.keys(store.state.foe.gbs).length) {
+      const result = await app.$axios.$get("/foe-data/gbs.json");
+      store.commit("foe/updateSpecificKey", { key: "gbs", value: result });
+    }
+
+    return params.gb in store.state.foe.gbs.gbsData;
   },
   head() {
     this.$store.commit("SET_HERO", {
@@ -53,7 +57,7 @@ export default {
 
     const data = {
       i18nPrefix: i18nPrefix,
-      gb: gbsData[this.$nuxt._route.params.gb],
+      gb: this.$store.state.foe.gbs.gbsData[this.$nuxt._route.params.gb],
       levelData: null,
       gbi_tab: tab,
       errors: {

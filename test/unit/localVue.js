@@ -40,7 +40,15 @@ export function getView(storeConf) {
     ...storeStructure,
     modules: {
       global: { namespaced: true, ...merge(clone(storeGlobalStructure), { state: globalStore }) },
-      profile: { namespaced: true, ...merge(clone(storeProfilesStructure), { state: profileStore }) }
+      profile: { namespaced: true, ...merge(clone(storeProfilesStructure), { state: profileStore }) },
+      foe: {
+        namespaced: true,
+        state: {
+          campaignCost: require("~/lib/foe-data/campaign-cost.js"),
+          gbs: require("~/lib/foe-data/gbs.js"),
+          goods: require("~/lib/foe-data/goods.js")
+        }
+      }
     }
   });
 

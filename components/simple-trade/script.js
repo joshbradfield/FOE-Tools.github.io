@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Utils from "~/scripts/utils";
 import { splitGoods } from "~/scripts/trade";
-import { agesGoods } from "~/lib/foe-data/goods";
 import ages from "~/lib/foe-data/ages";
 import YesNo from "~/components/yes-no/YesNo";
 
@@ -9,6 +8,8 @@ const i18nPrefix = "components.simple_trade.";
 const MAX_TRADE = 1000;
 const MIN_DEFAULT_RATIO = 0.5;
 const MAX_DEFAULT_RATIO = 2;
+
+let agesGoods = {};
 
 export default {
   name: "SimpleTrade",
@@ -19,6 +20,8 @@ export default {
     }
   },
   data() {
+    agesGoods = this.$store.state.foe.goods.agesGoods;
+
     let data = {
       i18nPrefix,
       agesGoods,

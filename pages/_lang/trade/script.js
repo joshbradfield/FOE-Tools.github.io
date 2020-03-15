@@ -13,6 +13,12 @@ export default {
 
     return { title: this.$t(i18nPrefix + "title") };
   },
+  async fetch({ app, store }) {
+    if (!Object.keys(store.state.foe.goods).length) {
+      const goodsResult = await app.$axios.$get("/foe-data/goods.json");
+      store.commit("foe/updateSpecificKey", { key: "goods", value: goodsResult });
+    }
+  },
   data() {
     this.$store.commit("SET_CURRENT_LOCATION", "trade");
     this.$store.commit("RESTORE_HERO");

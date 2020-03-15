@@ -5,7 +5,7 @@ import Utils from "~/scripts/utils";
 import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettings";
 import { getUserLocale } from "get-user-locale";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
-import { v4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const i18nPrefix = "components.site_layout.";
 const dayNightWatchdogTimeout = 60000;
@@ -306,7 +306,7 @@ export default {
       if (!this.$store.state.global.profiles.length || !this.$store.state.global.currentProfile) {
         const ids = this.$store.state.global.profiles.map(k => k.key);
         do {
-          currentProfileID = v4();
+          currentProfileID = uuidv4();
         } while (ids.indexOf(currentProfileID) >= 0);
 
         this.$store.commit("global/updateProfiles", [{ id: currentProfileID, name: defaultProfileName }]);

@@ -1,7 +1,6 @@
 import Vue from "vue";
 
 import Utils from "~/scripts/utils";
-import { gbsData } from "~/lib/foe-data/gbs";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
@@ -15,6 +14,7 @@ const defaultTo = 10;
 let oldInvestorPercentageCustom;
 let oldMaxLevel = 0;
 let oldFromInput = 0;
+let gbsData = {};
 
 const queryKey = {
   gb: urlPrefix + "gb",
@@ -36,7 +36,7 @@ const inputComparator = {
   alreadyInvested: { comparator: [">=", 0] }
 };
 
-const defaultGb = JSON.parse(JSON.stringify(gbsData[Object.keys(gbsData)[0]]));
+let defaultGb = {};
 
 export default {
   name: "GbForecastCost",
@@ -48,6 +48,8 @@ export default {
   },
   data() {
     this.$moment.locale(this.$store.state.locale);
+    gbsData = this.$store.state.foe.gbs.gbsData;
+    defaultGb = this.$clone(gbsData[Object.keys(gbsData)[0]]);
 
     const data = {
       i18nPrefix: i18nPrefix,
