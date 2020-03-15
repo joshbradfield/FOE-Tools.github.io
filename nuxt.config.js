@@ -1,6 +1,7 @@
 import { JSDOM } from "jsdom";
 
-import { i18next, defaultLocale, supportedLocales } from "./scripts/i18n";
+import { defaultLocale, supportedLocales } from "./scripts/locales";
+import { i18next } from "./scripts/i18n";
 import { gbs } from "./lib/foe-data/gbs";
 import { bestFacebookLocaleFor } from "facebook-locales";
 
@@ -495,7 +496,9 @@ module.exports = {
     "@nuxtjs/robots",
     "cookie-universal-nuxt",
     "@nuxtjs/axios",
-    { src: "~/modules/buefy/module.js" }
+    { src: "~/modules/i18next/module.js" },
+    { src: "~/modules/buefy/module.js" },
+    { src: "~/modules/foe-data/module.js" }
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },

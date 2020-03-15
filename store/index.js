@@ -1,4 +1,4 @@
-import { defaultLocale } from "~/scripts/i18n";
+import { defaultLocale } from "~/scripts/locales";
 import * as Errors from "~/scripts/errors";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 

@@ -10,7 +10,8 @@ import * as storeGlobalStructure from "~/store/global";
 import * as storeProfilesStructure from "~/store/profile";
 import VueClipboards from "vue-clipboards";
 import VueI18Next from "@panter/vue-i18next";
-import { i18next, defaultLocale, supportedLocales, initializeI18next } from "~/scripts/i18n";
+import { defaultLocale, supportedLocales } from "~/scripts/locales";
+import { i18next, initializeI18next } from "~/scripts/i18n";
 import VueNumeral from "~/plugins/numeral";
 import Buefy from "buefy";
 

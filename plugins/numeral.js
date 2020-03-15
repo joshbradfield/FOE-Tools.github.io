@@ -1,5 +1,4 @@
-import numeral from "numeral";
-import { numeralSpecialLocales } from "~/scripts/i18n";
+import { numeral, numeralSpecialLocales } from "~/scripts/locales";
 
 const VueNumeral = {
   install(Vue) {
