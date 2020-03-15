@@ -13,16 +13,17 @@ div.content#gbiContent
           | &nbsp;{{$t('utils.permalink')}}
       div.field(style="text-align:right !important;")
         div.content
-          a.is-text.has-text-primary(@click.prevent="startTour")
-            i.fas.fa-info-circle.fa-2x
-            span.tutorial-link.has-text-centered <br /> {{$t('utils.Tutorial')}}
+          a.is-text.has-text-white(@click.prevent="startTour")
+            article.tutorial-button(style="display:inline-block;")
+              i.fas.fa-question.fa-2x
+              span.has-text-centered <br /> {{$t('utils.Tutorial')}}
 
   template(v-if="dataReady")
     h4.title.is-4 {{$t($data.i18nPrefix + 'gb_investment.title')}}
 
     p {{$t($data.i18nPrefix + 'gb_investment.description.p1')}}
 
-    div.columns
+    div.columns.form-short
       div.column.is-half
         b-field#fieldId(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
           numberinput#giLevel(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
@@ -30,7 +31,7 @@ div.content#gbiContent
         b-field(:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
           numberinput#giInvestorPercentageGlobal(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
 
-    div.columns(v-if="result !== null")
+    div.columns.form-short(v-if="result !== null")
       div.column.is-half#fieldOwnerInvestment
         b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
           numberinput#giOwnerInvestment(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
@@ -44,15 +45,15 @@ div.content#gbiContent
                   i.fas.fa-plus
                 | &nbsp;&nbsp;{{$t('utils.Add')}}
 
-    div.columns(v-if="result !== null")
+    div.columns.form-short(v-if="result !== null")
+      // Investor participation
       div.column(v-if="investorParticipation.length > 0")
         b-field(:label="$t(i18nPrefix + 'gb_investment.form.investors_list')")
         b-field(grouped group-multiline)
           div.control(v-for="(investor,index) in investorParticipation")
             b-tag(:type="isNaN(investor.value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
 
-    div.columns
-      // Investor participation
+    div.columns(style="margin-top:0.5rem !important;")
       div.column.is-half
         yes-no#fieldShowSnipe(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
       div.column.is-half#fieldYourArcBonus(v-if="showSnipe || tutoMode")
