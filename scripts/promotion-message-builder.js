@@ -153,6 +153,20 @@ export function buildMessage(gbKey, data, interpolationValues, placeInterpolatio
 
 export const defaultPromotionMessages = [
   {
+    name: "Default 0",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: false,
+      useShortGbName: false,
+      reversePlacesOrder: true,
+      placeSeparator: "  ",
+      place: "${PI} (${PV})",
+      message: "${GBN} ${P}"
+    }
+  },
+  {
     name: "Default 1",
     config: {
       prefix: "",

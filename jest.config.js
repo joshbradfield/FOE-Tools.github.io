@@ -17,7 +17,7 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/$1",
     "^~/(.*)$": "<rootDir>/$1"
   },
-  setupFiles: ["<rootDir>/test/unit/setup"],
+  setupFiles: ["<rootDir>/test/unit/setup", "jest-localstorage-mock"],
   snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"],
   collectCoverage: false,
   collectCoverageFrom: [
@@ -40,7 +40,9 @@ module.exports = {
     "!**/components/**/script.js",
     "!**/components/number-input/**",
     "!**/layouts/**/script.js",
-    "!**/scripts/tutorial.js"
+    "!**/scripts/tutorial.js",
+    "!**/store/global.js",
+    "!**/store/profile.js"
   ],
   coverageReporters: ["html", "text", "text-summary"]
 };

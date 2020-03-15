@@ -1,4 +1,4 @@
-import { defaultLocale } from "~/scripts/i18n";
+import { defaultLocale } from "~/scripts/locales";
 import * as Errors from "~/scripts/errors";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 
@@ -235,6 +235,10 @@ export const mutations = {
 
   UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES: /* istanbul ignore next */ (state, data) => {
     state.promotionMessageTemplates.custom = data;
+  },
+
+  RESTORE_MUTATION: /* istanbul ignore next */ () => {
+    this.$RESTORE_MUTATION(this);
   }
 };
 

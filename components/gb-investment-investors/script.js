@@ -49,19 +49,40 @@ export default {
     const maxLevel = this.$props.gb.levels.length;
     const data = {
       i18nPrefix,
-      yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : this.$cookies.get("yourArcBonus"),
-      investorPercentageGlobal: defaultArcPercentage,
-      investorPercentageCustom: Array.from(new Array(5), () => defaultArcPercentage),
-      customPercentage: false,
+      yourArcBonus: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus
+      ),
+      investorPercentageGlobal: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.investorPercentageGlobal
+      ),
+      investorPercentageCustom: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.investorPercentageCustom
+      ),
+      customPercentage: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.customPercentage
+      ),
       result: null,
       maxLevel,
-      from: this.cookieValid(`${this.$route.params.gb}_from`) ? this.$cookies.get(`${this.$route.params.gb}_from`) : 1,
-      to: this.cookieValid(`${this.$route.params.gb}_to`) ? this.$cookies.get(`${this.$route.params.gb}_to`) : 10,
+      from: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.from
+      ),
+      to: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.to
+      ),
       maxConsideration: MAX_TAKING_PLACE_IN_CONSIDERATION + 1,
-      takingPlaceInConsideration: this.cookieValid(`${this.$route.params.gb}_takingPlaceInConsideration`)
-        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_takingPlaceInConsideration`))
-        : 0,
-      showPlace: Array.from(new Array(5), (val, index) => index === 0),
+      takingPlaceInConsideration: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.takingPlaceInConsideration
+      ),
+      showPlace: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
+          .investorView.showPlace
+      ),
       errors: {
         from: false,
         to: false,
@@ -70,10 +91,6 @@ export default {
         takingPlaceInConsideration: false
       }
     };
-
-    if (this.$cookies.get(`${this.$route.params.gb}_showPlace`) instanceof Array) {
-      data.showPlace = Utils.normalizeBooleanArray(this.$cookies.get(`${this.$route.params.gb}_showPlace`));
-    }
 
     Object.assign(data, this.checkQuery(data.maxLevel, data.from, data.to, data.customPercentage));
     this.$store.commit("ADD_URL_QUERY", {
@@ -108,7 +125,7 @@ export default {
       ns: "gbii"
     });
 
-    oldInvestorPercentageCustom = JSON.parse(JSON.stringify(data.investorPercentageCustom));
+    oldInvestorPercentageCustom = this.$clone(data.investorPercentageCustom);
 
     return data;
   },
@@ -147,7 +164,7 @@ export default {
           oldVal,
           [1, this.normalizedTo()],
           !this.isPermalink,
-          `${this.$route.params.gb}_from`
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.from`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -172,7 +189,7 @@ export default {
           oldVal,
           [this.normalizedFrom(), this.$data.maxLevel],
           !this.isPermalink,
-          `${this.$route.params.gb}_to`
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.to`
         ) === Utils.FormCheck.VALID
       ) {
         if (this.$data.errors.from) {
@@ -197,7 +214,8 @@ export default {
           oldVal,
           INPUT_COMPARATOR.takingPlaceInConsideration.comparator,
           !this.isPermalink,
-          this.$route.params.gb + "_takingPlaceInConsideration"
+          // eslint-disable-next-line max-len
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.takingPlaceInConsideration`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -221,7 +239,7 @@ export default {
           oldVal,
           INPUT_COMPARATOR.yourArcBonus.comparator,
           !this.isPermalink,
-          "yourArcBonus",
+          `profiles.${this.$store.state.global.currentProfile}.yourArcBonus`,
           INPUT_COMPARATOR.yourArcBonus.type
         ) === Utils.FormCheck.VALID
       ) {
@@ -245,8 +263,9 @@ export default {
           !val || val.length === 0 ? 0 : val,
           oldVal,
           [">=", 0],
-          false,
-          this.$route.params.gb + "_investorPercentageGlobal",
+          !this.isPermalink,
+          // eslint-disable-next-line max-len
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.investorPercentageGlobal`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -282,7 +301,7 @@ export default {
             oldInvestorPercentageCustom[index],
             [">=", 0],
             false,
-            this.$route.params.gb + "_investorPercentageCustom_" + index,
+            "",
             "float"
           ) === Utils.FormCheck.INVALID
         ) {
@@ -298,6 +317,13 @@ export default {
             ns: "gbii"
           });
         }
+        if (!this.isPermalink) {
+          this.$store.commit("profile/updateSpecificKey", {
+            // eslint-disable-next-line max-len
+            key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.investorPercentageCustom`,
+            value: this.$clone(Utils.normalizeNumberArray(val, this.$data.investorPercentageGlobal))
+          });
+        }
         this.compute();
       }
     },
@@ -307,6 +333,14 @@ export default {
         value: val ? 1 : 0,
         ns: "gbii"
       });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          // eslint-disable-next-line max-len
+          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.customPercentage`,
+          value: val
+        });
+      }
+
       for (let i = 0; i < 5; i++) {
         this.$data.investorPercentageCustom[i] = Utils.normalizeNumberValue(this.$data.investorPercentageGlobal);
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -322,10 +356,12 @@ export default {
         value: JSON.stringify(val),
         ns: "gbii"
       });
-      this.$cookies.set(`${this.$route.params.gb}_showPlace`, Utils.normalizeBooleanArray(val), {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.showPlace`,
+          value: this.$clone(Utils.normalizeBooleanArray(val))
+        });
+      }
     }
   },
   methods: {
@@ -340,10 +376,6 @@ export default {
     },
     haveError(key) {
       return this.$data.errors[key] ? "is-danger" : "";
-    },
-
-    cookieValid(key) {
-      return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
     },
 
     checkFrom(val) {

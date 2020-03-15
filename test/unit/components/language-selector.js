@@ -1,4 +1,4 @@
-import { config, shallowMount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 
 import Component from "~/components/language-selector/LanguageSelector";
 import { getView } from "../localVue";
@@ -21,16 +21,13 @@ describe("LanguageSelector", () => {
   test("Change current lang", () => {
     const wrapper = factory();
     window.location.reload = jest.fn();
+    const newValue = "fr";
 
     expect(wrapper.vm.$store.state.locale).toBe("en");
 
-    wrapper.vm.currentLang = "fr";
+    wrapper.vm.currentLang = newValue;
 
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(1);
-    expect(config.mocks.$cookies.set.mock.calls[0][0]).toEqual("locale");
-    expect(config.mocks.$cookies.set.mock.calls[0][1]).toEqual("fr");
-    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toEqual("/");
-    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
+    expect(wrapper.vm.$store.state.global.locale).toBe(newValue);
 
     expect(wrapper.vm.$store.state.locale).toBe("fr");
     expect(window.location.reload.mock.calls.length).toBe(1);

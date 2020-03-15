@@ -58,9 +58,7 @@ export default {
       yourArcBonus:
         this.$props.customYourArcBonus !== false
           ? this.$props.customYourArcBonus
-          : this.$cookies.get("yourArcBonus") === undefined
-          ? 0
-          : this.$cookies.get("yourArcBonus"),
+          : this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus),
       fpTargetReward: 0,
       roi: 0,
       formValid: false,
@@ -242,7 +240,7 @@ export default {
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
-          "yourArcBonus",
+          `profiles.${this.$store.state.global.currentProfile}.yourArcBonus`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -448,9 +446,7 @@ export default {
       this.$data.yourArcBonus =
         this.$props.customYourArcBonus !== false
           ? this.$props.customYourArcBonus
-          : this.$cookies.get("yourArcBonus") === undefined
-          ? 0
-          : this.$cookies.get("yourArcBonus");
+          : this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus);
       this.$data.fpTargetReward = 0;
     }
   },

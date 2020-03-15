@@ -1,4 +1,3 @@
-import Utils from "~/scripts/utils";
 import yesNo from "~/components/yes-no/YesNo";
 import numberinput from "~/components/number-input/NumberInput";
 import * as PMBuilder from "~/scripts/promotion-message-builder";
@@ -180,14 +179,16 @@ export default {
         return;
       }
 
-      let result = this.$cookies.get("customPromotionMessagesTemplates");
+      let result = this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].customPromotionMessagesTemplates
+      );
       if (!result) {
         result = [];
       }
       result.push({ name: this.templateName, config: template });
-      this.$cookies.set(`customPromotionMessagesTemplates`, result, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.customPromotionMessagesTemplates`,
+        value: this.$clone(result)
       });
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(result)));
       this.$buefy.notification.open({

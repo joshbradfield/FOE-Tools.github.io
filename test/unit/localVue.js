@@ -1,12 +1,17 @@
 import { config } from "@vue/test-utils";
 import { createLocalVue, RouterLinkStub } from "@vue/test-utils";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
+import clone from "lodash.clonedeep";
+import merge from "lodash.merge";
 
 import Vuex from "vuex";
 import * as storeStructure from "~/store/index";
+import * as storeGlobalStructure from "~/store/global";
+import * as storeProfilesStructure from "~/store/profile";
 import VueClipboards from "vue-clipboards";
 import VueI18Next from "@panter/vue-i18next";
-import { i18next, defaultLocale, supportedLocales, initializeI18next } from "~/scripts/i18n";
+import { defaultLocale, supportedLocales } from "~/scripts/locales";
+import { i18next, initializeI18next } from "~/scripts/i18n";
 import VueNumeral from "~/plugins/numeral";
 import Buefy from "buefy";
 
@@ -14,7 +19,15 @@ import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
 momentDurationFormatSetup(moment);
 
-export function getView() {
+export function getView(storeConf) {
+  let globalStore = {};
+  let profileStore = {};
+
+  if (storeConf) {
+    globalStore = "globalStore" in storeConf ? storeConf.globalStore : {};
+    profileStore = "profileStore" in storeConf ? storeConf.profileStore : {};
+  }
+
   // create an extended `Vue` constructor
   const localVue = createLocalVue();
 
@@ -23,7 +36,21 @@ export function getView() {
   //////////
 
   localVue.use(Vuex);
-  const store = new Vuex.Store(storeStructure);
+  const store = new Vuex.Store({
+    ...storeStructure,
+    modules: {
+      global: { namespaced: true, ...merge(clone(storeGlobalStructure), { state: globalStore }) },
+      profile: { namespaced: true, ...merge(clone(storeProfilesStructure), { state: profileStore }) },
+      foe: {
+        namespaced: true,
+        state: {
+          campaignCost: require("~/lib/foe-data/campaign-cost.js"),
+          gbs: require("~/lib/foe-data/gbs.js"),
+          goods: require("~/lib/foe-data/goods.js")
+        }
+      }
+    }
+  });
 
   ///////////////
   // Clipboard //
@@ -102,35 +129,50 @@ export function getView() {
 // Global Config //
 ///////////////////
 
+const getAllCookies = () => {
+  return {
+    locale: i18next.language,
+    cookieDisclaimerDisplayed: false,
+    survey: [],
+    gbSelectMode: "select",
+    fixedMainMenu: true,
+    haveReadLocaleInfoAvailable: false,
+    customPromotionMessagesTemplates: [],
+    displayTableCard: false,
+    haveReadTipAboutAddInvestor: false,
+    dayNightMode: "day",
+    dayStart: "07:00",
+    nightStart: "18:30",
+    lastVisitVersion: "",
+
+    gbShowPrefix: true,
+    gbShowSuffix: true,
+    displayGbName: true,
+    showSnipe: false,
+    yourAge: "BronzeAge",
+    shortName: false,
+    showLevel: true,
+    yourArcBonus: 90.6,
+    yourCfBoost: 0,
+    gbPrefix: "",
+    gbSuffix: "",
+    showOnlySecuredPlaces: false,
+    promotionMessageList: defaultPromotionMessages
+  };
+};
+
 config.mocks["$cookies"] = {
+  getAll: jest.fn().mockImplementation(getAllCookies),
   get: jest.fn().mockImplementation(key => {
-    switch (key) {
-      case "locale":
-        return i18next.language;
-      case "yourArcBonus":
-        return 90.6;
-      case "promotionMessageList":
-        return [
-          ...defaultPromotionMessages,
-          {
-            name: "Custom 11",
-            config: {
-              prefix: "",
-              suffix: "",
-              displayGbName: true,
-              showLevel: true,
-              useShortGbName: false,
-              reversePlacesOrder: true,
-              placeSeparator: ",",
-              place: "${PI}",
-              message: "${GBN} ${FLVL} < ${P} > ${TLVL}"
-            }
-          }
-        ];
+    const cookies = getAllCookies();
+    if (key in cookies) {
+      return cookies[key];
     }
+
     return undefined;
   }),
-  set: jest.fn()
+  set: jest.fn(),
+  remove: jest.fn()
 };
 
 const url = "https://test.foe-tools.github.io";
@@ -139,6 +181,8 @@ config.mocks["$nuxt"] = {
     path: url
   }
 };
+
+config.mocks["$clone"] = value => clone(value);
 
 config.stubs["NuxtLink"] = RouterLinkStub;
 

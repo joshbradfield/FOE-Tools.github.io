@@ -24,3 +24,39 @@ My pseudo - foe_data.gb.Observatory 2
 My pseudo - foe_data.gb.Observatory 3
 My pseudo - foe_data.gb.Observatory 4"
 `;
+
+exports[`Scripts Utils handlerForm Valid value and save in cookie 1`] = `
+Array [
+  Object {
+    "key": "profile/updateSpecificKey",
+    "value": Object {
+      "key": "myKey",
+      "value": 5,
+    },
+  },
+]
+`;
+
+exports[`Scripts Utils handlerForm Valid value and save in cookie with key 'foo' 1`] = `
+Array [
+  Object {
+    "key": "profile/updateSpecificKey",
+    "value": Object {
+      "key": "foo",
+      "value": 5,
+    },
+  },
+]
+`;
+
+exports[`Scripts Utils handlerForm Valid value with float value and save in cookie with path '/foo' 1`] = `
+Array [
+  Object {
+    "key": "profile/updateSpecificKey",
+    "value": Object {
+      "key": "foo",
+      "value": 5.3,
+    },
+  },
+]
+`;

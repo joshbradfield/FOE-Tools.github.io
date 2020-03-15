@@ -2,8 +2,6 @@ import Vue from "vue";
 import Utils from "~/scripts/utils";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
 
-import { agesCost, gbsData } from "~/lib/foe-data/gbs";
-
 const i18nPrefix = "components.gb_statistics.";
 const urlPrefix = "gbs_";
 const queryKey = {
@@ -13,9 +11,15 @@ const queryKey = {
   hidden: urlPrefix + "h"
 };
 
+let agesCost = {};
+let gbsData = {};
+
 export default {
   name: "GbStatistics",
   data() {
+    agesCost = this.$store.state.foe.gbs.agesCost;
+    gbsData = this.$store.state.foe.gbs.gbsData;
+
     const defaultFromGraph = 1;
     const defaultToGraph = 80;
 

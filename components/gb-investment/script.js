@@ -7,9 +7,10 @@ import securePosition from "~/components/secure-position/SecurePosition";
 import PromotionMessageBuilder from "~/components/promotion-message-builder/PromotionMessageBuilder";
 import ImportPromotionMessage from "~/components/import-promotion-message/ImportPromotionMessage";
 import * as Errors from "../../scripts/errors";
-import { defaultPromotionMessages, buildMessage } from "~/scripts/promotion-message-builder";
+import { buildMessage } from "~/scripts/promotion-message-builder";
 import Shepherd from "shepherd.js";
 import { getVideoTag, formatTuto } from "~/scripts/tutorial";
+import { ContentLoader } from "vue-content-loader";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -55,67 +56,57 @@ export default {
     }
   },
   data() {
-    let investorPercentageGlobal = this.cookieValid(`${this.$route.params.gb}_investorPercentageGlobal`)
-      ? parseFloat(this.$cookies.get(`${this.$route.params.gb}_investorPercentageGlobal`))
-      : defaultArcPercentage;
-
-    let promotionMessageList;
-    /* istanbul ignore next */
-    if (!this.$cookies.get("promotionMessageList")) {
-      this.$cookies.set("promotionMessageList", defaultPromotionMessages, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
-      promotionMessageList = defaultPromotionMessages;
-    } else {
-      promotionMessageList = this.$cookies.get("promotionMessageList");
-    }
-
-    /* istanbul ignore next */
-    if (
-      this.$cookies.get("customPromotionMessagesTemplates") &&
-      this.$cookies.get("customPromotionMessagesTemplates") instanceof Array &&
-      this.$cookies.get("customPromotionMessagesTemplates").length
-    ) {
-      this.$store.commit(
-        "UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES",
-        this.$cookies.get("customPromotionMessagesTemplates")
-      );
-    }
+    this.$store.commit(
+      "UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES",
+      this.$store.state.global.customPromotionMessagesTemplates
+    );
 
     const data = {
       i18nPrefix,
-      level: this.cookieValid(`${this.$route.params.gb}_level`)
-        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_level`))
-        : 10,
+      dataReady: true,
+      level: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
+          .level
+      ),
       maxLevel: this.$props.gb.levels.length,
-      ownerInvestment: this.cookieValid(`${this.$route.params.gb}_ownerInvestment`)
-        ? parseInt(this.$cookies.get(`${this.$route.params.gb}_ownerInvestment`))
-        : 0,
-      investorPercentageGlobal,
-      investorPercentageCustom: Array.from(new Array(5), () => investorPercentageGlobal),
-      investorParticipation: [],
+      ownerInvestment: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
+          .ownerInvestment
+      ),
+      investorPercentageGlobal: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
+          .investorPercentageGlobal
+      ),
+      investorPercentageCustom: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
+          .investorPercentageCustom
+      ),
+      investorParticipation: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
+          .investorParticipation
+      ),
       addInvestors: null,
       showExtraInvestors: false,
-      showSnipe: typeof this.cookieValid("showSnipe") === "boolean" ? !!this.$cookies.get("showSnipe") : false,
+      showSnipe: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].showSnipe),
       placeFree: Array.from(new Array(5), () => {
         return { state: true };
       }),
-      prefix: this.$cookies.get("gbPrefix") ? this.$cookies.get("gbPrefix") : "",
-      suffix: this.$cookies.get("gbSuffix") ? this.$cookies.get("gbSuffix") : "",
-      displayGbName:
-        typeof this.$cookies.get("displayGbName") === "boolean" ? !!this.$cookies.get("displayGbName") : true,
-      shortName: typeof this.$cookies.get("shortName") === "boolean" ? !!this.$cookies.get("shortName") : false,
-      showLevel: typeof this.$cookies.get("showLevel") === "boolean" ? !!this.$cookies.get("showLevel") : true,
-      showPrefix: typeof this.$cookies.get("gbShowPrefix") === "boolean" ? !!this.$cookies.get("gbShowPrefix") : true,
-      showSuffix: typeof this.$cookies.get("gbShowSuffix") === "boolean" ? !!this.$cookies.get("gbShowSuffix") : true,
-      yourArcBonus: this.$cookies.get("yourArcBonus") === undefined ? 0 : parseFloat(this.$cookies.get("yourArcBonus")),
-      showOnlySecuredPlaces:
-        typeof this.$cookies.get("showOnlySecuredPlaces") === "boolean"
-          ? !!this.$cookies.get("showOnlySecuredPlaces")
-          : false,
-      displayTableCard:
-        typeof this.$cookies.get("displayTableCard") === "boolean" ? !!this.$cookies.get("displayTableCard") : false,
+      prefix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbPrefix),
+      suffix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbSuffix),
+      displayGbName: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].displayGbName
+      ),
+      shortName: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].shortName),
+      showLevel: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].showLevel),
+      showPrefix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbShowPrefix),
+      showSuffix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbShowSuffix),
+      yourArcBonus: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus
+      ),
+      showOnlySecuredPlaces: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].showOnlySecuredPlaces
+      ),
+      displayTableCard: this.$clone(this.$store.state.global.displayTableCard),
       result: null,
       errors: {
         level: false,
@@ -131,34 +122,13 @@ export default {
       },
       promotionMessageTab: 0,
       promotion: [],
-      promotionMessageList: promotionMessageList,
+      promotionMessageList: this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].promotionMessageList
+      ),
       childChange: false,
       templateToAdd: "",
       tutoMode: false
     };
-
-    for (let i = 0; i < 5; i++) {
-      if (this.cookieValid(`${this.$route.params.gb}_investorPercentageCustom_${i}`)) {
-        data.investorPercentageCustom[i] = parseFloat(
-          this.$cookies.get(`${this.$route.params.gb}_investorPercentageCustom_${i}`)
-        );
-      }
-    }
-
-    if (
-      this.$cookies.get(`${this.$route.params.gb}_investorParticipation`) &&
-      this.$cookies.get(`${this.$route.params.gb}_investorParticipation`) instanceof Array
-    ) {
-      data.investorParticipation = this.$cookies.get(`${this.$route.params.gb}_investorParticipation`);
-      // this "if" is to update previous storage method to prevent app crash
-      if (typeof data.investorParticipation[0] === "number") {
-        let tmp = [];
-        for (const value of data.investorParticipation) {
-          tmp.push({ value, isPotentialSniper: true });
-        }
-        data.investorParticipation = tmp;
-      }
-    }
 
     Object.assign(data, this.checkQuery(data.level, data.maxLevel));
 
@@ -324,7 +294,7 @@ export default {
           oldVal,
           [1, this.$data.maxLevel],
           !this.isPermalink,
-          this.$route.params.gb + "_level"
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.level`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -359,7 +329,7 @@ export default {
           oldVal,
           [0, this.result.cost - this.investorParticipationNormalizedSum],
           !this.isPermalink,
-          this.$route.params.gb + "_ownerInvestment"
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.ownerInvestment`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -406,7 +376,8 @@ export default {
           oldVal,
           [">=", 0],
           !this.isPermalink,
-          this.$route.params.gb + "_investorPercentageGlobal",
+          // eslint-disable-next-line max-len
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorPercentageGlobal`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -440,13 +411,20 @@ export default {
           val[index].length === 0 ? 0 : val[index],
           oldInvestorPercentageCustom[index],
           [">=", 0],
-          !this.isPermalink,
-          this.$route.params.gb + "_investorPercentageCustom_" + index,
+          false,
+          "",
           "float"
         );
         if (tmp === Utils.FormCheck.INVALID) {
           result = Utils.FormCheck.INVALID;
         } else if (tmp === Utils.FormCheck.VALID) {
+          if (!this.isPermalink) {
+            this.$store.commit("profile/updateSpecificKey", {
+              // eslint-disable-next-line max-len
+              key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorPercentageCustom`,
+              value: this.$clone(val)
+            });
+          }
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.investorPercentageCustom + (index + 1),
             value: val[index],
@@ -465,10 +443,13 @@ export default {
         value: JSON.stringify(val),
         ns: "gbi"
       });
-      this.$cookies.set(`${this.$route.params.gb}_investorParticipation`, val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          // eslint-disable-next-line max-len
+          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorParticipation`,
+          value: this.$clone(val)
+        });
+      }
       this.calculate();
     },
     prefix(val) {
@@ -477,10 +458,12 @@ export default {
         value: val,
         ns: "gbi"
       });
-      this.$cookies.set("gbPrefix", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gbPrefix`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     suffix(val) {
@@ -489,10 +472,12 @@ export default {
         value: val,
         ns: "gbi"
       });
-      this.$cookies.set("gbSuffix", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gbSuffix`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     displayGbName(val) {
@@ -501,10 +486,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("displayGbName", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.displayGbName`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     shortName(val) {
@@ -513,10 +500,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("shortName", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.shortName`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     showLevel(val) {
@@ -525,10 +514,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("showLevel", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.showLevel`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     showPrefix(val) {
@@ -537,10 +528,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("gbShowPrefix", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gbShowPrefix`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     showSuffix(val) {
@@ -549,10 +542,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("gbShowSuffix", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gbShowSuffix`,
+          value: this.$clone(val)
+        });
+      }
       this.updatePromotionMessage();
     },
     showOnlySecuredPlaces(val) {
@@ -561,10 +556,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("showOnlySecuredPlaces", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.showOnlySecuredPlaces`,
+          value: this.$clone(val)
+        });
+      }
       if (!val) {
         for (let i = 0; i < this.result.investment.length; i++) {
           this.placeFree[i].state = true;
@@ -579,10 +576,12 @@ export default {
         value: val ? 1 : 0,
         ns: "gbi"
       });
-      this.$cookies.set("showSnipe", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.showSnipe`,
+          value: this.$clone(val)
+        });
+      }
     },
     yourArcBonus(val, oldVal) {
       if (val && typeof val !== "number" && val.length > 0) {
@@ -597,7 +596,7 @@ export default {
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
-          "yourArcBonus",
+          `profiles.${this.$store.state.global.currentProfile}.yourArcBonus`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -610,9 +609,9 @@ export default {
       }
     },
     displayTableCard(val) {
-      this.$cookies.set("displayTableCard", !!val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
+      this.$store.commit("global/updateSpecificKey", {
+        key: `displayTableCard`,
+        value: this.$clone(val)
       });
     },
     result(val) {
@@ -627,9 +626,9 @@ export default {
     },
     promotionMessageList: {
       handler: function(val) {
-        this.$cookies.set("promotionMessageList", val, {
-          path: "/",
-          expires: Utils.getDefaultCookieExpireTime()
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.promotionMessageList`,
+          value: this.$clone(val)
         });
         this.updatePromotionMessage();
       },
@@ -639,9 +638,6 @@ export default {
   methods: {
     goTo(val) {
       this.$router.push(`/gb-investment/${val}/`);
-    },
-    cookieValid(key) {
-      return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
     },
     calculate() {
       if (this.maxInvestment < 0) {
@@ -735,10 +731,14 @@ export default {
         value: JSON.stringify(this.$data.investorParticipation),
         ns: "gbi"
       });
-      this.$cookies.set(`${this.$route.params.gb}_investorParticipation`, this.$data.investorParticipation, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          // eslint-disable-next-line max-len
+          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorParticipation`,
+          value: this.$clone(this.$data.investorParticipation)
+        });
+      }
 
       this.calculate();
     },
@@ -914,9 +914,9 @@ export default {
     },
     removePromotionMessage(index) {
       this.promotionMessageList.splice(index, 1);
-      this.$cookies.set("promotionMessageList", this.promotionMessageList, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.promotionMessageList`,
+        value: this.$clone(this.promotionMessageList)
       });
       this.promotion.splice(index, 1);
     },
@@ -960,9 +960,10 @@ export default {
       }
 
       this.promotionMessageList.push(JSON.parse(JSON.stringify(elt)));
-      this.$cookies.set("promotionMessageList", this.promotionMessageList, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
+
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.promotionMessageList`,
+        value: this.$clone(this.promotionMessageList)
       });
 
       this.updatePromotionMessage();
@@ -977,7 +978,7 @@ export default {
       this.calculate();
     },
     haveReadTipAboutAddInvestor: /* istanbul ignore next */ function() {
-      if (!this.$cookies.get("haveReadTipAboutAddInvestor")) {
+      if (!this.$store.state.global.haveReadTipAboutAddInvestor) {
         let self = this;
         this.$buefy.snackbar.open({
           message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
@@ -985,27 +986,30 @@ export default {
           actionText: this.$t("utils.Ok"),
           indefinite: true,
           onAction: () => {
-            self.$cookies.set("haveReadTipAboutAddInvestor", true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
+            self.$store.commit("global/updateSpecificKey", { key: "haveReadTipAboutAddInvestor", value: true });
           }
         });
       }
     },
     switchPrefix() {
       this.showPrefix = !this.showPrefix;
-      this.$cookies.set("gbShowPrefix", this.showPrefix, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gbShowPrefix`,
+          value: this.$clone(this.showPrefix)
+        });
+      }
     },
     switchSuffix() {
       this.showSuffix = !this.showSuffix;
-      this.$cookies.set("gbShowSuffix", this.showSuffix, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+
+      if (!this.isPermalink) {
+        this.$store.commit("profile/updateSpecificKey", {
+          key: `profiles.${this.$store.state.global.currentProfile}.gbShowSuffix`,
+          value: this.$clone(this.showSuffix)
+        });
+      }
     },
     updatePlaceFreeWhenOnlySecured() {
       if (!this.showOnlySecuredPlaces) {
@@ -1332,6 +1336,7 @@ export default {
     yesNo,
     numberinput,
     PromotionMessageBuilder,
-    ImportPromotionMessage
+    ImportPromotionMessage,
+    ContentLoader
   }
 };

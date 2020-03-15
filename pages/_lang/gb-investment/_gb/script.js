@@ -1,4 +1,3 @@
-import { gbsData } from "~/lib/foe-data/gbs";
 import gbInvestment from "~/components/gb-investment/GbInvestment";
 import gbInvestmentInvestors from "~/components/gb-investment-investors/GbInvestmentInvestors";
 import securePosition from "~/components/secure-position/SecurePosition";
@@ -13,9 +12,14 @@ const queryKey = {
 };
 
 export default {
-  validate({ params }) {
+  async validate({ app, store, params }) {
     // Check if `params.gb` is an existing Great Building
-    return params.gb in gbsData;
+    if (!Object.keys(store.state.foe.gbs).length) {
+      const result = await app.$axios.$get("/foe-data/gbs.json");
+      store.commit("foe/updateSpecificKey", { key: "gbs", value: result });
+    }
+
+    return params.gb in store.state.foe.gbs.gbsData;
   },
   head() {
     this.$store.commit("SET_HERO", {
@@ -33,10 +37,17 @@ export default {
   },
   data() {
     this.$store.commit("SET_CURRENT_LOCATION", "gb_investment");
+    // If the GB is not in profile, we add a default conf
+    if (!(this.$route.params.gb in this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb)) {
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}`,
+        value: this.$clone(Utils.getDefaultGBConf())
+      });
+    }
 
-    let tab = this.cookieValid(this.$route.params.gb + "_tab")
-      ? parseInt(this.$cookies.get(this.$route.params.gb + "_tab"))
-      : 0;
+    let tab = this.$clone(
+      this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].tab
+    );
     tab = Utils.inRange(tab, 0, MAX_TAB) ? tab : 0;
 
     this.$store.commit("ADD_URL_QUERY", {
@@ -46,7 +57,7 @@ export default {
 
     const data = {
       i18nPrefix: i18nPrefix,
-      gb: gbsData[this.$nuxt._route.params.gb],
+      gb: this.$store.state.foe.gbs.gbsData[this.$nuxt._route.params.gb],
       levelData: null,
       gbi_tab: tab,
       errors: {
@@ -68,7 +79,7 @@ export default {
           oldVal,
           [0, MAX_TAB],
           !this.isPermalink,
-          this.$route.params.gb + "_tab"
+          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.tab`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -79,9 +90,6 @@ export default {
     }
   },
   methods: {
-    cookieValid(key) {
-      return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
-    },
     checkQuery() {
       let result = {};
       let isPermalink = false;

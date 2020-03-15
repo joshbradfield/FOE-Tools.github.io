@@ -11,9 +11,10 @@ div
           | &nbsp;{{$t('utils.permalink')}}
       div.field(style="text-align:right !important;")
         div.content
-          a.is-text.has-text-primary(@click.prevent="startTour")
-            i.fas.fa-info-circle.fa-2x
-            span.tutorial-link.has-text-centered <br /> {{$t('utils.Tutorial')}}
+          a.is-text.has-text-white(@click.prevent="startTour")
+            article.tutorial-button(style="display:inline-block;")
+              i.fas.fa-question.fa-2x
+              span.has-text-centered <br /> {{$t('utils.Tutorial')}}
 
   p {{$t('utils.description.p1')}}
 

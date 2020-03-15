@@ -1,6 +1,7 @@
-import { gbs, gbList } from "~/lib/foe-data/gbs";
-
 const i18nPrefix = "components.gb_investment.gb_list_select.";
+
+let gbs = {};
+let gbList = {};
 
 export default {
   name: "GbListSelect",
@@ -11,6 +12,9 @@ export default {
     }
   },
   data() {
+    gbs = this.$store.state.foe.gbs.gbs;
+    gbList = this.$store.state.foe.gbs.gbList;
+
     const gbData = Object.keys(gbs)
       .map(k => {
         return { value: k, text: this.$t("foe_data.gb." + k) };

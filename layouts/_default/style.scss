@@ -68,10 +68,6 @@ body.light-theme {
       color: $grey;
     }
   }
-
-  .tutorial-link {
-    color: $black;
-  }
 }
 
 html.dark-theme {
@@ -170,10 +166,6 @@ body.dark-theme {
 
   .radio {
     color: $grey-light;
-  }
-
-  .tutorial-link {
-    color: $white;
   }
 }
 
@@ -411,4 +403,34 @@ table.table.has-table-cards {
 
 .is-margin-left-auto {
   margin-left: auto !important;
+}
+
+.tutorial-button {
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(-139deg, #4d83ff, #5fdede);
+  padding: 0.5rem;
+  border-radius: 0.75em;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+.columns.form-short {
+  margin-bottom: 0 !important;
+}
+
+.columns.form-short .column {
+  padding-bottom: 0 !important;;
+}
+
+.donation {
+  background: linear-gradient(to right, #fc6076 0%, #ff9a44 51%, #ff9a44 61%, #fc6076 100%);
+  border-color: transparent !important;
+  color: $white !important;
+  font-weight: bold;
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+
+.donation:hover {
+  background-position: right center;
 }

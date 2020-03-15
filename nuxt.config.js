@@ -1,6 +1,7 @@
 import { JSDOM } from "jsdom";
 
-import { i18next, defaultLocale, supportedLocales } from "./scripts/i18n";
+import { defaultLocale, supportedLocales } from "./scripts/locales";
+import { i18next } from "./scripts/i18n";
 import { gbs } from "./lib/foe-data/gbs";
 import { bestFacebookLocaleFor } from "facebook-locales";
 
@@ -78,7 +79,7 @@ const modifyHtml = (page, locale) => {
     node.content = image;
   } else {
     text = i18next.t(`routes.${pageKey[0]}.title`, { lng: locale });
-    node.content = `${hostname}/img/icons/logo_large.png`;
+    node.content = `${hostname}/icon.png`;
   }
   title = text;
   window.document.querySelector("title").innerHTML = text;
@@ -455,9 +456,11 @@ module.exports = {
   },
 
   router: {
-    middleware: "i18next"
+    middleware: ["i18next"]
   },
   plugins: [
+    { src: "~/plugins/vuex-persist", mode: "client" },
+    { src: "~/plugins/clone.js" },
     { src: "~/plugins/i18next.js" },
     { src: "~/plugins/clipboard.js" },
     { src: "~/plugins/numeral-plugin.js" },
@@ -493,7 +496,10 @@ module.exports = {
     "@nuxtjs/robots",
     "cookie-universal-nuxt",
     "@nuxtjs/axios",
-    { src: "~/modules/buefy/module.js" }
+    { src: "~/modules/i18next/module.js" },
+    { src: "~/modules/buefy/module.js" },
+    { src: "~/modules/foe-data/module.js" },
+    "@nuxtjs/pwa"
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },
@@ -534,5 +540,11 @@ module.exports = {
         src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c802f960d12380b"
       }
     ]
+  },
+
+  pwa: {
+    manifest: {
+      name: "FOE Tools"
+    }
   }
 };

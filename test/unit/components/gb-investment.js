@@ -4,11 +4,40 @@ import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
 import * as Errors from "../../../scripts/errors";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
+import { getDefaultStore } from "../utils";
 
 const defaultGb = gbsData.Observatory;
+const profileID = "testID";
+const promotionMessageList = [
+  ...defaultPromotionMessages,
+  {
+    name: "Custom 11",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: true,
+      useShortGbName: false,
+      reversePlacesOrder: true,
+      placeSeparator: ",",
+      place: "${PI}",
+      message: "${GBN} ${FLVL} < ${P} > ${TLVL}"
+    }
+  }
+];
 
 const factory = (propsData = {}, mocks = {}) => {
-  const { localVue, store } = getView();
+  const { localVue, store } = getView(
+    getDefaultStore(profileID, {
+      profileStore: {
+        profiles: {
+          testID: {
+            promotionMessageList
+          }
+        }
+      }
+    })
+  );
   return shallowMount(Component, {
     propsData: {
       gb: defaultGb,
@@ -185,78 +214,6 @@ describe("GbInvestment", () => {
       { state: false },
       { state: false }
     ]);
-  });
-
-  test("Initialize with cookies", () => {
-    const investorPercentageCustom = [92, 91, 90, 85, 80];
-    const investorParticipation = [
-      { value: 10, isPotentialSniper: false },
-      { value: 8, isPotentialSniper: false },
-      { value: 6, isPotentialSniper: false },
-      { value: 4, isPotentialSniper: false },
-      { value: 2, isPotentialSniper: false }
-    ];
-
-    const wrapper = factory(defaultGb, {
-      $cookies: {
-        get: key => {
-          switch (key) {
-            case "root_level":
-              return 20;
-            case "root_ownerInvestment":
-              return 21;
-            case "root_investorPercentageGlobal":
-              return 90;
-            case "gbPrefix":
-              return "foo";
-            case "gbSuffix":
-              return "bar";
-            case "shortName":
-              return true;
-            case "displayGbName":
-              return false;
-            case "showLevel":
-              return true;
-            case "root_investorPercentageCustom_0":
-              return 92;
-            case "root_investorPercentageCustom_1":
-              return 91;
-            case "root_investorPercentageCustom_2":
-              return 90;
-            case "root_investorPercentageCustom_3":
-              return 85;
-            case "root_investorPercentageCustom_4":
-              return 80;
-            case "root_investorParticipation":
-              return investorParticipation;
-            case "showSnipe":
-              return true;
-            case "yourArcBonus":
-              return 90;
-            case "displayTableCard":
-              return true;
-            case "showOnlySecuredPlaces":
-              return true;
-            case "promotionMessageList":
-              return defaultPromotionMessages;
-          }
-        }
-      }
-    });
-
-    expect(wrapper.vm.level).toBe(20);
-    expect(wrapper.vm.ownerInvestment).toBe(21);
-    expect(wrapper.vm.investorPercentageGlobal).toBe(90);
-    expect(wrapper.vm.prefix).toBe("foo");
-    expect(wrapper.vm.suffix).toBe("bar");
-    expect(wrapper.vm.displayGbName).toBe(false);
-    expect(wrapper.vm.shortName).toBe(true);
-    expect(wrapper.vm.showLevel).toBe(true);
-    expect(wrapper.vm.showSnipe).toBe(true);
-    expect(wrapper.vm.showOnlySecuredPlaces).toBe(true);
-    expect(wrapper.vm.yourArcBonus).toBe(90);
-    expect(wrapper.vm.investorPercentageCustom).toEqual(investorPercentageCustom);
-    expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
   });
 
   test('Change "level" value', () => {
@@ -448,14 +405,7 @@ describe("GbInvestment", () => {
     wrapper.vm.displayGbName = newValue;
     expect(wrapper.vm.displayGbName).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_dgbn"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "displayGbName",
-      false,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].displayGbName).toBe(newValue);
   });
 
   test('Change "prefix" value', () => {
@@ -465,14 +415,7 @@ describe("GbInvestment", () => {
     wrapper.vm.prefix = newValue;
     expect(wrapper.vm.prefix).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_px"]).toBe(newValue);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "gbPrefix",
-      "foo",
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbPrefix).toBe(newValue);
   });
 
   test('Change "suffix" value', () => {
@@ -482,14 +425,7 @@ describe("GbInvestment", () => {
     wrapper.vm.suffix = newValue;
     expect(wrapper.vm.suffix).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sx"]).toBe(newValue);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "gbSuffix",
-      "bar",
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbSuffix).toBe(newValue);
   });
 
   test('Change "shortName" value', () => {
@@ -499,14 +435,7 @@ describe("GbInvestment", () => {
     wrapper.vm.shortName = newValue;
     expect(wrapper.vm.shortName).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sn"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "shortName",
-      true,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].shortName).toBe(newValue);
   });
 
   test('Change "showLevel" value', () => {
@@ -516,14 +445,7 @@ describe("GbInvestment", () => {
     wrapper.vm.showLevel = newValue;
     expect(wrapper.vm.showLevel).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sl"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "showLevel",
-      newValue,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].showLevel).toBe(newValue);
   });
 
   test('Change "showSnipe" value', () => {
@@ -533,14 +455,7 @@ describe("GbInvestment", () => {
     wrapper.vm.showSnipe = newValue;
     expect(wrapper.vm.showSnipe).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ss"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "showSnipe",
-      true,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].showSnipe).toBe(newValue);
   });
 
   test('Change "showPrefix" value', () => {
@@ -550,14 +465,7 @@ describe("GbInvestment", () => {
     wrapper.vm.showPrefix = newValue;
     expect(wrapper.vm.showPrefix).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_spx"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "gbShowPrefix",
-      newValue,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbShowPrefix).toBe(newValue);
   });
 
   test('Change "showSuffix" value', () => {
@@ -567,14 +475,7 @@ describe("GbInvestment", () => {
     wrapper.vm.showSuffix = newValue;
     expect(wrapper.vm.showSuffix).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ssx"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "gbShowSuffix",
-      newValue,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbShowSuffix).toBe(newValue);
   });
 
   test('Change "showOnlySecuredPlaces" value', () => {
@@ -585,14 +486,7 @@ describe("GbInvestment", () => {
     wrapper.vm.showOnlySecuredPlaces = newValue;
     expect(wrapper.vm.showOnlySecuredPlaces).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sosp"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "showOnlySecuredPlaces",
-      newValue,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].showOnlySecuredPlaces).toBe(newValue);
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
 
@@ -604,14 +498,7 @@ describe("GbInvestment", () => {
     wrapper.vm.showOnlySecuredPlaces = newValue;
     expect(wrapper.vm.showOnlySecuredPlaces).toBe(newValue);
     expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sosp"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "showOnlySecuredPlaces",
-      newValue,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].showOnlySecuredPlaces).toBe(newValue);
     wrapper.vm.showOnlySecuredPlaces = !newValue;
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
@@ -622,14 +509,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.displayTableCard).toBe(false);
     wrapper.vm.displayTableCard = newValue;
     expect(wrapper.vm.displayTableCard).toBe(newValue);
-    expect(wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1]).toEqual([
-      "displayTableCard",
-      true,
-      {
-        path: "/",
-        expires: wrapper.vm.$cookies.set.mock.calls[wrapper.vm.$cookies.set.mock.calls.length - 1][2].expires
-      }
-    ]);
+    expect(wrapper.vm.$store.state.global.displayTableCard).toBe(newValue);
   });
 
   test('Change "result" value', () => {
@@ -861,32 +741,6 @@ describe("GbInvestment", () => {
     wrapper.vm.ownerInvestment = 1000;
     wrapper.vm.calculate();
     expect(wrapper.vm.result).toMatchSnapshot();
-  });
-
-  test("Initialize with old 'investorParticipation' format in cookie", () => {
-    const investorParticipation = [
-      { value: 10, isPotentialSniper: true },
-      { value: 8, isPotentialSniper: true },
-      { value: 6, isPotentialSniper: true },
-      { value: 4, isPotentialSniper: true },
-      { value: 2, isPotentialSniper: true }
-    ];
-
-    const wrapper = factory(defaultGb, {
-      $cookies: {
-        get: key => {
-          switch (key) {
-            case "root_investorParticipation":
-              return [10, 8, 6, 4, 2];
-            case "yourArcBonus":
-              return 90;
-            case "promotionMessageList":
-              return defaultPromotionMessages;
-          }
-        }
-      }
-    });
-    expect(wrapper.vm.investorParticipation).toEqual(investorParticipation);
   });
 
   test("Call 'changeIsPotentialSniper'", () => {

@@ -1,4 +1,3 @@
-import Utils from "~/scripts/utils";
 import yesNo from "~/components/yes-no/YesNo";
 import numberinput from "~/components/number-input/NumberInput";
 import * as PMBuilder from "~/scripts/promotion-message-builder";
@@ -47,9 +46,7 @@ export default {
   },
   data() {
     const defaultTemplates = PMBuilder.defaultPromotionMessages;
-    const customTemplates = this.$cookies.get("customPromotionMessagesTemplates")
-      ? this.$cookies.get("customPromotionMessagesTemplates")
-      : [];
+    const customTemplates = this.$clone(this.$store.state.global.customPromotionMessagesTemplates);
     const data = {
       i18nPrefix,
       tooltips: {
@@ -191,7 +188,9 @@ export default {
         this.errors.templateName.found = false;
         this.errors.templateName.message = "";
       }
-      let result = this.$cookies.get("customPromotionMessagesTemplates");
+      let result = this.$clone(
+        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].customPromotionMessagesTemplates
+      );
       if (!result) {
         result = [];
       }
@@ -204,9 +203,9 @@ export default {
       } else {
         result.push({ name: this.templateName, config: this.result });
       }
-      this.$cookies.set(`customPromotionMessagesTemplates`, result, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.customPromotionMessagesTemplates`,
+        value: this.$clone(result)
       });
       this.customTemplates = result;
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(this.customTemplates)));
@@ -224,9 +223,9 @@ export default {
       this.customTemplates.splice(index, 1);
 
       this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(this.customTemplates)));
-      this.$cookies.set(`customPromotionMessagesTemplates`, this.customTemplates, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
+      this.$store.commit("profile/updateSpecificKey", {
+        key: `profiles.${this.$store.state.global.currentProfile}.customPromotionMessagesTemplates`,
+        value: this.$clone(this.customTemplates)
       });
       this.action = "create";
       this.$buefy.notification.open({
@@ -263,9 +262,6 @@ export default {
     nbMultiLine(src) {
       const nbLF = src.match(/\n/gi);
       return nbLF && nbLF.length > 0 ? nbLF.length + 1 : 0;
-    },
-    cookieValid(key) {
-      return this.$cookies.get(key) !== undefined && !isNaN(this.$cookies.get(key));
     },
     haveError(input) {
       return this.$data.errors[input].found ? "is-danger" : "";

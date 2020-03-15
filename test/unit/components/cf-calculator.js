@@ -1,10 +1,13 @@
-import { config, shallowMount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/cf-calculator/CfCalculator";
 import { getView } from "../localVue";
 import ages from "../../../lib/foe-data/ages";
+import { getDefaultStore } from "../utils";
+
+const profileID = "testID";
 
 const factory = (mocks = {}) => {
-  const { localVue, store } = getView();
+  const { localVue, store } = getView(getDefaultStore());
   return shallowMount(Component, {
     localVue: localVue,
     store: store,
@@ -92,66 +95,17 @@ describe("CfCalculator", () => {
     expect(wrapper.vm.cumulativeQuest).toBe(6);
   });
 
-  test("Initialize with cookies", () => {
-    const wrapper = factory({
-      $cookies: {
-        get: key => {
-          switch (key) {
-            case "yourAge":
-              return "ModernEra";
-            case "yourCfBoost":
-              return 1950;
-            case "coins":
-              return 1200000;
-            case "supplies":
-              return 1000000;
-            case "goods":
-              return 1;
-            case "fpBy24h":
-              return 2;
-            case "otherRq":
-              return 3;
-            case "suppliesGathered":
-              return 4;
-            case "secondRq":
-              return true;
-            case "cumulativeQuest":
-              return 6;
-          }
-        }
-      }
-    });
-
-    expect(wrapper.vm.yourAge).toBe("ModernEra");
-    expect(wrapper.vm.yourCfBoost).toBe(1950);
-    expect(wrapper.vm.coins).toBe(1200000);
-    expect(wrapper.vm.supplies).toBe(1000000);
-    expect(wrapper.vm.goods).toBe(1);
-    expect(wrapper.vm.fpBy24h).toBe(2);
-    expect(wrapper.vm.otherRq).toBe(3);
-    expect(wrapper.vm.suppliesGathered).toBe(4);
-    expect(wrapper.vm.secondRq).toBe(true);
-    expect(wrapper.vm.cumulativeQuest).toBe(6);
-  });
-
   test('Change "yourAge" value', () => {
     const wrapper = factory();
-    const value = ages.IronAge.key;
+    const newValue = ages.IronAge.key;
     expect(wrapper.vm.yourAge).toBe(ages.BronzeAge.key);
-    wrapper.vm.yourAge = value;
-    expect(wrapper.vm.yourAge).toBe(value);
+    wrapper.vm.yourAge = newValue;
+    expect(wrapper.vm.yourAge).toBe(newValue);
     expect(wrapper.vm.errors.yourAge).toBe(false);
 
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(2);
-    expect(config.mocks.$cookies.set.mock.calls[0][0]).toBe("yourAge");
-    expect(config.mocks.$cookies.set.mock.calls[0][1]).toBe("IronAge");
-    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].yourAge).toBe(newValue);
 
-    expect(config.mocks.$cookies.set.mock.calls[1][0]).toBe("secondRq");
-    expect(config.mocks.$cookies.set.mock.calls[1][1]).toBe(false);
-    expect(config.mocks.$cookies.set.mock.calls[1][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[1][2].expires).toBeTruthy();
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(false);
   });
 
   test('Change "yourAge" invalid value', () => {
@@ -161,67 +115,44 @@ describe("CfCalculator", () => {
     wrapper.vm.yourAge = value;
     expect(wrapper.vm.yourAge).toBe(value);
     expect(wrapper.vm.errors.yourAge).toBe(true);
-
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(0);
   });
 
   test('Change "secondRq" value', () => {
     const wrapper = factory();
-    const value = true;
+    const newValue = true;
     expect(wrapper.vm.secondRq).toBe(false);
-    wrapper.vm.secondRq = value;
-    expect(wrapper.vm.secondRq).toBe(value);
+    wrapper.vm.secondRq = newValue;
+    expect(wrapper.vm.secondRq).toBe(newValue);
 
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(1);
-    expect(config.mocks.$cookies.set.mock.calls[0][0]).toBe("secondRq");
-    expect(config.mocks.$cookies.set.mock.calls[0][1]).toBe(true);
-    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(newValue);
   });
 
   test('Change "secondRq" value with custom "suppliesGathered', () => {
     const wrapper = factory();
     const value = true;
     const suppliesGatheredValue = 100;
+    wrapper.vm.yourAge = ages.ColonialAge.key;
     expect(wrapper.vm.secondRq).toBe(false);
     wrapper.vm.suppliesGathered = suppliesGatheredValue;
     wrapper.vm.secondRq = value;
+
     expect(wrapper.vm.secondRq).toBe(value);
-
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(2);
-    expect(config.mocks.$cookies.set.mock.calls[0][0]).toBe("suppliesGathered");
-    expect(config.mocks.$cookies.set.mock.calls[0][1]).toBe(suppliesGatheredValue);
-    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
-
-    expect(config.mocks.$cookies.set.mock.calls[1][0]).toBe("secondRq");
-    expect(config.mocks.$cookies.set.mock.calls[1][1]).toBe(true);
-    expect(config.mocks.$cookies.set.mock.calls[1][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[1][2].expires).toBeTruthy();
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.suppliesGathered).toBe(suppliesGatheredValue);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(value);
   });
 
-  test('Change "secondRq" value set to false with custom "suppliesGathered', () => {
+  test('Change "secondRq" value set to false with custom "suppliesGathered"', () => {
     const wrapper = factory();
     const value = false;
     const suppliesGatheredValue = 100;
     expect(wrapper.vm.secondRq).toBe(false);
     wrapper.vm.suppliesGathered = suppliesGatheredValue;
     wrapper.vm.secondRq = !value;
-    config.mocks.$cookies.set.mockClear();
-
     wrapper.vm.secondRq = value;
     expect(wrapper.vm.secondRq).toBe(value);
 
-    expect(config.mocks.$cookies.set.mock.calls.length).toBe(2);
-    expect(config.mocks.$cookies.set.mock.calls[0][0]).toBe("secondRq");
-    expect(config.mocks.$cookies.set.mock.calls[0][1]).toBe(false);
-    expect(config.mocks.$cookies.set.mock.calls[0][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[0][2].expires).toBeTruthy();
-
-    expect(config.mocks.$cookies.set.mock.calls[1][0]).toBe("suppliesGathered");
-    expect(config.mocks.$cookies.set.mock.calls[1][1]).toBe(0);
-    expect(config.mocks.$cookies.set.mock.calls[1][2].path).toBeTruthy();
-    expect(config.mocks.$cookies.set.mock.calls[1][2].expires).toBeTruthy();
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(value);
+    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.suppliesGathered).toBe(0);
   });
 
   for (const elt of variableToTests) {
