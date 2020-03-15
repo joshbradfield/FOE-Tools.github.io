@@ -21,7 +21,7 @@ export default {
           hid: "icon_1",
           rel: "icon",
           type: "image/png",
-          href: "/img/icons/favicon-16x16.png"
+          href: "/icon.png"
         }
       ],
       htmlAttrs: {
