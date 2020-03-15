@@ -13,37 +13,37 @@
         },
         "footer_menu": {
             "about": "Sobre",
-            "contributors": "Contribuidores ",
-            "changelog": "Changelog ",
+            "contributors": "Contribuidores",
+            "changelog": "Changelog",
             "contact": "Contacto"
         },
         "components": {
             "campaign_cost": {
                 "title": "$t(routes.campaign_cost.hero.title)",
-                "choose_province": "Escolhe uma província ",
+                "choose_province": "Escolhe uma província",
                 "message": {
-                    "haveUnknownCosts": "Esta província contem um ou mais sectores sem valores"
+                    "haveUnknownCosts": "Esta província contem um ou mais sectores sem valores."
                 }
             },
             "cf_calculator": {
                 "block_cfc": {
                     "title": "$t(routes.cf_calculator.hero.title)",
-                    "your_age": "A Tua Era ",
+                    "your_age": "A tua ERA",
                     "your_cf_boost": "O teu $t(foe_data.gb.Chateau_Frontenac) Bónus",
                     "coins_to_use": "Total de moedas para UBQ",
-                    "coins_supplies_info": "Esse valor deve ser maior ou igual a {{min}} porque,  não podemos garantir nenhum lucro.",
+                    "coins_supplies_info": "Esse valor deve ser maior ou igual a {{min}} porque, não podemos garantir nenhum lucro",
                     "supplies_to_use": "Mantimentos para UBQ",
-                    "gb_plunder_goods": "GE & Mercadorias Pilhadas ",
-                    "fp_by_24h": "Produção de PF's durante 24h ",
-                    "other_rq": "Os seus RQ's diarios ",
-                    "second_rq": "2º  RQ ?",
+                    "gb_plunder_goods": "GE & Mercadorias Pilhadas",
+                    "fp_by_24h": "Produção de PF's durante 24h",
+                    "other_rq": "Os seus RQ's diários",
+                    "second_rq": "2º RQ ?",
                     "supplies_gathered": "Mantimentos Recolhidos",
                     "table_reward": {
                         "title": "$t(utils.Rewards)",
                         "thead": {
-                            "th1": "Plantas ",
-                            "th2": "Medalhas ",
-                            "th3": "Mercadorias ",
+                            "th1": "Plantas",
+                            "th2": "Medalhas",
+                            "th3": "Mercadorias",
                             "th4": "Pontos Forge"
                         }
                     },
@@ -57,8 +57,8 @@
                     },
                     "table_return": {
                         "thead": {
-                            "th_level": "Nível ",
-                            "th_coin": "Retorno de Moedas ",
+                            "th_level": "Nível",
+                            "th_coin": "Retorno de Moedas",
                             "th_supply": "Retorno de Mantimentos"
                         }
                     },
@@ -106,8 +106,8 @@
                         "investor_percentage": "% do bónus dos investidores (bónus da arca)",
                         "submit_global": "Calculo Global",
                         "submit_custom": "Cálculo personalizado",
-                        "owner_investment": "Número de PFs actualmente colocados pelo proprietário (máximo {{max}})",
-                        "add_investors": "Adicione investidor (put FP value, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+                        "owner_investment": "Número de PFs actualmente colocados pelo proprietário (max {{max, number}})",
+                        "add_investors": "Adicione investidor,$t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
                         "tooltip_add_investors": "Clique no botão \"$t(utils.Add)\" ou pressione a tecla \"Enter\" para adicionar investidor",
                         "investors_list": "Lista de investidores adicionados",
                         "show_snipe": "Mostrar lugar/intruso",
@@ -1413,7 +1413,13 @@
                 "gb_level": "Nível ",
                 "gb_level_cost": "Custo do nível",
                 "gb_reward_1st_place": "Recompensa do nível (1º lugar)"
-            }
+            },
+            "Donate": "Doa",
+            "Tutorial": "Tutorial",
+            "FP": "{{count, number}} PF",
+            "FP_plural": "{{count, number}} PFs",
+            "Done": "Feito",
+            "Exit": "Sair"
         },
         "contributions": {
             "blog": "Noticias no blog",
