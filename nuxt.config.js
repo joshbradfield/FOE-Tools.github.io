@@ -402,7 +402,8 @@ const routerBase =
       }
     : {};
 
-const hostname = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://foe-tools.github.io" : "";
+const prodUrl = "foe.tools";
+const hostname = process.env.DEPLOY_ENV === "GH_PAGES" ? `https://${prodUrl}` : "";
 
 const defaultRoutes = [
   { route: "/", dynamic: [] },
@@ -444,6 +445,7 @@ module.exports = {
   env: {
     surveyURL: `${apiURL}/surveys`,
     surveySubmitURL: `${apiURL}/surveyresponses`,
+    prodUrl,
     sitekey:
       process.env.DEPLOY_ENV === "GH_PAGES"
         ? "6Le0qqAUAAAAADcXlFuBa9hfCXfdUi53i85sWzSp"
@@ -499,6 +501,7 @@ module.exports = {
     { src: "~/modules/i18next/module.js" },
     { src: "~/modules/buefy/module.js" },
     { src: "~/modules/foe-data/module.js" },
+    { src: "~/modules/cname/module.js" },
     "@nuxtjs/pwa"
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
@@ -540,6 +543,12 @@ module.exports = {
         src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c802f960d12380b"
       }
     ]
+  },
+
+  axios: {
+    host: process.env.DEPLOY_ENV === "GH_PAGES" ? prodUrl : "localhost",
+    port: process.env.DEPLOY_ENV === "GH_PAGES" ? 443 : 3000,
+    https: process.env.DEPLOY_ENV === "GH_PAGES"
   },
 
   pwa: {
