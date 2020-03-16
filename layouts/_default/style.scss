@@ -409,9 +409,11 @@ table.table.has-table-cards {
   display: inline-block;
   text-align: center;
   background: linear-gradient(-139deg, #4d83ff, #5fdede);
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 0.75em;
   box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
 .columns.form-short {
