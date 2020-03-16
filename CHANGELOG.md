@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.63.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.62.0...v2.63.0) (2020-03-16)
+
+
+### Features
+
+* **promotion-message:** add default promotion message optimized for smartphone ([53f13fe](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/53f13fe94e369a79090ece40250d9636b74d9dcd)), closes [#309](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/309)
+* make FOE-Tools a Progressive Web Application (PWA) ([8bb36de](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8bb36dea80656ea164b1b4d320aa6cde3db31fea)), closes [#314](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/314)
+* moving cookies to localStorage ([ff7963a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ff7963a60beb12bcef7e303754c4bd0bb3fbc37c)), closes [#312](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/312)
+* **campaign:** add Space Age Mars ([c9216ae](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c9216ae78ac4b233979b3e6d95d7f12850d395fb))
+* **i18n:** moving from LingoHub to self-hosted Weblate ([c5c6b40](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c5c6b4036dd1eb1fc61ab04a015b1113e7cc3823))
+* **trade:** add Space Age Mars ([0a4a1b3](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0a4a1b3cf26079514b3b3d0c29a2fded602f9b94))
+* add an interactive tutorial ([e16035d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e16035d6e0db41ced6f00515d1297d7f48899fcf))
+* add donation ([26e68b5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/26e68b593469be336406a6b685ddbed1408e3145))
+* **l10n:** update translation ([94efb3d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/94efb3d65da6c3b0bddfd1027579b3e841088d80))
+
+
+### Translation
+
+* Translated using Weblate (Czech) ([fcbaad9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fcbaad973e2598c2205799b4119e17c96e689e2b))
+* Translated using Weblate (Dutch) ([99bee75](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/99bee75890d984d215b051758cba11bdd08fedb7))
+* Translated using Weblate (Portuguese) ([8929612](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8929612c4ac12c516e784a26fb203788d2ba0019))
+* Translated using Weblate (Portuguese) ([f46684f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f46684f09db599ebc814c7bece20ecbc76e393bb))
+* Translated using Weblate (Portuguese) ([f70c3e9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f70c3e969ebfcda4e624681cf048dfbf53dfcebd))
+* Translated using Weblate (Portuguese) ([c810882](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c810882fec73e25100b1913259deb916edf9fe1d))
+* Translated using Weblate (Slovak) ([caac17f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/caac17f2fa914001fe3e8a2dc04494162edf078f))
+* Translated using Weblate (Spanish) ([0bf8831](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0bf8831e9c64ae1647504c9b54742d5ec5bdbe89))
+
 ## [2.62.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.61.0...v2.62.0) (2020-02-09)
 
 
