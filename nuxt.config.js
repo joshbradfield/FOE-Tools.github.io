@@ -385,6 +385,7 @@ function generateRobotTxt(SitemapURL) {
   for (let locale of supportedLocales) {
     prefix = locale === defaultLocale ? "" : `/${locale}`;
     result.push({ Disallow: `${prefix}/survey` });
+    result.push({ Disallow: `${prefix}/donate` });
   }
 
   result.push({ Sitemap: SitemapURL });
@@ -431,7 +432,7 @@ const sitemap =
         sitemap: {
           hostname,
           routes: generateSitemapRoutes(supportedLocales, defaultRoutes),
-          exclude: ["/survey", "/**/survey"]
+          exclude: ["/survey", "/**/survey", "/donate", "/**/donate"]
         }
       }
     : {};
