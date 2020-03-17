@@ -102,7 +102,7 @@
                         "p2_html": "</strong>Nota<strong>:Se não for actualizado automaticamente,defina primeiro o nível do GE e o valor total do investimento e clica em $t(components.gb_investment.gb_investment.form.submit_global) \"Se quiseres ajustar os valores de cada lugar,clica em\"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
                     },
                     "form": {
-                        "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+                        "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
                         "investor_percentage": "% do bónus dos investidores (bónus da arca)",
                         "submit_global": "Calculo Global",
                         "submit_custom": "Cálculo personalizado",
@@ -164,7 +164,7 @@
                     ]
                 },
                 "tutorial": {
-                    "investor_percentage": "Seleccione o ratio que os investidores usem\nExemplo: para um investimento a 1.9, coloque 90",
+                    "investor_percentage": "Seleccione o rácio que os investidores usem\nExemplo: para um investimento a 1.9, coloque 90",
                     "level": "Seleccione o nível que quer trabalhar.",
                     "gb_select": "Este lugar permite mudares de GE rapidamente.\nO seleccionador simples ( versão antiga) que mostrava simplesmente uma lista em cascata . Este é o seleccionador principal:\n{{- videoSelect}}\nA auto-completação permite que encontres um GE ao escrever as suas iniciais :\n{{- videoAutoComplete}}",
                     "display_modes": {
@@ -173,10 +173,10 @@
                     },
                     "snipe": {
                         "content": "Intrusão é quando um jogador faz um lugar para obter lucro, normalmente não vai contra as expectativas do dono.\nPor exemplo nível 49 → 50 do GE \"$t(foe_data.gb.The_Virgo_Project)\" Projecto Virgem, não requer quaisquer PFd do dono para segurar os 2 primeiros lugares. O investimento esperado a 1.9 é $t(utils.FP, {'count': 1739 }). Um intruso ( com a Arca a nivel 80) pode esperar que o GE abra e apanha o directamente e coloca $t(utils.FP, {'count': 1679 }), que lhe vai segurar o lugar com um lucro de $t(utils.FP, {'count': 60 }).",
-                        "title": "Intrusão"
+                        "title": "Intruso"
                     },
                     "rush_1_9": {
-                        "content": "$t(foe_data.gb.The_Arc) é um GE que da te bónus que aumenta te os prémios ao fazeres lugares no top 5 no GE de alguém.\nMais alto o nível da Arca,maior é os prémios\nÉ por isso que começamos a falar sobre 1.8,1.9,etc. Na realidade é o bónus da Arca.\nTópicos especialmente reservado para este tipo de investimento que criamos em guildas e grupos de amigos. Isto é baseado no principio do \"eu dou o que recebo\",limitamos os conflitos com os membros da guilda ou amigos em não ter lucros com os seus GEs. Ao contrario das cartas de (10,50,100,etc), a vantagem das cartas a 1.8,1.9,etc. é que  reduz consideravelmente o tempo de up do GE. Isto porquê , porque o dono só necessita de segurar os lugares dos investidores com Arcas a nível 80 ( neste caso a 1.9).\nPor exemplo:\nImaginemos que queres elevar o teu $t(foe_data.gb.Observatory) do nível 10 ao 60 e que recolhes $t(utils.FP, {'count': 50 }) por dia.\nO custo total é de $t(utils.FP, {'count': 64975 }).\nSe usas cartas de trocas de PFs  sem fim , o teu investimento será 1:1, i.e. $t(utils.FP, {'count': 25 }) investido num GE = $t(utils.FP, {'count': 25}) que outro jogador investira no teu GE. Assim terás de   <strong> investir $t(utils.FP, {'count': 37320 })</strong> para alcançar o nível 60. A $t(utils.FP, {'count': 50 }) por dia,vais demorar  <strong>2 anos e 17 dias </strong>.\nSe.usares uma carta a 1.9,apenas vais  <strong> investir $t(utils.FP, {'count': 12363 })</strong> para alcançar o nivel 60,assim com \n$t(utils.FP, {'count': 50 }) por dia diminuis o tempo de 2 anos e 17 dias para <strong> 8 meses e 5 dias </strong>!",
+                        "content": "$t(foe_data.gb.The_Arc) é um GE que da te bónus que aumenta te os prémios ao fazeres lugares no top 5 no GE de alguém.\nMais alto o nível da Arca,maior é os prémios\nÉ por isso que começamos a falar sobre 1.8,1.9,etc. Na realidade é o bónus da Arca.\nTópicos especialmente reservado para este tipo de investimento que criamos em guildas e grupos de amigos. Isto é baseado no principio do \"eu dou o que recebo\",limitamos os conflitos com os membros da guilda ou amigos em não ter lucros com os seus GEs. Ao contrario das cartas de (10,50,100,etc), a vantagem das cartas a 1.8,1.9,etc. é que reduz consideravelmente o tempo de up do GE. Isto porquê , porque o dono só necessita de segurar os lugares dos investidores com Arcas a nível 80 ( neste caso a 1.9).\nPor exemplo:\nImaginemos que queres elevar o teu $t(foe_data.gb.Observatory) do nível 10 ao 60 e que recolhes $t(utils.FP, {'count': 50 }) por dia.\nO custo total é de $t(utils.FP, {'count': 64975 }).\nSe usas cartas de trocas de PFs sem fim , o teu investimento será 1:1, i.e. $t(utils.FP, {'count': 25 }) investido num GE = $t(utils.FP, {'count': 25}) que outro jogador investira no teu GE. Assim terás de <strong> investir $t(utils.FP, {'count': 37320 })</strong> para alcançar o nível 60. A $t(utils.FP, {'count': 50 }) por dia,vais demorar <strong>2 anos e 17 dias </strong>.\nSe.usares uma carta a 1.9,apenas vais <strong> investir $t(utils.FP, {'count': 12363 })</strong> para alcançar o nivel 60,assim com \n$t(utils.FP, {'count': 50 }) por dia diminuis o tempo de 2 anos e 17 dias para <strong> 8 meses e 5 dias </strong>!",
                         "title": "Pressiona 1.9, 1.8, etc."
                     },
                     "welcome": "A função deste tutorial é explicar todas as funcionalidades desta ferramenta.\nPodes clicar nos links abaixo para aprenderes mais sobre eles.\nPara continuar com este tutorial clica neste \"$t(utils.Next)\"botão.",
@@ -207,13 +207,13 @@
                         "suffix": "Texto que será adicionado ao fim da mensagem.",
                         "prefix": "Texto que será adicionado ao principio da mensagem.",
                         "tabs": "A mensagem segue um modelo .Podes importar um modelo da \"$t(components.import_promotion_message.title)\" tabela ou criar a tua daqui \"$t(components.promotion_message_builder.title)\".",
-                        "message": "Esta Secção permite que tenha mensagens com informação sobre o  nível e lugares do GE. Você copiar uma mensagem e colar directamente no jogo, por exemplo numa carta a 1.9."
+                        "message": "Esta Secção permite que tenha mensagens com informação sobre o nível e lugares do GE. Você copiar uma mensagem e colar directamente no jogo, por exemplo numa carta a 1.9."
                     }
                 }
             },
             "gb_investment_investors": {
                 "description": {
-                    "p1": "Essa visão permite ver o ganho que pode ser obtido  num lugar com ou sem levar em conta os investimentos em outros lugares. Existem {{count}} tipos de lugares:"
+                    "p1": "Essa visão permite ver o ganho que pode ser obtido num lugar com ou sem levar em conta os investimentos em outros lugares. Existem {{count}} tipos de lugares:"
                 },
                 "takingPlaceInConsideration": {
                     "label": "Ter outros lugares em consideração ?",
@@ -239,13 +239,13 @@
             "gb_forecast_cost": {
                 "title": "Previsão",
                 "p1": "Determine o número de PF's para ir de um nível para outro, com ou sem os bónus da Arca.",
-                "custom_percentage": "Bónus normal da Arca  (para cada lugar)",
+                "custom_percentage": "Bónus normal da Arca (para cada lugar)",
                 "estimated_time": "Tempo estimado para atingir o nível",
                 "message": {
-                    "diff": "Com o bónus do investimento,vais poupar  {{count}} PF",
+                    "diff": "Com o bónus do investimento,vais poupar {{count}} PF",
                     "diff_plural": "Com o bónus do investimento,vais poupar{{count, number}} PFs",
                     "single": "Para completar o nível {{level}} de \"$t({{gb}})\", o proprietário deve investir {{preparação, numero}} PFs. Custo total do nível: {{custo, numero}} PFs.",
-                    "multi": "Do nível  {{from}} para  {{to}} de  \"$t({{gb}})\", o dono tem de investir {{preparation, number}} PF's. Custo total do nível: {{cost, number}} PFs.",
+                    "multi": "Do nível {{from}} para {{to}} de \"$t({{gb}})\", o dono tem de investir {{preparation, number}} PF's. Custo total do nível: {{cost, number}} PFs.",
                     "estimated_time": "Tempo estimado para atingir o nível: {{time}}"
                 },
                 "prop_already_invested": "PFs já investidos pelo dono no nível actual",
@@ -255,8 +255,8 @@
                     "y_axes_label": "$t(utils.graph.gb_level_cost)",
                     "label": {
                         "default": "Custo bruto do nível",
-                        "default_preparation": "Quantidade necessária sem bónus ",
-                        "custom_preparation": "Quantidade necessária com bónus "
+                        "default_preparation": "Quantidade necessária sem bónus",
+                        "custom_preparation": "Quantidade necessária com bónus"
                     }
                 }
             },
@@ -273,40 +273,40 @@
             },
             "secure_position": {
                 "block_place": {
-                    "fp_to_complete_level": "Número de PF's restantes para completar o nível:",
+                    "fp_to_complete_level": "Número de PF restante para completar o nível:",
                     "fp_to_complete_level_plural": "Número de PF's restantes para completar o nível:",
                     "place": "{{place}} ({{count, number}} PF)",
                     "place_plural": "{{place}} ({{contagem, numero}} FPs)",
                     "title": "Segurar o lugar",
                     "level_cost": "Custo do nível",
-                    "current_deposits": "Soma dos investimentos  actuais",
+                    "current_deposits": "Soma dos investimentos actuais",
                     "your_participation": "Sua participação actual",
                     "other_participation": "Participação do jogador para ultrapassar",
                     "your_arc_bonus": "O teu bónus da Arca",
-                    "fp_target_reward": "PF's para atingir o lugar ",
+                    "fp_target_reward": "Pf's para atingir o lugar",
                     "target_reward": "Lugar designado",
                     "various_rate": "Vários taxas",
                     "rate": "Rácio",
                     "fp_according_rate": "PF's a colocar de acordo com o rácio",
-                    "fp_to_lock": "PF's a colocar para segurar o lugar ",
+                    "fp_to_lock": "PF's a colocar para garantires o teu lugar",
                     "result": {
-                        "default": "Deves ter um total {{count}}de PF's para segurares o lugar",
-                        "default_plural": "Deves ter um total {{count, number}} de PF's para segurares o lugar",
-                        "fp_need_to_lock": "PF necessário  para segurar o lugar",
-                        "fp_need_to_lock_plural": "PF's necessários para segurar o lugar",
+                        "default": "Deves ter um total {{count}}de PF's para segurares o lugar.",
+                        "default_plural": "Deves ter um total {{count, number}} de PF's para segurares o lugar.",
+                        "fp_need_to_lock": "PF necessário para segurar o lugar:",
+                        "fp_need_to_lock_plural": "PF's necessários para segurar o lugar:",
                         "fp_to_secure_html": "Ainda falta {{count}} PF'.",
-                        "fp_to_secure_html_plural": "Ainda faltam {{contagem, numero}} PF's",
+                        "fp_to_secure_html_plural": "Ainda faltam {{contagem, numero}} PF's.",
                         "error": "Um ou mais valores não são válidos.",
                         "roi": {
                             "profit": "Vais ganhar {{count}} PF",
-                            "profit_plural": "O Ganho será  {{count, number}} PFs",
-                            "loss": "Ira perder  {{count}} PF's",
+                            "profit_plural": "O Ganho será {{count, number}} PFs",
+                            "loss": "Ira perder {{count}} PF's",
                             "loss_plural": "O prejuízo será de {{contagem, numero}} PF's",
-                            "neutral": "O investimento não terá retorno "
+                            "neutral": "O investimento não terá retorno"
                         },
-                        "already_blocked": "O teu  lugar está bloqueado.",
+                        "already_blocked": "O teu lugar está bloqueado.",
                         "still_to_put": "Numero de PF's em falta",
-                        "cant_block": "Não pode bloquear o lugar"
+                        "cant_block": "Não pode bloquear o lugar."
                     },
                     "unknown": "desconhecido"
                 }
@@ -316,19 +316,19 @@
                 "table": {
                     "thead": {
                         "th1": "Idade",
-                        "th2": "Mercadorias ",
+                        "th2": "Mercadorias",
                         "th3": "$t(components.trade.label.i_want)",
                         "th4": "Resultado",
                         "split": "Dividido",
-                        "ratio": "Ratio"
+                        "ratio": "Racio"
                     }
                 },
                 "slpit": "Dividir as ofertas?",
                 "show_ratio": "Mostrar rácio"
             },
             "site_layout": {
-                "update": "{{count}} actualização  desde da sua ultima visita ",
-                "update_plural": "{{count}}  actualizações desde da sua ultima visita ",
+                "update": "{{count}} actualização desde da sua ultima visita.",
+                "update_plural": "{{count}} actualizações desde da sua ultima visita.",
                 "hero": {
                     "title": "$t(common:site_title)",
                     "slogan_html": "Um conjunto de ferramentas para ajudar $t(common:links.foe)"
@@ -338,7 +338,7 @@
                     "link": "Mais Informações"
                 },
                 "new_year": {
-                    "message": "$t(common:site_title) comemora  o teu {{count, number}} ano ",
+                    "message": "$t(common:site_title) comemora o teu {{count, number}} ano",
                     "message_plural": "$t(common:site_title) celebra os seus {{contagem, numero}} anos"
                 },
                 "survey": {
