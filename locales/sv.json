@@ -37,7 +37,7 @@
                     "fp_by_24h": "FP produktion per 24 timmar",
                     "other_rq": "Övriga dagliga Å.U",
                     "second_rq": "2:a Å.U -givare ?",
-                    "supplies_gathered": "Förnödenheter insamlade ",
+                    "supplies_gathered": "Förnödenheter insamlade",
                     "table_reward": {
                         "title": "$t(utils.Rewards)",
                         "thead": {
@@ -63,7 +63,7 @@
                         }
                     },
                     "infinity_generator": {
-                        "message": "Med den nuvarande bonusen från $t(foe_data.gb.Chateau_Frontenac), kommer du att tjäna mer mynt och förnödenheter än vad du kommer att förbruka för att genomföra uppdragen.  Välj det antal $t(components.cf_calculator.block_cfc.infinity_generator.label) du vill genomföra.",
+                        "message": "Med den nuvarande bonusen från $t(foe_data.gb.Chateau_Frontenac), kommer du att tjäna mer mynt och förnödenheter än vad du kommer att förbruka för att genomföra uppdragen. Välj det antal $t(components.cf_calculator.block_cfc.infinity_generator.label) du vill genomföra.",
                         "label": "Ytterligare uppdrag"
                     }
                 },
@@ -86,7 +86,8 @@
                     "coins": "Ange antalet mynt du tänker använda för alla uppdrag.",
                     "yourCfBoost": "Ange din $t(foe_data.gb.Chateau_Frontenac) boost.\n\nExempel: för 450%, ange 450.",
                     "yourAge": "Välj din era.",
-                    "welcome": "Detta verktyg ger bara information. Det talar om vad som är statistiskt möjligt att få ut av din $t(foe_data.gb.Chateau_Frontenac)."
+                    "welcome": "Detta verktyg ger bara information. Det talar om vad som är statistiskt möjligt att få ut av din $t(foe_data.gb.Chateau_Frontenac).",
+                    "coinSupplyReturn": "Denna tabell visar mänged mynt och förnödenheter som du statistiskt kommer att tjäna på din initiala investering (bestående av mynt och förnödenheter, som du är villig att spendera)."
                 }
             },
             "gb_investment": {
@@ -97,16 +98,16 @@
                 "gb_investment": {
                     "title": "$t(routes.gb_investment_gb_chooser.hero.title)",
                     "description": {
-                        "p1": "Ange värdena på nivå och procentuell bonus.  Tabellvärdena kommer att uppdateras automatiskt.",
-                        "p2_html": "<strong>Obs</strong>: Om uppdateringen inte görs automatiskt, ange först nivån på MB't och den generella investeringen, sedan klicka på  [$t(components.gb_investment.gb_investment.form.submit_global)].  Om du vill justera värdet enskilt, gör så och klicka på  [$t(components.gb_investment.gb_investment.form.submit_custom)]."
+                        "p1": "Ange värdena på nivå och procentuell bonus. Tabellvärdena kommer att uppdateras automatiskt.",
+                        "p2_html": "<strong>Obs</strong>: Om uppdateringen inte görs automatiskt, ange först nivån på MB't och den generella investeringen, sedan klicka på [$t(components.gb_investment.gb_investment.form.submit_global)]. Om du vill justera värdet enskilt, gör så och klicka på [$t(components.gb_investment.gb_investment.form.submit_custom)]."
                     },
                     "form": {
-                        "level": "Nivå {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
-                        "investor_percentage": "% av globala investerares Ark-bonus ",
+                        "level": "Level {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
+                        "investor_percentage": "% av globala investerares Ark-bonus",
                         "submit_global": "Global uträkning",
                         "submit_custom": "Anpassad uträkning",
-                        "owner_investment": "Antal FP lagda av ägaren (max {{max}})",
-                        "add_investors": "Lägg till investerare (antal FP, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+                        "owner_investment": "Antal FP f.n. investerat av ägaren (max {{max, number}})",
+                        "add_investors": "Lägg till investerare (put FP value, $t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
                         "tooltip_add_investors": "Klicka på knappen [$t(utils.Add)] eller tryck på [Enter], för att lägga till investerare",
                         "investors_list": "Lista över tillagda investerare",
                         "show_snipe": "Visa Plats/Kapare",
@@ -161,11 +162,58 @@
                         "2({{investment}})",
                         "5({{investment}})"
                     ]
+                },
+                "tutorial": {
+                    "welcome": "Avsikten med denna handledning är att förklara alla funktioner med detta verktyg.\n\nDu kan klicka på länkarna nedan för att lära dig mer om dem.\nFör att forsätta, klicka på knappen \"$t(utils.Next)\".",
+                    "rush_1_9": {
+                        "title": "Påskynda 1.9, 1.8, etc.",
+                        "content": "$t(foe_data.gb.The_Arc) är ett MB som ökar belöningarna du får från topp-5 platserna i någon annans MB.  Ju högre nivå på $t(foe_data.gb.The_Arc), desto större nivå på belöningarna.\n\nDet var så uttrycken \"1.8\", \"1.9\", började.  I verkligheten är det  $t(foe_data.gb.The_Arc) bonus.\n1.0 representerar bas-belöningen (ingen $t(foe_data.gb.The_Arc)), 1.8 representerar en $t(foe_data.gb.The_Arc) på nivå 70 (då ökar belöningar med 80%), och 1.9 representerar en $t(foe_data.gb.The_Arc) på nivå 80 (90% mer i belöning).\n\nTrådar skapades i gillen och/eller vänner emellan, avsedda att enbart hantera denna typ av investeringar.  Detta är baserat på principen \"jag ger vad jag får\", och på så sätt minimera konflikter gille-medlemmar / vänner, emellan genom att inte profitera på varandra. Olikt \"oändliga trådar\" (10, 50, 100, etc.),  är en ytterligare fördel med 1.8, 1.9, etc. -trådar att det sparar tid för MB-ägaren. Detta då ägaren bara behöver investera en viss mängd FP för att säkra upp platserna åt dem som med hjälp av sin $t(foe_data.gb.The_Arc) bonus tar platserna.\n\nEtt exempel:\n\nTänk dig att du vill öka upp ditt $t(foe_data.gb.Observatory) från nivå 10 till 60 och att du tjänar $t(utils.FP, {'count': 50 }) per dag.\nDen totala kostnaden för nivåerna blir då $t(utils.FP, {'count': 64975 }).\n\nOm du använder \"oändliga bytestrådar\" blir din investering 1:1, i.e. $t(utils.FP, {'count': 25 }) investerat i ett MB = $t(utils.FP, {'count': 25 }) som en annan spelare kommer att investera i ditt MB. Så du kommer att behöva <strong>investera $t(utils.FP, {'count': 37320 })</strong> för att nå nivå 60.  Med $t(utils.FP, {'count': 50 }) per dag kommer det att ta dig <strong>2 år och 17 dagar</strong>.\n\nOm du istället använder dig av en 1.9 tråd, kommer du att <strong>endast investera $t(utils.FP, {'count': 12363 })</strong> för att nå nivå 60, så <strong>en besparing på $t(utils.FP, {'count': 24957 }) !</strong>.\nDock, med $t(utils.FP, {'count': 50 }) per dag, går du från 2 år och 17 dagar, till <strong>8 månader och 5 dagar</strong> !"
+                    },
+                    "snipe": {
+                        "title": "Kapa",
+                        "content": "\"Kapa\" är när en spelare tar en plats (1-5) i ett MB för att profitera och vanligen, inte möta upp till ägarens förväntningar.\n\nT.ex. nivå 49 → 50 på MB \"$t(foe_data.gb.The_Virgo_Project)\" kräver ingen grundning i form av FP av ägaren för att säkra de 2 första platserna.  Den förväntade investeringen med 1.9 (190%) för plats 1 är $t(utils.FP, {'count': 1739 }). En \"kapare\" (med en $t(foe_data.gb.The_Arc) på nivå 80) kan så fort tillfälle ges, ta platsen med en investering på endast $t(utils.FP, {'count': 1679 }), detta räcker för att säkra platsen och generera en profit på $t(utils.FP, {'count': 60 })."
+                    },
+                    "gb_select": "Detta fält tillåter ett snabbt byte av MB.\nDet finns två typer selektorer.\n\nDen enkla selektorn (gamla versionen) som visar en \"drop-down\"-lista. Detta är standard-selektorn:\n\n{{- videoSelect}}\n\nDen auto-kompletterande låter dig finna ett MB genom att skriva ett fåtal bokstäver från namnet på ett MB:\n\n{{- videoAutoComplete}}",
+                    "display_modes": {
+                        "title": "Visnings lägen",
+                        "content": "Detta verktyg ger all information ägaren och investeraren behöver veta för investeringar på en nivå i ett MB. Det har två lägen:\n\n\"$t(routes.gb_investment.tab.owner_view.title)\" (where you are) visar detaljerad information på den nuvarande nivån endast.\n\n\"$t(routes.gb_investment.tab.investors_view.title)\" visar värdena på flera nivåer i tabulär form. Du ser endast antal FP ägaren och investerarna behöver bidra med, med resulterande profit/förlust."
+                    },
+                    "level": "Välj nivån du vill jobba med.",
+                    "investor_percentage": "Välj kursen du förväntar dig av investerarna\nEx.  för investeringar på 190%, välj 90",
+                    "owner_investment": "Har du redan FP investerat i ditt MB?\nOm ja, ange hur många",
+                    "your_arc_bonus": "Detta fält är för investerarna och måsta användas med \"$t(components.gb_investment.gb_investment.form.show_snipe)\" satt till \"$t(utils.Yes)\".\nDet anger hur många FP du behöver lägga på en nivå för att säkra en plats; det anger också nivån på din profit/förlust.",
+                    "display_card": "Detta fält visar tabell-datan i \"Kort Vy\".\nDetta är \"optimerat\" för smarttelefoner, så du slipper scroll horisontellt.\nDetta fält visas endast på små skärmar.",
+                    "table": {
+                        "message": "Denna tabell visar all information du vill ha.",
+                        "place": "Korresponderande till plats-index.",
+                        "default_rewards": "Detta är standard-belöning (utan $t(foe_data.gb.The_Arc) bonus) för platsen.",
+                        "fp_to_put_by_the_owner": "Som namnet indikerar, anger det mängden FP ägaren måste lägga i sitt MB för att grunda platsen.",
+                        "rewards_with_rate": "Detta är mängden FP förväntat av ägaren när en investerare tar en plats.",
+                        "fp_already_putin": "Denna kolumn visas när du har lagt till minst en investerare. Den visar vilken plats investeraren hamnar på med strategin (förväntad investering) av ägaren.",
+                        "percentage_investors": "Likt \"$t(components.gb_investment.gb_investment.form.investor_percentage)\", tillåter denna kolumn ägaren att definiera de förväntade investeringarna, men då för varje plats enskilt.",
+                        "is_sniper": "Denna kolumn visas när du har definierat minst en investerare. Den är avsedd för att ange om spelaren är en potentiell \"kapare\" eller inte. Denna information används vid kalkylering för grundning av platser.",
+                        "include_in_copy_boxes": "Detta fält låter dig visa denna plats i annonstexten som du kan klistra in i spelet.",
+                        "spot_snipe": "Denna kolumn visas endast om du har satt  \"$t(components.gb_investment.gb_investment.form.show_snipe)\" till \"$t(utils.Yes)\" och är till för investerare. Denna kolumn anger (baserat på värdena i \"$t(components.secure_position.block_place.your_arc_bonus)\") hur många FP du måste lägga för att säkra din plats.\nDen visar även din profit/förlust."
+                    },
+                    "promotion_message": {
+                        "message": "Denna sektion låter dig ha meddelanden innehållandes information om det nuvarande MB's nivå och platser. Du kan kopiera informationen och klistra in den i spelet, t.ex. en 1.9 tråd.",
+                        "prefix": "Text som läggs till i början på meddelandet.",
+                        "suffix": "Text som läggs till i slutet på meddelandet.",
+                        "display_gb_name": "Visar namnet på MB't (om inkluderat i meddelande-mallen).",
+                        "show_level": "Visar nivån på MB't (om inkluderat i meddelande-mallen).",
+                        "show_only_secured_places": "Detta alternativ låter dig lägga till platser i annonstexten automatiskt om dessa platser är grundade och lediga. För att använda denna funktion måste du ange mängden FP lagda av både ägare och investerare.",
+                        "custom_fields": "Notera att vissa mallar har egna fält med egna namn.",
+                        "add_message": "Detta fält låter dig lägga till meddelanden.",
+                        "tabs": "Meddelandena följer en mall. Du kan importera en mall i fliken \"$t(components.import_promotion_message.title)\" eller skapa en egen i fliken \"$t(components.promotion_message_builder.title)\".",
+                        "use_short_name": "Låter dig definiera om du vill visa förkortningen på MB't (Ex. \"$t(foe_data.gb.Observatory)\" visas som \"$t(foe_data.gb_short.Observatory)\")."
+                    },
+                    "add_investors": "Har du slumpartade investeringar i dina MB som är lägre/högre än din designerade kurs?\nAnge alla nuvarande udda investeringar i detta fält, separat.\nDetta verktyg kalkylerar dina säkra FP och vilka platser du har säkrat.",
+                    "show_snipe": "Detta fält är avsett för investerare och visar en ytterligare kolumn i tabellen named \"$t(components.gb_investment.gb_investment.form.show_snipe)\".\nDenna kolumn anger (baserat på värdena definierade i \"$t(components.secure_position.block_place.your_arc_bonus)\") hur många FP du behöver lägga för att säkra din plats i ett MB.\nDet indikerar även din profit/förlust."
                 }
             },
             "gb_investment_investors": {
                 "description": {
-                    "p1": "Denna vy visar förtjänsten som kan fås genom att ta en plats, med eller utan hänsyn till investeringar på övriga platser.  Det finns {{count}} varianter att förhålla sig till de övriga platserna:"
+                    "p1": "Denna vy visar förtjänsten som kan fås genom att ta en plats, med eller utan hänsyn till investeringar på övriga platser. Det finns {{count}} varianter att förhålla sig till de övriga platserna:"
                 },
                 "takingPlaceInConsideration": {
                     "label": "Ta hänsyn till övriga platser ?",
@@ -196,8 +244,8 @@
                 "message": {
                     "diff": "Med bonus investeringar sparar du {{count}} FP",
                     "diff_plural": "Med bonus investeringar sparar du {{count, number}} FP",
-                    "single": "För att fullfölja nivå {{level}} av  \"$t({{gb}})\", måste ägaren investera {{preparation, number}} FP.  Total nivåkostnad: {{cost, number}} FP.",
-                    "multi": "För att gå från nivå {{from}} till {{to}} på $t({{gb}}), måste ägaren investera {{preparation, number}} FP.  Totalkostnad för nivåer:  {{cost, number}} FP.",
+                    "single": "För att fullfölja nivå {{level}} av \"$t({{gb}})\", måste ägaren investera {{preparation, number}} FP. Total nivåkostnad: {{cost, number}} FP.",
+                    "multi": "För att gå från nivå {{from}} till {{to}} på $t({{gb}}), måste ägaren investera {{preparation, number}} FP. Totalkostnad för nivåer: {{cost, number}} FP.",
                     "estimated_time": "Estimerad tid för att nå nivån: {{time}}"
                 },
                 "prop_already_invested": "FP redan investerade av ägaren på nuvarande nivå",
@@ -214,7 +262,7 @@
             },
             "gb_statistics": {
                 "title": "$t(routes.gb_statistics.hero.title)",
-                "p1": "Graferna skapade med hänsyn till era.  Kostnad / belöning för alla MB är densamma för repektive era (förutom i ett speciellt fall,  $t(foe_data.gb.Oracle_of_Delphi)).",
+                "p1": "Graferna skapade med hänsyn till era. Kostnad / belöning för alla MB är densamma för repektive era (förutom i ett speciellt fall, $t(foe_data.gb.Oracle_of_Delphi)).",
                 "represent": "Representerar:",
                 "graph": {
                     "title_1": "Utveckling av kostnader baserat på nivåerna",
@@ -243,21 +291,21 @@
                     "fp_to_lock": "FP att lägga för att låsa din plats",
                     "result": {
                         "default": "Du måste lägga minst {{count}} FP för att säkra platsen.",
-                        "default_plural": "Du måste lägga minst {{count, number}} FP för att säkra platsen.\n",
-                        "fp_need_to_lock": "FP du måste investera för att säkra din plats.",
-                        "fp_need_to_lock_plural": "FP du måste investera för att säkra din plats.",
-                        "fp_to_secure_html": "Du måste lägga {{count}} FP",
+                        "default_plural": "Du måste lägga minst {{count, number}} FP för att säkra platsen.",
+                        "fp_need_to_lock": "FP du måste investera för att säkra din plats:",
+                        "fp_need_to_lock_plural": "FP du måste investera för att säkra din plats:",
+                        "fp_to_secure_html": "Du måste lägga {{count}} FP.",
                         "fp_to_secure_html_plural": "Du måste lägga {{count, number}} FP.",
                         "error": "En eller flera värden är ogiltiga.",
                         "roi": {
-                            "profit": "Din förtjänst  kommer att bli {{count}} FP",
-                            "profit_plural": "Din förtjänst  kommer att bli {{count, number}} FP",
+                            "profit": "Din förtjänst kommer att bli {{count}} FP",
+                            "profit_plural": "Din förtjänst kommer att bli {{count, number}} FP",
                             "loss": "Din förlust kommer att bli {{count}} FP",
                             "loss_plural": "Din förlust kommer att bli {{count, number}} FP",
                             "neutral": "Du kommer inte att få retur på din investering"
                         },
                         "already_blocked": "Din plats är säkrad.",
-                        "still_to_put": "FP du måste investera ytterligare för att säkra din plats.",
+                        "still_to_put": "FP du måste investera ytterligare för att säkra din plats",
                         "cant_block": "Du kan inte säkra platsen."
                     },
                     "unknown": "okänd"
@@ -280,7 +328,7 @@
             },
             "site_layout": {
                 "update": "En uppdatering sedan ditt senaste besök.",
-                "update_plural": "{{count}}  uppdaterinarg sedan ditt senaste besök.",
+                "update_plural": "{{count}} uppdaterinarg sedan ditt senaste besök.",
                 "hero": {
                     "title": "$t(common:site_title)",
                     "slogan_html": "Ett uppsättning verktyg att underlätta livet på $t(common:links.foe)"
@@ -337,7 +385,7 @@
                 "split_message": {
                     "msg": "{{valueFrom}} {{ageFrom}} för {{valueTo}} {{ageTo}}",
                     "common": "{{count}} × ($t(components.trade.split_message.msg, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }))",
-                    "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) and $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
+                    "multi": "$t(components.trade.split_message.common, { 'valueFrom': '{{valueFrom}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueTo}}', 'ageTo': '{{ageTo}}' }) och $t(components.trade.split_message.common, { 'count': 1, 'valueFrom': '{{valueFromSingle}}', 'ageFrom': '{{ageFrom}}', 'valueTo': '{{valueToSingle}}', 'ageTo': '{{ageTo}}' })"
                 },
                 "message": {
                     "result": "För {{to}} från {{ageTo}}, behöver du {{from}} från {{ageFrom}} med erbjudande upp till {{count}}:",
@@ -368,7 +416,7 @@
                     "value": "Fältvärde"
                 },
                 "custom_field_title": "Dina anpassade fält",
-                "use_short_name": "Använd förkortning ?",
+                "use_short_name": "$t(components.gb_investment.gb_investment.use_short_name)",
                 "reverse_place_order": "Reversera ordning på platser?",
                 "place_separator": "Plats separator",
                 "place_builder": "Platsbyggare",
@@ -396,7 +444,7 @@
                 },
                 "template_name": "Mallnamn",
                 "errors": {
-                    "template_cannot_have_this_name": "Mallen kan inte ha detta namn,  använd ett annat namn.",
+                    "template_cannot_have_this_name": "Mallen kan inte ha detta namn, använd ett annat namn.",
                     "custom_name_empty": "Namnet på fältet kan inte vara tomt.",
                     "custom_name_already_exists": "Fältnamnet finns redan."
                 },
@@ -481,8 +529,8 @@
                 "dev_info": {
                     "title": "Utvecklingsinformation",
                     "p1": "Platsen är enkel, statisk och härbärgerad hos GitHub.",
-                    "p2_html": "Utvecklingen är gjord med Node.js och $t(common:links.framework).  Stilen med hjälp av $t(common:links.style).",
-                    "p3_html": "Ideer kring funtionaliteten?  Problem?  Det är fritt fram att skapa ett ärende på $t(common:links.github) eller skicka mig e-post (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
+                    "p2_html": "Utvecklingen är gjord med Node.js och $t(common:links.framework). Stilen med hjälp av $t(common:links.style).",
+                    "p3_html": "Ideer kring funtionaliteten? Problem? Det är fritt fram att skapa ett ärende på $t(common:links.github) eller skicka mig e-post (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
                     "message_info_github_issue": "<b>Obs:</b> Angående ärenden på GitHub, vänligen skriv dem på engelska då det gör dem tillgängliga för en större publik."
                 }
             },
@@ -497,7 +545,7 @@
                 "title": "$t(routes.cf_calculator.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Château Frontenac Kalkylator",
-                    "subtitle": "Ett verktyg som försöker räkna ut mängden av varor och fp från att göra Å.U (Återkommande Uppdrag), och I.F.U (InteFödelsedagsFest  uppdrag)."
+                    "subtitle": "Ett verktyg som försöker räkna ut mängden av varor och fp från att göra Å.U (Återkommande Uppdrag), och I.F.U (InteFödelsedagsFest uppdrag)."
                 }
             },
             "changelog": {
@@ -528,7 +576,7 @@
                 "title": "$t(routes.gb_investment_gb_chooser.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "MB Investering",
-                    "subtitle": "Detta verktyg gör det möjligt att beräkna antalet FP som en spelare måste lägga på sitt MB för att säkra de 5 första platserna, beräknat på  Ark-bonus."
+                    "subtitle": "Detta verktyg gör det möjligt att beräkna antalet FP som en spelare måste lägga på sitt MB för att säkra de 5 första platserna, beräknat på Ark-bonus."
                 },
                 "choose_gb": {
                     "title": "Välj en Mäktig Byggnad"
@@ -537,7 +585,7 @@
             "gb_forecast_cost": {
                 "title": "$t(routes.gb_forecast_cost.hero.title) | $t(common:site_title)",
                 "hero": {
-                    "title": "MB Kostnads-prognos ",
+                    "title": "MB Kostnads-prognos",
                     "subtitle": "Det här verktyget visar antalet FP för att gå från en nivå till nästa på ett MB, med eller utan hänsyn till Ark-bonus."
                 }
             },
@@ -578,9 +626,10 @@
                     "title": "Hjälp till att översätta webbplatsen",
                     "subtitle": "Gå med i översättningsgruppen"
                 },
-                "p1": "Ditt språk är inte tillgängligt, översättningen är ofullständig eller innehåller fel?  Känn dig fri att gå med i webbplatsens översättningsgrupp.",
+                "p1": "Ditt språk är inte tillgängligt, översättningen är ofullständig eller innehåller fel? Känn dig fri att gå med i webbplatsens översättningsgrupp.",
                 "how_to_join_the_team": "Hur går man med i gruppen?",
-                "p2_html": "$t(common:site_title) översätts av användare.  Vi använder plattformen $t(common:links.translation_platform) för att underlätta översättningsprocessen.  För att gå med i gruppen skickar du e-post (på engelska) till $t(common:links.contact_foe_tools).  Specificera även språken som du kan översätta till så att vi kan skicka rätt inbjudan."
+                "p2_html": "$t(common:site_title) översätts av användare. Vi använder plattformen $t(common:links.translation_platform) för att underlätta översättningsprocessen. För att gå med i gruppen klicka på följande länk och registrera dig: $t(common:links.translation_platform)",
+                "state_of_translation": "Status på översättning :"
             },
             "survey": {
                 "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
@@ -599,8 +648,8 @@
                     "title": "Kontakt",
                     "subtitle": "Kontakta underhållaren av $t(common:site_title)"
                 },
-                "message_contact_html": "En idé om funktionalitet?  Ett problem?  Skicka gärna e-post till mig (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
-                "message_translate": "Visste du att du också kan hjälpa till att översätta webbplatsen?  Följ följande länk för mer information:",
+                "message_contact_html": "En idé om funktionalitet? Ett problem? Skicka gärna e-post till mig (på engelska eller franska) hit $t(common:links.contact_foe_tools).",
+                "message_translate": "Visste du att du också kan hjälpa till att översätta webbplatsen? Följ följande länk för mer information:",
                 "message_other_info_html": "Om du är utvecklare kan du skapa ett ärende (och bidra till utvecklingen av webbplatsen) på $t(common:links.github)."
             },
             "error": {
@@ -608,6 +657,16 @@
                     "title": "Sidan hittades inte | $t(common:site_title)",
                     "message": "Tyvärr, sidan du söker fanns/finns inte (längre)"
                 }
+            },
+            "donate": {
+                "conversion": "Om du uppskattar mitt arbete, vänligen betänk en donation.",
+                "donation_options": "Donera via $t(common:links.donorbox) eller $t(common:links.paypal).",
+                "hero": {
+                    "title": "$t(utils.Donate)",
+                    "subtitle": "Donera till $t(common:site_title)"
+                },
+                "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+                "donation_message": "$t(common:site_title) är en annons-fri, öppen källkod projekt, och jag gör inte detta för finansiell förtjänst. Således, min tid går åt till att göra detta oavlönat. Dock välkomnar jag donationer från alla och envar som uppskattar mitt arbete tillräckligt nog för att vilja göra så, oavsett storlek eller metod (en-gångs eller månadsvis). Donationer betyder mycket för mig då de hjälper till att hantera associerade kostnader; servrar, domäner, webb-hotell samt kostnader i allmänhet. Dessutom uppmuntrar det mig till att fortsätta med detta projekt."
             }
         },
         "foe_data": {
@@ -816,7 +875,12 @@
                 "data_crystals": "Datakristall",
                 "golden_rice": "Gyllene ris",
                 "nanites": "Naniter",
-                "tea_silk": "Te-siden"
+                "tea_silk": "Te-siden",
+                "lubricants": "Smörjmedel",
+                "biotech_crops": "BioTech-grödor",
+                "mars_microbes": "Mars-microb",
+                "fusion_reactors": "Fusionskraft",
+                "superalloys": "Superlegeringar"
             },
             "province": {
                 "Dunarsund": "Dunarsund",
@@ -1122,7 +1186,38 @@
                 "The_Virtual_Cliffs_of_G0r3": "The Virtual Cliffs of G0r3",
                 "The_Church_of_Games": "The Church of Games",
                 "The_Sacred_Database": "The Sacred Database",
-                "Game_Over": "Game Over"
+                "Game_Over": "Game Over",
+                "Rustikauri": "Rustikauri",
+                "Mathaben": "Mathaben",
+                "Nobisia": "Nobisia",
+                "Ghirken": "Ghirken",
+                "Klaylach": "Klaylach",
+                "Wrandasten_3": "Wrandasten 3",
+                "Carva_Caska": "Carva Caska",
+                "Fortrin": "Fortrin",
+                "Oppeska": "Oppeska",
+                "Enervein": "Enervein",
+                "Akuppers": "Akuppers",
+                "Xalvades": "Xalvades",
+                "Ertannen_Belt": "Ertannen Belt",
+                "New_Frozenstone": "New Frozenstone",
+                "Zomantau": "Zomantau",
+                "Verda_Dophria": "Verda Dophria",
+                "Phovolken": "Phovolken",
+                "Low_Hacoon_Valley": "Low Hacoon Valley",
+                "High_Hacoon_Valley": "High Hacoon Valley",
+                "Plateau_Firnane_2": "Plateau Firnane-2",
+                "Jalcion_Crater": "Jalcion Crater",
+                "Loakmolden": "Loakmolden",
+                "Kardine_Haven": "Kardine Haven",
+                "Vradeen": "Vradeen",
+                "Vaanderbirch": "Vaanderbirch",
+                "Astra_Prime": "Astra Prime",
+                "Destallia": "Destallia",
+                "Vyvalgis": "Vyvalgis",
+                "Sharvice": "Sharvice",
+                "Delta_Hills": "Delta Hills",
+                "Everdoom": "Everdoom"
             },
             "bonus": {
                 "coin": {
@@ -1157,23 +1252,23 @@
                 },
                 "military_boost": {
                     "name": "Militärboost",
-                    "gb_description": "Höjer attack / försvars -bonus för enheter i attackerande armé.  Läggs till med varje byggnad."
+                    "gb_description": "Höjer attack / försvars -bonus för enheter i attackerande armé. Läggs till med varje byggnad."
                 },
                 "fierce_resistance": {
                     "name": "Hårt motstånd",
-                    "gb_description": "Höjer attack / försvars -bonus för enheter i försvarande armé samt ökar stödpools-bonus.  Läggs till med varje byggnad."
+                    "gb_description": "Höjer attack / försvars -bonus för enheter i försvarande armé samt ökar stödpools-bonus. Läggs till med varje byggnad."
                 },
                 "coin_boost": {
                     "name": "Myntboost",
-                    "gb_description": "Ökar resultatet från dina hus med upp till 90 gånger med varje skörd.  Läggs till utöver motivation och övrig bonus."
+                    "gb_description": "Ökar resultatet från dina hus med upp till 90 gånger med varje skörd. Läggs till utöver motivation och övrig bonus."
                 },
                 "supply_boost": {
                     "name": "Förnödenhetsboost",
-                    "gb_description": "Ökar resultatet från dina förnödenhetsbyggnader.  Läggs till utöver motivation och övrig bonus."
+                    "gb_description": "Ökar resultatet från dina förnödenhetsbyggnader. Läggs till utöver motivation och övrig bonus."
                 },
                 "good_production": {
                     "name": "Varuproduktion",
-                    "gb_description": "Producerar en viss mängd varor från din nuvarande era var 24:e timme.  Från och med modern tid producerar den dubbla mängden i oraffinerade varor istället (varor från 8 eror bakåt)."
+                    "gb_description": "Producerar en viss mängd varor från din nuvarande era var 24:e timme. Från och med modern tid producerar den dubbla mängden i oraffinerade varor istället (varor från 8 eror bakåt)."
                 },
                 "medal_production": {
                     "name": "Medaljproduktion",
@@ -1213,15 +1308,15 @@
                 },
                 "support_pool_bonus": {
                     "name": "Stödpool bonus",
-                    "gb_description": "Ökar ditt gilles stödpool-bonus.  Läggs till med varje byggnad."
+                    "gb_description": "Ökar ditt gilles stödpool-bonus. Läggs till med varje byggnad."
                 },
                 "aid_goods": {
                     "name": "Stödvaror",
-                    "gb_description": "Producerar 1 slumpmässig vara vid \"polivering\".  Eran för varan motsvarar eran på den \"poliverarade\" byggnaden."
+                    "gb_description": "Producerar 1 slumpmässig vara vid \"polivering\". Eran för varan motsvarar eran på den \"poliverarade\" byggnaden."
                 },
                 "plunder_goods": {
                     "name": "Plundra varor",
-                    "gb_description": "Ger efter varje skördning, slumpmässiga varor vid de 3 första  plundringarna.  Eran för varorna motsvarar eran på den plundrade byggnaden."
+                    "gb_description": "Ger efter varje skördning, slumpmässiga varor vid de 3 första plundringarna. Eran för varorna motsvarar eran på den plundrade byggnaden."
                 },
                 "contribution_boost": {
                     "name": "Bidragsboost",
@@ -1229,31 +1324,34 @@
                 },
                 "aid_blueprints": {
                     "name": "Stödritningar",
-                    "gb_description": "Ökar chansen att få en ritning vid \"polivering\".  Ex. 100% bonus kommer att fördubbla din chans att få en ritning."
+                    "gb_description": "Ökar chansen att få en ritning vid \"polivering\". Ex. 100% bonus kommer att fördubbla din chans att få en ritning."
                 },
                 "relic_hunt": {
                     "name": "Relikjakt",
-                    "gb_description": "Denna egenskap ger dig möjlighet att få en \"relik\" när du framgångsrikt löst ett möte i en Imperiumexpedition.  Reliker är  värdefulla och förekommer i 3 olika varianter.  Varje nivå ökar chansen att hitta en relik, samtidigt ökar oddsen att det blir en sällsynt relik."
+                    "gb_description": "Denna egenskap ger dig möjlighet att få en \"relik\" när du framgångsrikt löst ett möte i en Imperiumexpedition. Reliker är värdefulla och förekommer i 3 olika varianter. Varje nivå ökar chansen att hitta en relik, samtidigt ökar oddsen att det blir en sällsynt relik."
                 },
                 "critical_hit": {
                     "name": "Kritisk skada",
-                    "gb_description": "Ger alla enheter chansen att hantera 1,5 gång den förväntade skadan när de angriper enheter av samma era.  Kritisk träff verkar också mot \"Reaktiv Sköld\" (om förväntad skada normalt är 4-4, kommer en kritisk träff att öka till 6-6).  Skurkar (och andra \"ingen ålder\" -enheter) påverkas inte / kan inte använda denna förmåga förrän de omvandlas till en annan enhet.  En kritisk träff med minst 11 skador kommer att döda varje enhet, även med moralbonus.  Denna bonus gäller alla attackerande arméer plus din försvarande armé i PvP.  \"Kritisk skada\" sker inte när en enhet retalierar."
+                    "gb_description": "Ger alla enheter chansen att hantera 1,5 gång den förväntade skadan när de angriper enheter av samma era. Kritisk träff verkar också mot \"Reaktiv Sköld\" (om förväntad skada normalt är 4-4, kommer en kritisk träff att öka till 6-6). Skurkar (och andra \"ingen ålder\" -enheter) påverkas inte / kan inte använda denna förmåga förrän de omvandlas till en annan enhet. En kritisk träff med minst 11 skador kommer att döda varje enhet, även med moralbonus. Denna bonus gäller alla attackerande arméer plus din försvarande armé i PvP. \"Kritisk skada\" sker inte när en enhet retalierar."
                 },
                 "helping_hands": {
                     "name": "Hjälpande händer",
-                    "gb_description": "Ger dig en viss chans att få en slumpmässig resurs när du \"poliverar\".  Du kan få varor (från din nuvarande era), förnödenheter, mynt, medaljer eller till och med diamanter."
+                    "gb_description": "Ger dig en viss chans att få en slumpmässig resurs när du \"poliverar\". Du kan få varor (från din nuvarande era), förnödenheter, mynt, medaljer eller till och med diamanter."
                 },
                 "plunder_and_pillage": {
                     "name": "Plundra varor",
-                    "gb_description": "Ger dig en viss chans att få dubbelt upp när du plundrar.  Fördubblingen inbegriper allt plundrat, inklusive ForgePoints och Imperiemakt."
+                    "gb_description": "Ger dig en viss chans att få dubbelt upp när du plundrar. Fördubblingen inbegriper allt plundrat, inklusive ForgePoints och Imperiemakt."
                 },
                 "first_strike": {
                     "name": "Första slaget",
-                    "gb_description": "Ger en viss chans vid de första striderna, att en enhet från fienden dödas omedelbart vid början av strid.  Detta gäller bara den första vågen.  Uppdateras vid skördning."
+                    "gb_description": "Ger en viss chans vid de första striderna, att en enhet från fienden dödas omedelbart vid början av strid. Detta gäller bara den första vågen. Uppdateras vid skördning."
                 },
                 "double_collection": {
                     "name": "Dubbelinsamling",
-                    "gb_description": "Ger en chans att få dubbla resurser i de första byggnaderna som samlats in.  Utesluter militära och stora byggnader.  Uppdateras vid skördning."
+                    "gb_description": "Ger en chans att få dubbla resurser i de första byggnaderna som samlats in. Utesluter militära och stora byggnader. Uppdateras vid skördning."
+                },
+                "exploration_site": {
+                    "name": "Utforskningsställe"
                 }
             }
         },
@@ -1264,7 +1362,7 @@
             },
             "btn_calculate": "Beräkna",
             "description": {
-                "p1": "Ange de olika värdena.  Resultatet uppdateras automatiskt.",
+                "p1": "Ange de olika värdena. Resultatet uppdateras automatiskt.",
                 "p2_html": "<strong>Obs! </strong>: Om uppdateringen inte blir klar automatiskt klickar du på [$t(utils.btn_calculate)]."
             },
             "choose_age": "Välj en era",
@@ -1315,7 +1413,15 @@
                 "gb_level": "Nivå",
                 "gb_level_cost": "Nivåkostnad",
                 "gb_reward_1st_place": "Nivåbelöning (1:a plats)"
-            }
+            },
+            "Next": "→",
+            "Previous": "←",
+            "Exit": "Avsluta",
+            "Done": "Färdig",
+            "Tutorial": "Handledning",
+            "Donate": "Donera",
+            "FP": "{{count, number}} FP",
+            "FP_plural": "{{count, number}} FP"
         },
         "contributions": {
             "blog": "Blogginlägg",
