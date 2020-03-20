@@ -22,7 +22,7 @@
                 "title": "$t(routes.campaign_cost.hero.title)",
                 "choose_province": "Elije una Provincia",
                 "message": {
-                    "haveUnknownCosts": "Esta provincia contiene uno o más sectores con valores faltantes"
+                    "haveUnknownCosts": "Esta provincia contiene uno o más sectores con valores faltantes."
                 }
             },
             "cf_calculator": {
@@ -30,7 +30,7 @@
                     "title": "$t(routes.cf_calculator.hero.title)",
                     "your_age": "Tu Era",
                     "your_cf_boost": "Tu $t(foe_data.gb.Chateau_Frontenac) Bonus",
-                    "coins_to_use": "Monedas a usar en  M. No Cumpleaños",
+                    "coins_to_use": "Monedas a usar en M. No Cumpleaños",
                     "coins_supplies_info": "Este valor debe ser mayor o igual que {{min}} porque debajo no podemos garantizar ningún beneficio (estadísticamente)",
                     "supplies_to_use": "Suministros a usar en M. No Cumpleaños",
                     "gb_plunder_goods": "GEs y Bienes Robados",
@@ -120,7 +120,7 @@
                             "th2": "Recompensas por defecto",
                             "th3": "PFs a poner por el propietario para asegurar el lugar",
                             "th4": "Recompensas con bono",
-                            "th5": "% de bono de inversionistas (bono del Arca) ",
+                            "th5": "% de bono de inversionistas (bono del Arca)",
                             "th6": "Inluir en los cuadros de copia",
                             "fp_already_putin": "Cantidad de PFs ya puestos",
                             "spot_snipe": "Lugar",
@@ -194,7 +194,7 @@
             },
             "gb_investment_investors": {
                 "description": {
-                    "p1": "Esta vista permite ver la ganancia que puede ser obtenida obteniendo un lugar tomando o no en cuenta inversiones en otros lugares. Hay {{count}} tipos de consideración  de otros lugares:"
+                    "p1": "Esta vista permite ver la ganancia que puede ser obtenida obteniendo un lugar tomando o no en cuenta inversiones en otros lugares. Hay {{count}} tipos de consideración de otros lugares:"
                 },
                 "takingPlaceInConsideration": {
                     "label": "¿Tomar en consideracióon otros lugares?",
@@ -206,7 +206,7 @@
                     },
                     "description": {
                         "no": "No tomar en cuenta otros lugares",
-                        "normal": "Tomar en cuenta otros lugares con una mínima inversión de inversionistas y sin ser asegurados por el propietario ",
+                        "normal": "Tomar en cuenta otros lugares con una mínima inversión de inversionistas y sin ser asegurados por el propietario",
                         "optimal": "tomar en cuenta los otros lugares con una inversión sin el beneficio de los inversores y con la garantía del propietario"
                     }
                 },
@@ -224,14 +224,14 @@
                 "estimated_time": "Estimar el tiempo para alcanzar el nivel",
                 "message": {
                     "diff": "Con inversiones con bono, ahorrarás {{count}} PFs",
-                    "diff_plural": "Con inversiones con bono, ahorrarás  {{count, number}} PFs",
-                    "single": "Para completar el nivel {{level}} de $t({{gb}}), el propietario debe invertir {{preparation, number}} PFs. Costo total del nivel : {{cost, number}} PFs",
+                    "diff_plural": "Con inversiones con bono, ahorrarás {{count, number}} PFs",
+                    "single": "Para completar el nivel {{level}} de $t({{gb}}), el propietario debe invertir {{preparation, number}} PFs. Costo total del nivel : {{cost, number}} PFs.",
                     "multi": "Para competar el nivell {{from}} a {{to}} de \"$t({{gb}})\", el propietario debe invertir {{preparation, number}}PFs. Coste Total del nivel: {{cost, number}} PFs.",
                     "estimated_time": "Tiempo estimado para alcanzar el nivel: {{time}}"
                 },
                 "prop_already_invested": "PFs ya invertidos por el propietario en el nivel actual",
                 "graph": {
-                    "title": "Pronóstico de la cantidad que el propietario debe preparar por $t({{gb}}) ",
+                    "title": "Pronóstico de la cantidad que el propietario debe preparar por \"$t({{gb}})\"",
                     "x_axes_label": "$t(utils.graph.gb_level)",
                     "y_axes_label": "$t(utils.graph.gb_level_cost)",
                     "label": {
@@ -243,7 +243,7 @@
             },
             "gb_statistics": {
                 "title": "$t(routes.gb_statistics.hero.title)",
-                "p1": "Las gráficas fueron elaboradas de acuerdo a la Era porque el costo / recompensa de los GEs es el mismo para cada GE en una Era, excepto en un caso patricular $t(foe_data.gb.Oracle_of_Delphi)) ",
+                "p1": "Las gráficas fueron elaboradas de acuerdo a la Era porque el costo / recompensa de los GEs es el mismo para cada GE en una Era, excepto en un caso patricular $t(foe_data.gb.Oracle_of_Delphi)) .",
                 "represent": "Representa:",
                 "graph": {
                     "title_1": "Evolución del costo de los niveles de acuerdo a los niveles",
@@ -268,23 +268,23 @@
                     "target_reward": "Lugar objetivo",
                     "various_rate": "Varias tasas",
                     "result": {
-                        "default": "Debes totalizar {{count}} PFs para bloquear el lugar",
-                        "default_plural": "Debes haber totalizado  {{count, number}} PFs para bloquear el lugar",
+                        "default": "Debes totalizar {{count}} PFs para bloquear el lugar.",
+                        "default_plural": "Debes haber totalizado {{count, number}} PFs para bloquear el lugar.",
                         "fp_need_to_lock": "PFs necesarios para bloquear tu lugar",
                         "fp_need_to_lock_plural": "PFs necesarios para bloquear tu lugar",
-                        "fp_to_secure_html": "Aun te falta poner  {{count}} PFs",
-                        "fp_to_secure_html_plural": "Aún tienes que poner {{count, number}} PFs",
-                        "error": "Uno o más valores no son válidos",
+                        "fp_to_secure_html": "Aun te falta poner {{count}} PFs.",
+                        "fp_to_secure_html_plural": "Aún tienes que poner {{count, number}} PFs.",
+                        "error": "Uno o más valores no son válidos.",
                         "roi": {
                             "profit": "Ti ganancia será de {{count}} PFs",
-                            "profit_plural": "Tu ganancia será de  {{count, number}} PFs",
+                            "profit_plural": "Tu ganancia será de {{count, number}} PFs",
                             "loss": "Tu pérdida será de {{count}} PFs",
                             "loss_plural": "Tu pérdida será de {{count, number}} PFs",
                             "neutral": "No obtendrás retorno por tu inversión"
                         },
-                        "already_blocked": "Tu lugar está bloqueado",
+                        "already_blocked": "Tu lugar está bloqueado.",
                         "still_to_put": "Cantidad de PFs que aun necesitas poner",
-                        "cant_block": "No puedes bloquear el lugar"
+                        "cant_block": "No puedes bloquear el lugar."
                     },
                     "unknown": "desconocido"
                 }
@@ -314,11 +314,11 @@
                     "link": "Más información"
                 },
                 "new_year": {
-                    "message": "$t(common:site_title) celebra su {{count, number}} año\n",
-                    "message_plural": "$t(common:site_title)  celebra su {{count, number}} año"
+                    "message": "$t(common:site_title) celebra su {{count, number}} año",
+                    "message_plural": "$t(common:site_title) celebra su {{count, number}} años"
                 },
                 "survey": {
-                    "message": "Ayúdanos a mejorar $t(common:site_title) completando esta encuesta."
+                    "message": "Ayúdanos a mejorar $t(common:site_title) completando esta encuesta"
                 },
                 "permalink_info": "Usted visita un enlace permanente. En consecuencia, cualquier cambio realizado no se guardará en las cookies.",
                 "footer": {
@@ -368,7 +368,7 @@
                 }
             },
             "promotion_message_builder": {
-                "title": "Constructor de mensajes de promoción.",
+                "title": "Constructor de mensajes de promoción",
                 "info": "Esto se puede copiar para compartir, por ejemplo, con los miembros de tu gremio",
                 "note": "Tenga en cuenta que el generador de mensajes utiliza el nivel 9 → 10 de $t(foe_data.gb.Observatory) con una proporción de 1.9 para obtener una vista previa.",
                 "action": "Acción",
@@ -396,10 +396,10 @@
                 "place_separator": "Separador de lugar",
                 "place_builder": "Constructor de lugares",
                 "place_preview": "Vista previa del lugar (1er lugar)",
-                "message_builder": "Constructor de mensajes de promoción.",
+                "message_builder": "Constructor de mensajes de promoción",
                 "message_preview": "Vista previa del mensaje",
                 "place_builder_title": "Constructor de lugares",
-                "message_builder_title": "Constructor de mensajes de promoción.",
+                "message_builder_title": "Constructor de mensajes de promoción",
                 "available_variables": "Variables disponibles:",
                 "variables": {
                     "place": {
@@ -425,7 +425,7 @@
                 "template_deleted": "Plantilla eliminada"
             },
             "import_promotion_message": {
-                "title": "Importar Mensaje de promoción ",
+                "title": "Importar Mensaje de promoción",
                 "config_placeholder": "Pega tu configuración aquí",
                 "errors": {
                     "invalid_data": "Los datos son inválidos"
@@ -478,23 +478,23 @@
                         "investorParticipation_x": "Participación esperada de los inversores cuando el lugar no otorga PF",
                         "level": "Nivel de GE",
                         "ownerInvestment": "$t(components.gb_investment.gb_investment.table.thead.th3)",
-                        "showPx": "Indica si quieres mostrar el prefijo en los mensajes de promoción.",
+                        "showPx": "Indica si quieres mostrar el prefijo en los mensajes de promoción",
                         "takingPlaceInConsideration": "En la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\", indica si los otros lugares deben tenerse en cuenta en el cálculo",
                         "targetLevel": "En la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\", indica desde qué nivel mostrar la información en la tabla",
                         "displayGbName": "Indica si se desea mostrar el nombre de GE en el mensaje de promoción",
-                        "investorParticipation": "Contiene una lista de todos los inversores agregados.",
+                        "investorParticipation": "Contiene una lista de todos los inversores agregados",
                         "displayTableCard": "Indique si se debe mostrar la tabla en \"$t(routes.gb_investment_gb_chooser.hero.title)\" en modo simple (tabla) o en vista de tarjeta en pantalla pequeña",
                         "from": "Nivel donde comenzar la matriz (usado en la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
                         "to": "Nivel donde comenzar la matriz (usado en la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
                         "showPlace": "Una matriz que contiene si se muestra un lugar o no (se usa en la pestaña \"$t(routes.gb_investment.tab.investors_view.title)\" de \"$t(routes.gb_investment_gb_chooser.hero.title)\")",
-                        "survey": "Una matriz que contiene todas las encuestas que ya ha completado.",
-                        "fixedMainMenu": "Indica si el menú principal está siempre visible o no.",
+                        "survey": "Una matriz que contiene todas las encuestas que ya ha completado",
+                        "fixedMainMenu": "Indica si el menú principal está siempre visible o no",
                         "gbSelectMode": "Indica qué modo de selección de GE está utilizando",
                         "haveReadLocaleInfoAvailable": "Indica si ha leído la información sobre el hecho de que el sitio está disponible en su idioma",
                         "promotionMessageList": "Contiene la lista de mensajes de promoción que desea mostrar",
-                        "customPromotionMessagesTemplates": "Contiene todos tus mensajes  de promoción. personalizados",
-                        "gbShowPrefix": "Indica si quieres mostrar el prefijo en los mensajes de promoción.",
-                        "gbShowSuffix": "Indica si quieres mostrar el sufijo en los mensajes de promoción."
+                        "customPromotionMessagesTemplates": "Contiene todos tus mensajes de promoción. personalizados",
+                        "gbShowPrefix": "Indica si quieres mostrar el prefijo en los mensajes de promoción",
+                        "gbShowSuffix": "Indica si quieres mostrar el sufijo en los mensajes de promoción"
                     }
                 },
                 "dev_info": {
@@ -514,7 +514,7 @@
             "cf_calculator": {
                 "hero": {
                     "title": "Calculadora Castilo de Frontenac",
-                    "subtitle": "Una herramienta que ayuda a pronosticar productos y producciones de PF a partir de misiones recurrentes y misiones  que no son de cumpleaños (Rinbin)."
+                    "subtitle": "Una herramienta que ayuda a pronosticar productos y producciones de PF a partir de misiones recurrentes y misiones que no son de cumpleaños (Rinbin)."
                 }
             },
             "changelog": {
@@ -523,7 +523,7 @@
             "contributors": {
                 "hero": {
                     "title": "Colaboradores",
-                    "subtitle": "Esta página intenta listar todos los colaboradores."
+                    "subtitle": "Esta página intenta listar todos los colaboradores"
                 }
             },
             "gb_investment": {
@@ -548,7 +548,7 @@
             "gb_forecast_cost": {
                 "hero": {
                     "title": "Previsión del coste de GE",
-                    "subtitle": "Esta herramienta determina el número de PF para pasar de un nivel a otro de un GE, con o sin los bonos de Arca"
+                    "subtitle": "Esta herramienta determina el número de PF para pasar de un nivel a otro de un GE, con o sin los bonos de Arca."
                 }
             },
             "gb_statistics": {
@@ -582,12 +582,12 @@
             "help_to_translate_the_site": {
                 "title": "$t(routes.help_to_translate_the_site.hero.title)| $t(common:site_title)",
                 "hero": {
-                    "title": "Ayuda para traducir el sitio.",
+                    "title": "Ayuda para traducir el sitio",
                     "subtitle": "Únete al equipo de traducción"
                 },
                 "p1": "¿Su idioma no está disponible, la traducción está incompleta o contiene errores? Siéntase libre de unirse al equipo de traducción del sitio.",
                 "how_to_join_the_team": "¿Cómo unirse al equipo?",
-                "p2_html": "$t(common:site_title) es traducido por los usuarios. Utilizamos la plataforma $t(common:links.translation_platform) para facilitar el proceso de traducción. Para unirse al equipo, envíe un correo electrónico (en inglés) a $t(common:links.contact_foe_tools) especificando el (los) idioma (s) en que puede traducir para que podamos enviarle una invitación."
+                "p2_html": "$t(common:site_title) es traducido por los usuarios. Utilizamos la plataforma $t(common:links.translation_platform) para facilitar el proceso de traducción. Para unirse al equipo, envíe un correo electrónico (en inglés) a $t(common:links.contact_foe_tools) especificando el (los) idioma (s) en que puede traducir para que podamos enviarle una invitación"
             },
             "survey": {
                 "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
@@ -598,7 +598,7 @@
                 "required_field": "Este campo es requerido",
                 "survey_complete": "Gracias por tus comentarios !",
                 "error": "Ha ocurrido un error, verifique el formulario e intentelo nuevamente",
-                "unknown_error": "Se ha producido un error desconocido. Póngase en contacto con el administrador del sitio."
+                "unknown_error": "Se ha producido un error desconocido, Póngase en contacto con el administrador del sitio"
             },
             "contact": {
                 "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
@@ -811,7 +811,7 @@
                 "bioplastics": "Bioplásticos",
                 "nanowire": "Nanohilos",
                 "paper_batteries": "Baterías de papel",
-                "transester_gas": "Gas  transester",
+                "transester_gas": "Gas transester",
                 "artificial_scales": "Escamas Artificiales",
                 "biolight": "Bioluces",
                 "corals": "Corales",
@@ -1282,7 +1282,7 @@
             "No": "No",
             "Ok": "OK",
             "Copy": "Copiar",
-            "Copyed": "Copiado",
+            "Copyed": "Copiado !",
             "Information": "Información",
             "From": "De",
             "To": "A (max {{max, number}})",
