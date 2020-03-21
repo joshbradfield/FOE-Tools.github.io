@@ -132,13 +132,13 @@
                         "tbody": {
                             "button_show_extra_investor_0": "Zobrazit dalšího investora",
                             "button_show_extra_investor_1": "Zobrazit další investory",
-                            "button_show_extra_investor_2": "Zobrazit další investory",
+                            "button_show_extra_investor_2": "Zobrazit ostatní investory",
                             "button_hide_extra_investor_0": "Skrýt dalšího investora",
                             "button_hide_extra_investor_1": "Skrýt další investory",
-                            "button_hide_extra_investor_2": "Skrýt další investory",
+                            "button_hide_extra_investor_2": "Skrýt ostatní investory",
                             "loss_0": "Tento hráč přijde o FB",
                             "loss_1": "Tento hráč ztratí FB",
-                            "loss_2": "Tento hráč přijde o FB",
+                            "loss_2": "Tito hráči přijdou o FB",
                             "button_show_extra_investor_plural": "Ukázat extra investory",
                             "button_hide_extra_investor_plural": "Schovat extra investory",
                             "tooltip_owner_investment": "Zbývající FB nutné vložit pro zajištění pozice majitelem",
@@ -250,7 +250,7 @@
                 "message": {
                     "diff_0": "S bonusovými investicemi ušetříte {{count}} FB",
                     "diff_1": "S bonusovými investicemi ušetříte {{count}} FB",
-                    "diff_2": "S bonusovými investicemi ušetříte {{count, number}} FB",
+                    "diff_2": "S bonusovými investicemi ušetříte {{count}} FB",
                     "single": "K dokončení úrovně {{level}} od \"$t({{gb}})\",vlastníka musí investovat {{preparation, number}} FP. Celkové náklady na úroveň: {{cost, number}} FP.",
                     "multi": "Z úrovně {{from}} do {{to}} z \"$t({{gb}})\",majitel musí vložit {{preparation, number}} FB. Celková cena za úroveň: {{cost, number}} FB.",
                     "diff_plural": "S bonusovými investicemi ušetříte {{count, number}} FP",
@@ -304,23 +304,23 @@
                     "result": {
                         "default_0": "Abyste mohli toto místo zablokovat, musíte mít celkem {{count}}FB.",
                         "default_1": "Abyste mohli toto místo zablokovat, musíte mít celkem {{count}}FB.",
-                        "default_2": "Abyste mohli toto místo zablokovat, musíte mít celkem {{count, number}} FB.",
+                        "default_2": "Abyste mohli toto místo zablokovat, musíte mít celkem {{count}}FB",
                         "fp_need_to_lock_0": "Počet FB na pojištění pozice:",
                         "fp_need_to_lock_1": "Počet FB na pojištění pozice:",
-                        "fp_need_to_lock_2": "Počet FB k zajištění pozice:",
+                        "fp_need_to_lock_2": "Počet FB na pojištění pozice:",
                         "fp_to_secure_html_0": "Ještě musíte vložit{{count}} FB.",
                         "fp_to_secure_html_1": "Ještě musíte vložit{{count}} FB.",
-                        "fp_to_secure_html_2": "Ještě musíte vložit {{count, number}} FB.",
+                        "fp_to_secure_html_2": "Ještě musíte vložit{{count}} FB.",
                         "default_plural": "Chcete-li toto místo zablokovat, musíte mít celkem {{count, number}}výzkumných bodů.",
                         "fp_need_to_lock_plural": "Počet FB na pojištění pozice:",
                         "error": "Jedna nebo více hodnot jsou neplatné.",
                         "roi": {
                             "profit_0": "Váš zisk bude {{count}} FB",
                             "profit_1": "Váš zisk bude {{count}} FB",
-                            "profit_2": "Váš zisk bude {{count, number}} FB",
+                            "profit_2": "Váš zisk bude {{count}} FB",
                             "loss_0": "Vaše ztráta bude {{count}} FB",
                             "loss_1": "Vaše ztráta bude {{count}} FB",
-                            "loss_2": "Vaše ztráta bude {{count, number}} FB",
+                            "loss_2": "Vaše ztráta bude {{count}} FB",
                             "profit_plural": "Váš zisk bude {{count, number}} FB",
                             "loss_plural": "Vaše ztráta bude {{count, number}} FB",
                             "neutral": "Na této investici nebudete mít žádný zisk"
@@ -351,7 +351,7 @@
             "site_layout": {
                 "update_0": "1 novinka od vaší poslední návštěvy.",
                 "update_1": "{{count}} novinky od vaší poslední návštěvy.",
-                "update_2": "{{count}} upozornění od Vaší poslední návštevy.",
+                "update_2": "{{count}} novinek od vaší poslední návštěvy.",
                 "hero": {
                     "title": "$t(common:site_title)",
                     "slogan_html": "Sada nástrojů pro zjednodušení života ve $t(common:links.foe)"
@@ -363,7 +363,7 @@
                 "new_year": {
                     "message_0": "$t(common:site_title) slaví svůj {{count, number}} rok",
                     "message_1": "$t(common:site_title) slaví své {{count, number}} narozeniny",
-                    "message_2": "$t(common:site_title) oslavuje svoje {{count, number}} roky",
+                    "message_2": "$t(common:site_title) slaví své {{count, number}} narozeniny",
                     "message_plural": "$t(common:site_title) oslavuje svoje {{count, number}} výročí"
                 },
                 "survey": {
@@ -685,7 +685,7 @@
                 }
             },
             "donate": {
-                "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+                "title": "$t(routes.donate.hero.title) | $t(common:site_title)",
                 "hero": {
                     "subtitle": "Darovat na$t(common:site_title)",
                     "title": "$t(utils.Donate)"
@@ -1378,7 +1378,7 @@
                 },
                 "exploration_site": {
                     "name": "Exploration Site",
-                    "gb_description": "{{- videoAutoComplete}}"
+                    "gb_description": "---"
                 }
             }
         },
@@ -1431,7 +1431,7 @@
             "moment": {
                 "year_0": "{{count}} rok",
                 "year_1": "{{count, number}} roky",
-                "year_2": "{{count, number}} roků",
+                "year_2": "{{count, number}} let",
                 "month_0": "{{count}} měsíc",
                 "month_1": "{{count}} měsíce",
                 "month_2": "{{count}} měsíců",
