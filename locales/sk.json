@@ -249,6 +249,7 @@
                 "estimated_time": "Predpokladaný čas na uzavretie úrovne",
                 "message": {
                     "diff_0": "S bonusom investícií ušetríte {{count}} BV",
+                    "diff_1": "",
                     "diff_2": "S bonusom investícií ušetríte {{count, number}} BV",
                     "single": "Na dokončenie  {{level}} úrovne v „$t({{gb}})“, musí majiteľ investovať {{preparation, number}}  BV. Celkové náklady na úroveň: {{cost, number}} BV.",
                     "multi": "Na zvýšenie \"$t({{gb}})\" z {{from}} na {{to}} úroveň, musí majiteľ investovať {{preparation, number}} BV. Celková cena úrovní: {{cost, number}} BV.",
@@ -281,8 +282,10 @@
             "secure_position": {
                 "block_place": {
                     "fp_to_complete_level_0": "BV zostávajúci do uzavretia úrovne:",
+                    "fp_to_complete_level_1": "",
                     "fp_to_complete_level_2": "BV zostávajúcich do uzavretia úrovne:",
                     "place_0": "{{place}}({{count, number}} BV)",
+                    "place_1": "",
                     "place_2": "{{place}} ({{count, number}} BV)",
                     "title": "Zablokujte jeho pozíciu",
                     "level_cost": "Cena úrovne",
@@ -300,18 +303,23 @@
                     "fp_to_lock": "Vložiť BV na zaistenie Vašej pozície",
                     "result": {
                         "default_0": "Musíte mať celkovo {{count}} BV na zablokovanie pozície.",
+                        "default_1": "",
                         "default_2": "Musíte mať celkovo {{count, number}} BV na zablokovanie pozície.",
                         "fp_need_to_lock_0": "BV potrebný na zaistenie Vašej pozície:",
+                        "fp_need_to_lock_1": "",
                         "fp_need_to_lock_2": "BV potrebných na zaistenie Vašej pozície:",
                         "fp_to_secure_html_0": "Stále musíte vložiť {{count}} BV.",
+                        "fp_to_secure_html_1": "",
                         "fp_to_secure_html_2": "Stále musíte vložiť {{count, number}}BV.",
                         "default_plural": "Musíte mať celkovo {{count, number}} BV na zablokovanie pozície.",
                         "fp_need_to_lock_plural": "Na zaistenie Vašej pozície potrebujete vložiť toľko BV:",
                         "error": "Jedna alebo viac premenných nemajú správnu hodnotu.",
                         "roi": {
                             "profit_0": "Váš zisk bude {{count}} BV",
+                            "profit_1": "",
                             "profit_2": "Váš zisk bude {{count, number}} BV",
                             "loss_0": "Vaša strata bude {{count}} BV",
+                            "loss_1": "",
                             "loss_2": "Vaša strata bude {{count, number}} BV",
                             "profit_plural": "Váš zisk bude {{count, number}} BV",
                             "loss_plural": "Vaša strata bude {{count}} BV",
@@ -342,6 +350,7 @@
             },
             "site_layout": {
                 "update_0": "Jedna novinka od Vašej poslednej návštevy",
+                "update_1": "",
                 "update_2": "{{count}} noviniek od Vašej poslednej návštevy",
                 "hero": {
                     "title": "$t(common:site_title)",
@@ -353,6 +362,7 @@
                 },
                 "new_year": {
                     "message_0": "$t(common:site_title) oslavuje svoj {{count, number}}  rok",
+                    "message_1": "",
                     "message_2": "$t(common:site_title) oslavuje {{count, number}} rokov",
                     "message_plural": "$t(common:site_title) oslavuje svoje {{count, number}}  výročie"
                 },
@@ -675,7 +685,7 @@
                 }
             },
             "donate": {
-                "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+                "title": "$t(routes.donate.hero.title) | $t(common:site_title)",
                 "hero": {
                     "subtitle": "Dar na $t(common:site_title)",
                     "title": "$t(utils.Donate)"
@@ -1367,7 +1377,7 @@
                     "gb_description": "Pri prvých niekoľkých vyzdvihnutiach v budovách vzniká šanca na zdvojnásobenie vyzdvihnutých surovín.Tento bonus sa nedá uplatniť u vojenských a veľkolepých budovách."
                 },
                 "exploration_site": {
-                    "gb_description": "Niekoľko provincií na mape Marsu obsahuje prieskumné stanoviská.\nPo získaní takejto provincie hráčom",
+                    "gb_description": "---",
                     "name": "Prieskumné stanovisko"
                 }
             }
@@ -1420,10 +1430,13 @@
             },
             "moment": {
                 "year_0": "{{count}} rok",
+                "year_1": "",
                 "year_2": "{{count, number}} rokov",
                 "month_0": "{{count}} mesiac",
+                "month_1": "",
                 "month_2": "{{count}} mesiacov",
                 "day_0": "{{count}} deň",
+                "day_1": "",
                 "day_2": "{{count}} dní",
                 "year_plural": "{{count, number}} roky",
                 "month_plural": "{{count}} mesiace",
