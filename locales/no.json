@@ -74,6 +74,13 @@
             "contributors": "Bidragsytere",
             "changelog": "Endringslogg",
             "contact": "Kontakt"
+        },
+        "foe_data": {
+            "bonus": {
+                "exploration_site": {
+                    "gb_description": "---"
+                }
+            }
         }
     }
 }
