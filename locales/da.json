@@ -83,12 +83,12 @@
                         "p2_html": "<strong>Note</strong>: Hvis opdateringen ikke sker automatisk, skal du først indstille SB niveauet, og den samlede investerings-værdi, og klikke på \"$t(components.gb_investment.gb_investment.form.submit_global)\". Hvis du vil justere værdierne ved hver enkelt placering, skal du justere til din bekvæmmelighed og klikke på \"$t(components.gb_investment.gb_investment.form.submit_custom)\"."
                     },
                     "form": {
-                        "level": "Niveau {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+                        "level": "Niveau {{fromLevel, number}} → {{level, number}} ($t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
                         "investor_percentage": "Ark bonus i %",
                         "submit_global": "Global beregning",
                         "submit_custom": "Brugerdefineret beregning",
-                        "owner_investment": "Antal Fp's der i øjeblikket er sat af ejeren (Max {{max}})",
-                        "add_investors": "Tilføj bidrager (sæt FP værdi, $t(utils.between_range, { 'min': '{{min}}', 'max': '{{max}}' }))",
+                        "owner_investment": "Antal Fp's der i øjeblikket er sat af ejeren (Max {{max, number}})",
+                        "add_investors": "Tilføj bidrager (sæt FP værdi, $t(utils.between_range, { 'min': '{{min, number}}', 'max': '{{max, number}}' }))",
                         "tooltip_add_investors": "Klik på knappen \"$t(utils.Add)\" eller tryk \"Enter\" for at tilføje bidrager",
                         "investors_list": "Liste over tilføjede bidragere",
                         "show_snipe": "Vis Spot/Snipe",
@@ -882,6 +882,11 @@
                 "Natsuishu": "Natsuishu",
                 "Chigikawa": "Chigikawa",
                 "Igujima": "Igujima"
+            },
+            "bonus": {
+                "exploration_site": {
+                    "gb_description": "---"
+                }
             }
         }
     }
