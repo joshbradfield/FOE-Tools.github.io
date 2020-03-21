@@ -1,1 +1,79 @@
-{ }
+{
+    "translation": {
+        "components": {
+            "cf_calculator": {
+                "tutorial": {
+                    "welcome": "Dette verktøyet er bare til informasjon. Det gir deg informasjon om hva du, statistisk, kan oppnå med ditt $t(foe_data.gb.Chateau_Frontenac).",
+                    "yourAge": "Velg din tidsalder.",
+                    "yourCfBoost": "Legg inn din $t(foe_data.gb.Chateau_Frontenac)-bonus.\n\nEksempel: for 450%, legg inn 450.",
+                    "supplies": "Legg inn antall forsyninger du vil bruke på alle oppdragene.",
+                    "goods": "Legg inn antall varer du samler fra storstilte bygninger og plyndring.",
+                    "fpBy24h": "Legg inn antall FP du får på 24 timer.",
+                    "coins": "Legg inn antall mynter du vil bruke på alle oppdragene."
+                },
+                "block_cfc": {
+                    "title": "$t(routes.cf_calculator.hero.title)",
+                    "your_age": "Din alder",
+                    "your_cf_boost": "Din $t(foe_data.gb.Chateau_Frontenac) bonus",
+                    "coins_to_use": "Mynter å bruke på ubursdagsfest",
+                    "supplies_to_use": "Forsyninger å bruke på ubursdagsfest",
+                    "gb_plunder_goods": "SB & Plyndringsvarer",
+                    "fp_by_24h": "24-timers FP-produksjon",
+                    "other_rq": "Andre daglige repeterende oppdrag",
+                    "supplies_gathered": "Forsyninger samlet",
+                    "table_reward": {
+                        "title": "$t(utils.Rewards)",
+                        "thead": {
+                            "th1": "Skisser",
+                            "th2": "Medaljer",
+                            "th3": "Varer",
+                            "th4": "FP"
+                        }
+                    },
+                    "reward_message": {
+                        "daily_ubq": "Daglige ubursdagsfester: {{count, number}}",
+                        "second_rq_completed": "Andre repeterende oppdrag utført: {{count, number}}",
+                        "total_goods": "Varer totalt: {{count, number}}",
+                        "total_fp": "FP totalt: {{count, number}}",
+                        "bonus_ubq": "Bonus ubursdagsfester: {{count, number}}",
+                        "total_rq_completed": "Repeterende oppdrag utført totalt: {{count, number}}"
+                    },
+                    "table_return": {
+                        "thead": {
+                            "th_level": "Nivå",
+                            "th_coin": "Mynt returnert",
+                            "th_supply": "Forsyninger returnert"
+                        }
+                    },
+                    "infinity_generator": {
+                        "message": "Med nåværende bonus på (foe_data.gb.Chateau_Frontenac), vil du tjene mer mynt og forsyninger enn du bruker på å fullføre oppdragene. Velg antall \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" du vil gjøre."
+                    },
+                    "coins_supplies_info": "Denne verdien bør være større enn eller lik {{min}} fordi vi kan ikke garantere noen fortjeneste (statistisk) for lavere verdier",
+                    "second_rq": "Andre repeterende oppgavegiver"
+                }
+            },
+            "campaign_cost": {
+                "title": "$t(routes.campaign_cost.hero.title)",
+                "choose_province": "Velg en provins",
+                "message": {
+                    "haveUnknownCosts": "Denne provinsen inneholder en eller flere sektorer som mangler verdier."
+                }
+            }
+        },
+        "main_menu": {
+            "home": "Hjem",
+            "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+            "trade": "$t(routes.trade.hero.title)",
+            "campaign_cost": "$t(routes.campaign_cost.hero.title)",
+            "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+            "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+            "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)"
+        },
+        "footer_menu": {
+            "about": "Om",
+            "contributors": "Bidragsytere",
+            "changelog": "Endringslogg",
+            "contact": "Kontakt"
+        }
+    }
+}
