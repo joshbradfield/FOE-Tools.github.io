@@ -666,7 +666,7 @@
                 "donation_options": "Doa com $t(common:links.donorbox) or $t(common:links.paypal).",
                 "conversion": "Se aprecias o meu trabalho, por favor considera uma doação.",
                 "donation_message": "$t(common:site_title é um projecto grátis, de código fonte livre e sem fins lucrativos.Portanto o meu tempo a fazer isto é sem remuneração.Mas também aceito donativos de quem aprecia o meu trabalho e se sinta na obrigação de me compensar, não interessa o montante se é uma vez ou mensal.As doações são muito importantes para mim, porque ajuda com os custos com o servidor,domínios e etc , ajuda também em gastos individuais e serve como incentivo para mim para continuar a trabalhar neste projecto.",
-                "title": "$t(routes.survey.hero.title) | $t(common:site_title)"
+                "title": "$t(routes.donate.hero.title) | $t(common:site_title)"
             }
         },
         "foe_data": {
@@ -1351,7 +1351,8 @@
                     "gb_description": "Nas primeiras recolhas de edifícios, terás uma probabilidade de duplicar os recursos recolhidos. Excepto nos edifícios militares e Grandes Edifícios.Actualiza a cada recolha do Edifício."
                 },
                 "exploration_site": {
-                    "name": "Local de Exploração"
+                    "name": "Local de Exploração",
+                    "gb_description": "---"
                 }
             }
         },
@@ -1419,7 +1420,9 @@
             "FP": "{{count, number}} PF",
             "FP_plural": "{{count, number}} PFs",
             "Done": "Feito",
-            "Exit": "Sair"
+            "Exit": "Sair",
+            "Next": "→",
+            "Previous": "←"
         },
         "contributions": {
             "blog": "Noticias no blog",
