@@ -665,7 +665,7 @@
                     "title": "$t(utils.Donate)",
                     "subtitle": "Donera till $t(common:site_title)"
                 },
-                "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+                "title": "$t(routes.donate.hero.title) | $t(common:site_title)",
                 "donation_message": "$t(common:site_title) är en annons-fri, öppen källkod projekt, och jag gör inte detta för finansiell förtjänst. Således, min tid går åt till att göra detta oavlönat. Dock välkomnar jag donationer från alla och envar som uppskattar mitt arbete tillräckligt nog för att vilja göra så, oavsett storlek eller metod (en-gångs eller månadsvis). Donationer betyder mycket för mig då de hjälper till att hantera associerade kostnader; servrar, domäner, webb-hotell samt kostnader i allmänhet. Dessutom uppmuntrar det mig till att fortsätta med detta projekt."
             }
         },
@@ -1351,7 +1351,8 @@
                     "gb_description": "Ger en chans att få dubbla resurser i de första byggnaderna som samlats in. Utesluter militära och stora byggnader. Uppdateras vid skördning."
                 },
                 "exploration_site": {
-                    "name": "Utforskningsställe"
+                    "name": "Utforskningsställe",
+                    "gb_description": "---"
                 }
             }
         },
