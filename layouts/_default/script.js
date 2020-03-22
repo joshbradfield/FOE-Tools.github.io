@@ -340,12 +340,6 @@ export default {
       for (const key of globalKeys) {
         if (key in cookies) {
           this.$store.commit("global/updateSpecificKey", { key, value: this.$cookies.get(key) });
-          if (!this.$cookies.get(key)) {
-            this.$cookies.set(key, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(key, { path: "/" });
         }
       }
@@ -425,12 +419,6 @@ export default {
           } else {
             currentProfile[profileDefaultKey.key] = this.$cookies.get(profileDefaultKey.key);
           }
-          if (!this.$cookies.get(profileDefaultKey.key)) {
-            this.$cookies.set(profileDefaultKey.key, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(profileDefaultKey.key, { path: "/" });
         }
       }
@@ -452,12 +440,6 @@ export default {
           );
 
           currentProfile.gb[m[1]].tab = this.$cookies.get(e);
-          if (!this.$cookies.get(e)) {
-            this.$cookies.set(e, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(e, { path: "/" });
         } else if (regOwnerView.test(e)) {
           regOwnerView.lastIndex = 0;
@@ -467,12 +449,6 @@ export default {
             Utils.isNullOrUndef(currentProfile.gb[m[1]]) ? defaultGBConf : currentProfile.gb[m[1]]
           );
           currentProfile.gb[m[1]].ownerView[m[2]] = this.$cookies.get(e);
-          if (!this.$cookies.get(e)) {
-            this.$cookies.set(e, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(e, { path: "/" });
         } else if (regInvestorView.test(e)) {
           regInvestorView.lastIndex = 0;
@@ -483,12 +459,6 @@ export default {
           );
 
           currentProfile.gb[m[1]].investorView[m[2]] = this.$cookies.get(e);
-          if (!this.$cookies.get(e)) {
-            this.$cookies.set(e, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(e, { path: "/" });
         }
       });
@@ -507,12 +477,6 @@ export default {
             new Array(5),
             () => defaultInvestorPercentageGlobal
           );
-          if (!this.$cookies.get(e)) {
-            this.$cookies.set(e, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(e, { path: "/" });
         }
       });
@@ -531,12 +495,6 @@ export default {
           }
 
           currentProfile.gb[m[1]].ownerView.investorPercentageCustom[parseInt(m[2])] = parseFloat(this.$cookies.get(e));
-          if (!this.$cookies.get(e)) {
-            this.$cookies.set(e, true, {
-              path: "/",
-              expires: Utils.getDefaultCookieExpireTime()
-            });
-          }
           this.$cookies.remove(e, { path: "/" });
         }
       });
