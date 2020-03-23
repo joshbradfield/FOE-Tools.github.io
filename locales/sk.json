@@ -669,7 +669,7 @@
                 "unknown_error": "Vyskytla sa neznáma chyba, kontaktujte prosím správcu stránky"
             },
             "contact": {
-                "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
+                "title": "$t(routes.contact.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Kontakt",
                     "subtitle": "Kontakt na administrátora $t(common:site_title)"
