@@ -643,7 +643,7 @@
                 "unknown_error": "Ocorreu um erro desconhecido, entre em contacto com o administrador do site"
             },
             "contact": {
-                "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
+                "title": "$t(routes.contact.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Contacto",
                     "subtitle": "Entre em contacto com o administrador $t(common:site_title)"
