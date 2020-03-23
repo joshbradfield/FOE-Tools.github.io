@@ -644,7 +644,7 @@
                 "unknown_error": "Une erreur inconnue c'est produit, veuillez contacter l'administrateur du site"
             },
             "contact": {
-                "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+                "title": "$t(routes.contact.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Contact",
                     "subtitle": "Contacter le mainteneur de $t(common:site_title)"
