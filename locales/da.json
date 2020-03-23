@@ -576,7 +576,7 @@
                 "unknown_error": "Der er opstået en ukendt fejl. Kontakt webstedets administrator"
             },
             "contact": {
-                "title": "$t(routes.survey.hero.title) | $t(common:site_title)",
+                "title": "$t(routes.contact.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Kontakt",
                     "subtitle": "Kontakt administratoren af $t(common:site_title)"
