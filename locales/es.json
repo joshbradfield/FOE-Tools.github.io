@@ -601,7 +601,7 @@
                 "unknown_error": "Se ha producido un error desconocido, Póngase en contacto con el administrador del sitio"
             },
             "contact": {
-                "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
+                "title": "$t(routes.contact.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Contacto",
                     "subtitle": "Póngase en contacto con el administrador de $t(common:site_title)"
