@@ -582,7 +582,7 @@
                 "unknown_error": "Er is een onbekende fout opgetreden, neem contact op met de sitebeheerder"
             },
             "contact": {
-                "title": "$t(routes.survey.hero.title)| $t(common:site_title)",
+                "title": "$t(routes.contact.hero.title) | $t(common:site_title)",
                 "hero": {
                     "title": "Contact",
                     "subtitle": "Neem contact op met de beheerder van $t(common:site_title)"
