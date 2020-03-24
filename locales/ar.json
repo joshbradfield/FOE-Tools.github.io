@@ -1,1 +1,87 @@
-{ }
+{
+    "translation": {
+        "components": {
+            "cf_calculator": {
+                "tutorial": {
+                    "supplies": "اكتب عدد المعدات التي تريد استعمالها في جميع المهام.",
+                    "coins": "اكتب عدد القطع النقدية التي تريد استعمالها في جميع المهام.",
+                    "yourCfBoost": "اختر تعزيز $t(foe_data.gb.Chateau_Frontenac) الخاص بك.\n\nمثلا: إذا كان 450% اكتب 450.",
+                    "yourAge": "اختر حقبتك.",
+                    "welcome": "إن هذه الأداة هي معلومية بحتة، حيث تخبرك بما يمكنك اكتسابه احصائيا عن طريق $t(foe_data.gb.Chateau_Frontenac)."
+                },
+                "block_cfc": {
+                    "infinity_generator": {
+                        "label": "مهمة تكميلية",
+                        "message": "بالعلاوة الحالية ل $t(foe_data.gb.Chateau_Frontenac) ستكسب قطع نقدية ومعدات أكثر مما ستستعمل لإكمال المهمات، برجاء اختيار عدد \"$t(components.cf_calculator.block_cfc.infinity_generator.label)\" تريد القيام به."
+                    },
+                    "table_return": {
+                        "thead": {
+                            "th_supply": "معدات مسترجعة",
+                            "th_coin": "قطع نقدية مسترجعة",
+                            "th_level": "المستوى"
+                        }
+                    },
+                    "table_reward": {
+                        "title": "$t(utils.Rewards)",
+                        "thead": {
+                            "th4": "FP",
+                            "th3": "مواد",
+                            "th2": "ميداليات",
+                            "th1": "مخططات"
+                        }
+                    },
+                    "title": "$t(routes.cf_calculator.hero.title)",
+                    "reward_message": {
+                        "total_rq_completed": "مجموع المهمات التكرارية المكملة: {{count, number}}",
+                        "total_fp": "مجموع FP's الكلي: {{count, number}}",
+                        "total_goods": "المجموع الكلي للمواد: {{count, number}}",
+                        "second_rq_completed": "مهمات تكرارية ثانية مكملة: {{count, number}}",
+                        "bonus_ubq": "UBQ's اضافي: {{count, number}}",
+                        "daily_ubq": "UBQ's يومي: {{count, number}}"
+                    },
+                    "supplies_gathered": "معدات تم انتاجها",
+                    "second_rq": "مهمات تكرارية ثانية؟",
+                    "other_rq": "مهمات يومية أخرى",
+                    "fp_by_24h": "FP المنتجة خلال 24 ساعة",
+                    "gb_plunder_goods": "مواد مكتسبة من المباني العظيمة أو عن طريق النهب",
+                    "supplies_to_use": "كمية معدات للاستعمال في UBQ",
+                    "coins_supplies_info": "يجب اعطاء قيمة مساوية أو تزيد عن {{min}} لأن أي قيمة أقل لن تضمن الحصول على عائدات (احصائيا)",
+                    "coins_to_use": "القطع النقدية المستعملة في UBQ",
+                    "your_cf_boost": "خاصتك $t(foe_data.gb.Chateau_Frontenac) التعزيز بواسطة",
+                    "your_age": "حقبتك الحالية"
+                }
+            },
+            "campaign_cost": {
+                "message": {
+                    "haveUnknownCosts": "هذه المقاطعة تحتوي على قطاع أو أكثر من دون قيم."
+                },
+                "choose_province": "اختر مقاطعة",
+                "title": "$t(routes.campaign_cost.hero.title)"
+            }
+        },
+        "foe_data": {
+            "bonus": {
+                "exploration_site": {
+                    "gb_description": ""
+                }
+            }
+        },
+        "footer_menu": {
+            "changelog": "سجل التغييرات",
+            "contact": "للاتصال",
+            "contributors": "المساهمون",
+            "about": "حول"
+        },
+        "main_menu": {
+            "campaign_cost": "$t(routes.campaign_cost.hero.title)",
+            "help_to_translate_the_site": "$t(routes.help_to_translate_the_site.hero.title)",
+            "trade": "$t(routes.trade.hero.title)",
+            "gb_forecast_cost": "$t(routes.gb_forecast_cost.hero.title)",
+            "gb_statistics": "$t(routes.gb_statistics.hero.title)",
+            "cf_calculator": "$t(routes.cf_calculator.hero.title)",
+            "secure_position": "$t(routes.secure_position.hero.title)",
+            "gb_investment": "$t(routes.gb_investment_gb_chooser.hero.title)",
+            "home": "الرئيسية"
+        }
+    }
+}
