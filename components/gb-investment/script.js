@@ -667,7 +667,8 @@ export default {
       const messageInterpolation = [
         { key: "FLVL", value: this.level - 1 },
         { key: "TLVL", value: this.level },
-        { key: "OP", value: this.$data.result.totalPreparations }
+        { key: "OP", value: this.$data.result.totalPreparations },
+        { key: "LC", value: this.$data.result.cost }
       ];
       const placesInterpolationValues = [];
       for (let i = 0; i < this.result.investment.length; i++) {

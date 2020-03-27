@@ -19,7 +19,8 @@ export default {
         return [
           { key: "FLVL", value: 9 },
           { key: "TLVL", value: 10 },
-          { key: "OP", value: 430 }
+          { key: "OP", value: 430 },
+          { key: "LC", value: 650 }
         ];
       }
     },

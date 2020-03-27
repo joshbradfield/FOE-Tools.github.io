@@ -101,6 +101,7 @@ export function buildPlace(gbKey, data, interpolationValues) {
  * - OP {string}: total owner preparation
  * - PPx {string}: place preparation, by the owner for place "x" (number of FPs)
  * - LF {string}: line feed (managed internally)
+ * - LC {number}: level cost
  * @param placeInterpolationValues {array} An array that must contains object value that have a key and a value.
  * Accepted interpolations for interpolationValues:
  * - PI {number}: place index (1, 2, 3, 4, 5)
