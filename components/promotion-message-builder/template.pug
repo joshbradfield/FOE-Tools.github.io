@@ -109,7 +109,7 @@ div
                     i.fas.fa-trash
             b-input(type="text" v-model="customField.key" autocomplete="off" expanded)
         div.column.is-half
-          b-input(type="text" v-model="customField.value" autocomplete="off")
+          b-input(type="text" v-model="customField.placeholder" autocomplete="off")
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'place_builder_title')}}
 
@@ -139,7 +139,7 @@ div
           | : {{$t($data.i18nPrefix + 'variables.place.PP')}}
         li(v-for="(customField, index) in customFields")
           b {{"${" + customField.key + "}"}}
-          | : {{customField.value}}
+          | : {{customField.placeholder}}
 
     div.columns
       div.column.is-half
@@ -180,7 +180,7 @@ div
           | : {{$t($data.i18nPrefix + 'variables.place.LC')}}
         li(v-for="(customField, index) in customFields")
           b {{"${" + customField.key + "}"}}
-          | : {{customField.value}}
+          | : {{customField.placeholder}}
 
     div.columns
       div.column

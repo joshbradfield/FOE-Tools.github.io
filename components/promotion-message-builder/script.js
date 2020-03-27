@@ -109,12 +109,16 @@ export default {
         : this.$t(i18nPrefix + "delete_template");
     },
     resultMessage() {
+      const data = { displayGbName: true, ...this.$clone(this.result) };
+      for (const key in data.customFields) {
+        data.customFields[key].value = data.customFields[key].placeholder;
+      }
       return !this.result.message || !this.result.message.length
         ? ""
         : PMBuilder.buildMessage.call(
             this,
             this.$props.gbKey,
-            { displayGbName: true, ...this.result },
+            data,
             this.$props.messageInterpolation,
             this.$props.placesInterpolationValues
           );
@@ -250,7 +254,12 @@ export default {
       this.$data.errors.addFieldName.message = "";
 
       let obj = { ...this.$data.result.customFields };
-      obj[this.$data.addFieldName] = { key: this.$data.addFieldName, value: this.$data.addFieldValue };
+      obj[this.$data.addFieldName] = {
+        key: this.$data.addFieldName,
+        value: "",
+        placeholder: this.$data.addFieldValue,
+        show: true
+      };
       this.$data.result.customFields = obj;
       this.$data.addFieldName = "";
       this.$data.addFieldValue = "";

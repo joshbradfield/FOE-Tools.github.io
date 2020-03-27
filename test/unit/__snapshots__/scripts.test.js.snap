@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Scripts Promotion Message Builder Valid value with "Custom 0" 1`] = `"Yoratheon foe_data.gb.Observatory {650} 🆙 4 (10) 👈 3 (30) 👈 2 (100) 👈 1 (185)"`;
+
 exports[`Scripts Promotion Message Builder Valid value with "Custom 11" 1`] = `"foe_data.gb.Observatory 9 < 4,3,2,1 > 10"`;
 
 exports[`Scripts Promotion Message Builder Valid value with "Default 1" 1`] = `"Your pseudo foe_data.gb.Observatory 9 → 10 P1(185) P2(100) P3(30) P4(10) up in half hour"`;
@@ -19,10 +21,10 @@ exports[`Scripts Promotion Message Builder Valid value with "Default 7" 1`] = `"
 exports[`Scripts Promotion Message Builder Valid value with "Default 8" 1`] = `"إسم مستعار foe_data.gb.Observatory 9 → 10 4,3,2,1"`;
 
 exports[`Scripts Promotion Message Builder Valid value with "Default 11" 1`] = `
-"My pseudo - foe_data.gb.Observatory 1
-My pseudo - foe_data.gb.Observatory 2
-My pseudo - foe_data.gb.Observatory 3
-My pseudo - foe_data.gb.Observatory 4"
+" - foe_data.gb.Observatory 1
+ - foe_data.gb.Observatory 2
+ - foe_data.gb.Observatory 3
+ - foe_data.gb.Observatory 4"
 `;
 
 exports[`Scripts Utils handlerForm Valid value and save in cookie 1`] = `

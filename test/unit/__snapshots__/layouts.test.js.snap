@@ -327,6 +327,7 @@ Object {
             "customFields": Object {
               "Your pseudo": Object {
                 "key": "Your pseudo",
+                "placeholder": "My pseudo",
                 "value": "My pseudo",
               },
             },

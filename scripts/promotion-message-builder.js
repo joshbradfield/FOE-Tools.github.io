@@ -41,7 +41,11 @@ function interpolationBuilder(gbKey, goodData, interpolationValues) {
     Object.keys(goodData.customFields)
       .map(key => goodData.customFields[key])
       .forEach(interpolation => {
-        goodInterpolationValues.push(interpolation);
+        if (interpolation.show) {
+          goodInterpolationValues.push(interpolation);
+        } else {
+          goodInterpolationValues.push({ key: interpolation.key, value: "" });
+        }
       });
   }
 
@@ -322,7 +326,8 @@ export const defaultPromotionMessages = [
       customFields: {
         "Your pseudo": {
           key: "Your pseudo",
-          value: "My pseudo"
+          value: "My pseudo",
+          placeholder: "My pseudo"
         }
       }
     }

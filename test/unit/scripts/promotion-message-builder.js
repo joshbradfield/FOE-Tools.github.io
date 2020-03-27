@@ -23,7 +23,8 @@ for (let i = 0; i < rewards.length; i++) {
 
 const messageInterpolation = [
   { key: "FLVL", value: 9 },
-  { key: "TLVL", value: 10 }
+  { key: "TLVL", value: 10 },
+  { key: "LC", value: 650 }
 ];
 
 const results = [
@@ -169,6 +170,40 @@ const results = [
         "Your pseudo": {
           key: "Your pseudo",
           value: "My pseudo"
+        }
+      }
+    }
+  },
+  {
+    name: "Custom 0",
+    config: {
+      prefix: "",
+      suffix: "",
+      displayGbName: true,
+      showLevel: true,
+      useShortGbName: false,
+      reversePlacesOrder: true,
+      placeSeparator: " 👈 ",
+      place: "${PI} (${PV})",
+      message: "${Your pseudo} ${GBN} {${LC}} ${Msg} ${P}",
+      customFields: {
+        "Your pseudo": {
+          key: "Your pseudo",
+          value: "Yoratheon",
+          placeholder: "My pseudo",
+          show: true
+        },
+        Msg: {
+          key: "Msg",
+          value: "🆙",
+          placeholder: "And up ?",
+          show: true
+        },
+        Foo: {
+          key: "Foo",
+          value: "Bar",
+          placeholder: "Baz",
+          show: true
         }
       }
     }
