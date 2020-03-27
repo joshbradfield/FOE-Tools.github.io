@@ -394,7 +394,17 @@ div.content#gbiContent
                 div.columns(v-for="(line, index) in getSplittedCustomFields(value.name)")
                   div.column.is-half(v-for="(elt, index) in line")
                     b-field.custom_field(:label="elt.key" :label-for="'custom_field_' + elt.key")
-                      b-input(:id="'custom_field_' + elt.key" type="text" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
+                    b-field
+                      b-input(:id="'custom_field_' + elt.key" type="text"  :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
+                      p.control
+                        b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
+                          button.button.copy(@click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show" :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
+                            span.icon(v-show="promotionMessageList[i].config.customFields[elt.key].show")
+                              | &nbsp;&nbsp;
+                              i.fas.fa-eye
+                            span.icon(v-show="!promotionMessageList[i].config.customFields[elt.key].show")
+                              i.fas.fa-eye-slash
+                              | &nbsp;&nbsp;&nbsp;
               // Show value
               div.columns
                 div.column
