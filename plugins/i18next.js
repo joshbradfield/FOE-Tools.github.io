@@ -3,6 +3,7 @@ import Utils from "~/scripts/utils";
 import Vue from "vue";
 import VueI18Next from "@panter/vue-i18next";
 import common from "../locales/common";
+import en from "../locales/en";
 
 import i18next from "i18next";
 
@@ -47,9 +48,8 @@ export default async ({ app, store, route }) => {
   i18next.language = app.$cookies.get("locale");
   i18next.loadLanguages(["en", app.$cookies.get("locale")]);
   i18next.addResourceBundle("en", "common", common.common, true, true);
-  const enRess = await app.$axios.$get("/locales/en/translation.json");
+  i18next.addResourceBundle("en", "translation", en.translation, true, true);
   const ress = await app.$axios.$get(`/locales/${app.$cookies.get("locale")}/translation.json`);
-  i18next.addResourceBundle("en", "translation", enRess.translation, true, true);
   i18next.addResourceBundle(app.$cookies.get("locale"), "translation", ress.translation, true, true);
 
   // Set i18n instance on app
