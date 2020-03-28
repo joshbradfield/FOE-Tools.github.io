@@ -14,15 +14,15 @@ const queryKey = {
 export default {
   async validate({ app, store, params }) {
     // Check if `params.gb` is an existing Great Building
-    if (!Object.keys(store.state.foe.gbs).length) {
+    if (!Object.keys(store.get("foe/gbs")).length) {
       const result = await app.$axios.$get("/foe-data/gbs.json");
-      store.commit("foe/updateSpecificKey", { key: "gbs", value: result });
+      store.set("foe/gbs", result);
     }
 
-    return params.gb in store.state.foe.gbs.gbsData;
+    return params.gb in store.get("foe/gbs@gbsData");
   },
   head() {
-    this.$store.commit("SET_HERO", {
+    this.$store.set("hero", {
       title: this.$t(i18nPrefix + "hero.title", {
         gb_key: "foe_data.gb." + this.$data.gb.key
       }),
@@ -36,17 +36,19 @@ export default {
     };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "gb_investment");
+    this.$store.set("currentLocation", "gb_investment");
     // If the GB is not in profile, we add a default conf
-    if (!(this.$route.params.gb in this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb)) {
-      this.$store.commit("profile/updateSpecificKey", {
-        key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}`,
-        value: this.$clone(Utils.getDefaultGBConf())
-      });
+    if (
+      !(this.$route.params.gb in this.$store.get(`profile/profiles@[${this.$store.get("global/currentProfile")}].gb`))
+    ) {
+      this.$store.set(
+        `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${this.$route.params.gb}`,
+        this.$clone(Utils.getDefaultGBConf())
+      );
     }
 
     let tab = this.$clone(
-      this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].tab
+      this.$store.get(`profile/profiles@[${this.$store.get("global/currentProfile")}].gb[${this.$route.params.gb}].tab`)
     );
     tab = Utils.inRange(tab, 0, MAX_TAB) ? tab : 0;
 
@@ -57,7 +59,7 @@ export default {
 
     const data = {
       i18nPrefix: i18nPrefix,
-      gb: this.$store.state.foe.gbs.gbsData[this.$nuxt._route.params.gb],
+      gb: this.$store.get(`foe/gbs@gbsData[${this.$nuxt._route.params.gb}]`),
       levelData: null,
       gbi_tab: tab,
       errors: {
@@ -79,7 +81,7 @@ export default {
           oldVal,
           [0, MAX_TAB],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.tab`
+          `profiles@${this.$store.get("global/currentProfile")}.gb.${this.$route.params.gb}.tab`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -105,7 +107,7 @@ export default {
       }
 
       if (isPermalink) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
       }
 
       return result;

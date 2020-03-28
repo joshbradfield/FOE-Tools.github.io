@@ -224,7 +224,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.level).toBe(newValue);
     expect(wrapper.vm.ownerInvestment).toBe(0);
     expect(wrapper.vm.investorParticipation).toEqual([]);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_l")).toBe(newValue);
   });
 
   test('Change "level" invalid value', () => {
@@ -235,7 +235,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.level).toBe(newValue);
     expect(wrapper.vm.ownerInvestment).toBe(0);
     expect(wrapper.vm.investorParticipation).toEqual([]);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(10);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_l")).toBe(10);
   });
 
   test('Change "level" invalid type', () => {
@@ -247,7 +247,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.errors.level).toBeTruthy();
     expect(wrapper.vm.ownerInvestment).toBe(0);
     expect(wrapper.vm.investorParticipation).toEqual([]);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_l"]).toBe(10);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_l")).toBe(10);
   });
 
   test('Change "ownerInvestment" value', () => {
@@ -256,7 +256,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.ownerInvestment).toBe(0);
     wrapper.vm.ownerInvestment = newValue;
     expect(wrapper.vm.ownerInvestment).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_oi"]).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_oi")).toBe(newValue);
   });
 
   test('Change "ownerInvestment" invalid value', () => {
@@ -265,7 +265,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.ownerInvestment).toBe(0);
     wrapper.vm.ownerInvestment = newValue;
     expect(wrapper.vm.ownerInvestment).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_oi"]).toBe(0);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_oi")).toBe(0);
   });
 
   test('Change "ownerInvestment" invalid type', () => {
@@ -274,7 +274,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.ownerInvestment).toBe(0);
     wrapper.vm.ownerInvestment = newValue;
     expect(wrapper.vm.ownerInvestment).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_oi"]).toBe(0);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_oi")).toBe(0);
   });
 
   test('Change "addInvestors" value', () => {
@@ -313,9 +313,9 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.ownerInvestment).toBe(0);
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(newValue);
-      expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(newValue);
+      expect(wrapper.vm.$store.get(`urlQueryNamespace.gbi.gbi_p${i + 1}`)).toBe(newValue);
     }
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ipg"]).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_ipg")).toBe(newValue);
   });
 
   test('Change "investorPercentageGlobal" invalid value', () => {
@@ -327,9 +327,9 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.ownerInvestment).toBe(0);
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(90);
-      expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(90);
+      expect(wrapper.vm.$store.get(`urlQueryNamespace.gbi.gbi_p${i + 1}`)).toBe(90);
     }
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ipg"]).toBe(90);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_ipg")).toBe(90);
   });
 
   test('Change "investorPercentageGlobal" invalid type', () => {
@@ -341,9 +341,9 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.ownerInvestment).toBe(0);
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(90);
-      expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(90);
+      expect(wrapper.vm.$store.get(`urlQueryNamespace.gbi.gbi_p${i + 1}`)).toBe(90);
     }
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ipg"]).toBe(90);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_ipg")).toBe(90);
   });
 
   test('Change "investorPercentageCustom" value', () => {
@@ -354,7 +354,7 @@ describe("GbInvestment", () => {
 
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(newValue[i]);
-      expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(newValue[i]);
+      expect(wrapper.vm.$store.get(`urlQueryNamespace.gbi.gbi_p${i + 1}`)).toBe(newValue[i]);
     }
   });
 
@@ -366,7 +366,7 @@ describe("GbInvestment", () => {
 
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(newValue[i]);
-      expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_p${i + 1}`]).toBe(90);
+      expect(wrapper.vm.$store.get(`urlQueryNamespace.gbi.gbi_p${i + 1}`)).toBe(90);
     }
   });
 
@@ -404,8 +404,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.displayGbName).toBe(true);
     wrapper.vm.displayGbName = newValue;
     expect(wrapper.vm.displayGbName).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_dgbn"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].displayGbName).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_dgbn")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].displayGbName`)).toBe(newValue);
   });
 
   test('Change "prefix" value', () => {
@@ -414,8 +414,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.prefix).toBe("");
     wrapper.vm.prefix = newValue;
     expect(wrapper.vm.prefix).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_px"]).toBe(newValue);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbPrefix).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_px")).toBe(newValue);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].gbPrefix`)).toBe(newValue);
   });
 
   test('Change "suffix" value', () => {
@@ -424,8 +424,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.suffix).toBe("");
     wrapper.vm.suffix = newValue;
     expect(wrapper.vm.suffix).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sx"]).toBe(newValue);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbSuffix).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_sx")).toBe(newValue);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].gbSuffix`)).toBe(newValue);
   });
 
   test('Change "shortName" value', () => {
@@ -434,8 +434,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.shortName).toBe(false);
     wrapper.vm.shortName = newValue;
     expect(wrapper.vm.shortName).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sn"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].shortName).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_sn")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].shortName`)).toBe(newValue);
   });
 
   test('Change "showLevel" value', () => {
@@ -444,8 +444,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showLevel).toBe(true);
     wrapper.vm.showLevel = newValue;
     expect(wrapper.vm.showLevel).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sl"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].showLevel).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_sl")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].showLevel`)).toBe(newValue);
   });
 
   test('Change "showSnipe" value', () => {
@@ -454,8 +454,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showSnipe).toBe(false);
     wrapper.vm.showSnipe = newValue;
     expect(wrapper.vm.showSnipe).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ss"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].showSnipe).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_ss")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].showSnipe`)).toBe(newValue);
   });
 
   test('Change "showPrefix" value', () => {
@@ -464,8 +464,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showPrefix).toBe(true);
     wrapper.vm.showPrefix = newValue;
     expect(wrapper.vm.showPrefix).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_spx"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbShowPrefix).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_spx")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].gbShowPrefix`)).toBe(newValue);
   });
 
   test('Change "showSuffix" value', () => {
@@ -474,8 +474,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showSuffix).toBe(true);
     wrapper.vm.showSuffix = newValue;
     expect(wrapper.vm.showSuffix).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_ssx"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].gbShowSuffix).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_ssx")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].gbShowSuffix`)).toBe(newValue);
   });
 
   test('Change "showOnlySecuredPlaces" value', () => {
@@ -485,8 +485,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showOnlySecuredPlaces).toBe(false);
     wrapper.vm.showOnlySecuredPlaces = newValue;
     expect(wrapper.vm.showOnlySecuredPlaces).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sosp"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].showOnlySecuredPlaces).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_sosp")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].showOnlySecuredPlaces`)).toBe(newValue);
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
 
@@ -497,8 +497,8 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.showOnlySecuredPlaces).toBe(false);
     wrapper.vm.showOnlySecuredPlaces = newValue;
     expect(wrapper.vm.showOnlySecuredPlaces).toBe(newValue);
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"]["gbi_sosp"]).toBe(newValue ? 1 : 0);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].showOnlySecuredPlaces).toBe(newValue);
+    expect(wrapper.vm.$store.get("urlQueryNamespace.gbi.gbi_sosp")).toBe(newValue ? 1 : 0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].showOnlySecuredPlaces`)).toBe(newValue);
     wrapper.vm.showOnlySecuredPlaces = !newValue;
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
@@ -509,7 +509,7 @@ describe("GbInvestment", () => {
     expect(wrapper.vm.displayTableCard).toBe(false);
     wrapper.vm.displayTableCard = newValue;
     expect(wrapper.vm.displayTableCard).toBe(newValue);
-    expect(wrapper.vm.$store.state.global.displayTableCard).toBe(newValue);
+    expect(wrapper.vm.$store.get("global/displayTableCard")).toBe(newValue);
   });
 
   test('Change "result" value', () => {
@@ -593,7 +593,7 @@ describe("GbInvestment", () => {
     const wrapper = factory();
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
-    wrapper.vm.$store.state.locale = "fr";
+    wrapper.vm.$store.set("locale", "fr");
 
     expect(wrapper.vm.promotion).toMatchSnapshot();
   });
@@ -604,7 +604,7 @@ describe("GbInvestment", () => {
     wrapper.vm.result = newValue;
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
-    wrapper.vm.$store.state.locale = "fr";
+    wrapper.vm.$store.set("locale", "fr");
 
     expect(wrapper.vm.promotion).toEqual([]);
   });
@@ -633,8 +633,8 @@ describe("GbInvestment", () => {
         upperBound: gbsData.Observatory.levels.length,
         additionalMessage:
           'for parameter "currentLevel" of ' +
-          "ComputeLevelInvestment(levelCost, currentDeposits, yourParticipation, otherParticipation, " +
-          "yourArcBonus, fpTargetReward)"
+          "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation, ownerPreparation" +
+          "yourArcBonus)"
       })
     );
   });
@@ -659,7 +659,7 @@ describe("GbInvestment", () => {
     wrapper.vm.changePlaceFree(index, value);
     expect(wrapper.vm.placeFree[index].state).toBe(value);
     expect(wrapper.vm.promotion).toMatchSnapshot();
-    expect(wrapper.vm.$store.state.urlQueryNamespace["gbi"][`gbi_pFree${index + 1}`]).toBe(value ? 1 : 0);
+    expect(wrapper.vm.$store.get(`urlQueryNamespace.gbi.gbi_pFree${index + 1}`)).toBe(value ? 1 : 0);
   });
 
   test('Call "addInvestor"', () => {
@@ -767,9 +767,7 @@ describe("GbInvestment", () => {
     const wrapper = factory();
     wrapper.vm.calculate();
     expect(wrapper.vm.promotion).toMatchSnapshot();
-    wrapper.vm.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", [
-      { ...defaultPromotionMessages[0], name: "Custom 1" }
-    ]);
+    wrapper.vm.$store.set("promotionMessageTemplates@custom", [{ ...defaultPromotionMessages[0], name: "Custom 1" }]);
     wrapper.vm.templateToAdd = "Custom 1";
     wrapper.vm.addPromotionMessageTemplate();
     expect(wrapper.vm.promotion).toMatchSnapshot();

@@ -11,6 +11,7 @@ import { buildMessage } from "~/scripts/promotion-message-builder";
 import Shepherd from "shepherd.js";
 import { getVideoTag, formatTuto } from "~/scripts/tutorial";
 import { ContentLoader } from "vue-content-loader";
+import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -56,57 +57,79 @@ export default {
     }
   },
   data() {
-    this.$store.commit(
-      "UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES",
-      this.$store.state.global.customPromotionMessagesTemplates
-    );
+    this.$store.set("promotionMessageTemplates@custom", this.$store.get("global/customPromotionMessagesTemplates"));
 
     const data = {
       i18nPrefix,
       dataReady: true,
       level: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
-          .level
+        this.$store.get(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb[${
+            this.$route.params.gb
+          }].ownerView.level`
+        )
       ),
       maxLevel: this.$props.gb.levels.length,
       ownerInvestment: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
-          .ownerInvestment
+        this.$store.get(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb[${
+            this.$route.params.gb
+          }].ownerView.ownerInvestment`
+        )
       ),
       investorPercentageGlobal: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
-          .investorPercentageGlobal
+        this.$store.get(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb[${
+            this.$route.params.gb
+          }].ownerView.investorPercentageGlobal`
+        )
       ),
       investorPercentageCustom: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
-          .investorPercentageCustom
+        this.$store.get(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb[${
+            this.$route.params.gb
+          }].ownerView.investorPercentageCustom`
+        )
       ),
       investorParticipation: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb].ownerView
-          .investorParticipation
+        this.$store.get(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb[${
+            this.$route.params.gb
+          }].ownerView.investorParticipation`
+        )
       ),
       addInvestors: null,
       showExtraInvestors: false,
-      showSnipe: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].showSnipe),
+      showSnipe: this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].showSnipe`)
+      ),
       placeFree: Array.from(new Array(5), () => {
         return { state: true };
       }),
-      prefix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbPrefix),
-      suffix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbSuffix),
+      prefix: this.$clone(this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].gbPrefix`)),
+      suffix: this.$clone(this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].gbSuffix`)),
       displayGbName: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].displayGbName
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].displayGbName`)
       ),
-      shortName: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].shortName),
-      showLevel: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].showLevel),
-      showPrefix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbShowPrefix),
-      showSuffix: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gbShowSuffix),
+      shortName: this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].shortName`)
+      ),
+      showLevel: this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].showLevel`)
+      ),
+      showPrefix: this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].gbShowPrefix`)
+      ),
+      showSuffix: this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].gbShowSuffix`)
+      ),
       yourArcBonus: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].yourArcBonus`)
       ),
       showOnlySecuredPlaces: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].showOnlySecuredPlaces
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].showOnlySecuredPlaces`)
       ),
-      displayTableCard: this.$clone(this.$store.state.global.displayTableCard),
+      displayTableCard: this.$clone(this.$store.get("global/displayTableCard")),
       result: null,
       errors: {
         level: false,
@@ -123,7 +146,7 @@ export default {
       promotionMessageTab: 0,
       promotion: [],
       promotionMessageList: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].promotionMessageList
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].promotionMessageList`)
       ),
       childChange: false,
       templateToAdd: "",
@@ -225,12 +248,8 @@ export default {
     return data;
   },
   computed: {
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
-    lang() {
-      return this.$store.state.locale;
-    },
+    isPermalink: get("isPermalink"),
+    lang: get("locale"),
     permaLink() {
       return {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
@@ -272,9 +291,7 @@ export default {
     getCustomArcBonus() {
       return Utils.normalizeNumberValue(this.$data.yourArcBonus);
     },
-    promotionMessageTemplates() {
-      return this.$store.state.promotionMessageTemplates;
-    },
+    promotionMessageTemplates: get("promotionMessageTemplates"),
     vueCardClass() {
       return this.$data.tutoMode ? [] : ["is-hidden-desktop", "is-hidden-widescreen"];
     }
@@ -294,7 +311,7 @@ export default {
           oldVal,
           [1, this.$data.maxLevel],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.level`
+          `profiles@["${this.$store.get("global/currentProfile")}"].gb.${this.$route.params.gb}.ownerView.level`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -329,7 +346,9 @@ export default {
           oldVal,
           [0, this.result.cost - this.investorParticipationNormalizedSum],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.ownerInvestment`
+          `profiles@["${this.$store.get("global/currentProfile")}"].gb.${
+            this.$route.params.gb
+          }.ownerView.ownerInvestment`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -376,8 +395,9 @@ export default {
           oldVal,
           [">=", 0],
           !this.isPermalink,
-          // eslint-disable-next-line max-len
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorPercentageGlobal`,
+          `profiles@["${this.$store.get("global/currentProfile")}"].gb.${
+            this.$route.params.gb
+          }.ownerView.investorPercentageGlobal`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -419,11 +439,12 @@ export default {
           result = Utils.FormCheck.INVALID;
         } else if (tmp === Utils.FormCheck.VALID) {
           if (!this.isPermalink) {
-            this.$store.commit("profile/updateSpecificKey", {
-              // eslint-disable-next-line max-len
-              key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorPercentageCustom`,
-              value: this.$clone(val)
-            });
+            this.$store.set(
+              `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb.${
+                this.$route.params.gb
+              }.ownerView.investorPercentageCustom`,
+              this.$clone(val)
+            );
           }
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.investorPercentageCustom + (index + 1),
@@ -444,11 +465,12 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          // eslint-disable-next-line max-len
-          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorParticipation`,
-          value: this.$clone(val)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb.${
+            this.$route.params.gb
+          }.ownerView.investorParticipation`,
+          this.$clone(val)
+        );
       }
       this.calculate();
     },
@@ -459,10 +481,7 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gbPrefix`,
-          value: this.$clone(val)
-        });
+        this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].gbPrefix`, this.$clone(val));
       }
       this.updatePromotionMessage();
     },
@@ -473,10 +492,7 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gbSuffix`,
-          value: this.$clone(val)
-        });
+        this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].gbSuffix`, this.$clone(val));
       }
       this.updatePromotionMessage();
     },
@@ -487,10 +503,10 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.displayGbName`,
-          value: this.$clone(val)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].displayGbName`,
+          this.$clone(val)
+        );
       }
       this.updatePromotionMessage();
     },
@@ -501,10 +517,7 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.shortName`,
-          value: this.$clone(val)
-        });
+        this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].shortName`, this.$clone(val));
       }
       this.updatePromotionMessage();
     },
@@ -515,10 +528,7 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.showLevel`,
-          value: this.$clone(val)
-        });
+        this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].showLevel`, this.$clone(val));
       }
       this.updatePromotionMessage();
     },
@@ -529,10 +539,10 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gbShowPrefix`,
-          value: this.$clone(val)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gbShowPrefix`,
+          this.$clone(val)
+        );
       }
       this.updatePromotionMessage();
     },
@@ -543,10 +553,10 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gbShowSuffix`,
-          value: this.$clone(val)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gbShowSuffix`,
+          this.$clone(val)
+        );
       }
       this.updatePromotionMessage();
     },
@@ -557,10 +567,10 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.showOnlySecuredPlaces`,
-          value: this.$clone(val)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].showOnlySecuredPlaces`,
+          this.$clone(val)
+        );
       }
       if (!val) {
         for (let i = 0; i < this.result.investment.length; i++) {
@@ -577,10 +587,7 @@ export default {
         ns: "gbi"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.showSnipe`,
-          value: this.$clone(val)
-        });
+        this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].showSnipe`, this.$clone(val));
       }
     },
     yourArcBonus(val, oldVal) {
@@ -596,7 +603,7 @@ export default {
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.yourArcBonus`,
+          `profiles@["${this.$store.get("global/currentProfile")}"].yourArcBonus`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -609,10 +616,7 @@ export default {
       }
     },
     displayTableCard(val) {
-      this.$store.commit("global/updateSpecificKey", {
-        key: `displayTableCard`,
-        value: this.$clone(val)
-      });
+      this.$store.set(`global/displayTableCard`, this.$clone(val));
     },
     result(val) {
       if (val !== null) {
@@ -626,10 +630,10 @@ export default {
     },
     promotionMessageList: {
       handler: function(val) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.promotionMessageList`,
-          value: this.$clone(val)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].promotionMessageList`,
+          this.$clone(val)
+        );
         this.updatePromotionMessage();
       },
       deep: true
@@ -734,11 +738,12 @@ export default {
       });
 
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          // eslint-disable-next-line max-len
-          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.ownerView.investorParticipation`,
-          value: this.$clone(this.$data.investorParticipation)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb.${
+            this.$route.params.gb
+          }.ownerView.investorParticipation`,
+          this.$clone(this.$data.investorParticipation)
+        );
       }
 
       this.calculate();
@@ -884,7 +889,7 @@ export default {
       }
 
       if (isPermalink) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
         result.investorPercentageCustom = investorPercentageCustom;
         result.investorParticipation = investorParticipation;
         result.placeFree = placeFree;
@@ -915,10 +920,10 @@ export default {
     },
     removePromotionMessage(index) {
       this.promotionMessageList.splice(index, 1);
-      this.$store.commit("profile/updateSpecificKey", {
-        key: `profiles.${this.$store.state.global.currentProfile}.promotionMessageList`,
-        value: this.$clone(this.promotionMessageList)
-      });
+      this.$store.set(
+        `profile/profiles@["${this.$store.get("global/currentProfile")}"].promotionMessageList`,
+        this.$clone(this.promotionMessageList)
+      );
       this.promotion.splice(index, 1);
     },
     getTemplateSample(template) {
@@ -953,6 +958,7 @@ export default {
       if (!this.templateToAdd || !this.templateToAdd.length) {
         return;
       }
+      /* istanbul ignore next */
       const elt = defaultTemplateNameRegex.test(this.templateToAdd)
         ? this.promotionMessageTemplates.default.find(elt => elt.name === this.templateToAdd)
         : this.promotionMessageTemplates.custom.find(elt => elt.name === this.templateToAdd);
@@ -962,10 +968,10 @@ export default {
 
       this.promotionMessageList.push(JSON.parse(JSON.stringify(elt)));
 
-      this.$store.commit("profile/updateSpecificKey", {
-        key: `profiles.${this.$store.state.global.currentProfile}.promotionMessageList`,
-        value: this.$clone(this.promotionMessageList)
-      });
+      this.$store.set(
+        `profile/profiles@["${this.$store.get("global/currentProfile")}"].promotionMessageList`,
+        this.$clone(this.promotionMessageList)
+      );
 
       this.updatePromotionMessage();
       this.templateToAdd = "";
@@ -979,7 +985,7 @@ export default {
       this.calculate();
     },
     haveReadTipAboutAddInvestor: /* istanbul ignore next */ function() {
-      if (!this.$store.state.global.haveReadTipAboutAddInvestor) {
+      if (!this.$store.get("global/haveReadTipAboutAddInvestor")) {
         let self = this;
         this.$buefy.snackbar.open({
           message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
@@ -987,7 +993,7 @@ export default {
           actionText: this.$t("utils.Ok"),
           indefinite: true,
           onAction: () => {
-            self.$store.commit("global/updateSpecificKey", { key: "haveReadTipAboutAddInvestor", value: true });
+            self.$store.set("global/haveReadTipAboutAddInvestor", true);
           }
         });
       }
@@ -996,20 +1002,20 @@ export default {
       this.showPrefix = !this.showPrefix;
 
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gbShowPrefix`,
-          value: this.$clone(this.showPrefix)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gbShowPrefix`,
+          this.$clone(this.showPrefix)
+        );
       }
     },
     switchSuffix() {
       this.showSuffix = !this.showSuffix;
 
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gbShowSuffix`,
-          value: this.$clone(this.showSuffix)
-        });
+        this.$store.set(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gbShowSuffix`,
+          this.$clone(this.showSuffix)
+        );
       }
     },
     updatePlaceFreeWhenOnlySecured() {

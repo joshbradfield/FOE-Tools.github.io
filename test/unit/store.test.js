@@ -23,15 +23,15 @@ const i18nPrefix = "routes.secure_position.";
 describe("Store", () => {
   test('Call "SET_HERO"', () => {
     const wrapper = factory();
-    expect(wrapper.vm.$store.state.hero).toEqual({
+    expect(wrapper.vm.$store.get("hero")).toEqual({
       title: "components.site_layout.hero.title",
       subtitle: "components.site_layout.hero.slogan_html"
     });
-    wrapper.vm.$store.commit("SET_HERO", {
+    wrapper.vm.$store.set("hero", {
       title: i18nPrefix + "hero.title",
       subtitle: i18nPrefix + "hero.subtitle"
     });
-    expect(wrapper.vm.$store.state.hero).toEqual({
+    expect(wrapper.vm.$store.get("hero")).toEqual({
       title: "routes.secure_position.hero.title",
       subtitle: "routes.secure_position.hero.subtitle"
     });
@@ -39,20 +39,20 @@ describe("Store", () => {
 
   test('Call "RESTORE_HERO"', () => {
     const wrapper = factory();
-    expect(wrapper.vm.$store.state.hero).toEqual({
+    expect(wrapper.vm.$store.get("hero")).toEqual({
       title: "components.site_layout.hero.title",
       subtitle: "components.site_layout.hero.slogan_html"
     });
-    wrapper.vm.$store.commit("SET_HERO", {
+    wrapper.vm.$store.set("hero", {
       title: i18nPrefix + "hero.title",
       subtitle: i18nPrefix + "hero.subtitle"
     });
-    expect(wrapper.vm.$store.state.hero).toEqual({
+    expect(wrapper.vm.$store.get("hero")).toEqual({
       title: "routes.secure_position.hero.title",
       subtitle: "routes.secure_position.hero.subtitle"
     });
     wrapper.vm.$store.commit("RESTORE_HERO");
-    expect(wrapper.vm.$store.state.hero).toEqual({
+    expect(wrapper.vm.$store.get("hero")).toEqual({
       title: "components.site_layout.hero.title",
       subtitle: "components.site_layout.hero.slogan_html"
     });
@@ -105,8 +105,8 @@ describe("Store", () => {
 
   test('Call "IS_DARK_THEME"', () => {
     const wrapper = factory();
-    expect(wrapper.vm.$store.state.isDarkTheme).toEqual(false);
-    wrapper.vm.$store.commit("IS_DARK_THEME", true);
-    expect(wrapper.vm.$store.state.isDarkTheme).toEqual(true);
+    expect(wrapper.vm.$store.get("isDarkTheme")).toEqual(false);
+    wrapper.vm.$store.set("isDarkTheme", true);
+    expect(wrapper.vm.$store.get("isDarkTheme")).toEqual(true);
   });
 });

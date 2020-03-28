@@ -1,11 +1,13 @@
-import set from "lodash.set";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
+import { make } from "vuex-pathify";
+import clone from "lodash.clonedeep";
 
 export const state = () => ({
   profiles: {}
 });
 
 export const mutations = {
+  ...make.mutations(state),
   setProfile(state, { profileKey, profile }) {
     if (!Object.keys(state.profiles[profileKey]).length) {
       state.profiles[profileKey] = {
@@ -36,7 +38,7 @@ export const mutations = {
       };
     }
     for (const key in profile) {
-      state.profiles[profileKey][key] = JSON.parse(JSON.stringify(profile[key]));
+      state.profiles[profileKey][key] = clone(profile[key]);
     }
   },
 
@@ -46,9 +48,9 @@ export const mutations = {
 
   addGB(state, { key, value }) {
     state.profiles.gb[key] = value;
-  },
-
-  updateSpecificKey(state, { key, value }) {
-    set(state, key, value);
   }
+};
+
+export const actions = {
+  ...make.actions(state)
 };

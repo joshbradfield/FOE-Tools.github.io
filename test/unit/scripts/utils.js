@@ -375,6 +375,9 @@ describe("Utils", () => {
         $store: {
           commit: jest.fn((key, value) => {
             cookies.push({ key, value });
+          }),
+          set: jest.fn((key, value) => {
+            cookies.push({ key, value });
           })
         }
       };
@@ -394,7 +397,7 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$store.commit.mock.calls.length).toBe(1);
+      expect(ctx.$store.set.mock.calls.length).toBe(1);
       expect(cookies).toMatchSnapshot();
     });
 
@@ -403,7 +406,7 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$store.commit.mock.calls.length).toBe(1);
+      expect(ctx.$store.set.mock.calls.length).toBe(1);
       expect(cookies).toMatchSnapshot();
     });
 
@@ -412,7 +415,7 @@ describe("Utils", () => {
 
       expect(result).toEqual(Utils.FormCheck.VALID);
       expect(ctx.$data.errors.myKey).toBeFalsy();
-      expect(ctx.$store.commit.mock.calls.length).toBe(1);
+      expect(ctx.$store.set.mock.calls.length).toBe(1);
       expect(cookies).toMatchSnapshot();
     });
 

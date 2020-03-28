@@ -1,6 +1,6 @@
 import YesNo from "~/components/yes-no/YesNo";
 import DayNight from "../dialogDayNight/DialogDayNight";
-import Utils from "~/scripts/utils";
+import { sync } from "vuex-pathify";
 
 const i18nPrefix = "components.site_layout.global_config_dialog.";
 const defaultConfig = {
@@ -13,22 +13,10 @@ export default {
   data() {
     return {
       i18nPrefix,
-      fixedMainMenu:
-        this.$cookies.get("fixedMainMenu") === undefined
-          ? defaultConfig.fixedMainMenu
-          : this.$cookies.get("fixedMainMenu"),
-      gbSelectMode:
-        this.$cookies.get("gbSelectMode") === undefined
-          ? defaultConfig.gbSelectMode
-          : this.$cookies.get("gbSelectMode"),
       gbSelectModes: [
         { key: "datalist", text: this.$t(i18nPrefix + "select_gb_style_mode.datalist") },
         { key: "select", text: this.$t(i18nPrefix + "select_gb_style_mode.select") }
       ],
-      dayNightMode:
-        this.$cookies.get("dayNightMode") === undefined
-          ? defaultConfig.dayNightMode
-          : this.$cookies.get("dayNightMode"),
       dayNightModes: [
         { key: "day", text: this.$t(i18nPrefix + "day_night_mode.Day") },
         { key: "night", text: this.$t(i18nPrefix + "day_night_mode.Night") },
@@ -36,28 +24,14 @@ export default {
       ]
     };
   },
-  computed: {},
+  computed: {
+    fixedMainMenu: sync("global/fixedMainMenu"),
+    gbSelectMode: sync("global/gbSelectMode"),
+    dayNightMode: sync("global/dayNightMode")
+  },
   watch: {
-    fixedMainMenu(val) {
-      this.$store.commit("IS_FIXED_MAIN_MENU", val);
-      this.$cookies.set("fixedMainMenu", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
-    },
-    gbSelectMode(val) {
-      this.$store.commit("IS_GB_SELECT_MODE_DATALIST", val === "datalist");
-      this.$cookies.set("gbSelectMode", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
-    },
     dayNightMode(val) {
-      this.$store.commit("IS_DARK_THEME", val === "night");
-      this.$cookies.set("dayNightMode", val, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime()
-      });
+      this.$store.set("isDarkTheme", val === "night");
       this.$emit("dayNightChanged", val);
     }
   },

@@ -2,9 +2,10 @@ import { shallowMount } from "@vue/test-utils";
 
 import Component from "~/components/language-selector/LanguageSelector";
 import { getView } from "../localVue";
+import { getDefaultStore } from "../utils";
 
 const factory = () => {
-  const { localVue, store, i18n } = getView();
+  const { localVue, store, i18n } = getView(getDefaultStore());
   return shallowMount(Component, {
     localVue,
     store,
@@ -23,13 +24,13 @@ describe("LanguageSelector", () => {
     window.location.reload = jest.fn();
     const newValue = "fr";
 
-    expect(wrapper.vm.$store.state.locale).toBe("en");
+    expect(wrapper.vm.$store.get("locale")).toBe("en");
+    expect(wrapper.vm.$store.get("global/locale")).toBe("en");
 
     wrapper.vm.currentLang = newValue;
 
-    expect(wrapper.vm.$store.state.global.locale).toBe(newValue);
-
-    expect(wrapper.vm.$store.state.locale).toBe("fr");
+    expect(wrapper.vm.$store.get("locale")).toBe("fr");
+    expect(wrapper.vm.$store.get("global/locale")).toBe(newValue);
     expect(window.location.reload.mock.calls.length).toBe(1);
   });
 

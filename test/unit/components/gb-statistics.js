@@ -57,20 +57,20 @@ describe("GbStatistics", () => {
     });
 
     expect(wrapper.vm.statSelector).toBe("reward_level");
-    expect(wrapper.vm.$store.state.urlQuery["gbs_s"]).toBe("reward_level");
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_s"]`)).toBe("reward_level");
 
     expect(wrapper.vm.from).toBe(10);
     expect(wrapper.vm.errors.from).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_f"]).toBe(10);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_f"]`)).toBe(10);
 
     expect(wrapper.vm.to).toBe(60);
     expect(wrapper.vm.errors.to).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_t"]).toBe(60);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_t"]`)).toBe(60);
 
     let value = defaultHidden();
     value[value.length - 1] = false;
     expect(wrapper.vm.hidden).toEqual(value);
-    expect(wrapper.vm.$store.state.urlQuery["gbs_h"]).toBe(value.map(k => (k ? 1 : 0)).join(""));
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_h"]`)).toBe(value.map(k => (k ? 1 : 0)).join(""));
   });
 
   test('Change "statSelector" value', () => {
@@ -78,7 +78,7 @@ describe("GbStatistics", () => {
     expect(wrapper.vm.statSelector).toBe("cost_level");
     wrapper.vm.statSelector = "reward_level";
     expect(wrapper.vm.statSelector).toBe("reward_level");
-    expect(wrapper.vm.$store.state.urlQuery["gbs_s"]).toBe("reward_level");
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_s"]`)).toBe("reward_level");
   });
 
   test('Change "statSelector" invalid value', () => {
@@ -86,7 +86,7 @@ describe("GbStatistics", () => {
     expect(wrapper.vm.statSelector).toBe("cost_level");
     wrapper.vm.statSelector = "foo";
     expect(wrapper.vm.statSelector).toBe("foo");
-    expect(wrapper.vm.$store.state.urlQuery["gbs_s"]).toBe("cost_level");
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_s"]`)).toBe("cost_level");
   });
 
   test('Change "from" value', () => {
@@ -96,7 +96,7 @@ describe("GbStatistics", () => {
     wrapper.vm.from = 42;
     expect(wrapper.vm.from).toBe(42);
     expect(wrapper.vm.errors.from).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_f"]).toBe(42);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_f"]`)).toBe(42);
   });
 
   test('Change "from" value with "statSelector" set to "reward_cost"', () => {
@@ -107,7 +107,7 @@ describe("GbStatistics", () => {
     wrapper.vm.from = 42;
     expect(wrapper.vm.from).toBe(42);
     expect(wrapper.vm.errors.from).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_f"]).toBe(42);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_f"]`)).toBe(42);
   });
 
   test('Change "from" value with "statSelector" set to "cost_reward"', () => {
@@ -119,7 +119,7 @@ describe("GbStatistics", () => {
     wrapper.vm.from = value;
     expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_f"]).toBe(value);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_f"]`)).toBe(value);
   });
 
   test('Change "from" invalid value', () => {
@@ -130,7 +130,7 @@ describe("GbStatistics", () => {
     wrapper.vm.from = value;
     expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_f"]).toBe(1);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_f"]`)).toBe(1);
   });
 
   test('Change "from" invalid type', () => {
@@ -141,7 +141,7 @@ describe("GbStatistics", () => {
     wrapper.vm.from = value;
     expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_f"]).toBe(1);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_f"]`)).toBe(1);
   });
 
   test('Change "to" value', () => {
@@ -152,7 +152,7 @@ describe("GbStatistics", () => {
     wrapper.vm.to = value;
     expect(wrapper.vm.to).toBe(value);
     expect(wrapper.vm.errors.to).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_t"]).toBe(value);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_t"]`)).toBe(value);
   });
 
   test('Change "to" invalid value', () => {
@@ -163,7 +163,7 @@ describe("GbStatistics", () => {
     wrapper.vm.to = value;
     expect(wrapper.vm.to).toBe(value);
     expect(wrapper.vm.errors.to).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_t"]).toBe(80);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_t"]`)).toBe(80);
   });
 
   test('Change "to" invalid type', () => {
@@ -174,7 +174,7 @@ describe("GbStatistics", () => {
     wrapper.vm.to = value;
     expect(wrapper.vm.to).toBe(value);
     expect(wrapper.vm.errors.to).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbs_t"]).toBe(80);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_t"]`)).toBe(80);
   });
 
   test('Change "to" valid value and error with "from"', () => {
@@ -183,7 +183,7 @@ describe("GbStatistics", () => {
     expect(wrapper.vm.to).toBe(80);
     wrapper.vm.to = 42;
     expect(wrapper.vm.to).toBe(42);
-    expect(wrapper.vm.$store.state.urlQuery["gbs_t"]).toBe(42);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_t"]`)).toBe(42);
     expect(wrapper.vm.errors.from).toBeFalsy();
     expect(wrapper.vm.errors.to).toBeFalsy();
   });
@@ -195,7 +195,7 @@ describe("GbStatistics", () => {
     value[value.length - 1] = false;
     wrapper.vm.hidden = value;
     expect(wrapper.vm.hidden).toEqual(value);
-    expect(wrapper.vm.$store.state.urlQuery["gbs_h"]).toBe(value.map(k => (k ? 1 : 0)).join(""));
+    expect(wrapper.vm.$store.get(`urlQuery@["gbs_h"]`)).toBe(value.map(k => (k ? 1 : 0)).join(""));
   });
 
   test('Change "lang" value', async () => {
@@ -203,7 +203,7 @@ describe("GbStatistics", () => {
     expect(wrapper.vm.graphType.cost_level.title).toBe("Evolution of the cost of the levels according to the levels");
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
-    wrapper.vm.$store.state.locale = "fr";
+    wrapper.vm.$store.set("locale", "fr");
 
     expect(wrapper.vm.graphType.cost_level.title).toBe("Évolution du coût des niveaux en fonction des niveaux");
   });

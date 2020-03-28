@@ -51,7 +51,7 @@ describe("Default", () => {
     expect(wrapper.vm.$formatNumber(value)).toBe("1,000");
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
-    wrapper.vm.$store.state.locale = "fr";
+    wrapper.vm.$store.set("locale", "fr");
 
     expect(wrapper.vm.$formatNumber(value)).toBe("1 000");
   });
@@ -82,7 +82,7 @@ describe("Default", () => {
     const wrapper = factory({ ...config.mocks["$cookies"] });
     const newValue = "auto";
     wrapper.vm.updateDayNightCookie(newValue);
-    expect(wrapper.vm.$store.state.global.dayNightMode).toBe(newValue);
+    expect(wrapper.vm.$store.get("global/dayNightMode")).toBe(newValue);
   });
 
   test("Moving cookies to localStorage", () => {

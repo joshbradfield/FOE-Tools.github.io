@@ -11,7 +11,7 @@ b-field(:label-for="id")
             i.far.fa-question-circle
 
   b-autocomplete.autocomplete(
-    v-if="isGbSelectModeDatalist"
+    v-if="gbSelectModeDatalist === 'datalist'"
     v-model="name"
     :placeholder="$t('foe_data.gb.' + selected)"
     :id="id"

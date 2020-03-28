@@ -1,6 +1,6 @@
 #app
   header
-    nav.navbar.has-shadow(:class="{'is-fixed-top': $store.state.isFixedMainMenu}")
+    nav.navbar.has-shadow(:class="{'is-fixed-top': $store.get('global/fixedMainMenu')}")
       div.navbar-brand
         a.navbar-item(:href="$i18nPath('/')")
           img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
@@ -24,7 +24,7 @@
 
         div.navbar-end
           div.navbar-item
-            nuxt-link.custom-link-style(:class="{'is-active': isActive($store.state.routes.help_to_translate_the_site.key)}" :to="$i18nPath($store.state.routes.help_to_translate_the_site.link)" exact)
+            nuxt-link.custom-link-style(:class="{'is-active': isActive($store.get('routes.help_to_translate_the_site.key'))}" :to="$i18nPath($store.get('routes.help_to_translate_the_site.link'))" exact)
               span.icon.is-icon-2rem(style="vertical-align: middle;")
                 i.fas.fa-language
               span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}
@@ -38,11 +38,11 @@
 
           div.navbar-item
             div.field
-              b-tooltip.control.is-hidden-mobile(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
-                button.button(@click="showGlobalSettings" :class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
+              b-tooltip.control.is-hidden-mobile(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
+                button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
                   p.icon
                     i.fas.fa-cog
-              button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
+              button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
                 p.icon
                   i.fas.fa-cog
                 p {{$t('components.site_layout.global_config')}}
@@ -62,7 +62,7 @@
         button.button {{$t('utils.Switch', { lng: detectedLocale })}}
 
   section.fixed(v-show="cookieDisclaimerUndisplayed")
-    b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" closable @close="confirmInfoCookie" :active="cookieDisclaimerUndisplayed")
+    b-notification.is-radiusless.is-marginless.has-text-centered(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" closable @close="confirmInfoCookie" :active="cookieDisclaimerUndisplayed")
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}
         |
         |
@@ -74,8 +74,8 @@
       div.container
         div.columns
           div.column.is-8-desktop.is-offset-2-desktop
-            h1.title.is-2.is-spaced {{$t($store.state.hero.title)}}
-            h2.subtitle.is-4(v-html="$t($store.state.hero.subtitle)")
+            h1.title.is-2.is-spaced {{$t($store.get('hero@title'))}}
+            h2.subtitle.is-4(v-html="$t($store.get('hero@subtitle'))")
 
   main.container.is-fullheight
     section.section
@@ -94,7 +94,7 @@
               nuxt-link(to="/changelog") {{$t(i18nPrefix + 'whats_new')}}
         div.columns.is-centered
           div.column.is-11-desktop.is-three-quarters-fullhd.is-three-quarters-widescreen.is-full-tablet
-            div(v-if="(['home', 'gb_investment', 'contributors'].indexOf($store.state.currentLocation) >= 0) && !$route.params.gb")
+            div(v-if="(['home', 'gb_investment', 'contributors'].indexOf($store.get('currentLocation')) >= 0) && !$route.params.gb")
               nuxt
             div.card.article(v-else)
               div.card-content
@@ -111,7 +111,7 @@
                       b-message(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
                   nuxt
 
-    span.button.scroll-to-top.is-rounded(:class="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" @click="backToTop")
+    span.button.scroll-to-top.is-rounded(:class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" @click="backToTop")
       span.icon
         i.fas.fa-angle-double-up
 
@@ -121,7 +121,7 @@
         div.column.is-8-desktop.is-offset-2-desktop
           nav.breadcrumb.has-dot-separator.is-centered.is-marginless(aria-label="breadcrumbs")
             ul
-              li(v-for="footerLink in footerLinks" :class="{ 'is-active': $store.state.currentLocation === footerLink.key }")
+              li(v-for="footerLink in footerLinks" :class="{ 'is-active': $store.get('currentLocation') === footerLink.key }")
                 nuxt-link(:to="$i18nPath(footerLink.link)" exact) {{$t('footer_menu.' + footerLink.key)}}
           p
             small(v-html="$t('components.site_layout.footer.license_html')")

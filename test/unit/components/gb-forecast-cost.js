@@ -2,11 +2,12 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/gb-forecast-cost/GbForecastCost";
 import { getView } from "../localVue";
 import { gbsData } from "../../../lib/foe-data/gbs";
+import { getDefaultStore } from "../utils";
 
 const defaultGb = JSON.parse(JSON.stringify(gbsData.Observatory));
 
 const factory = (mocks = {}) => {
-  const { localVue, store } = getView();
+  const { localVue, store } = getView(getDefaultStore());
   return shallowMount(Component, {
     localVue: localVue,
     store: store,
@@ -80,7 +81,7 @@ describe("GbForecastCost", () => {
     expect(wrapper.vm.estimatedTime).toBe("1 month 22 days");
 
     await wrapper.vm.i18n.i18next.changeLanguage("fr");
-    wrapper.vm.$store.state.locale = "fr";
+    wrapper.vm.$store.set("locale", "fr");
 
     expect(wrapper.vm.estimatedTime).toBe("1 mois 22 jours");
   });
@@ -91,7 +92,7 @@ describe("GbForecastCost", () => {
     expect(wrapper.vm.gb).toEqual(defaultGb);
     wrapper.vm.gb = value;
     expect(wrapper.vm.gb).toBe(value);
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_gb"]).toBe(value.key);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_gb"]`)).toBe(value.key);
   });
 
   test('Change "from" value', () => {
@@ -102,7 +103,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.from = value;
     expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_f"]).toBe(value);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_f"]`)).toBe(value);
   });
 
   test('Change "from" invalid value', () => {
@@ -113,7 +114,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.from = value;
     expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_f"]).toBe(1);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_f"]`)).toBe(1);
   });
 
   test('Change "from" invalid type', () => {
@@ -124,7 +125,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.from = value;
     expect(wrapper.vm.from).toBe(value);
     expect(wrapper.vm.errors.from).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_f"]).toBe(1);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_f"]`)).toBe(1);
   });
 
   test('Change "to" value', () => {
@@ -134,7 +135,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.to = 42;
     expect(wrapper.vm.to).toBe(42);
     expect(wrapper.vm.errors.to).toBeFalsy();
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(42);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_t"]`)).toBe(42);
   });
 
   test('Change "to" invalid value', () => {
@@ -145,7 +146,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.to = value;
     expect(wrapper.vm.to).toBe(value);
     expect(wrapper.vm.errors.to).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(10);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_t"]`)).toBe(10);
   });
 
   test('Change "to" invalid type', () => {
@@ -156,7 +157,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.to = value;
     expect(wrapper.vm.to).toBe(value);
     expect(wrapper.vm.errors.to).toBeTruthy();
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(10);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_t"]`)).toBe(10);
   });
 
   test('Change "to" valid value and error with "from"', () => {
@@ -165,7 +166,7 @@ describe("GbForecastCost", () => {
     expect(wrapper.vm.to).toBe(10);
     wrapper.vm.to = 42;
     expect(wrapper.vm.to).toBe(42);
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(10);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_t"]`)).toBe(10);
     expect(wrapper.vm.errors.from).toBeTruthy();
     expect(wrapper.vm.errors.to).toBeFalsy();
   });
@@ -177,7 +178,7 @@ describe("GbForecastCost", () => {
     expect(wrapper.vm.to).toBe(10);
     wrapper.vm.to = 42;
     expect(wrapper.vm.to).toBe(42);
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_t"]).toBe(42);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_t"]`)).toBe(42);
     expect(wrapper.vm.errors.from).toBeFalsy();
     expect(wrapper.vm.errors.to).toBeFalsy();
   });
@@ -192,7 +193,7 @@ describe("GbForecastCost", () => {
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(newValue);
     }
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_ipg"]).toBe(newValue);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_ipg"]`)).toBe(newValue);
   });
 
   test('Change "investorPercentageGlobal" invalid value', () => {
@@ -205,7 +206,7 @@ describe("GbForecastCost", () => {
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(defaultInvestorPercentageGlobal);
     }
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_ipg"]).toBe(defaultInvestorPercentageGlobal);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_ipg"]`)).toBe(defaultInvestorPercentageGlobal);
   });
 
   test('Change "investorPercentageGlobal" invalid type', () => {
@@ -218,7 +219,7 @@ describe("GbForecastCost", () => {
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(defaultInvestorPercentageGlobal);
     }
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_ipg"]).toBe(defaultInvestorPercentageGlobal);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_ipg"]`)).toBe(defaultInvestorPercentageGlobal);
   });
 
   test('Change "investorPercentageCustom" value', () => {
@@ -262,7 +263,7 @@ describe("GbForecastCost", () => {
 
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(wrapper.vm.investorPercentageGlobal);
-      expect(wrapper.vm.$store.state.urlQuery[`gbfc_p${i + 1}`]).toBe(defaultInvestorPercentageGlobal);
+      expect(wrapper.vm.$store.get(`urlQuery@gbfc_p${i + 1}`)).toBe(defaultInvestorPercentageGlobal);
     }
 
     newValue = false;
@@ -271,7 +272,7 @@ describe("GbForecastCost", () => {
 
     for (let i = 0; i < wrapper.vm.investorPercentageCustom.length; i++) {
       expect(wrapper.vm.investorPercentageCustom[i]).toBe(wrapper.vm.investorPercentageGlobal);
-      expect(wrapper.vm.$store.state.urlQuery[`gbfc_p${i + 1}`]).toBe(defaultInvestorPercentageGlobal);
+      expect(wrapper.vm.$store.get(`urlQuery@gbfc_p${i + 1}`)).toBe(defaultInvestorPercentageGlobal);
     }
   });
 
@@ -280,7 +281,7 @@ describe("GbForecastCost", () => {
     const newValue = 42;
     expect(wrapper.vm.fpBy24h).toBe(0);
     wrapper.vm.fpBy24h = newValue;
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_fp"]).toBe(newValue);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_fp"]`)).toBe(newValue);
   });
 
   test('Change "fpBy24h" invalid value', () => {
@@ -288,7 +289,7 @@ describe("GbForecastCost", () => {
     const newValue = -1;
     expect(wrapper.vm.fpBy24h).toBe(0);
     wrapper.vm.fpBy24h = newValue;
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_fp"]).toBe(0);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_fp"]`)).toBe(0);
     expect(wrapper.vm.estimatedTime).toBe("");
   });
 
@@ -301,7 +302,7 @@ describe("GbForecastCost", () => {
     wrapper.vm.alreadyInvested = newValue;
     expect(wrapper.vm.duration).toBe(51);
     expect(wrapper.vm.estimatedTime).toBe("1 month 21 days");
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_ai"]).toBe(newValue);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_ai"]`)).toBe(newValue);
   });
 
   test('Change "alreadyInvested" invalid value', () => {
@@ -309,7 +310,7 @@ describe("GbForecastCost", () => {
     const newValue = -1;
     expect(wrapper.vm.alreadyInvested).toBe(0);
     wrapper.vm.alreadyInvested = newValue;
-    expect(wrapper.vm.$store.state.urlQuery["gbfc_ai"]).toBe(0);
+    expect(wrapper.vm.$store.get(`urlQuery@["gbfc_ai"]`)).toBe(0);
     expect(wrapper.vm.estimatedTime).toBe("");
   });
 

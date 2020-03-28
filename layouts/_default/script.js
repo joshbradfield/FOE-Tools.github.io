@@ -6,6 +6,7 @@ import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettin
 import { getUserLocale } from "get-user-locale";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 import { v4 as uuidv4 } from "uuid";
+import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.site_layout.";
 const dayNightWatchdogTimeout = 60000;
@@ -26,12 +27,12 @@ export default {
       ],
       htmlAttrs: {
         lang: this.lang,
-        class: this.$store.state.isDarkTheme ? "dark-theme" : "light-theme"
+        class: this.$store.get("isDarkTheme") ? "dark-theme" : "light-theme"
       },
       bodyAttrs: {
         class:
-          (this.$store.state.isFixedMainMenu ? "has-navbar-fixed-top " : "") +
-          (this.$store.state.isDarkTheme ? "dark-theme" : "light-theme")
+          (this.$store.get("global/fixedMainMenu") ? "has-navbar-fixed-top " : "") +
+          (this.$store.get("isDarkTheme") ? "dark-theme" : "light-theme")
       }
     };
   },
@@ -40,41 +41,39 @@ export default {
 
     this.initData();
 
-    this.$store.commit("IS_DARK_THEME", this.$store.state.global.dayNightMode === "night");
-    this.$store.commit("IS_FIXED_MAIN_MENU", this.$clone(this.$store.state.global.fixedMainMenu));
-    this.$store.commit("IS_GB_SELECT_MODE_DATALIST", this.$store.state.global.gbSelectMode === "datalist");
+    this.$store.set("isDarkTheme", this.$store.get("global/dayNightMode") === "night");
 
-    if (!this.$store.state.global.lastVisitVersion.length) {
-      this.$store.commit("global/updateSpecificKey", { key: "lastVisitVersion", value: packageConfig.version });
+    if (!this.$store.get("global/lastVisitVersion").length) {
+      this.$store.set("global/lastVisitVersion", packageConfig.version);
     }
 
-    if (!this.$store.state.global.donationConversion.length) {
-      this.$store.commit("global/updateSpecificKey", { key: "donationConversion", value: this.getNextConversion() });
+    if (!this.$store.get("global/donationConversion").length) {
+      this.$store.set("global/donationConversion", this.getNextConversion());
     }
 
     return {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
       nbUpdateSinceLastVisit: 0,
-      dayNightMode: this.$clone(this.$store.state.global.dayNightMode),
+      dayNightMode: this.$clone(this.$store.get("global/dayNightMode")),
       burgerMenuVisible: false,
-      cookieDisclaimerUndisplayed: !this.$clone(this.$store.state.global.cookieDisclaimerDisplayed),
-      haveReadLocaleInfoAvailable: this.$clone(this.$store.state.global.haveReadLocaleInfoAvailable),
+      cookieDisclaimerUndisplayed: !this.$clone(this.$store.get("global/cookieDisclaimerDisplayed")),
+      haveReadLocaleInfoAvailable: this.$clone(this.$store.get("global/haveReadLocaleInfoAvailable")),
       navbarLinks: {
-        home: this.$store.state.routes.home,
-        gb_investment: this.$store.state.routes.gb_investment,
-        secure_position: this.$store.state.routes.secure_position,
-        cf_calculator: this.$store.state.routes.cf_calculator,
-        gb_statistics: this.$store.state.routes.gb_statistics,
-        gb_forecast_cost: this.$store.state.routes.gb_forecast_cost,
-        trade: this.$store.state.routes.trade,
-        campaign_cost: this.$store.state.routes.campaign_cost
+        home: this.$store.get("routes@home"),
+        gb_investment: this.$store.get("routes@gb_investment"),
+        secure_position: this.$store.get("routes@secure_position"),
+        cf_calculator: this.$store.get("routes@cf_calculator"),
+        gb_statistics: this.$store.get("routes@gb_statistics"),
+        gb_forecast_cost: this.$store.get("routes@gb_forecast_cost"),
+        trade: this.$store.get("routes@trade"),
+        campaign_cost: this.$store.get("routes@campaign_cost")
       },
       mainMenu: [
         {
-          ...this.$store.state.routes.home,
+          ...this.$store.get("routes@home"),
           type: Utils.MenuRecordType.PAGE,
-          name: this.$t(`main_menu.${this.$store.state.routes.home.key}`),
+          name: this.$t(`main_menu.${this.$store.get("routes@home.key")}`),
           children: []
         },
         {
@@ -84,33 +83,33 @@ export default {
           link: null,
           children: [
             {
-              ...this.$store.state.routes.gb_investment,
+              ...this.$store.get("routes@gb_investment"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.gb_investment.key}`),
+              name: this.$t(`main_menu.${this.$store.get("routes@gb_investment.key")}`),
               children: []
             },
             {
-              ...this.$store.state.routes.secure_position,
+              ...this.$store.get("routes@secure_position"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.secure_position.key}`),
+              name: this.$t(`main_menu.${this.$store.get("routes@secure_position.key")}`),
               children: []
             },
             {
-              ...this.$store.state.routes.cf_calculator,
+              ...this.$store.get("routes@cf_calculator"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.cf_calculator.key}`),
+              name: this.$t(`main_menu.${this.$store.get("routes@cf_calculator.key")}`),
               children: []
             },
             {
-              ...this.$store.state.routes.trade,
+              ...this.$store.get("routes@trade"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.trade.key}`),
+              name: this.$t(`main_menu.${this.$store.get("routes@trade.key")}`),
               children: []
             },
             {
-              ...this.$store.state.routes.campaign_cost,
+              ...this.$store.get("routes@campaign_cost"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.campaign_cost.key}`),
+              name: this.$t(`main_menu.${this.$store.get("routes@campaign_cost.key")}`),
               children: []
             }
           ]
@@ -122,26 +121,26 @@ export default {
           key: null,
           children: [
             {
-              ...this.$store.state.routes.gb_statistics,
+              ...this.$store.get("routes@gb_statistics"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.gb_statistics.key}`),
-              link: this.$store.state.routes.gb_statistics.link,
+              name: this.$t(`main_menu.${this.$store.get("routes@gb_statistics.key")}`),
+              link: this.$store.get("routes@gb_statistics.link"),
               children: []
             },
             {
-              ...this.$store.state.routes.gb_forecast_cost,
+              ...this.$store.get("routes@gb_forecast_cost"),
               type: Utils.MenuRecordType.PAGE,
-              name: this.$t(`main_menu.${this.$store.state.routes.gb_forecast_cost.key}`),
+              name: this.$t(`main_menu.${this.$store.get("routes@gb_forecast_cost.key")}`),
               children: []
             }
           ]
         }
       ],
       footerLinks: [
-        this.$store.state.routes.about,
-        this.$store.state.routes.contact,
-        this.$store.state.routes.contributors,
-        this.$store.state.routes.changelog
+        this.$store.get("routes@about"),
+        this.$store.get("routes@contact"),
+        this.$store.get("routes@contributors"),
+        this.$store.get("routes@changelog")
       ],
       dayNightWatchdog: (() => {
         let timeout;
@@ -165,12 +164,8 @@ export default {
     creationDate() {
       return this.$moment("2017-12-20");
     },
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
-    lang() {
-      return this.$store.state.locale;
-    },
+    isPermalink: get("isPermalink"),
+    lang: get("locale"),
     isNewYear() {
       return this.$moment().format("MMDD") === this.creationDate.format("MMDD");
     },
@@ -179,12 +174,12 @@ export default {
     },
     isConversionDate() {
       return this.$moment().isAfter(
-        this.$moment(this.$clone(this.$store.state.global.donationConversion), "YYYY-MM-DD")
+        this.$moment(this.$clone(this.$store.get("global/donationConversion")), "YYYY-MM-DD")
       );
     },
     hasSurvey() {
       return (
-        this.$store.state.currentLocation !== "survey" && this.$store.state.survey && this.$store.state.survey.length
+        this.$store.get("currentLocation") !== "survey" && this.$store.get("survey") && this.$store.get("survey").length
       );
     }
   },
@@ -216,10 +211,7 @@ export default {
   methods: {
     confirmInfoCookie() {
       this.$data.cookieDisclaimerUndisplayed = false;
-      this.$store.commit("global/updateSpecificKey", {
-        key: "cookieDisclaimerDisplayed",
-        value: true
-      });
+      this.$store.set("global/cookieDisclaimerDisplayed", true);
     },
     getNextConversion() {
       const min = 15;
@@ -233,7 +225,7 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
     },
     isActive(key) {
-      return this.$store.state.currentLocation === key;
+      return this.$store.get("currentLocation") === key;
     },
     showGlobalSettings: /* istanbul ignore next */ function() {
       let self = this;
@@ -261,59 +253,51 @@ export default {
         this.dayNightWatchdog.start.call(this);
       }
       const current = this.$moment().format("HH:mm");
-      const dayStart = this.$moment(this.$clone(this.$store.state.global.dayStart), "HH:mm").format("HH:mm");
-      const nightStart = this.$moment(this.$clone(this.$store.state.global.nightStart), "HH:mm").format("HH:mm");
+      const dayStart = this.$moment(this.$clone(this.$store.get("global/dayStart")), "HH:mm").format("HH:mm");
+      const nightStart = this.$moment(this.$clone(this.$store.get("global/nightStart")), "HH:mm").format("HH:mm");
       const isDay = current >= dayStart && current < nightStart;
-      this.$store.commit("IS_DARK_THEME", !isDay);
+      this.$store.set("isDarkTheme", !isDay);
     },
     updateDayNightCookie(value) {
-      this.$store.commit("IS_DARK_THEME", value === "night");
-      this.$store.commit("global/updateSpecificKey", {
-        key: "dayNightMode",
-        value: this.$clone(value)
-      });
+      this.$store.set("isDarkTheme", value === "night");
+      this.$store.set("global/dayNightMode", this.$clone(value));
     },
     backToTop: /* istanbul ignore next */ function() {
       window.scroll({ top: 0 });
     },
     closeSnackbar: /* istanbul ignore next */ function() {
       this.showSnackbarChangeLocale = false;
-      this.$store.commit("global/updateSpecificKey", {
-        key: "haveReadLocaleInfoAvailable",
-        value: true
-      });
+      this.$store.set("global/haveReadLocaleInfoAvailable", true);
     },
     switchLocale: /* istanbul ignore next */ function() {
       this.closeSnackbar();
-      this.$store.commit("global/updateSpecificKey", {
-        key: "locale",
-        value: this.$clone(this.detectedLocale)
+      this.$cookies.set("locale", this.detectedLocale, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
       });
-      this.$store.commit("SET_LANG", this.detectedLocale);
+      this.$store.set("global/locale", this.$clone(this.detectedLocale));
+      this.$store.set("locale", this.detectedLocale);
       window.location.reload();
     },
     onCloseDonationMessage: /* istanbul ignore next */ function() {
-      this.$store.commit("global/updateSpecificKey", {
-        key: "donationConversion",
-        value: this.$clone(this.getNextConversion())
-      });
+      this.$store.set("global/donationConversion", this.$clone(this.getNextConversion()));
     },
     initData: /* istanbul ignore next */ function() {
       const defaultInvestorPercentageGlobal = 90;
 
       let currentProfileID;
 
-      if (!this.$store.state.global.profiles.length || !this.$store.state.global.currentProfile) {
-        const ids = this.$store.state.global.profiles.map(k => k.key);
+      if (!this.$store.get("global/profiles").length || !this.$store.get("global/currentProfile")) {
+        const ids = this.$store.get("global/profiles").map(k => k.key);
         do {
           currentProfileID = uuidv4();
         } while (ids.indexOf(currentProfileID) >= 0);
 
-        this.$store.commit("global/updateProfiles", [{ id: currentProfileID, name: defaultProfileName }]);
-        this.$store.commit("global/updateCurrentProfile", currentProfileID);
+        this.$store.set("profiles", [{ id: currentProfileID, name: defaultProfileName }]);
+        this.$store.set("currentProfile", currentProfileID);
         this.$store.commit("profile/addProfile", { key: currentProfileID, profile: {} });
       } else {
-        currentProfileID = this.$store.state.global.currentProfile;
+        currentProfileID = this.$store.get("global/currentProfile");
       }
 
       // Next, we move cookies to indexedDB
@@ -334,12 +318,12 @@ export default {
       ];
 
       if ("locale" in cookies) {
-        this.$store.commit("global/updateSpecificKey", { key: "locale", value: this.$cookies.get("locale") });
+        this.$store.set("global/locale", this.$cookies.get("locale"));
       }
 
       for (const key of globalKeys) {
         if (key in cookies) {
-          this.$store.commit("global/updateSpecificKey", { key, value: this.$cookies.get(key) });
+          this.$store.set(`global/${key}`, this.$cookies.get(key));
           this.$cookies.remove(key, { path: "/" });
         }
       }
@@ -373,7 +357,7 @@ export default {
         gb: {}
       };
 
-      const dbProfile = this.$store.state.profile.profiles[currentProfileID];
+      const dbProfile = this.$store.get(`profile/profiles@[${currentProfileID}]`);
       if (!Utils.isNullOrUndef(dbProfile)) {
         currentProfile = {
           ...currentProfile,
@@ -509,22 +493,22 @@ export default {
       this.updateDayNightMode();
     }
 
-    this.$store.commit("SET_LANG", this.$clone(this.$store.state.global.locale));
-    this.$data.lang = this.$clone(this.$store.state.global.locale);
+    this.$store.set("locale", this.$clone(this.$store.get("global/locale")));
+    this.$data.lang = this.$clone(this.$store.get("global/locale"));
 
     const detectedLocale = getUserLocale().slice(0, 2);
     if (
       !this.haveReadLocaleInfoAvailable &&
       this.lang !== detectedLocale &&
-      this.$store.state.supportedLocales.indexOf(detectedLocale) >= 0
+      this.$store.get("supportedLocales").indexOf(detectedLocale) >= 0
     ) {
       this.showSnackbarChangeLocale = true;
       this.detectedLocale = detectedLocale;
     }
 
     // Check updates
-    if (this.$store.state.global.lastVisitVersion !== this.$data.siteVersion) {
-      const lastVisitVersion = this.$clone(this.$store.state.global.lastVisitVersion);
+    if (this.$store.get("global/lastVisitVersion") !== this.$data.siteVersion) {
+      const lastVisitVersion = this.$clone(this.$store.get("global/lastVisitVersion"));
       let xhr = new XMLHttpRequest();
       let self = this;
       xhr.open("GET", tagURL, true);
@@ -545,10 +529,7 @@ export default {
 
             self.$data.nbUpdateSinceLastVisit = nb;
 
-            this.$store.commit("global/updateSpecificKey", {
-              key: "lastVisitVersion",
-              value: this.$clone(self.$data.siteVersion)
-            });
+            self.$store.set("global/lastVisitVersion", self.$clone(self.$data.siteVersion));
           } else {
             console.error(xhr.statusText);
           }

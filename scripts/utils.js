@@ -292,7 +292,7 @@ export default {
     let result = this.checkFormNumeric(value, currentValue, comparator, type);
     ctx.$data.errors[key] = result.state === FormCheck.INVALID;
     if (saveCookie && result.state === FormCheck.VALID) {
-      ctx.$store.commit("profile/updateSpecificKey", { key: cookieKey, value: result.value });
+      ctx.$store.set(`profile/${cookieKey}`, result.value);
     }
     return result.state;
   },

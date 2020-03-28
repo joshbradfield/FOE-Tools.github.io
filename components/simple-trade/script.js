@@ -20,7 +20,7 @@ export default {
     }
   },
   data() {
-    agesGoods = this.$store.state.foe.goods.agesGoods;
+    agesGoods = this.$store.get("foe/goods@agesGoods");
 
     let data = {
       i18nPrefix,
