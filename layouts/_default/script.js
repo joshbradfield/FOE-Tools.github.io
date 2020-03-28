@@ -285,6 +285,10 @@ export default {
     },
     switchLocale: /* istanbul ignore next */ function() {
       this.closeSnackbar();
+      this.$cookies.set("locale", this.detectedLocale, {
+        path: "/",
+        expires: Utils.getDefaultCookieExpireTime()
+      });
       this.$store.commit("global/updateSpecificKey", {
         key: "locale",
         value: this.$clone(this.detectedLocale)
