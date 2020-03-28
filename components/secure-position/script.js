@@ -1,6 +1,7 @@
 import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import numberinput from "~/components/number-input/NumberInput";
+import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.secure_position.";
 const urlPrefix = "sp_";
@@ -58,7 +59,9 @@ export default {
       yourArcBonus:
         this.$props.customYourArcBonus !== false
           ? this.$props.customYourArcBonus
-          : this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus),
+          : this.$clone(
+              this.$store.get(`profile/profiles@[${this.$store.get("global/currentProfile")}].yourArcBonus)`)
+            ),
       fpTargetReward: 0,
       roi: 0,
       formValid: false,
@@ -116,9 +119,7 @@ export default {
     return data;
   },
   computed: {
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
+    isPermalink: get("isPermalink"),
     permaLink() {
       return {
         path: this.$i18nPath("secure-position/"),
@@ -240,7 +241,7 @@ export default {
           oldVal,
           inputComparator.yourArcBonus.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.yourArcBonus`,
+          `profiles@${this.$store.get("global/currentProfile")}.yourArcBonus`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -430,7 +431,7 @@ export default {
       }
 
       if (change === Utils.FormCheck.VALID) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
         result.change = true;
       }
 
@@ -446,7 +447,9 @@ export default {
       this.$data.yourArcBonus =
         this.$props.customYourArcBonus !== false
           ? this.$props.customYourArcBonus
-          : this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus);
+          : this.$clone(
+              this.$store.get(`profile/profiles@[${this.$store.get("global/currentProfile")}].yourArcBonus)`)
+            );
       this.$data.fpTargetReward = 0;
     }
   },

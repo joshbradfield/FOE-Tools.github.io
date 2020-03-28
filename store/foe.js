@@ -1,4 +1,4 @@
-import set from "lodash.set";
+import { make } from "vuex-pathify";
 
 export const state = () => ({
   campaignCost: {},
@@ -7,7 +7,5 @@ export const state = () => ({
 });
 
 export const mutations = {
-  updateSpecificKey(state, { key, value }) {
-    set(state, key, value);
-  }
+  ...make.mutations(state)
 };

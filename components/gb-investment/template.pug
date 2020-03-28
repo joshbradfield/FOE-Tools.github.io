@@ -26,15 +26,15 @@ div.content#gbiContent
     div.columns.form-short
       div.column.is-half
         b-field#fieldId(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
-          numberinput#giLevel(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
+          numberinput#giLevel(controls-position="compact" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" min="1" :max="maxLevel" v-model.number="level" name="level" autocomplete="off" :autofocus="canPermalink" expanded)
       div.column.is-half#fieldInvestorPercentage
         b-field(:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-          numberinput#giInvestorPercentageGlobal(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
+          numberinput#giInvestorPercentageGlobal(controls-position="compact" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off" expanded)
 
     div.columns.form-short(v-if="result !== null")
       div.column.is-half#fieldOwnerInvestment
         b-field(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
-          numberinput#giOwnerInvestment(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
+          numberinput#giOwnerInvestment(controls-position="compact" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" autocomplete="off" expanded)
       div.column.is-half
         b-field#fieldAddInvestors(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors")
           b-field(:type="haveError('addInvestors')")
@@ -58,7 +58,7 @@ div.content#gbiContent
         yes-no#fieldShowSnipe(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
       div.column.is-half#fieldYourArcBonus(v-if="showSnipe || tutoMode")
         b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
-          numberinput#giYourArcBonus(controls-position="compact" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
+          numberinput#giYourArcBonus(controls-position="compact" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off" expanded)
 
     div.columns(:class="vueCardClass")
         div.column.is-half
@@ -94,7 +94,7 @@ div.content#gbiContent
             td.has-text-right
               p(v-if="(place.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(place.preparation)}} (
                 template(v-if="place.preparation - ownerInvestmentNormalized > 0")
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
+                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
                     span.has-text-danger {{$formatNumber(place.preparation - ownerInvestmentNormalized)}}
                 template(v-else)
                   span.has-text-success {{$t('utils.Secured')}}
@@ -115,22 +115,22 @@ div.content#gbiContent
                     span.icon.is-small.has-text-success(style="vertical-align: middle;")
                       i.fas.fa-arrow-up
                       | &nbsp;
-                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.roi))}}
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.roi))}}
 
                   template(v-else-if="place.roi < 0")
                     span.icon.is-small.has-text-danger(style="vertical-align: middle;")
                       i.fas.fa-arrow-down
                       | &nbsp;
-                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.roi))}}
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.roi))}}
 
-                  b-tooltip(v-else :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
+                  b-tooltip(v-else :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
                     span.icon.is-small(style="vertical-align: middle;")
                       i.fas.fa-exchange-alt
                   | )
               template(v-else)
                 p 0
                   template(v-if="place.participation > 0") &nbsp;(
-                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
                     | )
             // Spot / Snipe
             td.has-text-right(v-show="showSnipe|| tutoMode" width="110px")
@@ -143,15 +143,15 @@ div.content#gbiContent
                   span.icon.is-small.has-text-success(style="vertical-align: middle;")
                     i.fas.fa-arrow-up
                     | &nbsp;
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.snipe.roi))}}
+                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.snipe.roi))}}
 
                 template(v-else-if="place.snipe.roi < 0")
                   span.icon.is-small.has-text-danger(style="vertical-align: middle;")
                     i.fas.fa-arrow-down
                     | &nbsp;
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.snipe.roi))}}
+                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(place.roi) })" dashed) {{$formatNumber(Math.abs(place.snipe.roi))}}
 
-                b-tooltip(v-else :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
+                b-tooltip(v-else :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
                   span.icon.is-small(style="vertical-align: middle;")
                     i.fas.fa-exchange-alt
                 | )
@@ -180,7 +180,7 @@ div.content#gbiContent
                 template(v-else)
                   p 0
                     template(v-if="place.participation > 0") &nbsp;(
-                      b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
+                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(place.participation)}}
                       | )
               td(:colspan="nbColumns-7")
               // Potential sniper switch
@@ -206,7 +206,7 @@ div.content#gbiContent
             td
               p.level-right {{$formatNumber(result.totalPreparations)}}
                 template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment')" position="is-left" dashed)
+                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment')" position="is-left" dashed)
                     span.has-text-danger {{$formatNumber(result.totalPreparations - ownerInvestmentNormalized)}}
                   | )
           tr
@@ -246,7 +246,7 @@ div.content#gbiContent
                 td.has-text-right
                   p(v-if="(props.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$formatNumber(props.preparation)}} (
                     template(v-if="props.preparation - ownerInvestmentNormalized > 0")
-                      b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" position="is-left" dashed)
+                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" position="is-left" dashed)
                         span.has-text-danger {{$formatNumber(props.preparation - ownerInvestmentNormalized)}}
                     template(v-else)
                       span.has-text-success {{$t('utils.Secured')}}
@@ -268,7 +268,7 @@ div.content#gbiContent
                 td(v-else)
                   p 0
                     template(v-if="props.participation > 0") &nbsp;(
-                      b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(props.participation)}}
+                      b-tooltip(position="is-left" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment')" dashed) {{$formatNumber(props.participation)}}
                       | )
               // Spot / Snipe
               tr.tableDataSpotSnipe(v-if="showSnipe && index < result.investment.length")
@@ -283,15 +283,15 @@ div.content#gbiContent
                       span.icon.is-small.has-text-success(style="vertical-align: middle;")
                         i.fas.fa-arrow-up
                         | &nbsp;
-                      b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
+                      b-tooltip(position="is-left" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
 
                     template(v-else-if="props.snipe.roi < 0")
                       span.icon.is-small.has-text-danger(style="vertical-align: middle;")
                         i.fas.fa-arrow-down
                         | &nbsp;
-                      b-tooltip(position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
+                      b-tooltip(position="is-left" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.loss', { count: Math.abs(props.roi) })" dashed) {{$formatNumber(Math.abs(props.snipe.roi))}}
 
-                    b-tooltip(v-else position="is-left" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
+                    b-tooltip(v-else position="is-left" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.neutral')" dashed)
                       span.icon.is-small(style="vertical-align: middle;")
                         i.fas.fa-exchange-alt
                     | )
@@ -331,7 +331,7 @@ div.content#gbiContent
               td
                 p.level-right {{$formatNumber(result.totalPreparations)}}
                   template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
-                    b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment')" position="is-left" dashed)
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment')" position="is-left" dashed)
                       span.has-text-danger {{$formatNumber(result.totalPreparations - ownerInvestmentNormalized)}}
                     | )
             tr
@@ -350,7 +350,7 @@ div.content#gbiContent
               b-field
                 b-input#giPrefix(type="text" v-model.trim="prefix" name="prefix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')" expanded)
                 p.control
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
                     button.button.copy(@click="switchPrefix()" :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
                       span.icon(v-show="showPrefix")
                         | &nbsp;&nbsp;
@@ -364,7 +364,7 @@ div.content#gbiContent
               b-field
                 b-input#giSuffix(type="text" v-model.trim="suffix" name="suffix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')" expanded)
                 p.control
-                  b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
                     button.button.copy(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
                       span.icon(v-show="showSuffix")
                         | &nbsp;&nbsp;
@@ -397,7 +397,7 @@ div.content#gbiContent
                     b-field
                       b-input(:id="'custom_field_' + elt.key" type="text"  :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
                       p.control
-                        b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
+                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
                           button.button.copy(@click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show" :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
                             span.icon(v-show="promotionMessageList[i].config.customFields[elt.key].show")
                               | &nbsp;&nbsp;
@@ -410,13 +410,13 @@ div.content#gbiContent
                 div.column
                   b-field
                     p.control
-                      b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
                         button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
                           span.icon
                             i.fas.fa-trash
                     b-input(:type="nbMultiLine(value.message) ? 'textarea' : 'text'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : ''" :value="value.message" readonly expanded)
                     p.control
-                      b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
+                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
                         button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
                           span.icon
                             i.far.fa-copy

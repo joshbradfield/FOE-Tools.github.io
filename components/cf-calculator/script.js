@@ -4,6 +4,7 @@ import Utils from "~/scripts/utils";
 import YesNo from "~/components/yes-no/YesNo";
 import Shepherd from "shepherd.js";
 import { formatTuto } from "~/scripts/tutorial";
+import { sync } from "vuex-pathify";
 
 const i18nPrefix = "components.cf_calculator.";
 const urlPrefix = "cfc_";
@@ -35,7 +36,7 @@ const inputComparator = {
 export default {
   name: "CfCalculator",
   head /* istanbul ignore next */: function() {
-    this.$store.commit("SET_HERO", {
+    this.$store.set("hero", {
       title: "routes.cf_calculator.hero.title",
       subtitle: "routes.cf_calculator.hero.subtitle"
     });
@@ -49,23 +50,28 @@ export default {
     }
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "cf_calculator");
+    this.$store.set("currentLocation", "cf_calculator");
 
+    this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`);
     let data = {
-      yourAge: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourAge),
-      yourCfBoost: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourCfBoost),
-      coins: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.coins),
-      supplies: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.supplies),
-      goods: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.goods),
-      fpBy24h: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.fpBy24h),
-      otherRq: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.otherRq),
+      yourAge: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`)),
+      yourCfBoost: this.$clone(
+        this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourCfBoost`)
+      ),
+      coins: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.coins`)),
+      supplies: this.$clone(
+        this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.supplies`)
+      ),
+      goods: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.goods`)),
+      fpBy24h: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.fpBy24h`)),
+      otherRq: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.otherRq`)),
       suppliesGathered: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.suppliesGathered
+        this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.suppliesGathered`)
       ),
       cumulativeQuest: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.cumulativeQuest
+        this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.cumulativeQuest`)
       ),
-      secondRq: this.$clone(this.$store.state.profile.profiles[this.$store.state.global.currentProfile].cf.secondRq)
+      secondRq: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.secondRq`))
     };
 
     data.tutoMode = false;
@@ -151,13 +157,12 @@ export default {
     };
   },
   computed: {
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
+    isPermalink: sync("isPermalink"),
+    urlQuery: sync("urlQuery"),
     permaLink() {
       return {
         path: this.$i18nPath("cf-calculator/"),
-        query: this.$store.state.urlQuery
+        query: this.urlQuery
       };
     },
     minCoins() {
@@ -172,10 +177,7 @@ export default {
       if (this.yourAge in questData.ages) {
         this.errors.yourAge = false;
         if (!this.isPermalink) {
-          this.$store.commit("profile/updateSpecificKey", {
-            key: `profiles.${this.$store.state.global.currentProfile}.yourAge`,
-            value: val
-          });
+          this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`, val);
         }
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.yourAge,
@@ -188,10 +190,7 @@ export default {
             value: 0
           });
           if (!this.isPermalink) {
-            this.$store.commit("profile/updateSpecificKey", {
-              key: `profiles.${this.$store.state.global.currentProfile}.cf.secondRq`,
-              value: false
-            });
+            this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.secondRq`, false);
           }
         }
         this.checkSecondQuest = this.oneQuest.indexOf(val) === -1;
@@ -203,10 +202,7 @@ export default {
     secondRq(val) {
       const value = !!val;
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.cf.secondRq`,
-          value: val
-        });
+        this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.secondRq`, val);
       }
       this.$data.suppliesGathered = value ? Utils.normalizeNumberValue(this.$data.suppliesGathered) : 0;
       this.$store.commit("UPDATE_URL_QUERY", {
@@ -228,7 +224,7 @@ export default {
           oldVal,
           inputComparator.yourCfBoost.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.yourCfBoost`
+          `profiles@${this.$store.get("global/currentProfile")}.yourCfBoost`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -249,7 +245,7 @@ export default {
           oldVal,
           [">=", this.minCoins],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.coins`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.coins`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -268,7 +264,7 @@ export default {
           oldVal,
           [">=", this.minSupplies],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.supplies`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.supplies`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -287,7 +283,7 @@ export default {
           oldVal,
           inputComparator.goods.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.goods`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.goods`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -306,7 +302,7 @@ export default {
           oldVal,
           inputComparator.fpBy24h.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.fpBy24h`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.fpBy24h`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -325,7 +321,7 @@ export default {
           oldVal,
           inputComparator.otherRq.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.otherRq`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.otherRq`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -344,7 +340,7 @@ export default {
           oldVal,
           inputComparator.suppliesGathered.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.suppliesGathered`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.suppliesGathered`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -363,7 +359,7 @@ export default {
           oldVal,
           inputComparator.cumulativeQuest.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.cf.cumulativeQuest`
+          `profiles@${this.$store.get("global/currentProfile")}.cf.cumulativeQuest`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -445,7 +441,7 @@ export default {
       }
 
       if (change === Utils.FormCheck.VALID) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
       }
 
       return result;

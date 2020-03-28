@@ -5,7 +5,7 @@ export default {
   name: "LanguageSelector",
   data() {
     let supportedLocales = [];
-    for (const key of this.$store.state.supportedLocales) {
+    for (const key of this.$store.get("supportedLocales")) {
       supportedLocales.push({
         key,
         displayName: this.$t("language_selector." + (key === "en" ? "en" : "common"), { lang: key })
@@ -14,22 +14,19 @@ export default {
     supportedLocales.sort((a, b) => (a.displayName > b.displayName ? 1 : b.displayName > a.displayName ? -1 : 0));
 
     return {
-      currentLang: this.$clone(this.$store.state.global.locale),
+      currentLang: this.$clone(this.$store.get("global/locale")),
       supportedLocales,
       countryFlagEmoji
     };
   },
   watch: {
     currentLang(lang) {
-      this.$store.commit("global/updateSpecificKey", {
-        key: `locale`,
-        value: lang
-      });
+      this.$store.set("global/locale", lang);
+      this.$store.set("locale", lang);
       this.$cookies.set("locale", lang, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()
       });
-      this.$store.commit("SET_LANG", lang);
       window.location.reload();
     }
   },

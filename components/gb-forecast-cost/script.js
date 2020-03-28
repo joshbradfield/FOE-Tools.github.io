@@ -47,8 +47,8 @@ export default {
     }
   },
   data() {
-    this.$moment.locale(this.$store.state.locale);
-    gbsData = this.$store.state.foe.gbs.gbsData;
+    this.$moment.locale(this.$store.get("locale"));
+    gbsData = this.$store.get("foe/gbs@gbsData");
     defaultGb = this.$clone(gbsData[Object.keys(gbsData)[0]]);
 
     const data = {
@@ -172,12 +172,12 @@ export default {
       }
     },
     lang() {
-      return this.$store.state.locale;
+      return this.$store.get("locale");
     },
     permaLink() {
       return {
         path: this.$i18nPath("gb-forecast-cost/"),
-        query: this.$store.state.urlQuery
+        query: this.$store.get("urlQuery")
       };
     },
     maxCurrentLevel() {
@@ -198,7 +198,7 @@ export default {
   },
   watch: {
     lang() {
-      this.$moment.locale(this.$store.state.locale);
+      this.$moment.locale(this.$store.get("locale"));
       if (this.$data.fpBy24h > 0) {
         let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
         this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18next);
@@ -598,7 +598,7 @@ export default {
       }
 
       if (change === Utils.FormCheck.VALID) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
         result.investorPercentageCustom = investorPercentageCustom;
       }
 

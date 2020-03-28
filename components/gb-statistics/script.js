@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Utils from "~/scripts/utils";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
+import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.gb_statistics.";
 const urlPrefix = "gbs_";
@@ -17,8 +18,8 @@ let gbsData = {};
 export default {
   name: "GbStatistics",
   data() {
-    agesCost = this.$store.state.foe.gbs.agesCost;
-    gbsData = this.$store.state.foe.gbs.gbsData;
+    agesCost = this.$store.get("foe/gbs@agesCost");
+    gbsData = this.$store.get("foe/gbs@gbsData");
 
     const defaultFromGraph = 1;
     const defaultToGraph = 80;
@@ -212,13 +213,11 @@ export default {
     return obj;
   },
   computed: {
-    lang() {
-      return this.$store.state.locale;
-    },
+    lang: get("locale"),
     permaLink() {
       return {
         path: this.$i18nPath("gb-statistics/"),
-        query: this.$store.state.urlQuery
+        query: this.$store.get("urlQuery")
       };
     }
   },
@@ -527,7 +526,7 @@ export default {
       }
 
       if (change === Utils.FormCheck.VALID) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
       }
 
       return result;

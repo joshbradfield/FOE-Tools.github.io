@@ -12,7 +12,7 @@ export default {
     };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "error");
+    this.$store.set("currentLocation", "error");
 
     return {
       i18nPrefix: i18nPrefix

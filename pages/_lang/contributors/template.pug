@@ -17,7 +17,7 @@ div.content
                   a(v-if="user.profile" :href="user.profile" target="_blank") {{user.name}}
                   template(v-else) {{user.name}}
             div.content.contributor-icons
-              b-tooltip(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'")
+              b-tooltip(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
                 span {{allContributorsrc.types[contribution].symbol}}
 
 

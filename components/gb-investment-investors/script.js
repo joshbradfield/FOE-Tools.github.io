@@ -3,6 +3,7 @@ import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import YesNo from "~/components/yes-no/YesNo";
+import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.gb_investment_investors.";
 const urlPrefix = "gbi_";
@@ -50,38 +51,55 @@ export default {
     const data = {
       i18nPrefix,
       yourArcBonus: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].yourArcBonus
+        this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourArcBonus`)
       ),
       investorPercentageGlobal: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.investorPercentageGlobal
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.investorPercentageGlobal`
+        )
       ),
       investorPercentageCustom: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.investorPercentageCustom
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.investorPercentageCustom`
+        )
       ),
       customPercentage: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.customPercentage
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.customPercentage`
+        )
       ),
       result: null,
       maxLevel,
       from: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.from
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${this.$route.params.gb}.investorView.from`
+        )
       ),
       to: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.to
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${this.$route.params.gb}.investorView.to`
+        )
       ),
       maxConsideration: MAX_TAKING_PLACE_IN_CONSIDERATION + 1,
       takingPlaceInConsideration: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.takingPlaceInConsideration
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.takingPlaceInConsideration`
+        )
       ),
       showPlace: this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].gb[this.$route.params.gb]
-          .investorView.showPlace
+        this.$store.get(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.showPlace`
+        )
       ),
       errors: {
         from: false,
@@ -139,9 +157,7 @@ export default {
         oldFromInput = val + 1;
       }
     },
-    isPermalink() {
-      return this.$store.state.isPermalink;
-    },
+    isPermalink: get("isPermalink"),
     permaLink() {
       return {
         path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
@@ -164,7 +180,7 @@ export default {
           oldVal,
           [1, this.normalizedTo()],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.from`
+          `profiles@${this.$store.get("global/currentProfile")}.gb.${this.$route.params.gb}.investorView.from`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -189,7 +205,7 @@ export default {
           oldVal,
           [this.normalizedFrom(), this.$data.maxLevel],
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.to`
+          `profiles@${this.$store.get("global/currentProfile")}.gb.${this.$route.params.gb}.investorView.to`
         ) === Utils.FormCheck.VALID
       ) {
         if (this.$data.errors.from) {
@@ -214,8 +230,9 @@ export default {
           oldVal,
           INPUT_COMPARATOR.takingPlaceInConsideration.comparator,
           !this.isPermalink,
-          // eslint-disable-next-line max-len
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.takingPlaceInConsideration`
+          `profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.takingPlaceInConsideration`
         ) === Utils.FormCheck.VALID
       ) {
         this.$store.commit("UPDATE_URL_QUERY", {
@@ -239,7 +256,7 @@ export default {
           oldVal,
           INPUT_COMPARATOR.yourArcBonus.comparator,
           !this.isPermalink,
-          `profiles.${this.$store.state.global.currentProfile}.yourArcBonus`,
+          `profiles@${this.$store.get("global/currentProfile")}.yourArcBonus`,
           INPUT_COMPARATOR.yourArcBonus.type
         ) === Utils.FormCheck.VALID
       ) {
@@ -264,8 +281,9 @@ export default {
           oldVal,
           [">=", 0],
           !this.isPermalink,
-          // eslint-disable-next-line max-len
-          `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.investorPercentageGlobal`,
+          `profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.investorPercentageGlobal`,
           "float"
         ) === Utils.FormCheck.VALID
       ) {
@@ -318,11 +336,12 @@ export default {
           });
         }
         if (!this.isPermalink) {
-          this.$store.commit("profile/updateSpecificKey", {
-            // eslint-disable-next-line max-len
-            key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.investorPercentageCustom`,
-            value: this.$clone(Utils.normalizeNumberArray(val, this.$data.investorPercentageGlobal))
-          });
+          this.$store.set(
+            `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+              this.$route.params.gb
+            }.investorView.investorPercentageCustom`,
+            this.$clone(Utils.normalizeNumberArray(val, this.$data.investorPercentageGlobal))
+          );
         }
         this.compute();
       }
@@ -334,11 +353,12 @@ export default {
         ns: "gbii"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          // eslint-disable-next-line max-len
-          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.customPercentage`,
-          value: val
-        });
+        this.$store.set(
+          `profile/profiles.${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.customPercentage`,
+          val
+        );
       }
 
       for (let i = 0; i < 5; i++) {
@@ -357,10 +377,12 @@ export default {
         ns: "gbii"
       });
       if (!this.isPermalink) {
-        this.$store.commit("profile/updateSpecificKey", {
-          key: `profiles.${this.$store.state.global.currentProfile}.gb.${this.$route.params.gb}.investorView.showPlace`,
-          value: this.$clone(Utils.normalizeBooleanArray(val))
-        });
+        this.$store.set(
+          `profile/profiles@${this.$store.get("global/currentProfile")}.gb.${
+            this.$route.params.gb
+          }.investorView.showPlace`,
+          this.$clone(Utils.normalizeBooleanArray(val))
+        );
       }
     }
   },
@@ -479,7 +501,7 @@ export default {
       }
 
       if (change === Utils.FormCheck.VALID) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
         result.investorPercentageCustom = investorPercentageCustom;
       }
 
@@ -491,7 +513,7 @@ export default {
       }
 
       if (change === Utils.FormCheck.VALID) {
-        this.$store.commit("IS_PERMALINK", true);
+        this.$store.set("isPermalink", true);
         result.change = true;
       }
 

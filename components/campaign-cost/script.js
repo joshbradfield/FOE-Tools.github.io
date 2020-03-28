@@ -1,21 +1,22 @@
 import Vue from "vue";
 import allAges from "~/lib/foe-data/ages";
 import { bonus } from "~/lib/foe-data/bonus";
+import clone from "lodash.clonedeep";
 
 const i18nPrefix = "components.campaign_cost.";
 let agesGoods = {};
 let goods = {};
 let campaignCost = {};
 
-const ages = JSON.parse(JSON.stringify(allAges));
+const ages = clone(allAges);
 delete ages.NoAge;
 
 export default {
   name: "CampaignCost",
   data() {
-    campaignCost = this.$store.state.foe.campaignCost.campaignCost;
-    goods = this.$store.state.foe.goods.goods;
-    agesGoods = this.$store.state.foe.goods.agesGoods;
+    campaignCost = this.$store.get("foe/campaignCost@campaignCost");
+    goods = this.$store.get("foe/goods@goods");
+    agesGoods = this.$store.get("foe/goods@agesGoods");
 
     const provinces = this.sortProvinceArray(campaignCost, ages.BronzeAge.key);
 

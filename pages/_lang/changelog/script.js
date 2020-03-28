@@ -7,7 +7,7 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "changelog");
+    this.$store.set("currentLocation", "changelog");
     this.$store.commit("RESTORE_HERO");
 
     return {

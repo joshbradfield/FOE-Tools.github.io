@@ -103,9 +103,9 @@ describe("CfCalculator", () => {
     expect(wrapper.vm.yourAge).toBe(newValue);
     expect(wrapper.vm.errors.yourAge).toBe(false);
 
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].yourAge).toBe(newValue);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].yourAge`)).toBe(newValue);
 
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(false);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].cf.secondRq`)).toBe(false);
   });
 
   test('Change "yourAge" invalid value', () => {
@@ -124,7 +124,7 @@ describe("CfCalculator", () => {
     wrapper.vm.secondRq = newValue;
     expect(wrapper.vm.secondRq).toBe(newValue);
 
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(newValue);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].cf.secondRq`)).toBe(newValue);
   });
 
   test('Change "secondRq" value with custom "suppliesGathered', () => {
@@ -133,12 +133,12 @@ describe("CfCalculator", () => {
     const suppliesGatheredValue = 100;
     wrapper.vm.yourAge = ages.ColonialAge.key;
     expect(wrapper.vm.secondRq).toBe(false);
-    wrapper.vm.suppliesGathered = suppliesGatheredValue;
     wrapper.vm.secondRq = value;
+    wrapper.vm.suppliesGathered = suppliesGatheredValue;
 
     expect(wrapper.vm.secondRq).toBe(value);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.suppliesGathered).toBe(suppliesGatheredValue);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(value);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].cf.suppliesGathered`)).toBe(suppliesGatheredValue);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].cf.secondRq`)).toBe(value);
   });
 
   test('Change "secondRq" value set to false with custom "suppliesGathered"', () => {
@@ -151,8 +151,8 @@ describe("CfCalculator", () => {
     wrapper.vm.secondRq = value;
     expect(wrapper.vm.secondRq).toBe(value);
 
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.secondRq).toBe(value);
-    expect(wrapper.vm.$store.state.profile.profiles[profileID].cf.suppliesGathered).toBe(0);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].cf.secondRq`)).toBe(value);
+    expect(wrapper.vm.$store.get(`profile/profiles@[${profileID}].cf.suppliesGathered`)).toBe(0);
   });
 
   for (const elt of variableToTests) {
@@ -163,7 +163,7 @@ describe("CfCalculator", () => {
       expect(wrapper.vm.errors[elt.name]).toBe(false);
       wrapper.vm[elt.name] = value;
       expect(wrapper.vm[elt.name]).toBe(value);
-      expect(wrapper.vm.$store.state.urlQuery[elt.queryName]).toBe(value);
+      expect(wrapper.vm.$store.get(`urlQuery@[${elt.queryName}]`)).toBe(value);
     });
 
     test(`Change "${elt.name}" invalid value`, () => {
@@ -173,7 +173,7 @@ describe("CfCalculator", () => {
       wrapper.vm[elt.name] = value;
       expect(wrapper.vm[elt.name]).toBe(value);
       expect(wrapper.vm.errors[elt.name]).toBe(true);
-      expect(wrapper.vm.$store.state.urlQuery[elt.queryName]).toBe(0);
+      expect(wrapper.vm.$store.get(`urlQuery@[${elt.queryName}]`)).toBe(0);
     });
   }
 
@@ -186,7 +186,7 @@ describe("CfCalculator", () => {
     wrapper.vm.supplies = 1000000;
     wrapper.vm.cumulativeQuest = value;
     expect(wrapper.vm.cumulativeQuest).toBe(value);
-    expect(wrapper.vm.$store.state.urlQuery["cfc_cq"]).toBe(value);
+    expect(wrapper.vm.$store.get(`urlQuery@["cfc_cq"]`)).toBe(value);
   });
 
   test('Change "cumulativeQuest" invalid value', () => {
@@ -198,7 +198,7 @@ describe("CfCalculator", () => {
     wrapper.vm.supplies = 1000000;
     wrapper.vm.cumulativeQuest = value;
     expect(wrapper.vm.cumulativeQuest).toBe(value);
-    expect(wrapper.vm.$store.state.urlQuery["cfc_cq"]).toBe(0);
+    expect(wrapper.vm.$store.get(`urlQuery@["cfc_cq"]`)).toBe(0);
   });
 
   test('Call "calculate" with infinite generator and cumulativeQuest set to 0', () => {
@@ -210,6 +210,6 @@ describe("CfCalculator", () => {
     wrapper.vm.cumulativeQuest = 0;
     wrapper.vm.calculate();
     expect(wrapper.vm.cumulativeQuest).toBe(0);
-    expect(wrapper.vm.$store.state.urlQuery["cfc_cq"]).toBe(0);
+    expect(wrapper.vm.$store.get(`urlQuery@["cfc_cq"]`)).toBe(0);
   });
 });

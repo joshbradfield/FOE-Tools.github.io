@@ -5,7 +5,7 @@ const i18nPrefix = "routes.contributors.";
 
 export default {
   head() {
-    this.$store.commit("SET_HERO", {
+    this.$store.set("hero", {
       title: i18nPrefix + "hero.title",
       subtitle: i18nPrefix + "hero.subtitle"
     });
@@ -15,7 +15,7 @@ export default {
     };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "contributors");
+    this.$store.set("currentLocation", "contributors");
 
     return {
       i18nPrefix,

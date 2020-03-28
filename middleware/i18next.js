@@ -11,11 +11,11 @@ export default function({ isHMR, app, store, route, params, error, redirect }) {
   // Get locale from params
   let locale = params.lang || defaultLocale;
 
-  if (store.state.supportedLocales.indexOf(locale) === -1) {
+  if (store.get("supportedLocales").indexOf(locale) === -1) {
     return error({ message: "This page could not be found.", statusCode: 404 });
   }
 
-  if (app.$cookies.get("locale") === null || store.state.supportedLocales.indexOf(app.$cookies.get("locale")) === -1) {
+  if (app.$cookies.get("locale") === null || store.get("supportedLocales").indexOf(app.$cookies.get("locale")) === -1) {
     app.$cookies.set("locale", app.defaultLocale, {
       path: "/",
       expires: Utils.getDefaultCookieExpireTime()
@@ -25,8 +25,8 @@ export default function({ isHMR, app, store, route, params, error, redirect }) {
   }
 
   // Set locale
-  store.commit("SET_LANG", locale);
-  app.i18n.i18next.changeLanguage(store.state.locale, err => {
+  store.set("locale", locale);
+  app.i18n.i18next.changeLanguage(store.get("locale"), err => {
     if (err) return console.error("something went wrong loading", err);
   });
 
@@ -40,7 +40,7 @@ export default function({ isHMR, app, store, route, params, error, redirect }) {
     return redirect(result);
   }
 
-  for (let elt of store.state.supportedLocales) {
+  for (let elt of store.get("supportedLocales")) {
     if (locale !== elt && route.fullPath.indexOf("/" + elt + "/") === 0) {
       const toReplace = "^/" + elt + "/";
       const re = new RegExp(toReplace);

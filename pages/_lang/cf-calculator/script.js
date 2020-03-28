@@ -4,7 +4,7 @@ const i18nPrefix = "routes.cf_calculator.";
 
 export default {
   head() {
-    this.$store.commit("SET_HERO", {
+    this.$store.set("hero", {
       title: i18nPrefix + "hero.title",
       subtitle: i18nPrefix + "hero.subtitle"
     });
@@ -12,7 +12,7 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "cf_calculator");
+    this.$store.set("currentLocation", "cf_calculator");
 
     return {};
   },

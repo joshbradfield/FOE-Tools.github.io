@@ -7,7 +7,7 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "home");
+    this.$store.set("currentLocation", "home");
     this.$store.commit("RESTORE_HERO");
 
     return {
@@ -21,27 +21,27 @@ export default {
               {
                 title: "tools.gb_investment.title",
                 subtitle: "tools.gb_investment.subtitle",
-                link: this.$store.state.routes.gb_investment.link
+                link: this.$store.get("routes@gb_investment.link")
               },
               {
                 title: "tools.secure_position.title",
                 subtitle: "tools.secure_position.subtitle",
-                link: this.$store.state.routes.secure_position.link
+                link: this.$store.get("routes@secure_position.link")
               },
               {
                 title: "tools.cf_calculator.title",
                 subtitle: "tools.cf_calculator.subtitle",
-                link: this.$store.state.routes.cf_calculator.link
+                link: this.$store.get("routes@cf_calculator.link")
               },
               {
                 title: "tools.trade.title",
                 subtitle: "tools.trade.subtitle",
-                link: this.$store.state.routes.trade.link
+                link: this.$store.get("routes@trade.link")
               },
               {
                 title: "tools.campaign_cost.title",
                 subtitle: "tools.campaign_cost.subtitle",
-                link: this.$store.state.routes.campaign_cost.link
+                link: this.$store.get("routes@campaign_cost.link")
               }
             ],
             2,
@@ -56,12 +56,12 @@ export default {
               {
                 title: "statistics.gb_statistics.title",
                 subtitle: "statistics.gb_statistics.subtitle",
-                link: this.$store.state.routes.gb_statistics.link
+                link: this.$store.get("routes@gb_statistics.link")
               },
               {
                 title: "statistics.gb_forecast_cost.title",
                 subtitle: "statistics.gb_forecast_cost.subtitle",
-                link: this.$store.state.routes.gb_forecast_cost.link
+                link: this.$store.get("routes@gb_forecast_cost.link")
               }
             ],
             2,

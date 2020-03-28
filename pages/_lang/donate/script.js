@@ -2,7 +2,7 @@ const i18nPrefix = "routes.donate.";
 
 export default {
   head() {
-    this.$store.commit("SET_HERO", {
+    this.$store.set("hero", {
       title: i18nPrefix + "hero.title",
       subtitle: i18nPrefix + "hero.subtitle"
     });
@@ -10,7 +10,7 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "donate");
+    this.$store.set("currentLocation", "donate");
     this.$store.commit("RESTORE_HERO");
 
     return {

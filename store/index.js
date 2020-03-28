@@ -2,12 +2,17 @@ import { defaultLocale } from "~/scripts/locales";
 import * as Errors from "~/scripts/errors";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 
+import pathify from "vuex-pathify";
+import { make } from "vuex-pathify";
+
 import Vue from "vue";
 
 const hero = {
   title: "components.site_layout.hero.title",
   subtitle: "components.site_layout.hero.slogan_html"
 };
+
+export const plugins = [pathify.plugin];
 
 export const state = () => ({
   /**
@@ -34,6 +39,11 @@ export const state = () => ({
    * Current locale used
    */
   locale: defaultLocale,
+
+  /**
+   * List of all supported locales
+   */
+  supportedLocales: [],
 
   /**
    * Current location
@@ -66,16 +76,6 @@ export const state = () => ({
   isDarkTheme: false,
 
   /**
-   * True for main menu always visible, false otherwise
-   */
-  isFixedMainMenu: false,
-
-  /**
-   * True for datalist (auto-complete) mode for the gb selector, false for select
-   */
-  isGbSelectModeDatalist: false,
-
-  /**
    * Contains survey
    */
   survey: [],
@@ -90,23 +90,7 @@ export const state = () => ({
 });
 
 export const mutations = {
-  /**
-   * Mutator of locale
-   * @param state Reference of state
-   * @param value New value
-   */
-  SET_LANG(state, value) {
-    Vue.set(state, "locale", value);
-  },
-
-  /**
-   * Mutator of hero
-   * @param state Reference of state
-   * @param value New value
-   */
-  SET_HERO(state, value) {
-    Vue.set(state, "hero", value);
-  },
+  ...make.mutations(state),
 
   /**
    * Restore default value of hero
@@ -124,15 +108,6 @@ export const mutations = {
     Vue.set(state, "urlQuery", {});
     Vue.set(state, "urlQueryNamespace", {});
     Vue.set(state, "isPermalink", false);
-  },
-
-  /**
-   * Mutator of currentLocation
-   * @param state Reference of state
-   * @param value New value
-   */
-  SET_CURRENT_LOCATION(state, value) {
-    Vue.set(state, "currentLocation", value);
   },
 
   /**
@@ -193,56 +168,13 @@ export const mutations = {
     }
   },
 
-  /**
-   * Mutator of isPermalink
-   * @param state Reference of state
-   * @param value New value
-   */
-  IS_PERMALINK: (state, value) => {
-    Vue.set(state, "isPermalink", value);
-  },
-
-  /**
-   * Mutator of darkTheme
-   * @param state Reference of state
-   * @param value New value
-   */
-  IS_DARK_THEME: (state, value) => {
-    Vue.set(state, "isDarkTheme", value);
-  },
-
-  /**
-   * Mutator of fixedMainMenu
-   * @param state Reference of state
-   * @param value New value
-   */
-  IS_FIXED_MAIN_MENU: (state, value) => {
-    Vue.set(state, "isFixedMainMenu", value);
-  },
-
-  /**
-   * Mutator of isGbSelectModeDatalist
-   * @param state Reference of state
-   * @param value New value
-   */
-  IS_GB_SELECT_MODE_DATALIST: (state, value) => {
-    Vue.set(state, "isGbSelectModeDatalist", value);
-  },
-
-  SET_SURVEY: /* istanbul ignore next */ (state, data) => {
-    state.survey = data;
-  },
-
-  UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES: /* istanbul ignore next */ (state, data) => {
-    state.promotionMessageTemplates.custom = data;
-  },
-
   RESTORE_MUTATION: /* istanbul ignore next */ () => {
     this.$RESTORE_MUTATION(this);
   }
 };
 
 export const getters = {
+  ...make.getters(state),
   getUrlQuery: state => (ns = "") => {
     if (!ns || ns.length === 0) {
       return state.urlQuery;
@@ -252,6 +184,7 @@ export const getters = {
 };
 
 export const actions = {
+  ...make.actions(state),
   nuxtServerInit: /* istanbul ignore next */ async function(elt) {
     let urlParam = "";
     if (
@@ -263,7 +196,7 @@ export const actions = {
     }
     const { data } = await this.$axios.get(`${process.env.surveyURL}${urlParam}`);
     if (data && data instanceof Array) {
-      elt.commit("SET_SURVEY", data);
+      elt.set("survey", data);
     }
 
     if (
@@ -271,7 +204,7 @@ export const actions = {
       this.$cookies.get("customPromotionMessagesTemplates") instanceof Array &&
       this.$cookies.get("customPromotionMessagesTemplates").length
     ) {
-      elt.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", this.$cookies.get("customPromotionMessagesTemplates"));
+      elt.set("promotionMessageTemplates@custom", this.$cookies.get("customPromotionMessagesTemplates"));
     }
   }
 };

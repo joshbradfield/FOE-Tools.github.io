@@ -5,7 +5,7 @@ const i18nPrefix = "routes.survey.";
 
 export default {
   head() {
-    this.$store.commit("SET_HERO", {
+    this.$store.set("hero", {
       title: i18nPrefix + "hero.title",
       subtitle: i18nPrefix + "hero.subtitle"
     });
@@ -16,13 +16,13 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      if (!vm.$store.state.survey || vm.$store.state.survey.length === 0) {
+      if (!vm.$store.get("survey") || vm.$store.get("survey").length === 0) {
         vm.$router.push({ name: "index" });
       }
     });
   },
   data() {
-    this.$store.commit("SET_CURRENT_LOCATION", "survey");
+    this.$store.set("currentLocation", "survey");
     this.$store.commit("RESTORE_HERO");
 
     return {
@@ -36,8 +36,8 @@ export default {
     survey() {
       let obj = {
         survey:
-          this.$store.state.survey && this.$store.state.survey.length
-            ? this.$store.state.survey[0].survey.questions
+          this.$store.get("survey") && this.$store.get("survey").length
+            ? this.$store.get("survey@[0].survey.questions")
             : [],
         result: {}
       };
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     getSurveyLocal(locales) {
-      return this.$store.state.locale in locales ? locales[this.$store.state.locale] : locales["default"];
+      return this.$store.get("locale") in locales ? locales[this.$store.get("locale")] : locales["default"];
     },
     getConstraint(question, constraint) {
       return question.validators.filter(k => constraint in k).map(k => k[constraint])[0];
@@ -98,7 +98,7 @@ export default {
         .post(process.env.surveySubmitURL, {
           response: {
             response: this.$data.result,
-            survey: this.$store.state.survey[0].id
+            survey: this.$store.get("survey@[0].id")
           },
           captcha: key
         })
@@ -186,7 +186,7 @@ export default {
       if (!result) {
         result = [];
       }
-      result.push(this.$store.state.survey[0].id);
+      result.push(this.$store.get("survey@[0].id"));
       this.$cookies.set("survey", result, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime()

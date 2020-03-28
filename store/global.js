@@ -1,3 +1,5 @@
+import { make } from "vuex-pathify";
+
 export const state = () => ({
   cookieDisclaimerDisplayed: false,
   survey: [],
@@ -18,23 +20,11 @@ export const state = () => ({
 });
 
 export const mutations = {
-  updateDayNightMode(state, value) {
-    state.dayNightMode = value;
-  },
-
-  updateCurrentProfile(state, value) {
-    state.currentProfile = value;
-  },
-
-  updateProfiles(state, value) {
-    state.profiles = value;
-  },
-
-  updateSpecificKey(state, { key, value }) {
-    state[key] = value;
-  }
+  ...make.mutations(state)
 };
 
 export const getters = {
-  currentProfile: state => state.currentProfile
+  ...make.getters(state)
+  // locale: state => state.locale,
+  // currentProfile: state => state.currentProfile
 };

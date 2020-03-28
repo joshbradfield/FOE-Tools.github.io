@@ -2,6 +2,7 @@ import yesNo from "~/components/yes-no/YesNo";
 import numberinput from "~/components/number-input/NumberInput";
 import * as PMBuilder from "~/scripts/promotion-message-builder";
 import Observatory from "~/lib/foe-data/gbs-data/Observatory";
+import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.import_promotion_message.";
 const defaultTemplateNameRegex = /Default\s\d+/;
@@ -60,9 +61,7 @@ export default {
     return data;
   },
   computed: {
-    lang() {
-      return this.$store.state.locale;
-    }
+    lang: get("locale")
   },
   watch: {
     lang() {
@@ -181,17 +180,19 @@ export default {
       }
 
       let result = this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].customPromotionMessagesTemplates
+        this.$store.get(
+          `profile/profiles@[${this.$store.get("global/currentProfile")}].customPromotionMessagesTemplates`
+        )
       );
       if (!result) {
         result = [];
       }
       result.push({ name: this.templateName, config: template });
-      this.$store.commit("profile/updateSpecificKey", {
-        key: `profiles.${this.$store.state.global.currentProfile}.customPromotionMessagesTemplates`,
-        value: this.$clone(result)
-      });
-      this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(result)));
+      this.$store.set(
+        `profile/profiles@${this.$store.get("global/currentProfile")}.customPromotionMessagesTemplates`,
+        this.$clone(result)
+      );
+      this.$store.set("promotionMessageTemplates@custom", JSON.parse(JSON.stringify(result)));
       this.$buefy.notification.open({
         message: this.$t(i18nPrefix + "template_imported"),
         type: "is-success",

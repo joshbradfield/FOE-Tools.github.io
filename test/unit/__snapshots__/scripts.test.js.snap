@@ -30,11 +30,8 @@ exports[`Scripts Promotion Message Builder Valid value with "Default 11" 1`] = `
 exports[`Scripts Utils handlerForm Valid value and save in cookie 1`] = `
 Array [
   Object {
-    "key": "profile/updateSpecificKey",
-    "value": Object {
-      "key": "myKey",
-      "value": 5,
-    },
+    "key": "profile/myKey",
+    "value": 5,
   },
 ]
 `;
@@ -42,11 +39,8 @@ Array [
 exports[`Scripts Utils handlerForm Valid value and save in cookie with key 'foo' 1`] = `
 Array [
   Object {
-    "key": "profile/updateSpecificKey",
-    "value": Object {
-      "key": "foo",
-      "value": 5,
-    },
+    "key": "profile/foo",
+    "value": 5,
   },
 ]
 `;
@@ -54,11 +48,8 @@ Array [
 exports[`Scripts Utils handlerForm Valid value with float value and save in cookie with path '/foo' 1`] = `
 Array [
   Object {
-    "key": "profile/updateSpecificKey",
-    "value": Object {
-      "key": "foo",
-      "value": 5.3,
-    },
+    "key": "profile/foo",
+    "value": 5.3,
   },
 ]
 `;

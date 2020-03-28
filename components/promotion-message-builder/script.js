@@ -47,7 +47,7 @@ export default {
   },
   data() {
     const defaultTemplates = PMBuilder.defaultPromotionMessages;
-    const customTemplates = this.$clone(this.$store.state.global.customPromotionMessagesTemplates);
+    const customTemplates = this.$clone(this.$store.get("global/customPromotionMessagesTemplates"));
     const data = {
       i18nPrefix,
       tooltips: {
@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     lang() {
-      return this.$store.state.locale;
+      return this.$store.get("locale");
     },
     resultString() {
       return JSON.stringify(this.result);
@@ -194,7 +194,9 @@ export default {
         this.errors.templateName.message = "";
       }
       let result = this.$clone(
-        this.$store.state.profile.profiles[this.$store.state.global.currentProfile].customPromotionMessagesTemplates
+        this.$store.get(
+          `profile/profiles@[${this.$store.get("global/currentProfile")}].customPromotionMessagesTemplates`
+        )
       );
       if (!result) {
         result = [];
@@ -208,12 +210,12 @@ export default {
       } else {
         result.push({ name: this.templateName, config: this.result });
       }
-      this.$store.commit("profile/updateSpecificKey", {
-        key: `profiles.${this.$store.state.global.currentProfile}.customPromotionMessagesTemplates`,
-        value: this.$clone(result)
-      });
+      this.$store.set(
+        `profile/profiles@${this.$store.get("global/currentProfile")}.customPromotionMessagesTemplates`,
+        this.$clone(result)
+      );
       this.customTemplates = result;
-      this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(this.customTemplates)));
+      this.$store.set("promotionMessageTemplates@custom", this.$clone(this.customTemplates));
       this.$buefy.notification.open({
         message: this.$t(i18nPrefix + (this.action === "update" ? "template_updated" : "template_saved")),
         type: "is-success",
@@ -227,11 +229,11 @@ export default {
       const index = this.customTemplates.map(elt => elt.name).indexOf(this.startFromTemplate);
       this.customTemplates.splice(index, 1);
 
-      this.$store.commit("UPDATE_CUSTOM_PROMOTION_MESSAGE_TEMPLATES", JSON.parse(JSON.stringify(this.customTemplates)));
-      this.$store.commit("profile/updateSpecificKey", {
-        key: `profiles.${this.$store.state.global.currentProfile}.customPromotionMessagesTemplates`,
-        value: this.$clone(this.customTemplates)
-      });
+      this.$store.set("promotionMessageTemplates@custom", this.$clone(this.customTemplates));
+      this.$store.set(
+        `profile/profiles@${this.$store.get("global.currentProfile")}.customPromotionMessagesTemplates`,
+        this.$clone(this.customTemplates)
+      );
       this.action = "create";
       this.$buefy.notification.open({
         message: this.$t(i18nPrefix + "template_deleted"),

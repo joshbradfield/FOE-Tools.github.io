@@ -1,3 +1,5 @@
+import { sync } from "vuex-pathify";
+
 const i18nPrefix = "components.gb_investment.gb_list_select.";
 
 let gbs = {};
@@ -12,8 +14,8 @@ export default {
     }
   },
   data() {
-    gbs = this.$store.state.foe.gbs.gbs;
-    gbList = this.$store.state.foe.gbs.gbList;
+    gbs = this.$store.get("foe/gbs@gbs");
+    gbList = this.$store.get("foe/gbs@gbList");
 
     const gbData = Object.keys(gbs)
       .map(k => {
@@ -42,9 +44,7 @@ export default {
         );
       });
     },
-    isGbSelectModeDatalist() {
-      return this.$store.state.isGbSelectModeDatalist;
-    }
+    gbSelectModeDatalist: sync("global/gbSelectMode")
   },
   watch: {
     selected(val) {

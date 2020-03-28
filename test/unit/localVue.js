@@ -84,7 +84,7 @@ export function getView(storeConf) {
       Vue.prototype.$i18nExists = (...args) => i18n.i18next.exists(...args);
       Vue.prototype.$t = (...args) => i18n.i18next.t(...args);
       Vue.prototype.defaultLocale = defaultLocale;
-      store.state.supportedLocales = supportedLocales;
+      store.set("supportedLocales", supportedLocales);
 
       Vue.prototype.$i18nPath = link => {
         if (i18n.i18next.language === defaultLocale) {

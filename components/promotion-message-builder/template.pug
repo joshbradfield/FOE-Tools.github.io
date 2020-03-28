@@ -42,7 +42,7 @@ div
         b-field
           b-input#pmbConfig(type="text" v-model.trim="resultString" name="config" autocomplete="off" expanded disabled)
           p.control
-            b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="tooltips.config" always)
+            b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="tooltips.config" always)
               button.button.copy(v-clipboard="resultString" @success="successCopy('config')" :title="$t('utils.Copy')")
                 span.icon
                   i.far.fa-copy
@@ -103,7 +103,7 @@ div
         div.column.is-half
           b-field
             p.control
-              b-tooltip(:type="$store.state.isDarkTheme ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+              b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
                 button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removeCustomField(customField.key)")
                   span.icon
                     i.fas.fa-trash

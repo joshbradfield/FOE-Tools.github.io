@@ -5,8 +5,8 @@ import * as Errors from "../../../../scripts/errors";
 describe("FoeGbInvestment", () => {
   describe("ComputeLevelInvestment", () => {
     const funcName =
-      "ComputeLevelInvestment(levelCost, currentDeposits, yourParticipation, otherParticipation, " +
-      "yourArcBonus, fpTargetReward)";
+      "ComputeLevelInvestment(currentLevel, investorPercentage, gb, defaultParticipation, ownerPreparation" +
+      "yourArcBonus)";
 
     test("Valid value", () => {
       const result = GbProcess.ComputeLevelInvestment(10, [0, 0, 0, 0, 0], agesCost.BronzeAge);

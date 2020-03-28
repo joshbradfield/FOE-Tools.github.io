@@ -123,6 +123,7 @@
     "vue-content-loader": "^0.2.3",
     "vue-invisible-recaptcha": "^0.2.1",
     "vue-router": "^3.1.6",
+    "vuex-pathify": "^1.4.1",
     "vuex-persistedstate": "^2.7.1"
   }
 }
