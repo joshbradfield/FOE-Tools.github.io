@@ -437,7 +437,7 @@ const sitemap =
       }
     : {};
 
-const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://ns382954.ip-5-196-72.eu" : "http://localhost:1337";
+const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://api.foe.tools" : "https://api.domain.localhost";
 
 module.exports = {
   ...routerBase,
