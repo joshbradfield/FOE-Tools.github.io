@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{821:function(t,e,o){"use strict";o.r(e);var n=o(426),r="routes.cf_calculator.";e.default={head:function(){return this.$store.set("hero",{title:r+"hero.title",subtitle:r+"hero.subtitle"}),{title:this.$t(r+"title")}},data:function(){return{}},components:{cfCalculator:n.a}}}}]);
