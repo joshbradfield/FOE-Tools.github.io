@@ -54,3 +54,7 @@ export const mutations = {
 export const actions = {
   ...make.actions(state)
 };
+
+export const getters = {
+  ...make.getters(state)
+};

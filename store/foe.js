@@ -9,3 +9,7 @@ export const state = () => ({
 export const mutations = {
   ...make.mutations(state)
 };
+
+export const getters = {
+  ...make.getters(state)
+};

@@ -178,9 +178,7 @@ export default {
       );
     },
     hasSurvey() {
-      return (
-        this.$route.name !== "Survey" && this.$store.get("survey") && this.$store.get("survey").length
-      );
+      return this.$route.name !== "Survey" && this.$store.get("survey") && this.$store.get("survey").length;
     }
   },
   watch: {
@@ -293,8 +291,8 @@ export default {
           currentProfileID = uuidv4();
         } while (ids.indexOf(currentProfileID) >= 0);
 
-        this.$store.set("profiles", [{ id: currentProfileID, name: defaultProfileName }]);
-        this.$store.set("currentProfile", currentProfileID);
+        this.$store.set("global/profiles", [{ id: currentProfileID, name: defaultProfileName }]);
+        this.$store.set("global/currentProfile", currentProfileID);
         this.$store.commit("profile/addProfile", { key: currentProfileID, profile: {} });
       } else {
         currentProfileID = this.$store.get("global/currentProfile");
