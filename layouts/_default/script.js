@@ -179,7 +179,7 @@ export default {
     },
     hasSurvey() {
       return (
-        this.$store.get("currentLocation") !== "survey" && this.$store.get("survey") && this.$store.get("survey").length
+        this.$route.name !== "Survey" && this.$store.get("survey") && this.$store.get("survey").length
       );
     }
   },
@@ -225,7 +225,7 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
     },
     isActive(key) {
-      return this.$store.get("currentLocation") === key;
+      return this.$route.name === key;
     },
     showGlobalSettings: /* istanbul ignore next */ function() {
       let self = this;

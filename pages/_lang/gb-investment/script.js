@@ -22,7 +22,6 @@ export default {
   },
   data() {
     gbList = this.$store.get("foe/gbs@gbList");
-    this.$store.set("currentLocation", "gb_investment");
 
     return {
       i18nPrefix: i18nPrefix,

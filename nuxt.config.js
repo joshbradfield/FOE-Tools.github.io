@@ -556,5 +556,7 @@ module.exports = {
     manifest: {
       name: "FOE Tools"
     }
-  }
+  },
+
+  buildModules: ["@nuxtjs/router-extras"]
 };

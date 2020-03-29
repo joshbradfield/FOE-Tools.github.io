@@ -22,7 +22,6 @@ export default {
     });
   },
   data() {
-    this.$store.set("currentLocation", "survey");
     this.$store.commit("RESTORE_HERO");
 
     return {

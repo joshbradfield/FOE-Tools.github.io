@@ -122,7 +122,7 @@ export default {
     isPermalink: get("isPermalink"),
     permaLink() {
       return {
-        path: this.$i18nPath("secure-position/"),
+        name: "SecurePosition",
         query: this.$store.getters.getUrlQuery(this.$props.ns)
       };
     }

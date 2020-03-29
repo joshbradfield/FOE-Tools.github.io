@@ -216,7 +216,7 @@ export default {
     lang: get("locale"),
     permaLink() {
       return {
-        path: this.$i18nPath("gb-statistics/"),
+        name: "GbStatistics",
         query: this.$store.get("urlQuery")
       };
     }

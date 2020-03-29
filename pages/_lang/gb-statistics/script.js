@@ -18,8 +18,6 @@ export default {
     }
   },
   data() {
-    this.$store.set("currentLocation", "gb_statistics");
-
     return {};
   },
   components: {

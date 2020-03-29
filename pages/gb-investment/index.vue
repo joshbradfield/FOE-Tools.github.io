@@ -2,3 +2,9 @@
 import Page from "~/pages/_lang/gb-investment";
 export default Page;
 </script>
+
+<router>
+  {
+  name: 'GbInvestmentChooser'
+  }
+</router>

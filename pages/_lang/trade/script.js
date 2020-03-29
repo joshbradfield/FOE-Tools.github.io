@@ -20,7 +20,6 @@ export default {
     }
   },
   data() {
-    this.$store.set("currentLocation", "trade");
     this.$store.commit("RESTORE_HERO");
 
     return {
