@@ -546,6 +546,8 @@ module.exports = {
     ]
   },
 
+  css: ["~assets/theme/light/theme.scss", "~assets/theme/dark/theme.scss", "~assets/style.scss"],
+
   axios: {
     host: process.env.DEPLOY_ENV === "GH_PAGES" ? prodUrl : "localhost",
     port: process.env.DEPLOY_ENV === "GH_PAGES" ? 443 : 3000,
@@ -556,6 +558,10 @@ module.exports = {
     manifest: {
       name: "FOE Tools"
     }
+  },
+
+  build: {
+    extractCSS: true
   },
 
   buildModules: ["@nuxtjs/router-extras"]
