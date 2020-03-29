@@ -23,7 +23,6 @@ export default {
     }
   },
   data() {
-    this.$store.set("currentLocation", "campaign_cost");
     this.$store.commit("RESTORE_HERO");
 
     return {

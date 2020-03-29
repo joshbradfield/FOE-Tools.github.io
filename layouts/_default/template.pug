@@ -2,7 +2,7 @@
   header
     nav.navbar.has-shadow(:class="{'is-fixed-top': $store.get('global/fixedMainMenu')}")
       div.navbar-brand
-        a.navbar-item(:href="$i18nPath('/')")
+        nuxt-link.navbar-item(:to="{ name: 'Home' }")
           img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
         div.navbar-burger.burger(:class="{'is-active': burgerMenuVisible}" data-target="mainNavbar" @click="toggleMenu")
           span
@@ -13,18 +13,18 @@
         div.navbar-start
           template(v-for="value in mainMenu")
             template(v-if="value.children.length === 0")
-              nuxt-link.navbar-item(:class="{'is-active': isActive(value.key)}" :to="$i18nPath('/' + value.link)" exact) {{value.name}}
+              nuxt-link.navbar-item(:class="{'is-active': isActive(value.link)}" :to="{ name: value.link }" exact) {{value.name}}
             div.navbar-item.has-dropdown.is-hoverable(v-else :key="value.slug")
-              nuxt-link.navbar-link(v-if="value.type.name === 'PAGE'" :class="{'is-active': isActive(value.key)}" :to="$i18nPath(value.link)" exact) {{value.name}}
+              nuxt-link.navbar-link(v-if="value.type.name === 'PAGE'" :class="{'is-active': isActive(value.link)}" :to="{ name: value.link }" exact) {{value.name}}
               a.navbar-link(v-else-if="value.type.name === 'MENU_ENTRY'" href="#") {{value.name}}
               div.navbar-dropdown.is-boxed
                 template(v-for="child in value.children")
-                  nuxt-link.navbar-item(v-if="child.type.name === 'PAGE'" :class="{'is-active': isActive(child.key)}" :to="$i18nPath(child.link)" exact) {{child.name}}
+                  nuxt-link.navbar-item(v-if="child.type.name === 'PAGE'" :class="{'is-active': isActive(child.link)}" :to="{ name: child.link }" exact) {{child.name}}
                   hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
 
         div.navbar-end
           div.navbar-item
-            nuxt-link.custom-link-style(:class="{'is-active': isActive($store.get('routes.help_to_translate_the_site.key'))}" :to="$i18nPath($store.get('routes.help_to_translate_the_site.link'))" exact)
+            nuxt-link.custom-link-style(:class="{'is-active': isActive('HelpToTranslateTheSite')}" :to="{ name: 'HelpToTranslateTheSite' }" exact)
               span.icon.is-icon-2rem(style="vertical-align: middle;")
                 i.fas.fa-language
               span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}
@@ -33,7 +33,7 @@
 
           div.navbar-item
             div.field.is-grouped
-              nuxt-link.button.donation(:to="$i18nPath('donate')" exact)
+              nuxt-link.button.donation(:to="{ name: 'Donate' }" exact)
                 span {{$t('utils.Donate')}}
 
           div.navbar-item
@@ -66,7 +66,7 @@
       div.has-text-centered  {{$t(i18nPrefix + 'cookie.message')}}
         |
         |
-        nuxt-link(:to="$i18nPath('about#cookies')" exact) {{$t(i18nPrefix + 'cookie.link')}}
+        nuxt-link(:to="{ name: 'About' }" exact) {{$t(i18nPrefix + 'cookie.link')}}
         | .
 
   section.hero.is-dark-blue
@@ -86,15 +86,15 @@
         div.columns.is-centered.is-margin-top-one-em-touch(v-show="hasSurvey")
           div.column.is-three-quarters
             b-notification(type="is-info" :closable="false")
-              nuxt-link(to="/survey") {{$t(i18nPrefix + 'survey.message')}}
+              nuxt-link(to="{ name: 'Survey' }") {{$t(i18nPrefix + 'survey.message')}}
         div.columns.is-centered.is-margin-top-one-em-touch(v-show="nbUpdateSinceLastVisit")
           div.column.is-three-quarters
             b-notification(type="is-info" :closable="true")
               p {{$t(i18nPrefix + 'update', { count: nbUpdateSinceLastVisit })}}
-              nuxt-link(to="/changelog") {{$t(i18nPrefix + 'whats_new')}}
+              nuxt-link(to="{ name: 'Changelog' }") {{$t(i18nPrefix + 'whats_new')}}
         div.columns.is-centered
           div.column.is-11-desktop.is-three-quarters-fullhd.is-three-quarters-widescreen.is-full-tablet
-            div(v-if="(['home', 'gb_investment', 'contributors'].indexOf($store.get('currentLocation')) >= 0) && !$route.params.gb")
+            div(v-if="(['Home', 'GbInvestmentChooser', 'GbInvestment', 'Contributors'].indexOf($route.name) >= 0) && !$route.params.gb")
               nuxt
             div.card.article(v-else)
               div.card-content
@@ -104,7 +104,7 @@
                       b-message(:title="$t('utils.Information')" type="is-info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
                         p
                         p
-                          nuxt-link.button.is-warning(:to="$i18nPath('donate')" exact)
+                          nuxt-link.button.is-warning(:to="{ name: 'Donate' }" exact)
                             span {{$t('utils.Donate')}}
                   div.columns(v-show="isPermalink")
                     div.column
@@ -121,8 +121,8 @@
         div.column.is-8-desktop.is-offset-2-desktop
           nav.breadcrumb.has-dot-separator.is-centered.is-marginless(aria-label="breadcrumbs")
             ul
-              li(v-for="footerLink in footerLinks" :class="{ 'is-active': $store.get('currentLocation') === footerLink.key }")
-                nuxt-link(:to="$i18nPath(footerLink.link)" exact) {{$t('footer_menu.' + footerLink.key)}}
+              li(v-for="footerLink in footerLinks" :class="{ 'is-active': isActive(footerLink.link) }")
+                nuxt-link(:to="{ name: footerLink.link }" exact) {{$t('footer_menu.' + footerLink.key)}}
           p
             small(v-html="$t('components.site_layout.footer.license_html')")
           p {{$t('components.site_layout.footer.version', {version: siteVersion})}}

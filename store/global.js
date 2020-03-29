@@ -25,6 +25,4 @@ export const mutations = {
 
 export const getters = {
   ...make.getters(state)
-  // locale: state => state.locale,
-  // currentProfile: state => state.currentProfile
 };

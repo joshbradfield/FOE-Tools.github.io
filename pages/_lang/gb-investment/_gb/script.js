@@ -36,7 +36,6 @@ export default {
     };
   },
   data() {
-    this.$store.set("currentLocation", "gb_investment");
     // If the GB is not in profile, we add a default conf
     if (
       !(this.$route.params.gb in this.$store.get(`profile/profiles@[${this.$store.get("global/currentProfile")}].gb`))

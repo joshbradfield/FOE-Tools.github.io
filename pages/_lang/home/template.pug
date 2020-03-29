@@ -5,6 +5,6 @@ div
     div.tile.is-ancestor(v-for="items of data.content")
       div.tile.is-parent(v-for="item of items")
         article.tile.is-child.box(v-if="item !== null")
-          nuxt-link(:to="$i18nPath(item.link)" exact)
+          nuxt-link(:to="{ name: item.link }")
             p.title.is-4 {{$t(item.title)}}
             p.subtitle {{$t(item.subtitle)}}

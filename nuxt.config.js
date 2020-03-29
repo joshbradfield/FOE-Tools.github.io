@@ -437,7 +437,7 @@ const sitemap =
       }
     : {};
 
-const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://ns382954.ip-5-196-72.eu" : "http://localhost:1337";
+const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://api.foe.tools" : "https://api.domain.localhost";
 
 module.exports = {
   ...routerBase,
@@ -546,6 +546,8 @@ module.exports = {
     ]
   },
 
+  css: ["~assets/theme/light/theme.scss", "~assets/theme/dark/theme.scss", "~assets/style.scss"],
+
   axios: {
     host: process.env.DEPLOY_ENV === "GH_PAGES" ? prodUrl : "localhost",
     port: process.env.DEPLOY_ENV === "GH_PAGES" ? 443 : 3000,
@@ -556,5 +558,11 @@ module.exports = {
     manifest: {
       name: "FOE Tools"
     }
-  }
+  },
+
+  build: {
+    extractCSS: true
+  },
+
+  buildModules: ["@nuxtjs/router-extras"]
 };

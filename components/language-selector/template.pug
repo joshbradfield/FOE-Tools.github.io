@@ -18,7 +18,7 @@ div
         .media-right(v-if="lang.key === 'en'")
           span {{countryFlagEmoji.get("US").emoji}}
     hr.navbar-divider
-    b-dropdown-item(@click="$router.push($i18nPath('help-to-translate-the-site'))")
+    b-dropdown-item(@click="$router.push({ name: 'HelpToTranslateTheSite' })")
       span.icon.is-icon-2rem(style="vertical-align: middle;")
         i.fas.fa-language
       span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}

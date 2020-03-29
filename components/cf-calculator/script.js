@@ -50,8 +50,6 @@ export default {
     }
   },
   data() {
-    this.$store.set("currentLocation", "cf_calculator");
-
     this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`);
     let data = {
       yourAge: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`)),
@@ -161,7 +159,7 @@ export default {
     urlQuery: sync("urlQuery"),
     permaLink() {
       return {
-        path: this.$i18nPath("cf-calculator/"),
+        name: "CfCalculator",
         query: this.urlQuery
       };
     },

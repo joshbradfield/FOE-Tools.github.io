@@ -178,9 +178,7 @@ export default {
       );
     },
     hasSurvey() {
-      return (
-        this.$store.get("currentLocation") !== "survey" && this.$store.get("survey") && this.$store.get("survey").length
-      );
+      return this.$route.name !== "Survey" && this.$store.get("survey") && this.$store.get("survey").length;
     }
   },
   watch: {
@@ -225,7 +223,7 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
     },
     isActive(key) {
-      return this.$store.get("currentLocation") === key;
+      return this.$route.name === key;
     },
     showGlobalSettings: /* istanbul ignore next */ function() {
       let self = this;
@@ -293,8 +291,8 @@ export default {
           currentProfileID = uuidv4();
         } while (ids.indexOf(currentProfileID) >= 0);
 
-        this.$store.set("profiles", [{ id: currentProfileID, name: defaultProfileName }]);
-        this.$store.set("currentProfile", currentProfileID);
+        this.$store.set("global/profiles", [{ id: currentProfileID, name: defaultProfileName }]);
+        this.$store.set("global/currentProfile", currentProfileID);
         this.$store.commit("profile/addProfile", { key: currentProfileID, profile: {} });
       } else {
         currentProfileID = this.$store.get("global/currentProfile");

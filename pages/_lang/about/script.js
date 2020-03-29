@@ -5,7 +5,6 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.set("currentLocation", "about");
     this.$store.commit("RESTORE_HERO");
 
     return {

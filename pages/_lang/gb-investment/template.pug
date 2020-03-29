@@ -8,7 +8,4 @@ div
         div.content
           ul
             li(v-for="gb in item.gbs")
-              //a(:href="$i18nPath('gb-investment/' + gb + '/')") {{$t('foe_data.gb.' + gb)}}
-              // FIXME: with nuxt-link, no URL query in gb-investment
-              // see: https://github.com/nuxt/nuxt.js/issues/4757
-              router-link(:to="$i18nPath('gb-investment/' + gb + '/')" exact) {{$t('foe_data.gb.' + gb)}}
+              nuxt-link(:to="{ name: 'GbInvestment', params: { gb } }" exact) {{$t('foe_data.gb.' + gb)}}

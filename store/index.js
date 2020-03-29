@@ -19,20 +19,20 @@ export const state = () => ({
    * Contains all no-dynamic routes
    */
   routes: {
-    home: { key: "home", link: "" },
-    gb_investment: { key: "gb_investment", link: "gb-investment" },
-    secure_position: { key: "secure_position", link: "secure-position" },
-    cf_calculator: { key: "cf_calculator", link: "cf-calculator" },
-    about: { key: "about", link: "about" },
-    contributors: { key: "contributors", link: "contributors" },
-    changelog: { key: "changelog", link: "changelog" },
-    gb_statistics: { key: "gb_statistics", link: "gb-statistics" },
-    gb_forecast_cost: { key: "gb_forecast_cost", link: "gb-forecast-cost" },
-    trade: { key: "trade", link: "trade" },
-    campaign_cost: { key: "campaign_cost", link: "campaign-cost" },
-    help_to_translate_the_site: { key: "help_to_translate_the_site", link: "help-to-translate-the-site" },
-    survey: { key: "survey", link: "survey" },
-    contact: { key: "contact", link: "contact" }
+    home: { key: "home", link: "Home" },
+    gb_investment: { key: "gb_investment", link: "GbInvestmentChooser" },
+    secure_position: { key: "secure_position", link: "SecurePosition" },
+    cf_calculator: { key: "cf_calculator", link: "CfCalculator" },
+    about: { key: "about", link: "About" },
+    contributors: { key: "contributors", link: "Contributors" },
+    changelog: { key: "changelog", link: "Changelog" },
+    gb_statistics: { key: "gb_statistics", link: "GbStatistics" },
+    gb_forecast_cost: { key: "gb_forecast_cost", link: "GbForecastCost" },
+    trade: { key: "trade", link: "Trade" },
+    campaign_cost: { key: "campaign_cost", link: "CampaignCost" },
+    help_to_translate_the_site: { key: "help_to_translate_the_site", link: "HelpToTranslateTheSite" },
+    survey: { key: "survey", link: "Survey" },
+    contact: { key: "contact", link: "Contact" }
   },
 
   /**
@@ -44,11 +44,6 @@ export const state = () => ({
    * List of all supported locales
    */
   supportedLocales: [],
-
-  /**
-   * Current location
-   */
-  currentLocation: "",
 
   /**
    * Hero info

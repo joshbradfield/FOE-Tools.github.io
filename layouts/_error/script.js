@@ -12,8 +12,6 @@ export default {
     };
   },
   data() {
-    this.$store.set("currentLocation", "error");
-
     return {
       i18nPrefix: i18nPrefix
     };

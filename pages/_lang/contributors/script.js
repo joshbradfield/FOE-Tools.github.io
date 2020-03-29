@@ -15,8 +15,6 @@ export default {
     };
   },
   data() {
-    this.$store.set("currentLocation", "contributors");
-
     return {
       i18nPrefix,
       allContributorsrc,

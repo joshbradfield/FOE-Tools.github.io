@@ -2,3 +2,9 @@
 import Page from "~/pages/_lang/changelog";
 export default Page;
 </script>
+
+<router>
+  {
+  name: 'Changelog'
+  }
+</router>

@@ -160,7 +160,10 @@ export default {
     isPermalink: get("isPermalink"),
     permaLink() {
       return {
-        path: this.$i18nPath("gb-investment/" + this.gb.key + "/"),
+        name: "GbInvestment",
+        params: {
+          gb: this.gb.key
+        },
         query: this.$store.getters.getUrlQuery("gbii")
       };
     }

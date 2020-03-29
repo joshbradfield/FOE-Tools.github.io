@@ -12,8 +12,6 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.set("currentLocation", "secure_position");
-
     return {};
   },
   components: {

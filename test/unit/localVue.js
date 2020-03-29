@@ -85,18 +85,6 @@ export function getView(storeConf) {
       Vue.prototype.$t = (...args) => i18n.i18next.t(...args);
       Vue.prototype.defaultLocale = defaultLocale;
       store.set("supportedLocales", supportedLocales);
-
-      Vue.prototype.$i18nPath = link => {
-        if (i18n.i18next.language === defaultLocale) {
-          return `${link.charAt(0) === "/" ? "" : "/"}${link}`;
-        }
-
-        if (link === "/") {
-          return `/${i18n.i18next.language}/`;
-        }
-
-        return `/${i18n.i18next.language}/${link}`;
-      };
     }
   });
 

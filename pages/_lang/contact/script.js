@@ -10,8 +10,6 @@ export default {
     return { title: this.$t(i18nPrefix + "title") };
   },
   data() {
-    this.$store.set("currentLocation", "contact");
-
     return {
       i18nPrefix
     };

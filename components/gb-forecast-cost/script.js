@@ -176,7 +176,7 @@ export default {
     },
     permaLink() {
       return {
-        path: this.$i18nPath("gb-forecast-cost/"),
+        name: "GbForecastCost",
         query: this.$store.get("urlQuery")
       };
     },
